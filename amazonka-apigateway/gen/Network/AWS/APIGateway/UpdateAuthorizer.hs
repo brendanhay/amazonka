@@ -1,131 +1,155 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.UpdateAuthorizer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing 'Authorizer' resource.
+-- Updates an existing Authorizer resource.
 --
---
--- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html AWS CLI>
+-- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.UpdateAuthorizer
-    (
-    -- * Creating a Request
-      updateAuthorizer
-    , UpdateAuthorizer
+  ( -- * Creating a Request
+    UpdateAuthorizer (..),
+    newUpdateAuthorizer,
+
     -- * Request Lenses
-    , uaaPatchOperations
-    , uaaRestAPIId
-    , uaaAuthorizerId
+    updateAuthorizer_patchOperations,
+    updateAuthorizer_restApiId,
+    updateAuthorizer_authorizerId,
 
     -- * Destructuring the Response
-    , authorizer
-    , Authorizer
+    Authorizer (..),
+    newAuthorizer,
+
     -- * Response Lenses
-    , aAuthorizerURI
-    , aIdentityValidationExpression
-    , aProviderARNs
-    , aName
-    , aId
-    , aAuthorizerResultTtlInSeconds
-    , aAuthType
-    , aType
-    , aIdentitySource
-    , aAuthorizerCredentials
-    ) where
+    authorizer_identityValidationExpression,
+    authorizer_authorizerCredentials,
+    authorizer_id,
+    authorizer_name,
+    authorizer_providerARNs,
+    authorizer_authorizerUri,
+    authorizer_identitySource,
+    authorizer_type,
+    authorizer_authType,
+    authorizer_authorizerResultTtlInSeconds,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Request to update an existing 'Authorizer' resource.
+-- | Request to update an existing Authorizer resource.
 --
---
---
--- /See:/ 'updateAuthorizer' smart constructor.
+-- /See:/ 'newUpdateAuthorizer' smart constructor.
 data UpdateAuthorizer = UpdateAuthorizer'
-  { _uaaPatchOperations :: !(Maybe [PatchOperation])
-  , _uaaRestAPIId       :: !Text
-  , _uaaAuthorizerId    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of update operations to be applied to the specified resource and
+    -- in the order specified in this list.
+    patchOperations :: Prelude.Maybe [PatchOperation],
+    -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | [Required] The identifier of the Authorizer resource.
+    authorizerId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateAuthorizer' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateAuthorizer' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uaaPatchOperations' - A list of update operations to be applied to the specified resource and in the order specified in this list.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uaaRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- 'patchOperations', 'updateAuthorizer_patchOperations' - A list of update operations to be applied to the specified resource and
+-- in the order specified in this list.
 --
--- * 'uaaAuthorizerId' - [Required] The identifier of the 'Authorizer' resource.
-updateAuthorizer
-    :: Text -- ^ 'uaaRestAPIId'
-    -> Text -- ^ 'uaaAuthorizerId'
-    -> UpdateAuthorizer
-updateAuthorizer pRestAPIId_ pAuthorizerId_ =
+-- 'restApiId', 'updateAuthorizer_restApiId' - [Required] The string identifier of the associated RestApi.
+--
+-- 'authorizerId', 'updateAuthorizer_authorizerId' - [Required] The identifier of the Authorizer resource.
+newUpdateAuthorizer ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'authorizerId'
+  Prelude.Text ->
+  UpdateAuthorizer
+newUpdateAuthorizer pRestApiId_ pAuthorizerId_ =
   UpdateAuthorizer'
-    { _uaaPatchOperations = Nothing
-    , _uaaRestAPIId = pRestAPIId_
-    , _uaaAuthorizerId = pAuthorizerId_
+    { patchOperations =
+        Prelude.Nothing,
+      restApiId = pRestApiId_,
+      authorizerId = pAuthorizerId_
     }
 
+-- | A list of update operations to be applied to the specified resource and
+-- in the order specified in this list.
+updateAuthorizer_patchOperations :: Lens.Lens' UpdateAuthorizer (Prelude.Maybe [PatchOperation])
+updateAuthorizer_patchOperations = Lens.lens (\UpdateAuthorizer' {patchOperations} -> patchOperations) (\s@UpdateAuthorizer' {} a -> s {patchOperations = a} :: UpdateAuthorizer) Prelude.. Lens.mapping Prelude._Coerce
 
--- | A list of update operations to be applied to the specified resource and in the order specified in this list.
-uaaPatchOperations :: Lens' UpdateAuthorizer [PatchOperation]
-uaaPatchOperations = lens _uaaPatchOperations (\ s a -> s{_uaaPatchOperations = a}) . _Default . _Coerce
+-- | [Required] The string identifier of the associated RestApi.
+updateAuthorizer_restApiId :: Lens.Lens' UpdateAuthorizer Prelude.Text
+updateAuthorizer_restApiId = Lens.lens (\UpdateAuthorizer' {restApiId} -> restApiId) (\s@UpdateAuthorizer' {} a -> s {restApiId = a} :: UpdateAuthorizer)
 
--- | [Required] The string identifier of the associated 'RestApi' .
-uaaRestAPIId :: Lens' UpdateAuthorizer Text
-uaaRestAPIId = lens _uaaRestAPIId (\ s a -> s{_uaaRestAPIId = a})
+-- | [Required] The identifier of the Authorizer resource.
+updateAuthorizer_authorizerId :: Lens.Lens' UpdateAuthorizer Prelude.Text
+updateAuthorizer_authorizerId = Lens.lens (\UpdateAuthorizer' {authorizerId} -> authorizerId) (\s@UpdateAuthorizer' {} a -> s {authorizerId = a} :: UpdateAuthorizer)
 
--- | [Required] The identifier of the 'Authorizer' resource.
-uaaAuthorizerId :: Lens' UpdateAuthorizer Text
-uaaAuthorizerId = lens _uaaAuthorizerId (\ s a -> s{_uaaAuthorizerId = a})
+instance Prelude.AWSRequest UpdateAuthorizer where
+  type Rs UpdateAuthorizer = Authorizer
+  request = Request.patchJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Prelude.eitherParseJSON x)
 
-instance AWSRequest UpdateAuthorizer where
-        type Rs UpdateAuthorizer = Authorizer
-        request = patchJSON apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.Hashable UpdateAuthorizer
 
-instance Hashable UpdateAuthorizer where
+instance Prelude.NFData UpdateAuthorizer
 
-instance NFData UpdateAuthorizer where
+instance Prelude.ToHeaders UpdateAuthorizer where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Prelude.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders UpdateAuthorizer where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Prelude.ToJSON UpdateAuthorizer where
+  toJSON UpdateAuthorizer' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("patchOperations" Prelude..=)
+              Prelude.<$> patchOperations
+          ]
+      )
 
-instance ToJSON UpdateAuthorizer where
-        toJSON UpdateAuthorizer'{..}
-          = object
-              (catMaybes
-                 [("patchOperations" .=) <$> _uaaPatchOperations])
+instance Prelude.ToPath UpdateAuthorizer where
+  toPath UpdateAuthorizer' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Prelude.toBS restApiId,
+        "/authorizers/",
+        Prelude.toBS authorizerId
+      ]
 
-instance ToPath UpdateAuthorizer where
-        toPath UpdateAuthorizer'{..}
-          = mconcat
-              ["/restapis/", toBS _uaaRestAPIId, "/authorizers/",
-               toBS _uaaAuthorizerId]
-
-instance ToQuery UpdateAuthorizer where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateAuthorizer where
+  toQuery = Prelude.const Prelude.mempty

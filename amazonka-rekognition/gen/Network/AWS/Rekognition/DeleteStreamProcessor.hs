@@ -1,123 +1,153 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Rekognition.DeleteStreamProcessor
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the stream processor identified by @Name@ . You assign the value for @Name@ when you create the stream processor with . You might not be able to use the same name for a stream processor for a few seconds after calling @DeleteStreamProcessor@ .
---
---
+-- Deletes the stream processor identified by @Name@. You assign the value
+-- for @Name@ when you create the stream processor with
+-- CreateStreamProcessor. You might not be able to use the same name for a
+-- stream processor for a few seconds after calling
+-- @DeleteStreamProcessor@.
 module Network.AWS.Rekognition.DeleteStreamProcessor
-    (
-    -- * Creating a Request
-      deleteStreamProcessor
-    , DeleteStreamProcessor
+  ( -- * Creating a Request
+    DeleteStreamProcessor (..),
+    newDeleteStreamProcessor,
+
     -- * Request Lenses
-    , dName
+    deleteStreamProcessor_name,
 
     -- * Destructuring the Response
-    , deleteStreamProcessorResponse
-    , DeleteStreamProcessorResponse
+    DeleteStreamProcessorResponse (..),
+    newDeleteStreamProcessorResponse,
+
     -- * Response Lenses
-    , drsResponseStatus
-    ) where
+    deleteStreamProcessorResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Rekognition.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteStreamProcessor' smart constructor.
-newtype DeleteStreamProcessor = DeleteStreamProcessor'
-  { _dName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteStreamProcessor' smart constructor.
+data DeleteStreamProcessor = DeleteStreamProcessor'
+  { -- | The name of the stream processor you want to delete.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteStreamProcessor' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteStreamProcessor' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dName' - The name of the stream processor you want to delete.
-deleteStreamProcessor
-    :: Text -- ^ 'dName'
-    -> DeleteStreamProcessor
-deleteStreamProcessor pName_ = DeleteStreamProcessor' {_dName = pName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'deleteStreamProcessor_name' - The name of the stream processor you want to delete.
+newDeleteStreamProcessor ::
+  -- | 'name'
+  Prelude.Text ->
+  DeleteStreamProcessor
+newDeleteStreamProcessor pName_ =
+  DeleteStreamProcessor' {name = pName_}
 
 -- | The name of the stream processor you want to delete.
-dName :: Lens' DeleteStreamProcessor Text
-dName = lens _dName (\ s a -> s{_dName = a})
+deleteStreamProcessor_name :: Lens.Lens' DeleteStreamProcessor Prelude.Text
+deleteStreamProcessor_name = Lens.lens (\DeleteStreamProcessor' {name} -> name) (\s@DeleteStreamProcessor' {} a -> s {name = a} :: DeleteStreamProcessor)
 
-instance AWSRequest DeleteStreamProcessor where
-        type Rs DeleteStreamProcessor =
-             DeleteStreamProcessorResponse
-        request = postJSON rekognition
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteStreamProcessorResponse' <$>
-                   (pure (fromEnum s)))
+instance Prelude.AWSRequest DeleteStreamProcessor where
+  type
+    Rs DeleteStreamProcessor =
+      DeleteStreamProcessorResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteStreamProcessorResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteStreamProcessor where
+instance Prelude.Hashable DeleteStreamProcessor
 
-instance NFData DeleteStreamProcessor where
+instance Prelude.NFData DeleteStreamProcessor
 
-instance ToHeaders DeleteStreamProcessor where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("RekognitionService.DeleteStreamProcessor" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DeleteStreamProcessor where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "RekognitionService.DeleteStreamProcessor" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DeleteStreamProcessor where
-        toJSON DeleteStreamProcessor'{..}
-          = object (catMaybes [Just ("Name" .= _dName)])
+instance Prelude.ToJSON DeleteStreamProcessor where
+  toJSON DeleteStreamProcessor' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Prelude..= name)]
+      )
 
-instance ToPath DeleteStreamProcessor where
-        toPath = const "/"
+instance Prelude.ToPath DeleteStreamProcessor where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteStreamProcessor where
-        toQuery = const mempty
+instance Prelude.ToQuery DeleteStreamProcessor where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteStreamProcessorResponse' smart constructor.
-newtype DeleteStreamProcessorResponse = DeleteStreamProcessorResponse'
-  { _drsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteStreamProcessorResponse' smart constructor.
+data DeleteStreamProcessorResponse = DeleteStreamProcessorResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteStreamProcessorResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteStreamProcessorResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drsResponseStatus' - -- | The response status code.
-deleteStreamProcessorResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DeleteStreamProcessorResponse
-deleteStreamProcessorResponse pResponseStatus_ =
-  DeleteStreamProcessorResponse' {_drsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteStreamProcessorResponse_httpStatus' - The response's http status code.
+newDeleteStreamProcessorResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteStreamProcessorResponse
+newDeleteStreamProcessorResponse pHttpStatus_ =
+  DeleteStreamProcessorResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteStreamProcessorResponse_httpStatus :: Lens.Lens' DeleteStreamProcessorResponse Prelude.Int
+deleteStreamProcessorResponse_httpStatus = Lens.lens (\DeleteStreamProcessorResponse' {httpStatus} -> httpStatus) (\s@DeleteStreamProcessorResponse' {} a -> s {httpStatus = a} :: DeleteStreamProcessorResponse)
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DeleteStreamProcessorResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
-
-instance NFData DeleteStreamProcessorResponse where
+instance Prelude.NFData DeleteStreamProcessorResponse

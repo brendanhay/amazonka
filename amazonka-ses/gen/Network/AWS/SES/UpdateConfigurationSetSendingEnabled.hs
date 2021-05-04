@@ -1,137 +1,168 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.UpdateConfigurationSetSendingEnabled
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables or disables email sending for messages sent using a specific configuration set. You can use this operation in conjunction with Amazon CloudWatch alarms to temporarily pause email sending for a configuration set when the reputation metrics for that configuration set (such as your bounce on complaint rate) reach certain thresholds.
---
+-- Enables or disables email sending for messages sent using a specific
+-- configuration set in a given AWS Region. You can use this operation in
+-- conjunction with Amazon CloudWatch alarms to temporarily pause email
+-- sending for a configuration set when the reputation metrics for that
+-- configuration set (such as your bounce on complaint rate) exceed certain
+-- thresholds.
 --
 -- You can execute this operation no more than once per second.
---
 module Network.AWS.SES.UpdateConfigurationSetSendingEnabled
-    (
-    -- * Creating a Request
-      updateConfigurationSetSendingEnabled
-    , UpdateConfigurationSetSendingEnabled
+  ( -- * Creating a Request
+    UpdateConfigurationSetSendingEnabled (..),
+    newUpdateConfigurationSetSendingEnabled,
+
     -- * Request Lenses
-    , ucsseConfigurationSetName
-    , ucsseEnabled
+    updateConfigurationSetSendingEnabled_configurationSetName,
+    updateConfigurationSetSendingEnabled_enabled,
 
     -- * Destructuring the Response
-    , updateConfigurationSetSendingEnabledResponse
-    , UpdateConfigurationSetSendingEnabledResponse
-    ) where
+    UpdateConfigurationSetSendingEnabledResponse (..),
+    newUpdateConfigurationSetSendingEnabledResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request to enable or disable the email sending capabilities for a specific configuration set.
+-- | Represents a request to enable or disable the email sending capabilities
+-- for a specific configuration set.
 --
---
---
--- /See:/ 'updateConfigurationSetSendingEnabled' smart constructor.
+-- /See:/ 'newUpdateConfigurationSetSendingEnabled' smart constructor.
 data UpdateConfigurationSetSendingEnabled = UpdateConfigurationSetSendingEnabled'
-  { _ucsseConfigurationSetName :: !Text
-  , _ucsseEnabled              :: !Bool
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the configuration set that you want to update.
+    configurationSetName :: Prelude.Text,
+    -- | Describes whether email sending is enabled or disabled for the
+    -- configuration set.
+    enabled :: Prelude.Bool
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateConfigurationSetSendingEnabled' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateConfigurationSetSendingEnabled' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ucsseConfigurationSetName' - The name of the configuration set that you want to update.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ucsseEnabled' - Describes whether email sending is enabled or disabled for the configuration set.
-updateConfigurationSetSendingEnabled
-    :: Text -- ^ 'ucsseConfigurationSetName'
-    -> Bool -- ^ 'ucsseEnabled'
-    -> UpdateConfigurationSetSendingEnabled
-updateConfigurationSetSendingEnabled pConfigurationSetName_ pEnabled_ =
-  UpdateConfigurationSetSendingEnabled'
-    { _ucsseConfigurationSetName = pConfigurationSetName_
-    , _ucsseEnabled = pEnabled_
-    }
-
+-- 'configurationSetName', 'updateConfigurationSetSendingEnabled_configurationSetName' - The name of the configuration set that you want to update.
+--
+-- 'enabled', 'updateConfigurationSetSendingEnabled_enabled' - Describes whether email sending is enabled or disabled for the
+-- configuration set.
+newUpdateConfigurationSetSendingEnabled ::
+  -- | 'configurationSetName'
+  Prelude.Text ->
+  -- | 'enabled'
+  Prelude.Bool ->
+  UpdateConfigurationSetSendingEnabled
+newUpdateConfigurationSetSendingEnabled
+  pConfigurationSetName_
+  pEnabled_ =
+    UpdateConfigurationSetSendingEnabled'
+      { configurationSetName =
+          pConfigurationSetName_,
+        enabled = pEnabled_
+      }
 
 -- | The name of the configuration set that you want to update.
-ucsseConfigurationSetName :: Lens' UpdateConfigurationSetSendingEnabled Text
-ucsseConfigurationSetName = lens _ucsseConfigurationSetName (\ s a -> s{_ucsseConfigurationSetName = a})
+updateConfigurationSetSendingEnabled_configurationSetName :: Lens.Lens' UpdateConfigurationSetSendingEnabled Prelude.Text
+updateConfigurationSetSendingEnabled_configurationSetName = Lens.lens (\UpdateConfigurationSetSendingEnabled' {configurationSetName} -> configurationSetName) (\s@UpdateConfigurationSetSendingEnabled' {} a -> s {configurationSetName = a} :: UpdateConfigurationSetSendingEnabled)
 
--- | Describes whether email sending is enabled or disabled for the configuration set.
-ucsseEnabled :: Lens' UpdateConfigurationSetSendingEnabled Bool
-ucsseEnabled = lens _ucsseEnabled (\ s a -> s{_ucsseEnabled = a})
+-- | Describes whether email sending is enabled or disabled for the
+-- configuration set.
+updateConfigurationSetSendingEnabled_enabled :: Lens.Lens' UpdateConfigurationSetSendingEnabled Prelude.Bool
+updateConfigurationSetSendingEnabled_enabled = Lens.lens (\UpdateConfigurationSetSendingEnabled' {enabled} -> enabled) (\s@UpdateConfigurationSetSendingEnabled' {} a -> s {enabled = a} :: UpdateConfigurationSetSendingEnabled)
 
-instance AWSRequest
-           UpdateConfigurationSetSendingEnabled
-         where
-        type Rs UpdateConfigurationSetSendingEnabled =
-             UpdateConfigurationSetSendingEnabledResponse
-        request = postQuery ses
-        response
-          = receiveNull
-              UpdateConfigurationSetSendingEnabledResponse'
+instance
+  Prelude.AWSRequest
+    UpdateConfigurationSetSendingEnabled
+  where
+  type
+    Rs UpdateConfigurationSetSendingEnabled =
+      UpdateConfigurationSetSendingEnabledResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull
+      UpdateConfigurationSetSendingEnabledResponse'
 
-instance Hashable
-           UpdateConfigurationSetSendingEnabled
-         where
+instance
+  Prelude.Hashable
+    UpdateConfigurationSetSendingEnabled
 
-instance NFData UpdateConfigurationSetSendingEnabled
-         where
+instance
+  Prelude.NFData
+    UpdateConfigurationSetSendingEnabled
 
-instance ToHeaders
-           UpdateConfigurationSetSendingEnabled
-         where
-        toHeaders = const mempty
+instance
+  Prelude.ToHeaders
+    UpdateConfigurationSetSendingEnabled
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath UpdateConfigurationSetSendingEnabled
-         where
-        toPath = const "/"
+instance
+  Prelude.ToPath
+    UpdateConfigurationSetSendingEnabled
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateConfigurationSetSendingEnabled
-         where
-        toQuery UpdateConfigurationSetSendingEnabled'{..}
-          = mconcat
-              ["Action" =:
-                 ("UpdateConfigurationSetSendingEnabled" ::
-                    ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "ConfigurationSetName" =: _ucsseConfigurationSetName,
-               "Enabled" =: _ucsseEnabled]
+instance
+  Prelude.ToQuery
+    UpdateConfigurationSetSendingEnabled
+  where
+  toQuery UpdateConfigurationSetSendingEnabled' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ( "UpdateConfigurationSetSendingEnabled" ::
+                         Prelude.ByteString
+                     ),
+        "Version"
+          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
+        "ConfigurationSetName"
+          Prelude.=: configurationSetName,
+        "Enabled" Prelude.=: enabled
+      ]
 
--- | /See:/ 'updateConfigurationSetSendingEnabledResponse' smart constructor.
-data UpdateConfigurationSetSendingEnabledResponse =
-  UpdateConfigurationSetSendingEnabledResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateConfigurationSetSendingEnabledResponse' smart constructor.
+data UpdateConfigurationSetSendingEnabledResponse = UpdateConfigurationSetSendingEnabledResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateConfigurationSetSendingEnabledResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateConfigurationSetSendingEnabledResponse' with all optional fields omitted.
 --
-updateConfigurationSetSendingEnabledResponse
-    :: UpdateConfigurationSetSendingEnabledResponse
-updateConfigurationSetSendingEnabledResponse =
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newUpdateConfigurationSetSendingEnabledResponse ::
+  UpdateConfigurationSetSendingEnabledResponse
+newUpdateConfigurationSetSendingEnabledResponse =
   UpdateConfigurationSetSendingEnabledResponse'
 
-
-instance NFData
-           UpdateConfigurationSetSendingEnabledResponse
-         where
+instance
+  Prelude.NFData
+    UpdateConfigurationSetSendingEnabledResponse

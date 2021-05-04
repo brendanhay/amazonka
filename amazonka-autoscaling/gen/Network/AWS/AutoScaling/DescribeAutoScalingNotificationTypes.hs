@@ -1,133 +1,160 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the notification types that are supported by Auto Scaling.
---
---
+-- Describes the notification types that are supported by Amazon EC2 Auto
+-- Scaling.
 module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
-    (
-    -- * Creating a Request
-      describeAutoScalingNotificationTypes
-    , DescribeAutoScalingNotificationTypes
+  ( -- * Creating a Request
+    DescribeAutoScalingNotificationTypes (..),
+    newDescribeAutoScalingNotificationTypes,
 
     -- * Destructuring the Response
-    , describeAutoScalingNotificationTypesResponse
-    , DescribeAutoScalingNotificationTypesResponse
+    DescribeAutoScalingNotificationTypesResponse (..),
+    newDescribeAutoScalingNotificationTypesResponse,
+
     -- * Response Lenses
-    , dasntrsAutoScalingNotificationTypes
-    , dasntrsResponseStatus
-    ) where
+    describeAutoScalingNotificationTypesResponse_autoScalingNotificationTypes,
+    describeAutoScalingNotificationTypesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeAutoScalingNotificationTypes' smart constructor.
-data DescribeAutoScalingNotificationTypes =
+-- | /See:/ 'newDescribeAutoScalingNotificationTypes' smart constructor.
+data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeAutoScalingNotificationTypes' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDescribeAutoScalingNotificationTypes ::
+  DescribeAutoScalingNotificationTypes
+newDescribeAutoScalingNotificationTypes =
   DescribeAutoScalingNotificationTypes'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
+instance
+  Prelude.AWSRequest
+    DescribeAutoScalingNotificationTypes
+  where
+  type
+    Rs DescribeAutoScalingNotificationTypes =
+      DescribeAutoScalingNotificationTypesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeAutoScalingNotificationTypesResult"
+      ( \s h x ->
+          DescribeAutoScalingNotificationTypesResponse'
+            Prelude.<$> ( x Prelude..@? "AutoScalingNotificationTypes"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | Creates a value of 'DescribeAutoScalingNotificationTypes' with the minimum fields required to make a request.
---
-describeAutoScalingNotificationTypes
-    :: DescribeAutoScalingNotificationTypes
-describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes'
+instance
+  Prelude.Hashable
+    DescribeAutoScalingNotificationTypes
 
+instance
+  Prelude.NFData
+    DescribeAutoScalingNotificationTypes
 
-instance AWSRequest
-           DescribeAutoScalingNotificationTypes
-         where
-        type Rs DescribeAutoScalingNotificationTypes =
-             DescribeAutoScalingNotificationTypesResponse
-        request = postQuery autoScaling
-        response
-          = receiveXMLWrapper
-              "DescribeAutoScalingNotificationTypesResult"
-              (\ s h x ->
-                 DescribeAutoScalingNotificationTypesResponse' <$>
-                   (x .@? "AutoScalingNotificationTypes" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.ToHeaders
+    DescribeAutoScalingNotificationTypes
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance Hashable
-           DescribeAutoScalingNotificationTypes
-         where
+instance
+  Prelude.ToPath
+    DescribeAutoScalingNotificationTypes
+  where
+  toPath = Prelude.const "/"
 
-instance NFData DescribeAutoScalingNotificationTypes
-         where
+instance
+  Prelude.ToQuery
+    DescribeAutoScalingNotificationTypes
+  where
+  toQuery =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Action"
+              Prelude.=: ( "DescribeAutoScalingNotificationTypes" ::
+                             Prelude.ByteString
+                         ),
+            "Version"
+              Prelude.=: ("2011-01-01" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders
-           DescribeAutoScalingNotificationTypes
-         where
-        toHeaders = const mempty
-
-instance ToPath DescribeAutoScalingNotificationTypes
-         where
-        toPath = const "/"
-
-instance ToQuery DescribeAutoScalingNotificationTypes
-         where
-        toQuery
-          = const
-              (mconcat
-                 ["Action" =:
-                    ("DescribeAutoScalingNotificationTypes" ::
-                       ByteString),
-                  "Version" =: ("2011-01-01" :: ByteString)])
-
--- | /See:/ 'describeAutoScalingNotificationTypesResponse' smart constructor.
+-- | /See:/ 'newDescribeAutoScalingNotificationTypesResponse' smart constructor.
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
-  { _dasntrsAutoScalingNotificationTypes :: !(Maybe [Text])
-  , _dasntrsResponseStatus               :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The notification types.
+    autoScalingNotificationTypes :: Prelude.Maybe [Prelude.Text],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAutoScalingNotificationTypesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAutoScalingNotificationTypesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dasntrsAutoScalingNotificationTypes' - The notification types.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dasntrsResponseStatus' - -- | The response status code.
-describeAutoScalingNotificationTypesResponse
-    :: Int -- ^ 'dasntrsResponseStatus'
-    -> DescribeAutoScalingNotificationTypesResponse
-describeAutoScalingNotificationTypesResponse pResponseStatus_ =
-  DescribeAutoScalingNotificationTypesResponse'
-    { _dasntrsAutoScalingNotificationTypes = Nothing
-    , _dasntrsResponseStatus = pResponseStatus_
-    }
-
+-- 'autoScalingNotificationTypes', 'describeAutoScalingNotificationTypesResponse_autoScalingNotificationTypes' - The notification types.
+--
+-- 'httpStatus', 'describeAutoScalingNotificationTypesResponse_httpStatus' - The response's http status code.
+newDescribeAutoScalingNotificationTypesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeAutoScalingNotificationTypesResponse
+newDescribeAutoScalingNotificationTypesResponse
+  pHttpStatus_ =
+    DescribeAutoScalingNotificationTypesResponse'
+      { autoScalingNotificationTypes =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
 -- | The notification types.
-dasntrsAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
-dasntrsAutoScalingNotificationTypes = lens _dasntrsAutoScalingNotificationTypes (\ s a -> s{_dasntrsAutoScalingNotificationTypes = a}) . _Default . _Coerce
+describeAutoScalingNotificationTypesResponse_autoScalingNotificationTypes :: Lens.Lens' DescribeAutoScalingNotificationTypesResponse (Prelude.Maybe [Prelude.Text])
+describeAutoScalingNotificationTypesResponse_autoScalingNotificationTypes = Lens.lens (\DescribeAutoScalingNotificationTypesResponse' {autoScalingNotificationTypes} -> autoScalingNotificationTypes) (\s@DescribeAutoScalingNotificationTypesResponse' {} a -> s {autoScalingNotificationTypes = a} :: DescribeAutoScalingNotificationTypesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-dasntrsResponseStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Int
-dasntrsResponseStatus = lens _dasntrsResponseStatus (\ s a -> s{_dasntrsResponseStatus = a})
+-- | The response's http status code.
+describeAutoScalingNotificationTypesResponse_httpStatus :: Lens.Lens' DescribeAutoScalingNotificationTypesResponse Prelude.Int
+describeAutoScalingNotificationTypesResponse_httpStatus = Lens.lens (\DescribeAutoScalingNotificationTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeAutoScalingNotificationTypesResponse' {} a -> s {httpStatus = a} :: DescribeAutoScalingNotificationTypesResponse)
 
-instance NFData
-           DescribeAutoScalingNotificationTypesResponse
-         where
+instance
+  Prelude.NFData
+    DescribeAutoScalingNotificationTypesResponse

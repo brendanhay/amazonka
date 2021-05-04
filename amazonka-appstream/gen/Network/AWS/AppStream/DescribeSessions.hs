@@ -1,199 +1,277 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AppStream.DescribeSessions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the streaming sessions for the specified stack and fleet. If a user ID is provided, only the streaming sessions for only that user are returned. If an authentication type is not provided, the default is to authenticate users using a streaming URL.
+-- Retrieves a list that describes the streaming sessions for a specified
+-- stack and fleet. If a UserId is provided for the stack and fleet, only
+-- streaming sessions for that user are described. If an authentication
+-- type is not provided, the default is to authenticate users using a
+-- streaming URL.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.AppStream.DescribeSessions
-    (
-    -- * Creating a Request
-      describeSessions
-    , DescribeSessions
+  ( -- * Creating a Request
+    DescribeSessions (..),
+    newDescribeSessions,
+
     -- * Request Lenses
-    , dsUserId
-    , dsNextToken
-    , dsLimit
-    , dsAuthenticationType
-    , dsStackName
-    , dsFleetName
+    describeSessions_nextToken,
+    describeSessions_userId,
+    describeSessions_authenticationType,
+    describeSessions_limit,
+    describeSessions_stackName,
+    describeSessions_fleetName,
 
     -- * Destructuring the Response
-    , describeSessionsResponse
-    , DescribeSessionsResponse
+    DescribeSessionsResponse (..),
+    newDescribeSessionsResponse,
+
     -- * Response Lenses
-    , dssrsNextToken
-    , dssrsSessions
-    , dssrsResponseStatus
-    ) where
+    describeSessionsResponse_nextToken,
+    describeSessionsResponse_sessions,
+    describeSessionsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeSessions' smart constructor.
+-- | /See:/ 'newDescribeSessions' smart constructor.
 data DescribeSessions = DescribeSessions'
-  { _dsUserId             :: !(Maybe Text)
-  , _dsNextToken          :: !(Maybe Text)
-  , _dsLimit              :: !(Maybe Int)
-  , _dsAuthenticationType :: !(Maybe AuthenticationType)
-  , _dsStackName          :: !Text
-  , _dsFleetName          :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pagination token to use to retrieve the next page of results for
+    -- this operation. If this value is null, it retrieves the first page.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The user identifier (ID). If you specify a user ID, you must also
+    -- specify the authentication type.
+    userId :: Prelude.Maybe Prelude.Text,
+    -- | The authentication method. Specify @API@ for a user authenticated using
+    -- a streaming URL or @SAML@ for a SAML federated user. The default is to
+    -- authenticate users using a streaming URL.
+    authenticationType :: Prelude.Maybe AuthenticationType,
+    -- | The size of each page of results. The default value is 20 and the
+    -- maximum value is 50.
+    limit :: Prelude.Maybe Prelude.Int,
+    -- | The name of the stack. This value is case-sensitive.
+    stackName :: Prelude.Text,
+    -- | The name of the fleet. This value is case-sensitive.
+    fleetName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeSessions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeSessions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsUserId' - The user ID.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+-- 'nextToken', 'describeSessions_nextToken' - The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
 --
--- * 'dsLimit' - The size of each page of results. The default value is 20 and the maximum value is 50.
+-- 'userId', 'describeSessions_userId' - The user identifier (ID). If you specify a user ID, you must also
+-- specify the authentication type.
 --
--- * 'dsAuthenticationType' - The authentication method. Specify @API@ for a user authenticated using a streaming URL or @SAML@ for a SAML federated user. The default is to authenticate users using a streaming URL.
+-- 'authenticationType', 'describeSessions_authenticationType' - The authentication method. Specify @API@ for a user authenticated using
+-- a streaming URL or @SAML@ for a SAML federated user. The default is to
+-- authenticate users using a streaming URL.
 --
--- * 'dsStackName' - The name of the stack. This value is case-sensitive.
+-- 'limit', 'describeSessions_limit' - The size of each page of results. The default value is 20 and the
+-- maximum value is 50.
 --
--- * 'dsFleetName' - The name of the fleet. This value is case-sensitive.
-describeSessions
-    :: Text -- ^ 'dsStackName'
-    -> Text -- ^ 'dsFleetName'
-    -> DescribeSessions
-describeSessions pStackName_ pFleetName_ =
+-- 'stackName', 'describeSessions_stackName' - The name of the stack. This value is case-sensitive.
+--
+-- 'fleetName', 'describeSessions_fleetName' - The name of the fleet. This value is case-sensitive.
+newDescribeSessions ::
+  -- | 'stackName'
+  Prelude.Text ->
+  -- | 'fleetName'
+  Prelude.Text ->
+  DescribeSessions
+newDescribeSessions pStackName_ pFleetName_ =
   DescribeSessions'
-    { _dsUserId = Nothing
-    , _dsNextToken = Nothing
-    , _dsLimit = Nothing
-    , _dsAuthenticationType = Nothing
-    , _dsStackName = pStackName_
-    , _dsFleetName = pFleetName_
+    { nextToken = Prelude.Nothing,
+      userId = Prelude.Nothing,
+      authenticationType = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      stackName = pStackName_,
+      fleetName = pFleetName_
     }
 
+-- | The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
+describeSessions_nextToken :: Lens.Lens' DescribeSessions (Prelude.Maybe Prelude.Text)
+describeSessions_nextToken = Lens.lens (\DescribeSessions' {nextToken} -> nextToken) (\s@DescribeSessions' {} a -> s {nextToken = a} :: DescribeSessions)
 
--- | The user ID.
-dsUserId :: Lens' DescribeSessions (Maybe Text)
-dsUserId = lens _dsUserId (\ s a -> s{_dsUserId = a})
+-- | The user identifier (ID). If you specify a user ID, you must also
+-- specify the authentication type.
+describeSessions_userId :: Lens.Lens' DescribeSessions (Prelude.Maybe Prelude.Text)
+describeSessions_userId = Lens.lens (\DescribeSessions' {userId} -> userId) (\s@DescribeSessions' {} a -> s {userId = a} :: DescribeSessions)
 
--- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
-dsNextToken :: Lens' DescribeSessions (Maybe Text)
-dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a})
+-- | The authentication method. Specify @API@ for a user authenticated using
+-- a streaming URL or @SAML@ for a SAML federated user. The default is to
+-- authenticate users using a streaming URL.
+describeSessions_authenticationType :: Lens.Lens' DescribeSessions (Prelude.Maybe AuthenticationType)
+describeSessions_authenticationType = Lens.lens (\DescribeSessions' {authenticationType} -> authenticationType) (\s@DescribeSessions' {} a -> s {authenticationType = a} :: DescribeSessions)
 
--- | The size of each page of results. The default value is 20 and the maximum value is 50.
-dsLimit :: Lens' DescribeSessions (Maybe Int)
-dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a})
-
--- | The authentication method. Specify @API@ for a user authenticated using a streaming URL or @SAML@ for a SAML federated user. The default is to authenticate users using a streaming URL.
-dsAuthenticationType :: Lens' DescribeSessions (Maybe AuthenticationType)
-dsAuthenticationType = lens _dsAuthenticationType (\ s a -> s{_dsAuthenticationType = a})
+-- | The size of each page of results. The default value is 20 and the
+-- maximum value is 50.
+describeSessions_limit :: Lens.Lens' DescribeSessions (Prelude.Maybe Prelude.Int)
+describeSessions_limit = Lens.lens (\DescribeSessions' {limit} -> limit) (\s@DescribeSessions' {} a -> s {limit = a} :: DescribeSessions)
 
 -- | The name of the stack. This value is case-sensitive.
-dsStackName :: Lens' DescribeSessions Text
-dsStackName = lens _dsStackName (\ s a -> s{_dsStackName = a})
+describeSessions_stackName :: Lens.Lens' DescribeSessions Prelude.Text
+describeSessions_stackName = Lens.lens (\DescribeSessions' {stackName} -> stackName) (\s@DescribeSessions' {} a -> s {stackName = a} :: DescribeSessions)
 
 -- | The name of the fleet. This value is case-sensitive.
-dsFleetName :: Lens' DescribeSessions Text
-dsFleetName = lens _dsFleetName (\ s a -> s{_dsFleetName = a})
+describeSessions_fleetName :: Lens.Lens' DescribeSessions Prelude.Text
+describeSessions_fleetName = Lens.lens (\DescribeSessions' {fleetName} -> fleetName) (\s@DescribeSessions' {} a -> s {fleetName = a} :: DescribeSessions)
 
-instance AWSRequest DescribeSessions where
-        type Rs DescribeSessions = DescribeSessionsResponse
-        request = postJSON appStream
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeSessionsResponse' <$>
-                   (x .?> "NextToken") <*> (x .?> "Sessions" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Pager.AWSPager DescribeSessions where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeSessionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeSessionsResponse_sessions
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeSessions_nextToken
+          Lens..~ rs
+          Lens.^? describeSessionsResponse_nextToken
+            Prelude.. Lens._Just
 
-instance Hashable DescribeSessions where
+instance Prelude.AWSRequest DescribeSessions where
+  type Rs DescribeSessions = DescribeSessionsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeSessionsResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> (x Prelude..?> "Sessions" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData DescribeSessions where
+instance Prelude.Hashable DescribeSessions
 
-instance ToHeaders DescribeSessions where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("PhotonAdminProxyService.DescribeSessions" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData DescribeSessions
 
-instance ToJSON DescribeSessions where
-        toJSON DescribeSessions'{..}
-          = object
-              (catMaybes
-                 [("UserId" .=) <$> _dsUserId,
-                  ("NextToken" .=) <$> _dsNextToken,
-                  ("Limit" .=) <$> _dsLimit,
-                  ("AuthenticationType" .=) <$> _dsAuthenticationType,
-                  Just ("StackName" .= _dsStackName),
-                  Just ("FleetName" .= _dsFleetName)])
+instance Prelude.ToHeaders DescribeSessions where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "PhotonAdminProxyService.DescribeSessions" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToPath DescribeSessions where
-        toPath = const "/"
+instance Prelude.ToJSON DescribeSessions where
+  toJSON DescribeSessions' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("UserId" Prelude..=) Prelude.<$> userId,
+            ("AuthenticationType" Prelude..=)
+              Prelude.<$> authenticationType,
+            ("Limit" Prelude..=) Prelude.<$> limit,
+            Prelude.Just ("StackName" Prelude..= stackName),
+            Prelude.Just ("FleetName" Prelude..= fleetName)
+          ]
+      )
 
-instance ToQuery DescribeSessions where
-        toQuery = const mempty
+instance Prelude.ToPath DescribeSessions where
+  toPath = Prelude.const "/"
 
--- | /See:/ 'describeSessionsResponse' smart constructor.
+instance Prelude.ToQuery DescribeSessions where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeSessionsResponse' smart constructor.
 data DescribeSessionsResponse = DescribeSessionsResponse'
-  { _dssrsNextToken      :: !(Maybe Text)
-  , _dssrsSessions       :: !(Maybe [Session])
-  , _dssrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pagination token to use to retrieve the next page of results for
+    -- this operation. If there are no more pages, this value is null.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the streaming sessions.
+    sessions :: Prelude.Maybe [Session],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeSessionsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeSessionsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dssrsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dssrsSessions' - Information about the streaming sessions.
+-- 'nextToken', 'describeSessionsResponse_nextToken' - The pagination token to use to retrieve the next page of results for
+-- this operation. If there are no more pages, this value is null.
 --
--- * 'dssrsResponseStatus' - -- | The response status code.
-describeSessionsResponse
-    :: Int -- ^ 'dssrsResponseStatus'
-    -> DescribeSessionsResponse
-describeSessionsResponse pResponseStatus_ =
+-- 'sessions', 'describeSessionsResponse_sessions' - Information about the streaming sessions.
+--
+-- 'httpStatus', 'describeSessionsResponse_httpStatus' - The response's http status code.
+newDescribeSessionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeSessionsResponse
+newDescribeSessionsResponse pHttpStatus_ =
   DescribeSessionsResponse'
-    { _dssrsNextToken = Nothing
-    , _dssrsSessions = Nothing
-    , _dssrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      sessions = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
-dssrsNextToken :: Lens' DescribeSessionsResponse (Maybe Text)
-dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a})
+-- | The pagination token to use to retrieve the next page of results for
+-- this operation. If there are no more pages, this value is null.
+describeSessionsResponse_nextToken :: Lens.Lens' DescribeSessionsResponse (Prelude.Maybe Prelude.Text)
+describeSessionsResponse_nextToken = Lens.lens (\DescribeSessionsResponse' {nextToken} -> nextToken) (\s@DescribeSessionsResponse' {} a -> s {nextToken = a} :: DescribeSessionsResponse)
 
 -- | Information about the streaming sessions.
-dssrsSessions :: Lens' DescribeSessionsResponse [Session]
-dssrsSessions = lens _dssrsSessions (\ s a -> s{_dssrsSessions = a}) . _Default . _Coerce
+describeSessionsResponse_sessions :: Lens.Lens' DescribeSessionsResponse (Prelude.Maybe [Session])
+describeSessionsResponse_sessions = Lens.lens (\DescribeSessionsResponse' {sessions} -> sessions) (\s@DescribeSessionsResponse' {} a -> s {sessions = a} :: DescribeSessionsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-dssrsResponseStatus :: Lens' DescribeSessionsResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a})
+-- | The response's http status code.
+describeSessionsResponse_httpStatus :: Lens.Lens' DescribeSessionsResponse Prelude.Int
+describeSessionsResponse_httpStatus = Lens.lens (\DescribeSessionsResponse' {httpStatus} -> httpStatus) (\s@DescribeSessionsResponse' {} a -> s {httpStatus = a} :: DescribeSessionsResponse)
 
-instance NFData DescribeSessionsResponse where
+instance Prelude.NFData DescribeSessionsResponse

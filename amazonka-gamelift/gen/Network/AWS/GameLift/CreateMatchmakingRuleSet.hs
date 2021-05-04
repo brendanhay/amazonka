@@ -1,177 +1,271 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GameLift.CreateMatchmakingRuleSet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of match to create, such as the number and size of teams, and sets the parameters for acceptable player matches, such as minimum skill level or character type. Rule sets are used in matchmaking configurations, which define how matchmaking requests are handled. Each 'MatchmakingConfiguration' uses one rule set; you can set up multiple rule sets to handle the scenarios that suit your game (such as for different game modes), and create a separate matchmaking configuration for each rule set. See additional information on rule set content in the 'MatchmakingRuleSet' structure. For help creating rule sets, including useful examples, see the topic <http://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html Adding FlexMatch to Your Game> .
+-- Creates a new rule set for FlexMatch matchmaking. A rule set describes
+-- the type of match to create, such as the number and size of teams. It
+-- also sets the parameters for acceptable player matches, such as minimum
+-- skill level or character type. A rule set is used by a
+-- MatchmakingConfiguration.
 --
+-- To create a matchmaking rule set, provide unique rule set name and the
+-- rule set body in JSON format. Rule sets must be defined in the same
+-- Region as the matchmaking configuration they are used with.
 --
--- Once created, matchmaking rule sets cannot be changed or deleted, so we recommend checking the rule set syntax using 'ValidateMatchmakingRuleSet' before creating the rule set.
+-- Since matchmaking rule sets cannot be edited, it is a good idea to check
+-- the rule set syntax using ValidateMatchmakingRuleSet before creating a
+-- new rule set.
 --
--- To create a matchmaking rule set, provide the set of rules and a unique name. Rule sets must be defined in the same region as the matchmaking configuration they will be used with. Rule sets cannot be edited or deleted. If you need to change a rule set, create a new one with the necessary edits and then update matchmaking configurations to use the new rule set.
+-- __Learn more__
 --
--- Operations related to match configurations and rule sets include:
+-- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html Build a Rule Set>
 --
---     * 'CreateMatchmakingConfiguration'
+-- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html Design a Matchmaker>
 --
---     * 'DescribeMatchmakingConfigurations'
+-- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-intro.html Matchmaking with FlexMatch>
 --
---     * 'UpdateMatchmakingConfiguration'
+-- __Related operations__
 --
---     * 'DeleteMatchmakingConfiguration'
+-- -   CreateMatchmakingConfiguration
 --
---     * 'CreateMatchmakingRuleSet'
+-- -   DescribeMatchmakingConfigurations
 --
---     * 'DescribeMatchmakingRuleSets'
+-- -   UpdateMatchmakingConfiguration
 --
---     * 'ValidateMatchmakingRuleSet'
+-- -   DeleteMatchmakingConfiguration
 --
+-- -   CreateMatchmakingRuleSet
 --
+-- -   DescribeMatchmakingRuleSets
 --
+-- -   ValidateMatchmakingRuleSet
+--
+-- -   DeleteMatchmakingRuleSet
 module Network.AWS.GameLift.CreateMatchmakingRuleSet
-    (
-    -- * Creating a Request
-      createMatchmakingRuleSet
-    , CreateMatchmakingRuleSet
+  ( -- * Creating a Request
+    CreateMatchmakingRuleSet (..),
+    newCreateMatchmakingRuleSet,
+
     -- * Request Lenses
-    , cmrsName
-    , cmrsRuleSetBody
+    createMatchmakingRuleSet_tags,
+    createMatchmakingRuleSet_name,
+    createMatchmakingRuleSet_ruleSetBody,
 
     -- * Destructuring the Response
-    , createMatchmakingRuleSetResponse
-    , CreateMatchmakingRuleSetResponse
+    CreateMatchmakingRuleSetResponse (..),
+    newCreateMatchmakingRuleSetResponse,
+
     -- * Response Lenses
-    , cmrsrsResponseStatus
-    , cmrsrsRuleSet
-    ) where
+    createMatchmakingRuleSetResponse_httpStatus,
+    createMatchmakingRuleSetResponse_ruleSet,
+  )
+where
 
 import Network.AWS.GameLift.Types
-import Network.AWS.GameLift.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input for a request action.
+-- | Represents the input for a request operation.
 --
---
---
--- /See:/ 'createMatchmakingRuleSet' smart constructor.
+-- /See:/ 'newCreateMatchmakingRuleSet' smart constructor.
 data CreateMatchmakingRuleSet = CreateMatchmakingRuleSet'
-  { _cmrsName        :: !Text
-  , _cmrsRuleSetBody :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of labels to assign to the new matchmaking rule set resource.
+    -- Tags are developer-defined key-value pairs. Tagging AWS resources are
+    -- useful for resource management, access management and cost allocation.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
+    -- in the /AWS General Reference/. Once the resource is created, you can
+    -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
+    -- and view tags. The maximum tag limit may be lower than stated. See the
+    -- AWS General Reference for actual tagging limits.
+    tags :: Prelude.Maybe [Tag],
+    -- | A unique identifier for a matchmaking rule set. A matchmaking
+    -- configuration identifies the rule set it uses by this name value. Note
+    -- that the rule set name is different from the optional @name@ field in
+    -- the rule set body.
+    name :: Prelude.Text,
+    -- | A collection of matchmaking rules, formatted as a JSON string. Comments
+    -- are not allowed in JSON, but most elements support a description field.
+    ruleSetBody :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateMatchmakingRuleSet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateMatchmakingRuleSet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cmrsName' - Unique identifier for a matchmaking rule set. This name is used to identify the rule set associated with a matchmaking configuration.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cmrsRuleSetBody' - Collection of matchmaking rules, formatted as a JSON string. (Note that comments are not allowed in JSON, but most elements support a description field.)
-createMatchmakingRuleSet
-    :: Text -- ^ 'cmrsName'
-    -> Text -- ^ 'cmrsRuleSetBody'
-    -> CreateMatchmakingRuleSet
-createMatchmakingRuleSet pName_ pRuleSetBody_ =
+-- 'tags', 'createMatchmakingRuleSet_tags' - A list of labels to assign to the new matchmaking rule set resource.
+-- Tags are developer-defined key-value pairs. Tagging AWS resources are
+-- useful for resource management, access management and cost allocation.
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
+-- in the /AWS General Reference/. Once the resource is created, you can
+-- use TagResource, UntagResource, and ListTagsForResource to add, remove,
+-- and view tags. The maximum tag limit may be lower than stated. See the
+-- AWS General Reference for actual tagging limits.
+--
+-- 'name', 'createMatchmakingRuleSet_name' - A unique identifier for a matchmaking rule set. A matchmaking
+-- configuration identifies the rule set it uses by this name value. Note
+-- that the rule set name is different from the optional @name@ field in
+-- the rule set body.
+--
+-- 'ruleSetBody', 'createMatchmakingRuleSet_ruleSetBody' - A collection of matchmaking rules, formatted as a JSON string. Comments
+-- are not allowed in JSON, but most elements support a description field.
+newCreateMatchmakingRuleSet ::
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'ruleSetBody'
+  Prelude.Text ->
+  CreateMatchmakingRuleSet
+newCreateMatchmakingRuleSet pName_ pRuleSetBody_ =
   CreateMatchmakingRuleSet'
-    {_cmrsName = pName_, _cmrsRuleSetBody = pRuleSetBody_}
+    { tags = Prelude.Nothing,
+      name = pName_,
+      ruleSetBody = pRuleSetBody_
+    }
 
+-- | A list of labels to assign to the new matchmaking rule set resource.
+-- Tags are developer-defined key-value pairs. Tagging AWS resources are
+-- useful for resource management, access management and cost allocation.
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
+-- in the /AWS General Reference/. Once the resource is created, you can
+-- use TagResource, UntagResource, and ListTagsForResource to add, remove,
+-- and view tags. The maximum tag limit may be lower than stated. See the
+-- AWS General Reference for actual tagging limits.
+createMatchmakingRuleSet_tags :: Lens.Lens' CreateMatchmakingRuleSet (Prelude.Maybe [Tag])
+createMatchmakingRuleSet_tags = Lens.lens (\CreateMatchmakingRuleSet' {tags} -> tags) (\s@CreateMatchmakingRuleSet' {} a -> s {tags = a} :: CreateMatchmakingRuleSet) Prelude.. Lens.mapping Prelude._Coerce
 
--- | Unique identifier for a matchmaking rule set. This name is used to identify the rule set associated with a matchmaking configuration.
-cmrsName :: Lens' CreateMatchmakingRuleSet Text
-cmrsName = lens _cmrsName (\ s a -> s{_cmrsName = a})
+-- | A unique identifier for a matchmaking rule set. A matchmaking
+-- configuration identifies the rule set it uses by this name value. Note
+-- that the rule set name is different from the optional @name@ field in
+-- the rule set body.
+createMatchmakingRuleSet_name :: Lens.Lens' CreateMatchmakingRuleSet Prelude.Text
+createMatchmakingRuleSet_name = Lens.lens (\CreateMatchmakingRuleSet' {name} -> name) (\s@CreateMatchmakingRuleSet' {} a -> s {name = a} :: CreateMatchmakingRuleSet)
 
--- | Collection of matchmaking rules, formatted as a JSON string. (Note that comments are not allowed in JSON, but most elements support a description field.)
-cmrsRuleSetBody :: Lens' CreateMatchmakingRuleSet Text
-cmrsRuleSetBody = lens _cmrsRuleSetBody (\ s a -> s{_cmrsRuleSetBody = a})
+-- | A collection of matchmaking rules, formatted as a JSON string. Comments
+-- are not allowed in JSON, but most elements support a description field.
+createMatchmakingRuleSet_ruleSetBody :: Lens.Lens' CreateMatchmakingRuleSet Prelude.Text
+createMatchmakingRuleSet_ruleSetBody = Lens.lens (\CreateMatchmakingRuleSet' {ruleSetBody} -> ruleSetBody) (\s@CreateMatchmakingRuleSet' {} a -> s {ruleSetBody = a} :: CreateMatchmakingRuleSet)
 
-instance AWSRequest CreateMatchmakingRuleSet where
-        type Rs CreateMatchmakingRuleSet =
-             CreateMatchmakingRuleSetResponse
-        request = postJSON gameLift
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateMatchmakingRuleSetResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "RuleSet"))
+instance Prelude.AWSRequest CreateMatchmakingRuleSet where
+  type
+    Rs CreateMatchmakingRuleSet =
+      CreateMatchmakingRuleSetResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateMatchmakingRuleSetResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..:> "RuleSet")
+      )
 
-instance Hashable CreateMatchmakingRuleSet where
+instance Prelude.Hashable CreateMatchmakingRuleSet
 
-instance NFData CreateMatchmakingRuleSet where
+instance Prelude.NFData CreateMatchmakingRuleSet
 
-instance ToHeaders CreateMatchmakingRuleSet where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("GameLift.CreateMatchmakingRuleSet" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders CreateMatchmakingRuleSet where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "GameLift.CreateMatchmakingRuleSet" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON CreateMatchmakingRuleSet where
-        toJSON CreateMatchmakingRuleSet'{..}
-          = object
-              (catMaybes
-                 [Just ("Name" .= _cmrsName),
-                  Just ("RuleSetBody" .= _cmrsRuleSetBody)])
+instance Prelude.ToJSON CreateMatchmakingRuleSet where
+  toJSON CreateMatchmakingRuleSet' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Tags" Prelude..=) Prelude.<$> tags,
+            Prelude.Just ("Name" Prelude..= name),
+            Prelude.Just ("RuleSetBody" Prelude..= ruleSetBody)
+          ]
+      )
 
-instance ToPath CreateMatchmakingRuleSet where
-        toPath = const "/"
+instance Prelude.ToPath CreateMatchmakingRuleSet where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateMatchmakingRuleSet where
-        toQuery = const mempty
+instance Prelude.ToQuery CreateMatchmakingRuleSet where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Represents the returned data in response to a request action.
+-- | Represents the returned data in response to a request operation.
 --
---
---
--- /See:/ 'createMatchmakingRuleSetResponse' smart constructor.
+-- /See:/ 'newCreateMatchmakingRuleSetResponse' smart constructor.
 data CreateMatchmakingRuleSetResponse = CreateMatchmakingRuleSetResponse'
-  { _cmrsrsResponseStatus :: !Int
-  , _cmrsrsRuleSet        :: !MatchmakingRuleSet
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The newly created matchmaking rule set.
+    ruleSet :: MatchmakingRuleSet
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateMatchmakingRuleSetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateMatchmakingRuleSetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cmrsrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cmrsrsRuleSet' - Object that describes the newly created matchmaking rule set.
-createMatchmakingRuleSetResponse
-    :: Int -- ^ 'cmrsrsResponseStatus'
-    -> MatchmakingRuleSet -- ^ 'cmrsrsRuleSet'
-    -> CreateMatchmakingRuleSetResponse
-createMatchmakingRuleSetResponse pResponseStatus_ pRuleSet_ =
-  CreateMatchmakingRuleSetResponse'
-    {_cmrsrsResponseStatus = pResponseStatus_, _cmrsrsRuleSet = pRuleSet_}
+-- 'httpStatus', 'createMatchmakingRuleSetResponse_httpStatus' - The response's http status code.
+--
+-- 'ruleSet', 'createMatchmakingRuleSetResponse_ruleSet' - The newly created matchmaking rule set.
+newCreateMatchmakingRuleSetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'ruleSet'
+  MatchmakingRuleSet ->
+  CreateMatchmakingRuleSetResponse
+newCreateMatchmakingRuleSetResponse
+  pHttpStatus_
+  pRuleSet_ =
+    CreateMatchmakingRuleSetResponse'
+      { httpStatus =
+          pHttpStatus_,
+        ruleSet = pRuleSet_
+      }
 
+-- | The response's http status code.
+createMatchmakingRuleSetResponse_httpStatus :: Lens.Lens' CreateMatchmakingRuleSetResponse Prelude.Int
+createMatchmakingRuleSetResponse_httpStatus = Lens.lens (\CreateMatchmakingRuleSetResponse' {httpStatus} -> httpStatus) (\s@CreateMatchmakingRuleSetResponse' {} a -> s {httpStatus = a} :: CreateMatchmakingRuleSetResponse)
 
--- | -- | The response status code.
-cmrsrsResponseStatus :: Lens' CreateMatchmakingRuleSetResponse Int
-cmrsrsResponseStatus = lens _cmrsrsResponseStatus (\ s a -> s{_cmrsrsResponseStatus = a})
+-- | The newly created matchmaking rule set.
+createMatchmakingRuleSetResponse_ruleSet :: Lens.Lens' CreateMatchmakingRuleSetResponse MatchmakingRuleSet
+createMatchmakingRuleSetResponse_ruleSet = Lens.lens (\CreateMatchmakingRuleSetResponse' {ruleSet} -> ruleSet) (\s@CreateMatchmakingRuleSetResponse' {} a -> s {ruleSet = a} :: CreateMatchmakingRuleSetResponse)
 
--- | Object that describes the newly created matchmaking rule set.
-cmrsrsRuleSet :: Lens' CreateMatchmakingRuleSetResponse MatchmakingRuleSet
-cmrsrsRuleSet = lens _cmrsrsRuleSet (\ s a -> s{_cmrsrsRuleSet = a})
-
-instance NFData CreateMatchmakingRuleSetResponse
-         where
+instance
+  Prelude.NFData
+    CreateMatchmakingRuleSetResponse

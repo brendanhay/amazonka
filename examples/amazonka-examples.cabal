@@ -1,3 +1,4 @@
+cabal-version:      2.2
 name:                  amazonka-examples
 version:               1.6.1
 synopsis:              Basic examples for various amazonka libraries.
@@ -9,7 +10,7 @@ maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 copyright:             Copyright (c) 2013-2017 Brendan Hay
 build-type:            Simple
 extra-source-files:    README.md
-cabal-version:         >= 1.10
+
 
 source-repository head
     type:              git

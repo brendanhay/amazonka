@@ -1,129 +1,148 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectoryService.GetDirectoryLimits
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Obtains directory limit information for the current region.
---
---
+-- Obtains directory limit information for the current Region.
 module Network.AWS.DirectoryService.GetDirectoryLimits
-    (
-    -- * Creating a Request
-      getDirectoryLimits
-    , GetDirectoryLimits
+  ( -- * Creating a Request
+    GetDirectoryLimits (..),
+    newGetDirectoryLimits,
 
     -- * Destructuring the Response
-    , getDirectoryLimitsResponse
-    , GetDirectoryLimitsResponse
+    GetDirectoryLimitsResponse (..),
+    newGetDirectoryLimitsResponse,
+
     -- * Response Lenses
-    , gdlrsDirectoryLimits
-    , gdlrsResponseStatus
-    ) where
+    getDirectoryLimitsResponse_directoryLimits,
+    getDirectoryLimitsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the inputs for the 'GetDirectoryLimits' operation.
+-- | Contains the inputs for the GetDirectoryLimits operation.
 --
+-- /See:/ 'newGetDirectoryLimits' smart constructor.
+data GetDirectoryLimits = GetDirectoryLimits'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetDirectoryLimits' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newGetDirectoryLimits ::
+  GetDirectoryLimits
+newGetDirectoryLimits = GetDirectoryLimits'
+
+instance Prelude.AWSRequest GetDirectoryLimits where
+  type
+    Rs GetDirectoryLimits =
+      GetDirectoryLimitsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetDirectoryLimitsResponse'
+            Prelude.<$> (x Prelude..?> "DirectoryLimits")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetDirectoryLimits
+
+instance Prelude.NFData GetDirectoryLimits
+
+instance Prelude.ToHeaders GetDirectoryLimits where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "DirectoryService_20150416.GetDirectoryLimits" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON GetDirectoryLimits where
+  toJSON =
+    Prelude.const (Prelude.Object Prelude.mempty)
+
+instance Prelude.ToPath GetDirectoryLimits where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery GetDirectoryLimits where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Contains the results of the GetDirectoryLimits operation.
 --
--- /See:/ 'getDirectoryLimits' smart constructor.
-data GetDirectoryLimits =
-  GetDirectoryLimits'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetDirectoryLimits' with the minimum fields required to make a request.
---
-getDirectoryLimits
-    :: GetDirectoryLimits
-getDirectoryLimits = GetDirectoryLimits'
-
-
-instance AWSRequest GetDirectoryLimits where
-        type Rs GetDirectoryLimits =
-             GetDirectoryLimitsResponse
-        request = postJSON directoryService
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetDirectoryLimitsResponse' <$>
-                   (x .?> "DirectoryLimits") <*> (pure (fromEnum s)))
-
-instance Hashable GetDirectoryLimits where
-
-instance NFData GetDirectoryLimits where
-
-instance ToHeaders GetDirectoryLimits where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DirectoryService_20150416.GetDirectoryLimits" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON GetDirectoryLimits where
-        toJSON = const (Object mempty)
-
-instance ToPath GetDirectoryLimits where
-        toPath = const "/"
-
-instance ToQuery GetDirectoryLimits where
-        toQuery = const mempty
-
--- | Contains the results of the 'GetDirectoryLimits' operation.
---
---
---
--- /See:/ 'getDirectoryLimitsResponse' smart constructor.
+-- /See:/ 'newGetDirectoryLimitsResponse' smart constructor.
 data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
-  { _gdlrsDirectoryLimits :: !(Maybe DirectoryLimits)
-  , _gdlrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A DirectoryLimits object that contains the directory limits for the
+    -- current rRegion.
+    directoryLimits :: Prelude.Maybe DirectoryLimits,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetDirectoryLimitsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDirectoryLimitsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdlrsDirectoryLimits' - A 'DirectoryLimits' object that contains the directory limits for the current region.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gdlrsResponseStatus' - -- | The response status code.
-getDirectoryLimitsResponse
-    :: Int -- ^ 'gdlrsResponseStatus'
-    -> GetDirectoryLimitsResponse
-getDirectoryLimitsResponse pResponseStatus_ =
+-- 'directoryLimits', 'getDirectoryLimitsResponse_directoryLimits' - A DirectoryLimits object that contains the directory limits for the
+-- current rRegion.
+--
+-- 'httpStatus', 'getDirectoryLimitsResponse_httpStatus' - The response's http status code.
+newGetDirectoryLimitsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetDirectoryLimitsResponse
+newGetDirectoryLimitsResponse pHttpStatus_ =
   GetDirectoryLimitsResponse'
-    {_gdlrsDirectoryLimits = Nothing, _gdlrsResponseStatus = pResponseStatus_}
+    { directoryLimits =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | A DirectoryLimits object that contains the directory limits for the
+-- current rRegion.
+getDirectoryLimitsResponse_directoryLimits :: Lens.Lens' GetDirectoryLimitsResponse (Prelude.Maybe DirectoryLimits)
+getDirectoryLimitsResponse_directoryLimits = Lens.lens (\GetDirectoryLimitsResponse' {directoryLimits} -> directoryLimits) (\s@GetDirectoryLimitsResponse' {} a -> s {directoryLimits = a} :: GetDirectoryLimitsResponse)
 
--- | A 'DirectoryLimits' object that contains the directory limits for the current region.
-gdlrsDirectoryLimits :: Lens' GetDirectoryLimitsResponse (Maybe DirectoryLimits)
-gdlrsDirectoryLimits = lens _gdlrsDirectoryLimits (\ s a -> s{_gdlrsDirectoryLimits = a})
+-- | The response's http status code.
+getDirectoryLimitsResponse_httpStatus :: Lens.Lens' GetDirectoryLimitsResponse Prelude.Int
+getDirectoryLimitsResponse_httpStatus = Lens.lens (\GetDirectoryLimitsResponse' {httpStatus} -> httpStatus) (\s@GetDirectoryLimitsResponse' {} a -> s {httpStatus = a} :: GetDirectoryLimitsResponse)
 
--- | -- | The response status code.
-gdlrsResponseStatus :: Lens' GetDirectoryLimitsResponse Int
-gdlrsResponseStatus = lens _gdlrsResponseStatus (\ s a -> s{_gdlrsResponseStatus = a})
-
-instance NFData GetDirectoryLimitsResponse where
+instance Prelude.NFData GetDirectoryLimitsResponse

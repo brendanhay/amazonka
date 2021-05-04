@@ -1,163 +1,204 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SWF.DescribeDomain
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the specified domain, including description and status.
---
+-- Returns information about the specified domain, including description
+-- and status.
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this action\'s access to Amazon SWF
+-- resources as follows:
 --
---     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
 --
---     * Use an @Action@ element to allow or deny permission to call this action.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
 --
---     * You cannot use an IAM policy to constrain this action's parameters.
+-- -   You cannot use an IAM policy to constrain this action\'s parameters.
 --
---
---
--- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
---
+-- If the caller doesn\'t have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s @cause@ parameter is set
+-- to @OPERATION_NOT_PERMITTED@. For details and example IAM policies, see
+-- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>
+-- in the /Amazon SWF Developer Guide/.
 module Network.AWS.SWF.DescribeDomain
-    (
-    -- * Creating a Request
-      describeDomain
-    , DescribeDomain
+  ( -- * Creating a Request
+    DescribeDomain (..),
+    newDescribeDomain,
+
     -- * Request Lenses
-    , ddName
+    describeDomain_name,
 
     -- * Destructuring the Response
-    , describeDomainResponse
-    , DescribeDomainResponse
+    DescribeDomainResponse (..),
+    newDescribeDomainResponse,
+
     -- * Response Lenses
-    , ddrsResponseStatus
-    , ddrsDomainInfo
-    , ddrsConfiguration
-    ) where
+    describeDomainResponse_httpStatus,
+    describeDomainResponse_domainInfo,
+    describeDomainResponse_configuration,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
-import Network.AWS.SWF.Types.Product
 
--- | /See:/ 'describeDomain' smart constructor.
-newtype DescribeDomain = DescribeDomain'
-  { _ddName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeDomain' smart constructor.
+data DescribeDomain = DescribeDomain'
+  { -- | The name of the domain to describe.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDomain' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDomain' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddName' - The name of the domain to describe.
-describeDomain
-    :: Text -- ^ 'ddName'
-    -> DescribeDomain
-describeDomain pName_ = DescribeDomain' {_ddName = pName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'describeDomain_name' - The name of the domain to describe.
+newDescribeDomain ::
+  -- | 'name'
+  Prelude.Text ->
+  DescribeDomain
+newDescribeDomain pName_ =
+  DescribeDomain' {name = pName_}
 
 -- | The name of the domain to describe.
-ddName :: Lens' DescribeDomain Text
-ddName = lens _ddName (\ s a -> s{_ddName = a})
+describeDomain_name :: Lens.Lens' DescribeDomain Prelude.Text
+describeDomain_name = Lens.lens (\DescribeDomain' {name} -> name) (\s@DescribeDomain' {} a -> s {name = a} :: DescribeDomain)
 
-instance AWSRequest DescribeDomain where
-        type Rs DescribeDomain = DescribeDomainResponse
-        request = postJSON swf
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeDomainResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "domainInfo") <*>
-                     (x .:> "configuration"))
+instance Prelude.AWSRequest DescribeDomain where
+  type Rs DescribeDomain = DescribeDomainResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeDomainResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..:> "domainInfo")
+            Prelude.<*> (x Prelude..:> "configuration")
+      )
 
-instance Hashable DescribeDomain where
+instance Prelude.Hashable DescribeDomain
 
-instance NFData DescribeDomain where
+instance Prelude.NFData DescribeDomain
 
-instance ToHeaders DescribeDomain where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("SimpleWorkflowService.DescribeDomain" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.0" :: ByteString)])
+instance Prelude.ToHeaders DescribeDomain where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "SimpleWorkflowService.DescribeDomain" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.0" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DescribeDomain where
-        toJSON DescribeDomain'{..}
-          = object (catMaybes [Just ("name" .= _ddName)])
+instance Prelude.ToJSON DescribeDomain where
+  toJSON DescribeDomain' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("name" Prelude..= name)]
+      )
 
-instance ToPath DescribeDomain where
-        toPath = const "/"
+instance Prelude.ToPath DescribeDomain where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeDomain where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeDomain where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains details of a domain.
 --
---
---
--- /See:/ 'describeDomainResponse' smart constructor.
+-- /See:/ 'newDescribeDomainResponse' smart constructor.
 data DescribeDomainResponse = DescribeDomainResponse'
-  { _ddrsResponseStatus :: !Int
-  , _ddrsDomainInfo     :: !DomainInfo
-  , _ddrsConfiguration  :: !DomainConfiguration
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The basic information about a domain, such as its name, status, and
+    -- description.
+    domainInfo :: DomainInfo,
+    -- | The domain configuration. Currently, this includes only the domain\'s
+    -- retention period.
+    configuration :: DomainConfiguration
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeDomainResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeDomainResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddrsDomainInfo' - The basic information about a domain, such as its name, status, and description.
+-- 'httpStatus', 'describeDomainResponse_httpStatus' - The response's http status code.
 --
--- * 'ddrsConfiguration' - The domain configuration. Currently, this includes only the domain's retention period.
-describeDomainResponse
-    :: Int -- ^ 'ddrsResponseStatus'
-    -> DomainInfo -- ^ 'ddrsDomainInfo'
-    -> DomainConfiguration -- ^ 'ddrsConfiguration'
-    -> DescribeDomainResponse
-describeDomainResponse pResponseStatus_ pDomainInfo_ pConfiguration_ =
-  DescribeDomainResponse'
-    { _ddrsResponseStatus = pResponseStatus_
-    , _ddrsDomainInfo = pDomainInfo_
-    , _ddrsConfiguration = pConfiguration_
-    }
+-- 'domainInfo', 'describeDomainResponse_domainInfo' - The basic information about a domain, such as its name, status, and
+-- description.
+--
+-- 'configuration', 'describeDomainResponse_configuration' - The domain configuration. Currently, this includes only the domain\'s
+-- retention period.
+newDescribeDomainResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'domainInfo'
+  DomainInfo ->
+  -- | 'configuration'
+  DomainConfiguration ->
+  DescribeDomainResponse
+newDescribeDomainResponse
+  pHttpStatus_
+  pDomainInfo_
+  pConfiguration_ =
+    DescribeDomainResponse'
+      { httpStatus = pHttpStatus_,
+        domainInfo = pDomainInfo_,
+        configuration = pConfiguration_
+      }
 
+-- | The response's http status code.
+describeDomainResponse_httpStatus :: Lens.Lens' DescribeDomainResponse Prelude.Int
+describeDomainResponse_httpStatus = Lens.lens (\DescribeDomainResponse' {httpStatus} -> httpStatus) (\s@DescribeDomainResponse' {} a -> s {httpStatus = a} :: DescribeDomainResponse)
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DescribeDomainResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
+-- | The basic information about a domain, such as its name, status, and
+-- description.
+describeDomainResponse_domainInfo :: Lens.Lens' DescribeDomainResponse DomainInfo
+describeDomainResponse_domainInfo = Lens.lens (\DescribeDomainResponse' {domainInfo} -> domainInfo) (\s@DescribeDomainResponse' {} a -> s {domainInfo = a} :: DescribeDomainResponse)
 
--- | The basic information about a domain, such as its name, status, and description.
-ddrsDomainInfo :: Lens' DescribeDomainResponse DomainInfo
-ddrsDomainInfo = lens _ddrsDomainInfo (\ s a -> s{_ddrsDomainInfo = a})
+-- | The domain configuration. Currently, this includes only the domain\'s
+-- retention period.
+describeDomainResponse_configuration :: Lens.Lens' DescribeDomainResponse DomainConfiguration
+describeDomainResponse_configuration = Lens.lens (\DescribeDomainResponse' {configuration} -> configuration) (\s@DescribeDomainResponse' {} a -> s {configuration = a} :: DescribeDomainResponse)
 
--- | The domain configuration. Currently, this includes only the domain's retention period.
-ddrsConfiguration :: Lens' DescribeDomainResponse DomainConfiguration
-ddrsConfiguration = lens _ddrsConfiguration (\ s a -> s{_ddrsConfiguration = a})
-
-instance NFData DescribeDomainResponse where
+instance Prelude.NFData DescribeDomainResponse

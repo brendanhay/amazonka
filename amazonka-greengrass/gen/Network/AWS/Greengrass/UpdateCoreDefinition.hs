@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateCoreDefinition
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,112 +23,139 @@
 --
 -- Updates a core definition.
 module Network.AWS.Greengrass.UpdateCoreDefinition
-    (
-    -- * Creating a Request
-      updateCoreDefinition
-    , UpdateCoreDefinition
+  ( -- * Creating a Request
+    UpdateCoreDefinition (..),
+    newUpdateCoreDefinition,
+
     -- * Request Lenses
-    , ucdName
-    , ucdCoreDefinitionId
+    updateCoreDefinition_name,
+    updateCoreDefinition_coreDefinitionId,
 
     -- * Destructuring the Response
-    , updateCoreDefinitionResponse
-    , UpdateCoreDefinitionResponse
+    UpdateCoreDefinitionResponse (..),
+    newUpdateCoreDefinitionResponse,
+
     -- * Response Lenses
-    , ucdrsResponseStatus
-    ) where
+    updateCoreDefinitionResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateCoreDefinition' smart constructor.
+-- | /See:/ 'newUpdateCoreDefinition' smart constructor.
 data UpdateCoreDefinition = UpdateCoreDefinition'
-  { _ucdName             :: !(Maybe Text)
-  , _ucdCoreDefinitionId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the definition.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the core definition.
+    coreDefinitionId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateCoreDefinition' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateCoreDefinition' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ucdName' - The name of the definition.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ucdCoreDefinitionId' - The ID of the core definition.
-updateCoreDefinition
-    :: Text -- ^ 'ucdCoreDefinitionId'
-    -> UpdateCoreDefinition
-updateCoreDefinition pCoreDefinitionId_ =
+-- 'name', 'updateCoreDefinition_name' - The name of the definition.
+--
+-- 'coreDefinitionId', 'updateCoreDefinition_coreDefinitionId' - The ID of the core definition.
+newUpdateCoreDefinition ::
+  -- | 'coreDefinitionId'
+  Prelude.Text ->
+  UpdateCoreDefinition
+newUpdateCoreDefinition pCoreDefinitionId_ =
   UpdateCoreDefinition'
-    {_ucdName = Nothing, _ucdCoreDefinitionId = pCoreDefinitionId_}
-
+    { name = Prelude.Nothing,
+      coreDefinitionId = pCoreDefinitionId_
+    }
 
 -- | The name of the definition.
-ucdName :: Lens' UpdateCoreDefinition (Maybe Text)
-ucdName = lens _ucdName (\ s a -> s{_ucdName = a})
+updateCoreDefinition_name :: Lens.Lens' UpdateCoreDefinition (Prelude.Maybe Prelude.Text)
+updateCoreDefinition_name = Lens.lens (\UpdateCoreDefinition' {name} -> name) (\s@UpdateCoreDefinition' {} a -> s {name = a} :: UpdateCoreDefinition)
 
 -- | The ID of the core definition.
-ucdCoreDefinitionId :: Lens' UpdateCoreDefinition Text
-ucdCoreDefinitionId = lens _ucdCoreDefinitionId (\ s a -> s{_ucdCoreDefinitionId = a})
+updateCoreDefinition_coreDefinitionId :: Lens.Lens' UpdateCoreDefinition Prelude.Text
+updateCoreDefinition_coreDefinitionId = Lens.lens (\UpdateCoreDefinition' {coreDefinitionId} -> coreDefinitionId) (\s@UpdateCoreDefinition' {} a -> s {coreDefinitionId = a} :: UpdateCoreDefinition)
 
-instance AWSRequest UpdateCoreDefinition where
-        type Rs UpdateCoreDefinition =
-             UpdateCoreDefinitionResponse
-        request = putJSON greengrass
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateCoreDefinitionResponse' <$>
-                   (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateCoreDefinition where
+  type
+    Rs UpdateCoreDefinition =
+      UpdateCoreDefinitionResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateCoreDefinitionResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateCoreDefinition where
+instance Prelude.Hashable UpdateCoreDefinition
 
-instance NFData UpdateCoreDefinition where
+instance Prelude.NFData UpdateCoreDefinition
 
-instance ToHeaders UpdateCoreDefinition where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdateCoreDefinition where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateCoreDefinition where
-        toJSON UpdateCoreDefinition'{..}
-          = object (catMaybes [("Name" .=) <$> _ucdName])
+instance Prelude.ToJSON UpdateCoreDefinition where
+  toJSON UpdateCoreDefinition' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [("Name" Prelude..=) Prelude.<$> name]
+      )
 
-instance ToPath UpdateCoreDefinition where
-        toPath UpdateCoreDefinition'{..}
-          = mconcat
-              ["/greengrass/definition/cores/",
-               toBS _ucdCoreDefinitionId]
+instance Prelude.ToPath UpdateCoreDefinition where
+  toPath UpdateCoreDefinition' {..} =
+    Prelude.mconcat
+      [ "/greengrass/definition/cores/",
+        Prelude.toBS coreDefinitionId
+      ]
 
-instance ToQuery UpdateCoreDefinition where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateCoreDefinition where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateCoreDefinitionResponse' smart constructor.
-newtype UpdateCoreDefinitionResponse = UpdateCoreDefinitionResponse'
-  { _ucdrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateCoreDefinitionResponse' smart constructor.
+data UpdateCoreDefinitionResponse = UpdateCoreDefinitionResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateCoreDefinitionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateCoreDefinitionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ucdrsResponseStatus' - -- | The response status code.
-updateCoreDefinitionResponse
-    :: Int -- ^ 'ucdrsResponseStatus'
-    -> UpdateCoreDefinitionResponse
-updateCoreDefinitionResponse pResponseStatus_ =
-  UpdateCoreDefinitionResponse' {_ucdrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateCoreDefinitionResponse_httpStatus' - The response's http status code.
+newUpdateCoreDefinitionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateCoreDefinitionResponse
+newUpdateCoreDefinitionResponse pHttpStatus_ =
+  UpdateCoreDefinitionResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+updateCoreDefinitionResponse_httpStatus :: Lens.Lens' UpdateCoreDefinitionResponse Prelude.Int
+updateCoreDefinitionResponse_httpStatus = Lens.lens (\UpdateCoreDefinitionResponse' {httpStatus} -> httpStatus) (\s@UpdateCoreDefinitionResponse' {} a -> s {httpStatus = a} :: UpdateCoreDefinitionResponse)
 
--- | -- | The response status code.
-ucdrsResponseStatus :: Lens' UpdateCoreDefinitionResponse Int
-ucdrsResponseStatus = lens _ucdrsResponseStatus (\ s a -> s{_ucdrsResponseStatus = a})
-
-instance NFData UpdateCoreDefinitionResponse where
+instance Prelude.NFData UpdateCoreDefinitionResponse

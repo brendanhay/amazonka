@@ -1,147 +1,177 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkMail.ResetPassword
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Allows the administrator to reset the password for a user.
---
---
 module Network.AWS.WorkMail.ResetPassword
-    (
-    -- * Creating a Request
-      resetPassword
-    , ResetPassword
+  ( -- * Creating a Request
+    ResetPassword (..),
+    newResetPassword,
+
     -- * Request Lenses
-    , rpOrganizationId
-    , rpUserId
-    , rpPassword
+    resetPassword_organizationId,
+    resetPassword_userId,
+    resetPassword_password,
 
     -- * Destructuring the Response
-    , resetPasswordResponse
-    , ResetPasswordResponse
+    ResetPasswordResponse (..),
+    newResetPasswordResponse,
+
     -- * Response Lenses
-    , rprsResponseStatus
-    ) where
+    resetPasswordResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
-import Network.AWS.WorkMail.Types.Product
 
--- | /See:/ 'resetPassword' smart constructor.
+-- | /See:/ 'newResetPassword' smart constructor.
 data ResetPassword = ResetPassword'
-  { _rpOrganizationId :: !Text
-  , _rpUserId         :: !Text
-  , _rpPassword       :: !(Sensitive Text)
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The identifier of the organization that contains the user for which the
+    -- password is reset.
+    organizationId :: Prelude.Text,
+    -- | The identifier of the user for whom the password is reset.
+    userId :: Prelude.Text,
+    -- | The new password for the user.
+    password :: Prelude.Sensitive Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ResetPassword' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ResetPassword' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rpOrganizationId' - The identifier of the organization that contains the user for which the password is reset.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rpUserId' - The identifier of the user for whom the password is reset.
+-- 'organizationId', 'resetPassword_organizationId' - The identifier of the organization that contains the user for which the
+-- password is reset.
 --
--- * 'rpPassword' - The new password for the user.
-resetPassword
-    :: Text -- ^ 'rpOrganizationId'
-    -> Text -- ^ 'rpUserId'
-    -> Text -- ^ 'rpPassword'
-    -> ResetPassword
-resetPassword pOrganizationId_ pUserId_ pPassword_ =
+-- 'userId', 'resetPassword_userId' - The identifier of the user for whom the password is reset.
+--
+-- 'password', 'resetPassword_password' - The new password for the user.
+newResetPassword ::
+  -- | 'organizationId'
+  Prelude.Text ->
+  -- | 'userId'
+  Prelude.Text ->
+  -- | 'password'
+  Prelude.Text ->
+  ResetPassword
+newResetPassword pOrganizationId_ pUserId_ pPassword_ =
   ResetPassword'
-    { _rpOrganizationId = pOrganizationId_
-    , _rpUserId = pUserId_
-    , _rpPassword = _Sensitive # pPassword_
+    { organizationId = pOrganizationId_,
+      userId = pUserId_,
+      password = Prelude._Sensitive Lens.# pPassword_
     }
 
-
--- | The identifier of the organization that contains the user for which the password is reset.
-rpOrganizationId :: Lens' ResetPassword Text
-rpOrganizationId = lens _rpOrganizationId (\ s a -> s{_rpOrganizationId = a})
+-- | The identifier of the organization that contains the user for which the
+-- password is reset.
+resetPassword_organizationId :: Lens.Lens' ResetPassword Prelude.Text
+resetPassword_organizationId = Lens.lens (\ResetPassword' {organizationId} -> organizationId) (\s@ResetPassword' {} a -> s {organizationId = a} :: ResetPassword)
 
 -- | The identifier of the user for whom the password is reset.
-rpUserId :: Lens' ResetPassword Text
-rpUserId = lens _rpUserId (\ s a -> s{_rpUserId = a})
+resetPassword_userId :: Lens.Lens' ResetPassword Prelude.Text
+resetPassword_userId = Lens.lens (\ResetPassword' {userId} -> userId) (\s@ResetPassword' {} a -> s {userId = a} :: ResetPassword)
 
 -- | The new password for the user.
-rpPassword :: Lens' ResetPassword Text
-rpPassword = lens _rpPassword (\ s a -> s{_rpPassword = a}) . _Sensitive
+resetPassword_password :: Lens.Lens' ResetPassword Prelude.Text
+resetPassword_password = Lens.lens (\ResetPassword' {password} -> password) (\s@ResetPassword' {} a -> s {password = a} :: ResetPassword) Prelude.. Prelude._Sensitive
 
-instance AWSRequest ResetPassword where
-        type Rs ResetPassword = ResetPasswordResponse
-        request = postJSON workMail
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 ResetPasswordResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest ResetPassword where
+  type Rs ResetPassword = ResetPasswordResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          ResetPasswordResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ResetPassword where
+instance Prelude.Hashable ResetPassword
 
-instance NFData ResetPassword where
+instance Prelude.NFData ResetPassword
 
-instance ToHeaders ResetPassword where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("WorkMailService.ResetPassword" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders ResetPassword where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "WorkMailService.ResetPassword" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON ResetPassword where
-        toJSON ResetPassword'{..}
-          = object
-              (catMaybes
-                 [Just ("OrganizationId" .= _rpOrganizationId),
-                  Just ("UserId" .= _rpUserId),
-                  Just ("Password" .= _rpPassword)])
+instance Prelude.ToJSON ResetPassword where
+  toJSON ResetPassword' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("OrganizationId" Prelude..= organizationId),
+            Prelude.Just ("UserId" Prelude..= userId),
+            Prelude.Just ("Password" Prelude..= password)
+          ]
+      )
 
-instance ToPath ResetPassword where
-        toPath = const "/"
+instance Prelude.ToPath ResetPassword where
+  toPath = Prelude.const "/"
 
-instance ToQuery ResetPassword where
-        toQuery = const mempty
+instance Prelude.ToQuery ResetPassword where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'resetPasswordResponse' smart constructor.
-newtype ResetPasswordResponse = ResetPasswordResponse'
-  { _rprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newResetPasswordResponse' smart constructor.
+data ResetPasswordResponse = ResetPasswordResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ResetPasswordResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ResetPasswordResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rprsResponseStatus' - -- | The response status code.
-resetPasswordResponse
-    :: Int -- ^ 'rprsResponseStatus'
-    -> ResetPasswordResponse
-resetPasswordResponse pResponseStatus_ =
-  ResetPasswordResponse' {_rprsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'resetPasswordResponse_httpStatus' - The response's http status code.
+newResetPasswordResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ResetPasswordResponse
+newResetPasswordResponse pHttpStatus_ =
+  ResetPasswordResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+resetPasswordResponse_httpStatus :: Lens.Lens' ResetPasswordResponse Prelude.Int
+resetPasswordResponse_httpStatus = Lens.lens (\ResetPasswordResponse' {httpStatus} -> httpStatus) (\s@ResetPasswordResponse' {} a -> s {httpStatus = a} :: ResetPasswordResponse)
 
--- | -- | The response status code.
-rprsResponseStatus :: Lens' ResetPasswordResponse Int
-rprsResponseStatus = lens _rprsResponseStatus (\ s a -> s{_rprsResponseStatus = a})
-
-instance NFData ResetPasswordResponse where
+instance Prelude.NFData ResetPasswordResponse

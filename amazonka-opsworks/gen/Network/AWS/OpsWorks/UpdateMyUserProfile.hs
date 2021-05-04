@@ -1,111 +1,135 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateMyUserProfile
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a user's SSH public key.
+-- Updates a user\'s SSH public key.
 --
---
--- __Required Permissions__ : To use this action, an IAM user must have self-management enabled or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have
+-- self-management enabled or an attached policy that explicitly grants
+-- permissions. For more information about user permissions, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.UpdateMyUserProfile
-    (
-    -- * Creating a Request
-      updateMyUserProfile
-    , UpdateMyUserProfile
+  ( -- * Creating a Request
+    UpdateMyUserProfile (..),
+    newUpdateMyUserProfile,
+
     -- * Request Lenses
-    , umupSSHPublicKey
+    updateMyUserProfile_sshPublicKey,
 
     -- * Destructuring the Response
-    , updateMyUserProfileResponse
-    , UpdateMyUserProfileResponse
-    ) where
+    UpdateMyUserProfileResponse (..),
+    newUpdateMyUserProfileResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateMyUserProfile' smart constructor.
-newtype UpdateMyUserProfile = UpdateMyUserProfile'
-  { _umupSSHPublicKey :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateMyUserProfile' smart constructor.
+data UpdateMyUserProfile = UpdateMyUserProfile'
+  { -- | The user\'s SSH public key.
+    sshPublicKey :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateMyUserProfile' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateMyUserProfile' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'umupSSHPublicKey' - The user's SSH public key.
-updateMyUserProfile
-    :: UpdateMyUserProfile
-updateMyUserProfile = UpdateMyUserProfile' {_umupSSHPublicKey = Nothing}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'sshPublicKey', 'updateMyUserProfile_sshPublicKey' - The user\'s SSH public key.
+newUpdateMyUserProfile ::
+  UpdateMyUserProfile
+newUpdateMyUserProfile =
+  UpdateMyUserProfile'
+    { sshPublicKey =
+        Prelude.Nothing
+    }
 
+-- | The user\'s SSH public key.
+updateMyUserProfile_sshPublicKey :: Lens.Lens' UpdateMyUserProfile (Prelude.Maybe Prelude.Text)
+updateMyUserProfile_sshPublicKey = Lens.lens (\UpdateMyUserProfile' {sshPublicKey} -> sshPublicKey) (\s@UpdateMyUserProfile' {} a -> s {sshPublicKey = a} :: UpdateMyUserProfile)
 
--- | The user's SSH public key.
-umupSSHPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
-umupSSHPublicKey = lens _umupSSHPublicKey (\ s a -> s{_umupSSHPublicKey = a})
+instance Prelude.AWSRequest UpdateMyUserProfile where
+  type
+    Rs UpdateMyUserProfile =
+      UpdateMyUserProfileResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull UpdateMyUserProfileResponse'
 
-instance AWSRequest UpdateMyUserProfile where
-        type Rs UpdateMyUserProfile =
-             UpdateMyUserProfileResponse
-        request = postJSON opsWorks
-        response = receiveNull UpdateMyUserProfileResponse'
+instance Prelude.Hashable UpdateMyUserProfile
 
-instance Hashable UpdateMyUserProfile where
+instance Prelude.NFData UpdateMyUserProfile
 
-instance NFData UpdateMyUserProfile where
+instance Prelude.ToHeaders UpdateMyUserProfile where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "OpsWorks_20130218.UpdateMyUserProfile" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders UpdateMyUserProfile where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.UpdateMyUserProfile" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON UpdateMyUserProfile where
+  toJSON UpdateMyUserProfile' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("SshPublicKey" Prelude..=)
+              Prelude.<$> sshPublicKey
+          ]
+      )
 
-instance ToJSON UpdateMyUserProfile where
-        toJSON UpdateMyUserProfile'{..}
-          = object
-              (catMaybes
-                 [("SshPublicKey" .=) <$> _umupSSHPublicKey])
+instance Prelude.ToPath UpdateMyUserProfile where
+  toPath = Prelude.const "/"
 
-instance ToPath UpdateMyUserProfile where
-        toPath = const "/"
+instance Prelude.ToQuery UpdateMyUserProfile where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery UpdateMyUserProfile where
-        toQuery = const mempty
+-- | /See:/ 'newUpdateMyUserProfileResponse' smart constructor.
+data UpdateMyUserProfileResponse = UpdateMyUserProfileResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
--- | /See:/ 'updateMyUserProfileResponse' smart constructor.
-data UpdateMyUserProfileResponse =
+-- |
+-- Create a value of 'UpdateMyUserProfileResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newUpdateMyUserProfileResponse ::
+  UpdateMyUserProfileResponse
+newUpdateMyUserProfileResponse =
   UpdateMyUserProfileResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'UpdateMyUserProfileResponse' with the minimum fields required to make a request.
---
-updateMyUserProfileResponse
-    :: UpdateMyUserProfileResponse
-updateMyUserProfileResponse = UpdateMyUserProfileResponse'
-
-
-instance NFData UpdateMyUserProfileResponse where
+instance Prelude.NFData UpdateMyUserProfileResponse

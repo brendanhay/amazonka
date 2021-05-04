@@ -1,133 +1,169 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.DeleteWorkerBlock
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @DeleteWorkerBlock@ operation allows you to reinstate a blocked Worker to work on your HITs. This operation reverses the effects of the CreateWorkerBlock operation. You need the Worker ID to use this operation. If the Worker ID is missing or invalid, this operation fails and returns the message “WorkerId is invalid.” If the specified Worker is not blocked, this operation returns successfully.
---
---
+-- The @DeleteWorkerBlock@ operation allows you to reinstate a blocked
+-- Worker to work on your HITs. This operation reverses the effects of the
+-- CreateWorkerBlock operation. You need the Worker ID to use this
+-- operation. If the Worker ID is missing or invalid, this operation fails
+-- and returns the message “WorkerId is invalid.” If the specified Worker
+-- is not blocked, this operation returns successfully.
 module Network.AWS.MechanicalTurk.DeleteWorkerBlock
-    (
-    -- * Creating a Request
-      deleteWorkerBlock
-    , DeleteWorkerBlock
+  ( -- * Creating a Request
+    DeleteWorkerBlock (..),
+    newDeleteWorkerBlock,
+
     -- * Request Lenses
-    , dwbReason
-    , dwbWorkerId
+    deleteWorkerBlock_reason,
+    deleteWorkerBlock_workerId,
 
     -- * Destructuring the Response
-    , deleteWorkerBlockResponse
-    , DeleteWorkerBlockResponse
+    DeleteWorkerBlockResponse (..),
+    newDeleteWorkerBlockResponse,
+
     -- * Response Lenses
-    , dwbrsResponseStatus
-    ) where
+    deleteWorkerBlockResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.MechanicalTurk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteWorkerBlock' smart constructor.
+-- | /See:/ 'newDeleteWorkerBlock' smart constructor.
 data DeleteWorkerBlock = DeleteWorkerBlock'
-  { _dwbReason   :: !(Maybe Text)
-  , _dwbWorkerId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A message that explains the reason for unblocking the Worker. The Worker
+    -- does not see this message.
+    reason :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Worker to unblock.
+    workerId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteWorkerBlock' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteWorkerBlock' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dwbReason' - A message that explains the reason for unblocking the Worker. The Worker does not see this message.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dwbWorkerId' - The ID of the Worker to unblock.
-deleteWorkerBlock
-    :: Text -- ^ 'dwbWorkerId'
-    -> DeleteWorkerBlock
-deleteWorkerBlock pWorkerId_ =
-  DeleteWorkerBlock' {_dwbReason = Nothing, _dwbWorkerId = pWorkerId_}
+-- 'reason', 'deleteWorkerBlock_reason' - A message that explains the reason for unblocking the Worker. The Worker
+-- does not see this message.
+--
+-- 'workerId', 'deleteWorkerBlock_workerId' - The ID of the Worker to unblock.
+newDeleteWorkerBlock ::
+  -- | 'workerId'
+  Prelude.Text ->
+  DeleteWorkerBlock
+newDeleteWorkerBlock pWorkerId_ =
+  DeleteWorkerBlock'
+    { reason = Prelude.Nothing,
+      workerId = pWorkerId_
+    }
 
-
--- | A message that explains the reason for unblocking the Worker. The Worker does not see this message.
-dwbReason :: Lens' DeleteWorkerBlock (Maybe Text)
-dwbReason = lens _dwbReason (\ s a -> s{_dwbReason = a})
+-- | A message that explains the reason for unblocking the Worker. The Worker
+-- does not see this message.
+deleteWorkerBlock_reason :: Lens.Lens' DeleteWorkerBlock (Prelude.Maybe Prelude.Text)
+deleteWorkerBlock_reason = Lens.lens (\DeleteWorkerBlock' {reason} -> reason) (\s@DeleteWorkerBlock' {} a -> s {reason = a} :: DeleteWorkerBlock)
 
 -- | The ID of the Worker to unblock.
-dwbWorkerId :: Lens' DeleteWorkerBlock Text
-dwbWorkerId = lens _dwbWorkerId (\ s a -> s{_dwbWorkerId = a})
+deleteWorkerBlock_workerId :: Lens.Lens' DeleteWorkerBlock Prelude.Text
+deleteWorkerBlock_workerId = Lens.lens (\DeleteWorkerBlock' {workerId} -> workerId) (\s@DeleteWorkerBlock' {} a -> s {workerId = a} :: DeleteWorkerBlock)
 
-instance AWSRequest DeleteWorkerBlock where
-        type Rs DeleteWorkerBlock = DeleteWorkerBlockResponse
-        request = postJSON mechanicalTurk
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteWorkerBlockResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest DeleteWorkerBlock where
+  type Rs DeleteWorkerBlock = DeleteWorkerBlockResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteWorkerBlockResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteWorkerBlock where
+instance Prelude.Hashable DeleteWorkerBlock
 
-instance NFData DeleteWorkerBlock where
+instance Prelude.NFData DeleteWorkerBlock
 
-instance ToHeaders DeleteWorkerBlock where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("MTurkRequesterServiceV20170117.DeleteWorkerBlock"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DeleteWorkerBlock where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "MTurkRequesterServiceV20170117.DeleteWorkerBlock" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DeleteWorkerBlock where
-        toJSON DeleteWorkerBlock'{..}
-          = object
-              (catMaybes
-                 [("Reason" .=) <$> _dwbReason,
-                  Just ("WorkerId" .= _dwbWorkerId)])
+instance Prelude.ToJSON DeleteWorkerBlock where
+  toJSON DeleteWorkerBlock' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Reason" Prelude..=) Prelude.<$> reason,
+            Prelude.Just ("WorkerId" Prelude..= workerId)
+          ]
+      )
 
-instance ToPath DeleteWorkerBlock where
-        toPath = const "/"
+instance Prelude.ToPath DeleteWorkerBlock where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteWorkerBlock where
-        toQuery = const mempty
+instance Prelude.ToQuery DeleteWorkerBlock where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteWorkerBlockResponse' smart constructor.
-newtype DeleteWorkerBlockResponse = DeleteWorkerBlockResponse'
-  { _dwbrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteWorkerBlockResponse' smart constructor.
+data DeleteWorkerBlockResponse = DeleteWorkerBlockResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteWorkerBlockResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteWorkerBlockResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dwbrsResponseStatus' - -- | The response status code.
-deleteWorkerBlockResponse
-    :: Int -- ^ 'dwbrsResponseStatus'
-    -> DeleteWorkerBlockResponse
-deleteWorkerBlockResponse pResponseStatus_ =
-  DeleteWorkerBlockResponse' {_dwbrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteWorkerBlockResponse_httpStatus' - The response's http status code.
+newDeleteWorkerBlockResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteWorkerBlockResponse
+newDeleteWorkerBlockResponse pHttpStatus_ =
+  DeleteWorkerBlockResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteWorkerBlockResponse_httpStatus :: Lens.Lens' DeleteWorkerBlockResponse Prelude.Int
+deleteWorkerBlockResponse_httpStatus = Lens.lens (\DeleteWorkerBlockResponse' {httpStatus} -> httpStatus) (\s@DeleteWorkerBlockResponse' {} a -> s {httpStatus = a} :: DeleteWorkerBlockResponse)
 
--- | -- | The response status code.
-dwbrsResponseStatus :: Lens' DeleteWorkerBlockResponse Int
-dwbrsResponseStatus = lens _dwbrsResponseStatus (\ s a -> s{_dwbrsResponseStatus = a})
-
-instance NFData DeleteWorkerBlockResponse where
+instance Prelude.NFData DeleteWorkerBlockResponse

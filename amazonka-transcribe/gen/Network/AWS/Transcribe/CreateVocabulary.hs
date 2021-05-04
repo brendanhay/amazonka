@@ -1,198 +1,289 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Transcribe.CreateVocabulary
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file.
---
---
+-- Creates a new custom vocabulary that you can use to change the way
+-- Amazon Transcribe handles transcription of an audio file.
 module Network.AWS.Transcribe.CreateVocabulary
-    (
-    -- * Creating a Request
-      createVocabulary
-    , CreateVocabulary
+  ( -- * Creating a Request
+    CreateVocabulary (..),
+    newCreateVocabulary,
+
     -- * Request Lenses
-    , cvVocabularyName
-    , cvLanguageCode
-    , cvPhrases
+    createVocabulary_phrases,
+    createVocabulary_vocabularyFileUri,
+    createVocabulary_vocabularyName,
+    createVocabulary_languageCode,
 
     -- * Destructuring the Response
-    , createVocabularyResponse
-    , CreateVocabularyResponse
+    CreateVocabularyResponse (..),
+    newCreateVocabularyResponse,
+
     -- * Response Lenses
-    , cvrsFailureReason
-    , cvrsLanguageCode
-    , cvrsVocabularyName
-    , cvrsLastModifiedTime
-    , cvrsVocabularyState
-    , cvrsResponseStatus
-    ) where
+    createVocabularyResponse_languageCode,
+    createVocabularyResponse_failureReason,
+    createVocabularyResponse_lastModifiedTime,
+    createVocabularyResponse_vocabularyState,
+    createVocabularyResponse_vocabularyName,
+    createVocabularyResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Transcribe.Types
-import Network.AWS.Transcribe.Types.Product
 
--- | /See:/ 'createVocabulary' smart constructor.
+-- | /See:/ 'newCreateVocabulary' smart constructor.
 data CreateVocabulary = CreateVocabulary'
-  { _cvVocabularyName :: !Text
-  , _cvLanguageCode   :: !LanguageCode
-  , _cvPhrases        :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of strings that contains the vocabulary entries.
+    phrases :: Prelude.Maybe [Prelude.Text],
+    -- | The S3 location of the text file that contains the definition of the
+    -- custom vocabulary. The URI must be in the same region as the API
+    -- endpoint that you are calling. The general form is
+    --
+    -- For more information about S3 object names, see
+    -- <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
+    -- in the /Amazon S3 Developer Guide/.
+    --
+    -- For more information about custom vocabularies, see
+    -- <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies>.
+    vocabularyFileUri :: Prelude.Maybe Prelude.Text,
+    -- | The name of the vocabulary. The name must be unique within an AWS
+    -- account. The name is case sensitive. If you try to create a vocabulary
+    -- with the same name as a previous vocabulary you will receive a
+    -- @ConflictException@ error.
+    vocabularyName :: Prelude.Text,
+    -- | The language code of the vocabulary entries.
+    languageCode :: LanguageCode
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateVocabulary' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateVocabulary' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cvVocabularyName' - The name of the vocabulary. The name must be unique within an AWS account. The name is case-sensitive.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cvLanguageCode' - The language code of the vocabulary entries.
+-- 'phrases', 'createVocabulary_phrases' - An array of strings that contains the vocabulary entries.
 --
--- * 'cvPhrases' - An array of strings that contains the vocabulary entries.
-createVocabulary
-    :: Text -- ^ 'cvVocabularyName'
-    -> LanguageCode -- ^ 'cvLanguageCode'
-    -> CreateVocabulary
-createVocabulary pVocabularyName_ pLanguageCode_ =
+-- 'vocabularyFileUri', 'createVocabulary_vocabularyFileUri' - The S3 location of the text file that contains the definition of the
+-- custom vocabulary. The URI must be in the same region as the API
+-- endpoint that you are calling. The general form is
+--
+-- For more information about S3 object names, see
+-- <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
+-- in the /Amazon S3 Developer Guide/.
+--
+-- For more information about custom vocabularies, see
+-- <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies>.
+--
+-- 'vocabularyName', 'createVocabulary_vocabularyName' - The name of the vocabulary. The name must be unique within an AWS
+-- account. The name is case sensitive. If you try to create a vocabulary
+-- with the same name as a previous vocabulary you will receive a
+-- @ConflictException@ error.
+--
+-- 'languageCode', 'createVocabulary_languageCode' - The language code of the vocabulary entries.
+newCreateVocabulary ::
+  -- | 'vocabularyName'
+  Prelude.Text ->
+  -- | 'languageCode'
+  LanguageCode ->
+  CreateVocabulary
+newCreateVocabulary pVocabularyName_ pLanguageCode_ =
   CreateVocabulary'
-    { _cvVocabularyName = pVocabularyName_
-    , _cvLanguageCode = pLanguageCode_
-    , _cvPhrases = mempty
+    { phrases = Prelude.Nothing,
+      vocabularyFileUri = Prelude.Nothing,
+      vocabularyName = pVocabularyName_,
+      languageCode = pLanguageCode_
     }
-
-
--- | The name of the vocabulary. The name must be unique within an AWS account. The name is case-sensitive.
-cvVocabularyName :: Lens' CreateVocabulary Text
-cvVocabularyName = lens _cvVocabularyName (\ s a -> s{_cvVocabularyName = a})
-
--- | The language code of the vocabulary entries.
-cvLanguageCode :: Lens' CreateVocabulary LanguageCode
-cvLanguageCode = lens _cvLanguageCode (\ s a -> s{_cvLanguageCode = a})
 
 -- | An array of strings that contains the vocabulary entries.
-cvPhrases :: Lens' CreateVocabulary [Text]
-cvPhrases = lens _cvPhrases (\ s a -> s{_cvPhrases = a}) . _Coerce
+createVocabulary_phrases :: Lens.Lens' CreateVocabulary (Prelude.Maybe [Prelude.Text])
+createVocabulary_phrases = Lens.lens (\CreateVocabulary' {phrases} -> phrases) (\s@CreateVocabulary' {} a -> s {phrases = a} :: CreateVocabulary) Prelude.. Lens.mapping Prelude._Coerce
 
-instance AWSRequest CreateVocabulary where
-        type Rs CreateVocabulary = CreateVocabularyResponse
-        request = postJSON transcribe
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateVocabularyResponse' <$>
-                   (x .?> "FailureReason") <*> (x .?> "LanguageCode")
-                     <*> (x .?> "VocabularyName")
-                     <*> (x .?> "LastModifiedTime")
-                     <*> (x .?> "VocabularyState")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable CreateVocabulary where
-
-instance NFData CreateVocabulary where
-
-instance ToHeaders CreateVocabulary where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Transcribe.CreateVocabulary" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON CreateVocabulary where
-        toJSON CreateVocabulary'{..}
-          = object
-              (catMaybes
-                 [Just ("VocabularyName" .= _cvVocabularyName),
-                  Just ("LanguageCode" .= _cvLanguageCode),
-                  Just ("Phrases" .= _cvPhrases)])
-
-instance ToPath CreateVocabulary where
-        toPath = const "/"
-
-instance ToQuery CreateVocabulary where
-        toQuery = const mempty
-
--- | /See:/ 'createVocabularyResponse' smart constructor.
-data CreateVocabularyResponse = CreateVocabularyResponse'
-  { _cvrsFailureReason    :: !(Maybe Text)
-  , _cvrsLanguageCode     :: !(Maybe LanguageCode)
-  , _cvrsVocabularyName   :: !(Maybe Text)
-  , _cvrsLastModifiedTime :: !(Maybe POSIX)
-  , _cvrsVocabularyState  :: !(Maybe VocabularyState)
-  , _cvrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateVocabularyResponse' with the minimum fields required to make a request.
+-- | The S3 location of the text file that contains the definition of the
+-- custom vocabulary. The URI must be in the same region as the API
+-- endpoint that you are calling. The general form is
 --
--- Use one of the following lenses to modify other fields as desired:
+-- For more information about S3 object names, see
+-- <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
+-- in the /Amazon S3 Developer Guide/.
 --
--- * 'cvrsFailureReason' - If the @VocabularyState@ field is @FAILED@ , this field contains information about why the job failed.
---
--- * 'cvrsLanguageCode' - The language code of the vocabulary entries.
---
--- * 'cvrsVocabularyName' - The name of the vocabulary.
---
--- * 'cvrsLastModifiedTime' - The date and time that the vocabulary was created.
---
--- * 'cvrsVocabularyState' - The processing state of the vocabulary. When the @VocabularyState@ field contains @READY@ the vocabulary is ready to be used in a @StartTranscriptionJob@ request.
---
--- * 'cvrsResponseStatus' - -- | The response status code.
-createVocabularyResponse
-    :: Int -- ^ 'cvrsResponseStatus'
-    -> CreateVocabularyResponse
-createVocabularyResponse pResponseStatus_ =
-  CreateVocabularyResponse'
-    { _cvrsFailureReason = Nothing
-    , _cvrsLanguageCode = Nothing
-    , _cvrsVocabularyName = Nothing
-    , _cvrsLastModifiedTime = Nothing
-    , _cvrsVocabularyState = Nothing
-    , _cvrsResponseStatus = pResponseStatus_
-    }
+-- For more information about custom vocabularies, see
+-- <http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies>.
+createVocabulary_vocabularyFileUri :: Lens.Lens' CreateVocabulary (Prelude.Maybe Prelude.Text)
+createVocabulary_vocabularyFileUri = Lens.lens (\CreateVocabulary' {vocabularyFileUri} -> vocabularyFileUri) (\s@CreateVocabulary' {} a -> s {vocabularyFileUri = a} :: CreateVocabulary)
 
-
--- | If the @VocabularyState@ field is @FAILED@ , this field contains information about why the job failed.
-cvrsFailureReason :: Lens' CreateVocabularyResponse (Maybe Text)
-cvrsFailureReason = lens _cvrsFailureReason (\ s a -> s{_cvrsFailureReason = a})
+-- | The name of the vocabulary. The name must be unique within an AWS
+-- account. The name is case sensitive. If you try to create a vocabulary
+-- with the same name as a previous vocabulary you will receive a
+-- @ConflictException@ error.
+createVocabulary_vocabularyName :: Lens.Lens' CreateVocabulary Prelude.Text
+createVocabulary_vocabularyName = Lens.lens (\CreateVocabulary' {vocabularyName} -> vocabularyName) (\s@CreateVocabulary' {} a -> s {vocabularyName = a} :: CreateVocabulary)
 
 -- | The language code of the vocabulary entries.
-cvrsLanguageCode :: Lens' CreateVocabularyResponse (Maybe LanguageCode)
-cvrsLanguageCode = lens _cvrsLanguageCode (\ s a -> s{_cvrsLanguageCode = a})
+createVocabulary_languageCode :: Lens.Lens' CreateVocabulary LanguageCode
+createVocabulary_languageCode = Lens.lens (\CreateVocabulary' {languageCode} -> languageCode) (\s@CreateVocabulary' {} a -> s {languageCode = a} :: CreateVocabulary)
 
--- | The name of the vocabulary.
-cvrsVocabularyName :: Lens' CreateVocabularyResponse (Maybe Text)
-cvrsVocabularyName = lens _cvrsVocabularyName (\ s a -> s{_cvrsVocabularyName = a})
+instance Prelude.AWSRequest CreateVocabulary where
+  type Rs CreateVocabulary = CreateVocabularyResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateVocabularyResponse'
+            Prelude.<$> (x Prelude..?> "LanguageCode")
+            Prelude.<*> (x Prelude..?> "FailureReason")
+            Prelude.<*> (x Prelude..?> "LastModifiedTime")
+            Prelude.<*> (x Prelude..?> "VocabularyState")
+            Prelude.<*> (x Prelude..?> "VocabularyName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CreateVocabulary
+
+instance Prelude.NFData CreateVocabulary
+
+instance Prelude.ToHeaders CreateVocabulary where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "Transcribe.CreateVocabulary" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON CreateVocabulary where
+  toJSON CreateVocabulary' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Phrases" Prelude..=) Prelude.<$> phrases,
+            ("VocabularyFileUri" Prelude..=)
+              Prelude.<$> vocabularyFileUri,
+            Prelude.Just
+              ("VocabularyName" Prelude..= vocabularyName),
+            Prelude.Just
+              ("LanguageCode" Prelude..= languageCode)
+          ]
+      )
+
+instance Prelude.ToPath CreateVocabulary where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery CreateVocabulary where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateVocabularyResponse' smart constructor.
+data CreateVocabularyResponse = CreateVocabularyResponse'
+  { -- | The language code of the vocabulary entries.
+    languageCode :: Prelude.Maybe LanguageCode,
+    -- | If the @VocabularyState@ field is @FAILED@, this field contains
+    -- information about why the job failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the vocabulary was created.
+    lastModifiedTime :: Prelude.Maybe Prelude.POSIX,
+    -- | The processing state of the vocabulary. When the @VocabularyState@ field
+    -- contains @READY@ the vocabulary is ready to be used in a
+    -- @StartTranscriptionJob@ request.
+    vocabularyState :: Prelude.Maybe VocabularyState,
+    -- | The name of the vocabulary.
+    vocabularyName :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateVocabularyResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'languageCode', 'createVocabularyResponse_languageCode' - The language code of the vocabulary entries.
+--
+-- 'failureReason', 'createVocabularyResponse_failureReason' - If the @VocabularyState@ field is @FAILED@, this field contains
+-- information about why the job failed.
+--
+-- 'lastModifiedTime', 'createVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was created.
+--
+-- 'vocabularyState', 'createVocabularyResponse_vocabularyState' - The processing state of the vocabulary. When the @VocabularyState@ field
+-- contains @READY@ the vocabulary is ready to be used in a
+-- @StartTranscriptionJob@ request.
+--
+-- 'vocabularyName', 'createVocabularyResponse_vocabularyName' - The name of the vocabulary.
+--
+-- 'httpStatus', 'createVocabularyResponse_httpStatus' - The response's http status code.
+newCreateVocabularyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateVocabularyResponse
+newCreateVocabularyResponse pHttpStatus_ =
+  CreateVocabularyResponse'
+    { languageCode =
+        Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
+      vocabularyState = Prelude.Nothing,
+      vocabularyName = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The language code of the vocabulary entries.
+createVocabularyResponse_languageCode :: Lens.Lens' CreateVocabularyResponse (Prelude.Maybe LanguageCode)
+createVocabularyResponse_languageCode = Lens.lens (\CreateVocabularyResponse' {languageCode} -> languageCode) (\s@CreateVocabularyResponse' {} a -> s {languageCode = a} :: CreateVocabularyResponse)
+
+-- | If the @VocabularyState@ field is @FAILED@, this field contains
+-- information about why the job failed.
+createVocabularyResponse_failureReason :: Lens.Lens' CreateVocabularyResponse (Prelude.Maybe Prelude.Text)
+createVocabularyResponse_failureReason = Lens.lens (\CreateVocabularyResponse' {failureReason} -> failureReason) (\s@CreateVocabularyResponse' {} a -> s {failureReason = a} :: CreateVocabularyResponse)
 
 -- | The date and time that the vocabulary was created.
-cvrsLastModifiedTime :: Lens' CreateVocabularyResponse (Maybe UTCTime)
-cvrsLastModifiedTime = lens _cvrsLastModifiedTime (\ s a -> s{_cvrsLastModifiedTime = a}) . mapping _Time
+createVocabularyResponse_lastModifiedTime :: Lens.Lens' CreateVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
+createVocabularyResponse_lastModifiedTime = Lens.lens (\CreateVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateVocabularyResponse' {} a -> s {lastModifiedTime = a} :: CreateVocabularyResponse) Prelude.. Lens.mapping Prelude._Time
 
--- | The processing state of the vocabulary. When the @VocabularyState@ field contains @READY@ the vocabulary is ready to be used in a @StartTranscriptionJob@ request.
-cvrsVocabularyState :: Lens' CreateVocabularyResponse (Maybe VocabularyState)
-cvrsVocabularyState = lens _cvrsVocabularyState (\ s a -> s{_cvrsVocabularyState = a})
+-- | The processing state of the vocabulary. When the @VocabularyState@ field
+-- contains @READY@ the vocabulary is ready to be used in a
+-- @StartTranscriptionJob@ request.
+createVocabularyResponse_vocabularyState :: Lens.Lens' CreateVocabularyResponse (Prelude.Maybe VocabularyState)
+createVocabularyResponse_vocabularyState = Lens.lens (\CreateVocabularyResponse' {vocabularyState} -> vocabularyState) (\s@CreateVocabularyResponse' {} a -> s {vocabularyState = a} :: CreateVocabularyResponse)
 
--- | -- | The response status code.
-cvrsResponseStatus :: Lens' CreateVocabularyResponse Int
-cvrsResponseStatus = lens _cvrsResponseStatus (\ s a -> s{_cvrsResponseStatus = a})
+-- | The name of the vocabulary.
+createVocabularyResponse_vocabularyName :: Lens.Lens' CreateVocabularyResponse (Prelude.Maybe Prelude.Text)
+createVocabularyResponse_vocabularyName = Lens.lens (\CreateVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@CreateVocabularyResponse' {} a -> s {vocabularyName = a} :: CreateVocabularyResponse)
 
-instance NFData CreateVocabularyResponse where
+-- | The response's http status code.
+createVocabularyResponse_httpStatus :: Lens.Lens' CreateVocabularyResponse Prelude.Int
+createVocabularyResponse_httpStatus = Lens.lens (\CreateVocabularyResponse' {httpStatus} -> httpStatus) (\s@CreateVocabularyResponse' {} a -> s {httpStatus = a} :: CreateVocabularyResponse)
+
+instance Prelude.NFData CreateVocabularyResponse

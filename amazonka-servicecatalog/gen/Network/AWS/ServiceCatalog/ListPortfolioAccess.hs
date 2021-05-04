@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListPortfolioAccess
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,139 +23,234 @@
 --
 -- Lists the account IDs that have access to the specified portfolio.
 --
---
+-- A delegated admin can list the accounts that have access to the shared
+-- portfolio. Note that if a delegated admin is de-registered, they can no
+-- longer perform this operation.
 module Network.AWS.ServiceCatalog.ListPortfolioAccess
-    (
-    -- * Creating a Request
-      listPortfolioAccess
-    , ListPortfolioAccess
+  ( -- * Creating a Request
+    ListPortfolioAccess (..),
+    newListPortfolioAccess,
+
     -- * Request Lenses
-    , lAcceptLanguage
-    , lPortfolioId
+    listPortfolioAccess_pageSize,
+    listPortfolioAccess_pageToken,
+    listPortfolioAccess_organizationParentId,
+    listPortfolioAccess_acceptLanguage,
+    listPortfolioAccess_portfolioId,
 
     -- * Destructuring the Response
-    , listPortfolioAccessResponse
-    , ListPortfolioAccessResponse
+    ListPortfolioAccessResponse (..),
+    newListPortfolioAccessResponse,
+
     -- * Response Lenses
-    , lparsNextPageToken
-    , lparsAccountIds
-    , lparsResponseStatus
-    ) where
+    listPortfolioAccessResponse_accountIds,
+    listPortfolioAccessResponse_nextPageToken,
+    listPortfolioAccessResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
-import Network.AWS.ServiceCatalog.Types.Product
 
--- | /See:/ 'listPortfolioAccess' smart constructor.
+-- | /See:/ 'newListPortfolioAccess' smart constructor.
 data ListPortfolioAccess = ListPortfolioAccess'
-  { _lAcceptLanguage :: !(Maybe Text)
-  , _lPortfolioId    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of an organization node the portfolio is shared with. All
+    -- children of this node with an inherited portfolio share will be
+    -- returned.
+    organizationParentId :: Prelude.Maybe Prelude.Text,
+    -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The portfolio identifier.
+    portfolioId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListPortfolioAccess' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListPortfolioAccess' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lPortfolioId' - The portfolio identifier.
-listPortfolioAccess
-    :: Text -- ^ 'lPortfolioId'
-    -> ListPortfolioAccess
-listPortfolioAccess pPortfolioId_ =
+-- 'pageSize', 'listPortfolioAccess_pageSize' - The maximum number of items to return with this call.
+--
+-- 'pageToken', 'listPortfolioAccess_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+--
+-- 'organizationParentId', 'listPortfolioAccess_organizationParentId' - The ID of an organization node the portfolio is shared with. All
+-- children of this node with an inherited portfolio share will be
+-- returned.
+--
+-- 'acceptLanguage', 'listPortfolioAccess_acceptLanguage' - The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+--
+-- 'portfolioId', 'listPortfolioAccess_portfolioId' - The portfolio identifier.
+newListPortfolioAccess ::
+  -- | 'portfolioId'
+  Prelude.Text ->
+  ListPortfolioAccess
+newListPortfolioAccess pPortfolioId_ =
   ListPortfolioAccess'
-    {_lAcceptLanguage = Nothing, _lPortfolioId = pPortfolioId_}
-
-
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-lAcceptLanguage :: Lens' ListPortfolioAccess (Maybe Text)
-lAcceptLanguage = lens _lAcceptLanguage (\ s a -> s{_lAcceptLanguage = a})
-
--- | The portfolio identifier.
-lPortfolioId :: Lens' ListPortfolioAccess Text
-lPortfolioId = lens _lPortfolioId (\ s a -> s{_lPortfolioId = a})
-
-instance AWSRequest ListPortfolioAccess where
-        type Rs ListPortfolioAccess =
-             ListPortfolioAccessResponse
-        request = postJSON serviceCatalog
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListPortfolioAccessResponse' <$>
-                   (x .?> "NextPageToken") <*>
-                     (x .?> "AccountIds" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListPortfolioAccess where
-
-instance NFData ListPortfolioAccess where
-
-instance ToHeaders ListPortfolioAccess where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWS242ServiceCatalogService.ListPortfolioAccess" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListPortfolioAccess where
-        toJSON ListPortfolioAccess'{..}
-          = object
-              (catMaybes
-                 [("AcceptLanguage" .=) <$> _lAcceptLanguage,
-                  Just ("PortfolioId" .= _lPortfolioId)])
-
-instance ToPath ListPortfolioAccess where
-        toPath = const "/"
-
-instance ToQuery ListPortfolioAccess where
-        toQuery = const mempty
-
--- | /See:/ 'listPortfolioAccessResponse' smart constructor.
-data ListPortfolioAccessResponse = ListPortfolioAccessResponse'
-  { _lparsNextPageToken  :: !(Maybe Text)
-  , _lparsAccountIds     :: !(Maybe [Text])
-  , _lparsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListPortfolioAccessResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lparsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
---
--- * 'lparsAccountIds' - Information about the AWS accounts with access to the portfolio.
---
--- * 'lparsResponseStatus' - -- | The response status code.
-listPortfolioAccessResponse
-    :: Int -- ^ 'lparsResponseStatus'
-    -> ListPortfolioAccessResponse
-listPortfolioAccessResponse pResponseStatus_ =
-  ListPortfolioAccessResponse'
-    { _lparsNextPageToken = Nothing
-    , _lparsAccountIds = Nothing
-    , _lparsResponseStatus = pResponseStatus_
+    { pageSize = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
+      organizationParentId = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
+      portfolioId = pPortfolioId_
     }
 
+-- | The maximum number of items to return with this call.
+listPortfolioAccess_pageSize :: Lens.Lens' ListPortfolioAccess (Prelude.Maybe Prelude.Natural)
+listPortfolioAccess_pageSize = Lens.lens (\ListPortfolioAccess' {pageSize} -> pageSize) (\s@ListPortfolioAccess' {} a -> s {pageSize = a} :: ListPortfolioAccess)
 
--- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-lparsNextPageToken :: Lens' ListPortfolioAccessResponse (Maybe Text)
-lparsNextPageToken = lens _lparsNextPageToken (\ s a -> s{_lparsNextPageToken = a})
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listPortfolioAccess_pageToken :: Lens.Lens' ListPortfolioAccess (Prelude.Maybe Prelude.Text)
+listPortfolioAccess_pageToken = Lens.lens (\ListPortfolioAccess' {pageToken} -> pageToken) (\s@ListPortfolioAccess' {} a -> s {pageToken = a} :: ListPortfolioAccess)
+
+-- | The ID of an organization node the portfolio is shared with. All
+-- children of this node with an inherited portfolio share will be
+-- returned.
+listPortfolioAccess_organizationParentId :: Lens.Lens' ListPortfolioAccess (Prelude.Maybe Prelude.Text)
+listPortfolioAccess_organizationParentId = Lens.lens (\ListPortfolioAccess' {organizationParentId} -> organizationParentId) (\s@ListPortfolioAccess' {} a -> s {organizationParentId = a} :: ListPortfolioAccess)
+
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+listPortfolioAccess_acceptLanguage :: Lens.Lens' ListPortfolioAccess (Prelude.Maybe Prelude.Text)
+listPortfolioAccess_acceptLanguage = Lens.lens (\ListPortfolioAccess' {acceptLanguage} -> acceptLanguage) (\s@ListPortfolioAccess' {} a -> s {acceptLanguage = a} :: ListPortfolioAccess)
+
+-- | The portfolio identifier.
+listPortfolioAccess_portfolioId :: Lens.Lens' ListPortfolioAccess Prelude.Text
+listPortfolioAccess_portfolioId = Lens.lens (\ListPortfolioAccess' {portfolioId} -> portfolioId) (\s@ListPortfolioAccess' {} a -> s {portfolioId = a} :: ListPortfolioAccess)
+
+instance Prelude.AWSRequest ListPortfolioAccess where
+  type
+    Rs ListPortfolioAccess =
+      ListPortfolioAccessResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListPortfolioAccessResponse'
+            Prelude.<$> ( x Prelude..?> "AccountIds"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Prelude..?> "NextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListPortfolioAccess
+
+instance Prelude.NFData ListPortfolioAccess
+
+instance Prelude.ToHeaders ListPortfolioAccess where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWS242ServiceCatalogService.ListPortfolioAccess" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON ListPortfolioAccess where
+  toJSON ListPortfolioAccess' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("PageSize" Prelude..=) Prelude.<$> pageSize,
+            ("PageToken" Prelude..=) Prelude.<$> pageToken,
+            ("OrganizationParentId" Prelude..=)
+              Prelude.<$> organizationParentId,
+            ("AcceptLanguage" Prelude..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("PortfolioId" Prelude..= portfolioId)
+          ]
+      )
+
+instance Prelude.ToPath ListPortfolioAccess where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery ListPortfolioAccess where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListPortfolioAccessResponse' smart constructor.
+data ListPortfolioAccessResponse = ListPortfolioAccessResponse'
+  { -- | Information about the AWS accounts with access to the portfolio.
+    accountIds :: Prelude.Maybe [Prelude.Text],
+    -- | The page token to use to retrieve the next set of results. If there are
+    -- no additional results, this value is null.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListPortfolioAccessResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'accountIds', 'listPortfolioAccessResponse_accountIds' - Information about the AWS accounts with access to the portfolio.
+--
+-- 'nextPageToken', 'listPortfolioAccessResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
+-- no additional results, this value is null.
+--
+-- 'httpStatus', 'listPortfolioAccessResponse_httpStatus' - The response's http status code.
+newListPortfolioAccessResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListPortfolioAccessResponse
+newListPortfolioAccessResponse pHttpStatus_ =
+  ListPortfolioAccessResponse'
+    { accountIds =
+        Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the AWS accounts with access to the portfolio.
-lparsAccountIds :: Lens' ListPortfolioAccessResponse [Text]
-lparsAccountIds = lens _lparsAccountIds (\ s a -> s{_lparsAccountIds = a}) . _Default . _Coerce
+listPortfolioAccessResponse_accountIds :: Lens.Lens' ListPortfolioAccessResponse (Prelude.Maybe [Prelude.Text])
+listPortfolioAccessResponse_accountIds = Lens.lens (\ListPortfolioAccessResponse' {accountIds} -> accountIds) (\s@ListPortfolioAccessResponse' {} a -> s {accountIds = a} :: ListPortfolioAccessResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-lparsResponseStatus :: Lens' ListPortfolioAccessResponse Int
-lparsResponseStatus = lens _lparsResponseStatus (\ s a -> s{_lparsResponseStatus = a})
+-- | The page token to use to retrieve the next set of results. If there are
+-- no additional results, this value is null.
+listPortfolioAccessResponse_nextPageToken :: Lens.Lens' ListPortfolioAccessResponse (Prelude.Maybe Prelude.Text)
+listPortfolioAccessResponse_nextPageToken = Lens.lens (\ListPortfolioAccessResponse' {nextPageToken} -> nextPageToken) (\s@ListPortfolioAccessResponse' {} a -> s {nextPageToken = a} :: ListPortfolioAccessResponse)
 
-instance NFData ListPortfolioAccessResponse where
+-- | The response's http status code.
+listPortfolioAccessResponse_httpStatus :: Lens.Lens' ListPortfolioAccessResponse Prelude.Int
+listPortfolioAccessResponse_httpStatus = Lens.lens (\ListPortfolioAccessResponse' {httpStatus} -> httpStatus) (\s@ListPortfolioAccessResponse' {} a -> s {httpStatus = a} :: ListPortfolioAccessResponse)
+
+instance Prelude.NFData ListPortfolioAccessResponse

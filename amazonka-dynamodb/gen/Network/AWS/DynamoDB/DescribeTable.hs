@@ -1,139 +1,169 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DescribeTable
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.
+-- Returns information about the table, including the current status of the
+-- table, when it was created, the primary key schema, and any indexes on
+-- the table.
 --
---
+-- If you issue a @DescribeTable@ request immediately after a @CreateTable@
+-- request, DynamoDB might return a @ResourceNotFoundException@. This is
+-- because @DescribeTable@ uses an eventually consistent query, and the
+-- metadata for your table might not be available at that moment. Wait for
+-- a few seconds, and then try the @DescribeTable@ request again.
 module Network.AWS.DynamoDB.DescribeTable
-    (
-    -- * Creating a Request
-      describeTable
-    , DescribeTable
+  ( -- * Creating a Request
+    DescribeTable (..),
+    newDescribeTable,
+
     -- * Request Lenses
-    , dTableName
+    describeTable_tableName,
 
     -- * Destructuring the Response
-    , describeTableResponse
-    , DescribeTableResponse
+    DescribeTableResponse (..),
+    newDescribeTableResponse,
+
     -- * Response Lenses
-    , drsTable
-    , drsResponseStatus
-    ) where
+    describeTableResponse_table,
+    describeTableResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.DynamoDB.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DescribeTable@ operation.
 --
---
---
--- /See:/ 'describeTable' smart constructor.
-newtype DescribeTable = DescribeTable'
-  { _dTableName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDescribeTable' smart constructor.
+data DescribeTable = DescribeTable'
+  { -- | The name of the table to describe.
+    tableName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTable' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTable' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dTableName' - The name of the table to describe.
-describeTable
-    :: Text -- ^ 'dTableName'
-    -> DescribeTable
-describeTable pTableName_ = DescribeTable' {_dTableName = pTableName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tableName', 'describeTable_tableName' - The name of the table to describe.
+newDescribeTable ::
+  -- | 'tableName'
+  Prelude.Text ->
+  DescribeTable
+newDescribeTable pTableName_ =
+  DescribeTable' {tableName = pTableName_}
 
 -- | The name of the table to describe.
-dTableName :: Lens' DescribeTable Text
-dTableName = lens _dTableName (\ s a -> s{_dTableName = a})
+describeTable_tableName :: Lens.Lens' DescribeTable Prelude.Text
+describeTable_tableName = Lens.lens (\DescribeTable' {tableName} -> tableName) (\s@DescribeTable' {} a -> s {tableName = a} :: DescribeTable)
 
-instance AWSRequest DescribeTable where
-        type Rs DescribeTable = DescribeTableResponse
-        request = postJSON dynamoDB
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeTableResponse' <$>
-                   (x .?> "Table") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeTable where
+  type Rs DescribeTable = DescribeTableResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeTableResponse'
+            Prelude.<$> (x Prelude..?> "Table")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeTable where
+instance Prelude.Hashable DescribeTable
 
-instance NFData DescribeTable where
+instance Prelude.NFData DescribeTable
 
-instance ToHeaders DescribeTable where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DynamoDB_20120810.DescribeTable" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.0" :: ByteString)])
+instance Prelude.ToHeaders DescribeTable where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "DynamoDB_20120810.DescribeTable" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.0" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DescribeTable where
-        toJSON DescribeTable'{..}
-          = object
-              (catMaybes [Just ("TableName" .= _dTableName)])
+instance Prelude.ToJSON DescribeTable where
+  toJSON DescribeTable' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("TableName" Prelude..= tableName)]
+      )
 
-instance ToPath DescribeTable where
-        toPath = const "/"
+instance Prelude.ToPath DescribeTable where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeTable where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeTable where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DescribeTable@ operation.
 --
---
---
--- /See:/ 'describeTableResponse' smart constructor.
+-- /See:/ 'newDescribeTableResponse' smart constructor.
 data DescribeTableResponse = DescribeTableResponse'
-  { _drsTable          :: !(Maybe TableDescription)
-  , _drsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The properties of the table.
+    table :: Prelude.Maybe TableDescription,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTableResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTableResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drsTable' - The properties of the table.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drsResponseStatus' - -- | The response status code.
-describeTableResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DescribeTableResponse
-describeTableResponse pResponseStatus_ =
+-- 'table', 'describeTableResponse_table' - The properties of the table.
+--
+-- 'httpStatus', 'describeTableResponse_httpStatus' - The response's http status code.
+newDescribeTableResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeTableResponse
+newDescribeTableResponse pHttpStatus_ =
   DescribeTableResponse'
-    {_drsTable = Nothing, _drsResponseStatus = pResponseStatus_}
-
+    { table = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The properties of the table.
-drsTable :: Lens' DescribeTableResponse (Maybe TableDescription)
-drsTable = lens _drsTable (\ s a -> s{_drsTable = a})
+describeTableResponse_table :: Lens.Lens' DescribeTableResponse (Prelude.Maybe TableDescription)
+describeTableResponse_table = Lens.lens (\DescribeTableResponse' {table} -> table) (\s@DescribeTableResponse' {} a -> s {table = a} :: DescribeTableResponse)
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeTableResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
+-- | The response's http status code.
+describeTableResponse_httpStatus :: Lens.Lens' DescribeTableResponse Prelude.Int
+describeTableResponse_httpStatus = Lens.lens (\DescribeTableResponse' {httpStatus} -> httpStatus) (\s@DescribeTableResponse' {} a -> s {httpStatus = a} :: DescribeTableResponse)
 
-instance NFData DescribeTableResponse where
+instance Prelude.NFData DescribeTableResponse

@@ -1,134 +1,181 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WAFRegional.GetRegexMatchSet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the 'RegexMatchSet' specified by @RegexMatchSetId@ .
+-- This is __AWS WAF Classic__ documentation. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
+-- in the developer guide.
 --
+-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide>.
+-- With the latest version, AWS WAF has a single set of endpoints for
+-- regional and global use.
 --
+-- Returns the RegexMatchSet specified by @RegexMatchSetId@.
 module Network.AWS.WAFRegional.GetRegexMatchSet
-    (
-    -- * Creating a Request
-      getRegexMatchSet
-    , GetRegexMatchSet
+  ( -- * Creating a Request
+    GetRegexMatchSet (..),
+    newGetRegexMatchSet,
+
     -- * Request Lenses
-    , grmsRegexMatchSetId
+    getRegexMatchSet_regexMatchSetId,
 
     -- * Destructuring the Response
-    , getRegexMatchSetResponse
-    , GetRegexMatchSetResponse
+    GetRegexMatchSetResponse (..),
+    newGetRegexMatchSetResponse,
+
     -- * Response Lenses
-    , grmsrsRegexMatchSet
-    , grmsrsResponseStatus
-    ) where
+    getRegexMatchSetResponse_regexMatchSet,
+    getRegexMatchSetResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
-import Network.AWS.WAFRegional.Types.Product
 
--- | /See:/ 'getRegexMatchSet' smart constructor.
-newtype GetRegexMatchSet = GetRegexMatchSet'
-  { _grmsRegexMatchSetId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetRegexMatchSet' smart constructor.
+data GetRegexMatchSet = GetRegexMatchSet'
+  { -- | The @RegexMatchSetId@ of the RegexMatchSet that you want to get.
+    -- @RegexMatchSetId@ is returned by CreateRegexMatchSet and by
+    -- ListRegexMatchSets.
+    regexMatchSetId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetRegexMatchSet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetRegexMatchSet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grmsRegexMatchSetId' - The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to get. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
-getRegexMatchSet
-    :: Text -- ^ 'grmsRegexMatchSetId'
-    -> GetRegexMatchSet
-getRegexMatchSet pRegexMatchSetId_ =
-  GetRegexMatchSet' {_grmsRegexMatchSetId = pRegexMatchSetId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'regexMatchSetId', 'getRegexMatchSet_regexMatchSetId' - The @RegexMatchSetId@ of the RegexMatchSet that you want to get.
+-- @RegexMatchSetId@ is returned by CreateRegexMatchSet and by
+-- ListRegexMatchSets.
+newGetRegexMatchSet ::
+  -- | 'regexMatchSetId'
+  Prelude.Text ->
+  GetRegexMatchSet
+newGetRegexMatchSet pRegexMatchSetId_ =
+  GetRegexMatchSet'
+    { regexMatchSetId =
+        pRegexMatchSetId_
+    }
 
+-- | The @RegexMatchSetId@ of the RegexMatchSet that you want to get.
+-- @RegexMatchSetId@ is returned by CreateRegexMatchSet and by
+-- ListRegexMatchSets.
+getRegexMatchSet_regexMatchSetId :: Lens.Lens' GetRegexMatchSet Prelude.Text
+getRegexMatchSet_regexMatchSetId = Lens.lens (\GetRegexMatchSet' {regexMatchSetId} -> regexMatchSetId) (\s@GetRegexMatchSet' {} a -> s {regexMatchSetId = a} :: GetRegexMatchSet)
 
--- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to get. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
-grmsRegexMatchSetId :: Lens' GetRegexMatchSet Text
-grmsRegexMatchSetId = lens _grmsRegexMatchSetId (\ s a -> s{_grmsRegexMatchSetId = a})
+instance Prelude.AWSRequest GetRegexMatchSet where
+  type Rs GetRegexMatchSet = GetRegexMatchSetResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetRegexMatchSetResponse'
+            Prelude.<$> (x Prelude..?> "RegexMatchSet")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetRegexMatchSet where
-        type Rs GetRegexMatchSet = GetRegexMatchSetResponse
-        request = postJSON wAFRegional
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetRegexMatchSetResponse' <$>
-                   (x .?> "RegexMatchSet") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetRegexMatchSet
 
-instance Hashable GetRegexMatchSet where
+instance Prelude.NFData GetRegexMatchSet
 
-instance NFData GetRegexMatchSet where
+instance Prelude.ToHeaders GetRegexMatchSet where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSWAF_Regional_20161128.GetRegexMatchSet" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders GetRegexMatchSet where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSWAF_Regional_20161128.GetRegexMatchSet" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON GetRegexMatchSet where
+  toJSON GetRegexMatchSet' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("RegexMatchSetId" Prelude..= regexMatchSetId)
+          ]
+      )
 
-instance ToJSON GetRegexMatchSet where
-        toJSON GetRegexMatchSet'{..}
-          = object
-              (catMaybes
-                 [Just ("RegexMatchSetId" .= _grmsRegexMatchSetId)])
+instance Prelude.ToPath GetRegexMatchSet where
+  toPath = Prelude.const "/"
 
-instance ToPath GetRegexMatchSet where
-        toPath = const "/"
+instance Prelude.ToQuery GetRegexMatchSet where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetRegexMatchSet where
-        toQuery = const mempty
-
--- | /See:/ 'getRegexMatchSetResponse' smart constructor.
+-- | /See:/ 'newGetRegexMatchSetResponse' smart constructor.
 data GetRegexMatchSetResponse = GetRegexMatchSetResponse'
-  { _grmsrsRegexMatchSet  :: !(Maybe RegexMatchSet)
-  , _grmsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the RegexMatchSet that you specified in the
+    -- @GetRegexMatchSet@ request. For more information, see RegexMatchTuple.
+    regexMatchSet :: Prelude.Maybe RegexMatchSet,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetRegexMatchSetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetRegexMatchSetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grmsrsRegexMatchSet' - Information about the 'RegexMatchSet' that you specified in the @GetRegexMatchSet@ request. For more information, see 'RegexMatchTuple' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'grmsrsResponseStatus' - -- | The response status code.
-getRegexMatchSetResponse
-    :: Int -- ^ 'grmsrsResponseStatus'
-    -> GetRegexMatchSetResponse
-getRegexMatchSetResponse pResponseStatus_ =
+-- 'regexMatchSet', 'getRegexMatchSetResponse_regexMatchSet' - Information about the RegexMatchSet that you specified in the
+-- @GetRegexMatchSet@ request. For more information, see RegexMatchTuple.
+--
+-- 'httpStatus', 'getRegexMatchSetResponse_httpStatus' - The response's http status code.
+newGetRegexMatchSetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetRegexMatchSetResponse
+newGetRegexMatchSetResponse pHttpStatus_ =
   GetRegexMatchSetResponse'
-    {_grmsrsRegexMatchSet = Nothing, _grmsrsResponseStatus = pResponseStatus_}
+    { regexMatchSet =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about the RegexMatchSet that you specified in the
+-- @GetRegexMatchSet@ request. For more information, see RegexMatchTuple.
+getRegexMatchSetResponse_regexMatchSet :: Lens.Lens' GetRegexMatchSetResponse (Prelude.Maybe RegexMatchSet)
+getRegexMatchSetResponse_regexMatchSet = Lens.lens (\GetRegexMatchSetResponse' {regexMatchSet} -> regexMatchSet) (\s@GetRegexMatchSetResponse' {} a -> s {regexMatchSet = a} :: GetRegexMatchSetResponse)
 
--- | Information about the 'RegexMatchSet' that you specified in the @GetRegexMatchSet@ request. For more information, see 'RegexMatchTuple' .
-grmsrsRegexMatchSet :: Lens' GetRegexMatchSetResponse (Maybe RegexMatchSet)
-grmsrsRegexMatchSet = lens _grmsrsRegexMatchSet (\ s a -> s{_grmsrsRegexMatchSet = a})
+-- | The response's http status code.
+getRegexMatchSetResponse_httpStatus :: Lens.Lens' GetRegexMatchSetResponse Prelude.Int
+getRegexMatchSetResponse_httpStatus = Lens.lens (\GetRegexMatchSetResponse' {httpStatus} -> httpStatus) (\s@GetRegexMatchSetResponse' {} a -> s {httpStatus = a} :: GetRegexMatchSetResponse)
 
--- | -- | The response status code.
-grmsrsResponseStatus :: Lens' GetRegexMatchSetResponse Int
-grmsrsResponseStatus = lens _grmsrsResponseStatus (\ s a -> s{_grmsrsResponseStatus = a})
-
-instance NFData GetRegexMatchSetResponse where
+instance Prelude.NFData GetRegexMatchSetResponse

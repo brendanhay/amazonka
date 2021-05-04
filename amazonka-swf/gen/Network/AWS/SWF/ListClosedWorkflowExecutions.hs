@@ -1,225 +1,407 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SWF.ListClosedWorkflowExecutions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of closed workflow executions in the specified domain that meet the filtering criteria. The results may be split into multiple pages. To retrieve subsequent pages, make the call again using the nextPageToken returned by the initial call.
+-- Returns a list of closed workflow executions in the specified domain
+-- that meet the filtering criteria. The results may be split into multiple
+-- pages. To retrieve subsequent pages, make the call again using the
+-- nextPageToken returned by the initial call.
 --
+-- This operation is eventually consistent. The results are best effort and
+-- may not exactly reflect recent updates and changes.
 --
 -- __Access Control__
 --
--- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
+-- You can use IAM policies to control this action\'s access to Amazon SWF
+-- resources as follows:
 --
---     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
+-- -   Use a @Resource@ element with the domain name to limit the action to
+--     only specified domains.
 --
---     * Use an @Action@ element to allow or deny permission to call this action.
+-- -   Use an @Action@ element to allow or deny permission to call this
+--     action.
 --
---     * Constrain the following parameters by using a @Condition@ element with the appropriate keys.
+-- -   Constrain the following parameters by using a @Condition@ element
+--     with the appropriate keys.
 --
---     * @tagFilter.tag@ : String constraint. The key is @swf:tagFilter.tag@ .
+--     -   @tagFilter.tag@: String constraint. The key is
+--         @swf:tagFilter.tag@.
 --
---     * @typeFilter.name@ : String constraint. The key is @swf:typeFilter.name@ .
+--     -   @typeFilter.name@: String constraint. The key is
+--         @swf:typeFilter.name@.
 --
---     * @typeFilter.version@ : String constraint. The key is @swf:typeFilter.version@ .
+--     -   @typeFilter.version@: String constraint. The key is
+--         @swf:typeFilter.version@.
 --
---
---
---
---
--- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
---
+-- If the caller doesn\'t have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s @cause@ parameter is set
+-- to @OPERATION_NOT_PERMITTED@. For details and example IAM policies, see
+-- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>
+-- in the /Amazon SWF Developer Guide/.
 --
 -- This operation returns paginated results.
 module Network.AWS.SWF.ListClosedWorkflowExecutions
-    (
-    -- * Creating a Request
-      listClosedWorkflowExecutions
-    , ListClosedWorkflowExecutions
+  ( -- * Creating a Request
+    ListClosedWorkflowExecutions (..),
+    newListClosedWorkflowExecutions,
+
     -- * Request Lenses
-    , lcweNextPageToken
-    , lcweExecutionFilter
-    , lcweCloseStatusFilter
-    , lcweTypeFilter
-    , lcweCloseTimeFilter
-    , lcweReverseOrder
-    , lcweTagFilter
-    , lcweStartTimeFilter
-    , lcweMaximumPageSize
-    , lcweDomain
+    listClosedWorkflowExecutions_typeFilter,
+    listClosedWorkflowExecutions_tagFilter,
+    listClosedWorkflowExecutions_nextPageToken,
+    listClosedWorkflowExecutions_maximumPageSize,
+    listClosedWorkflowExecutions_reverseOrder,
+    listClosedWorkflowExecutions_closeTimeFilter,
+    listClosedWorkflowExecutions_startTimeFilter,
+    listClosedWorkflowExecutions_executionFilter,
+    listClosedWorkflowExecutions_closeStatusFilter,
+    listClosedWorkflowExecutions_domain,
 
     -- * Destructuring the Response
-    , workflowExecutionInfos
-    , WorkflowExecutionInfos
+    WorkflowExecutionInfos (..),
+    newWorkflowExecutionInfos,
+
     -- * Response Lenses
-    , weiNextPageToken
-    , weiExecutionInfos
-    ) where
+    workflowExecutionInfos_nextPageToken,
+    workflowExecutionInfos_executionInfos,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SWF.Types
-import Network.AWS.SWF.Types.Product
 
--- | /See:/ 'listClosedWorkflowExecutions' smart constructor.
+-- | /See:/ 'newListClosedWorkflowExecutions' smart constructor.
 data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
-  { _lcweNextPageToken     :: !(Maybe Text)
-  , _lcweExecutionFilter   :: !(Maybe WorkflowExecutionFilter)
-  , _lcweCloseStatusFilter :: !(Maybe CloseStatusFilter)
-  , _lcweTypeFilter        :: !(Maybe WorkflowTypeFilter)
-  , _lcweCloseTimeFilter   :: !(Maybe ExecutionTimeFilter)
-  , _lcweReverseOrder      :: !(Maybe Bool)
-  , _lcweTagFilter         :: !(Maybe TagFilter)
-  , _lcweStartTimeFilter   :: !(Maybe ExecutionTimeFilter)
-  , _lcweMaximumPageSize   :: !(Maybe Nat)
-  , _lcweDomain            :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If specified, only executions of the type specified in the filter are
+    -- returned.
+    --
+    -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+    -- mutually exclusive. You can specify at most one of these in a request.
+    typeFilter :: Prelude.Maybe WorkflowTypeFilter,
+    -- | If specified, only executions that have the matching tag are listed.
+    --
+    -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+    -- mutually exclusive. You can specify at most one of these in a request.
+    tagFilter :: Prelude.Maybe TagFilter,
+    -- | If @NextPageToken@ is returned there are more results available. The
+    -- value of @NextPageToken@ is a unique pagination token for each page.
+    -- Make the call again using the returned token to retrieve the next page.
+    -- Keep all other arguments unchanged. Each pagination token expires after
+    -- 60 seconds. Using an expired pagination token will return a @400@ error:
+    -- \"@Specified token has exceeded its maximum lifetime@\".
+    --
+    -- The configured @maximumPageSize@ determines how many results can be
+    -- returned in a single call.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results that are returned per call. Use
+    -- @nextPageToken@ to obtain further pages of results.
+    maximumPageSize :: Prelude.Maybe Prelude.Natural,
+    -- | When set to @true@, returns the results in reverse order. By default the
+    -- results are returned in descending order of the start or the close time
+    -- of the executions.
+    reverseOrder :: Prelude.Maybe Prelude.Bool,
+    -- | If specified, the workflow executions are included in the returned
+    -- results based on whether their close times are within the range
+    -- specified by this filter. Also, if this parameter is specified, the
+    -- returned results are ordered by their close times.
+    --
+    -- @startTimeFilter@ and @closeTimeFilter@ are mutually exclusive. You must
+    -- specify one of these in a request but not both.
+    closeTimeFilter :: Prelude.Maybe ExecutionTimeFilter,
+    -- | If specified, the workflow executions are included in the returned
+    -- results based on whether their start times are within the range
+    -- specified by this filter. Also, if this parameter is specified, the
+    -- returned results are ordered by their start times.
+    --
+    -- @startTimeFilter@ and @closeTimeFilter@ are mutually exclusive. You must
+    -- specify one of these in a request but not both.
+    startTimeFilter :: Prelude.Maybe ExecutionTimeFilter,
+    -- | If specified, only workflow executions matching the workflow ID
+    -- specified in the filter are returned.
+    --
+    -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+    -- mutually exclusive. You can specify at most one of these in a request.
+    executionFilter :: Prelude.Maybe WorkflowExecutionFilter,
+    -- | If specified, only workflow executions that match this /close status/
+    -- are listed. For example, if TERMINATED is specified, then only
+    -- TERMINATED workflow executions are listed.
+    --
+    -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+    -- mutually exclusive. You can specify at most one of these in a request.
+    closeStatusFilter :: Prelude.Maybe CloseStatusFilter,
+    -- | The name of the domain that contains the workflow executions to list.
+    domain :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListClosedWorkflowExecutions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListClosedWorkflowExecutions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lcweNextPageToken' - If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lcweExecutionFilter' - If specified, only workflow executions matching the workflow ID specified in the filter are returned.
+-- 'typeFilter', 'listClosedWorkflowExecutions_typeFilter' - If specified, only executions of the type specified in the filter are
+-- returned.
 --
--- * 'lcweCloseStatusFilter' - If specified, only workflow executions that match this /close status/ are listed. For example, if TERMINATED is specified, then only TERMINATED workflow executions are listed.
+-- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+-- mutually exclusive. You can specify at most one of these in a request.
 --
--- * 'lcweTypeFilter' - If specified, only executions of the type specified in the filter are returned.
+-- 'tagFilter', 'listClosedWorkflowExecutions_tagFilter' - If specified, only executions that have the matching tag are listed.
 --
--- * 'lcweCloseTimeFilter' - If specified, the workflow executions are included in the returned results based on whether their close times are within the range specified by this filter. Also, if this parameter is specified, the returned results are ordered by their close times.
+-- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+-- mutually exclusive. You can specify at most one of these in a request.
 --
--- * 'lcweReverseOrder' - When set to @true@ , returns the results in reverse order. By default the results are returned in descending order of the start or the close time of the executions.
+-- 'nextPageToken', 'listClosedWorkflowExecutions_nextPageToken' - If @NextPageToken@ is returned there are more results available. The
+-- value of @NextPageToken@ is a unique pagination token for each page.
+-- Make the call again using the returned token to retrieve the next page.
+-- Keep all other arguments unchanged. Each pagination token expires after
+-- 60 seconds. Using an expired pagination token will return a @400@ error:
+-- \"@Specified token has exceeded its maximum lifetime@\".
 --
--- * 'lcweTagFilter' - If specified, only executions that have the matching tag are listed.
+-- The configured @maximumPageSize@ determines how many results can be
+-- returned in a single call.
 --
--- * 'lcweStartTimeFilter' - If specified, the workflow executions are included in the returned results based on whether their start times are within the range specified by this filter. Also, if this parameter is specified, the returned results are ordered by their start times.
+-- 'maximumPageSize', 'listClosedWorkflowExecutions_maximumPageSize' - The maximum number of results that are returned per call. Use
+-- @nextPageToken@ to obtain further pages of results.
 --
--- * 'lcweMaximumPageSize' - The maximum number of results that are returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
+-- 'reverseOrder', 'listClosedWorkflowExecutions_reverseOrder' - When set to @true@, returns the results in reverse order. By default the
+-- results are returned in descending order of the start or the close time
+-- of the executions.
 --
--- * 'lcweDomain' - The name of the domain that contains the workflow executions to list.
-listClosedWorkflowExecutions
-    :: Text -- ^ 'lcweDomain'
-    -> ListClosedWorkflowExecutions
-listClosedWorkflowExecutions pDomain_ =
+-- 'closeTimeFilter', 'listClosedWorkflowExecutions_closeTimeFilter' - If specified, the workflow executions are included in the returned
+-- results based on whether their close times are within the range
+-- specified by this filter. Also, if this parameter is specified, the
+-- returned results are ordered by their close times.
+--
+-- @startTimeFilter@ and @closeTimeFilter@ are mutually exclusive. You must
+-- specify one of these in a request but not both.
+--
+-- 'startTimeFilter', 'listClosedWorkflowExecutions_startTimeFilter' - If specified, the workflow executions are included in the returned
+-- results based on whether their start times are within the range
+-- specified by this filter. Also, if this parameter is specified, the
+-- returned results are ordered by their start times.
+--
+-- @startTimeFilter@ and @closeTimeFilter@ are mutually exclusive. You must
+-- specify one of these in a request but not both.
+--
+-- 'executionFilter', 'listClosedWorkflowExecutions_executionFilter' - If specified, only workflow executions matching the workflow ID
+-- specified in the filter are returned.
+--
+-- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+-- mutually exclusive. You can specify at most one of these in a request.
+--
+-- 'closeStatusFilter', 'listClosedWorkflowExecutions_closeStatusFilter' - If specified, only workflow executions that match this /close status/
+-- are listed. For example, if TERMINATED is specified, then only
+-- TERMINATED workflow executions are listed.
+--
+-- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+-- mutually exclusive. You can specify at most one of these in a request.
+--
+-- 'domain', 'listClosedWorkflowExecutions_domain' - The name of the domain that contains the workflow executions to list.
+newListClosedWorkflowExecutions ::
+  -- | 'domain'
+  Prelude.Text ->
+  ListClosedWorkflowExecutions
+newListClosedWorkflowExecutions pDomain_ =
   ListClosedWorkflowExecutions'
-    { _lcweNextPageToken = Nothing
-    , _lcweExecutionFilter = Nothing
-    , _lcweCloseStatusFilter = Nothing
-    , _lcweTypeFilter = Nothing
-    , _lcweCloseTimeFilter = Nothing
-    , _lcweReverseOrder = Nothing
-    , _lcweTagFilter = Nothing
-    , _lcweStartTimeFilter = Nothing
-    , _lcweMaximumPageSize = Nothing
-    , _lcweDomain = pDomain_
+    { typeFilter =
+        Prelude.Nothing,
+      tagFilter = Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
+      maximumPageSize = Prelude.Nothing,
+      reverseOrder = Prelude.Nothing,
+      closeTimeFilter = Prelude.Nothing,
+      startTimeFilter = Prelude.Nothing,
+      executionFilter = Prelude.Nothing,
+      closeStatusFilter = Prelude.Nothing,
+      domain = pDomain_
     }
 
-
--- | If a @NextPageToken@ was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in @nextPageToken@ . Keep all other arguments unchanged. The configured @maximumPageSize@ determines how many results can be returned in a single call.
-lcweNextPageToken :: Lens' ListClosedWorkflowExecutions (Maybe Text)
-lcweNextPageToken = lens _lcweNextPageToken (\ s a -> s{_lcweNextPageToken = a})
-
--- | If specified, only workflow executions matching the workflow ID specified in the filter are returned.
-lcweExecutionFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowExecutionFilter)
-lcweExecutionFilter = lens _lcweExecutionFilter (\ s a -> s{_lcweExecutionFilter = a})
-
--- | If specified, only workflow executions that match this /close status/ are listed. For example, if TERMINATED is specified, then only TERMINATED workflow executions are listed.
-lcweCloseStatusFilter :: Lens' ListClosedWorkflowExecutions (Maybe CloseStatusFilter)
-lcweCloseStatusFilter = lens _lcweCloseStatusFilter (\ s a -> s{_lcweCloseStatusFilter = a})
-
--- | If specified, only executions of the type specified in the filter are returned.
-lcweTypeFilter :: Lens' ListClosedWorkflowExecutions (Maybe WorkflowTypeFilter)
-lcweTypeFilter = lens _lcweTypeFilter (\ s a -> s{_lcweTypeFilter = a})
-
--- | If specified, the workflow executions are included in the returned results based on whether their close times are within the range specified by this filter. Also, if this parameter is specified, the returned results are ordered by their close times.
-lcweCloseTimeFilter :: Lens' ListClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
-lcweCloseTimeFilter = lens _lcweCloseTimeFilter (\ s a -> s{_lcweCloseTimeFilter = a})
-
--- | When set to @true@ , returns the results in reverse order. By default the results are returned in descending order of the start or the close time of the executions.
-lcweReverseOrder :: Lens' ListClosedWorkflowExecutions (Maybe Bool)
-lcweReverseOrder = lens _lcweReverseOrder (\ s a -> s{_lcweReverseOrder = a})
+-- | If specified, only executions of the type specified in the filter are
+-- returned.
+--
+-- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+-- mutually exclusive. You can specify at most one of these in a request.
+listClosedWorkflowExecutions_typeFilter :: Lens.Lens' ListClosedWorkflowExecutions (Prelude.Maybe WorkflowTypeFilter)
+listClosedWorkflowExecutions_typeFilter = Lens.lens (\ListClosedWorkflowExecutions' {typeFilter} -> typeFilter) (\s@ListClosedWorkflowExecutions' {} a -> s {typeFilter = a} :: ListClosedWorkflowExecutions)
 
 -- | If specified, only executions that have the matching tag are listed.
-lcweTagFilter :: Lens' ListClosedWorkflowExecutions (Maybe TagFilter)
-lcweTagFilter = lens _lcweTagFilter (\ s a -> s{_lcweTagFilter = a})
+--
+-- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+-- mutually exclusive. You can specify at most one of these in a request.
+listClosedWorkflowExecutions_tagFilter :: Lens.Lens' ListClosedWorkflowExecutions (Prelude.Maybe TagFilter)
+listClosedWorkflowExecutions_tagFilter = Lens.lens (\ListClosedWorkflowExecutions' {tagFilter} -> tagFilter) (\s@ListClosedWorkflowExecutions' {} a -> s {tagFilter = a} :: ListClosedWorkflowExecutions)
 
--- | If specified, the workflow executions are included in the returned results based on whether their start times are within the range specified by this filter. Also, if this parameter is specified, the returned results are ordered by their start times.
-lcweStartTimeFilter :: Lens' ListClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
-lcweStartTimeFilter = lens _lcweStartTimeFilter (\ s a -> s{_lcweStartTimeFilter = a})
+-- | If @NextPageToken@ is returned there are more results available. The
+-- value of @NextPageToken@ is a unique pagination token for each page.
+-- Make the call again using the returned token to retrieve the next page.
+-- Keep all other arguments unchanged. Each pagination token expires after
+-- 60 seconds. Using an expired pagination token will return a @400@ error:
+-- \"@Specified token has exceeded its maximum lifetime@\".
+--
+-- The configured @maximumPageSize@ determines how many results can be
+-- returned in a single call.
+listClosedWorkflowExecutions_nextPageToken :: Lens.Lens' ListClosedWorkflowExecutions (Prelude.Maybe Prelude.Text)
+listClosedWorkflowExecutions_nextPageToken = Lens.lens (\ListClosedWorkflowExecutions' {nextPageToken} -> nextPageToken) (\s@ListClosedWorkflowExecutions' {} a -> s {nextPageToken = a} :: ListClosedWorkflowExecutions)
 
--- | The maximum number of results that are returned per call. @nextPageToken@ can be used to obtain futher pages of results. The default is 1000, which is the maximum allowed page size. You can, however, specify a page size /smaller/ than the maximum. This is an upper limit only; the actual number of results returned per call may be fewer than the specified maximum.
-lcweMaximumPageSize :: Lens' ListClosedWorkflowExecutions (Maybe Natural)
-lcweMaximumPageSize = lens _lcweMaximumPageSize (\ s a -> s{_lcweMaximumPageSize = a}) . mapping _Nat
+-- | The maximum number of results that are returned per call. Use
+-- @nextPageToken@ to obtain further pages of results.
+listClosedWorkflowExecutions_maximumPageSize :: Lens.Lens' ListClosedWorkflowExecutions (Prelude.Maybe Prelude.Natural)
+listClosedWorkflowExecutions_maximumPageSize = Lens.lens (\ListClosedWorkflowExecutions' {maximumPageSize} -> maximumPageSize) (\s@ListClosedWorkflowExecutions' {} a -> s {maximumPageSize = a} :: ListClosedWorkflowExecutions)
+
+-- | When set to @true@, returns the results in reverse order. By default the
+-- results are returned in descending order of the start or the close time
+-- of the executions.
+listClosedWorkflowExecutions_reverseOrder :: Lens.Lens' ListClosedWorkflowExecutions (Prelude.Maybe Prelude.Bool)
+listClosedWorkflowExecutions_reverseOrder = Lens.lens (\ListClosedWorkflowExecutions' {reverseOrder} -> reverseOrder) (\s@ListClosedWorkflowExecutions' {} a -> s {reverseOrder = a} :: ListClosedWorkflowExecutions)
+
+-- | If specified, the workflow executions are included in the returned
+-- results based on whether their close times are within the range
+-- specified by this filter. Also, if this parameter is specified, the
+-- returned results are ordered by their close times.
+--
+-- @startTimeFilter@ and @closeTimeFilter@ are mutually exclusive. You must
+-- specify one of these in a request but not both.
+listClosedWorkflowExecutions_closeTimeFilter :: Lens.Lens' ListClosedWorkflowExecutions (Prelude.Maybe ExecutionTimeFilter)
+listClosedWorkflowExecutions_closeTimeFilter = Lens.lens (\ListClosedWorkflowExecutions' {closeTimeFilter} -> closeTimeFilter) (\s@ListClosedWorkflowExecutions' {} a -> s {closeTimeFilter = a} :: ListClosedWorkflowExecutions)
+
+-- | If specified, the workflow executions are included in the returned
+-- results based on whether their start times are within the range
+-- specified by this filter. Also, if this parameter is specified, the
+-- returned results are ordered by their start times.
+--
+-- @startTimeFilter@ and @closeTimeFilter@ are mutually exclusive. You must
+-- specify one of these in a request but not both.
+listClosedWorkflowExecutions_startTimeFilter :: Lens.Lens' ListClosedWorkflowExecutions (Prelude.Maybe ExecutionTimeFilter)
+listClosedWorkflowExecutions_startTimeFilter = Lens.lens (\ListClosedWorkflowExecutions' {startTimeFilter} -> startTimeFilter) (\s@ListClosedWorkflowExecutions' {} a -> s {startTimeFilter = a} :: ListClosedWorkflowExecutions)
+
+-- | If specified, only workflow executions matching the workflow ID
+-- specified in the filter are returned.
+--
+-- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+-- mutually exclusive. You can specify at most one of these in a request.
+listClosedWorkflowExecutions_executionFilter :: Lens.Lens' ListClosedWorkflowExecutions (Prelude.Maybe WorkflowExecutionFilter)
+listClosedWorkflowExecutions_executionFilter = Lens.lens (\ListClosedWorkflowExecutions' {executionFilter} -> executionFilter) (\s@ListClosedWorkflowExecutions' {} a -> s {executionFilter = a} :: ListClosedWorkflowExecutions)
+
+-- | If specified, only workflow executions that match this /close status/
+-- are listed. For example, if TERMINATED is specified, then only
+-- TERMINATED workflow executions are listed.
+--
+-- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+-- mutually exclusive. You can specify at most one of these in a request.
+listClosedWorkflowExecutions_closeStatusFilter :: Lens.Lens' ListClosedWorkflowExecutions (Prelude.Maybe CloseStatusFilter)
+listClosedWorkflowExecutions_closeStatusFilter = Lens.lens (\ListClosedWorkflowExecutions' {closeStatusFilter} -> closeStatusFilter) (\s@ListClosedWorkflowExecutions' {} a -> s {closeStatusFilter = a} :: ListClosedWorkflowExecutions)
 
 -- | The name of the domain that contains the workflow executions to list.
-lcweDomain :: Lens' ListClosedWorkflowExecutions Text
-lcweDomain = lens _lcweDomain (\ s a -> s{_lcweDomain = a})
+listClosedWorkflowExecutions_domain :: Lens.Lens' ListClosedWorkflowExecutions Prelude.Text
+listClosedWorkflowExecutions_domain = Lens.lens (\ListClosedWorkflowExecutions' {domain} -> domain) (\s@ListClosedWorkflowExecutions' {} a -> s {domain = a} :: ListClosedWorkflowExecutions)
 
-instance AWSPager ListClosedWorkflowExecutions where
-        page rq rs
-          | stop (rs ^. weiNextPageToken) = Nothing
-          | stop (rs ^. weiExecutionInfos) = Nothing
-          | otherwise =
-            Just $ rq &
-              lcweNextPageToken .~ rs ^. weiNextPageToken
+instance Pager.AWSPager ListClosedWorkflowExecutions where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? workflowExecutionInfos_nextPageToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        (rs Lens.^. workflowExecutionInfos_executionInfos) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listClosedWorkflowExecutions_nextPageToken
+          Lens..~ rs
+          Lens.^? workflowExecutionInfos_nextPageToken
+            Prelude.. Lens._Just
 
-instance AWSRequest ListClosedWorkflowExecutions
-         where
-        type Rs ListClosedWorkflowExecutions =
-             WorkflowExecutionInfos
-        request = postJSON swf
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance
+  Prelude.AWSRequest
+    ListClosedWorkflowExecutions
+  where
+  type
+    Rs ListClosedWorkflowExecutions =
+      WorkflowExecutionInfos
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Prelude.eitherParseJSON x)
 
-instance Hashable ListClosedWorkflowExecutions where
+instance
+  Prelude.Hashable
+    ListClosedWorkflowExecutions
 
-instance NFData ListClosedWorkflowExecutions where
+instance Prelude.NFData ListClosedWorkflowExecutions
 
-instance ToHeaders ListClosedWorkflowExecutions where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("SimpleWorkflowService.ListClosedWorkflowExecutions"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.0" :: ByteString)])
+instance
+  Prelude.ToHeaders
+    ListClosedWorkflowExecutions
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "SimpleWorkflowService.ListClosedWorkflowExecutions" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.0" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON ListClosedWorkflowExecutions where
-        toJSON ListClosedWorkflowExecutions'{..}
-          = object
-              (catMaybes
-                 [("nextPageToken" .=) <$> _lcweNextPageToken,
-                  ("executionFilter" .=) <$> _lcweExecutionFilter,
-                  ("closeStatusFilter" .=) <$> _lcweCloseStatusFilter,
-                  ("typeFilter" .=) <$> _lcweTypeFilter,
-                  ("closeTimeFilter" .=) <$> _lcweCloseTimeFilter,
-                  ("reverseOrder" .=) <$> _lcweReverseOrder,
-                  ("tagFilter" .=) <$> _lcweTagFilter,
-                  ("startTimeFilter" .=) <$> _lcweStartTimeFilter,
-                  ("maximumPageSize" .=) <$> _lcweMaximumPageSize,
-                  Just ("domain" .= _lcweDomain)])
+instance Prelude.ToJSON ListClosedWorkflowExecutions where
+  toJSON ListClosedWorkflowExecutions' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("typeFilter" Prelude..=) Prelude.<$> typeFilter,
+            ("tagFilter" Prelude..=) Prelude.<$> tagFilter,
+            ("nextPageToken" Prelude..=)
+              Prelude.<$> nextPageToken,
+            ("maximumPageSize" Prelude..=)
+              Prelude.<$> maximumPageSize,
+            ("reverseOrder" Prelude..=) Prelude.<$> reverseOrder,
+            ("closeTimeFilter" Prelude..=)
+              Prelude.<$> closeTimeFilter,
+            ("startTimeFilter" Prelude..=)
+              Prelude.<$> startTimeFilter,
+            ("executionFilter" Prelude..=)
+              Prelude.<$> executionFilter,
+            ("closeStatusFilter" Prelude..=)
+              Prelude.<$> closeStatusFilter,
+            Prelude.Just ("domain" Prelude..= domain)
+          ]
+      )
 
-instance ToPath ListClosedWorkflowExecutions where
-        toPath = const "/"
+instance Prelude.ToPath ListClosedWorkflowExecutions where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListClosedWorkflowExecutions where
-        toQuery = const mempty
+instance Prelude.ToQuery ListClosedWorkflowExecutions where
+  toQuery = Prelude.const Prelude.mempty

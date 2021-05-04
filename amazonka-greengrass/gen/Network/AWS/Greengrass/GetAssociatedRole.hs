@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.GetAssociatedRole
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,117 +23,141 @@
 --
 -- Retrieves the role associated with a particular group.
 module Network.AWS.Greengrass.GetAssociatedRole
-    (
-    -- * Creating a Request
-      getAssociatedRole
-    , GetAssociatedRole
+  ( -- * Creating a Request
+    GetAssociatedRole (..),
+    newGetAssociatedRole,
+
     -- * Request Lenses
-    , garGroupId
+    getAssociatedRole_groupId,
 
     -- * Destructuring the Response
-    , getAssociatedRoleResponse
-    , GetAssociatedRoleResponse
+    GetAssociatedRoleResponse (..),
+    newGetAssociatedRoleResponse,
+
     -- * Response Lenses
-    , garrsAssociatedAt
-    , garrsRoleARN
-    , garrsResponseStatus
-    ) where
+    getAssociatedRoleResponse_roleArn,
+    getAssociatedRoleResponse_associatedAt,
+    getAssociatedRoleResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getAssociatedRole' smart constructor.
-newtype GetAssociatedRole = GetAssociatedRole'
-  { _garGroupId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetAssociatedRole' smart constructor.
+data GetAssociatedRole = GetAssociatedRole'
+  { -- | The ID of the Greengrass group.
+    groupId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetAssociatedRole' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetAssociatedRole' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'garGroupId' - The ID of the AWS Greengrass group.
-getAssociatedRole
-    :: Text -- ^ 'garGroupId'
-    -> GetAssociatedRole
-getAssociatedRole pGroupId_ = GetAssociatedRole' {_garGroupId = pGroupId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'groupId', 'getAssociatedRole_groupId' - The ID of the Greengrass group.
+newGetAssociatedRole ::
+  -- | 'groupId'
+  Prelude.Text ->
+  GetAssociatedRole
+newGetAssociatedRole pGroupId_ =
+  GetAssociatedRole' {groupId = pGroupId_}
 
+-- | The ID of the Greengrass group.
+getAssociatedRole_groupId :: Lens.Lens' GetAssociatedRole Prelude.Text
+getAssociatedRole_groupId = Lens.lens (\GetAssociatedRole' {groupId} -> groupId) (\s@GetAssociatedRole' {} a -> s {groupId = a} :: GetAssociatedRole)
 
--- | The ID of the AWS Greengrass group.
-garGroupId :: Lens' GetAssociatedRole Text
-garGroupId = lens _garGroupId (\ s a -> s{_garGroupId = a})
+instance Prelude.AWSRequest GetAssociatedRole where
+  type Rs GetAssociatedRole = GetAssociatedRoleResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetAssociatedRoleResponse'
+            Prelude.<$> (x Prelude..?> "RoleArn")
+            Prelude.<*> (x Prelude..?> "AssociatedAt")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetAssociatedRole where
-        type Rs GetAssociatedRole = GetAssociatedRoleResponse
-        request = get greengrass
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetAssociatedRoleResponse' <$>
-                   (x .?> "AssociatedAt") <*> (x .?> "RoleArn") <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable GetAssociatedRole
 
-instance Hashable GetAssociatedRole where
+instance Prelude.NFData GetAssociatedRole
 
-instance NFData GetAssociatedRole where
+instance Prelude.ToHeaders GetAssociatedRole where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders GetAssociatedRole where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToPath GetAssociatedRole where
+  toPath GetAssociatedRole' {..} =
+    Prelude.mconcat
+      [ "/greengrass/groups/",
+        Prelude.toBS groupId,
+        "/role"
+      ]
 
-instance ToPath GetAssociatedRole where
-        toPath GetAssociatedRole'{..}
-          = mconcat
-              ["/greengrass/groups/", toBS _garGroupId, "/role"]
+instance Prelude.ToQuery GetAssociatedRole where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetAssociatedRole where
-        toQuery = const mempty
-
--- | /See:/ 'getAssociatedRoleResponse' smart constructor.
+-- | /See:/ 'newGetAssociatedRoleResponse' smart constructor.
 data GetAssociatedRoleResponse = GetAssociatedRoleResponse'
-  { _garrsAssociatedAt   :: !(Maybe Text)
-  , _garrsRoleARN        :: !(Maybe Text)
-  , _garrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the role that is associated with the group.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The time when the role was associated with the group.
+    associatedAt :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetAssociatedRoleResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetAssociatedRoleResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'garrsAssociatedAt' - The time when the role was associated with the group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'garrsRoleARN' - The ARN of the role that is associated with the group.
+-- 'roleArn', 'getAssociatedRoleResponse_roleArn' - The ARN of the role that is associated with the group.
 --
--- * 'garrsResponseStatus' - -- | The response status code.
-getAssociatedRoleResponse
-    :: Int -- ^ 'garrsResponseStatus'
-    -> GetAssociatedRoleResponse
-getAssociatedRoleResponse pResponseStatus_ =
+-- 'associatedAt', 'getAssociatedRoleResponse_associatedAt' - The time when the role was associated with the group.
+--
+-- 'httpStatus', 'getAssociatedRoleResponse_httpStatus' - The response's http status code.
+newGetAssociatedRoleResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetAssociatedRoleResponse
+newGetAssociatedRoleResponse pHttpStatus_ =
   GetAssociatedRoleResponse'
-    { _garrsAssociatedAt = Nothing
-    , _garrsRoleARN = Nothing
-    , _garrsResponseStatus = pResponseStatus_
+    { roleArn =
+        Prelude.Nothing,
+      associatedAt = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The ARN of the role that is associated with the group.
+getAssociatedRoleResponse_roleArn :: Lens.Lens' GetAssociatedRoleResponse (Prelude.Maybe Prelude.Text)
+getAssociatedRoleResponse_roleArn = Lens.lens (\GetAssociatedRoleResponse' {roleArn} -> roleArn) (\s@GetAssociatedRoleResponse' {} a -> s {roleArn = a} :: GetAssociatedRoleResponse)
 
 -- | The time when the role was associated with the group.
-garrsAssociatedAt :: Lens' GetAssociatedRoleResponse (Maybe Text)
-garrsAssociatedAt = lens _garrsAssociatedAt (\ s a -> s{_garrsAssociatedAt = a})
+getAssociatedRoleResponse_associatedAt :: Lens.Lens' GetAssociatedRoleResponse (Prelude.Maybe Prelude.Text)
+getAssociatedRoleResponse_associatedAt = Lens.lens (\GetAssociatedRoleResponse' {associatedAt} -> associatedAt) (\s@GetAssociatedRoleResponse' {} a -> s {associatedAt = a} :: GetAssociatedRoleResponse)
 
--- | The ARN of the role that is associated with the group.
-garrsRoleARN :: Lens' GetAssociatedRoleResponse (Maybe Text)
-garrsRoleARN = lens _garrsRoleARN (\ s a -> s{_garrsRoleARN = a})
+-- | The response's http status code.
+getAssociatedRoleResponse_httpStatus :: Lens.Lens' GetAssociatedRoleResponse Prelude.Int
+getAssociatedRoleResponse_httpStatus = Lens.lens (\GetAssociatedRoleResponse' {httpStatus} -> httpStatus) (\s@GetAssociatedRoleResponse' {} a -> s {httpStatus = a} :: GetAssociatedRoleResponse)
 
--- | -- | The response status code.
-garrsResponseStatus :: Lens' GetAssociatedRoleResponse Int
-garrsResponseStatus = lens _garrsResponseStatus (\ s a -> s{_garrsResponseStatus = a})
-
-instance NFData GetAssociatedRoleResponse where
+instance Prelude.NFData GetAssociatedRoleResponse

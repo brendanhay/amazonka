@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.Cloud9
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.Cloud9 where
 
 import Data.Proxy
@@ -29,67 +28,85 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestListEnvironments $
---             listEnvironments
---
---         , requestUpdateEnvironment $
---             updateEnvironment
---
---         , requestDeleteEnvironment $
---             deleteEnvironment
---
---         , requestDescribeEnvironmentStatus $
---             describeEnvironmentStatus
---
---         , requestCreateEnvironmentEC $
---             createEnvironmentEC
+--             newListEnvironments
 --
 --         , requestCreateEnvironmentMembership $
---             createEnvironmentMembership
+--             newCreateEnvironmentMembership
 --
---         , requestDescribeEnvironments $
---             describeEnvironments
+--         , requestUntagResource $
+--             newUntagResource
 --
---         , requestDeleteEnvironmentMembership $
---             deleteEnvironmentMembership
+--         , requestTagResource $
+--             newTagResource
 --
---         , requestUpdateEnvironmentMembership $
---             updateEnvironmentMembership
+--         , requestDescribeEnvironmentStatus $
+--             newDescribeEnvironmentStatus
+--
+--         , requestUpdateEnvironment $
+--             newUpdateEnvironment
+--
+--         , requestDeleteEnvironment $
+--             newDeleteEnvironment
 --
 --         , requestDescribeEnvironmentMemberships $
---             describeEnvironmentMemberships
+--             newDescribeEnvironmentMemberships
+--
+--         , requestUpdateEnvironmentMembership $
+--             newUpdateEnvironmentMembership
+--
+--         , requestDeleteEnvironmentMembership $
+--             newDeleteEnvironmentMembership
+--
+--         , requestDescribeEnvironments $
+--             newDescribeEnvironments
+--
+--         , requestCreateEnvironmentEC $
+--             newCreateEnvironmentEC
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseListEnvironments $
---             listEnvironmentsResponse
---
---         , responseUpdateEnvironment $
---             updateEnvironmentResponse
---
---         , responseDeleteEnvironment $
---             deleteEnvironmentResponse
---
---         , responseDescribeEnvironmentStatus $
---             describeEnvironmentStatusResponse
---
---         , responseCreateEnvironmentEC $
---             createEnvironmentECResponse
+--             newListEnvironmentsResponse
 --
 --         , responseCreateEnvironmentMembership $
---             createEnvironmentMembershipResponse
+--             newCreateEnvironmentMembershipResponse
 --
---         , responseDescribeEnvironments $
---             describeEnvironmentsResponse
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
---         , responseDeleteEnvironmentMembership $
---             deleteEnvironmentMembershipResponse
+--         , responseTagResource $
+--             newTagResourceResponse
 --
---         , responseUpdateEnvironmentMembership $
---             updateEnvironmentMembershipResponse
+--         , responseDescribeEnvironmentStatus $
+--             newDescribeEnvironmentStatusResponse
+--
+--         , responseUpdateEnvironment $
+--             newUpdateEnvironmentResponse
+--
+--         , responseDeleteEnvironment $
+--             newDeleteEnvironmentResponse
 --
 --         , responseDescribeEnvironmentMemberships $
---             describeEnvironmentMembershipsResponse
+--             newDescribeEnvironmentMembershipsResponse
+--
+--         , responseUpdateEnvironmentMembership $
+--             newUpdateEnvironmentMembershipResponse
+--
+--         , responseDeleteEnvironmentMembership $
+--             newDeleteEnvironmentMembershipResponse
+--
+--         , responseDescribeEnvironments $
+--             newDescribeEnvironmentsResponse
+--
+--         , responseCreateEnvironmentEC $
+--             newCreateEnvironmentECResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --           ]
 --     ]
@@ -97,123 +114,185 @@ import Test.Tasty
 -- Requests
 
 requestListEnvironments :: ListEnvironments -> TestTree
-requestListEnvironments = req
+requestListEnvironments =
+  req
     "ListEnvironments"
     "fixture/ListEnvironments.yaml"
 
+requestCreateEnvironmentMembership :: CreateEnvironmentMembership -> TestTree
+requestCreateEnvironmentMembership =
+  req
+    "CreateEnvironmentMembership"
+    "fixture/CreateEnvironmentMembership.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestDescribeEnvironmentStatus :: DescribeEnvironmentStatus -> TestTree
+requestDescribeEnvironmentStatus =
+  req
+    "DescribeEnvironmentStatus"
+    "fixture/DescribeEnvironmentStatus.yaml"
+
 requestUpdateEnvironment :: UpdateEnvironment -> TestTree
-requestUpdateEnvironment = req
+requestUpdateEnvironment =
+  req
     "UpdateEnvironment"
     "fixture/UpdateEnvironment.yaml"
 
 requestDeleteEnvironment :: DeleteEnvironment -> TestTree
-requestDeleteEnvironment = req
+requestDeleteEnvironment =
+  req
     "DeleteEnvironment"
     "fixture/DeleteEnvironment.yaml"
 
-requestDescribeEnvironmentStatus :: DescribeEnvironmentStatus -> TestTree
-requestDescribeEnvironmentStatus = req
-    "DescribeEnvironmentStatus"
-    "fixture/DescribeEnvironmentStatus.yaml"
-
-requestCreateEnvironmentEC :: CreateEnvironmentEC -> TestTree
-requestCreateEnvironmentEC = req
-    "CreateEnvironmentEC"
-    "fixture/CreateEnvironmentEC.yaml"
-
-requestCreateEnvironmentMembership :: CreateEnvironmentMembership -> TestTree
-requestCreateEnvironmentMembership = req
-    "CreateEnvironmentMembership"
-    "fixture/CreateEnvironmentMembership.yaml"
-
-requestDescribeEnvironments :: DescribeEnvironments -> TestTree
-requestDescribeEnvironments = req
-    "DescribeEnvironments"
-    "fixture/DescribeEnvironments.yaml"
-
-requestDeleteEnvironmentMembership :: DeleteEnvironmentMembership -> TestTree
-requestDeleteEnvironmentMembership = req
-    "DeleteEnvironmentMembership"
-    "fixture/DeleteEnvironmentMembership.yaml"
+requestDescribeEnvironmentMemberships :: DescribeEnvironmentMemberships -> TestTree
+requestDescribeEnvironmentMemberships =
+  req
+    "DescribeEnvironmentMemberships"
+    "fixture/DescribeEnvironmentMemberships.yaml"
 
 requestUpdateEnvironmentMembership :: UpdateEnvironmentMembership -> TestTree
-requestUpdateEnvironmentMembership = req
+requestUpdateEnvironmentMembership =
+  req
     "UpdateEnvironmentMembership"
     "fixture/UpdateEnvironmentMembership.yaml"
 
-requestDescribeEnvironmentMemberships :: DescribeEnvironmentMemberships -> TestTree
-requestDescribeEnvironmentMemberships = req
-    "DescribeEnvironmentMemberships"
-    "fixture/DescribeEnvironmentMemberships.yaml"
+requestDeleteEnvironmentMembership :: DeleteEnvironmentMembership -> TestTree
+requestDeleteEnvironmentMembership =
+  req
+    "DeleteEnvironmentMembership"
+    "fixture/DeleteEnvironmentMembership.yaml"
+
+requestDescribeEnvironments :: DescribeEnvironments -> TestTree
+requestDescribeEnvironments =
+  req
+    "DescribeEnvironments"
+    "fixture/DescribeEnvironments.yaml"
+
+requestCreateEnvironmentEC :: CreateEnvironmentEC -> TestTree
+requestCreateEnvironmentEC =
+  req
+    "CreateEnvironmentEC"
+    "fixture/CreateEnvironmentEC.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 -- Responses
 
 responseListEnvironments :: ListEnvironmentsResponse -> TestTree
-responseListEnvironments = res
+responseListEnvironments =
+  res
     "ListEnvironmentsResponse"
     "fixture/ListEnvironmentsResponse.proto"
-    cloud9
+    defaultService
     (Proxy :: Proxy ListEnvironments)
 
+responseCreateEnvironmentMembership :: CreateEnvironmentMembershipResponse -> TestTree
+responseCreateEnvironmentMembership =
+  res
+    "CreateEnvironmentMembershipResponse"
+    "fixture/CreateEnvironmentMembershipResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateEnvironmentMembership)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
+
+responseDescribeEnvironmentStatus :: DescribeEnvironmentStatusResponse -> TestTree
+responseDescribeEnvironmentStatus =
+  res
+    "DescribeEnvironmentStatusResponse"
+    "fixture/DescribeEnvironmentStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeEnvironmentStatus)
+
 responseUpdateEnvironment :: UpdateEnvironmentResponse -> TestTree
-responseUpdateEnvironment = res
+responseUpdateEnvironment =
+  res
     "UpdateEnvironmentResponse"
     "fixture/UpdateEnvironmentResponse.proto"
-    cloud9
+    defaultService
     (Proxy :: Proxy UpdateEnvironment)
 
 responseDeleteEnvironment :: DeleteEnvironmentResponse -> TestTree
-responseDeleteEnvironment = res
+responseDeleteEnvironment =
+  res
     "DeleteEnvironmentResponse"
     "fixture/DeleteEnvironmentResponse.proto"
-    cloud9
+    defaultService
     (Proxy :: Proxy DeleteEnvironment)
 
-responseDescribeEnvironmentStatus :: DescribeEnvironmentStatusResponse -> TestTree
-responseDescribeEnvironmentStatus = res
-    "DescribeEnvironmentStatusResponse"
-    "fixture/DescribeEnvironmentStatusResponse.proto"
-    cloud9
-    (Proxy :: Proxy DescribeEnvironmentStatus)
-
-responseCreateEnvironmentEC :: CreateEnvironmentECResponse -> TestTree
-responseCreateEnvironmentEC = res
-    "CreateEnvironmentECResponse"
-    "fixture/CreateEnvironmentECResponse.proto"
-    cloud9
-    (Proxy :: Proxy CreateEnvironmentEC)
-
-responseCreateEnvironmentMembership :: CreateEnvironmentMembershipResponse -> TestTree
-responseCreateEnvironmentMembership = res
-    "CreateEnvironmentMembershipResponse"
-    "fixture/CreateEnvironmentMembershipResponse.proto"
-    cloud9
-    (Proxy :: Proxy CreateEnvironmentMembership)
-
-responseDescribeEnvironments :: DescribeEnvironmentsResponse -> TestTree
-responseDescribeEnvironments = res
-    "DescribeEnvironmentsResponse"
-    "fixture/DescribeEnvironmentsResponse.proto"
-    cloud9
-    (Proxy :: Proxy DescribeEnvironments)
-
-responseDeleteEnvironmentMembership :: DeleteEnvironmentMembershipResponse -> TestTree
-responseDeleteEnvironmentMembership = res
-    "DeleteEnvironmentMembershipResponse"
-    "fixture/DeleteEnvironmentMembershipResponse.proto"
-    cloud9
-    (Proxy :: Proxy DeleteEnvironmentMembership)
-
-responseUpdateEnvironmentMembership :: UpdateEnvironmentMembershipResponse -> TestTree
-responseUpdateEnvironmentMembership = res
-    "UpdateEnvironmentMembershipResponse"
-    "fixture/UpdateEnvironmentMembershipResponse.proto"
-    cloud9
-    (Proxy :: Proxy UpdateEnvironmentMembership)
-
 responseDescribeEnvironmentMemberships :: DescribeEnvironmentMembershipsResponse -> TestTree
-responseDescribeEnvironmentMemberships = res
+responseDescribeEnvironmentMemberships =
+  res
     "DescribeEnvironmentMembershipsResponse"
     "fixture/DescribeEnvironmentMembershipsResponse.proto"
-    cloud9
+    defaultService
     (Proxy :: Proxy DescribeEnvironmentMemberships)
+
+responseUpdateEnvironmentMembership :: UpdateEnvironmentMembershipResponse -> TestTree
+responseUpdateEnvironmentMembership =
+  res
+    "UpdateEnvironmentMembershipResponse"
+    "fixture/UpdateEnvironmentMembershipResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateEnvironmentMembership)
+
+responseDeleteEnvironmentMembership :: DeleteEnvironmentMembershipResponse -> TestTree
+responseDeleteEnvironmentMembership =
+  res
+    "DeleteEnvironmentMembershipResponse"
+    "fixture/DeleteEnvironmentMembershipResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteEnvironmentMembership)
+
+responseDescribeEnvironments :: DescribeEnvironmentsResponse -> TestTree
+responseDescribeEnvironments =
+  res
+    "DescribeEnvironmentsResponse"
+    "fixture/DescribeEnvironmentsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeEnvironments)
+
+responseCreateEnvironmentEC :: CreateEnvironmentECResponse -> TestTree
+responseCreateEnvironmentEC =
+  res
+    "CreateEnvironmentECResponse"
+    "fixture/CreateEnvironmentECResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateEnvironmentEC)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)

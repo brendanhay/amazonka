@@ -1,152 +1,184 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.AssociateSubnetCidrBlock
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a prefix length of /64.
---
---
+-- Associates a CIDR block with your subnet. You can only associate a
+-- single IPv6 CIDR block with your subnet. An IPv6 CIDR block must have a
+-- prefix length of \/64.
 module Network.AWS.EC2.AssociateSubnetCidrBlock
-    (
-    -- * Creating a Request
-      associateSubnetCidrBlock
-    , AssociateSubnetCidrBlock
+  ( -- * Creating a Request
+    AssociateSubnetCidrBlock (..),
+    newAssociateSubnetCidrBlock,
+
     -- * Request Lenses
-    , ascbIPv6CidrBlock
-    , ascbSubnetId
+    associateSubnetCidrBlock_ipv6CidrBlock,
+    associateSubnetCidrBlock_subnetId,
 
     -- * Destructuring the Response
-    , associateSubnetCidrBlockResponse
-    , AssociateSubnetCidrBlockResponse
+    AssociateSubnetCidrBlockResponse (..),
+    newAssociateSubnetCidrBlockResponse,
+
     -- * Response Lenses
-    , ascbrsSubnetId
-    , ascbrsIPv6CidrBlockAssociation
-    , ascbrsResponseStatus
-    ) where
+    associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation,
+    associateSubnetCidrBlockResponse_subnetId,
+    associateSubnetCidrBlockResponse_httpStatus,
+  )
+where
 
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'associateSubnetCidrBlock' smart constructor.
+-- | /See:/ 'newAssociateSubnetCidrBlock' smart constructor.
 data AssociateSubnetCidrBlock = AssociateSubnetCidrBlock'
-  { _ascbIPv6CidrBlock :: !Text
-  , _ascbSubnetId      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The IPv6 CIDR block for your subnet. The subnet must have a \/64 prefix
+    -- length.
+    ipv6CidrBlock :: Prelude.Text,
+    -- | The ID of your subnet.
+    subnetId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AssociateSubnetCidrBlock' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AssociateSubnetCidrBlock' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ascbIPv6CidrBlock' - The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ascbSubnetId' - The ID of your subnet.
-associateSubnetCidrBlock
-    :: Text -- ^ 'ascbIPv6CidrBlock'
-    -> Text -- ^ 'ascbSubnetId'
-    -> AssociateSubnetCidrBlock
-associateSubnetCidrBlock pIPv6CidrBlock_ pSubnetId_ =
-  AssociateSubnetCidrBlock'
-    {_ascbIPv6CidrBlock = pIPv6CidrBlock_, _ascbSubnetId = pSubnetId_}
+-- 'ipv6CidrBlock', 'associateSubnetCidrBlock_ipv6CidrBlock' - The IPv6 CIDR block for your subnet. The subnet must have a \/64 prefix
+-- length.
+--
+-- 'subnetId', 'associateSubnetCidrBlock_subnetId' - The ID of your subnet.
+newAssociateSubnetCidrBlock ::
+  -- | 'ipv6CidrBlock'
+  Prelude.Text ->
+  -- | 'subnetId'
+  Prelude.Text ->
+  AssociateSubnetCidrBlock
+newAssociateSubnetCidrBlock
+  pIpv6CidrBlock_
+  pSubnetId_ =
+    AssociateSubnetCidrBlock'
+      { ipv6CidrBlock =
+          pIpv6CidrBlock_,
+        subnetId = pSubnetId_
+      }
 
-
--- | The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix length.
-ascbIPv6CidrBlock :: Lens' AssociateSubnetCidrBlock Text
-ascbIPv6CidrBlock = lens _ascbIPv6CidrBlock (\ s a -> s{_ascbIPv6CidrBlock = a})
+-- | The IPv6 CIDR block for your subnet. The subnet must have a \/64 prefix
+-- length.
+associateSubnetCidrBlock_ipv6CidrBlock :: Lens.Lens' AssociateSubnetCidrBlock Prelude.Text
+associateSubnetCidrBlock_ipv6CidrBlock = Lens.lens (\AssociateSubnetCidrBlock' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@AssociateSubnetCidrBlock' {} a -> s {ipv6CidrBlock = a} :: AssociateSubnetCidrBlock)
 
 -- | The ID of your subnet.
-ascbSubnetId :: Lens' AssociateSubnetCidrBlock Text
-ascbSubnetId = lens _ascbSubnetId (\ s a -> s{_ascbSubnetId = a})
+associateSubnetCidrBlock_subnetId :: Lens.Lens' AssociateSubnetCidrBlock Prelude.Text
+associateSubnetCidrBlock_subnetId = Lens.lens (\AssociateSubnetCidrBlock' {subnetId} -> subnetId) (\s@AssociateSubnetCidrBlock' {} a -> s {subnetId = a} :: AssociateSubnetCidrBlock)
 
-instance AWSRequest AssociateSubnetCidrBlock where
-        type Rs AssociateSubnetCidrBlock =
-             AssociateSubnetCidrBlockResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 AssociateSubnetCidrBlockResponse' <$>
-                   (x .@? "subnetId") <*>
-                     (x .@? "ipv6CidrBlockAssociation")
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest AssociateSubnetCidrBlock where
+  type
+    Rs AssociateSubnetCidrBlock =
+      AssociateSubnetCidrBlockResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          AssociateSubnetCidrBlockResponse'
+            Prelude.<$> (x Prelude..@? "ipv6CidrBlockAssociation")
+            Prelude.<*> (x Prelude..@? "subnetId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AssociateSubnetCidrBlock where
+instance Prelude.Hashable AssociateSubnetCidrBlock
 
-instance NFData AssociateSubnetCidrBlock where
+instance Prelude.NFData AssociateSubnetCidrBlock
 
-instance ToHeaders AssociateSubnetCidrBlock where
-        toHeaders = const mempty
+instance Prelude.ToHeaders AssociateSubnetCidrBlock where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath AssociateSubnetCidrBlock where
-        toPath = const "/"
+instance Prelude.ToPath AssociateSubnetCidrBlock where
+  toPath = Prelude.const "/"
 
-instance ToQuery AssociateSubnetCidrBlock where
-        toQuery AssociateSubnetCidrBlock'{..}
-          = mconcat
-              ["Action" =:
-                 ("AssociateSubnetCidrBlock" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "Ipv6CidrBlock" =: _ascbIPv6CidrBlock,
-               "SubnetId" =: _ascbSubnetId]
+instance Prelude.ToQuery AssociateSubnetCidrBlock where
+  toQuery AssociateSubnetCidrBlock' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("AssociateSubnetCidrBlock" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
+        "Ipv6CidrBlock" Prelude.=: ipv6CidrBlock,
+        "SubnetId" Prelude.=: subnetId
+      ]
 
--- | /See:/ 'associateSubnetCidrBlockResponse' smart constructor.
+-- | /See:/ 'newAssociateSubnetCidrBlockResponse' smart constructor.
 data AssociateSubnetCidrBlockResponse = AssociateSubnetCidrBlockResponse'
-  { _ascbrsSubnetId                 :: !(Maybe Text)
-  , _ascbrsIPv6CidrBlockAssociation :: !(Maybe SubnetIPv6CidrBlockAssociation)
-  , _ascbrsResponseStatus           :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the IPv6 CIDR block association.
+    ipv6CidrBlockAssociation :: Prelude.Maybe SubnetIpv6CidrBlockAssociation,
+    -- | The ID of the subnet.
+    subnetId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AssociateSubnetCidrBlockResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AssociateSubnetCidrBlockResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ascbrsSubnetId' - The ID of the subnet.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ascbrsIPv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
+-- 'ipv6CidrBlockAssociation', 'associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
 --
--- * 'ascbrsResponseStatus' - -- | The response status code.
-associateSubnetCidrBlockResponse
-    :: Int -- ^ 'ascbrsResponseStatus'
-    -> AssociateSubnetCidrBlockResponse
-associateSubnetCidrBlockResponse pResponseStatus_ =
+-- 'subnetId', 'associateSubnetCidrBlockResponse_subnetId' - The ID of the subnet.
+--
+-- 'httpStatus', 'associateSubnetCidrBlockResponse_httpStatus' - The response's http status code.
+newAssociateSubnetCidrBlockResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AssociateSubnetCidrBlockResponse
+newAssociateSubnetCidrBlockResponse pHttpStatus_ =
   AssociateSubnetCidrBlockResponse'
-    { _ascbrsSubnetId = Nothing
-    , _ascbrsIPv6CidrBlockAssociation = Nothing
-    , _ascbrsResponseStatus = pResponseStatus_
+    { ipv6CidrBlockAssociation =
+        Prelude.Nothing,
+      subnetId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | Information about the IPv6 CIDR block association.
+associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation :: Lens.Lens' AssociateSubnetCidrBlockResponse (Prelude.Maybe SubnetIpv6CidrBlockAssociation)
+associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation = Lens.lens (\AssociateSubnetCidrBlockResponse' {ipv6CidrBlockAssociation} -> ipv6CidrBlockAssociation) (\s@AssociateSubnetCidrBlockResponse' {} a -> s {ipv6CidrBlockAssociation = a} :: AssociateSubnetCidrBlockResponse)
 
 -- | The ID of the subnet.
-ascbrsSubnetId :: Lens' AssociateSubnetCidrBlockResponse (Maybe Text)
-ascbrsSubnetId = lens _ascbrsSubnetId (\ s a -> s{_ascbrsSubnetId = a})
+associateSubnetCidrBlockResponse_subnetId :: Lens.Lens' AssociateSubnetCidrBlockResponse (Prelude.Maybe Prelude.Text)
+associateSubnetCidrBlockResponse_subnetId = Lens.lens (\AssociateSubnetCidrBlockResponse' {subnetId} -> subnetId) (\s@AssociateSubnetCidrBlockResponse' {} a -> s {subnetId = a} :: AssociateSubnetCidrBlockResponse)
 
--- | Information about the IPv6 CIDR block association.
-ascbrsIPv6CidrBlockAssociation :: Lens' AssociateSubnetCidrBlockResponse (Maybe SubnetIPv6CidrBlockAssociation)
-ascbrsIPv6CidrBlockAssociation = lens _ascbrsIPv6CidrBlockAssociation (\ s a -> s{_ascbrsIPv6CidrBlockAssociation = a})
+-- | The response's http status code.
+associateSubnetCidrBlockResponse_httpStatus :: Lens.Lens' AssociateSubnetCidrBlockResponse Prelude.Int
+associateSubnetCidrBlockResponse_httpStatus = Lens.lens (\AssociateSubnetCidrBlockResponse' {httpStatus} -> httpStatus) (\s@AssociateSubnetCidrBlockResponse' {} a -> s {httpStatus = a} :: AssociateSubnetCidrBlockResponse)
 
--- | -- | The response status code.
-ascbrsResponseStatus :: Lens' AssociateSubnetCidrBlockResponse Int
-ascbrsResponseStatus = lens _ascbrsResponseStatus (\ s a -> s{_ascbrsResponseStatus = a})
-
-instance NFData AssociateSubnetCidrBlockResponse
-         where
+instance
+  Prelude.NFData
+    AssociateSubnetCidrBlockResponse

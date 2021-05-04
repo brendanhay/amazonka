@@ -1,114 +1,137 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DeleteDashboards
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes all dashboards that you specify. You may specify up to 100 dashboards to delete. If there is an error during this call, no dashboards are deleted.
---
---
+-- Deletes all dashboards that you specify. You can specify up to 100
+-- dashboards to delete. If there is an error during this call, no
+-- dashboards are deleted.
 module Network.AWS.CloudWatch.DeleteDashboards
-    (
-    -- * Creating a Request
-      deleteDashboards
-    , DeleteDashboards
+  ( -- * Creating a Request
+    DeleteDashboards (..),
+    newDeleteDashboards,
+
     -- * Request Lenses
-    , ddDashboardNames
+    deleteDashboards_dashboardNames,
 
     -- * Destructuring the Response
-    , deleteDashboardsResponse
-    , DeleteDashboardsResponse
+    DeleteDashboardsResponse (..),
+    newDeleteDashboardsResponse,
+
     -- * Response Lenses
-    , ddrsResponseStatus
-    ) where
+    deleteDashboardsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteDashboards' smart constructor.
-newtype DeleteDashboards = DeleteDashboards'
-  { _ddDashboardNames :: [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteDashboards' smart constructor.
+data DeleteDashboards = DeleteDashboards'
+  { -- | The dashboards to be deleted. This parameter is required.
+    dashboardNames :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteDashboards' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteDashboards' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddDashboardNames' - The dashboards to be deleted. This parameter is required.
-deleteDashboards
-    :: DeleteDashboards
-deleteDashboards = DeleteDashboards' {_ddDashboardNames = mempty}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'dashboardNames', 'deleteDashboards_dashboardNames' - The dashboards to be deleted. This parameter is required.
+newDeleteDashboards ::
+  DeleteDashboards
+newDeleteDashboards =
+  DeleteDashboards' {dashboardNames = Prelude.mempty}
 
 -- | The dashboards to be deleted. This parameter is required.
-ddDashboardNames :: Lens' DeleteDashboards [Text]
-ddDashboardNames = lens _ddDashboardNames (\ s a -> s{_ddDashboardNames = a}) . _Coerce
+deleteDashboards_dashboardNames :: Lens.Lens' DeleteDashboards [Prelude.Text]
+deleteDashboards_dashboardNames = Lens.lens (\DeleteDashboards' {dashboardNames} -> dashboardNames) (\s@DeleteDashboards' {} a -> s {dashboardNames = a} :: DeleteDashboards) Prelude.. Prelude._Coerce
 
-instance AWSRequest DeleteDashboards where
-        type Rs DeleteDashboards = DeleteDashboardsResponse
-        request = postQuery cloudWatch
-        response
-          = receiveXMLWrapper "DeleteDashboardsResult"
-              (\ s h x ->
-                 DeleteDashboardsResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest DeleteDashboards where
+  type Rs DeleteDashboards = DeleteDashboardsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DeleteDashboardsResult"
+      ( \s h x ->
+          DeleteDashboardsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteDashboards where
+instance Prelude.Hashable DeleteDashboards
 
-instance NFData DeleteDashboards where
+instance Prelude.NFData DeleteDashboards
 
-instance ToHeaders DeleteDashboards where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DeleteDashboards where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteDashboards where
-        toPath = const "/"
+instance Prelude.ToPath DeleteDashboards where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteDashboards where
-        toQuery DeleteDashboards'{..}
-          = mconcat
-              ["Action" =: ("DeleteDashboards" :: ByteString),
-               "Version" =: ("2010-08-01" :: ByteString),
-               "DashboardNames" =:
-                 toQueryList "member" _ddDashboardNames]
+instance Prelude.ToQuery DeleteDashboards where
+  toQuery DeleteDashboards' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DeleteDashboards" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-08-01" :: Prelude.ByteString),
+        "DashboardNames"
+          Prelude.=: Prelude.toQueryList "member" dashboardNames
+      ]
 
--- | /See:/ 'deleteDashboardsResponse' smart constructor.
-newtype DeleteDashboardsResponse = DeleteDashboardsResponse'
-  { _ddrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteDashboardsResponse' smart constructor.
+data DeleteDashboardsResponse = DeleteDashboardsResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteDashboardsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteDashboardsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddrsResponseStatus' - -- | The response status code.
-deleteDashboardsResponse
-    :: Int -- ^ 'ddrsResponseStatus'
-    -> DeleteDashboardsResponse
-deleteDashboardsResponse pResponseStatus_ =
-  DeleteDashboardsResponse' {_ddrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteDashboardsResponse_httpStatus' - The response's http status code.
+newDeleteDashboardsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteDashboardsResponse
+newDeleteDashboardsResponse pHttpStatus_ =
+  DeleteDashboardsResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteDashboardsResponse_httpStatus :: Lens.Lens' DeleteDashboardsResponse Prelude.Int
+deleteDashboardsResponse_httpStatus = Lens.lens (\DeleteDashboardsResponse' {httpStatus} -> httpStatus) (\s@DeleteDashboardsResponse' {} a -> s {httpStatus = a} :: DeleteDashboardsResponse)
 
--- | -- | The response status code.
-ddrsResponseStatus :: Lens' DeleteDashboardsResponse Int
-ddrsResponseStatus = lens _ddrsResponseStatus (\ s a -> s{_ddrsResponseStatus = a})
-
-instance NFData DeleteDashboardsResponse where
+instance Prelude.NFData DeleteDashboardsResponse

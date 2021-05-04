@@ -1,214 +1,335 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELBv2.ModifyTargetGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the health checks used when evaluating the health state of the targets in the specified target group.
---
---
--- To monitor the health of the targets, use 'DescribeTargetHealth' .
---
+-- Modifies the health checks used when evaluating the health state of the
+-- targets in the specified target group.
 module Network.AWS.ELBv2.ModifyTargetGroup
-    (
-    -- * Creating a Request
-      modifyTargetGroup
-    , ModifyTargetGroup
+  ( -- * Creating a Request
+    ModifyTargetGroup (..),
+    newModifyTargetGroup,
+
     -- * Request Lenses
-    , mtgMatcher
-    , mtgHealthCheckPath
-    , mtgUnhealthyThresholdCount
-    , mtgHealthCheckIntervalSeconds
-    , mtgHealthyThresholdCount
-    , mtgHealthCheckProtocol
-    , mtgHealthCheckTimeoutSeconds
-    , mtgHealthCheckPort
-    , mtgTargetGroupARN
+    modifyTargetGroup_healthCheckEnabled,
+    modifyTargetGroup_healthCheckProtocol,
+    modifyTargetGroup_healthCheckPort,
+    modifyTargetGroup_healthCheckTimeoutSeconds,
+    modifyTargetGroup_healthCheckPath,
+    modifyTargetGroup_matcher,
+    modifyTargetGroup_healthyThresholdCount,
+    modifyTargetGroup_healthCheckIntervalSeconds,
+    modifyTargetGroup_unhealthyThresholdCount,
+    modifyTargetGroup_targetGroupArn,
 
     -- * Destructuring the Response
-    , modifyTargetGroupResponse
-    , ModifyTargetGroupResponse
+    ModifyTargetGroupResponse (..),
+    newModifyTargetGroupResponse,
+
     -- * Response Lenses
-    , mtgrsTargetGroups
-    , mtgrsResponseStatus
-    ) where
+    modifyTargetGroupResponse_targetGroups,
+    modifyTargetGroupResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.ELBv2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'modifyTargetGroup' smart constructor.
+-- | /See:/ 'newModifyTargetGroup' smart constructor.
 data ModifyTargetGroup = ModifyTargetGroup'
-  { _mtgMatcher                    :: !(Maybe Matcher)
-  , _mtgHealthCheckPath            :: !(Maybe Text)
-  , _mtgUnhealthyThresholdCount    :: !(Maybe Nat)
-  , _mtgHealthCheckIntervalSeconds :: !(Maybe Nat)
-  , _mtgHealthyThresholdCount      :: !(Maybe Nat)
-  , _mtgHealthCheckProtocol        :: !(Maybe ProtocolEnum)
-  , _mtgHealthCheckTimeoutSeconds  :: !(Maybe Nat)
-  , _mtgHealthCheckPort            :: !(Maybe Text)
-  , _mtgTargetGroupARN             :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Indicates whether health checks are enabled.
+    healthCheckEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The protocol the load balancer uses when performing health checks on
+    -- targets. The TCP protocol is supported for health checks only if the
+    -- protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE,
+    -- TLS, UDP, and TCP_UDP protocols are not supported for health checks.
+    --
+    -- With Network Load Balancers, you can\'t modify this setting.
+    healthCheckProtocol :: Prelude.Maybe ProtocolEnum,
+    -- | The port the load balancer uses when performing health checks on
+    -- targets.
+    healthCheckPort :: Prelude.Maybe Prelude.Text,
+    -- | [HTTP\/HTTPS health checks] The amount of time, in seconds, during which
+    -- no response means a failed health check.
+    --
+    -- With Network Load Balancers, you can\'t modify this setting.
+    healthCheckTimeoutSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | [HTTP\/HTTPS health checks] The destination for health checks on the
+    -- targets.
+    --
+    -- [HTTP1 or HTTP2 protocol version] The ping path. The default is \/.
+    --
+    -- [GRPC protocol version] The path of a custom health check method with
+    -- the format \/package.service\/method. The default is
+    -- \/AWS.ALB\/healthcheck.
+    healthCheckPath :: Prelude.Maybe Prelude.Text,
+    -- | [HTTP\/HTTPS health checks] The HTTP or gRPC codes to use when checking
+    -- for a successful response from a target.
+    --
+    -- With Network Load Balancers, you can\'t modify this setting.
+    matcher :: Prelude.Maybe Matcher,
+    -- | The number of consecutive health checks successes required before
+    -- considering an unhealthy target healthy.
+    healthyThresholdCount :: Prelude.Maybe Prelude.Natural,
+    -- | The approximate amount of time, in seconds, between health checks of an
+    -- individual target. For TCP health checks, the supported values are 10 or
+    -- 30 seconds.
+    --
+    -- With Network Load Balancers, you can\'t modify this setting.
+    healthCheckIntervalSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The number of consecutive health check failures required before
+    -- considering the target unhealthy. For target groups with a protocol of
+    -- TCP or TLS, this value must be the same as the healthy threshold count.
+    unhealthyThresholdCount :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of the target group.
+    targetGroupArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyTargetGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyTargetGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mtgMatcher' - [HTTP/HTTPS health checks] The HTTP codes to use when checking for a successful response from a target.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mtgHealthCheckPath' - [HTTP/HTTPS health checks] The ping path that is the destination for the health check request.
+-- 'healthCheckEnabled', 'modifyTargetGroup_healthCheckEnabled' - Indicates whether health checks are enabled.
 --
--- * 'mtgUnhealthyThresholdCount' - The number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the healthy threshold count.
+-- 'healthCheckProtocol', 'modifyTargetGroup_healthCheckProtocol' - The protocol the load balancer uses when performing health checks on
+-- targets. The TCP protocol is supported for health checks only if the
+-- protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE,
+-- TLS, UDP, and TCP_UDP protocols are not supported for health checks.
 --
--- * 'mtgHealthCheckIntervalSeconds' - The approximate amount of time, in seconds, between health checks of an individual target. For Application Load Balancers, the range is 5 to 300 seconds. For Network Load Balancers, the supported values are 10 or 30 seconds.
+-- With Network Load Balancers, you can\'t modify this setting.
 --
--- * 'mtgHealthyThresholdCount' - The number of consecutive health checks successes required before considering an unhealthy target healthy.
+-- 'healthCheckPort', 'modifyTargetGroup_healthCheckPort' - The port the load balancer uses when performing health checks on
+-- targets.
 --
--- * 'mtgHealthCheckProtocol' - The protocol the load balancer uses when performing health checks on targets. The TCP protocol is supported only if the protocol of the target group is TCP.
+-- 'healthCheckTimeoutSeconds', 'modifyTargetGroup_healthCheckTimeoutSeconds' - [HTTP\/HTTPS health checks] The amount of time, in seconds, during which
+-- no response means a failed health check.
 --
--- * 'mtgHealthCheckTimeoutSeconds' - [HTTP/HTTPS health checks] The amount of time, in seconds, during which no response means a failed health check.
+-- With Network Load Balancers, you can\'t modify this setting.
 --
--- * 'mtgHealthCheckPort' - The port the load balancer uses when performing health checks on targets.
+-- 'healthCheckPath', 'modifyTargetGroup_healthCheckPath' - [HTTP\/HTTPS health checks] The destination for health checks on the
+-- targets.
 --
--- * 'mtgTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
-modifyTargetGroup
-    :: Text -- ^ 'mtgTargetGroupARN'
-    -> ModifyTargetGroup
-modifyTargetGroup pTargetGroupARN_ =
+-- [HTTP1 or HTTP2 protocol version] The ping path. The default is \/.
+--
+-- [GRPC protocol version] The path of a custom health check method with
+-- the format \/package.service\/method. The default is
+-- \/AWS.ALB\/healthcheck.
+--
+-- 'matcher', 'modifyTargetGroup_matcher' - [HTTP\/HTTPS health checks] The HTTP or gRPC codes to use when checking
+-- for a successful response from a target.
+--
+-- With Network Load Balancers, you can\'t modify this setting.
+--
+-- 'healthyThresholdCount', 'modifyTargetGroup_healthyThresholdCount' - The number of consecutive health checks successes required before
+-- considering an unhealthy target healthy.
+--
+-- 'healthCheckIntervalSeconds', 'modifyTargetGroup_healthCheckIntervalSeconds' - The approximate amount of time, in seconds, between health checks of an
+-- individual target. For TCP health checks, the supported values are 10 or
+-- 30 seconds.
+--
+-- With Network Load Balancers, you can\'t modify this setting.
+--
+-- 'unhealthyThresholdCount', 'modifyTargetGroup_unhealthyThresholdCount' - The number of consecutive health check failures required before
+-- considering the target unhealthy. For target groups with a protocol of
+-- TCP or TLS, this value must be the same as the healthy threshold count.
+--
+-- 'targetGroupArn', 'modifyTargetGroup_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.
+newModifyTargetGroup ::
+  -- | 'targetGroupArn'
+  Prelude.Text ->
+  ModifyTargetGroup
+newModifyTargetGroup pTargetGroupArn_ =
   ModifyTargetGroup'
-    { _mtgMatcher = Nothing
-    , _mtgHealthCheckPath = Nothing
-    , _mtgUnhealthyThresholdCount = Nothing
-    , _mtgHealthCheckIntervalSeconds = Nothing
-    , _mtgHealthyThresholdCount = Nothing
-    , _mtgHealthCheckProtocol = Nothing
-    , _mtgHealthCheckTimeoutSeconds = Nothing
-    , _mtgHealthCheckPort = Nothing
-    , _mtgTargetGroupARN = pTargetGroupARN_
+    { healthCheckEnabled =
+        Prelude.Nothing,
+      healthCheckProtocol = Prelude.Nothing,
+      healthCheckPort = Prelude.Nothing,
+      healthCheckTimeoutSeconds = Prelude.Nothing,
+      healthCheckPath = Prelude.Nothing,
+      matcher = Prelude.Nothing,
+      healthyThresholdCount = Prelude.Nothing,
+      healthCheckIntervalSeconds = Prelude.Nothing,
+      unhealthyThresholdCount = Prelude.Nothing,
+      targetGroupArn = pTargetGroupArn_
     }
 
+-- | Indicates whether health checks are enabled.
+modifyTargetGroup_healthCheckEnabled :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Prelude.Bool)
+modifyTargetGroup_healthCheckEnabled = Lens.lens (\ModifyTargetGroup' {healthCheckEnabled} -> healthCheckEnabled) (\s@ModifyTargetGroup' {} a -> s {healthCheckEnabled = a} :: ModifyTargetGroup)
 
--- | [HTTP/HTTPS health checks] The HTTP codes to use when checking for a successful response from a target.
-mtgMatcher :: Lens' ModifyTargetGroup (Maybe Matcher)
-mtgMatcher = lens _mtgMatcher (\ s a -> s{_mtgMatcher = a})
+-- | The protocol the load balancer uses when performing health checks on
+-- targets. The TCP protocol is supported for health checks only if the
+-- protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE,
+-- TLS, UDP, and TCP_UDP protocols are not supported for health checks.
+--
+-- With Network Load Balancers, you can\'t modify this setting.
+modifyTargetGroup_healthCheckProtocol :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe ProtocolEnum)
+modifyTargetGroup_healthCheckProtocol = Lens.lens (\ModifyTargetGroup' {healthCheckProtocol} -> healthCheckProtocol) (\s@ModifyTargetGroup' {} a -> s {healthCheckProtocol = a} :: ModifyTargetGroup)
 
--- | [HTTP/HTTPS health checks] The ping path that is the destination for the health check request.
-mtgHealthCheckPath :: Lens' ModifyTargetGroup (Maybe Text)
-mtgHealthCheckPath = lens _mtgHealthCheckPath (\ s a -> s{_mtgHealthCheckPath = a})
+-- | The port the load balancer uses when performing health checks on
+-- targets.
+modifyTargetGroup_healthCheckPort :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Prelude.Text)
+modifyTargetGroup_healthCheckPort = Lens.lens (\ModifyTargetGroup' {healthCheckPort} -> healthCheckPort) (\s@ModifyTargetGroup' {} a -> s {healthCheckPort = a} :: ModifyTargetGroup)
 
--- | The number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the healthy threshold count.
-mtgUnhealthyThresholdCount :: Lens' ModifyTargetGroup (Maybe Natural)
-mtgUnhealthyThresholdCount = lens _mtgUnhealthyThresholdCount (\ s a -> s{_mtgUnhealthyThresholdCount = a}) . mapping _Nat
+-- | [HTTP\/HTTPS health checks] The amount of time, in seconds, during which
+-- no response means a failed health check.
+--
+-- With Network Load Balancers, you can\'t modify this setting.
+modifyTargetGroup_healthCheckTimeoutSeconds :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Prelude.Natural)
+modifyTargetGroup_healthCheckTimeoutSeconds = Lens.lens (\ModifyTargetGroup' {healthCheckTimeoutSeconds} -> healthCheckTimeoutSeconds) (\s@ModifyTargetGroup' {} a -> s {healthCheckTimeoutSeconds = a} :: ModifyTargetGroup)
 
--- | The approximate amount of time, in seconds, between health checks of an individual target. For Application Load Balancers, the range is 5 to 300 seconds. For Network Load Balancers, the supported values are 10 or 30 seconds.
-mtgHealthCheckIntervalSeconds :: Lens' ModifyTargetGroup (Maybe Natural)
-mtgHealthCheckIntervalSeconds = lens _mtgHealthCheckIntervalSeconds (\ s a -> s{_mtgHealthCheckIntervalSeconds = a}) . mapping _Nat
+-- | [HTTP\/HTTPS health checks] The destination for health checks on the
+-- targets.
+--
+-- [HTTP1 or HTTP2 protocol version] The ping path. The default is \/.
+--
+-- [GRPC protocol version] The path of a custom health check method with
+-- the format \/package.service\/method. The default is
+-- \/AWS.ALB\/healthcheck.
+modifyTargetGroup_healthCheckPath :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Prelude.Text)
+modifyTargetGroup_healthCheckPath = Lens.lens (\ModifyTargetGroup' {healthCheckPath} -> healthCheckPath) (\s@ModifyTargetGroup' {} a -> s {healthCheckPath = a} :: ModifyTargetGroup)
 
--- | The number of consecutive health checks successes required before considering an unhealthy target healthy.
-mtgHealthyThresholdCount :: Lens' ModifyTargetGroup (Maybe Natural)
-mtgHealthyThresholdCount = lens _mtgHealthyThresholdCount (\ s a -> s{_mtgHealthyThresholdCount = a}) . mapping _Nat
+-- | [HTTP\/HTTPS health checks] The HTTP or gRPC codes to use when checking
+-- for a successful response from a target.
+--
+-- With Network Load Balancers, you can\'t modify this setting.
+modifyTargetGroup_matcher :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Matcher)
+modifyTargetGroup_matcher = Lens.lens (\ModifyTargetGroup' {matcher} -> matcher) (\s@ModifyTargetGroup' {} a -> s {matcher = a} :: ModifyTargetGroup)
 
--- | The protocol the load balancer uses when performing health checks on targets. The TCP protocol is supported only if the protocol of the target group is TCP.
-mtgHealthCheckProtocol :: Lens' ModifyTargetGroup (Maybe ProtocolEnum)
-mtgHealthCheckProtocol = lens _mtgHealthCheckProtocol (\ s a -> s{_mtgHealthCheckProtocol = a})
+-- | The number of consecutive health checks successes required before
+-- considering an unhealthy target healthy.
+modifyTargetGroup_healthyThresholdCount :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Prelude.Natural)
+modifyTargetGroup_healthyThresholdCount = Lens.lens (\ModifyTargetGroup' {healthyThresholdCount} -> healthyThresholdCount) (\s@ModifyTargetGroup' {} a -> s {healthyThresholdCount = a} :: ModifyTargetGroup)
 
--- | [HTTP/HTTPS health checks] The amount of time, in seconds, during which no response means a failed health check.
-mtgHealthCheckTimeoutSeconds :: Lens' ModifyTargetGroup (Maybe Natural)
-mtgHealthCheckTimeoutSeconds = lens _mtgHealthCheckTimeoutSeconds (\ s a -> s{_mtgHealthCheckTimeoutSeconds = a}) . mapping _Nat
+-- | The approximate amount of time, in seconds, between health checks of an
+-- individual target. For TCP health checks, the supported values are 10 or
+-- 30 seconds.
+--
+-- With Network Load Balancers, you can\'t modify this setting.
+modifyTargetGroup_healthCheckIntervalSeconds :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Prelude.Natural)
+modifyTargetGroup_healthCheckIntervalSeconds = Lens.lens (\ModifyTargetGroup' {healthCheckIntervalSeconds} -> healthCheckIntervalSeconds) (\s@ModifyTargetGroup' {} a -> s {healthCheckIntervalSeconds = a} :: ModifyTargetGroup)
 
--- | The port the load balancer uses when performing health checks on targets.
-mtgHealthCheckPort :: Lens' ModifyTargetGroup (Maybe Text)
-mtgHealthCheckPort = lens _mtgHealthCheckPort (\ s a -> s{_mtgHealthCheckPort = a})
+-- | The number of consecutive health check failures required before
+-- considering the target unhealthy. For target groups with a protocol of
+-- TCP or TLS, this value must be the same as the healthy threshold count.
+modifyTargetGroup_unhealthyThresholdCount :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Prelude.Natural)
+modifyTargetGroup_unhealthyThresholdCount = Lens.lens (\ModifyTargetGroup' {unhealthyThresholdCount} -> unhealthyThresholdCount) (\s@ModifyTargetGroup' {} a -> s {unhealthyThresholdCount = a} :: ModifyTargetGroup)
 
 -- | The Amazon Resource Name (ARN) of the target group.
-mtgTargetGroupARN :: Lens' ModifyTargetGroup Text
-mtgTargetGroupARN = lens _mtgTargetGroupARN (\ s a -> s{_mtgTargetGroupARN = a})
+modifyTargetGroup_targetGroupArn :: Lens.Lens' ModifyTargetGroup Prelude.Text
+modifyTargetGroup_targetGroupArn = Lens.lens (\ModifyTargetGroup' {targetGroupArn} -> targetGroupArn) (\s@ModifyTargetGroup' {} a -> s {targetGroupArn = a} :: ModifyTargetGroup)
 
-instance AWSRequest ModifyTargetGroup where
-        type Rs ModifyTargetGroup = ModifyTargetGroupResponse
-        request = postQuery eLBv2
-        response
-          = receiveXMLWrapper "ModifyTargetGroupResult"
-              (\ s h x ->
-                 ModifyTargetGroupResponse' <$>
-                   (x .@? "TargetGroups" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest ModifyTargetGroup where
+  type Rs ModifyTargetGroup = ModifyTargetGroupResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ModifyTargetGroupResult"
+      ( \s h x ->
+          ModifyTargetGroupResponse'
+            Prelude.<$> ( x Prelude..@? "TargetGroups"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ModifyTargetGroup where
+instance Prelude.Hashable ModifyTargetGroup
 
-instance NFData ModifyTargetGroup where
+instance Prelude.NFData ModifyTargetGroup
 
-instance ToHeaders ModifyTargetGroup where
-        toHeaders = const mempty
+instance Prelude.ToHeaders ModifyTargetGroup where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ModifyTargetGroup where
-        toPath = const "/"
+instance Prelude.ToPath ModifyTargetGroup where
+  toPath = Prelude.const "/"
 
-instance ToQuery ModifyTargetGroup where
-        toQuery ModifyTargetGroup'{..}
-          = mconcat
-              ["Action" =: ("ModifyTargetGroup" :: ByteString),
-               "Version" =: ("2015-12-01" :: ByteString),
-               "Matcher" =: _mtgMatcher,
-               "HealthCheckPath" =: _mtgHealthCheckPath,
-               "UnhealthyThresholdCount" =:
-                 _mtgUnhealthyThresholdCount,
-               "HealthCheckIntervalSeconds" =:
-                 _mtgHealthCheckIntervalSeconds,
-               "HealthyThresholdCount" =: _mtgHealthyThresholdCount,
-               "HealthCheckProtocol" =: _mtgHealthCheckProtocol,
-               "HealthCheckTimeoutSeconds" =:
-                 _mtgHealthCheckTimeoutSeconds,
-               "HealthCheckPort" =: _mtgHealthCheckPort,
-               "TargetGroupArn" =: _mtgTargetGroupARN]
+instance Prelude.ToQuery ModifyTargetGroup where
+  toQuery ModifyTargetGroup' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("ModifyTargetGroup" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
+        "HealthCheckEnabled" Prelude.=: healthCheckEnabled,
+        "HealthCheckProtocol" Prelude.=: healthCheckProtocol,
+        "HealthCheckPort" Prelude.=: healthCheckPort,
+        "HealthCheckTimeoutSeconds"
+          Prelude.=: healthCheckTimeoutSeconds,
+        "HealthCheckPath" Prelude.=: healthCheckPath,
+        "Matcher" Prelude.=: matcher,
+        "HealthyThresholdCount"
+          Prelude.=: healthyThresholdCount,
+        "HealthCheckIntervalSeconds"
+          Prelude.=: healthCheckIntervalSeconds,
+        "UnhealthyThresholdCount"
+          Prelude.=: unhealthyThresholdCount,
+        "TargetGroupArn" Prelude.=: targetGroupArn
+      ]
 
--- | /See:/ 'modifyTargetGroupResponse' smart constructor.
+-- | /See:/ 'newModifyTargetGroupResponse' smart constructor.
 data ModifyTargetGroupResponse = ModifyTargetGroupResponse'
-  { _mtgrsTargetGroups   :: !(Maybe [TargetGroup])
-  , _mtgrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the modified target group.
+    targetGroups :: Prelude.Maybe [TargetGroup],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyTargetGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyTargetGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mtgrsTargetGroups' - Information about the target group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mtgrsResponseStatus' - -- | The response status code.
-modifyTargetGroupResponse
-    :: Int -- ^ 'mtgrsResponseStatus'
-    -> ModifyTargetGroupResponse
-modifyTargetGroupResponse pResponseStatus_ =
+-- 'targetGroups', 'modifyTargetGroupResponse_targetGroups' - Information about the modified target group.
+--
+-- 'httpStatus', 'modifyTargetGroupResponse_httpStatus' - The response's http status code.
+newModifyTargetGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ModifyTargetGroupResponse
+newModifyTargetGroupResponse pHttpStatus_ =
   ModifyTargetGroupResponse'
-    {_mtgrsTargetGroups = Nothing, _mtgrsResponseStatus = pResponseStatus_}
+    { targetGroups =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about the modified target group.
+modifyTargetGroupResponse_targetGroups :: Lens.Lens' ModifyTargetGroupResponse (Prelude.Maybe [TargetGroup])
+modifyTargetGroupResponse_targetGroups = Lens.lens (\ModifyTargetGroupResponse' {targetGroups} -> targetGroups) (\s@ModifyTargetGroupResponse' {} a -> s {targetGroups = a} :: ModifyTargetGroupResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | Information about the target group.
-mtgrsTargetGroups :: Lens' ModifyTargetGroupResponse [TargetGroup]
-mtgrsTargetGroups = lens _mtgrsTargetGroups (\ s a -> s{_mtgrsTargetGroups = a}) . _Default . _Coerce
+-- | The response's http status code.
+modifyTargetGroupResponse_httpStatus :: Lens.Lens' ModifyTargetGroupResponse Prelude.Int
+modifyTargetGroupResponse_httpStatus = Lens.lens (\ModifyTargetGroupResponse' {httpStatus} -> httpStatus) (\s@ModifyTargetGroupResponse' {} a -> s {httpStatus = a} :: ModifyTargetGroupResponse)
 
--- | -- | The response status code.
-mtgrsResponseStatus :: Lens' ModifyTargetGroupResponse Int
-mtgrsResponseStatus = lens _mtgrsResponseStatus (\ s a -> s{_mtgrsResponseStatus = a})
-
-instance NFData ModifyTargetGroupResponse where
+instance Prelude.NFData ModifyTargetGroupResponse

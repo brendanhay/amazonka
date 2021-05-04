@@ -1,200 +1,284 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EFS.DescribeFileSystems
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the description of a specific Amazon EFS file system if either the file system @CreationToken@ or the @FileSystemId@ is provided. Otherwise, it returns descriptions of all file systems owned by the caller's AWS account in the AWS Region of the endpoint that you're calling.
+-- Returns the description of a specific Amazon EFS file system if either
+-- the file system @CreationToken@ or the @FileSystemId@ is provided.
+-- Otherwise, it returns descriptions of all file systems owned by the
+-- caller\'s AWS account in the AWS Region of the endpoint that you\'re
+-- calling.
 --
+-- When retrieving all file system descriptions, you can optionally specify
+-- the @MaxItems@ parameter to limit the number of descriptions in a
+-- response. Currently, this number is automatically set to 10. If more
+-- file system descriptions remain, Amazon EFS returns a @NextMarker@, an
+-- opaque token, in the response. In this case, you should send a
+-- subsequent request with the @Marker@ request parameter set to the value
+-- of @NextMarker@.
 --
--- When retrieving all file system descriptions, you can optionally specify the @MaxItems@ parameter to limit the number of descriptions in a response. If more file system descriptions remain, Amazon EFS returns a @NextMarker@ , an opaque token, in the response. In this case, you should send a subsequent request with the @Marker@ request parameter set to the value of @NextMarker@ .
+-- To retrieve a list of your file system descriptions, this operation is
+-- used in an iterative process, where @DescribeFileSystems@ is called
+-- first without the @Marker@ and then the operation continues to call it
+-- with the @Marker@ parameter set to the value of the @NextMarker@ from
+-- the previous response until the response has no @NextMarker@.
 --
--- To retrieve a list of your file system descriptions, this operation is used in an iterative process, where @DescribeFileSystems@ is called first without the @Marker@ and then the operation continues to call it with the @Marker@ parameter set to the value of the @NextMarker@ from the previous response until the response has no @NextMarker@ .
+-- The order of file systems returned in the response of one
+-- @DescribeFileSystems@ call and the order of file systems returned across
+-- the responses of a multi-call iteration is unspecified.
 --
--- The implementation may return fewer than @MaxItems@ file system descriptions while still including a @NextMarker@ value.
---
--- The order of file systems returned in the response of one @DescribeFileSystems@ call and the order of file systems returned across the responses of a multi-call iteration is unspecified.
---
--- This operation requires permissions for the @elasticfilesystem:DescribeFileSystems@ action.
---
+-- This operation requires permissions for the
+-- @elasticfilesystem:DescribeFileSystems@ action.
 --
 -- This operation returns paginated results.
 module Network.AWS.EFS.DescribeFileSystems
-    (
-    -- * Creating a Request
-      describeFileSystems
-    , DescribeFileSystems
+  ( -- * Creating a Request
+    DescribeFileSystems (..),
+    newDescribeFileSystems,
+
     -- * Request Lenses
-    , dfsFileSystemId
-    , dfsCreationToken
-    , dfsMarker
-    , dfsMaxItems
+    describeFileSystems_creationToken,
+    describeFileSystems_fileSystemId,
+    describeFileSystems_maxItems,
+    describeFileSystems_marker,
 
     -- * Destructuring the Response
-    , describeFileSystemsResponse
-    , DescribeFileSystemsResponse
+    DescribeFileSystemsResponse (..),
+    newDescribeFileSystemsResponse,
+
     -- * Response Lenses
-    , dfsrsFileSystems
-    , dfsrsMarker
-    , dfsrsNextMarker
-    , dfsrsResponseStatus
-    ) where
+    describeFileSystemsResponse_nextMarker,
+    describeFileSystemsResponse_fileSystems,
+    describeFileSystemsResponse_marker,
+    describeFileSystemsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.EFS.Types
-import Network.AWS.EFS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeFileSystems' smart constructor.
+-- /See:/ 'newDescribeFileSystems' smart constructor.
 data DescribeFileSystems = DescribeFileSystems'
-  { _dfsFileSystemId  :: !(Maybe Text)
-  , _dfsCreationToken :: !(Maybe Text)
-  , _dfsMarker        :: !(Maybe Text)
-  , _dfsMaxItems      :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | (Optional) Restricts the list to the file system with this creation
+    -- token (String). You specify a creation token when you create an Amazon
+    -- EFS file system.
+    creationToken :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) ID of the file system whose description you want to retrieve
+    -- (String).
+    fileSystemId :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) Specifies the maximum number of file systems to return in the
+    -- response (integer). This number is automatically set to 100. The
+    -- response is paginated at 100 per page if you have more than 100 file
+    -- systems.
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | (Optional) Opaque pagination token returned from a previous
+    -- @DescribeFileSystems@ operation (String). If present, specifies to
+    -- continue the list from where the returning call had left off.
+    marker :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeFileSystems' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeFileSystems' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dfsFileSystemId' - (Optional) ID of the file system whose description you want to retrieve (String).
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dfsCreationToken' - (Optional) Restricts the list to the file system with this creation token (String). You specify a creation token when you create an Amazon EFS file system.
+-- 'creationToken', 'describeFileSystems_creationToken' - (Optional) Restricts the list to the file system with this creation
+-- token (String). You specify a creation token when you create an Amazon
+-- EFS file system.
 --
--- * 'dfsMarker' - (Optional) Opaque pagination token returned from a previous @DescribeFileSystems@ operation (String). If present, specifies to continue the list from where the returning call had left off.
+-- 'fileSystemId', 'describeFileSystems_fileSystemId' - (Optional) ID of the file system whose description you want to retrieve
+-- (String).
 --
--- * 'dfsMaxItems' - (Optional) Specifies the maximum number of file systems to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon EFS returns is the minimum of the @MaxItems@ parameter specified in the request and the service's internal maximum number of items per page.
-describeFileSystems
-    :: DescribeFileSystems
-describeFileSystems =
+-- 'maxItems', 'describeFileSystems_maxItems' - (Optional) Specifies the maximum number of file systems to return in the
+-- response (integer). This number is automatically set to 100. The
+-- response is paginated at 100 per page if you have more than 100 file
+-- systems.
+--
+-- 'marker', 'describeFileSystems_marker' - (Optional) Opaque pagination token returned from a previous
+-- @DescribeFileSystems@ operation (String). If present, specifies to
+-- continue the list from where the returning call had left off.
+newDescribeFileSystems ::
+  DescribeFileSystems
+newDescribeFileSystems =
   DescribeFileSystems'
-    { _dfsFileSystemId = Nothing
-    , _dfsCreationToken = Nothing
-    , _dfsMarker = Nothing
-    , _dfsMaxItems = Nothing
+    { creationToken =
+        Prelude.Nothing,
+      fileSystemId = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
+-- | (Optional) Restricts the list to the file system with this creation
+-- token (String). You specify a creation token when you create an Amazon
+-- EFS file system.
+describeFileSystems_creationToken :: Lens.Lens' DescribeFileSystems (Prelude.Maybe Prelude.Text)
+describeFileSystems_creationToken = Lens.lens (\DescribeFileSystems' {creationToken} -> creationToken) (\s@DescribeFileSystems' {} a -> s {creationToken = a} :: DescribeFileSystems)
 
--- | (Optional) ID of the file system whose description you want to retrieve (String).
-dfsFileSystemId :: Lens' DescribeFileSystems (Maybe Text)
-dfsFileSystemId = lens _dfsFileSystemId (\ s a -> s{_dfsFileSystemId = a})
+-- | (Optional) ID of the file system whose description you want to retrieve
+-- (String).
+describeFileSystems_fileSystemId :: Lens.Lens' DescribeFileSystems (Prelude.Maybe Prelude.Text)
+describeFileSystems_fileSystemId = Lens.lens (\DescribeFileSystems' {fileSystemId} -> fileSystemId) (\s@DescribeFileSystems' {} a -> s {fileSystemId = a} :: DescribeFileSystems)
 
--- | (Optional) Restricts the list to the file system with this creation token (String). You specify a creation token when you create an Amazon EFS file system.
-dfsCreationToken :: Lens' DescribeFileSystems (Maybe Text)
-dfsCreationToken = lens _dfsCreationToken (\ s a -> s{_dfsCreationToken = a})
+-- | (Optional) Specifies the maximum number of file systems to return in the
+-- response (integer). This number is automatically set to 100. The
+-- response is paginated at 100 per page if you have more than 100 file
+-- systems.
+describeFileSystems_maxItems :: Lens.Lens' DescribeFileSystems (Prelude.Maybe Prelude.Natural)
+describeFileSystems_maxItems = Lens.lens (\DescribeFileSystems' {maxItems} -> maxItems) (\s@DescribeFileSystems' {} a -> s {maxItems = a} :: DescribeFileSystems)
 
--- | (Optional) Opaque pagination token returned from a previous @DescribeFileSystems@ operation (String). If present, specifies to continue the list from where the returning call had left off.
-dfsMarker :: Lens' DescribeFileSystems (Maybe Text)
-dfsMarker = lens _dfsMarker (\ s a -> s{_dfsMarker = a})
+-- | (Optional) Opaque pagination token returned from a previous
+-- @DescribeFileSystems@ operation (String). If present, specifies to
+-- continue the list from where the returning call had left off.
+describeFileSystems_marker :: Lens.Lens' DescribeFileSystems (Prelude.Maybe Prelude.Text)
+describeFileSystems_marker = Lens.lens (\DescribeFileSystems' {marker} -> marker) (\s@DescribeFileSystems' {} a -> s {marker = a} :: DescribeFileSystems)
 
--- | (Optional) Specifies the maximum number of file systems to return in the response (integer). This parameter value must be greater than 0. The number of items that Amazon EFS returns is the minimum of the @MaxItems@ parameter specified in the request and the service's internal maximum number of items per page.
-dfsMaxItems :: Lens' DescribeFileSystems (Maybe Natural)
-dfsMaxItems = lens _dfsMaxItems (\ s a -> s{_dfsMaxItems = a}) . mapping _Nat
+instance Pager.AWSPager DescribeFileSystems where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeFileSystemsResponse_nextMarker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeFileSystemsResponse_fileSystems
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeFileSystems_marker
+          Lens..~ rs
+          Lens.^? describeFileSystemsResponse_nextMarker
+            Prelude.. Lens._Just
 
-instance AWSPager DescribeFileSystems where
-        page rq rs
-          | stop (rs ^. dfsrsNextMarker) = Nothing
-          | stop (rs ^. dfsrsFileSystems) = Nothing
-          | otherwise =
-            Just $ rq & dfsMarker .~ rs ^. dfsrsNextMarker
+instance Prelude.AWSRequest DescribeFileSystems where
+  type
+    Rs DescribeFileSystems =
+      DescribeFileSystemsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeFileSystemsResponse'
+            Prelude.<$> (x Prelude..?> "NextMarker")
+            Prelude.<*> ( x Prelude..?> "FileSystems"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Prelude..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeFileSystems where
-        type Rs DescribeFileSystems =
-             DescribeFileSystemsResponse
-        request = get efs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeFileSystemsResponse' <$>
-                   (x .?> "FileSystems" .!@ mempty) <*> (x .?> "Marker")
-                     <*> (x .?> "NextMarker")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeFileSystems
 
-instance Hashable DescribeFileSystems where
+instance Prelude.NFData DescribeFileSystems
 
-instance NFData DescribeFileSystems where
+instance Prelude.ToHeaders DescribeFileSystems where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DescribeFileSystems where
-        toHeaders = const mempty
+instance Prelude.ToPath DescribeFileSystems where
+  toPath = Prelude.const "/2015-02-01/file-systems"
 
-instance ToPath DescribeFileSystems where
-        toPath = const "/2015-02-01/file-systems"
+instance Prelude.ToQuery DescribeFileSystems where
+  toQuery DescribeFileSystems' {..} =
+    Prelude.mconcat
+      [ "CreationToken" Prelude.=: creationToken,
+        "FileSystemId" Prelude.=: fileSystemId,
+        "MaxItems" Prelude.=: maxItems,
+        "Marker" Prelude.=: marker
+      ]
 
-instance ToQuery DescribeFileSystems where
-        toQuery DescribeFileSystems'{..}
-          = mconcat
-              ["FileSystemId" =: _dfsFileSystemId,
-               "CreationToken" =: _dfsCreationToken,
-               "Marker" =: _dfsMarker, "MaxItems" =: _dfsMaxItems]
-
--- | /See:/ 'describeFileSystemsResponse' smart constructor.
+-- | /See:/ 'newDescribeFileSystemsResponse' smart constructor.
 data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
-  { _dfsrsFileSystems    :: !(Maybe [FileSystemDescription])
-  , _dfsrsMarker         :: !(Maybe Text)
-  , _dfsrsNextMarker     :: !(Maybe Text)
-  , _dfsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Present if there are more file systems than returned in the response
+    -- (String). You can use the @NextMarker@ in the subsequent request to
+    -- fetch the descriptions.
+    nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | An array of file system descriptions.
+    fileSystems :: Prelude.Maybe [FileSystemDescription],
+    -- | Present if provided by caller in the request (String).
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeFileSystemsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeFileSystemsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dfsrsFileSystems' - Array of file system descriptions.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dfsrsMarker' - Present if provided by caller in the request (String).
+-- 'nextMarker', 'describeFileSystemsResponse_nextMarker' - Present if there are more file systems than returned in the response
+-- (String). You can use the @NextMarker@ in the subsequent request to
+-- fetch the descriptions.
 --
--- * 'dfsrsNextMarker' - Present if there are more file systems than returned in the response (String). You can use the @NextMarker@ in the subsequent request to fetch the descriptions.
+-- 'fileSystems', 'describeFileSystemsResponse_fileSystems' - An array of file system descriptions.
 --
--- * 'dfsrsResponseStatus' - -- | The response status code.
-describeFileSystemsResponse
-    :: Int -- ^ 'dfsrsResponseStatus'
-    -> DescribeFileSystemsResponse
-describeFileSystemsResponse pResponseStatus_ =
+-- 'marker', 'describeFileSystemsResponse_marker' - Present if provided by caller in the request (String).
+--
+-- 'httpStatus', 'describeFileSystemsResponse_httpStatus' - The response's http status code.
+newDescribeFileSystemsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeFileSystemsResponse
+newDescribeFileSystemsResponse pHttpStatus_ =
   DescribeFileSystemsResponse'
-    { _dfsrsFileSystems = Nothing
-    , _dfsrsMarker = Nothing
-    , _dfsrsNextMarker = Nothing
-    , _dfsrsResponseStatus = pResponseStatus_
+    { nextMarker =
+        Prelude.Nothing,
+      fileSystems = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | Present if there are more file systems than returned in the response
+-- (String). You can use the @NextMarker@ in the subsequent request to
+-- fetch the descriptions.
+describeFileSystemsResponse_nextMarker :: Lens.Lens' DescribeFileSystemsResponse (Prelude.Maybe Prelude.Text)
+describeFileSystemsResponse_nextMarker = Lens.lens (\DescribeFileSystemsResponse' {nextMarker} -> nextMarker) (\s@DescribeFileSystemsResponse' {} a -> s {nextMarker = a} :: DescribeFileSystemsResponse)
 
--- | Array of file system descriptions.
-dfsrsFileSystems :: Lens' DescribeFileSystemsResponse [FileSystemDescription]
-dfsrsFileSystems = lens _dfsrsFileSystems (\ s a -> s{_dfsrsFileSystems = a}) . _Default . _Coerce
+-- | An array of file system descriptions.
+describeFileSystemsResponse_fileSystems :: Lens.Lens' DescribeFileSystemsResponse (Prelude.Maybe [FileSystemDescription])
+describeFileSystemsResponse_fileSystems = Lens.lens (\DescribeFileSystemsResponse' {fileSystems} -> fileSystems) (\s@DescribeFileSystemsResponse' {} a -> s {fileSystems = a} :: DescribeFileSystemsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | Present if provided by caller in the request (String).
-dfsrsMarker :: Lens' DescribeFileSystemsResponse (Maybe Text)
-dfsrsMarker = lens _dfsrsMarker (\ s a -> s{_dfsrsMarker = a})
+describeFileSystemsResponse_marker :: Lens.Lens' DescribeFileSystemsResponse (Prelude.Maybe Prelude.Text)
+describeFileSystemsResponse_marker = Lens.lens (\DescribeFileSystemsResponse' {marker} -> marker) (\s@DescribeFileSystemsResponse' {} a -> s {marker = a} :: DescribeFileSystemsResponse)
 
--- | Present if there are more file systems than returned in the response (String). You can use the @NextMarker@ in the subsequent request to fetch the descriptions.
-dfsrsNextMarker :: Lens' DescribeFileSystemsResponse (Maybe Text)
-dfsrsNextMarker = lens _dfsrsNextMarker (\ s a -> s{_dfsrsNextMarker = a})
+-- | The response's http status code.
+describeFileSystemsResponse_httpStatus :: Lens.Lens' DescribeFileSystemsResponse Prelude.Int
+describeFileSystemsResponse_httpStatus = Lens.lens (\DescribeFileSystemsResponse' {httpStatus} -> httpStatus) (\s@DescribeFileSystemsResponse' {} a -> s {httpStatus = a} :: DescribeFileSystemsResponse)
 
--- | -- | The response status code.
-dfsrsResponseStatus :: Lens' DescribeFileSystemsResponse Int
-dfsrsResponseStatus = lens _dfsrsResponseStatus (\ s a -> s{_dfsrsResponseStatus = a})
-
-instance NFData DescribeFileSystemsResponse where
+instance Prelude.NFData DescribeFileSystemsResponse

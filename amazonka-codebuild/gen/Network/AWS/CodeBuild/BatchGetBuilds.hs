@@ -1,143 +1,169 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeBuild.BatchGetBuilds
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about builds.
---
---
+-- Gets information about one or more builds.
 module Network.AWS.CodeBuild.BatchGetBuilds
-    (
-    -- * Creating a Request
-      batchGetBuilds
-    , BatchGetBuilds
+  ( -- * Creating a Request
+    BatchGetBuilds (..),
+    newBatchGetBuilds,
+
     -- * Request Lenses
-    , bgbIds
+    batchGetBuilds_ids,
 
     -- * Destructuring the Response
-    , batchGetBuildsResponse
-    , BatchGetBuildsResponse
+    BatchGetBuildsResponse (..),
+    newBatchGetBuildsResponse,
+
     -- * Response Lenses
-    , bgbrsBuilds
-    , bgbrsBuildsNotFound
-    , bgbrsResponseStatus
-    ) where
+    batchGetBuildsResponse_buildsNotFound,
+    batchGetBuildsResponse_builds,
+    batchGetBuildsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.CodeBuild.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'batchGetBuilds' smart constructor.
-newtype BatchGetBuilds = BatchGetBuilds'
-  { _bgbIds :: List1 Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newBatchGetBuilds' smart constructor.
+data BatchGetBuilds = BatchGetBuilds'
+  { -- | The IDs of the builds.
+    ids :: Prelude.NonEmpty Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'BatchGetBuilds' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'BatchGetBuilds' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'bgbIds' - The IDs of the builds.
-batchGetBuilds
-    :: NonEmpty Text -- ^ 'bgbIds'
-    -> BatchGetBuilds
-batchGetBuilds pIds_ = BatchGetBuilds' {_bgbIds = _List1 # pIds_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'ids', 'batchGetBuilds_ids' - The IDs of the builds.
+newBatchGetBuilds ::
+  -- | 'ids'
+  Prelude.NonEmpty Prelude.Text ->
+  BatchGetBuilds
+newBatchGetBuilds pIds_ =
+  BatchGetBuilds' {ids = Prelude._Coerce Lens.# pIds_}
 
 -- | The IDs of the builds.
-bgbIds :: Lens' BatchGetBuilds (NonEmpty Text)
-bgbIds = lens _bgbIds (\ s a -> s{_bgbIds = a}) . _List1
+batchGetBuilds_ids :: Lens.Lens' BatchGetBuilds (Prelude.NonEmpty Prelude.Text)
+batchGetBuilds_ids = Lens.lens (\BatchGetBuilds' {ids} -> ids) (\s@BatchGetBuilds' {} a -> s {ids = a} :: BatchGetBuilds) Prelude.. Prelude._Coerce
 
-instance AWSRequest BatchGetBuilds where
-        type Rs BatchGetBuilds = BatchGetBuildsResponse
-        request = postJSON codeBuild
-        response
-          = receiveJSON
-              (\ s h x ->
-                 BatchGetBuildsResponse' <$>
-                   (x .?> "builds" .!@ mempty) <*>
-                     (x .?> "buildsNotFound")
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest BatchGetBuilds where
+  type Rs BatchGetBuilds = BatchGetBuildsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          BatchGetBuildsResponse'
+            Prelude.<$> (x Prelude..?> "buildsNotFound")
+            Prelude.<*> (x Prelude..?> "builds" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable BatchGetBuilds where
+instance Prelude.Hashable BatchGetBuilds
 
-instance NFData BatchGetBuilds where
+instance Prelude.NFData BatchGetBuilds
 
-instance ToHeaders BatchGetBuilds where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeBuild_20161006.BatchGetBuilds" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders BatchGetBuilds where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CodeBuild_20161006.BatchGetBuilds" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON BatchGetBuilds where
-        toJSON BatchGetBuilds'{..}
-          = object (catMaybes [Just ("ids" .= _bgbIds)])
+instance Prelude.ToJSON BatchGetBuilds where
+  toJSON BatchGetBuilds' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("ids" Prelude..= ids)]
+      )
 
-instance ToPath BatchGetBuilds where
-        toPath = const "/"
+instance Prelude.ToPath BatchGetBuilds where
+  toPath = Prelude.const "/"
 
-instance ToQuery BatchGetBuilds where
-        toQuery = const mempty
+instance Prelude.ToQuery BatchGetBuilds where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'batchGetBuildsResponse' smart constructor.
+-- | /See:/ 'newBatchGetBuildsResponse' smart constructor.
 data BatchGetBuildsResponse = BatchGetBuildsResponse'
-  { _bgbrsBuilds         :: !(Maybe [Build])
-  , _bgbrsBuildsNotFound :: !(Maybe (List1 Text))
-  , _bgbrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The IDs of builds for which information could not be found.
+    buildsNotFound :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Information about the requested builds.
+    builds :: Prelude.Maybe [Build],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'BatchGetBuildsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'BatchGetBuildsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'bgbrsBuilds' - Information about the requested builds.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'bgbrsBuildsNotFound' - The IDs of builds for which information could not be found.
+-- 'buildsNotFound', 'batchGetBuildsResponse_buildsNotFound' - The IDs of builds for which information could not be found.
 --
--- * 'bgbrsResponseStatus' - -- | The response status code.
-batchGetBuildsResponse
-    :: Int -- ^ 'bgbrsResponseStatus'
-    -> BatchGetBuildsResponse
-batchGetBuildsResponse pResponseStatus_ =
+-- 'builds', 'batchGetBuildsResponse_builds' - Information about the requested builds.
+--
+-- 'httpStatus', 'batchGetBuildsResponse_httpStatus' - The response's http status code.
+newBatchGetBuildsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  BatchGetBuildsResponse
+newBatchGetBuildsResponse pHttpStatus_ =
   BatchGetBuildsResponse'
-    { _bgbrsBuilds = Nothing
-    , _bgbrsBuildsNotFound = Nothing
-    , _bgbrsResponseStatus = pResponseStatus_
+    { buildsNotFound =
+        Prelude.Nothing,
+      builds = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The IDs of builds for which information could not be found.
+batchGetBuildsResponse_buildsNotFound :: Lens.Lens' BatchGetBuildsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+batchGetBuildsResponse_buildsNotFound = Lens.lens (\BatchGetBuildsResponse' {buildsNotFound} -> buildsNotFound) (\s@BatchGetBuildsResponse' {} a -> s {buildsNotFound = a} :: BatchGetBuildsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | Information about the requested builds.
-bgbrsBuilds :: Lens' BatchGetBuildsResponse [Build]
-bgbrsBuilds = lens _bgbrsBuilds (\ s a -> s{_bgbrsBuilds = a}) . _Default . _Coerce
+batchGetBuildsResponse_builds :: Lens.Lens' BatchGetBuildsResponse (Prelude.Maybe [Build])
+batchGetBuildsResponse_builds = Lens.lens (\BatchGetBuildsResponse' {builds} -> builds) (\s@BatchGetBuildsResponse' {} a -> s {builds = a} :: BatchGetBuildsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The IDs of builds for which information could not be found.
-bgbrsBuildsNotFound :: Lens' BatchGetBuildsResponse (Maybe (NonEmpty Text))
-bgbrsBuildsNotFound = lens _bgbrsBuildsNotFound (\ s a -> s{_bgbrsBuildsNotFound = a}) . mapping _List1
+-- | The response's http status code.
+batchGetBuildsResponse_httpStatus :: Lens.Lens' BatchGetBuildsResponse Prelude.Int
+batchGetBuildsResponse_httpStatus = Lens.lens (\BatchGetBuildsResponse' {httpStatus} -> httpStatus) (\s@BatchGetBuildsResponse' {} a -> s {httpStatus = a} :: BatchGetBuildsResponse)
 
--- | -- | The response status code.
-bgbrsResponseStatus :: Lens' BatchGetBuildsResponse Int
-bgbrsResponseStatus = lens _bgbrsResponseStatus (\ s a -> s{_bgbrsResponseStatus = a})
-
-instance NFData BatchGetBuildsResponse where
+instance Prelude.NFData BatchGetBuildsResponse

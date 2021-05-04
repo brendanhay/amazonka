@@ -1,186 +1,263 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeTapeArchives
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a description of specified virtual tapes in the virtual tape shelf (VTS). This operation is only supported in the tape gateway type.
+-- Returns a description of specified virtual tapes in the virtual tape
+-- shelf (VTS). This operation is only supported in the tape gateway type.
 --
---
--- If a specific @TapeARN@ is not specified, AWS Storage Gateway returns a description of all virtual tapes found in the VTS associated with your account.
---
+-- If a specific @TapeARN@ is not specified, AWS Storage Gateway returns a
+-- description of all virtual tapes found in the VTS associated with your
+-- account.
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeTapeArchives
-    (
-    -- * Creating a Request
-      describeTapeArchives
-    , DescribeTapeArchives
+  ( -- * Creating a Request
+    DescribeTapeArchives (..),
+    newDescribeTapeArchives,
+
     -- * Request Lenses
-    , dtaMarker
-    , dtaLimit
-    , dtaTapeARNs
+    describeTapeArchives_tapeARNs,
+    describeTapeArchives_limit,
+    describeTapeArchives_marker,
 
     -- * Destructuring the Response
-    , describeTapeArchivesResponse
-    , DescribeTapeArchivesResponse
-    -- * Response Lenses
-    , dtarsTapeArchives
-    , dtarsMarker
-    , dtarsResponseStatus
-    ) where
+    DescribeTapeArchivesResponse (..),
+    newDescribeTapeArchivesResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    describeTapeArchivesResponse_tapeArchives,
+    describeTapeArchivesResponse_marker,
+    describeTapeArchivesResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
 -- | DescribeTapeArchivesInput
 --
---
---
--- /See:/ 'describeTapeArchives' smart constructor.
+-- /See:/ 'newDescribeTapeArchives' smart constructor.
 data DescribeTapeArchives = DescribeTapeArchives'
-  { _dtaMarker   :: !(Maybe Text)
-  , _dtaLimit    :: !(Maybe Nat)
-  , _dtaTapeARNs :: !(Maybe [Text])
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
+    -- the virtual tapes you want to describe.
+    tapeARNs :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies that the number of virtual tapes described be limited to the
+    -- specified number.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | An opaque string that indicates the position at which to begin
+    -- describing virtual tapes.
+    marker :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTapeArchives' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTapeArchives' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtaMarker' - An opaque string that indicates the position at which to begin describing virtual tapes.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtaLimit' - Specifies that the number of virtual tapes descried be limited to the specified number.
+-- 'tapeARNs', 'describeTapeArchives_tapeARNs' - Specifies one or more unique Amazon Resource Names (ARNs) that represent
+-- the virtual tapes you want to describe.
 --
--- * 'dtaTapeARNs' - Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe.
-describeTapeArchives
-    :: DescribeTapeArchives
-describeTapeArchives =
+-- 'limit', 'describeTapeArchives_limit' - Specifies that the number of virtual tapes described be limited to the
+-- specified number.
+--
+-- 'marker', 'describeTapeArchives_marker' - An opaque string that indicates the position at which to begin
+-- describing virtual tapes.
+newDescribeTapeArchives ::
+  DescribeTapeArchives
+newDescribeTapeArchives =
   DescribeTapeArchives'
-    {_dtaMarker = Nothing, _dtaLimit = Nothing, _dtaTapeARNs = Nothing}
+    { tapeARNs = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      marker = Prelude.Nothing
+    }
 
+-- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
+-- the virtual tapes you want to describe.
+describeTapeArchives_tapeARNs :: Lens.Lens' DescribeTapeArchives (Prelude.Maybe [Prelude.Text])
+describeTapeArchives_tapeARNs = Lens.lens (\DescribeTapeArchives' {tapeARNs} -> tapeARNs) (\s@DescribeTapeArchives' {} a -> s {tapeARNs = a} :: DescribeTapeArchives) Prelude.. Lens.mapping Prelude._Coerce
 
--- | An opaque string that indicates the position at which to begin describing virtual tapes.
-dtaMarker :: Lens' DescribeTapeArchives (Maybe Text)
-dtaMarker = lens _dtaMarker (\ s a -> s{_dtaMarker = a})
+-- | Specifies that the number of virtual tapes described be limited to the
+-- specified number.
+describeTapeArchives_limit :: Lens.Lens' DescribeTapeArchives (Prelude.Maybe Prelude.Natural)
+describeTapeArchives_limit = Lens.lens (\DescribeTapeArchives' {limit} -> limit) (\s@DescribeTapeArchives' {} a -> s {limit = a} :: DescribeTapeArchives)
 
--- | Specifies that the number of virtual tapes descried be limited to the specified number.
-dtaLimit :: Lens' DescribeTapeArchives (Maybe Natural)
-dtaLimit = lens _dtaLimit (\ s a -> s{_dtaLimit = a}) . mapping _Nat
+-- | An opaque string that indicates the position at which to begin
+-- describing virtual tapes.
+describeTapeArchives_marker :: Lens.Lens' DescribeTapeArchives (Prelude.Maybe Prelude.Text)
+describeTapeArchives_marker = Lens.lens (\DescribeTapeArchives' {marker} -> marker) (\s@DescribeTapeArchives' {} a -> s {marker = a} :: DescribeTapeArchives)
 
--- | Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe.
-dtaTapeARNs :: Lens' DescribeTapeArchives [Text]
-dtaTapeARNs = lens _dtaTapeARNs (\ s a -> s{_dtaTapeARNs = a}) . _Default . _Coerce
+instance Pager.AWSPager DescribeTapeArchives where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeTapeArchivesResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeTapeArchivesResponse_tapeArchives
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeTapeArchives_marker
+          Lens..~ rs
+          Lens.^? describeTapeArchivesResponse_marker
+            Prelude.. Lens._Just
 
-instance AWSPager DescribeTapeArchives where
-        page rq rs
-          | stop (rs ^. dtarsMarker) = Nothing
-          | stop (rs ^. dtarsTapeArchives) = Nothing
-          | otherwise =
-            Just $ rq & dtaMarker .~ rs ^. dtarsMarker
+instance Prelude.AWSRequest DescribeTapeArchives where
+  type
+    Rs DescribeTapeArchives =
+      DescribeTapeArchivesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeTapeArchivesResponse'
+            Prelude.<$> ( x Prelude..?> "TapeArchives"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Prelude..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeTapeArchives where
-        type Rs DescribeTapeArchives =
-             DescribeTapeArchivesResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeTapeArchivesResponse' <$>
-                   (x .?> "TapeArchives" .!@ mempty) <*>
-                     (x .?> "Marker")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeTapeArchives
 
-instance Hashable DescribeTapeArchives where
+instance Prelude.NFData DescribeTapeArchives
 
-instance NFData DescribeTapeArchives where
+instance Prelude.ToHeaders DescribeTapeArchives where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "StorageGateway_20130630.DescribeTapeArchives" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders DescribeTapeArchives where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.DescribeTapeArchives" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON DescribeTapeArchives where
+  toJSON DescribeTapeArchives' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("TapeARNs" Prelude..=) Prelude.<$> tapeARNs,
+            ("Limit" Prelude..=) Prelude.<$> limit,
+            ("Marker" Prelude..=) Prelude.<$> marker
+          ]
+      )
 
-instance ToJSON DescribeTapeArchives where
-        toJSON DescribeTapeArchives'{..}
-          = object
-              (catMaybes
-                 [("Marker" .=) <$> _dtaMarker,
-                  ("Limit" .=) <$> _dtaLimit,
-                  ("TapeARNs" .=) <$> _dtaTapeARNs])
+instance Prelude.ToPath DescribeTapeArchives where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeTapeArchives where
-        toPath = const "/"
-
-instance ToQuery DescribeTapeArchives where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeTapeArchives where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeTapeArchivesOutput
 --
---
---
--- /See:/ 'describeTapeArchivesResponse' smart constructor.
+-- /See:/ 'newDescribeTapeArchivesResponse' smart constructor.
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
-  { _dtarsTapeArchives   :: !(Maybe [TapeArchive])
-  , _dtarsMarker         :: !(Maybe Text)
-  , _dtarsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of virtual tape objects in the virtual tape shelf (VTS). The
+    -- description includes of the Amazon Resource Name (ARN) of the virtual
+    -- tapes. The information returned includes the Amazon Resource Names
+    -- (ARNs) of the tapes, size of the tapes, status of the tapes, progress of
+    -- the description, and tape barcode.
+    tapeArchives :: Prelude.Maybe [TapeArchive],
+    -- | An opaque string that indicates the position at which the virtual tapes
+    -- that were fetched for description ended. Use this marker in your next
+    -- request to fetch the next set of virtual tapes in the virtual tape shelf
+    -- (VTS). If there are no more virtual tapes to describe, this field does
+    -- not appear in the response.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTapeArchivesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTapeArchivesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtarsTapeArchives' - An array of virtual tape objects in the virtual tape shelf (VTS). The description includes of the Amazon Resource Name(ARN) of the virtual tapes. The information returned includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the tapes, progress of the description and tape barcode.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtarsMarker' - An opaque string that indicates the position at which the virtual tapes that were fetched for description ended. Use this marker in your next request to fetch the next set of virtual tapes in the virtual tape shelf (VTS). If there are no more virtual tapes to describe, this field does not appear in the response.
+-- 'tapeArchives', 'describeTapeArchivesResponse_tapeArchives' - An array of virtual tape objects in the virtual tape shelf (VTS). The
+-- description includes of the Amazon Resource Name (ARN) of the virtual
+-- tapes. The information returned includes the Amazon Resource Names
+-- (ARNs) of the tapes, size of the tapes, status of the tapes, progress of
+-- the description, and tape barcode.
 --
--- * 'dtarsResponseStatus' - -- | The response status code.
-describeTapeArchivesResponse
-    :: Int -- ^ 'dtarsResponseStatus'
-    -> DescribeTapeArchivesResponse
-describeTapeArchivesResponse pResponseStatus_ =
+-- 'marker', 'describeTapeArchivesResponse_marker' - An opaque string that indicates the position at which the virtual tapes
+-- that were fetched for description ended. Use this marker in your next
+-- request to fetch the next set of virtual tapes in the virtual tape shelf
+-- (VTS). If there are no more virtual tapes to describe, this field does
+-- not appear in the response.
+--
+-- 'httpStatus', 'describeTapeArchivesResponse_httpStatus' - The response's http status code.
+newDescribeTapeArchivesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeTapeArchivesResponse
+newDescribeTapeArchivesResponse pHttpStatus_ =
   DescribeTapeArchivesResponse'
-    { _dtarsTapeArchives = Nothing
-    , _dtarsMarker = Nothing
-    , _dtarsResponseStatus = pResponseStatus_
+    { tapeArchives =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | An array of virtual tape objects in the virtual tape shelf (VTS). The
+-- description includes of the Amazon Resource Name (ARN) of the virtual
+-- tapes. The information returned includes the Amazon Resource Names
+-- (ARNs) of the tapes, size of the tapes, status of the tapes, progress of
+-- the description, and tape barcode.
+describeTapeArchivesResponse_tapeArchives :: Lens.Lens' DescribeTapeArchivesResponse (Prelude.Maybe [TapeArchive])
+describeTapeArchivesResponse_tapeArchives = Lens.lens (\DescribeTapeArchivesResponse' {tapeArchives} -> tapeArchives) (\s@DescribeTapeArchivesResponse' {} a -> s {tapeArchives = a} :: DescribeTapeArchivesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | An array of virtual tape objects in the virtual tape shelf (VTS). The description includes of the Amazon Resource Name(ARN) of the virtual tapes. The information returned includes the Amazon Resource Names (ARNs) of the tapes, size of the tapes, status of the tapes, progress of the description and tape barcode.
-dtarsTapeArchives :: Lens' DescribeTapeArchivesResponse [TapeArchive]
-dtarsTapeArchives = lens _dtarsTapeArchives (\ s a -> s{_dtarsTapeArchives = a}) . _Default . _Coerce
+-- | An opaque string that indicates the position at which the virtual tapes
+-- that were fetched for description ended. Use this marker in your next
+-- request to fetch the next set of virtual tapes in the virtual tape shelf
+-- (VTS). If there are no more virtual tapes to describe, this field does
+-- not appear in the response.
+describeTapeArchivesResponse_marker :: Lens.Lens' DescribeTapeArchivesResponse (Prelude.Maybe Prelude.Text)
+describeTapeArchivesResponse_marker = Lens.lens (\DescribeTapeArchivesResponse' {marker} -> marker) (\s@DescribeTapeArchivesResponse' {} a -> s {marker = a} :: DescribeTapeArchivesResponse)
 
--- | An opaque string that indicates the position at which the virtual tapes that were fetched for description ended. Use this marker in your next request to fetch the next set of virtual tapes in the virtual tape shelf (VTS). If there are no more virtual tapes to describe, this field does not appear in the response.
-dtarsMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
-dtarsMarker = lens _dtarsMarker (\ s a -> s{_dtarsMarker = a})
+-- | The response's http status code.
+describeTapeArchivesResponse_httpStatus :: Lens.Lens' DescribeTapeArchivesResponse Prelude.Int
+describeTapeArchivesResponse_httpStatus = Lens.lens (\DescribeTapeArchivesResponse' {httpStatus} -> httpStatus) (\s@DescribeTapeArchivesResponse' {} a -> s {httpStatus = a} :: DescribeTapeArchivesResponse)
 
--- | -- | The response status code.
-dtarsResponseStatus :: Lens' DescribeTapeArchivesResponse Int
-dtarsResponseStatus = lens _dtarsResponseStatus (\ s a -> s{_dtarsResponseStatus = a})
-
-instance NFData DescribeTapeArchivesResponse where
+instance Prelude.NFData DescribeTapeArchivesResponse

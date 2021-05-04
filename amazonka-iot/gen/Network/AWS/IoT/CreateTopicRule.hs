@@ -1,118 +1,168 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.CreateTopicRule
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.
---
---
+-- Creates a rule. Creating rules is an administrator-level action. Any
+-- user who has permission to create rules will be able to access data
+-- processed by the rule.
 module Network.AWS.IoT.CreateTopicRule
-    (
-    -- * Creating a Request
-      createTopicRule
-    , CreateTopicRule
+  ( -- * Creating a Request
+    CreateTopicRule (..),
+    newCreateTopicRule,
+
     -- * Request Lenses
-    , ctrRuleName
-    , ctrTopicRulePayload
+    createTopicRule_tags,
+    createTopicRule_ruleName,
+    createTopicRule_topicRulePayload,
 
     -- * Destructuring the Response
-    , createTopicRuleResponse
-    , CreateTopicRuleResponse
-    ) where
+    CreateTopicRuleResponse (..),
+    newCreateTopicRuleResponse,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the CreateTopicRule operation.
 --
---
---
--- /See:/ 'createTopicRule' smart constructor.
+-- /See:/ 'newCreateTopicRule' smart constructor.
 data CreateTopicRule = CreateTopicRule'
-  { _ctrRuleName         :: !Text
-  , _ctrTopicRulePayload :: !TopicRulePayload
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Metadata which can be used to manage the topic rule.
+    --
+    -- For URI Request parameters use format: ...key1=value1&key2=value2...
+    --
+    -- For the CLI command-line parameter use format: --tags
+    -- \"key1=value1&key2=value2...\"
+    --
+    -- For the cli-input-json file use format: \"tags\":
+    -- \"key1=value1&key2=value2...\"
+    tags :: Prelude.Maybe Prelude.Text,
+    -- | The name of the rule.
+    ruleName :: Prelude.Text,
+    -- | The rule payload.
+    topicRulePayload :: TopicRulePayload
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateTopicRule' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateTopicRule' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ctrRuleName' - The name of the rule.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ctrTopicRulePayload' - The rule payload.
-createTopicRule
-    :: Text -- ^ 'ctrRuleName'
-    -> TopicRulePayload -- ^ 'ctrTopicRulePayload'
-    -> CreateTopicRule
-createTopicRule pRuleName_ pTopicRulePayload_ =
+-- 'tags', 'createTopicRule_tags' - Metadata which can be used to manage the topic rule.
+--
+-- For URI Request parameters use format: ...key1=value1&key2=value2...
+--
+-- For the CLI command-line parameter use format: --tags
+-- \"key1=value1&key2=value2...\"
+--
+-- For the cli-input-json file use format: \"tags\":
+-- \"key1=value1&key2=value2...\"
+--
+-- 'ruleName', 'createTopicRule_ruleName' - The name of the rule.
+--
+-- 'topicRulePayload', 'createTopicRule_topicRulePayload' - The rule payload.
+newCreateTopicRule ::
+  -- | 'ruleName'
+  Prelude.Text ->
+  -- | 'topicRulePayload'
+  TopicRulePayload ->
+  CreateTopicRule
+newCreateTopicRule pRuleName_ pTopicRulePayload_ =
   CreateTopicRule'
-    {_ctrRuleName = pRuleName_, _ctrTopicRulePayload = pTopicRulePayload_}
+    { tags = Prelude.Nothing,
+      ruleName = pRuleName_,
+      topicRulePayload = pTopicRulePayload_
+    }
 
+-- | Metadata which can be used to manage the topic rule.
+--
+-- For URI Request parameters use format: ...key1=value1&key2=value2...
+--
+-- For the CLI command-line parameter use format: --tags
+-- \"key1=value1&key2=value2...\"
+--
+-- For the cli-input-json file use format: \"tags\":
+-- \"key1=value1&key2=value2...\"
+createTopicRule_tags :: Lens.Lens' CreateTopicRule (Prelude.Maybe Prelude.Text)
+createTopicRule_tags = Lens.lens (\CreateTopicRule' {tags} -> tags) (\s@CreateTopicRule' {} a -> s {tags = a} :: CreateTopicRule)
 
 -- | The name of the rule.
-ctrRuleName :: Lens' CreateTopicRule Text
-ctrRuleName = lens _ctrRuleName (\ s a -> s{_ctrRuleName = a})
+createTopicRule_ruleName :: Lens.Lens' CreateTopicRule Prelude.Text
+createTopicRule_ruleName = Lens.lens (\CreateTopicRule' {ruleName} -> ruleName) (\s@CreateTopicRule' {} a -> s {ruleName = a} :: CreateTopicRule)
 
 -- | The rule payload.
-ctrTopicRulePayload :: Lens' CreateTopicRule TopicRulePayload
-ctrTopicRulePayload = lens _ctrTopicRulePayload (\ s a -> s{_ctrTopicRulePayload = a})
+createTopicRule_topicRulePayload :: Lens.Lens' CreateTopicRule TopicRulePayload
+createTopicRule_topicRulePayload = Lens.lens (\CreateTopicRule' {topicRulePayload} -> topicRulePayload) (\s@CreateTopicRule' {} a -> s {topicRulePayload = a} :: CreateTopicRule)
 
-instance AWSRequest CreateTopicRule where
-        type Rs CreateTopicRule = CreateTopicRuleResponse
-        request = postJSON ioT
-        response = receiveNull CreateTopicRuleResponse'
+instance Prelude.AWSRequest CreateTopicRule where
+  type Rs CreateTopicRule = CreateTopicRuleResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull CreateTopicRuleResponse'
 
-instance Hashable CreateTopicRule where
+instance Prelude.Hashable CreateTopicRule
 
-instance NFData CreateTopicRule where
+instance Prelude.NFData CreateTopicRule
 
-instance ToHeaders CreateTopicRule where
-        toHeaders = const mempty
+instance Prelude.ToHeaders CreateTopicRule where
+  toHeaders CreateTopicRule' {..} =
+    Prelude.mconcat ["x-amz-tagging" Prelude.=# tags]
 
-instance ToJSON CreateTopicRule where
-        toJSON CreateTopicRule'{..}
-          = object
-              (catMaybes
-                 [Just ("topicRulePayload" .= _ctrTopicRulePayload)])
+instance Prelude.ToJSON CreateTopicRule where
+  toJSON CreateTopicRule' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("topicRulePayload" Prelude..= topicRulePayload)
+          ]
+      )
 
-instance ToPath CreateTopicRule where
-        toPath CreateTopicRule'{..}
-          = mconcat ["/rules/", toBS _ctrRuleName]
+instance Prelude.ToPath CreateTopicRule where
+  toPath CreateTopicRule' {..} =
+    Prelude.mconcat ["/rules/", Prelude.toBS ruleName]
 
-instance ToQuery CreateTopicRule where
-        toQuery = const mempty
+instance Prelude.ToQuery CreateTopicRule where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createTopicRuleResponse' smart constructor.
-data CreateTopicRuleResponse =
-  CreateTopicRuleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateTopicRuleResponse' smart constructor.
+data CreateTopicRuleResponse = CreateTopicRuleResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateTopicRuleResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateTopicRuleResponse' with all optional fields omitted.
 --
-createTopicRuleResponse
-    :: CreateTopicRuleResponse
-createTopicRuleResponse = CreateTopicRuleResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newCreateTopicRuleResponse ::
+  CreateTopicRuleResponse
+newCreateTopicRuleResponse = CreateTopicRuleResponse'
 
-
-instance NFData CreateTopicRuleResponse where
+instance Prelude.NFData CreateTopicRuleResponse

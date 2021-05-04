@@ -1,144 +1,177 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerAttributes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the attributes for the specified load balancer.
---
---
 module Network.AWS.ELB.DescribeLoadBalancerAttributes
-    (
-    -- * Creating a Request
-      describeLoadBalancerAttributes
-    , DescribeLoadBalancerAttributes
+  ( -- * Creating a Request
+    DescribeLoadBalancerAttributes (..),
+    newDescribeLoadBalancerAttributes,
+
     -- * Request Lenses
-    , dlbaLoadBalancerName
+    describeLoadBalancerAttributes_loadBalancerName,
 
     -- * Destructuring the Response
-    , describeLoadBalancerAttributesResponse
-    , DescribeLoadBalancerAttributesResponse
+    DescribeLoadBalancerAttributesResponse (..),
+    newDescribeLoadBalancerAttributesResponse,
+
     -- * Response Lenses
-    , dlbarsLoadBalancerAttributes
-    , dlbarsResponseStatus
-    ) where
+    describeLoadBalancerAttributesResponse_loadBalancerAttributes,
+    describeLoadBalancerAttributesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DescribeLoadBalancerAttributes.
 --
---
---
--- /See:/ 'describeLoadBalancerAttributes' smart constructor.
-newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'
-  { _dlbaLoadBalancerName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDescribeLoadBalancerAttributes' smart constructor.
+data DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'
+  { -- | The name of the load balancer.
+    loadBalancerName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeLoadBalancerAttributes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeLoadBalancerAttributes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dlbaLoadBalancerName' - The name of the load balancer.
-describeLoadBalancerAttributes
-    :: Text -- ^ 'dlbaLoadBalancerName'
-    -> DescribeLoadBalancerAttributes
-describeLoadBalancerAttributes pLoadBalancerName_ =
-  DescribeLoadBalancerAttributes' {_dlbaLoadBalancerName = pLoadBalancerName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'loadBalancerName', 'describeLoadBalancerAttributes_loadBalancerName' - The name of the load balancer.
+newDescribeLoadBalancerAttributes ::
+  -- | 'loadBalancerName'
+  Prelude.Text ->
+  DescribeLoadBalancerAttributes
+newDescribeLoadBalancerAttributes pLoadBalancerName_ =
+  DescribeLoadBalancerAttributes'
+    { loadBalancerName =
+        pLoadBalancerName_
+    }
 
 -- | The name of the load balancer.
-dlbaLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
-dlbaLoadBalancerName = lens _dlbaLoadBalancerName (\ s a -> s{_dlbaLoadBalancerName = a})
+describeLoadBalancerAttributes_loadBalancerName :: Lens.Lens' DescribeLoadBalancerAttributes Prelude.Text
+describeLoadBalancerAttributes_loadBalancerName = Lens.lens (\DescribeLoadBalancerAttributes' {loadBalancerName} -> loadBalancerName) (\s@DescribeLoadBalancerAttributes' {} a -> s {loadBalancerName = a} :: DescribeLoadBalancerAttributes)
 
-instance AWSRequest DescribeLoadBalancerAttributes
-         where
-        type Rs DescribeLoadBalancerAttributes =
-             DescribeLoadBalancerAttributesResponse
-        request = postQuery elb
-        response
-          = receiveXMLWrapper
-              "DescribeLoadBalancerAttributesResult"
-              (\ s h x ->
-                 DescribeLoadBalancerAttributesResponse' <$>
-                   (x .@? "LoadBalancerAttributes") <*>
-                     (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    DescribeLoadBalancerAttributes
+  where
+  type
+    Rs DescribeLoadBalancerAttributes =
+      DescribeLoadBalancerAttributesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeLoadBalancerAttributesResult"
+      ( \s h x ->
+          DescribeLoadBalancerAttributesResponse'
+            Prelude.<$> (x Prelude..@? "LoadBalancerAttributes")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeLoadBalancerAttributes
-         where
+instance
+  Prelude.Hashable
+    DescribeLoadBalancerAttributes
 
-instance NFData DescribeLoadBalancerAttributes where
+instance
+  Prelude.NFData
+    DescribeLoadBalancerAttributes
 
-instance ToHeaders DescribeLoadBalancerAttributes
-         where
-        toHeaders = const mempty
+instance
+  Prelude.ToHeaders
+    DescribeLoadBalancerAttributes
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeLoadBalancerAttributes where
-        toPath = const "/"
+instance
+  Prelude.ToPath
+    DescribeLoadBalancerAttributes
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeLoadBalancerAttributes where
-        toQuery DescribeLoadBalancerAttributes'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeLoadBalancerAttributes" :: ByteString),
-               "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _dlbaLoadBalancerName]
+instance
+  Prelude.ToQuery
+    DescribeLoadBalancerAttributes
+  where
+  toQuery DescribeLoadBalancerAttributes' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ( "DescribeLoadBalancerAttributes" ::
+                         Prelude.ByteString
+                     ),
+        "Version"
+          Prelude.=: ("2012-06-01" :: Prelude.ByteString),
+        "LoadBalancerName" Prelude.=: loadBalancerName
+      ]
 
 -- | Contains the output of DescribeLoadBalancerAttributes.
 --
---
---
--- /See:/ 'describeLoadBalancerAttributesResponse' smart constructor.
+-- /See:/ 'newDescribeLoadBalancerAttributesResponse' smart constructor.
 data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
-  { _dlbarsLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
-  , _dlbarsResponseStatus         :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the load balancer attributes.
+    loadBalancerAttributes :: Prelude.Maybe LoadBalancerAttributes,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeLoadBalancerAttributesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeLoadBalancerAttributesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dlbarsLoadBalancerAttributes' - Information about the load balancer attributes.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dlbarsResponseStatus' - -- | The response status code.
-describeLoadBalancerAttributesResponse
-    :: Int -- ^ 'dlbarsResponseStatus'
-    -> DescribeLoadBalancerAttributesResponse
-describeLoadBalancerAttributesResponse pResponseStatus_ =
-  DescribeLoadBalancerAttributesResponse'
-    { _dlbarsLoadBalancerAttributes = Nothing
-    , _dlbarsResponseStatus = pResponseStatus_
-    }
-
+-- 'loadBalancerAttributes', 'describeLoadBalancerAttributesResponse_loadBalancerAttributes' - Information about the load balancer attributes.
+--
+-- 'httpStatus', 'describeLoadBalancerAttributesResponse_httpStatus' - The response's http status code.
+newDescribeLoadBalancerAttributesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeLoadBalancerAttributesResponse
+newDescribeLoadBalancerAttributesResponse
+  pHttpStatus_ =
+    DescribeLoadBalancerAttributesResponse'
+      { loadBalancerAttributes =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
 -- | Information about the load balancer attributes.
-dlbarsLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
-dlbarsLoadBalancerAttributes = lens _dlbarsLoadBalancerAttributes (\ s a -> s{_dlbarsLoadBalancerAttributes = a})
+describeLoadBalancerAttributesResponse_loadBalancerAttributes :: Lens.Lens' DescribeLoadBalancerAttributesResponse (Prelude.Maybe LoadBalancerAttributes)
+describeLoadBalancerAttributesResponse_loadBalancerAttributes = Lens.lens (\DescribeLoadBalancerAttributesResponse' {loadBalancerAttributes} -> loadBalancerAttributes) (\s@DescribeLoadBalancerAttributesResponse' {} a -> s {loadBalancerAttributes = a} :: DescribeLoadBalancerAttributesResponse)
 
--- | -- | The response status code.
-dlbarsResponseStatus :: Lens' DescribeLoadBalancerAttributesResponse Int
-dlbarsResponseStatus = lens _dlbarsResponseStatus (\ s a -> s{_dlbarsResponseStatus = a})
+-- | The response's http status code.
+describeLoadBalancerAttributesResponse_httpStatus :: Lens.Lens' DescribeLoadBalancerAttributesResponse Prelude.Int
+describeLoadBalancerAttributesResponse_httpStatus = Lens.lens (\DescribeLoadBalancerAttributesResponse' {httpStatus} -> httpStatus) (\s@DescribeLoadBalancerAttributesResponse' {} a -> s {httpStatus = a} :: DescribeLoadBalancerAttributesResponse)
 
-instance NFData
-           DescribeLoadBalancerAttributesResponse
-         where
+instance
+  Prelude.NFData
+    DescribeLoadBalancerAttributesResponse

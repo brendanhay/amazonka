@@ -1,155 +1,202 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AssociateSoftwareToken
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a unique generated shared secret key code for the user account. The request takes an access token or a session string, but not both.
---
---
+-- Returns a unique generated shared secret key code for the user account.
+-- The request takes an access token or a session string, but not both.
 module Network.AWS.CognitoIdentityProvider.AssociateSoftwareToken
-    (
-    -- * Creating a Request
-      associateSoftwareToken
-    , AssociateSoftwareToken
+  ( -- * Creating a Request
+    AssociateSoftwareToken (..),
+    newAssociateSoftwareToken,
+
     -- * Request Lenses
-    , astAccessToken
-    , astSession
+    associateSoftwareToken_accessToken,
+    associateSoftwareToken_session,
 
     -- * Destructuring the Response
-    , associateSoftwareTokenResponse
-    , AssociateSoftwareTokenResponse
+    AssociateSoftwareTokenResponse (..),
+    newAssociateSoftwareTokenResponse,
+
     -- * Response Lenses
-    , astrsSecretCode
-    , astrsSession
-    , astrsResponseStatus
-    ) where
+    associateSoftwareTokenResponse_secretCode,
+    associateSoftwareTokenResponse_session,
+    associateSoftwareTokenResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'associateSoftwareToken' smart constructor.
+-- | /See:/ 'newAssociateSoftwareToken' smart constructor.
 data AssociateSoftwareToken = AssociateSoftwareToken'
-  { _astAccessToken :: !(Maybe (Sensitive Text))
-  , _astSession     :: !(Maybe Text)
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The access token.
+    accessToken :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    -- | The session which should be passed both ways in challenge-response calls
+    -- to the service. This allows authentication of the user as part of the
+    -- MFA setup process.
+    session :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AssociateSoftwareToken' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AssociateSoftwareToken' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'astAccessToken' - The access token.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'astSession' - The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.
-associateSoftwareToken
-    :: AssociateSoftwareToken
-associateSoftwareToken =
-  AssociateSoftwareToken' {_astAccessToken = Nothing, _astSession = Nothing}
-
-
--- | The access token.
-astAccessToken :: Lens' AssociateSoftwareToken (Maybe Text)
-astAccessToken = lens _astAccessToken (\ s a -> s{_astAccessToken = a}) . mapping _Sensitive
-
--- | The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.
-astSession :: Lens' AssociateSoftwareToken (Maybe Text)
-astSession = lens _astSession (\ s a -> s{_astSession = a})
-
-instance AWSRequest AssociateSoftwareToken where
-        type Rs AssociateSoftwareToken =
-             AssociateSoftwareTokenResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 AssociateSoftwareTokenResponse' <$>
-                   (x .?> "SecretCode") <*> (x .?> "Session") <*>
-                     (pure (fromEnum s)))
-
-instance Hashable AssociateSoftwareToken where
-
-instance NFData AssociateSoftwareToken where
-
-instance ToHeaders AssociateSoftwareToken where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.AssociateSoftwareToken"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON AssociateSoftwareToken where
-        toJSON AssociateSoftwareToken'{..}
-          = object
-              (catMaybes
-                 [("AccessToken" .=) <$> _astAccessToken,
-                  ("Session" .=) <$> _astSession])
-
-instance ToPath AssociateSoftwareToken where
-        toPath = const "/"
-
-instance ToQuery AssociateSoftwareToken where
-        toQuery = const mempty
-
--- | /See:/ 'associateSoftwareTokenResponse' smart constructor.
-data AssociateSoftwareTokenResponse = AssociateSoftwareTokenResponse'
-  { _astrsSecretCode     :: !(Maybe (Sensitive Text))
-  , _astrsSession        :: !(Maybe Text)
-  , _astrsResponseStatus :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AssociateSoftwareTokenResponse' with the minimum fields required to make a request.
+-- 'accessToken', 'associateSoftwareToken_accessToken' - The access token.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'astrsSecretCode' - A unique generated shared secret code that is used in the TOTP algorithm to generate a one time code.
---
--- * 'astrsSession' - The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.
---
--- * 'astrsResponseStatus' - -- | The response status code.
-associateSoftwareTokenResponse
-    :: Int -- ^ 'astrsResponseStatus'
-    -> AssociateSoftwareTokenResponse
-associateSoftwareTokenResponse pResponseStatus_ =
-  AssociateSoftwareTokenResponse'
-    { _astrsSecretCode = Nothing
-    , _astrsSession = Nothing
-    , _astrsResponseStatus = pResponseStatus_
+-- 'session', 'associateSoftwareToken_session' - The session which should be passed both ways in challenge-response calls
+-- to the service. This allows authentication of the user as part of the
+-- MFA setup process.
+newAssociateSoftwareToken ::
+  AssociateSoftwareToken
+newAssociateSoftwareToken =
+  AssociateSoftwareToken'
+    { accessToken =
+        Prelude.Nothing,
+      session = Prelude.Nothing
     }
 
+-- | The access token.
+associateSoftwareToken_accessToken :: Lens.Lens' AssociateSoftwareToken (Prelude.Maybe Prelude.Text)
+associateSoftwareToken_accessToken = Lens.lens (\AssociateSoftwareToken' {accessToken} -> accessToken) (\s@AssociateSoftwareToken' {} a -> s {accessToken = a} :: AssociateSoftwareToken) Prelude.. Lens.mapping Prelude._Sensitive
 
--- | A unique generated shared secret code that is used in the TOTP algorithm to generate a one time code.
-astrsSecretCode :: Lens' AssociateSoftwareTokenResponse (Maybe Text)
-astrsSecretCode = lens _astrsSecretCode (\ s a -> s{_astrsSecretCode = a}) . mapping _Sensitive
+-- | The session which should be passed both ways in challenge-response calls
+-- to the service. This allows authentication of the user as part of the
+-- MFA setup process.
+associateSoftwareToken_session :: Lens.Lens' AssociateSoftwareToken (Prelude.Maybe Prelude.Text)
+associateSoftwareToken_session = Lens.lens (\AssociateSoftwareToken' {session} -> session) (\s@AssociateSoftwareToken' {} a -> s {session = a} :: AssociateSoftwareToken)
 
--- | The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.
-astrsSession :: Lens' AssociateSoftwareTokenResponse (Maybe Text)
-astrsSession = lens _astrsSession (\ s a -> s{_astrsSession = a})
+instance Prelude.AWSRequest AssociateSoftwareToken where
+  type
+    Rs AssociateSoftwareToken =
+      AssociateSoftwareTokenResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AssociateSoftwareTokenResponse'
+            Prelude.<$> (x Prelude..?> "SecretCode")
+            Prelude.<*> (x Prelude..?> "Session")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | -- | The response status code.
-astrsResponseStatus :: Lens' AssociateSoftwareTokenResponse Int
-astrsResponseStatus = lens _astrsResponseStatus (\ s a -> s{_astrsResponseStatus = a})
+instance Prelude.Hashable AssociateSoftwareToken
 
-instance NFData AssociateSoftwareTokenResponse where
+instance Prelude.NFData AssociateSoftwareToken
+
+instance Prelude.ToHeaders AssociateSoftwareToken where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSCognitoIdentityProviderService.AssociateSoftwareToken" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON AssociateSoftwareToken where
+  toJSON AssociateSoftwareToken' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("AccessToken" Prelude..=) Prelude.<$> accessToken,
+            ("Session" Prelude..=) Prelude.<$> session
+          ]
+      )
+
+instance Prelude.ToPath AssociateSoftwareToken where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery AssociateSoftwareToken where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newAssociateSoftwareTokenResponse' smart constructor.
+data AssociateSoftwareTokenResponse = AssociateSoftwareTokenResponse'
+  { -- | A unique generated shared secret code that is used in the TOTP algorithm
+    -- to generate a one time code.
+    secretCode :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    -- | The session which should be passed both ways in challenge-response calls
+    -- to the service. This allows authentication of the user as part of the
+    -- MFA setup process.
+    session :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'AssociateSoftwareTokenResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'secretCode', 'associateSoftwareTokenResponse_secretCode' - A unique generated shared secret code that is used in the TOTP algorithm
+-- to generate a one time code.
+--
+-- 'session', 'associateSoftwareTokenResponse_session' - The session which should be passed both ways in challenge-response calls
+-- to the service. This allows authentication of the user as part of the
+-- MFA setup process.
+--
+-- 'httpStatus', 'associateSoftwareTokenResponse_httpStatus' - The response's http status code.
+newAssociateSoftwareTokenResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AssociateSoftwareTokenResponse
+newAssociateSoftwareTokenResponse pHttpStatus_ =
+  AssociateSoftwareTokenResponse'
+    { secretCode =
+        Prelude.Nothing,
+      session = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | A unique generated shared secret code that is used in the TOTP algorithm
+-- to generate a one time code.
+associateSoftwareTokenResponse_secretCode :: Lens.Lens' AssociateSoftwareTokenResponse (Prelude.Maybe Prelude.Text)
+associateSoftwareTokenResponse_secretCode = Lens.lens (\AssociateSoftwareTokenResponse' {secretCode} -> secretCode) (\s@AssociateSoftwareTokenResponse' {} a -> s {secretCode = a} :: AssociateSoftwareTokenResponse) Prelude.. Lens.mapping Prelude._Sensitive
+
+-- | The session which should be passed both ways in challenge-response calls
+-- to the service. This allows authentication of the user as part of the
+-- MFA setup process.
+associateSoftwareTokenResponse_session :: Lens.Lens' AssociateSoftwareTokenResponse (Prelude.Maybe Prelude.Text)
+associateSoftwareTokenResponse_session = Lens.lens (\AssociateSoftwareTokenResponse' {session} -> session) (\s@AssociateSoftwareTokenResponse' {} a -> s {session = a} :: AssociateSoftwareTokenResponse)
+
+-- | The response's http status code.
+associateSoftwareTokenResponse_httpStatus :: Lens.Lens' AssociateSoftwareTokenResponse Prelude.Int
+associateSoftwareTokenResponse_httpStatus = Lens.lens (\AssociateSoftwareTokenResponse' {httpStatus} -> httpStatus) (\s@AssociateSoftwareTokenResponse' {} a -> s {httpStatus = a} :: AssociateSoftwareTokenResponse)
+
+instance
+  Prelude.NFData
+    AssociateSoftwareTokenResponse

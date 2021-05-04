@@ -1,132 +1,163 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeStar.DeleteUserProfile
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a user profile in AWS CodeStar, including all personal preference data associated with that profile, such as display name and email address. It does not delete the history of that user, for example the history of commits made by that user.
---
---
+-- Deletes a user profile in AWS CodeStar, including all personal
+-- preference data associated with that profile, such as display name and
+-- email address. It does not delete the history of that user, for example
+-- the history of commits made by that user.
 module Network.AWS.CodeStar.DeleteUserProfile
-    (
-    -- * Creating a Request
-      deleteUserProfile
-    , DeleteUserProfile
+  ( -- * Creating a Request
+    DeleteUserProfile (..),
+    newDeleteUserProfile,
+
     -- * Request Lenses
-    , dUserARN
+    deleteUserProfile_userArn,
 
     -- * Destructuring the Response
-    , deleteUserProfileResponse
-    , DeleteUserProfileResponse
+    DeleteUserProfileResponse (..),
+    newDeleteUserProfileResponse,
+
     -- * Response Lenses
-    , delrsResponseStatus
-    , delrsUserARN
-    ) where
+    deleteUserProfileResponse_httpStatus,
+    deleteUserProfileResponse_userArn,
+  )
+where
 
 import Network.AWS.CodeStar.Types
-import Network.AWS.CodeStar.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteUserProfile' smart constructor.
-newtype DeleteUserProfile = DeleteUserProfile'
-  { _dUserARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteUserProfile' smart constructor.
+data DeleteUserProfile = DeleteUserProfile'
+  { -- | The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.
+    userArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteUserProfile' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteUserProfile' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dUserARN' - The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.
-deleteUserProfile
-    :: Text -- ^ 'dUserARN'
-    -> DeleteUserProfile
-deleteUserProfile pUserARN_ = DeleteUserProfile' {_dUserARN = pUserARN_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'userArn', 'deleteUserProfile_userArn' - The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.
+newDeleteUserProfile ::
+  -- | 'userArn'
+  Prelude.Text ->
+  DeleteUserProfile
+newDeleteUserProfile pUserArn_ =
+  DeleteUserProfile' {userArn = pUserArn_}
 
 -- | The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.
-dUserARN :: Lens' DeleteUserProfile Text
-dUserARN = lens _dUserARN (\ s a -> s{_dUserARN = a})
+deleteUserProfile_userArn :: Lens.Lens' DeleteUserProfile Prelude.Text
+deleteUserProfile_userArn = Lens.lens (\DeleteUserProfile' {userArn} -> userArn) (\s@DeleteUserProfile' {} a -> s {userArn = a} :: DeleteUserProfile)
 
-instance AWSRequest DeleteUserProfile where
-        type Rs DeleteUserProfile = DeleteUserProfileResponse
-        request = postJSON codeStar
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteUserProfileResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "userArn"))
+instance Prelude.AWSRequest DeleteUserProfile where
+  type Rs DeleteUserProfile = DeleteUserProfileResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteUserProfileResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..:> "userArn")
+      )
 
-instance Hashable DeleteUserProfile where
+instance Prelude.Hashable DeleteUserProfile
 
-instance NFData DeleteUserProfile where
+instance Prelude.NFData DeleteUserProfile
 
-instance ToHeaders DeleteUserProfile where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeStar_20170419.DeleteUserProfile" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DeleteUserProfile where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CodeStar_20170419.DeleteUserProfile" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DeleteUserProfile where
-        toJSON DeleteUserProfile'{..}
-          = object (catMaybes [Just ("userArn" .= _dUserARN)])
+instance Prelude.ToJSON DeleteUserProfile where
+  toJSON DeleteUserProfile' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("userArn" Prelude..= userArn)]
+      )
 
-instance ToPath DeleteUserProfile where
-        toPath = const "/"
+instance Prelude.ToPath DeleteUserProfile where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteUserProfile where
-        toQuery = const mempty
+instance Prelude.ToQuery DeleteUserProfile where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteUserProfileResponse' smart constructor.
+-- | /See:/ 'newDeleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse = DeleteUserProfileResponse'
-  { _delrsResponseStatus :: !Int
-  , _delrsUserARN        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
+    userArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteUserProfileResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteUserProfileResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'delrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'delrsUserARN' - The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
-deleteUserProfileResponse
-    :: Int -- ^ 'delrsResponseStatus'
-    -> Text -- ^ 'delrsUserARN'
-    -> DeleteUserProfileResponse
-deleteUserProfileResponse pResponseStatus_ pUserARN_ =
+-- 'httpStatus', 'deleteUserProfileResponse_httpStatus' - The response's http status code.
+--
+-- 'userArn', 'deleteUserProfileResponse_userArn' - The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
+newDeleteUserProfileResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'userArn'
+  Prelude.Text ->
+  DeleteUserProfileResponse
+newDeleteUserProfileResponse pHttpStatus_ pUserArn_ =
   DeleteUserProfileResponse'
-    {_delrsResponseStatus = pResponseStatus_, _delrsUserARN = pUserARN_}
+    { httpStatus =
+        pHttpStatus_,
+      userArn = pUserArn_
+    }
 
-
--- | -- | The response status code.
-delrsResponseStatus :: Lens' DeleteUserProfileResponse Int
-delrsResponseStatus = lens _delrsResponseStatus (\ s a -> s{_delrsResponseStatus = a})
+-- | The response's http status code.
+deleteUserProfileResponse_httpStatus :: Lens.Lens' DeleteUserProfileResponse Prelude.Int
+deleteUserProfileResponse_httpStatus = Lens.lens (\DeleteUserProfileResponse' {httpStatus} -> httpStatus) (\s@DeleteUserProfileResponse' {} a -> s {httpStatus = a} :: DeleteUserProfileResponse)
 
 -- | The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
-delrsUserARN :: Lens' DeleteUserProfileResponse Text
-delrsUserARN = lens _delrsUserARN (\ s a -> s{_delrsUserARN = a})
+deleteUserProfileResponse_userArn :: Lens.Lens' DeleteUserProfileResponse Prelude.Text
+deleteUserProfileResponse_userArn = Lens.lens (\DeleteUserProfileResponse' {userArn} -> userArn) (\s@DeleteUserProfileResponse' {} a -> s {userArn = a} :: DeleteUserProfileResponse)
 
-instance NFData DeleteUserProfileResponse where
+instance Prelude.NFData DeleteUserProfileResponse

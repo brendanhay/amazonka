@@ -1,137 +1,161 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.AttachThingPrincipal
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches the specified principal to the specified thing.
---
---
+-- Attaches the specified principal to the specified thing. A principal can
+-- be X.509 certificates, IAM users, groups, and roles, Amazon Cognito
+-- identities or federated identities.
 module Network.AWS.IoT.AttachThingPrincipal
-    (
-    -- * Creating a Request
-      attachThingPrincipal
-    , AttachThingPrincipal
+  ( -- * Creating a Request
+    AttachThingPrincipal (..),
+    newAttachThingPrincipal,
+
     -- * Request Lenses
-    , atpThingName
-    , atpPrincipal
+    attachThingPrincipal_thingName,
+    attachThingPrincipal_principal,
 
     -- * Destructuring the Response
-    , attachThingPrincipalResponse
-    , AttachThingPrincipalResponse
+    AttachThingPrincipalResponse (..),
+    newAttachThingPrincipalResponse,
+
     -- * Response Lenses
-    , atprsResponseStatus
-    ) where
+    attachThingPrincipalResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the AttachThingPrincipal operation.
 --
---
---
--- /See:/ 'attachThingPrincipal' smart constructor.
+-- /See:/ 'newAttachThingPrincipal' smart constructor.
 data AttachThingPrincipal = AttachThingPrincipal'
-  { _atpThingName :: !Text
-  , _atpPrincipal :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the thing.
+    thingName :: Prelude.Text,
+    -- | The principal, which can be a certificate ARN (as returned from the
+    -- CreateCertificate operation) or an Amazon Cognito ID.
+    principal :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AttachThingPrincipal' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AttachThingPrincipal' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'atpThingName' - The name of the thing.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'atpPrincipal' - The principal, such as a certificate or other credential.
-attachThingPrincipal
-    :: Text -- ^ 'atpThingName'
-    -> Text -- ^ 'atpPrincipal'
-    -> AttachThingPrincipal
-attachThingPrincipal pThingName_ pPrincipal_ =
+-- 'thingName', 'attachThingPrincipal_thingName' - The name of the thing.
+--
+-- 'principal', 'attachThingPrincipal_principal' - The principal, which can be a certificate ARN (as returned from the
+-- CreateCertificate operation) or an Amazon Cognito ID.
+newAttachThingPrincipal ::
+  -- | 'thingName'
+  Prelude.Text ->
+  -- | 'principal'
+  Prelude.Text ->
+  AttachThingPrincipal
+newAttachThingPrincipal pThingName_ pPrincipal_ =
   AttachThingPrincipal'
-    {_atpThingName = pThingName_, _atpPrincipal = pPrincipal_}
-
+    { thingName = pThingName_,
+      principal = pPrincipal_
+    }
 
 -- | The name of the thing.
-atpThingName :: Lens' AttachThingPrincipal Text
-atpThingName = lens _atpThingName (\ s a -> s{_atpThingName = a})
+attachThingPrincipal_thingName :: Lens.Lens' AttachThingPrincipal Prelude.Text
+attachThingPrincipal_thingName = Lens.lens (\AttachThingPrincipal' {thingName} -> thingName) (\s@AttachThingPrincipal' {} a -> s {thingName = a} :: AttachThingPrincipal)
 
--- | The principal, such as a certificate or other credential.
-atpPrincipal :: Lens' AttachThingPrincipal Text
-atpPrincipal = lens _atpPrincipal (\ s a -> s{_atpPrincipal = a})
+-- | The principal, which can be a certificate ARN (as returned from the
+-- CreateCertificate operation) or an Amazon Cognito ID.
+attachThingPrincipal_principal :: Lens.Lens' AttachThingPrincipal Prelude.Text
+attachThingPrincipal_principal = Lens.lens (\AttachThingPrincipal' {principal} -> principal) (\s@AttachThingPrincipal' {} a -> s {principal = a} :: AttachThingPrincipal)
 
-instance AWSRequest AttachThingPrincipal where
-        type Rs AttachThingPrincipal =
-             AttachThingPrincipalResponse
-        request = putJSON ioT
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 AttachThingPrincipalResponse' <$>
-                   (pure (fromEnum s)))
+instance Prelude.AWSRequest AttachThingPrincipal where
+  type
+    Rs AttachThingPrincipal =
+      AttachThingPrincipalResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          AttachThingPrincipalResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AttachThingPrincipal where
+instance Prelude.Hashable AttachThingPrincipal
 
-instance NFData AttachThingPrincipal where
+instance Prelude.NFData AttachThingPrincipal
 
-instance ToHeaders AttachThingPrincipal where
-        toHeaders AttachThingPrincipal'{..}
-          = mconcat ["x-amzn-principal" =# _atpPrincipal]
+instance Prelude.ToHeaders AttachThingPrincipal where
+  toHeaders AttachThingPrincipal' {..} =
+    Prelude.mconcat
+      ["x-amzn-principal" Prelude.=# principal]
 
-instance ToJSON AttachThingPrincipal where
-        toJSON = const (Object mempty)
+instance Prelude.ToJSON AttachThingPrincipal where
+  toJSON =
+    Prelude.const (Prelude.Object Prelude.mempty)
 
-instance ToPath AttachThingPrincipal where
-        toPath AttachThingPrincipal'{..}
-          = mconcat
-              ["/things/", toBS _atpThingName, "/principals"]
+instance Prelude.ToPath AttachThingPrincipal where
+  toPath AttachThingPrincipal' {..} =
+    Prelude.mconcat
+      ["/things/", Prelude.toBS thingName, "/principals"]
 
-instance ToQuery AttachThingPrincipal where
-        toQuery = const mempty
+instance Prelude.ToQuery AttachThingPrincipal where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the AttachThingPrincipal operation.
 --
+-- /See:/ 'newAttachThingPrincipalResponse' smart constructor.
+data AttachThingPrincipalResponse = AttachThingPrincipalResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'AttachThingPrincipalResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'attachThingPrincipalResponse' smart constructor.
-newtype AttachThingPrincipalResponse = AttachThingPrincipalResponse'
-  { _atprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AttachThingPrincipalResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atprsResponseStatus' - -- | The response status code.
-attachThingPrincipalResponse
-    :: Int -- ^ 'atprsResponseStatus'
-    -> AttachThingPrincipalResponse
-attachThingPrincipalResponse pResponseStatus_ =
-  AttachThingPrincipalResponse' {_atprsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'attachThingPrincipalResponse_httpStatus' - The response's http status code.
+newAttachThingPrincipalResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AttachThingPrincipalResponse
+newAttachThingPrincipalResponse pHttpStatus_ =
+  AttachThingPrincipalResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+attachThingPrincipalResponse_httpStatus :: Lens.Lens' AttachThingPrincipalResponse Prelude.Int
+attachThingPrincipalResponse_httpStatus = Lens.lens (\AttachThingPrincipalResponse' {httpStatus} -> httpStatus) (\s@AttachThingPrincipalResponse' {} a -> s {httpStatus = a} :: AttachThingPrincipalResponse)
 
--- | -- | The response status code.
-atprsResponseStatus :: Lens' AttachThingPrincipalResponse Int
-atprsResponseStatus = lens _atprsResponseStatus (\ s a -> s{_atprsResponseStatus = a})
-
-instance NFData AttachThingPrincipalResponse where
+instance Prelude.NFData AttachThingPrincipalResponse

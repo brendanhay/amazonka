@@ -1,137 +1,164 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AppSync.GetDataSource
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a @DataSource@ object.
---
---
 module Network.AWS.AppSync.GetDataSource
-    (
-    -- * Creating a Request
-      getDataSource
-    , GetDataSource
+  ( -- * Creating a Request
+    GetDataSource (..),
+    newGetDataSource,
+
     -- * Request Lenses
-    , gdsApiId
-    , gdsName
+    getDataSource_apiId,
+    getDataSource_name,
 
     -- * Destructuring the Response
-    , getDataSourceResponse
-    , GetDataSourceResponse
+    GetDataSourceResponse (..),
+    newGetDataSourceResponse,
+
     -- * Response Lenses
-    , gdsrsDataSource
-    , gdsrsResponseStatus
-    ) where
+    getDataSourceResponse_dataSource,
+    getDataSourceResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.AppSync.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getDataSource' smart constructor.
+-- | /See:/ 'newGetDataSource' smart constructor.
 data GetDataSource = GetDataSource'
-  { _gdsApiId :: !Text
-  , _gdsName  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The API ID.
+    apiId :: Prelude.Text,
+    -- | The name of the data source.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetDataSource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDataSource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdsApiId' - The API ID.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gdsName' - The name of the data source.
-getDataSource
-    :: Text -- ^ 'gdsApiId'
-    -> Text -- ^ 'gdsName'
-    -> GetDataSource
-getDataSource pApiId_ pName_ =
-  GetDataSource' {_gdsApiId = pApiId_, _gdsName = pName_}
-
+-- 'apiId', 'getDataSource_apiId' - The API ID.
+--
+-- 'name', 'getDataSource_name' - The name of the data source.
+newGetDataSource ::
+  -- | 'apiId'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  GetDataSource
+newGetDataSource pApiId_ pName_ =
+  GetDataSource' {apiId = pApiId_, name = pName_}
 
 -- | The API ID.
-gdsApiId :: Lens' GetDataSource Text
-gdsApiId = lens _gdsApiId (\ s a -> s{_gdsApiId = a})
+getDataSource_apiId :: Lens.Lens' GetDataSource Prelude.Text
+getDataSource_apiId = Lens.lens (\GetDataSource' {apiId} -> apiId) (\s@GetDataSource' {} a -> s {apiId = a} :: GetDataSource)
 
 -- | The name of the data source.
-gdsName :: Lens' GetDataSource Text
-gdsName = lens _gdsName (\ s a -> s{_gdsName = a})
+getDataSource_name :: Lens.Lens' GetDataSource Prelude.Text
+getDataSource_name = Lens.lens (\GetDataSource' {name} -> name) (\s@GetDataSource' {} a -> s {name = a} :: GetDataSource)
 
-instance AWSRequest GetDataSource where
-        type Rs GetDataSource = GetDataSourceResponse
-        request = get appSync
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetDataSourceResponse' <$>
-                   (x .?> "dataSource") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest GetDataSource where
+  type Rs GetDataSource = GetDataSourceResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetDataSourceResponse'
+            Prelude.<$> (x Prelude..?> "dataSource")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetDataSource where
+instance Prelude.Hashable GetDataSource
 
-instance NFData GetDataSource where
+instance Prelude.NFData GetDataSource
 
-instance ToHeaders GetDataSource where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders GetDataSource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToPath GetDataSource where
-        toPath GetDataSource'{..}
-          = mconcat
-              ["/v1/apis/", toBS _gdsApiId, "/datasources/",
-               toBS _gdsName]
+instance Prelude.ToPath GetDataSource where
+  toPath GetDataSource' {..} =
+    Prelude.mconcat
+      [ "/v1/apis/",
+        Prelude.toBS apiId,
+        "/datasources/",
+        Prelude.toBS name
+      ]
 
-instance ToQuery GetDataSource where
-        toQuery = const mempty
+instance Prelude.ToQuery GetDataSource where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getDataSourceResponse' smart constructor.
+-- | /See:/ 'newGetDataSourceResponse' smart constructor.
 data GetDataSourceResponse = GetDataSourceResponse'
-  { _gdsrsDataSource     :: !(Maybe DataSource)
-  , _gdsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @DataSource@ object.
+    dataSource :: Prelude.Maybe DataSource,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetDataSourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDataSourceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdsrsDataSource' - The @DataSource@ object.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gdsrsResponseStatus' - -- | The response status code.
-getDataSourceResponse
-    :: Int -- ^ 'gdsrsResponseStatus'
-    -> GetDataSourceResponse
-getDataSourceResponse pResponseStatus_ =
+-- 'dataSource', 'getDataSourceResponse_dataSource' - The @DataSource@ object.
+--
+-- 'httpStatus', 'getDataSourceResponse_httpStatus' - The response's http status code.
+newGetDataSourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetDataSourceResponse
+newGetDataSourceResponse pHttpStatus_ =
   GetDataSourceResponse'
-    {_gdsrsDataSource = Nothing, _gdsrsResponseStatus = pResponseStatus_}
-
+    { dataSource =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The @DataSource@ object.
-gdsrsDataSource :: Lens' GetDataSourceResponse (Maybe DataSource)
-gdsrsDataSource = lens _gdsrsDataSource (\ s a -> s{_gdsrsDataSource = a})
+getDataSourceResponse_dataSource :: Lens.Lens' GetDataSourceResponse (Prelude.Maybe DataSource)
+getDataSourceResponse_dataSource = Lens.lens (\GetDataSourceResponse' {dataSource} -> dataSource) (\s@GetDataSourceResponse' {} a -> s {dataSource = a} :: GetDataSourceResponse)
 
--- | -- | The response status code.
-gdsrsResponseStatus :: Lens' GetDataSourceResponse Int
-gdsrsResponseStatus = lens _gdsrsResponseStatus (\ s a -> s{_gdsrsResponseStatus = a})
+-- | The response's http status code.
+getDataSourceResponse_httpStatus :: Lens.Lens' GetDataSourceResponse Prelude.Int
+getDataSourceResponse_httpStatus = Lens.lens (\GetDataSourceResponse' {httpStatus} -> httpStatus) (\s@GetDataSourceResponse' {} a -> s {httpStatus = a} :: GetDataSourceResponse)
 
-instance NFData GetDataSourceResponse where
+instance Prelude.NFData GetDataSourceResponse

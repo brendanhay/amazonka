@@ -1,45 +1,49 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
-
--- Derived from AWS service descriptions, licensed under Apache 2.0.
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
 -- Module      : Network.AWS.Firehose
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Amazon Kinesis Data Firehose API Reference__
+-- Derived from API version @2015-08-04@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), Amazon Redshift, and Splunk.
+-- Amazon Kinesis Data Firehose API Reference
 --
+-- Amazon Kinesis Data Firehose is a fully managed service that delivers
+-- real-time streaming data to destinations such as Amazon Simple Storage
+-- Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), Amazon
+-- Redshift, and Splunk.
 module Network.AWS.Firehose
-    (
-    -- * Service Configuration
-      firehose
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** InvalidArgumentException
-    , _InvalidArgumentException
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
 
     -- ** ConcurrentModificationException
-    , _ConcurrentModificationException
-
-    -- ** ServiceUnavailableException
-    , _ServiceUnavailableException
-
-    -- ** ResourceNotFoundException
-    , _ResourceNotFoundException
-
-    -- ** LimitExceededException
-    , _LimitExceededException
+    _ConcurrentModificationException,
 
     -- ** ResourceInUseException
-    , _ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** InvalidKMSResourceException
+    _InvalidKMSResourceException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
 
     -- * Waiters
     -- $waiters
@@ -47,537 +51,420 @@ module Network.AWS.Firehose
     -- * Operations
     -- $operations
 
-    -- ** PutRecord
-    , module Network.AWS.Firehose.PutRecord
+    -- ** StartDeliveryStreamEncryption
+    StartDeliveryStreamEncryption (StartDeliveryStreamEncryption'),
+    newStartDeliveryStreamEncryption,
+    StartDeliveryStreamEncryptionResponse (StartDeliveryStreamEncryptionResponse'),
+    newStartDeliveryStreamEncryptionResponse,
 
-    -- ** TagDeliveryStream
-    , module Network.AWS.Firehose.TagDeliveryStream
-
-    -- ** UpdateDestination
-    , module Network.AWS.Firehose.UpdateDestination
-
-    -- ** PutRecordBatch
-    , module Network.AWS.Firehose.PutRecordBatch
-
-    -- ** UntagDeliveryStream
-    , module Network.AWS.Firehose.UntagDeliveryStream
-
-    -- ** CreateDeliveryStream
-    , module Network.AWS.Firehose.CreateDeliveryStream
-
-    -- ** DescribeDeliveryStream
-    , module Network.AWS.Firehose.DescribeDeliveryStream
-
-    -- ** ListTagsForDeliveryStream
-    , module Network.AWS.Firehose.ListTagsForDeliveryStream
+    -- ** StopDeliveryStreamEncryption
+    StopDeliveryStreamEncryption (StopDeliveryStreamEncryption'),
+    newStopDeliveryStreamEncryption,
+    StopDeliveryStreamEncryptionResponse (StopDeliveryStreamEncryptionResponse'),
+    newStopDeliveryStreamEncryptionResponse,
 
     -- ** ListDeliveryStreams
-    , module Network.AWS.Firehose.ListDeliveryStreams
+    ListDeliveryStreams (ListDeliveryStreams'),
+    newListDeliveryStreams,
+    ListDeliveryStreamsResponse (ListDeliveryStreamsResponse'),
+    newListDeliveryStreamsResponse,
+
+    -- ** PutRecordBatch
+    PutRecordBatch (PutRecordBatch'),
+    newPutRecordBatch,
+    PutRecordBatchResponse (PutRecordBatchResponse'),
+    newPutRecordBatchResponse,
+
+    -- ** ListTagsForDeliveryStream
+    ListTagsForDeliveryStream (ListTagsForDeliveryStream'),
+    newListTagsForDeliveryStream,
+    ListTagsForDeliveryStreamResponse (ListTagsForDeliveryStreamResponse'),
+    newListTagsForDeliveryStreamResponse,
+
+    -- ** UpdateDestination
+    UpdateDestination (UpdateDestination'),
+    newUpdateDestination,
+    UpdateDestinationResponse (UpdateDestinationResponse'),
+    newUpdateDestinationResponse,
+
+    -- ** DescribeDeliveryStream
+    DescribeDeliveryStream (DescribeDeliveryStream'),
+    newDescribeDeliveryStream,
+    DescribeDeliveryStreamResponse (DescribeDeliveryStreamResponse'),
+    newDescribeDeliveryStreamResponse,
+
+    -- ** CreateDeliveryStream
+    CreateDeliveryStream (CreateDeliveryStream'),
+    newCreateDeliveryStream,
+    CreateDeliveryStreamResponse (CreateDeliveryStreamResponse'),
+    newCreateDeliveryStreamResponse,
+
+    -- ** PutRecord
+    PutRecord (PutRecord'),
+    newPutRecord,
+    PutRecordResponse (PutRecordResponse'),
+    newPutRecordResponse,
 
     -- ** DeleteDeliveryStream
-    , module Network.AWS.Firehose.DeleteDeliveryStream
+    DeleteDeliveryStream (DeleteDeliveryStream'),
+    newDeleteDeliveryStream,
+    DeleteDeliveryStreamResponse (DeleteDeliveryStreamResponse'),
+    newDeleteDeliveryStreamResponse,
+
+    -- ** UntagDeliveryStream
+    UntagDeliveryStream (UntagDeliveryStream'),
+    newUntagDeliveryStream,
+    UntagDeliveryStreamResponse (UntagDeliveryStreamResponse'),
+    newUntagDeliveryStreamResponse,
+
+    -- ** TagDeliveryStream
+    TagDeliveryStream (TagDeliveryStream'),
+    newTagDeliveryStream,
+    TagDeliveryStreamResponse (TagDeliveryStreamResponse'),
+    newTagDeliveryStreamResponse,
 
     -- * Types
 
     -- ** CompressionFormat
-    , CompressionFormat (..)
+    CompressionFormat (..),
+
+    -- ** ContentEncoding
+    ContentEncoding (..),
+
+    -- ** DeliveryStreamEncryptionStatus
+    DeliveryStreamEncryptionStatus (..),
+
+    -- ** DeliveryStreamFailureType
+    DeliveryStreamFailureType (..),
 
     -- ** DeliveryStreamStatus
-    , DeliveryStreamStatus (..)
+    DeliveryStreamStatus (..),
 
     -- ** DeliveryStreamType
-    , DeliveryStreamType (..)
+    DeliveryStreamType (..),
 
     -- ** ElasticsearchIndexRotationPeriod
-    , ElasticsearchIndexRotationPeriod (..)
+    ElasticsearchIndexRotationPeriod (..),
 
     -- ** ElasticsearchS3BackupMode
-    , ElasticsearchS3BackupMode (..)
+    ElasticsearchS3BackupMode (..),
 
     -- ** HECEndpointType
-    , HECEndpointType (..)
+    HECEndpointType (..),
+
+    -- ** HttpEndpointS3BackupMode
+    HttpEndpointS3BackupMode (..),
+
+    -- ** KeyType
+    KeyType (..),
 
     -- ** NoEncryptionConfig
-    , NoEncryptionConfig (..)
+    NoEncryptionConfig (..),
 
     -- ** OrcCompression
-    , OrcCompression (..)
+    OrcCompression (..),
 
     -- ** OrcFormatVersion
-    , OrcFormatVersion (..)
+    OrcFormatVersion (..),
 
     -- ** ParquetCompression
-    , ParquetCompression (..)
+    ParquetCompression (..),
 
     -- ** ParquetWriterVersion
-    , ParquetWriterVersion (..)
+    ParquetWriterVersion (..),
 
     -- ** ProcessorParameterName
-    , ProcessorParameterName (..)
+    ProcessorParameterName (..),
 
     -- ** ProcessorType
-    , ProcessorType (..)
+    ProcessorType (..),
 
     -- ** RedshiftS3BackupMode
-    , RedshiftS3BackupMode (..)
+    RedshiftS3BackupMode (..),
 
     -- ** S3BackupMode
-    , S3BackupMode (..)
+    S3BackupMode (..),
 
     -- ** SplunkS3BackupMode
-    , SplunkS3BackupMode (..)
+    SplunkS3BackupMode (..),
 
     -- ** BufferingHints
-    , BufferingHints
-    , bufferingHints
-    , bhSizeInMBs
-    , bhIntervalInSeconds
+    BufferingHints (BufferingHints'),
+    newBufferingHints,
 
     -- ** CloudWatchLoggingOptions
-    , CloudWatchLoggingOptions
-    , cloudWatchLoggingOptions
-    , cwloEnabled
-    , cwloLogGroupName
-    , cwloLogStreamName
+    CloudWatchLoggingOptions (CloudWatchLoggingOptions'),
+    newCloudWatchLoggingOptions,
 
     -- ** CopyCommand
-    , CopyCommand
-    , copyCommand
-    , ccCopyOptions
-    , ccDataTableColumns
-    , ccDataTableName
+    CopyCommand (CopyCommand'),
+    newCopyCommand,
 
     -- ** DataFormatConversionConfiguration
-    , DataFormatConversionConfiguration
-    , dataFormatConversionConfiguration
-    , dfccOutputFormatConfiguration
-    , dfccEnabled
-    , dfccSchemaConfiguration
-    , dfccInputFormatConfiguration
+    DataFormatConversionConfiguration (DataFormatConversionConfiguration'),
+    newDataFormatConversionConfiguration,
 
     -- ** DeliveryStreamDescription
-    , DeliveryStreamDescription
-    , deliveryStreamDescription
-    , dsdCreateTimestamp
-    , dsdSource
-    , dsdLastUpdateTimestamp
-    , dsdDeliveryStreamName
-    , dsdDeliveryStreamARN
-    , dsdDeliveryStreamStatus
-    , dsdDeliveryStreamType
-    , dsdVersionId
-    , dsdDestinations
-    , dsdHasMoreDestinations
+    DeliveryStreamDescription (DeliveryStreamDescription'),
+    newDeliveryStreamDescription,
+
+    -- ** DeliveryStreamEncryptionConfiguration
+    DeliveryStreamEncryptionConfiguration (DeliveryStreamEncryptionConfiguration'),
+    newDeliveryStreamEncryptionConfiguration,
+
+    -- ** DeliveryStreamEncryptionConfigurationInput
+    DeliveryStreamEncryptionConfigurationInput (DeliveryStreamEncryptionConfigurationInput'),
+    newDeliveryStreamEncryptionConfigurationInput,
 
     -- ** Deserializer
-    , Deserializer
-    , deserializer
-    , dOpenXJSONSerDe
-    , dHiveJSONSerDe
+    Deserializer (Deserializer'),
+    newDeserializer,
 
     -- ** DestinationDescription
-    , DestinationDescription
-    , destinationDescription
-    , ddSplunkDestinationDescription
-    , ddS3DestinationDescription
-    , ddExtendedS3DestinationDescription
-    , ddElasticsearchDestinationDescription
-    , ddRedshiftDestinationDescription
-    , ddDestinationId
+    DestinationDescription (DestinationDescription'),
+    newDestinationDescription,
 
     -- ** ElasticsearchBufferingHints
-    , ElasticsearchBufferingHints
-    , elasticsearchBufferingHints
-    , ebhSizeInMBs
-    , ebhIntervalInSeconds
+    ElasticsearchBufferingHints (ElasticsearchBufferingHints'),
+    newElasticsearchBufferingHints,
 
     -- ** ElasticsearchDestinationConfiguration
-    , ElasticsearchDestinationConfiguration
-    , elasticsearchDestinationConfiguration
-    , edcIndexRotationPeriod
-    , edcS3BackupMode
-    , edcCloudWatchLoggingOptions
-    , edcBufferingHints
-    , edcRetryOptions
-    , edcProcessingConfiguration
-    , edcRoleARN
-    , edcDomainARN
-    , edcIndexName
-    , edcTypeName
-    , edcS3Configuration
+    ElasticsearchDestinationConfiguration (ElasticsearchDestinationConfiguration'),
+    newElasticsearchDestinationConfiguration,
 
     -- ** ElasticsearchDestinationDescription
-    , ElasticsearchDestinationDescription
-    , elasticsearchDestinationDescription
-    , eddIndexRotationPeriod
-    , eddTypeName
-    , eddS3BackupMode
-    , eddDomainARN
-    , eddCloudWatchLoggingOptions
-    , eddS3DestinationDescription
-    , eddBufferingHints
-    , eddRetryOptions
-    , eddProcessingConfiguration
-    , eddRoleARN
-    , eddIndexName
+    ElasticsearchDestinationDescription (ElasticsearchDestinationDescription'),
+    newElasticsearchDestinationDescription,
 
     -- ** ElasticsearchDestinationUpdate
-    , ElasticsearchDestinationUpdate
-    , elasticsearchDestinationUpdate
-    , eduIndexRotationPeriod
-    , eduTypeName
-    , eduDomainARN
-    , eduCloudWatchLoggingOptions
-    , eduS3Update
-    , eduBufferingHints
-    , eduRetryOptions
-    , eduProcessingConfiguration
-    , eduRoleARN
-    , eduIndexName
+    ElasticsearchDestinationUpdate (ElasticsearchDestinationUpdate'),
+    newElasticsearchDestinationUpdate,
 
     -- ** ElasticsearchRetryOptions
-    , ElasticsearchRetryOptions
-    , elasticsearchRetryOptions
-    , eroDurationInSeconds
+    ElasticsearchRetryOptions (ElasticsearchRetryOptions'),
+    newElasticsearchRetryOptions,
 
     -- ** EncryptionConfiguration
-    , EncryptionConfiguration
-    , encryptionConfiguration
-    , ecNoEncryptionConfig
-    , ecKMSEncryptionConfig
+    EncryptionConfiguration (EncryptionConfiguration'),
+    newEncryptionConfiguration,
 
     -- ** ExtendedS3DestinationConfiguration
-    , ExtendedS3DestinationConfiguration
-    , extendedS3DestinationConfiguration
-    , esdcS3BackupMode
-    , esdcPrefix
-    , esdcCloudWatchLoggingOptions
-    , esdcS3BackupConfiguration
-    , esdcEncryptionConfiguration
-    , esdcCompressionFormat
-    , esdcBufferingHints
-    , esdcDataFormatConversionConfiguration
-    , esdcProcessingConfiguration
-    , esdcRoleARN
-    , esdcBucketARN
+    ExtendedS3DestinationConfiguration (ExtendedS3DestinationConfiguration'),
+    newExtendedS3DestinationConfiguration,
 
     -- ** ExtendedS3DestinationDescription
-    , ExtendedS3DestinationDescription
-    , extendedS3DestinationDescription
-    , esddS3BackupMode
-    , esddS3BackupDescription
-    , esddPrefix
-    , esddCloudWatchLoggingOptions
-    , esddDataFormatConversionConfiguration
-    , esddProcessingConfiguration
-    , esddRoleARN
-    , esddBucketARN
-    , esddBufferingHints
-    , esddCompressionFormat
-    , esddEncryptionConfiguration
+    ExtendedS3DestinationDescription (ExtendedS3DestinationDescription'),
+    newExtendedS3DestinationDescription,
 
     -- ** ExtendedS3DestinationUpdate
-    , ExtendedS3DestinationUpdate
-    , extendedS3DestinationUpdate
-    , esduS3BackupMode
-    , esduPrefix
-    , esduCloudWatchLoggingOptions
-    , esduS3BackupUpdate
-    , esduEncryptionConfiguration
-    , esduCompressionFormat
-    , esduBufferingHints
-    , esduDataFormatConversionConfiguration
-    , esduBucketARN
-    , esduProcessingConfiguration
-    , esduRoleARN
+    ExtendedS3DestinationUpdate (ExtendedS3DestinationUpdate'),
+    newExtendedS3DestinationUpdate,
 
-    -- ** HiveJSONSerDe
-    , HiveJSONSerDe
-    , hiveJSONSerDe
-    , hjsdTimestampFormats
+    -- ** FailureDescription
+    FailureDescription (FailureDescription'),
+    newFailureDescription,
+
+    -- ** HiveJsonSerDe
+    HiveJsonSerDe (HiveJsonSerDe'),
+    newHiveJsonSerDe,
+
+    -- ** HttpEndpointBufferingHints
+    HttpEndpointBufferingHints (HttpEndpointBufferingHints'),
+    newHttpEndpointBufferingHints,
+
+    -- ** HttpEndpointCommonAttribute
+    HttpEndpointCommonAttribute (HttpEndpointCommonAttribute'),
+    newHttpEndpointCommonAttribute,
+
+    -- ** HttpEndpointConfiguration
+    HttpEndpointConfiguration (HttpEndpointConfiguration'),
+    newHttpEndpointConfiguration,
+
+    -- ** HttpEndpointDescription
+    HttpEndpointDescription (HttpEndpointDescription'),
+    newHttpEndpointDescription,
+
+    -- ** HttpEndpointDestinationConfiguration
+    HttpEndpointDestinationConfiguration (HttpEndpointDestinationConfiguration'),
+    newHttpEndpointDestinationConfiguration,
+
+    -- ** HttpEndpointDestinationDescription
+    HttpEndpointDestinationDescription (HttpEndpointDestinationDescription'),
+    newHttpEndpointDestinationDescription,
+
+    -- ** HttpEndpointDestinationUpdate
+    HttpEndpointDestinationUpdate (HttpEndpointDestinationUpdate'),
+    newHttpEndpointDestinationUpdate,
+
+    -- ** HttpEndpointRequestConfiguration
+    HttpEndpointRequestConfiguration (HttpEndpointRequestConfiguration'),
+    newHttpEndpointRequestConfiguration,
+
+    -- ** HttpEndpointRetryOptions
+    HttpEndpointRetryOptions (HttpEndpointRetryOptions'),
+    newHttpEndpointRetryOptions,
 
     -- ** InputFormatConfiguration
-    , InputFormatConfiguration
-    , inputFormatConfiguration
-    , ifcDeserializer
+    InputFormatConfiguration (InputFormatConfiguration'),
+    newInputFormatConfiguration,
 
     -- ** KMSEncryptionConfig
-    , KMSEncryptionConfig
-    , kmsEncryptionConfig
-    , kecAWSKMSKeyARN
+    KMSEncryptionConfig (KMSEncryptionConfig'),
+    newKMSEncryptionConfig,
 
     -- ** KinesisStreamSourceConfiguration
-    , KinesisStreamSourceConfiguration
-    , kinesisStreamSourceConfiguration
-    , ksscKinesisStreamARN
-    , ksscRoleARN
+    KinesisStreamSourceConfiguration (KinesisStreamSourceConfiguration'),
+    newKinesisStreamSourceConfiguration,
 
     -- ** KinesisStreamSourceDescription
-    , KinesisStreamSourceDescription
-    , kinesisStreamSourceDescription
-    , kssdDeliveryStartTimestamp
-    , kssdKinesisStreamARN
-    , kssdRoleARN
+    KinesisStreamSourceDescription (KinesisStreamSourceDescription'),
+    newKinesisStreamSourceDescription,
 
-    -- ** OpenXJSONSerDe
-    , OpenXJSONSerDe
-    , openXJSONSerDe
-    , oxjsdColumnToJSONKeyMappings
-    , oxjsdCaseInsensitive
-    , oxjsdConvertDotsInJSONKeysToUnderscores
+    -- ** OpenXJsonSerDe
+    OpenXJsonSerDe (OpenXJsonSerDe'),
+    newOpenXJsonSerDe,
 
     -- ** OrcSerDe
-    , OrcSerDe
-    , orcSerDe
-    , osdBloomFilterFalsePositiveProbability
-    , osdDictionaryKeyThreshold
-    , osdEnablePadding
-    , osdCompression
-    , osdBloomFilterColumns
-    , osdRowIndexStride
-    , osdFormatVersion
-    , osdBlockSizeBytes
-    , osdStripeSizeBytes
-    , osdPaddingTolerance
+    OrcSerDe (OrcSerDe'),
+    newOrcSerDe,
 
     -- ** OutputFormatConfiguration
-    , OutputFormatConfiguration
-    , outputFormatConfiguration
-    , ofcSerializer
+    OutputFormatConfiguration (OutputFormatConfiguration'),
+    newOutputFormatConfiguration,
 
     -- ** ParquetSerDe
-    , ParquetSerDe
-    , parquetSerDe
-    , psdWriterVersion
-    , psdCompression
-    , psdMaxPaddingBytes
-    , psdEnableDictionaryCompression
-    , psdPageSizeBytes
-    , psdBlockSizeBytes
+    ParquetSerDe (ParquetSerDe'),
+    newParquetSerDe,
 
     -- ** ProcessingConfiguration
-    , ProcessingConfiguration
-    , processingConfiguration
-    , pcEnabled
-    , pcProcessors
+    ProcessingConfiguration (ProcessingConfiguration'),
+    newProcessingConfiguration,
 
     -- ** Processor
-    , Processor
-    , processor
-    , pParameters
-    , pType
+    Processor (Processor'),
+    newProcessor,
 
     -- ** ProcessorParameter
-    , ProcessorParameter
-    , processorParameter
-    , ppParameterName
-    , ppParameterValue
+    ProcessorParameter (ProcessorParameter'),
+    newProcessorParameter,
 
     -- ** PutRecordBatchResponseEntry
-    , PutRecordBatchResponseEntry
-    , putRecordBatchResponseEntry
-    , prbreRecordId
-    , prbreErrorCode
-    , prbreErrorMessage
+    PutRecordBatchResponseEntry (PutRecordBatchResponseEntry'),
+    newPutRecordBatchResponseEntry,
 
     -- ** Record
-    , Record
-    , record
-    , rData
+    Record (Record'),
+    newRecord,
 
     -- ** RedshiftDestinationConfiguration
-    , RedshiftDestinationConfiguration
-    , redshiftDestinationConfiguration
-    , rdcS3BackupMode
-    , rdcCloudWatchLoggingOptions
-    , rdcS3BackupConfiguration
-    , rdcRetryOptions
-    , rdcProcessingConfiguration
-    , rdcRoleARN
-    , rdcClusterJDBCURL
-    , rdcCopyCommand
-    , rdcUsername
-    , rdcPassword
-    , rdcS3Configuration
+    RedshiftDestinationConfiguration (RedshiftDestinationConfiguration'),
+    newRedshiftDestinationConfiguration,
 
     -- ** RedshiftDestinationDescription
-    , RedshiftDestinationDescription
-    , redshiftDestinationDescription
-    , rddS3BackupMode
-    , rddS3BackupDescription
-    , rddCloudWatchLoggingOptions
-    , rddRetryOptions
-    , rddProcessingConfiguration
-    , rddRoleARN
-    , rddClusterJDBCURL
-    , rddCopyCommand
-    , rddUsername
-    , rddS3DestinationDescription
+    RedshiftDestinationDescription (RedshiftDestinationDescription'),
+    newRedshiftDestinationDescription,
 
     -- ** RedshiftDestinationUpdate
-    , RedshiftDestinationUpdate
-    , redshiftDestinationUpdate
-    , rduS3BackupMode
-    , rduCloudWatchLoggingOptions
-    , rduUsername
-    , rduS3Update
-    , rduPassword
-    , rduS3BackupUpdate
-    , rduCopyCommand
-    , rduRetryOptions
-    , rduProcessingConfiguration
-    , rduClusterJDBCURL
-    , rduRoleARN
+    RedshiftDestinationUpdate (RedshiftDestinationUpdate'),
+    newRedshiftDestinationUpdate,
 
     -- ** RedshiftRetryOptions
-    , RedshiftRetryOptions
-    , redshiftRetryOptions
-    , rroDurationInSeconds
+    RedshiftRetryOptions (RedshiftRetryOptions'),
+    newRedshiftRetryOptions,
 
     -- ** S3DestinationConfiguration
-    , S3DestinationConfiguration
-    , s3DestinationConfiguration
-    , sdcPrefix
-    , sdcCloudWatchLoggingOptions
-    , sdcEncryptionConfiguration
-    , sdcCompressionFormat
-    , sdcBufferingHints
-    , sdcRoleARN
-    , sdcBucketARN
+    S3DestinationConfiguration (S3DestinationConfiguration'),
+    newS3DestinationConfiguration,
 
     -- ** S3DestinationDescription
-    , S3DestinationDescription
-    , s3DestinationDescription
-    , s3Prefix
-    , s3CloudWatchLoggingOptions
-    , s3RoleARN
-    , s3BucketARN
-    , s3BufferingHints
-    , s3CompressionFormat
-    , s3EncryptionConfiguration
+    S3DestinationDescription (S3DestinationDescription'),
+    newS3DestinationDescription,
 
     -- ** S3DestinationUpdate
-    , S3DestinationUpdate
-    , s3DestinationUpdate
-    , sPrefix
-    , sCloudWatchLoggingOptions
-    , sEncryptionConfiguration
-    , sCompressionFormat
-    , sBufferingHints
-    , sBucketARN
-    , sRoleARN
+    S3DestinationUpdate (S3DestinationUpdate'),
+    newS3DestinationUpdate,
 
     -- ** SchemaConfiguration
-    , SchemaConfiguration
-    , schemaConfiguration
-    , scVersionId
-    , scCatalogId
-    , scDatabaseName
-    , scRegion
-    , scTableName
-    , scRoleARN
+    SchemaConfiguration (SchemaConfiguration'),
+    newSchemaConfiguration,
 
     -- ** Serializer
-    , Serializer
-    , serializer
-    , sOrcSerDe
-    , sParquetSerDe
+    Serializer (Serializer'),
+    newSerializer,
 
     -- ** SourceDescription
-    , SourceDescription
-    , sourceDescription
-    , sdKinesisStreamSourceDescription
+    SourceDescription (SourceDescription'),
+    newSourceDescription,
 
     -- ** SplunkDestinationConfiguration
-    , SplunkDestinationConfiguration
-    , splunkDestinationConfiguration
-    , splS3BackupMode
-    , splCloudWatchLoggingOptions
-    , splHECAcknowledgmentTimeoutInSeconds
-    , splRetryOptions
-    , splProcessingConfiguration
-    , splHECEndpoint
-    , splHECEndpointType
-    , splHECToken
-    , splS3Configuration
+    SplunkDestinationConfiguration (SplunkDestinationConfiguration'),
+    newSplunkDestinationConfiguration,
 
     -- ** SplunkDestinationDescription
-    , SplunkDestinationDescription
-    , splunkDestinationDescription
-    , sddS3BackupMode
-    , sddHECToken
-    , sddHECEndpointType
-    , sddCloudWatchLoggingOptions
-    , sddHECAcknowledgmentTimeoutInSeconds
-    , sddS3DestinationDescription
-    , sddHECEndpoint
-    , sddRetryOptions
-    , sddProcessingConfiguration
+    SplunkDestinationDescription (SplunkDestinationDescription'),
+    newSplunkDestinationDescription,
 
     -- ** SplunkDestinationUpdate
-    , SplunkDestinationUpdate
-    , splunkDestinationUpdate
-    , sduS3BackupMode
-    , sduHECToken
-    , sduHECEndpointType
-    , sduCloudWatchLoggingOptions
-    , sduHECAcknowledgmentTimeoutInSeconds
-    , sduS3Update
-    , sduHECEndpoint
-    , sduRetryOptions
-    , sduProcessingConfiguration
+    SplunkDestinationUpdate (SplunkDestinationUpdate'),
+    newSplunkDestinationUpdate,
 
     -- ** SplunkRetryOptions
-    , SplunkRetryOptions
-    , splunkRetryOptions
-    , sroDurationInSeconds
+    SplunkRetryOptions (SplunkRetryOptions'),
+    newSplunkRetryOptions,
 
     -- ** Tag
-    , Tag
-    , tag
-    , tagValue
-    , tagKey
-    ) where
+    Tag (Tag'),
+    newTag,
+
+    -- ** VpcConfiguration
+    VpcConfiguration (VpcConfiguration'),
+    newVpcConfiguration,
+
+    -- ** VpcConfigurationDescription
+    VpcConfigurationDescription (VpcConfigurationDescription'),
+    newVpcConfigurationDescription,
+  )
+where
 
 import Network.AWS.Firehose.CreateDeliveryStream
 import Network.AWS.Firehose.DeleteDeliveryStream
 import Network.AWS.Firehose.DescribeDeliveryStream
+import Network.AWS.Firehose.Lens
 import Network.AWS.Firehose.ListDeliveryStreams
 import Network.AWS.Firehose.ListTagsForDeliveryStream
 import Network.AWS.Firehose.PutRecord
 import Network.AWS.Firehose.PutRecordBatch
+import Network.AWS.Firehose.StartDeliveryStreamEncryption
+import Network.AWS.Firehose.StopDeliveryStreamEncryption
 import Network.AWS.Firehose.TagDeliveryStream
 import Network.AWS.Firehose.Types
 import Network.AWS.Firehose.UntagDeliveryStream
 import Network.AWS.Firehose.UpdateDestination
 import Network.AWS.Firehose.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'Firehose'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'Firehose'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

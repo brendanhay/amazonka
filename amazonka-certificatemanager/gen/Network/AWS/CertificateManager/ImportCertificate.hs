@@ -1,195 +1,319 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CertificateManager.ImportCertificate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports a certificate into AWS Certificate Manager (ACM) to use with services that are integrated with ACM. Note that <http://docs.aws.amazon.com/acm/latest/userguide/acm-services.html integrated services> allow only certificate types and keys they support to be associated with their resources. Further, their support differs depending on whether the certificate is imported into IAM or into ACM. For more information, see the documentation for each service. For more information about importing certificates into ACM, see <http://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates> in the /AWS Certificate Manager User Guide/ .
+-- Imports a certificate into AWS Certificate Manager (ACM) to use with
+-- services that are integrated with ACM. Note that
+-- <https://docs.aws.amazon.com/acm/latest/userguide/acm-services.html integrated services>
+-- allow only certificate types and keys they support to be associated with
+-- their resources. Further, their support differs depending on whether the
+-- certificate is imported into IAM or into ACM. For more information, see
+-- the documentation for each service. For more information about importing
+-- certificates into ACM, see
+-- <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates>
+-- in the /AWS Certificate Manager User Guide/.
 --
+-- ACM does not provide
+-- <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal>
+-- for certificates that you import.
 --
 -- Note the following guidelines when importing third party certificates:
 --
---     * You must enter the private key that matches the certificate you are importing.
+-- -   You must enter the private key that matches the certificate you are
+--     importing.
 --
---     * The private key must be unencrypted. You cannot import a private key that is protected by a password or a passphrase.
+-- -   The private key must be unencrypted. You cannot import a private key
+--     that is protected by a password or a passphrase.
 --
---     * If the certificate you are importing is not self-signed, you must enter its certificate chain.
+-- -   The private key must be no larger than 5 KB (5,120 bytes).
 --
---     * If a certificate chain is included, the issuer must be the subject of one of the certificates in the chain.
+-- -   If the certificate you are importing is not self-signed, you must
+--     enter its certificate chain.
 --
---     * The certificate, private key, and certificate chain must be PEM-encoded.
+-- -   If a certificate chain is included, the issuer must be the subject
+--     of one of the certificates in the chain.
 --
---     * The current time must be between the @Not Before@ and @Not After@ certificate fields.
+-- -   The certificate, private key, and certificate chain must be
+--     PEM-encoded.
 --
---     * The @Issuer@ field must not be empty.
+-- -   The current time must be between the @Not Before@ and @Not After@
+--     certificate fields.
 --
---     * The OCSP authority URL, if present, must not exceed 1000 characters.
+-- -   The @Issuer@ field must not be empty.
 --
---     * To import a new certificate, omit the @CertificateArn@ argument. Include this argument only when you want to replace a previously imported certificate.
+-- -   The OCSP authority URL, if present, must not exceed 1000 characters.
 --
---     * When you import a certificate by using the CLI, you must specify the certificate, the certificate chain, and the private key by their file names preceded by @file://@ . For example, you can specify a certificate saved in the @C:\temp@ folder as @file://C:\temp\certificate_to_import.pem@ . If you are making an HTTP or HTTPS Query request, include these arguments as BLOBs.
+-- -   To import a new certificate, omit the @CertificateArn@ argument.
+--     Include this argument only when you want to replace a previously
+--     imported certificate.
 --
---     * When you import a certificate by using an SDK, you must specify the certificate, the certificate chain, and the private key files in the manner required by the programming language you're using.
+-- -   When you import a certificate by using the CLI, you must specify the
+--     certificate, the certificate chain, and the private key by their
+--     file names preceded by @fileb:\/\/@. For example, you can specify a
+--     certificate saved in the @C:\\temp@ folder as
+--     @fileb:\/\/C:\\temp\\certificate_to_import.pem@. If you are making
+--     an HTTP or HTTPS Query request, include these arguments as BLOBs.
 --
+-- -   When you import a certificate by using an SDK, you must specify the
+--     certificate, the certificate chain, and the private key files in the
+--     manner required by the programming language you\'re using.
 --
+-- -   The cryptographic algorithm of an imported certificate must match
+--     the algorithm of the signing CA. For example, if the signing CA key
+--     type is RSA, then the certificate key type must also be RSA.
 --
--- This operation returns the <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of the imported certificate.
---
+-- This operation returns the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of the imported certificate.
 module Network.AWS.CertificateManager.ImportCertificate
-    (
-    -- * Creating a Request
-      importCertificate
-    , ImportCertificate
+  ( -- * Creating a Request
+    ImportCertificate (..),
+    newImportCertificate,
+
     -- * Request Lenses
-    , icCertificateARN
-    , icCertificateChain
-    , icCertificate
-    , icPrivateKey
+    importCertificate_certificateArn,
+    importCertificate_tags,
+    importCertificate_certificateChain,
+    importCertificate_certificate,
+    importCertificate_privateKey,
 
     -- * Destructuring the Response
-    , importCertificateResponse
-    , ImportCertificateResponse
+    ImportCertificateResponse (..),
+    newImportCertificateResponse,
+
     -- * Response Lenses
-    , icrsCertificateARN
-    , icrsResponseStatus
-    ) where
+    importCertificateResponse_certificateArn,
+    importCertificateResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'importCertificate' smart constructor.
+-- | /See:/ 'newImportCertificate' smart constructor.
 data ImportCertificate = ImportCertificate'
-  { _icCertificateARN   :: !(Maybe Text)
-  , _icCertificateChain :: !(Maybe Base64)
-  , _icCertificate      :: !Base64
-  , _icPrivateKey       :: !(Sensitive Base64)
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+    -- of an imported certificate to replace. To import a new certificate, omit
+    -- this field.
+    certificateArn :: Prelude.Maybe Prelude.Text,
+    -- | One or more resource tags to associate with the imported certificate.
+    --
+    -- Note: You cannot apply tags when reimporting a certificate.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The PEM encoded certificate chain.
+    certificateChain :: Prelude.Maybe Prelude.Base64,
+    -- | The certificate to import.
+    certificate :: Prelude.Base64,
+    -- | The private key that matches the public key in the certificate.
+    privateKey :: Prelude.Sensitive Prelude.Base64
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ImportCertificate' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ImportCertificate' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'icCertificateARN' - The <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an imported certificate to replace. To import a new certificate, omit this field.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'icCertificateChain' - The PEM encoded certificate chain.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- 'certificateArn', 'importCertificate_certificateArn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of an imported certificate to replace. To import a new certificate, omit
+-- this field.
 --
--- * 'icCertificate' - The certificate to import.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- 'tags', 'importCertificate_tags' - One or more resource tags to associate with the imported certificate.
 --
--- * 'icPrivateKey' - The private key that matches the public key in the certificate.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-importCertificate
-    :: ByteString -- ^ 'icCertificate'
-    -> ByteString -- ^ 'icPrivateKey'
-    -> ImportCertificate
-importCertificate pCertificate_ pPrivateKey_ =
+-- Note: You cannot apply tags when reimporting a certificate.
+--
+-- 'certificateChain', 'importCertificate_certificateChain' - The PEM encoded certificate chain.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 'certificate', 'importCertificate_certificate' - The certificate to import.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 'privateKey', 'importCertificate_privateKey' - The private key that matches the public key in the certificate.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+newImportCertificate ::
+  -- | 'certificate'
+  Prelude.ByteString ->
+  -- | 'privateKey'
+  Prelude.ByteString ->
+  ImportCertificate
+newImportCertificate pCertificate_ pPrivateKey_ =
   ImportCertificate'
-    { _icCertificateARN = Nothing
-    , _icCertificateChain = Nothing
-    , _icCertificate = _Base64 # pCertificate_
-    , _icPrivateKey = _Sensitive . _Base64 # pPrivateKey_
+    { certificateArn =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
+      certificateChain = Prelude.Nothing,
+      certificate = Prelude._Base64 Lens.# pCertificate_,
+      privateKey =
+        Prelude._Sensitive Prelude.. Prelude._Base64
+          Lens.# pPrivateKey_
     }
 
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of an imported certificate to replace. To import a new certificate, omit
+-- this field.
+importCertificate_certificateArn :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
+importCertificate_certificateArn = Lens.lens (\ImportCertificate' {certificateArn} -> certificateArn) (\s@ImportCertificate' {} a -> s {certificateArn = a} :: ImportCertificate)
 
--- | The <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of an imported certificate to replace. To import a new certificate, omit this field.
-icCertificateARN :: Lens' ImportCertificate (Maybe Text)
-icCertificateARN = lens _icCertificateARN (\ s a -> s{_icCertificateARN = a})
+-- | One or more resource tags to associate with the imported certificate.
+--
+-- Note: You cannot apply tags when reimporting a certificate.
+importCertificate_tags :: Lens.Lens' ImportCertificate (Prelude.Maybe (Prelude.NonEmpty Tag))
+importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@ImportCertificate' {} a -> s {tags = a} :: ImportCertificate) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The PEM encoded certificate chain.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-icCertificateChain :: Lens' ImportCertificate (Maybe ByteString)
-icCertificateChain = lens _icCertificateChain (\ s a -> s{_icCertificateChain = a}) . mapping _Base64
+-- | The PEM encoded certificate chain.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+importCertificate_certificateChain :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.ByteString)
+importCertificate_certificateChain = Lens.lens (\ImportCertificate' {certificateChain} -> certificateChain) (\s@ImportCertificate' {} a -> s {certificateChain = a} :: ImportCertificate) Prelude.. Lens.mapping Prelude._Base64
 
--- | The certificate to import.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-icCertificate :: Lens' ImportCertificate ByteString
-icCertificate = lens _icCertificate (\ s a -> s{_icCertificate = a}) . _Base64
+-- | The certificate to import.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+importCertificate_certificate :: Lens.Lens' ImportCertificate Prelude.ByteString
+importCertificate_certificate = Lens.lens (\ImportCertificate' {certificate} -> certificate) (\s@ImportCertificate' {} a -> s {certificate = a} :: ImportCertificate) Prelude.. Prelude._Base64
 
--- | The private key that matches the public key in the certificate.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-icPrivateKey :: Lens' ImportCertificate ByteString
-icPrivateKey = lens _icPrivateKey (\ s a -> s{_icPrivateKey = a}) . _Sensitive . _Base64
+-- | The private key that matches the public key in the certificate.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+importCertificate_privateKey :: Lens.Lens' ImportCertificate Prelude.ByteString
+importCertificate_privateKey = Lens.lens (\ImportCertificate' {privateKey} -> privateKey) (\s@ImportCertificate' {} a -> s {privateKey = a} :: ImportCertificate) Prelude.. Prelude._Sensitive Prelude.. Prelude._Base64
 
-instance AWSRequest ImportCertificate where
-        type Rs ImportCertificate = ImportCertificateResponse
-        request = postJSON certificateManager
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ImportCertificateResponse' <$>
-                   (x .?> "CertificateArn") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest ImportCertificate where
+  type Rs ImportCertificate = ImportCertificateResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ImportCertificateResponse'
+            Prelude.<$> (x Prelude..?> "CertificateArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ImportCertificate where
+instance Prelude.Hashable ImportCertificate
 
-instance NFData ImportCertificate where
+instance Prelude.NFData ImportCertificate
 
-instance ToHeaders ImportCertificate where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CertificateManager.ImportCertificate" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders ImportCertificate where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CertificateManager.ImportCertificate" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON ImportCertificate where
-        toJSON ImportCertificate'{..}
-          = object
-              (catMaybes
-                 [("CertificateArn" .=) <$> _icCertificateARN,
-                  ("CertificateChain" .=) <$> _icCertificateChain,
-                  Just ("Certificate" .= _icCertificate),
-                  Just ("PrivateKey" .= _icPrivateKey)])
+instance Prelude.ToJSON ImportCertificate where
+  toJSON ImportCertificate' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("CertificateArn" Prelude..=)
+              Prelude.<$> certificateArn,
+            ("Tags" Prelude..=) Prelude.<$> tags,
+            ("CertificateChain" Prelude..=)
+              Prelude.<$> certificateChain,
+            Prelude.Just ("Certificate" Prelude..= certificate),
+            Prelude.Just ("PrivateKey" Prelude..= privateKey)
+          ]
+      )
 
-instance ToPath ImportCertificate where
-        toPath = const "/"
+instance Prelude.ToPath ImportCertificate where
+  toPath = Prelude.const "/"
 
-instance ToQuery ImportCertificate where
-        toQuery = const mempty
+instance Prelude.ToQuery ImportCertificate where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'importCertificateResponse' smart constructor.
+-- | /See:/ 'newImportCertificateResponse' smart constructor.
 data ImportCertificateResponse = ImportCertificateResponse'
-  { _icrsCertificateARN :: !(Maybe Text)
-  , _icrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+    -- of the imported certificate.
+    certificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ImportCertificateResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ImportCertificateResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'icrsCertificateARN' - The <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of the imported certificate.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'icrsResponseStatus' - -- | The response status code.
-importCertificateResponse
-    :: Int -- ^ 'icrsResponseStatus'
-    -> ImportCertificateResponse
-importCertificateResponse pResponseStatus_ =
+-- 'certificateArn', 'importCertificateResponse_certificateArn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of the imported certificate.
+--
+-- 'httpStatus', 'importCertificateResponse_httpStatus' - The response's http status code.
+newImportCertificateResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ImportCertificateResponse
+newImportCertificateResponse pHttpStatus_ =
   ImportCertificateResponse'
-    {_icrsCertificateARN = Nothing, _icrsResponseStatus = pResponseStatus_}
+    { certificateArn =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)>
+-- of the imported certificate.
+importCertificateResponse_certificateArn :: Lens.Lens' ImportCertificateResponse (Prelude.Maybe Prelude.Text)
+importCertificateResponse_certificateArn = Lens.lens (\ImportCertificateResponse' {certificateArn} -> certificateArn) (\s@ImportCertificateResponse' {} a -> s {certificateArn = a} :: ImportCertificateResponse)
 
--- | The <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Name (ARN)> of the imported certificate.
-icrsCertificateARN :: Lens' ImportCertificateResponse (Maybe Text)
-icrsCertificateARN = lens _icrsCertificateARN (\ s a -> s{_icrsCertificateARN = a})
+-- | The response's http status code.
+importCertificateResponse_httpStatus :: Lens.Lens' ImportCertificateResponse Prelude.Int
+importCertificateResponse_httpStatus = Lens.lens (\ImportCertificateResponse' {httpStatus} -> httpStatus) (\s@ImportCertificateResponse' {} a -> s {httpStatus = a} :: ImportCertificateResponse)
 
--- | -- | The response status code.
-icrsResponseStatus :: Lens' ImportCertificateResponse Int
-icrsResponseStatus = lens _icrsResponseStatus (\ s a -> s{_icrsResponseStatus = a})
-
-instance NFData ImportCertificateResponse where
+instance Prelude.NFData ImportCertificateResponse

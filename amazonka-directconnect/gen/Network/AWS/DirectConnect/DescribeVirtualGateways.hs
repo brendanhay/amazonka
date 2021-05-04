@@ -1,128 +1,148 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeVirtualGateways
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of virtual private gateways owned by the AWS account.
+-- Lists the virtual private gateways owned by the AWS account.
 --
---
--- You can create one or more AWS Direct Connect private virtual interfaces linking to a virtual private gateway. A virtual private gateway can be managed via Amazon Virtual Private Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway> action.
---
+-- You can create one or more AWS Direct Connect private virtual interfaces
+-- linked to a virtual private gateway.
 module Network.AWS.DirectConnect.DescribeVirtualGateways
-    (
-    -- * Creating a Request
-      describeVirtualGateways
-    , DescribeVirtualGateways
+  ( -- * Creating a Request
+    DescribeVirtualGateways (..),
+    newDescribeVirtualGateways,
 
     -- * Destructuring the Response
-    , describeVirtualGatewaysResponse
-    , DescribeVirtualGatewaysResponse
+    DescribeVirtualGatewaysResponse (..),
+    newDescribeVirtualGatewaysResponse,
+
     -- * Response Lenses
-    , dvgrsVirtualGateways
-    , dvgrsResponseStatus
-    ) where
+    describeVirtualGatewaysResponse_virtualGateways,
+    describeVirtualGatewaysResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeVirtualGateways' smart constructor.
-data DescribeVirtualGateways =
-  DescribeVirtualGateways'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeVirtualGateways' smart constructor.
+data DescribeVirtualGateways = DescribeVirtualGateways'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeVirtualGateways' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeVirtualGateways' with all optional fields omitted.
 --
-describeVirtualGateways
-    :: DescribeVirtualGateways
-describeVirtualGateways = DescribeVirtualGateways'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDescribeVirtualGateways ::
+  DescribeVirtualGateways
+newDescribeVirtualGateways = DescribeVirtualGateways'
 
+instance Prelude.AWSRequest DescribeVirtualGateways where
+  type
+    Rs DescribeVirtualGateways =
+      DescribeVirtualGatewaysResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeVirtualGatewaysResponse'
+            Prelude.<$> ( x Prelude..?> "virtualGateways"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeVirtualGateways where
-        type Rs DescribeVirtualGateways =
-             DescribeVirtualGatewaysResponse
-        request = postJSON directConnect
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeVirtualGatewaysResponse' <$>
-                   (x .?> "virtualGateways" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable DescribeVirtualGateways
 
-instance Hashable DescribeVirtualGateways where
+instance Prelude.NFData DescribeVirtualGateways
 
-instance NFData DescribeVirtualGateways where
+instance Prelude.ToHeaders DescribeVirtualGateways where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "OvertureService.DescribeVirtualGateways" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders DescribeVirtualGateways where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OvertureService.DescribeVirtualGateways" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON DescribeVirtualGateways where
+  toJSON =
+    Prelude.const (Prelude.Object Prelude.mempty)
 
-instance ToJSON DescribeVirtualGateways where
-        toJSON = const (Object mempty)
+instance Prelude.ToPath DescribeVirtualGateways where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeVirtualGateways where
-        toPath = const "/"
+instance Prelude.ToQuery DescribeVirtualGateways where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeVirtualGateways where
-        toQuery = const mempty
-
--- | A structure containing a list of virtual private gateways.
---
---
---
--- /See:/ 'describeVirtualGatewaysResponse' smart constructor.
+-- | /See:/ 'newDescribeVirtualGatewaysResponse' smart constructor.
 data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
-  { _dvgrsVirtualGateways :: !(Maybe [VirtualGateway])
-  , _dvgrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The virtual private gateways.
+    virtualGateways :: Prelude.Maybe [VirtualGateway],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeVirtualGatewaysResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeVirtualGatewaysResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dvgrsVirtualGateways' - A list of virtual private gateways.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dvgrsResponseStatus' - -- | The response status code.
-describeVirtualGatewaysResponse
-    :: Int -- ^ 'dvgrsResponseStatus'
-    -> DescribeVirtualGatewaysResponse
-describeVirtualGatewaysResponse pResponseStatus_ =
+-- 'virtualGateways', 'describeVirtualGatewaysResponse_virtualGateways' - The virtual private gateways.
+--
+-- 'httpStatus', 'describeVirtualGatewaysResponse_httpStatus' - The response's http status code.
+newDescribeVirtualGatewaysResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeVirtualGatewaysResponse
+newDescribeVirtualGatewaysResponse pHttpStatus_ =
   DescribeVirtualGatewaysResponse'
-    {_dvgrsVirtualGateways = Nothing, _dvgrsResponseStatus = pResponseStatus_}
+    { virtualGateways =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The virtual private gateways.
+describeVirtualGatewaysResponse_virtualGateways :: Lens.Lens' DescribeVirtualGatewaysResponse (Prelude.Maybe [VirtualGateway])
+describeVirtualGatewaysResponse_virtualGateways = Lens.lens (\DescribeVirtualGatewaysResponse' {virtualGateways} -> virtualGateways) (\s@DescribeVirtualGatewaysResponse' {} a -> s {virtualGateways = a} :: DescribeVirtualGatewaysResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | A list of virtual private gateways.
-dvgrsVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
-dvgrsVirtualGateways = lens _dvgrsVirtualGateways (\ s a -> s{_dvgrsVirtualGateways = a}) . _Default . _Coerce
+-- | The response's http status code.
+describeVirtualGatewaysResponse_httpStatus :: Lens.Lens' DescribeVirtualGatewaysResponse Prelude.Int
+describeVirtualGatewaysResponse_httpStatus = Lens.lens (\DescribeVirtualGatewaysResponse' {httpStatus} -> httpStatus) (\s@DescribeVirtualGatewaysResponse' {} a -> s {httpStatus = a} :: DescribeVirtualGatewaysResponse)
 
--- | -- | The response status code.
-dvgrsResponseStatus :: Lens' DescribeVirtualGatewaysResponse Int
-dvgrsResponseStatus = lens _dvgrsResponseStatus (\ s a -> s{_dvgrsResponseStatus = a})
-
-instance NFData DescribeVirtualGatewaysResponse where
+instance
+  Prelude.NFData
+    DescribeVirtualGatewaysResponse

@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.UpdateFacet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,140 +23,170 @@
 --
 -- Does the following:
 --
+-- 1.  Adds new @Attributes@, @Rules@, or @ObjectTypes@.
 --
---     * Adds new @Attributes@ , @Rules@ , or @ObjectTypes@ .
+-- 2.  Updates existing @Attributes@, @Rules@, or @ObjectTypes@.
 --
---     * Updates existing @Attributes@ , @Rules@ , or @ObjectTypes@ .
---
---     * Deletes existing @Attributes@ , @Rules@ , or @ObjectTypes@ .
---
---
---
+-- 3.  Deletes existing @Attributes@, @Rules@, or @ObjectTypes@.
 module Network.AWS.CloudDirectory.UpdateFacet
-    (
-    -- * Creating a Request
-      updateFacet
-    , UpdateFacet
+  ( -- * Creating a Request
+    UpdateFacet (..),
+    newUpdateFacet,
+
     -- * Request Lenses
-    , ufObjectType
-    , ufAttributeUpdates
-    , ufSchemaARN
-    , ufName
+    updateFacet_attributeUpdates,
+    updateFacet_objectType,
+    updateFacet_schemaArn,
+    updateFacet_name,
 
     -- * Destructuring the Response
-    , updateFacetResponse
-    , UpdateFacetResponse
+    UpdateFacetResponse (..),
+    newUpdateFacetResponse,
+
     -- * Response Lenses
-    , ufrsResponseStatus
-    ) where
+    updateFacetResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateFacet' smart constructor.
+-- | /See:/ 'newUpdateFacet' smart constructor.
 data UpdateFacet = UpdateFacet'
-  { _ufObjectType       :: !(Maybe ObjectType)
-  , _ufAttributeUpdates :: !(Maybe [FacetAttributeUpdate])
-  , _ufSchemaARN        :: !Text
-  , _ufName             :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | List of attributes that need to be updated in a given schema Facet. Each
+    -- attribute is followed by @AttributeAction@, which specifies the type of
+    -- update operation to perform.
+    attributeUpdates :: Prelude.Maybe [FacetAttributeUpdate],
+    -- | The object type that is associated with the facet. See
+    -- CreateFacetRequest$ObjectType for more details.
+    objectType :: Prelude.Maybe ObjectType,
+    -- | The Amazon Resource Name (ARN) that is associated with the Facet. For
+    -- more information, see arns.
+    schemaArn :: Prelude.Text,
+    -- | The name of the facet.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateFacet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateFacet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ufObjectType' - The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ufAttributeUpdates' - List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
+-- 'attributeUpdates', 'updateFacet_attributeUpdates' - List of attributes that need to be updated in a given schema Facet. Each
+-- attribute is followed by @AttributeAction@, which specifies the type of
+-- update operation to perform.
 --
--- * 'ufSchemaARN' - The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
+-- 'objectType', 'updateFacet_objectType' - The object type that is associated with the facet. See
+-- CreateFacetRequest$ObjectType for more details.
 --
--- * 'ufName' - The name of the facet.
-updateFacet
-    :: Text -- ^ 'ufSchemaARN'
-    -> Text -- ^ 'ufName'
-    -> UpdateFacet
-updateFacet pSchemaARN_ pName_ =
+-- 'schemaArn', 'updateFacet_schemaArn' - The Amazon Resource Name (ARN) that is associated with the Facet. For
+-- more information, see arns.
+--
+-- 'name', 'updateFacet_name' - The name of the facet.
+newUpdateFacet ::
+  -- | 'schemaArn'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  UpdateFacet
+newUpdateFacet pSchemaArn_ pName_ =
   UpdateFacet'
-    { _ufObjectType = Nothing
-    , _ufAttributeUpdates = Nothing
-    , _ufSchemaARN = pSchemaARN_
-    , _ufName = pName_
+    { attributeUpdates = Prelude.Nothing,
+      objectType = Prelude.Nothing,
+      schemaArn = pSchemaArn_,
+      name = pName_
     }
 
+-- | List of attributes that need to be updated in a given schema Facet. Each
+-- attribute is followed by @AttributeAction@, which specifies the type of
+-- update operation to perform.
+updateFacet_attributeUpdates :: Lens.Lens' UpdateFacet (Prelude.Maybe [FacetAttributeUpdate])
+updateFacet_attributeUpdates = Lens.lens (\UpdateFacet' {attributeUpdates} -> attributeUpdates) (\s@UpdateFacet' {} a -> s {attributeUpdates = a} :: UpdateFacet) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The object type that is associated with the facet. See 'CreateFacetRequest$ObjectType' for more details.
-ufObjectType :: Lens' UpdateFacet (Maybe ObjectType)
-ufObjectType = lens _ufObjectType (\ s a -> s{_ufObjectType = a})
+-- | The object type that is associated with the facet. See
+-- CreateFacetRequest$ObjectType for more details.
+updateFacet_objectType :: Lens.Lens' UpdateFacet (Prelude.Maybe ObjectType)
+updateFacet_objectType = Lens.lens (\UpdateFacet' {objectType} -> objectType) (\s@UpdateFacet' {} a -> s {objectType = a} :: UpdateFacet)
 
--- | List of attributes that need to be updated in a given schema 'Facet' . Each attribute is followed by @AttributeAction@ , which specifies the type of update operation to perform.
-ufAttributeUpdates :: Lens' UpdateFacet [FacetAttributeUpdate]
-ufAttributeUpdates = lens _ufAttributeUpdates (\ s a -> s{_ufAttributeUpdates = a}) . _Default . _Coerce
-
--- | The Amazon Resource Name (ARN) that is associated with the 'Facet' . For more information, see 'arns' .
-ufSchemaARN :: Lens' UpdateFacet Text
-ufSchemaARN = lens _ufSchemaARN (\ s a -> s{_ufSchemaARN = a})
+-- | The Amazon Resource Name (ARN) that is associated with the Facet. For
+-- more information, see arns.
+updateFacet_schemaArn :: Lens.Lens' UpdateFacet Prelude.Text
+updateFacet_schemaArn = Lens.lens (\UpdateFacet' {schemaArn} -> schemaArn) (\s@UpdateFacet' {} a -> s {schemaArn = a} :: UpdateFacet)
 
 -- | The name of the facet.
-ufName :: Lens' UpdateFacet Text
-ufName = lens _ufName (\ s a -> s{_ufName = a})
+updateFacet_name :: Lens.Lens' UpdateFacet Prelude.Text
+updateFacet_name = Lens.lens (\UpdateFacet' {name} -> name) (\s@UpdateFacet' {} a -> s {name = a} :: UpdateFacet)
 
-instance AWSRequest UpdateFacet where
-        type Rs UpdateFacet = UpdateFacetResponse
-        request = putJSON cloudDirectory
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateFacetResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateFacet where
+  type Rs UpdateFacet = UpdateFacetResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateFacetResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateFacet where
+instance Prelude.Hashable UpdateFacet
 
-instance NFData UpdateFacet where
+instance Prelude.NFData UpdateFacet
 
-instance ToHeaders UpdateFacet where
-        toHeaders UpdateFacet'{..}
-          = mconcat ["x-amz-data-partition" =# _ufSchemaARN]
+instance Prelude.ToHeaders UpdateFacet where
+  toHeaders UpdateFacet' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Prelude.=# schemaArn]
 
-instance ToJSON UpdateFacet where
-        toJSON UpdateFacet'{..}
-          = object
-              (catMaybes
-                 [("ObjectType" .=) <$> _ufObjectType,
-                  ("AttributeUpdates" .=) <$> _ufAttributeUpdates,
-                  Just ("Name" .= _ufName)])
+instance Prelude.ToJSON UpdateFacet where
+  toJSON UpdateFacet' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("AttributeUpdates" Prelude..=)
+              Prelude.<$> attributeUpdates,
+            ("ObjectType" Prelude..=) Prelude.<$> objectType,
+            Prelude.Just ("Name" Prelude..= name)
+          ]
+      )
 
-instance ToPath UpdateFacet where
-        toPath
-          = const "/amazonclouddirectory/2017-01-11/facet"
+instance Prelude.ToPath UpdateFacet where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/facet"
 
-instance ToQuery UpdateFacet where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateFacet where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateFacetResponse' smart constructor.
-newtype UpdateFacetResponse = UpdateFacetResponse'
-  { _ufrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateFacetResponse' smart constructor.
+data UpdateFacetResponse = UpdateFacetResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateFacetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateFacetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ufrsResponseStatus' - -- | The response status code.
-updateFacetResponse
-    :: Int -- ^ 'ufrsResponseStatus'
-    -> UpdateFacetResponse
-updateFacetResponse pResponseStatus_ =
-  UpdateFacetResponse' {_ufrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateFacetResponse_httpStatus' - The response's http status code.
+newUpdateFacetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateFacetResponse
+newUpdateFacetResponse pHttpStatus_ =
+  UpdateFacetResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+updateFacetResponse_httpStatus :: Lens.Lens' UpdateFacetResponse Prelude.Int
+updateFacetResponse_httpStatus = Lens.lens (\UpdateFacetResponse' {httpStatus} -> httpStatus) (\s@UpdateFacetResponse' {} a -> s {httpStatus = a} :: UpdateFacetResponse)
 
--- | -- | The response status code.
-ufrsResponseStatus :: Lens' UpdateFacetResponse Int
-ufrsResponseStatus = lens _ufrsResponseStatus (\ s a -> s{_ufrsResponseStatus = a})
-
-instance NFData UpdateFacetResponse where
+instance Prelude.NFData UpdateFacetResponse

@@ -1,211 +1,279 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @ListWorkersWithQualificationType@ operation returns all of the Workers that have been associated with a given Qualification type.
---
---
+-- The @ListWorkersWithQualificationType@ operation returns all of the
+-- Workers that have been associated with a given Qualification type.
 --
 -- This operation returns paginated results.
 module Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
-    (
-    -- * Creating a Request
-      listWorkersWithQualificationType
-    , ListWorkersWithQualificationType
+  ( -- * Creating a Request
+    ListWorkersWithQualificationType (..),
+    newListWorkersWithQualificationType,
+
     -- * Request Lenses
-    , lwwqtStatus
-    , lwwqtNextToken
-    , lwwqtMaxResults
-    , lwwqtQualificationTypeId
+    listWorkersWithQualificationType_status,
+    listWorkersWithQualificationType_nextToken,
+    listWorkersWithQualificationType_maxResults,
+    listWorkersWithQualificationType_qualificationTypeId,
 
     -- * Destructuring the Response
-    , listWorkersWithQualificationTypeResponse
-    , ListWorkersWithQualificationTypeResponse
+    ListWorkersWithQualificationTypeResponse (..),
+    newListWorkersWithQualificationTypeResponse,
+
     -- * Response Lenses
-    , lwwqtrsNextToken
-    , lwwqtrsNumResults
-    , lwwqtrsQualifications
-    , lwwqtrsResponseStatus
-    ) where
+    listWorkersWithQualificationTypeResponse_nextToken,
+    listWorkersWithQualificationTypeResponse_numResults,
+    listWorkersWithQualificationTypeResponse_qualifications,
+    listWorkersWithQualificationTypeResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.MechanicalTurk.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listWorkersWithQualificationType' smart constructor.
+-- | /See:/ 'newListWorkersWithQualificationType' smart constructor.
 data ListWorkersWithQualificationType = ListWorkersWithQualificationType'
-  { _lwwqtStatus              :: !(Maybe QualificationStatus)
-  , _lwwqtNextToken           :: !(Maybe Text)
-  , _lwwqtMaxResults          :: !(Maybe Nat)
-  , _lwwqtQualificationTypeId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The status of the Qualifications to return. Can be @Granted | Revoked@.
+    status :: Prelude.Maybe QualificationStatus,
+    -- | Pagination Token
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Limit the number of results returned.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the Qualification type of the Qualifications to return.
+    qualificationTypeId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListWorkersWithQualificationType' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'status', 'listWorkersWithQualificationType_status' - The status of the Qualifications to return. Can be @Granted | Revoked@.
+--
+-- 'nextToken', 'listWorkersWithQualificationType_nextToken' - Pagination Token
+--
+-- 'maxResults', 'listWorkersWithQualificationType_maxResults' - Limit the number of results returned.
+--
+-- 'qualificationTypeId', 'listWorkersWithQualificationType_qualificationTypeId' - The ID of the Qualification type of the Qualifications to return.
+newListWorkersWithQualificationType ::
+  -- | 'qualificationTypeId'
+  Prelude.Text ->
+  ListWorkersWithQualificationType
+newListWorkersWithQualificationType
+  pQualificationTypeId_ =
+    ListWorkersWithQualificationType'
+      { status =
+          Prelude.Nothing,
+        nextToken = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        qualificationTypeId =
+          pQualificationTypeId_
+      }
 
--- | Creates a value of 'ListWorkersWithQualificationType' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lwwqtStatus' - The status of the Qualifications to return. Can be @Granted | Revoked@ .
---
--- * 'lwwqtNextToken' - Pagination Token
---
--- * 'lwwqtMaxResults' - Limit the number of results returned.
---
--- * 'lwwqtQualificationTypeId' - The ID of the Qualification type of the Qualifications to return.
-listWorkersWithQualificationType
-    :: Text -- ^ 'lwwqtQualificationTypeId'
-    -> ListWorkersWithQualificationType
-listWorkersWithQualificationType pQualificationTypeId_ =
-  ListWorkersWithQualificationType'
-    { _lwwqtStatus = Nothing
-    , _lwwqtNextToken = Nothing
-    , _lwwqtMaxResults = Nothing
-    , _lwwqtQualificationTypeId = pQualificationTypeId_
-    }
-
-
--- | The status of the Qualifications to return. Can be @Granted | Revoked@ .
-lwwqtStatus :: Lens' ListWorkersWithQualificationType (Maybe QualificationStatus)
-lwwqtStatus = lens _lwwqtStatus (\ s a -> s{_lwwqtStatus = a})
+-- | The status of the Qualifications to return. Can be @Granted | Revoked@.
+listWorkersWithQualificationType_status :: Lens.Lens' ListWorkersWithQualificationType (Prelude.Maybe QualificationStatus)
+listWorkersWithQualificationType_status = Lens.lens (\ListWorkersWithQualificationType' {status} -> status) (\s@ListWorkersWithQualificationType' {} a -> s {status = a} :: ListWorkersWithQualificationType)
 
 -- | Pagination Token
-lwwqtNextToken :: Lens' ListWorkersWithQualificationType (Maybe Text)
-lwwqtNextToken = lens _lwwqtNextToken (\ s a -> s{_lwwqtNextToken = a})
+listWorkersWithQualificationType_nextToken :: Lens.Lens' ListWorkersWithQualificationType (Prelude.Maybe Prelude.Text)
+listWorkersWithQualificationType_nextToken = Lens.lens (\ListWorkersWithQualificationType' {nextToken} -> nextToken) (\s@ListWorkersWithQualificationType' {} a -> s {nextToken = a} :: ListWorkersWithQualificationType)
 
 -- | Limit the number of results returned.
-lwwqtMaxResults :: Lens' ListWorkersWithQualificationType (Maybe Natural)
-lwwqtMaxResults = lens _lwwqtMaxResults (\ s a -> s{_lwwqtMaxResults = a}) . mapping _Nat
+listWorkersWithQualificationType_maxResults :: Lens.Lens' ListWorkersWithQualificationType (Prelude.Maybe Prelude.Natural)
+listWorkersWithQualificationType_maxResults = Lens.lens (\ListWorkersWithQualificationType' {maxResults} -> maxResults) (\s@ListWorkersWithQualificationType' {} a -> s {maxResults = a} :: ListWorkersWithQualificationType)
 
 -- | The ID of the Qualification type of the Qualifications to return.
-lwwqtQualificationTypeId :: Lens' ListWorkersWithQualificationType Text
-lwwqtQualificationTypeId = lens _lwwqtQualificationTypeId (\ s a -> s{_lwwqtQualificationTypeId = a})
+listWorkersWithQualificationType_qualificationTypeId :: Lens.Lens' ListWorkersWithQualificationType Prelude.Text
+listWorkersWithQualificationType_qualificationTypeId = Lens.lens (\ListWorkersWithQualificationType' {qualificationTypeId} -> qualificationTypeId) (\s@ListWorkersWithQualificationType' {} a -> s {qualificationTypeId = a} :: ListWorkersWithQualificationType)
 
-instance AWSPager ListWorkersWithQualificationType
-         where
-        page rq rs
-          | stop (rs ^. lwwqtrsNextToken) = Nothing
-          | stop (rs ^. lwwqtrsQualifications) = Nothing
-          | otherwise =
-            Just $ rq & lwwqtNextToken .~ rs ^. lwwqtrsNextToken
+instance
+  Pager.AWSPager
+    ListWorkersWithQualificationType
+  where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listWorkersWithQualificationTypeResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listWorkersWithQualificationTypeResponse_qualifications
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listWorkersWithQualificationType_nextToken
+          Lens..~ rs
+          Lens.^? listWorkersWithQualificationTypeResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest ListWorkersWithQualificationType
-         where
-        type Rs ListWorkersWithQualificationType =
-             ListWorkersWithQualificationTypeResponse
-        request = postJSON mechanicalTurk
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListWorkersWithQualificationTypeResponse' <$>
-                   (x .?> "NextToken") <*> (x .?> "NumResults") <*>
-                     (x .?> "Qualifications" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    ListWorkersWithQualificationType
+  where
+  type
+    Rs ListWorkersWithQualificationType =
+      ListWorkersWithQualificationTypeResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListWorkersWithQualificationTypeResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> (x Prelude..?> "NumResults")
+            Prelude.<*> ( x Prelude..?> "Qualifications"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListWorkersWithQualificationType
-         where
+instance
+  Prelude.Hashable
+    ListWorkersWithQualificationType
 
-instance NFData ListWorkersWithQualificationType
-         where
+instance
+  Prelude.NFData
+    ListWorkersWithQualificationType
 
-instance ToHeaders ListWorkersWithQualificationType
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("MTurkRequesterServiceV20170117.ListWorkersWithQualificationType"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Prelude.ToHeaders
+    ListWorkersWithQualificationType
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON ListWorkersWithQualificationType
-         where
-        toJSON ListWorkersWithQualificationType'{..}
-          = object
-              (catMaybes
-                 [("Status" .=) <$> _lwwqtStatus,
-                  ("NextToken" .=) <$> _lwwqtNextToken,
-                  ("MaxResults" .=) <$> _lwwqtMaxResults,
-                  Just
-                    ("QualificationTypeId" .=
-                       _lwwqtQualificationTypeId)])
+instance
+  Prelude.ToJSON
+    ListWorkersWithQualificationType
+  where
+  toJSON ListWorkersWithQualificationType' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Status" Prelude..=) Prelude.<$> status,
+            ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
+            Prelude.Just
+              ( "QualificationTypeId"
+                  Prelude..= qualificationTypeId
+              )
+          ]
+      )
 
-instance ToPath ListWorkersWithQualificationType
-         where
-        toPath = const "/"
+instance
+  Prelude.ToPath
+    ListWorkersWithQualificationType
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListWorkersWithQualificationType
-         where
-        toQuery = const mempty
+instance
+  Prelude.ToQuery
+    ListWorkersWithQualificationType
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'listWorkersWithQualificationTypeResponse' smart constructor.
+-- | /See:/ 'newListWorkersWithQualificationTypeResponse' smart constructor.
 data ListWorkersWithQualificationTypeResponse = ListWorkersWithQualificationTypeResponse'
-  { _lwwqtrsNextToken      :: !(Maybe Text)
-  , _lwwqtrsNumResults     :: !(Maybe Int)
-  , _lwwqtrsQualifications :: !(Maybe [Qualification])
-  , _lwwqtrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The number of Qualifications on this page in the filtered results list,
+    -- equivalent to the number of Qualifications being returned by this call.
+    numResults :: Prelude.Maybe Prelude.Int,
+    -- | The list of Qualification elements returned by this call.
+    qualifications :: Prelude.Maybe [Qualification],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListWorkersWithQualificationTypeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListWorkersWithQualificationTypeResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lwwqtrsNextToken' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lwwqtrsNumResults' - The number of Qualifications on this page in the filtered results list, equivalent to the number of Qualifications being returned by this call.
+-- 'nextToken', 'listWorkersWithQualificationTypeResponse_nextToken' - Undocumented member.
 --
--- * 'lwwqtrsQualifications' - The list of Qualification elements returned by this call.
+-- 'numResults', 'listWorkersWithQualificationTypeResponse_numResults' - The number of Qualifications on this page in the filtered results list,
+-- equivalent to the number of Qualifications being returned by this call.
 --
--- * 'lwwqtrsResponseStatus' - -- | The response status code.
-listWorkersWithQualificationTypeResponse
-    :: Int -- ^ 'lwwqtrsResponseStatus'
-    -> ListWorkersWithQualificationTypeResponse
-listWorkersWithQualificationTypeResponse pResponseStatus_ =
-  ListWorkersWithQualificationTypeResponse'
-    { _lwwqtrsNextToken = Nothing
-    , _lwwqtrsNumResults = Nothing
-    , _lwwqtrsQualifications = Nothing
-    , _lwwqtrsResponseStatus = pResponseStatus_
-    }
-
+-- 'qualifications', 'listWorkersWithQualificationTypeResponse_qualifications' - The list of Qualification elements returned by this call.
+--
+-- 'httpStatus', 'listWorkersWithQualificationTypeResponse_httpStatus' - The response's http status code.
+newListWorkersWithQualificationTypeResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListWorkersWithQualificationTypeResponse
+newListWorkersWithQualificationTypeResponse
+  pHttpStatus_ =
+    ListWorkersWithQualificationTypeResponse'
+      { nextToken =
+          Prelude.Nothing,
+        numResults = Prelude.Nothing,
+        qualifications = Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
 -- | Undocumented member.
-lwwqtrsNextToken :: Lens' ListWorkersWithQualificationTypeResponse (Maybe Text)
-lwwqtrsNextToken = lens _lwwqtrsNextToken (\ s a -> s{_lwwqtrsNextToken = a})
+listWorkersWithQualificationTypeResponse_nextToken :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Prelude.Maybe Prelude.Text)
+listWorkersWithQualificationTypeResponse_nextToken = Lens.lens (\ListWorkersWithQualificationTypeResponse' {nextToken} -> nextToken) (\s@ListWorkersWithQualificationTypeResponse' {} a -> s {nextToken = a} :: ListWorkersWithQualificationTypeResponse)
 
--- | The number of Qualifications on this page in the filtered results list, equivalent to the number of Qualifications being returned by this call.
-lwwqtrsNumResults :: Lens' ListWorkersWithQualificationTypeResponse (Maybe Int)
-lwwqtrsNumResults = lens _lwwqtrsNumResults (\ s a -> s{_lwwqtrsNumResults = a})
+-- | The number of Qualifications on this page in the filtered results list,
+-- equivalent to the number of Qualifications being returned by this call.
+listWorkersWithQualificationTypeResponse_numResults :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Prelude.Maybe Prelude.Int)
+listWorkersWithQualificationTypeResponse_numResults = Lens.lens (\ListWorkersWithQualificationTypeResponse' {numResults} -> numResults) (\s@ListWorkersWithQualificationTypeResponse' {} a -> s {numResults = a} :: ListWorkersWithQualificationTypeResponse)
 
 -- | The list of Qualification elements returned by this call.
-lwwqtrsQualifications :: Lens' ListWorkersWithQualificationTypeResponse [Qualification]
-lwwqtrsQualifications = lens _lwwqtrsQualifications (\ s a -> s{_lwwqtrsQualifications = a}) . _Default . _Coerce
+listWorkersWithQualificationTypeResponse_qualifications :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Prelude.Maybe [Qualification])
+listWorkersWithQualificationTypeResponse_qualifications = Lens.lens (\ListWorkersWithQualificationTypeResponse' {qualifications} -> qualifications) (\s@ListWorkersWithQualificationTypeResponse' {} a -> s {qualifications = a} :: ListWorkersWithQualificationTypeResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-lwwqtrsResponseStatus :: Lens' ListWorkersWithQualificationTypeResponse Int
-lwwqtrsResponseStatus = lens _lwwqtrsResponseStatus (\ s a -> s{_lwwqtrsResponseStatus = a})
+-- | The response's http status code.
+listWorkersWithQualificationTypeResponse_httpStatus :: Lens.Lens' ListWorkersWithQualificationTypeResponse Prelude.Int
+listWorkersWithQualificationTypeResponse_httpStatus = Lens.lens (\ListWorkersWithQualificationTypeResponse' {httpStatus} -> httpStatus) (\s@ListWorkersWithQualificationTypeResponse' {} a -> s {httpStatus = a} :: ListWorkersWithQualificationTypeResponse)
 
-instance NFData
-           ListWorkersWithQualificationTypeResponse
-         where
+instance
+  Prelude.NFData
+    ListWorkersWithQualificationTypeResponse

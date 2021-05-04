@@ -1,156 +1,200 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListDistributions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List distributions.
---
---
+-- List CloudFront distributions.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFront.ListDistributions
-    (
-    -- * Creating a Request
-      listDistributions
-    , ListDistributions
+  ( -- * Creating a Request
+    ListDistributions (..),
+    newListDistributions,
+
     -- * Request Lenses
-    , ldMarker
-    , ldMaxItems
+    listDistributions_maxItems,
+    listDistributions_marker,
 
     -- * Destructuring the Response
-    , listDistributionsResponse
-    , ListDistributionsResponse
+    ListDistributionsResponse (..),
+    newListDistributionsResponse,
+
     -- * Response Lenses
-    , ldrsResponseStatus
-    , ldrsDistributionList
-    ) where
+    listDistributionsResponse_httpStatus,
+    listDistributionsResponse_distributionList,
+  )
+where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to list your distributions.
 --
---
---
--- /See:/ 'listDistributions' smart constructor.
+-- /See:/ 'newListDistributions' smart constructor.
 data ListDistributions = ListDistributions'
-  { _ldMarker   :: !(Maybe Text)
-  , _ldMaxItems :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The maximum number of distributions you want in the response body.
+    maxItems :: Prelude.Maybe Prelude.Text,
+    -- | Use this when paginating results to indicate where to begin in your list
+    -- of distributions. The results include distributions in the list that
+    -- occur after the marker. To get the next page of results, set the
+    -- @Marker@ to the value of the @NextMarker@ from the current page\'s
+    -- response (which is also the ID of the last distribution on that page).
+    marker :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListDistributions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListDistributions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ldMarker' - Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last distribution on that page).
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ldMaxItems' - The maximum number of distributions you want in the response body.
-listDistributions
-    :: ListDistributions
-listDistributions =
-  ListDistributions' {_ldMarker = Nothing, _ldMaxItems = Nothing}
-
-
--- | Use this when paginating results to indicate where to begin in your list of distributions. The results include distributions in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last distribution on that page).
-ldMarker :: Lens' ListDistributions (Maybe Text)
-ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a})
+-- 'maxItems', 'listDistributions_maxItems' - The maximum number of distributions you want in the response body.
+--
+-- 'marker', 'listDistributions_marker' - Use this when paginating results to indicate where to begin in your list
+-- of distributions. The results include distributions in the list that
+-- occur after the marker. To get the next page of results, set the
+-- @Marker@ to the value of the @NextMarker@ from the current page\'s
+-- response (which is also the ID of the last distribution on that page).
+newListDistributions ::
+  ListDistributions
+newListDistributions =
+  ListDistributions'
+    { maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
+    }
 
 -- | The maximum number of distributions you want in the response body.
-ldMaxItems :: Lens' ListDistributions (Maybe Text)
-ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a})
+listDistributions_maxItems :: Lens.Lens' ListDistributions (Prelude.Maybe Prelude.Text)
+listDistributions_maxItems = Lens.lens (\ListDistributions' {maxItems} -> maxItems) (\s@ListDistributions' {} a -> s {maxItems = a} :: ListDistributions)
 
-instance AWSPager ListDistributions where
-        page rq rs
-          | stop (rs ^. ldrsDistributionList . dlIsTruncated) =
-            Nothing
-          | isNothing
-              (rs ^? ldrsDistributionList . dlNextMarker . _Just)
-            = Nothing
-          | otherwise =
-            Just $ rq &
-              ldMarker .~
-                rs ^? ldrsDistributionList . dlNextMarker . _Just
+-- | Use this when paginating results to indicate where to begin in your list
+-- of distributions. The results include distributions in the list that
+-- occur after the marker. To get the next page of results, set the
+-- @Marker@ to the value of the @NextMarker@ from the current page\'s
+-- response (which is also the ID of the last distribution on that page).
+listDistributions_marker :: Lens.Lens' ListDistributions (Prelude.Maybe Prelude.Text)
+listDistributions_marker = Lens.lens (\ListDistributions' {marker} -> marker) (\s@ListDistributions' {} a -> s {marker = a} :: ListDistributions)
 
-instance AWSRequest ListDistributions where
-        type Rs ListDistributions = ListDistributionsResponse
-        request = get cloudFront
-        response
-          = receiveXML
-              (\ s h x ->
-                 ListDistributionsResponse' <$>
-                   (pure (fromEnum s)) <*> (parseXML x))
+instance Pager.AWSPager ListDistributions where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^. listDistributionsResponse_distributionList
+              Prelude.. distributionList_isTruncated
+        ) =
+      Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listDistributionsResponse_distributionList
+              Prelude.. distributionList_nextMarker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listDistributions_marker
+          Lens..~ rs
+          Lens.^? listDistributionsResponse_distributionList
+            Prelude.. distributionList_nextMarker
+            Prelude.. Lens._Just
 
-instance Hashable ListDistributions where
+instance Prelude.AWSRequest ListDistributions where
+  type Rs ListDistributions = ListDistributionsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          ListDistributionsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.parseXML x)
+      )
 
-instance NFData ListDistributions where
+instance Prelude.Hashable ListDistributions
 
-instance ToHeaders ListDistributions where
-        toHeaders = const mempty
+instance Prelude.NFData ListDistributions
 
-instance ToPath ListDistributions where
-        toPath = const "/2017-10-30/distribution"
+instance Prelude.ToHeaders ListDistributions where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToQuery ListDistributions where
-        toQuery ListDistributions'{..}
-          = mconcat
-              ["Marker" =: _ldMarker, "MaxItems" =: _ldMaxItems]
+instance Prelude.ToPath ListDistributions where
+  toPath = Prelude.const "/2020-05-31/distribution"
+
+instance Prelude.ToQuery ListDistributions where
+  toQuery ListDistributions' {..} =
+    Prelude.mconcat
+      [ "MaxItems" Prelude.=: maxItems,
+        "Marker" Prelude.=: marker
+      ]
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'listDistributionsResponse' smart constructor.
+-- /See:/ 'newListDistributionsResponse' smart constructor.
 data ListDistributionsResponse = ListDistributionsResponse'
-  { _ldrsResponseStatus   :: !Int
-  , _ldrsDistributionList :: !DistributionList
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The @DistributionList@ type.
+    distributionList :: DistributionList
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListDistributionsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListDistributionsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ldrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ldrsDistributionList' - The @DistributionList@ type.
-listDistributionsResponse
-    :: Int -- ^ 'ldrsResponseStatus'
-    -> DistributionList -- ^ 'ldrsDistributionList'
-    -> ListDistributionsResponse
-listDistributionsResponse pResponseStatus_ pDistributionList_ =
-  ListDistributionsResponse'
-    { _ldrsResponseStatus = pResponseStatus_
-    , _ldrsDistributionList = pDistributionList_
-    }
+-- 'httpStatus', 'listDistributionsResponse_httpStatus' - The response's http status code.
+--
+-- 'distributionList', 'listDistributionsResponse_distributionList' - The @DistributionList@ type.
+newListDistributionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'distributionList'
+  DistributionList ->
+  ListDistributionsResponse
+newListDistributionsResponse
+  pHttpStatus_
+  pDistributionList_ =
+    ListDistributionsResponse'
+      { httpStatus =
+          pHttpStatus_,
+        distributionList = pDistributionList_
+      }
 
-
--- | -- | The response status code.
-ldrsResponseStatus :: Lens' ListDistributionsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a})
+-- | The response's http status code.
+listDistributionsResponse_httpStatus :: Lens.Lens' ListDistributionsResponse Prelude.Int
+listDistributionsResponse_httpStatus = Lens.lens (\ListDistributionsResponse' {httpStatus} -> httpStatus) (\s@ListDistributionsResponse' {} a -> s {httpStatus = a} :: ListDistributionsResponse)
 
 -- | The @DistributionList@ type.
-ldrsDistributionList :: Lens' ListDistributionsResponse DistributionList
-ldrsDistributionList = lens _ldrsDistributionList (\ s a -> s{_ldrsDistributionList = a})
+listDistributionsResponse_distributionList :: Lens.Lens' ListDistributionsResponse DistributionList
+listDistributionsResponse_distributionList = Lens.lens (\ListDistributionsResponse' {distributionList} -> distributionList) (\s@ListDistributionsResponse' {} a -> s {distributionList = a} :: ListDistributionsResponse)
 
-instance NFData ListDistributionsResponse where
+instance Prelude.NFData ListDistributionsResponse

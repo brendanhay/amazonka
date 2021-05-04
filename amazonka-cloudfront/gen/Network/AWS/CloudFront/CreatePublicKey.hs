@@ -1,150 +1,172 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreatePublicKey
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Add a new public key to CloudFront to use, for example, for field-level encryption. You can add a maximum of 10 public keys with one AWS account.
---
---
+-- Uploads a public key to CloudFront that you can use with
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies>,
+-- or with
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption>.
 module Network.AWS.CloudFront.CreatePublicKey
-    (
-    -- * Creating a Request
-      createPublicKey
-    , CreatePublicKey
+  ( -- * Creating a Request
+    CreatePublicKey (..),
+    newCreatePublicKey,
+
     -- * Request Lenses
-    , cpkPublicKeyConfig
+    createPublicKey_publicKeyConfig,
 
     -- * Destructuring the Response
-    , createPublicKeyResponse
-    , CreatePublicKeyResponse
+    CreatePublicKeyResponse (..),
+    newCreatePublicKeyResponse,
+
     -- * Response Lenses
-    , cpkrsETag
-    , cpkrsLocation
-    , cpkrsPublicKey
-    , cpkrsResponseStatus
-    ) where
+    createPublicKeyResponse_eTag,
+    createPublicKeyResponse_publicKey,
+    createPublicKeyResponse_location,
+    createPublicKeyResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createPublicKey' smart constructor.
-newtype CreatePublicKey = CreatePublicKey'
-  { _cpkPublicKeyConfig :: PublicKeyConfig
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreatePublicKey' smart constructor.
+data CreatePublicKey = CreatePublicKey'
+  { -- | A CloudFront public key configuration.
+    publicKeyConfig :: PublicKeyConfig
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreatePublicKey' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreatePublicKey' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cpkPublicKeyConfig' - The request to add a public key to CloudFront.
-createPublicKey
-    :: PublicKeyConfig -- ^ 'cpkPublicKeyConfig'
-    -> CreatePublicKey
-createPublicKey pPublicKeyConfig_ =
-  CreatePublicKey' {_cpkPublicKeyConfig = pPublicKeyConfig_}
-
-
--- | The request to add a public key to CloudFront.
-cpkPublicKeyConfig :: Lens' CreatePublicKey PublicKeyConfig
-cpkPublicKeyConfig = lens _cpkPublicKeyConfig (\ s a -> s{_cpkPublicKeyConfig = a})
-
-instance AWSRequest CreatePublicKey where
-        type Rs CreatePublicKey = CreatePublicKeyResponse
-        request = postXML cloudFront
-        response
-          = receiveXML
-              (\ s h x ->
-                 CreatePublicKeyResponse' <$>
-                   (h .#? "ETag") <*> (h .#? "Location") <*>
-                     (parseXML x)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable CreatePublicKey where
-
-instance NFData CreatePublicKey where
-
-instance ToElement CreatePublicKey where
-        toElement
-          = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}PublicKeyConfig"
-              .
-              _cpkPublicKeyConfig
-
-instance ToHeaders CreatePublicKey where
-        toHeaders = const mempty
-
-instance ToPath CreatePublicKey where
-        toPath = const "/2017-10-30/public-key"
-
-instance ToQuery CreatePublicKey where
-        toQuery = const mempty
-
--- | /See:/ 'createPublicKeyResponse' smart constructor.
-data CreatePublicKeyResponse = CreatePublicKeyResponse'
-  { _cpkrsETag           :: !(Maybe Text)
-  , _cpkrsLocation       :: !(Maybe Text)
-  , _cpkrsPublicKey      :: !(Maybe PublicKey)
-  , _cpkrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreatePublicKeyResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpkrsETag' - The current version of the public key. For example: @E2QWRUHAPOMQZL@ .
---
--- * 'cpkrsLocation' - The fully qualified URI of the new public key resource just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/cloudfront-public-key/EDFDVBD632BHDS5@ .
---
--- * 'cpkrsPublicKey' - Returned when you add a public key.
---
--- * 'cpkrsResponseStatus' - -- | The response status code.
-createPublicKeyResponse
-    :: Int -- ^ 'cpkrsResponseStatus'
-    -> CreatePublicKeyResponse
-createPublicKeyResponse pResponseStatus_ =
-  CreatePublicKeyResponse'
-    { _cpkrsETag = Nothing
-    , _cpkrsLocation = Nothing
-    , _cpkrsPublicKey = Nothing
-    , _cpkrsResponseStatus = pResponseStatus_
+-- 'publicKeyConfig', 'createPublicKey_publicKeyConfig' - A CloudFront public key configuration.
+newCreatePublicKey ::
+  -- | 'publicKeyConfig'
+  PublicKeyConfig ->
+  CreatePublicKey
+newCreatePublicKey pPublicKeyConfig_ =
+  CreatePublicKey'
+    { publicKeyConfig =
+        pPublicKeyConfig_
     }
 
+-- | A CloudFront public key configuration.
+createPublicKey_publicKeyConfig :: Lens.Lens' CreatePublicKey PublicKeyConfig
+createPublicKey_publicKeyConfig = Lens.lens (\CreatePublicKey' {publicKeyConfig} -> publicKeyConfig) (\s@CreatePublicKey' {} a -> s {publicKeyConfig = a} :: CreatePublicKey)
 
--- | The current version of the public key. For example: @E2QWRUHAPOMQZL@ .
-cpkrsETag :: Lens' CreatePublicKeyResponse (Maybe Text)
-cpkrsETag = lens _cpkrsETag (\ s a -> s{_cpkrsETag = a})
+instance Prelude.AWSRequest CreatePublicKey where
+  type Rs CreatePublicKey = CreatePublicKeyResponse
+  request = Request.postXML defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          CreatePublicKeyResponse'
+            Prelude.<$> (h Prelude..#? "ETag")
+            Prelude.<*> (Prelude.parseXML x)
+            Prelude.<*> (h Prelude..#? "Location")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | The fully qualified URI of the new public key resource just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/cloudfront-public-key/EDFDVBD632BHDS5@ .
-cpkrsLocation :: Lens' CreatePublicKeyResponse (Maybe Text)
-cpkrsLocation = lens _cpkrsLocation (\ s a -> s{_cpkrsLocation = a})
+instance Prelude.Hashable CreatePublicKey
 
--- | Returned when you add a public key.
-cpkrsPublicKey :: Lens' CreatePublicKeyResponse (Maybe PublicKey)
-cpkrsPublicKey = lens _cpkrsPublicKey (\ s a -> s{_cpkrsPublicKey = a})
+instance Prelude.NFData CreatePublicKey
 
--- | -- | The response status code.
-cpkrsResponseStatus :: Lens' CreatePublicKeyResponse Int
-cpkrsResponseStatus = lens _cpkrsResponseStatus (\ s a -> s{_cpkrsResponseStatus = a})
+instance Prelude.ToElement CreatePublicKey where
+  toElement CreatePublicKey' {..} =
+    Prelude.mkElement
+      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}PublicKeyConfig"
+      publicKeyConfig
 
-instance NFData CreatePublicKeyResponse where
+instance Prelude.ToHeaders CreatePublicKey where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath CreatePublicKey where
+  toPath = Prelude.const "/2020-05-31/public-key"
+
+instance Prelude.ToQuery CreatePublicKey where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreatePublicKeyResponse' smart constructor.
+data CreatePublicKeyResponse = CreatePublicKeyResponse'
+  { -- | The identifier for this version of the public key.
+    eTag :: Prelude.Maybe Prelude.Text,
+    -- | The public key.
+    publicKey :: Prelude.Maybe PublicKey,
+    -- | The URL of the public key.
+    location :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreatePublicKeyResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'eTag', 'createPublicKeyResponse_eTag' - The identifier for this version of the public key.
+--
+-- 'publicKey', 'createPublicKeyResponse_publicKey' - The public key.
+--
+-- 'location', 'createPublicKeyResponse_location' - The URL of the public key.
+--
+-- 'httpStatus', 'createPublicKeyResponse_httpStatus' - The response's http status code.
+newCreatePublicKeyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreatePublicKeyResponse
+newCreatePublicKeyResponse pHttpStatus_ =
+  CreatePublicKeyResponse'
+    { eTag = Prelude.Nothing,
+      publicKey = Prelude.Nothing,
+      location = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The identifier for this version of the public key.
+createPublicKeyResponse_eTag :: Lens.Lens' CreatePublicKeyResponse (Prelude.Maybe Prelude.Text)
+createPublicKeyResponse_eTag = Lens.lens (\CreatePublicKeyResponse' {eTag} -> eTag) (\s@CreatePublicKeyResponse' {} a -> s {eTag = a} :: CreatePublicKeyResponse)
+
+-- | The public key.
+createPublicKeyResponse_publicKey :: Lens.Lens' CreatePublicKeyResponse (Prelude.Maybe PublicKey)
+createPublicKeyResponse_publicKey = Lens.lens (\CreatePublicKeyResponse' {publicKey} -> publicKey) (\s@CreatePublicKeyResponse' {} a -> s {publicKey = a} :: CreatePublicKeyResponse)
+
+-- | The URL of the public key.
+createPublicKeyResponse_location :: Lens.Lens' CreatePublicKeyResponse (Prelude.Maybe Prelude.Text)
+createPublicKeyResponse_location = Lens.lens (\CreatePublicKeyResponse' {location} -> location) (\s@CreatePublicKeyResponse' {} a -> s {location = a} :: CreatePublicKeyResponse)
+
+-- | The response's http status code.
+createPublicKeyResponse_httpStatus :: Lens.Lens' CreatePublicKeyResponse Prelude.Int
+createPublicKeyResponse_httpStatus = Lens.lens (\CreatePublicKeyResponse' {httpStatus} -> httpStatus) (\s@CreatePublicKeyResponse' {} a -> s {httpStatus = a} :: CreatePublicKeyResponse)
+
+instance Prelude.NFData CreatePublicKeyResponse

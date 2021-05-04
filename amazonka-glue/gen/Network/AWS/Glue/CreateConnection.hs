@@ -1,133 +1,163 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.CreateConnection
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a connection definition in the Data Catalog.
---
---
 module Network.AWS.Glue.CreateConnection
-    (
-    -- * Creating a Request
-      createConnection
-    , CreateConnection
+  ( -- * Creating a Request
+    CreateConnection (..),
+    newCreateConnection,
+
     -- * Request Lenses
-    , ccCatalogId
-    , ccConnectionInput
+    createConnection_catalogId,
+    createConnection_connectionInput,
 
     -- * Destructuring the Response
-    , createConnectionResponse
-    , CreateConnectionResponse
+    CreateConnectionResponse (..),
+    newCreateConnectionResponse,
+
     -- * Response Lenses
-    , crsResponseStatus
-    ) where
+    createConnectionResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createConnection' smart constructor.
+-- | /See:/ 'newCreateConnection' smart constructor.
 data CreateConnection = CreateConnection'
-  { _ccCatalogId       :: !(Maybe Text)
-  , _ccConnectionInput :: !ConnectionInput
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the Data Catalog in which to create the connection. If none is
+    -- provided, the AWS account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | A @ConnectionInput@ object defining the connection to create.
+    connectionInput :: ConnectionInput
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateConnection' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateConnection' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccCatalogId' - The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ccConnectionInput' - A @ConnectionInput@ object defining the connection to create.
-createConnection
-    :: ConnectionInput -- ^ 'ccConnectionInput'
-    -> CreateConnection
-createConnection pConnectionInput_ =
+-- 'catalogId', 'createConnection_catalogId' - The ID of the Data Catalog in which to create the connection. If none is
+-- provided, the AWS account ID is used by default.
+--
+-- 'connectionInput', 'createConnection_connectionInput' - A @ConnectionInput@ object defining the connection to create.
+newCreateConnection ::
+  -- | 'connectionInput'
+  ConnectionInput ->
+  CreateConnection
+newCreateConnection pConnectionInput_ =
   CreateConnection'
-    {_ccCatalogId = Nothing, _ccConnectionInput = pConnectionInput_}
+    { catalogId = Prelude.Nothing,
+      connectionInput = pConnectionInput_
+    }
 
-
--- | The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
-ccCatalogId :: Lens' CreateConnection (Maybe Text)
-ccCatalogId = lens _ccCatalogId (\ s a -> s{_ccCatalogId = a})
+-- | The ID of the Data Catalog in which to create the connection. If none is
+-- provided, the AWS account ID is used by default.
+createConnection_catalogId :: Lens.Lens' CreateConnection (Prelude.Maybe Prelude.Text)
+createConnection_catalogId = Lens.lens (\CreateConnection' {catalogId} -> catalogId) (\s@CreateConnection' {} a -> s {catalogId = a} :: CreateConnection)
 
 -- | A @ConnectionInput@ object defining the connection to create.
-ccConnectionInput :: Lens' CreateConnection ConnectionInput
-ccConnectionInput = lens _ccConnectionInput (\ s a -> s{_ccConnectionInput = a})
+createConnection_connectionInput :: Lens.Lens' CreateConnection ConnectionInput
+createConnection_connectionInput = Lens.lens (\CreateConnection' {connectionInput} -> connectionInput) (\s@CreateConnection' {} a -> s {connectionInput = a} :: CreateConnection)
 
-instance AWSRequest CreateConnection where
-        type Rs CreateConnection = CreateConnectionResponse
-        request = postJSON glue
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 CreateConnectionResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest CreateConnection where
+  type Rs CreateConnection = CreateConnectionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          CreateConnectionResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateConnection where
+instance Prelude.Hashable CreateConnection
 
-instance NFData CreateConnection where
+instance Prelude.NFData CreateConnection
 
-instance ToHeaders CreateConnection where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.CreateConnection" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders CreateConnection where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("AWSGlue.CreateConnection" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON CreateConnection where
-        toJSON CreateConnection'{..}
-          = object
-              (catMaybes
-                 [("CatalogId" .=) <$> _ccCatalogId,
-                  Just ("ConnectionInput" .= _ccConnectionInput)])
+instance Prelude.ToJSON CreateConnection where
+  toJSON CreateConnection' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
+            Prelude.Just
+              ("ConnectionInput" Prelude..= connectionInput)
+          ]
+      )
 
-instance ToPath CreateConnection where
-        toPath = const "/"
+instance Prelude.ToPath CreateConnection where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateConnection where
-        toQuery = const mempty
+instance Prelude.ToQuery CreateConnection where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createConnectionResponse' smart constructor.
-newtype CreateConnectionResponse = CreateConnectionResponse'
-  { _crsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateConnectionResponse' smart constructor.
+data CreateConnectionResponse = CreateConnectionResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateConnectionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateConnectionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'crsResponseStatus' - -- | The response status code.
-createConnectionResponse
-    :: Int -- ^ 'crsResponseStatus'
-    -> CreateConnectionResponse
-createConnectionResponse pResponseStatus_ =
-  CreateConnectionResponse' {_crsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'createConnectionResponse_httpStatus' - The response's http status code.
+newCreateConnectionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateConnectionResponse
+newCreateConnectionResponse pHttpStatus_ =
+  CreateConnectionResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+createConnectionResponse_httpStatus :: Lens.Lens' CreateConnectionResponse Prelude.Int
+createConnectionResponse_httpStatus = Lens.lens (\CreateConnectionResponse' {httpStatus} -> httpStatus) (\s@CreateConnectionResponse' {} a -> s {httpStatus = a} :: CreateConnectionResponse)
 
--- | -- | The response status code.
-crsResponseStatus :: Lens' CreateConnectionResponse Int
-crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a})
-
-instance NFData CreateConnectionResponse where
+instance Prelude.NFData CreateConnectionResponse

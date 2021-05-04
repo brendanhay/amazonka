@@ -1,203 +1,292 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmHistory
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the history for the specified alarm. You can filter the results by date range or item type. If an alarm name is not specified, the histories for all alarms are returned.
---
+-- Retrieves the history for the specified alarm. You can filter the
+-- results by date range or item type. If an alarm name is not specified,
+-- the histories for either all metric alarms or all composite alarms are
+-- returned.
 --
 -- CloudWatch retains the history of an alarm even if you delete the alarm.
 --
---
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarmHistory
-    (
-    -- * Creating a Request
-      describeAlarmHistory
-    , DescribeAlarmHistory
+  ( -- * Creating a Request
+    DescribeAlarmHistory (..),
+    newDescribeAlarmHistory,
+
     -- * Request Lenses
-    , dahAlarmName
-    , dahHistoryItemType
-    , dahEndDate
-    , dahStartDate
-    , dahNextToken
-    , dahMaxRecords
+    describeAlarmHistory_nextToken,
+    describeAlarmHistory_startDate,
+    describeAlarmHistory_alarmTypes,
+    describeAlarmHistory_historyItemType,
+    describeAlarmHistory_scanBy,
+    describeAlarmHistory_alarmName,
+    describeAlarmHistory_endDate,
+    describeAlarmHistory_maxRecords,
 
     -- * Destructuring the Response
-    , describeAlarmHistoryResponse
-    , DescribeAlarmHistoryResponse
+    DescribeAlarmHistoryResponse (..),
+    newDescribeAlarmHistoryResponse,
+
     -- * Response Lenses
-    , dahrsAlarmHistoryItems
-    , dahrsNextToken
-    , dahrsResponseStatus
-    ) where
+    describeAlarmHistoryResponse_nextToken,
+    describeAlarmHistoryResponse_alarmHistoryItems,
+    describeAlarmHistoryResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudWatch.Types
-import Network.AWS.CloudWatch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeAlarmHistory' smart constructor.
+-- | /See:/ 'newDescribeAlarmHistory' smart constructor.
 data DescribeAlarmHistory = DescribeAlarmHistory'
-  { _dahAlarmName       :: !(Maybe Text)
-  , _dahHistoryItemType :: !(Maybe HistoryItemType)
-  , _dahEndDate         :: !(Maybe ISO8601)
-  , _dahStartDate       :: !(Maybe ISO8601)
-  , _dahNextToken       :: !(Maybe Text)
-  , _dahMaxRecords      :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token returned by a previous call to indicate that there is more
+    -- data available.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The starting date to retrieve alarm history.
+    startDate :: Prelude.Maybe Prelude.ISO8601,
+    -- | Use this parameter to specify whether you want the operation to return
+    -- metric alarms or composite alarms. If you omit this parameter, only
+    -- metric alarms are returned.
+    alarmTypes :: Prelude.Maybe [AlarmType],
+    -- | The type of alarm histories to retrieve.
+    historyItemType :: Prelude.Maybe HistoryItemType,
+    -- | Specified whether to return the newest or oldest alarm history first.
+    -- Specify @TimestampDescending@ to have the newest event history returned
+    -- first, and specify @TimestampAscending@ to have the oldest history
+    -- returned first.
+    scanBy :: Prelude.Maybe ScanBy,
+    -- | The name of the alarm.
+    alarmName :: Prelude.Maybe Prelude.Text,
+    -- | The ending date to retrieve alarm history.
+    endDate :: Prelude.Maybe Prelude.ISO8601,
+    -- | The maximum number of alarm history records to retrieve.
+    maxRecords :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAlarmHistory' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAlarmHistory' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dahAlarmName' - The name of the alarm.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dahHistoryItemType' - The type of alarm histories to retrieve.
+-- 'nextToken', 'describeAlarmHistory_nextToken' - The token returned by a previous call to indicate that there is more
+-- data available.
 --
--- * 'dahEndDate' - The ending date to retrieve alarm history.
+-- 'startDate', 'describeAlarmHistory_startDate' - The starting date to retrieve alarm history.
 --
--- * 'dahStartDate' - The starting date to retrieve alarm history.
+-- 'alarmTypes', 'describeAlarmHistory_alarmTypes' - Use this parameter to specify whether you want the operation to return
+-- metric alarms or composite alarms. If you omit this parameter, only
+-- metric alarms are returned.
 --
--- * 'dahNextToken' - The token returned by a previous call to indicate that there is more data available.
+-- 'historyItemType', 'describeAlarmHistory_historyItemType' - The type of alarm histories to retrieve.
 --
--- * 'dahMaxRecords' - The maximum number of alarm history records to retrieve.
-describeAlarmHistory
-    :: DescribeAlarmHistory
-describeAlarmHistory =
+-- 'scanBy', 'describeAlarmHistory_scanBy' - Specified whether to return the newest or oldest alarm history first.
+-- Specify @TimestampDescending@ to have the newest event history returned
+-- first, and specify @TimestampAscending@ to have the oldest history
+-- returned first.
+--
+-- 'alarmName', 'describeAlarmHistory_alarmName' - The name of the alarm.
+--
+-- 'endDate', 'describeAlarmHistory_endDate' - The ending date to retrieve alarm history.
+--
+-- 'maxRecords', 'describeAlarmHistory_maxRecords' - The maximum number of alarm history records to retrieve.
+newDescribeAlarmHistory ::
+  DescribeAlarmHistory
+newDescribeAlarmHistory =
   DescribeAlarmHistory'
-    { _dahAlarmName = Nothing
-    , _dahHistoryItemType = Nothing
-    , _dahEndDate = Nothing
-    , _dahStartDate = Nothing
-    , _dahNextToken = Nothing
-    , _dahMaxRecords = Nothing
+    { nextToken = Prelude.Nothing,
+      startDate = Prelude.Nothing,
+      alarmTypes = Prelude.Nothing,
+      historyItemType = Prelude.Nothing,
+      scanBy = Prelude.Nothing,
+      alarmName = Prelude.Nothing,
+      endDate = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
-
--- | The name of the alarm.
-dahAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
-dahAlarmName = lens _dahAlarmName (\ s a -> s{_dahAlarmName = a})
-
--- | The type of alarm histories to retrieve.
-dahHistoryItemType :: Lens' DescribeAlarmHistory (Maybe HistoryItemType)
-dahHistoryItemType = lens _dahHistoryItemType (\ s a -> s{_dahHistoryItemType = a})
-
--- | The ending date to retrieve alarm history.
-dahEndDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
-dahEndDate = lens _dahEndDate (\ s a -> s{_dahEndDate = a}) . mapping _Time
+-- | The token returned by a previous call to indicate that there is more
+-- data available.
+describeAlarmHistory_nextToken :: Lens.Lens' DescribeAlarmHistory (Prelude.Maybe Prelude.Text)
+describeAlarmHistory_nextToken = Lens.lens (\DescribeAlarmHistory' {nextToken} -> nextToken) (\s@DescribeAlarmHistory' {} a -> s {nextToken = a} :: DescribeAlarmHistory)
 
 -- | The starting date to retrieve alarm history.
-dahStartDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
-dahStartDate = lens _dahStartDate (\ s a -> s{_dahStartDate = a}) . mapping _Time
+describeAlarmHistory_startDate :: Lens.Lens' DescribeAlarmHistory (Prelude.Maybe Prelude.UTCTime)
+describeAlarmHistory_startDate = Lens.lens (\DescribeAlarmHistory' {startDate} -> startDate) (\s@DescribeAlarmHistory' {} a -> s {startDate = a} :: DescribeAlarmHistory) Prelude.. Lens.mapping Prelude._Time
 
--- | The token returned by a previous call to indicate that there is more data available.
-dahNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
-dahNextToken = lens _dahNextToken (\ s a -> s{_dahNextToken = a})
+-- | Use this parameter to specify whether you want the operation to return
+-- metric alarms or composite alarms. If you omit this parameter, only
+-- metric alarms are returned.
+describeAlarmHistory_alarmTypes :: Lens.Lens' DescribeAlarmHistory (Prelude.Maybe [AlarmType])
+describeAlarmHistory_alarmTypes = Lens.lens (\DescribeAlarmHistory' {alarmTypes} -> alarmTypes) (\s@DescribeAlarmHistory' {} a -> s {alarmTypes = a} :: DescribeAlarmHistory) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The type of alarm histories to retrieve.
+describeAlarmHistory_historyItemType :: Lens.Lens' DescribeAlarmHistory (Prelude.Maybe HistoryItemType)
+describeAlarmHistory_historyItemType = Lens.lens (\DescribeAlarmHistory' {historyItemType} -> historyItemType) (\s@DescribeAlarmHistory' {} a -> s {historyItemType = a} :: DescribeAlarmHistory)
+
+-- | Specified whether to return the newest or oldest alarm history first.
+-- Specify @TimestampDescending@ to have the newest event history returned
+-- first, and specify @TimestampAscending@ to have the oldest history
+-- returned first.
+describeAlarmHistory_scanBy :: Lens.Lens' DescribeAlarmHistory (Prelude.Maybe ScanBy)
+describeAlarmHistory_scanBy = Lens.lens (\DescribeAlarmHistory' {scanBy} -> scanBy) (\s@DescribeAlarmHistory' {} a -> s {scanBy = a} :: DescribeAlarmHistory)
+
+-- | The name of the alarm.
+describeAlarmHistory_alarmName :: Lens.Lens' DescribeAlarmHistory (Prelude.Maybe Prelude.Text)
+describeAlarmHistory_alarmName = Lens.lens (\DescribeAlarmHistory' {alarmName} -> alarmName) (\s@DescribeAlarmHistory' {} a -> s {alarmName = a} :: DescribeAlarmHistory)
+
+-- | The ending date to retrieve alarm history.
+describeAlarmHistory_endDate :: Lens.Lens' DescribeAlarmHistory (Prelude.Maybe Prelude.UTCTime)
+describeAlarmHistory_endDate = Lens.lens (\DescribeAlarmHistory' {endDate} -> endDate) (\s@DescribeAlarmHistory' {} a -> s {endDate = a} :: DescribeAlarmHistory) Prelude.. Lens.mapping Prelude._Time
 
 -- | The maximum number of alarm history records to retrieve.
-dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Natural)
-dahMaxRecords = lens _dahMaxRecords (\ s a -> s{_dahMaxRecords = a}) . mapping _Nat
+describeAlarmHistory_maxRecords :: Lens.Lens' DescribeAlarmHistory (Prelude.Maybe Prelude.Natural)
+describeAlarmHistory_maxRecords = Lens.lens (\DescribeAlarmHistory' {maxRecords} -> maxRecords) (\s@DescribeAlarmHistory' {} a -> s {maxRecords = a} :: DescribeAlarmHistory)
 
-instance AWSPager DescribeAlarmHistory where
-        page rq rs
-          | stop (rs ^. dahrsNextToken) = Nothing
-          | stop (rs ^. dahrsAlarmHistoryItems) = Nothing
-          | otherwise =
-            Just $ rq & dahNextToken .~ rs ^. dahrsNextToken
+instance Pager.AWSPager DescribeAlarmHistory where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeAlarmHistoryResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeAlarmHistoryResponse_alarmHistoryItems
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeAlarmHistory_nextToken
+          Lens..~ rs
+          Lens.^? describeAlarmHistoryResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest DescribeAlarmHistory where
-        type Rs DescribeAlarmHistory =
-             DescribeAlarmHistoryResponse
-        request = postQuery cloudWatch
-        response
-          = receiveXMLWrapper "DescribeAlarmHistoryResult"
-              (\ s h x ->
-                 DescribeAlarmHistoryResponse' <$>
-                   (x .@? "AlarmHistoryItems" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (x .@? "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeAlarmHistory where
+  type
+    Rs DescribeAlarmHistory =
+      DescribeAlarmHistoryResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeAlarmHistoryResult"
+      ( \s h x ->
+          DescribeAlarmHistoryResponse'
+            Prelude.<$> (x Prelude..@? "NextToken")
+            Prelude.<*> ( x Prelude..@? "AlarmHistoryItems"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeAlarmHistory where
+instance Prelude.Hashable DescribeAlarmHistory
 
-instance NFData DescribeAlarmHistory where
+instance Prelude.NFData DescribeAlarmHistory
 
-instance ToHeaders DescribeAlarmHistory where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DescribeAlarmHistory where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeAlarmHistory where
-        toPath = const "/"
+instance Prelude.ToPath DescribeAlarmHistory where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeAlarmHistory where
-        toQuery DescribeAlarmHistory'{..}
-          = mconcat
-              ["Action" =: ("DescribeAlarmHistory" :: ByteString),
-               "Version" =: ("2010-08-01" :: ByteString),
-               "AlarmName" =: _dahAlarmName,
-               "HistoryItemType" =: _dahHistoryItemType,
-               "EndDate" =: _dahEndDate,
-               "StartDate" =: _dahStartDate,
-               "NextToken" =: _dahNextToken,
-               "MaxRecords" =: _dahMaxRecords]
+instance Prelude.ToQuery DescribeAlarmHistory where
+  toQuery DescribeAlarmHistory' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DescribeAlarmHistory" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-08-01" :: Prelude.ByteString),
+        "NextToken" Prelude.=: nextToken,
+        "StartDate" Prelude.=: startDate,
+        "AlarmTypes"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "member"
+                Prelude.<$> alarmTypes
+            ),
+        "HistoryItemType" Prelude.=: historyItemType,
+        "ScanBy" Prelude.=: scanBy,
+        "AlarmName" Prelude.=: alarmName,
+        "EndDate" Prelude.=: endDate,
+        "MaxRecords" Prelude.=: maxRecords
+      ]
 
--- | /See:/ 'describeAlarmHistoryResponse' smart constructor.
+-- | /See:/ 'newDescribeAlarmHistoryResponse' smart constructor.
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
-  { _dahrsAlarmHistoryItems :: !(Maybe [AlarmHistoryItem])
-  , _dahrsNextToken         :: !(Maybe Text)
-  , _dahrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token that marks the start of the next batch of returned results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The alarm histories, in JSON format.
+    alarmHistoryItems :: Prelude.Maybe [AlarmHistoryItem],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAlarmHistoryResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAlarmHistoryResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dahrsAlarmHistoryItems' - The alarm histories, in JSON format.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dahrsNextToken' - The token that marks the start of the next batch of returned results.
+-- 'nextToken', 'describeAlarmHistoryResponse_nextToken' - The token that marks the start of the next batch of returned results.
 --
--- * 'dahrsResponseStatus' - -- | The response status code.
-describeAlarmHistoryResponse
-    :: Int -- ^ 'dahrsResponseStatus'
-    -> DescribeAlarmHistoryResponse
-describeAlarmHistoryResponse pResponseStatus_ =
+-- 'alarmHistoryItems', 'describeAlarmHistoryResponse_alarmHistoryItems' - The alarm histories, in JSON format.
+--
+-- 'httpStatus', 'describeAlarmHistoryResponse_httpStatus' - The response's http status code.
+newDescribeAlarmHistoryResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeAlarmHistoryResponse
+newDescribeAlarmHistoryResponse pHttpStatus_ =
   DescribeAlarmHistoryResponse'
-    { _dahrsAlarmHistoryItems = Nothing
-    , _dahrsNextToken = Nothing
-    , _dahrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      alarmHistoryItems = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The token that marks the start of the next batch of returned results.
+describeAlarmHistoryResponse_nextToken :: Lens.Lens' DescribeAlarmHistoryResponse (Prelude.Maybe Prelude.Text)
+describeAlarmHistoryResponse_nextToken = Lens.lens (\DescribeAlarmHistoryResponse' {nextToken} -> nextToken) (\s@DescribeAlarmHistoryResponse' {} a -> s {nextToken = a} :: DescribeAlarmHistoryResponse)
 
 -- | The alarm histories, in JSON format.
-dahrsAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
-dahrsAlarmHistoryItems = lens _dahrsAlarmHistoryItems (\ s a -> s{_dahrsAlarmHistoryItems = a}) . _Default . _Coerce
+describeAlarmHistoryResponse_alarmHistoryItems :: Lens.Lens' DescribeAlarmHistoryResponse (Prelude.Maybe [AlarmHistoryItem])
+describeAlarmHistoryResponse_alarmHistoryItems = Lens.lens (\DescribeAlarmHistoryResponse' {alarmHistoryItems} -> alarmHistoryItems) (\s@DescribeAlarmHistoryResponse' {} a -> s {alarmHistoryItems = a} :: DescribeAlarmHistoryResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The token that marks the start of the next batch of returned results.
-dahrsNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
-dahrsNextToken = lens _dahrsNextToken (\ s a -> s{_dahrsNextToken = a})
+-- | The response's http status code.
+describeAlarmHistoryResponse_httpStatus :: Lens.Lens' DescribeAlarmHistoryResponse Prelude.Int
+describeAlarmHistoryResponse_httpStatus = Lens.lens (\DescribeAlarmHistoryResponse' {httpStatus} -> httpStatus) (\s@DescribeAlarmHistoryResponse' {} a -> s {httpStatus = a} :: DescribeAlarmHistoryResponse)
 
--- | -- | The response status code.
-dahrsResponseStatus :: Lens' DescribeAlarmHistoryResponse Int
-dahrsResponseStatus = lens _dahrsResponseStatus (\ s a -> s{_dahrsResponseStatus = a})
-
-instance NFData DescribeAlarmHistoryResponse where
+instance Prelude.NFData DescribeAlarmHistoryResponse

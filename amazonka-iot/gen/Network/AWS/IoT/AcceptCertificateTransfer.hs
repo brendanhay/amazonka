@@ -1,122 +1,143 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.AcceptCertificateTransfer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Accepts a pending certificate transfer. The default state of the certificate is INACTIVE.
+-- Accepts a pending certificate transfer. The default state of the
+-- certificate is INACTIVE.
 --
---
--- To check for pending certificate transfers, call 'ListCertificates' to enumerate your certificates.
---
+-- To check for pending certificate transfers, call ListCertificates to
+-- enumerate your certificates.
 module Network.AWS.IoT.AcceptCertificateTransfer
-    (
-    -- * Creating a Request
-      acceptCertificateTransfer
-    , AcceptCertificateTransfer
+  ( -- * Creating a Request
+    AcceptCertificateTransfer (..),
+    newAcceptCertificateTransfer,
+
     -- * Request Lenses
-    , actSetAsActive
-    , actCertificateId
+    acceptCertificateTransfer_setAsActive,
+    acceptCertificateTransfer_certificateId,
 
     -- * Destructuring the Response
-    , acceptCertificateTransferResponse
-    , AcceptCertificateTransferResponse
-    ) where
+    AcceptCertificateTransferResponse (..),
+    newAcceptCertificateTransferResponse,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the AcceptCertificateTransfer operation.
 --
---
---
--- /See:/ 'acceptCertificateTransfer' smart constructor.
+-- /See:/ 'newAcceptCertificateTransfer' smart constructor.
 data AcceptCertificateTransfer = AcceptCertificateTransfer'
-  { _actSetAsActive   :: !(Maybe Bool)
-  , _actCertificateId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Specifies whether the certificate is active.
+    setAsActive :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the certificate. (The last part of the certificate ARN
+    -- contains the certificate ID.)
+    certificateId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AcceptCertificateTransfer' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AcceptCertificateTransfer' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'actSetAsActive' - Specifies whether the certificate is active.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'actCertificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
-acceptCertificateTransfer
-    :: Text -- ^ 'actCertificateId'
-    -> AcceptCertificateTransfer
-acceptCertificateTransfer pCertificateId_ =
+-- 'setAsActive', 'acceptCertificateTransfer_setAsActive' - Specifies whether the certificate is active.
+--
+-- 'certificateId', 'acceptCertificateTransfer_certificateId' - The ID of the certificate. (The last part of the certificate ARN
+-- contains the certificate ID.)
+newAcceptCertificateTransfer ::
+  -- | 'certificateId'
+  Prelude.Text ->
+  AcceptCertificateTransfer
+newAcceptCertificateTransfer pCertificateId_ =
   AcceptCertificateTransfer'
-    {_actSetAsActive = Nothing, _actCertificateId = pCertificateId_}
-
+    { setAsActive =
+        Prelude.Nothing,
+      certificateId = pCertificateId_
+    }
 
 -- | Specifies whether the certificate is active.
-actSetAsActive :: Lens' AcceptCertificateTransfer (Maybe Bool)
-actSetAsActive = lens _actSetAsActive (\ s a -> s{_actSetAsActive = a})
+acceptCertificateTransfer_setAsActive :: Lens.Lens' AcceptCertificateTransfer (Prelude.Maybe Prelude.Bool)
+acceptCertificateTransfer_setAsActive = Lens.lens (\AcceptCertificateTransfer' {setAsActive} -> setAsActive) (\s@AcceptCertificateTransfer' {} a -> s {setAsActive = a} :: AcceptCertificateTransfer)
 
--- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
-actCertificateId :: Lens' AcceptCertificateTransfer Text
-actCertificateId = lens _actCertificateId (\ s a -> s{_actCertificateId = a})
+-- | The ID of the certificate. (The last part of the certificate ARN
+-- contains the certificate ID.)
+acceptCertificateTransfer_certificateId :: Lens.Lens' AcceptCertificateTransfer Prelude.Text
+acceptCertificateTransfer_certificateId = Lens.lens (\AcceptCertificateTransfer' {certificateId} -> certificateId) (\s@AcceptCertificateTransfer' {} a -> s {certificateId = a} :: AcceptCertificateTransfer)
 
-instance AWSRequest AcceptCertificateTransfer where
-        type Rs AcceptCertificateTransfer =
-             AcceptCertificateTransferResponse
-        request = patchJSON ioT
-        response
-          = receiveNull AcceptCertificateTransferResponse'
+instance Prelude.AWSRequest AcceptCertificateTransfer where
+  type
+    Rs AcceptCertificateTransfer =
+      AcceptCertificateTransferResponse
+  request = Request.patchJSON defaultService
+  response =
+    Response.receiveNull
+      AcceptCertificateTransferResponse'
 
-instance Hashable AcceptCertificateTransfer where
+instance Prelude.Hashable AcceptCertificateTransfer
 
-instance NFData AcceptCertificateTransfer where
+instance Prelude.NFData AcceptCertificateTransfer
 
-instance ToHeaders AcceptCertificateTransfer where
-        toHeaders = const mempty
+instance Prelude.ToHeaders AcceptCertificateTransfer where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON AcceptCertificateTransfer where
-        toJSON = const (Object mempty)
+instance Prelude.ToJSON AcceptCertificateTransfer where
+  toJSON =
+    Prelude.const (Prelude.Object Prelude.mempty)
 
-instance ToPath AcceptCertificateTransfer where
-        toPath AcceptCertificateTransfer'{..}
-          = mconcat
-              ["/accept-certificate-transfer/",
-               toBS _actCertificateId]
+instance Prelude.ToPath AcceptCertificateTransfer where
+  toPath AcceptCertificateTransfer' {..} =
+    Prelude.mconcat
+      [ "/accept-certificate-transfer/",
+        Prelude.toBS certificateId
+      ]
 
-instance ToQuery AcceptCertificateTransfer where
-        toQuery AcceptCertificateTransfer'{..}
-          = mconcat ["setAsActive" =: _actSetAsActive]
+instance Prelude.ToQuery AcceptCertificateTransfer where
+  toQuery AcceptCertificateTransfer' {..} =
+    Prelude.mconcat
+      ["setAsActive" Prelude.=: setAsActive]
 
--- | /See:/ 'acceptCertificateTransferResponse' smart constructor.
-data AcceptCertificateTransferResponse =
-  AcceptCertificateTransferResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newAcceptCertificateTransferResponse' smart constructor.
+data AcceptCertificateTransferResponse = AcceptCertificateTransferResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AcceptCertificateTransferResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AcceptCertificateTransferResponse' with all optional fields omitted.
 --
-acceptCertificateTransferResponse
-    :: AcceptCertificateTransferResponse
-acceptCertificateTransferResponse = AcceptCertificateTransferResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newAcceptCertificateTransferResponse ::
+  AcceptCertificateTransferResponse
+newAcceptCertificateTransferResponse =
+  AcceptCertificateTransferResponse'
 
-
-instance NFData AcceptCertificateTransferResponse
-         where
+instance
+  Prelude.NFData
+    AcceptCertificateTransferResponse

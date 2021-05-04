@@ -1,188 +1,276 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeMaintenanceWindowTargets
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the targets registered with the Maintenance Window.
+-- Lists the targets registered with the maintenance window.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeMaintenanceWindowTargets
-    (
-    -- * Creating a Request
-      describeMaintenanceWindowTargets
-    , DescribeMaintenanceWindowTargets
+  ( -- * Creating a Request
+    DescribeMaintenanceWindowTargets (..),
+    newDescribeMaintenanceWindowTargets,
+
     -- * Request Lenses
-    , dmwtFilters
-    , dmwtNextToken
-    , dmwtMaxResults
-    , dmwtWindowId
+    describeMaintenanceWindowTargets_nextToken,
+    describeMaintenanceWindowTargets_maxResults,
+    describeMaintenanceWindowTargets_filters,
+    describeMaintenanceWindowTargets_windowId,
 
     -- * Destructuring the Response
-    , describeMaintenanceWindowTargetsResponse
-    , DescribeMaintenanceWindowTargetsResponse
+    DescribeMaintenanceWindowTargetsResponse (..),
+    newDescribeMaintenanceWindowTargetsResponse,
+
     -- * Response Lenses
-    , dmwtrsNextToken
-    , dmwtrsTargets
-    , dmwtrsResponseStatus
-    ) where
+    describeMaintenanceWindowTargetsResponse_nextToken,
+    describeMaintenanceWindowTargetsResponse_targets,
+    describeMaintenanceWindowTargetsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'describeMaintenanceWindowTargets' smart constructor.
+-- | /See:/ 'newDescribeMaintenanceWindowTargets' smart constructor.
 data DescribeMaintenanceWindowTargets = DescribeMaintenanceWindowTargets'
-  { _dmwtFilters    :: !(Maybe [MaintenanceWindowFilter])
-  , _dmwtNextToken  :: !(Maybe Text)
-  , _dmwtMaxResults :: !(Maybe Nat)
-  , _dmwtWindowId   :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return for this call. The call also
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Optional filters that can be used to narrow down the scope of the
+    -- returned window targets. The supported filter keys are Type,
+    -- WindowTargetId and OwnerInformation.
+    filters :: Prelude.Maybe [MaintenanceWindowFilter],
+    -- | The ID of the maintenance window whose targets should be retrieved.
+    windowId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeMaintenanceWindowTargets' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeMaintenanceWindowTargets' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmwtFilters' - Optional filters that can be used to narrow down the scope of the returned window targets. The supported filter keys are Type, WindowTargetId and OwnerInformation.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dmwtNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- 'nextToken', 'describeMaintenanceWindowTargets_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
--- * 'dmwtMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- 'maxResults', 'describeMaintenanceWindowTargets_maxResults' - The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
 --
--- * 'dmwtWindowId' - The ID of the Maintenance Window whose targets should be retrieved.
-describeMaintenanceWindowTargets
-    :: Text -- ^ 'dmwtWindowId'
-    -> DescribeMaintenanceWindowTargets
-describeMaintenanceWindowTargets pWindowId_ =
+-- 'filters', 'describeMaintenanceWindowTargets_filters' - Optional filters that can be used to narrow down the scope of the
+-- returned window targets. The supported filter keys are Type,
+-- WindowTargetId and OwnerInformation.
+--
+-- 'windowId', 'describeMaintenanceWindowTargets_windowId' - The ID of the maintenance window whose targets should be retrieved.
+newDescribeMaintenanceWindowTargets ::
+  -- | 'windowId'
+  Prelude.Text ->
+  DescribeMaintenanceWindowTargets
+newDescribeMaintenanceWindowTargets pWindowId_ =
   DescribeMaintenanceWindowTargets'
-    { _dmwtFilters = Nothing
-    , _dmwtNextToken = Nothing
-    , _dmwtMaxResults = Nothing
-    , _dmwtWindowId = pWindowId_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      windowId = pWindowId_
     }
 
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeMaintenanceWindowTargets_nextToken :: Lens.Lens' DescribeMaintenanceWindowTargets (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindowTargets_nextToken = Lens.lens (\DescribeMaintenanceWindowTargets' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowTargets' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowTargets)
 
--- | Optional filters that can be used to narrow down the scope of the returned window targets. The supported filter keys are Type, WindowTargetId and OwnerInformation.
-dmwtFilters :: Lens' DescribeMaintenanceWindowTargets [MaintenanceWindowFilter]
-dmwtFilters = lens _dmwtFilters (\ s a -> s{_dmwtFilters = a}) . _Default . _Coerce
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+describeMaintenanceWindowTargets_maxResults :: Lens.Lens' DescribeMaintenanceWindowTargets (Prelude.Maybe Prelude.Natural)
+describeMaintenanceWindowTargets_maxResults = Lens.lens (\DescribeMaintenanceWindowTargets' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowTargets' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowTargets)
 
--- | The token for the next set of items to return. (You received this token from a previous call.)
-dmwtNextToken :: Lens' DescribeMaintenanceWindowTargets (Maybe Text)
-dmwtNextToken = lens _dmwtNextToken (\ s a -> s{_dmwtNextToken = a})
+-- | Optional filters that can be used to narrow down the scope of the
+-- returned window targets. The supported filter keys are Type,
+-- WindowTargetId and OwnerInformation.
+describeMaintenanceWindowTargets_filters :: Lens.Lens' DescribeMaintenanceWindowTargets (Prelude.Maybe [MaintenanceWindowFilter])
+describeMaintenanceWindowTargets_filters = Lens.lens (\DescribeMaintenanceWindowTargets' {filters} -> filters) (\s@DescribeMaintenanceWindowTargets' {} a -> s {filters = a} :: DescribeMaintenanceWindowTargets) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-dmwtMaxResults :: Lens' DescribeMaintenanceWindowTargets (Maybe Natural)
-dmwtMaxResults = lens _dmwtMaxResults (\ s a -> s{_dmwtMaxResults = a}) . mapping _Nat
+-- | The ID of the maintenance window whose targets should be retrieved.
+describeMaintenanceWindowTargets_windowId :: Lens.Lens' DescribeMaintenanceWindowTargets Prelude.Text
+describeMaintenanceWindowTargets_windowId = Lens.lens (\DescribeMaintenanceWindowTargets' {windowId} -> windowId) (\s@DescribeMaintenanceWindowTargets' {} a -> s {windowId = a} :: DescribeMaintenanceWindowTargets)
 
--- | The ID of the Maintenance Window whose targets should be retrieved.
-dmwtWindowId :: Lens' DescribeMaintenanceWindowTargets Text
-dmwtWindowId = lens _dmwtWindowId (\ s a -> s{_dmwtWindowId = a})
+instance
+  Pager.AWSPager
+    DescribeMaintenanceWindowTargets
+  where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeMaintenanceWindowTargetsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeMaintenanceWindowTargetsResponse_targets
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeMaintenanceWindowTargets_nextToken
+          Lens..~ rs
+          Lens.^? describeMaintenanceWindowTargetsResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest DescribeMaintenanceWindowTargets
-         where
-        type Rs DescribeMaintenanceWindowTargets =
-             DescribeMaintenanceWindowTargetsResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeMaintenanceWindowTargetsResponse' <$>
-                   (x .?> "NextToken") <*> (x .?> "Targets" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    DescribeMaintenanceWindowTargets
+  where
+  type
+    Rs DescribeMaintenanceWindowTargets =
+      DescribeMaintenanceWindowTargetsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeMaintenanceWindowTargetsResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> (x Prelude..?> "Targets" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeMaintenanceWindowTargets
-         where
+instance
+  Prelude.Hashable
+    DescribeMaintenanceWindowTargets
 
-instance NFData DescribeMaintenanceWindowTargets
-         where
+instance
+  Prelude.NFData
+    DescribeMaintenanceWindowTargets
 
-instance ToHeaders DescribeMaintenanceWindowTargets
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.DescribeMaintenanceWindowTargets" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Prelude.ToHeaders
+    DescribeMaintenanceWindowTargets
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonSSM.DescribeMaintenanceWindowTargets" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DescribeMaintenanceWindowTargets
-         where
-        toJSON DescribeMaintenanceWindowTargets'{..}
-          = object
-              (catMaybes
-                 [("Filters" .=) <$> _dmwtFilters,
-                  ("NextToken" .=) <$> _dmwtNextToken,
-                  ("MaxResults" .=) <$> _dmwtMaxResults,
-                  Just ("WindowId" .= _dmwtWindowId)])
+instance
+  Prelude.ToJSON
+    DescribeMaintenanceWindowTargets
+  where
+  toJSON DescribeMaintenanceWindowTargets' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
+            ("Filters" Prelude..=) Prelude.<$> filters,
+            Prelude.Just ("WindowId" Prelude..= windowId)
+          ]
+      )
 
-instance ToPath DescribeMaintenanceWindowTargets
-         where
-        toPath = const "/"
+instance
+  Prelude.ToPath
+    DescribeMaintenanceWindowTargets
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeMaintenanceWindowTargets
-         where
-        toQuery = const mempty
+instance
+  Prelude.ToQuery
+    DescribeMaintenanceWindowTargets
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeMaintenanceWindowTargetsResponse' smart constructor.
+-- | /See:/ 'newDescribeMaintenanceWindowTargetsResponse' smart constructor.
 data DescribeMaintenanceWindowTargetsResponse = DescribeMaintenanceWindowTargetsResponse'
-  { _dmwtrsNextToken      :: !(Maybe Text)
-  , _dmwtrsTargets        :: !(Maybe [MaintenanceWindowTarget])
-  , _dmwtrsResponseStatus :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The token to use when requesting the next set of items. If there are no
+    -- additional items to return, the string is empty.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the targets in the maintenance window.
+    targets :: Prelude.Maybe [MaintenanceWindowTarget],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeMaintenanceWindowTargetsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeMaintenanceWindowTargetsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmwtrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dmwtrsTargets' - Information about the targets in the Maintenance Window.
+-- 'nextToken', 'describeMaintenanceWindowTargetsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
 --
--- * 'dmwtrsResponseStatus' - -- | The response status code.
-describeMaintenanceWindowTargetsResponse
-    :: Int -- ^ 'dmwtrsResponseStatus'
-    -> DescribeMaintenanceWindowTargetsResponse
-describeMaintenanceWindowTargetsResponse pResponseStatus_ =
-  DescribeMaintenanceWindowTargetsResponse'
-    { _dmwtrsNextToken = Nothing
-    , _dmwtrsTargets = Nothing
-    , _dmwtrsResponseStatus = pResponseStatus_
-    }
+-- 'targets', 'describeMaintenanceWindowTargetsResponse_targets' - Information about the targets in the maintenance window.
+--
+-- 'httpStatus', 'describeMaintenanceWindowTargetsResponse_httpStatus' - The response's http status code.
+newDescribeMaintenanceWindowTargetsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeMaintenanceWindowTargetsResponse
+newDescribeMaintenanceWindowTargetsResponse
+  pHttpStatus_ =
+    DescribeMaintenanceWindowTargetsResponse'
+      { nextToken =
+          Prelude.Nothing,
+        targets = Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
+-- | The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
+describeMaintenanceWindowTargetsResponse_nextToken :: Lens.Lens' DescribeMaintenanceWindowTargetsResponse (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindowTargetsResponse_nextToken = Lens.lens (\DescribeMaintenanceWindowTargetsResponse' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowTargetsResponse' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowTargetsResponse)
 
--- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-dmwtrsNextToken :: Lens' DescribeMaintenanceWindowTargetsResponse (Maybe Text)
-dmwtrsNextToken = lens _dmwtrsNextToken (\ s a -> s{_dmwtrsNextToken = a})
+-- | Information about the targets in the maintenance window.
+describeMaintenanceWindowTargetsResponse_targets :: Lens.Lens' DescribeMaintenanceWindowTargetsResponse (Prelude.Maybe [MaintenanceWindowTarget])
+describeMaintenanceWindowTargetsResponse_targets = Lens.lens (\DescribeMaintenanceWindowTargetsResponse' {targets} -> targets) (\s@DescribeMaintenanceWindowTargetsResponse' {} a -> s {targets = a} :: DescribeMaintenanceWindowTargetsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | Information about the targets in the Maintenance Window.
-dmwtrsTargets :: Lens' DescribeMaintenanceWindowTargetsResponse [MaintenanceWindowTarget]
-dmwtrsTargets = lens _dmwtrsTargets (\ s a -> s{_dmwtrsTargets = a}) . _Default . _Coerce
+-- | The response's http status code.
+describeMaintenanceWindowTargetsResponse_httpStatus :: Lens.Lens' DescribeMaintenanceWindowTargetsResponse Prelude.Int
+describeMaintenanceWindowTargetsResponse_httpStatus = Lens.lens (\DescribeMaintenanceWindowTargetsResponse' {httpStatus} -> httpStatus) (\s@DescribeMaintenanceWindowTargetsResponse' {} a -> s {httpStatus = a} :: DescribeMaintenanceWindowTargetsResponse)
 
--- | -- | The response status code.
-dmwtrsResponseStatus :: Lens' DescribeMaintenanceWindowTargetsResponse Int
-dmwtrsResponseStatus = lens _dmwtrsResponseStatus (\ s a -> s{_dmwtrsResponseStatus = a})
-
-instance NFData
-           DescribeMaintenanceWindowTargetsResponse
-         where
+instance
+  Prelude.NFData
+    DescribeMaintenanceWindowTargetsResponse

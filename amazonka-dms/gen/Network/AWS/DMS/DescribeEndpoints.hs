@@ -1,182 +1,265 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeEndpoints
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the endpoints for your account in the current region.
---
---
+-- Returns information about the endpoints for your account in the current
+-- region.
 --
 -- This operation returns paginated results.
 module Network.AWS.DMS.DescribeEndpoints
-    (
-    -- * Creating a Request
-      describeEndpoints
-    , DescribeEndpoints
+  ( -- * Creating a Request
+    DescribeEndpoints (..),
+    newDescribeEndpoints,
+
     -- * Request Lenses
-    , desFilters
-    , desMarker
-    , desMaxRecords
+    describeEndpoints_filters,
+    describeEndpoints_marker,
+    describeEndpoints_maxRecords,
 
     -- * Destructuring the Response
-    , describeEndpointsResponse
-    , DescribeEndpointsResponse
+    DescribeEndpointsResponse (..),
+    newDescribeEndpointsResponse,
+
     -- * Response Lenses
-    , dersMarker
-    , dersEndpoints
-    , dersResponseStatus
-    ) where
+    describeEndpointsResponse_endpoints,
+    describeEndpointsResponse_marker,
+    describeEndpointsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DMS.Types
-import Network.AWS.DMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeEndpoints' smart constructor.
+-- /See:/ 'newDescribeEndpoints' smart constructor.
 data DescribeEndpoints = DescribeEndpoints'
-  { _desFilters    :: !(Maybe [Filter])
-  , _desMarker     :: !(Maybe Text)
-  , _desMaxRecords :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeEndpoints' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'desFilters' - Filters applied to the describe action. Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name
---
--- * 'desMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- * 'desMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-describeEndpoints
-    :: DescribeEndpoints
-describeEndpoints =
-  DescribeEndpoints'
-    {_desFilters = Nothing, _desMarker = Nothing, _desMaxRecords = Nothing}
-
-
--- | Filters applied to the describe action. Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name
-desFilters :: Lens' DescribeEndpoints [Filter]
-desFilters = lens _desFilters (\ s a -> s{_desFilters = a}) . _Default . _Coerce
-
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-desMarker :: Lens' DescribeEndpoints (Maybe Text)
-desMarker = lens _desMarker (\ s a -> s{_desMarker = a})
-
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-desMaxRecords :: Lens' DescribeEndpoints (Maybe Int)
-desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a})
-
-instance AWSPager DescribeEndpoints where
-        page rq rs
-          | stop (rs ^. dersMarker) = Nothing
-          | stop (rs ^. dersEndpoints) = Nothing
-          | otherwise =
-            Just $ rq & desMarker .~ rs ^. dersMarker
-
-instance AWSRequest DescribeEndpoints where
-        type Rs DescribeEndpoints = DescribeEndpointsResponse
-        request = postJSON dms
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeEndpointsResponse' <$>
-                   (x .?> "Marker") <*> (x .?> "Endpoints" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeEndpoints where
-
-instance NFData DescribeEndpoints where
-
-instance ToHeaders DescribeEndpoints where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonDMSv20160101.DescribeEndpoints" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeEndpoints where
-        toJSON DescribeEndpoints'{..}
-          = object
-              (catMaybes
-                 [("Filters" .=) <$> _desFilters,
-                  ("Marker" .=) <$> _desMarker,
-                  ("MaxRecords" .=) <$> _desMaxRecords])
-
-instance ToPath DescribeEndpoints where
-        toPath = const "/"
-
-instance ToQuery DescribeEndpoints where
-        toQuery = const mempty
+  { -- | Filters applied to the endpoints.
+    --
+    -- Valid filter names: endpoint-arn | endpoint-type | endpoint-id |
+    -- engine-name
+    filters :: Prelude.Maybe [Filter],
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified @MaxRecords@ value, a pagination token
+    -- called a marker is included in the response so that the remaining
+    -- results can be retrieved.
+    --
+    -- Default: 100
+    --
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
+-- Create a value of 'DescribeEndpoints' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'describeEndpointsResponse' smart constructor.
-data DescribeEndpointsResponse = DescribeEndpointsResponse'
-  { _dersMarker         :: !(Maybe Text)
-  , _dersEndpoints      :: !(Maybe [Endpoint])
-  , _dersResponseStatus :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeEndpointsResponse' with the minimum fields required to make a request.
+-- 'filters', 'describeEndpoints_filters' - Filters applied to the endpoints.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Valid filter names: endpoint-arn | endpoint-type | endpoint-id |
+-- engine-name
 --
--- * 'dersMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- 'marker', 'describeEndpoints_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 --
--- * 'dersEndpoints' - Endpoint description.
+-- 'maxRecords', 'describeEndpoints_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results can be retrieved.
 --
--- * 'dersResponseStatus' - -- | The response status code.
-describeEndpointsResponse
-    :: Int -- ^ 'dersResponseStatus'
-    -> DescribeEndpointsResponse
-describeEndpointsResponse pResponseStatus_ =
-  DescribeEndpointsResponse'
-    { _dersMarker = Nothing
-    , _dersEndpoints = Nothing
-    , _dersResponseStatus = pResponseStatus_
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+newDescribeEndpoints ::
+  DescribeEndpoints
+newDescribeEndpoints =
+  DescribeEndpoints'
+    { filters = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
+-- | Filters applied to the endpoints.
+--
+-- Valid filter names: endpoint-arn | endpoint-type | endpoint-id |
+-- engine-name
+describeEndpoints_filters :: Lens.Lens' DescribeEndpoints (Prelude.Maybe [Filter])
+describeEndpoints_filters = Lens.lens (\DescribeEndpoints' {filters} -> filters) (\s@DescribeEndpoints' {} a -> s {filters = a} :: DescribeEndpoints) Prelude.. Lens.mapping Prelude._Coerce
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-dersMarker :: Lens' DescribeEndpointsResponse (Maybe Text)
-dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a})
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeEndpoints_marker :: Lens.Lens' DescribeEndpoints (Prelude.Maybe Prelude.Text)
+describeEndpoints_marker = Lens.lens (\DescribeEndpoints' {marker} -> marker) (\s@DescribeEndpoints' {} a -> s {marker = a} :: DescribeEndpoints)
+
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results can be retrieved.
+--
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+describeEndpoints_maxRecords :: Lens.Lens' DescribeEndpoints (Prelude.Maybe Prelude.Int)
+describeEndpoints_maxRecords = Lens.lens (\DescribeEndpoints' {maxRecords} -> maxRecords) (\s@DescribeEndpoints' {} a -> s {maxRecords = a} :: DescribeEndpoints)
+
+instance Pager.AWSPager DescribeEndpoints where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeEndpointsResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeEndpointsResponse_endpoints
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeEndpoints_marker
+          Lens..~ rs
+          Lens.^? describeEndpointsResponse_marker Prelude.. Lens._Just
+
+instance Prelude.AWSRequest DescribeEndpoints where
+  type Rs DescribeEndpoints = DescribeEndpointsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeEndpointsResponse'
+            Prelude.<$> ( x Prelude..?> "Endpoints"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Prelude..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeEndpoints
+
+instance Prelude.NFData DescribeEndpoints
+
+instance Prelude.ToHeaders DescribeEndpoints where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonDMSv20160101.DescribeEndpoints" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON DescribeEndpoints where
+  toJSON DescribeEndpoints' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Filters" Prelude..=) Prelude.<$> filters,
+            ("Marker" Prelude..=) Prelude.<$> marker,
+            ("MaxRecords" Prelude..=) Prelude.<$> maxRecords
+          ]
+      )
+
+instance Prelude.ToPath DescribeEndpoints where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DescribeEndpoints where
+  toQuery = Prelude.const Prelude.mempty
+
+-- |
+--
+-- /See:/ 'newDescribeEndpointsResponse' smart constructor.
+data DescribeEndpointsResponse = DescribeEndpointsResponse'
+  { -- | Endpoint description.
+    endpoints :: Prelude.Maybe [Endpoint],
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeEndpointsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'endpoints', 'describeEndpointsResponse_endpoints' - Endpoint description.
+--
+-- 'marker', 'describeEndpointsResponse_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
+-- 'httpStatus', 'describeEndpointsResponse_httpStatus' - The response's http status code.
+newDescribeEndpointsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeEndpointsResponse
+newDescribeEndpointsResponse pHttpStatus_ =
+  DescribeEndpointsResponse'
+    { endpoints =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Endpoint description.
-dersEndpoints :: Lens' DescribeEndpointsResponse [Endpoint]
-dersEndpoints = lens _dersEndpoints (\ s a -> s{_dersEndpoints = a}) . _Default . _Coerce
+describeEndpointsResponse_endpoints :: Lens.Lens' DescribeEndpointsResponse (Prelude.Maybe [Endpoint])
+describeEndpointsResponse_endpoints = Lens.lens (\DescribeEndpointsResponse' {endpoints} -> endpoints) (\s@DescribeEndpointsResponse' {} a -> s {endpoints = a} :: DescribeEndpointsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-dersResponseStatus :: Lens' DescribeEndpointsResponse Int
-dersResponseStatus = lens _dersResponseStatus (\ s a -> s{_dersResponseStatus = a})
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeEndpointsResponse_marker :: Lens.Lens' DescribeEndpointsResponse (Prelude.Maybe Prelude.Text)
+describeEndpointsResponse_marker = Lens.lens (\DescribeEndpointsResponse' {marker} -> marker) (\s@DescribeEndpointsResponse' {} a -> s {marker = a} :: DescribeEndpointsResponse)
 
-instance NFData DescribeEndpointsResponse where
+-- | The response's http status code.
+describeEndpointsResponse_httpStatus :: Lens.Lens' DescribeEndpointsResponse Prelude.Int
+describeEndpointsResponse_httpStatus = Lens.lens (\DescribeEndpointsResponse' {httpStatus} -> httpStatus) (\s@DescribeEndpointsResponse' {} a -> s {httpStatus = a} :: DescribeEndpointsResponse)
+
+instance Prelude.NFData DescribeEndpointsResponse

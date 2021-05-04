@@ -1,144 +1,178 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pinpoint.PutEventStream
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use to create or update the event stream for an app.
+-- Creates a new event stream for an application or updates the settings of
+-- an existing event stream for an application.
 module Network.AWS.Pinpoint.PutEventStream
-    (
-    -- * Creating a Request
-      putEventStream
-    , PutEventStream
+  ( -- * Creating a Request
+    PutEventStream (..),
+    newPutEventStream,
+
     -- * Request Lenses
-    , pesApplicationId
-    , pesWriteEventStream
+    putEventStream_applicationId,
+    putEventStream_writeEventStream,
 
     -- * Destructuring the Response
-    , putEventStreamResponse
-    , PutEventStreamResponse
+    PutEventStreamResponse (..),
+    newPutEventStreamResponse,
+
     -- * Response Lenses
-    , pesrsResponseStatus
-    , pesrsEventStream
-    ) where
+    putEventStreamResponse_httpStatus,
+    putEventStreamResponse_eventStream,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Pinpoint.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'putEventStream' smart constructor.
+-- | /See:/ 'newPutEventStream' smart constructor.
 data PutEventStream = PutEventStream'
-  { _pesApplicationId    :: !Text
-  , _pesWriteEventStream :: !WriteEventStream
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique identifier for the application. This identifier is displayed
+    -- as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Prelude.Text,
+    writeEventStream :: WriteEventStream
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PutEventStream' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutEventStream' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'pesApplicationId' - ApplicationId
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'pesWriteEventStream' - EventStream to write.
-putEventStream
-    :: Text -- ^ 'pesApplicationId'
-    -> WriteEventStream -- ^ 'pesWriteEventStream'
-    -> PutEventStream
-putEventStream pApplicationId_ pWriteEventStream_ =
+-- 'applicationId', 'putEventStream_applicationId' - The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+--
+-- 'writeEventStream', 'putEventStream_writeEventStream' - Undocumented member.
+newPutEventStream ::
+  -- | 'applicationId'
+  Prelude.Text ->
+  -- | 'writeEventStream'
+  WriteEventStream ->
+  PutEventStream
+newPutEventStream pApplicationId_ pWriteEventStream_ =
   PutEventStream'
-    { _pesApplicationId = pApplicationId_
-    , _pesWriteEventStream = pWriteEventStream_
+    { applicationId = pApplicationId_,
+      writeEventStream = pWriteEventStream_
     }
 
-
--- | ApplicationId
-pesApplicationId :: Lens' PutEventStream Text
-pesApplicationId = lens _pesApplicationId (\ s a -> s{_pesApplicationId = a})
-
--- | EventStream to write.
-pesWriteEventStream :: Lens' PutEventStream WriteEventStream
-pesWriteEventStream = lens _pesWriteEventStream (\ s a -> s{_pesWriteEventStream = a})
-
-instance AWSRequest PutEventStream where
-        type Rs PutEventStream = PutEventStreamResponse
-        request = postJSON pinpoint
-        response
-          = receiveJSON
-              (\ s h x ->
-                 PutEventStreamResponse' <$>
-                   (pure (fromEnum s)) <*> (eitherParseJSON x))
-
-instance Hashable PutEventStream where
-
-instance NFData PutEventStream where
-
-instance ToHeaders PutEventStream where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON PutEventStream where
-        toJSON PutEventStream'{..}
-          = object
-              (catMaybes
-                 [Just ("WriteEventStream" .= _pesWriteEventStream)])
-
-instance ToPath PutEventStream where
-        toPath PutEventStream'{..}
-          = mconcat
-              ["/v1/apps/", toBS _pesApplicationId, "/eventstream"]
-
-instance ToQuery PutEventStream where
-        toQuery = const mempty
-
--- | /See:/ 'putEventStreamResponse' smart constructor.
-data PutEventStreamResponse = PutEventStreamResponse'
-  { _pesrsResponseStatus :: !Int
-  , _pesrsEventStream    :: !EventStream
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'PutEventStreamResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'pesrsResponseStatus' - -- | The response status code.
---
--- * 'pesrsEventStream' - Undocumented member.
-putEventStreamResponse
-    :: Int -- ^ 'pesrsResponseStatus'
-    -> EventStream -- ^ 'pesrsEventStream'
-    -> PutEventStreamResponse
-putEventStreamResponse pResponseStatus_ pEventStream_ =
-  PutEventStreamResponse'
-    {_pesrsResponseStatus = pResponseStatus_, _pesrsEventStream = pEventStream_}
-
-
--- | -- | The response status code.
-pesrsResponseStatus :: Lens' PutEventStreamResponse Int
-pesrsResponseStatus = lens _pesrsResponseStatus (\ s a -> s{_pesrsResponseStatus = a})
+-- | The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+putEventStream_applicationId :: Lens.Lens' PutEventStream Prelude.Text
+putEventStream_applicationId = Lens.lens (\PutEventStream' {applicationId} -> applicationId) (\s@PutEventStream' {} a -> s {applicationId = a} :: PutEventStream)
 
 -- | Undocumented member.
-pesrsEventStream :: Lens' PutEventStreamResponse EventStream
-pesrsEventStream = lens _pesrsEventStream (\ s a -> s{_pesrsEventStream = a})
+putEventStream_writeEventStream :: Lens.Lens' PutEventStream WriteEventStream
+putEventStream_writeEventStream = Lens.lens (\PutEventStream' {writeEventStream} -> writeEventStream) (\s@PutEventStream' {} a -> s {writeEventStream = a} :: PutEventStream)
 
-instance NFData PutEventStreamResponse where
+instance Prelude.AWSRequest PutEventStream where
+  type Rs PutEventStream = PutEventStreamResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PutEventStreamResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.eitherParseJSON x)
+      )
+
+instance Prelude.Hashable PutEventStream
+
+instance Prelude.NFData PutEventStream
+
+instance Prelude.ToHeaders PutEventStream where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON PutEventStream where
+  toJSON PutEventStream' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("WriteEventStream" Prelude..= writeEventStream)
+          ]
+      )
+
+instance Prelude.ToPath PutEventStream where
+  toPath PutEventStream' {..} =
+    Prelude.mconcat
+      [ "/v1/apps/",
+        Prelude.toBS applicationId,
+        "/eventstream"
+      ]
+
+instance Prelude.ToQuery PutEventStream where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newPutEventStreamResponse' smart constructor.
+data PutEventStreamResponse = PutEventStreamResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    eventStream :: EventStream
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'PutEventStreamResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'putEventStreamResponse_httpStatus' - The response's http status code.
+--
+-- 'eventStream', 'putEventStreamResponse_eventStream' - Undocumented member.
+newPutEventStreamResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'eventStream'
+  EventStream ->
+  PutEventStreamResponse
+newPutEventStreamResponse pHttpStatus_ pEventStream_ =
+  PutEventStreamResponse'
+    { httpStatus = pHttpStatus_,
+      eventStream = pEventStream_
+    }
+
+-- | The response's http status code.
+putEventStreamResponse_httpStatus :: Lens.Lens' PutEventStreamResponse Prelude.Int
+putEventStreamResponse_httpStatus = Lens.lens (\PutEventStreamResponse' {httpStatus} -> httpStatus) (\s@PutEventStreamResponse' {} a -> s {httpStatus = a} :: PutEventStreamResponse)
+
+-- | Undocumented member.
+putEventStreamResponse_eventStream :: Lens.Lens' PutEventStreamResponse EventStream
+putEventStreamResponse_eventStream = Lens.lens (\PutEventStreamResponse' {eventStream} -> eventStream) (\s@PutEventStreamResponse' {} a -> s {eventStream = a} :: PutEventStreamResponse)
+
+instance Prelude.NFData PutEventStreamResponse

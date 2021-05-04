@@ -1,106 +1,133 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetUsagePlanKey
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a usage plan key of a given key identifier.
---
---
 module Network.AWS.APIGateway.GetUsagePlanKey
-    (
-    -- * Creating a Request
-      getUsagePlanKey
-    , GetUsagePlanKey
+  ( -- * Creating a Request
+    GetUsagePlanKey (..),
+    newGetUsagePlanKey,
+
     -- * Request Lenses
-    , gUsagePlanId
-    , gKeyId
+    getUsagePlanKey_usagePlanId,
+    getUsagePlanKey_keyId,
 
     -- * Destructuring the Response
-    , usagePlanKey
-    , UsagePlanKey
+    UsagePlanKey (..),
+    newUsagePlanKey,
+
     -- * Response Lenses
-    , upkValue
-    , upkName
-    , upkId
-    , upkType
-    ) where
+    usagePlanKey_id,
+    usagePlanKey_name,
+    usagePlanKey_value,
+    usagePlanKey_type,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The GET request to get a usage plan key of a given key identifier.
 --
---
---
--- /See:/ 'getUsagePlanKey' smart constructor.
+-- /See:/ 'newGetUsagePlanKey' smart constructor.
 data GetUsagePlanKey = GetUsagePlanKey'
-  { _gUsagePlanId :: !Text
-  , _gKeyId       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | [Required] The Id of the UsagePlan resource representing the usage plan
+    -- containing the to-be-retrieved UsagePlanKey resource representing a plan
+    -- customer.
+    usagePlanId :: Prelude.Text,
+    -- | [Required] The key Id of the to-be-retrieved UsagePlanKey resource
+    -- representing a plan customer.
+    keyId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetUsagePlanKey' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetUsagePlanKey' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gUsagePlanId' - [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gKeyId' - [Required] The key Id of the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
-getUsagePlanKey
-    :: Text -- ^ 'gUsagePlanId'
-    -> Text -- ^ 'gKeyId'
-    -> GetUsagePlanKey
-getUsagePlanKey pUsagePlanId_ pKeyId_ =
-  GetUsagePlanKey' {_gUsagePlanId = pUsagePlanId_, _gKeyId = pKeyId_}
+-- 'usagePlanId', 'getUsagePlanKey_usagePlanId' - [Required] The Id of the UsagePlan resource representing the usage plan
+-- containing the to-be-retrieved UsagePlanKey resource representing a plan
+-- customer.
+--
+-- 'keyId', 'getUsagePlanKey_keyId' - [Required] The key Id of the to-be-retrieved UsagePlanKey resource
+-- representing a plan customer.
+newGetUsagePlanKey ::
+  -- | 'usagePlanId'
+  Prelude.Text ->
+  -- | 'keyId'
+  Prelude.Text ->
+  GetUsagePlanKey
+newGetUsagePlanKey pUsagePlanId_ pKeyId_ =
+  GetUsagePlanKey'
+    { usagePlanId = pUsagePlanId_,
+      keyId = pKeyId_
+    }
 
+-- | [Required] The Id of the UsagePlan resource representing the usage plan
+-- containing the to-be-retrieved UsagePlanKey resource representing a plan
+-- customer.
+getUsagePlanKey_usagePlanId :: Lens.Lens' GetUsagePlanKey Prelude.Text
+getUsagePlanKey_usagePlanId = Lens.lens (\GetUsagePlanKey' {usagePlanId} -> usagePlanId) (\s@GetUsagePlanKey' {} a -> s {usagePlanId = a} :: GetUsagePlanKey)
 
--- | [Required] The Id of the 'UsagePlan' resource representing the usage plan containing the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
-gUsagePlanId :: Lens' GetUsagePlanKey Text
-gUsagePlanId = lens _gUsagePlanId (\ s a -> s{_gUsagePlanId = a})
+-- | [Required] The key Id of the to-be-retrieved UsagePlanKey resource
+-- representing a plan customer.
+getUsagePlanKey_keyId :: Lens.Lens' GetUsagePlanKey Prelude.Text
+getUsagePlanKey_keyId = Lens.lens (\GetUsagePlanKey' {keyId} -> keyId) (\s@GetUsagePlanKey' {} a -> s {keyId = a} :: GetUsagePlanKey)
 
--- | [Required] The key Id of the to-be-retrieved 'UsagePlanKey' resource representing a plan customer.
-gKeyId :: Lens' GetUsagePlanKey Text
-gKeyId = lens _gKeyId (\ s a -> s{_gKeyId = a})
+instance Prelude.AWSRequest GetUsagePlanKey where
+  type Rs GetUsagePlanKey = UsagePlanKey
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Prelude.eitherParseJSON x)
 
-instance AWSRequest GetUsagePlanKey where
-        type Rs GetUsagePlanKey = UsagePlanKey
-        request = get apiGateway
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.Hashable GetUsagePlanKey
 
-instance Hashable GetUsagePlanKey where
+instance Prelude.NFData GetUsagePlanKey
 
-instance NFData GetUsagePlanKey where
+instance Prelude.ToHeaders GetUsagePlanKey where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Prelude.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders GetUsagePlanKey where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Prelude.ToPath GetUsagePlanKey where
+  toPath GetUsagePlanKey' {..} =
+    Prelude.mconcat
+      [ "/usageplans/",
+        Prelude.toBS usagePlanId,
+        "/keys/",
+        Prelude.toBS keyId
+      ]
 
-instance ToPath GetUsagePlanKey where
-        toPath GetUsagePlanKey'{..}
-          = mconcat
-              ["/usageplans/", toBS _gUsagePlanId, "/keys/",
-               toBS _gKeyId]
-
-instance ToQuery GetUsagePlanKey where
-        toQuery = const mempty
+instance Prelude.ToQuery GetUsagePlanKey where
+  toQuery = Prelude.const Prelude.mempty

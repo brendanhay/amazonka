@@ -1,190 +1,321 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AppSync.UpdateResolver
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a @Resolver@ object.
---
---
 module Network.AWS.AppSync.UpdateResolver
-    (
-    -- * Creating a Request
-      updateResolver
-    , UpdateResolver
+  ( -- * Creating a Request
+    UpdateResolver (..),
+    newUpdateResolver,
+
     -- * Request Lenses
-    , urResponseMappingTemplate
-    , urApiId
-    , urTypeName
-    , urFieldName
-    , urDataSourceName
-    , urRequestMappingTemplate
+    updateResolver_responseMappingTemplate,
+    updateResolver_kind,
+    updateResolver_syncConfig,
+    updateResolver_dataSourceName,
+    updateResolver_cachingConfig,
+    updateResolver_pipelineConfig,
+    updateResolver_requestMappingTemplate,
+    updateResolver_apiId,
+    updateResolver_typeName,
+    updateResolver_fieldName,
 
     -- * Destructuring the Response
-    , updateResolverResponse
-    , UpdateResolverResponse
+    UpdateResolverResponse (..),
+    newUpdateResolverResponse,
+
     -- * Response Lenses
-    , urrsResolver
-    , urrsResponseStatus
-    ) where
+    updateResolverResponse_resolver,
+    updateResolverResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.AppSync.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateResolver' smart constructor.
+-- | /See:/ 'newUpdateResolver' smart constructor.
 data UpdateResolver = UpdateResolver'
-  { _urResponseMappingTemplate :: !(Maybe Text)
-  , _urApiId                   :: !Text
-  , _urTypeName                :: !Text
-  , _urFieldName               :: !Text
-  , _urDataSourceName          :: !Text
-  , _urRequestMappingTemplate  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The new response mapping template.
+    responseMappingTemplate :: Prelude.Maybe Prelude.Text,
+    -- | The resolver type.
+    --
+    -- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default
+    --     resolver type. A UNIT resolver enables you to execute a GraphQL
+    --     query against a single data source.
+    --
+    -- -   __PIPELINE__: A PIPELINE resolver type. A PIPELINE resolver enables
+    --     you to execute a series of @Function@ in a serial manner. You can
+    --     use a pipeline resolver to execute a GraphQL query against multiple
+    --     data sources.
+    kind :: Prelude.Maybe ResolverKind,
+    -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
+    syncConfig :: Prelude.Maybe SyncConfig,
+    -- | The new data source name.
+    dataSourceName :: Prelude.Maybe Prelude.Text,
+    -- | The caching configuration for the resolver.
+    cachingConfig :: Prelude.Maybe CachingConfig,
+    -- | The @PipelineConfig@.
+    pipelineConfig :: Prelude.Maybe PipelineConfig,
+    -- | The new request mapping template.
+    --
+    -- A resolver uses a request mapping template to convert a GraphQL
+    -- expression into a format that a data source can understand. Mapping
+    -- templates are written in Apache Velocity Template Language (VTL).
+    --
+    -- VTL request mapping templates are optional when using a Lambda data
+    -- source. For all other data sources, VTL request and response mapping
+    -- templates are required.
+    requestMappingTemplate :: Prelude.Maybe Prelude.Text,
+    -- | The API ID.
+    apiId :: Prelude.Text,
+    -- | The new type name.
+    typeName :: Prelude.Text,
+    -- | The new field name.
+    fieldName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateResolver' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateResolver' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urResponseMappingTemplate' - The new response mapping template.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'urApiId' - The API ID.
+-- 'responseMappingTemplate', 'updateResolver_responseMappingTemplate' - The new response mapping template.
 --
--- * 'urTypeName' - The new type name.
+-- 'kind', 'updateResolver_kind' - The resolver type.
 --
--- * 'urFieldName' - The new field name.
+-- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default
+--     resolver type. A UNIT resolver enables you to execute a GraphQL
+--     query against a single data source.
 --
--- * 'urDataSourceName' - The new data source name.
+-- -   __PIPELINE__: A PIPELINE resolver type. A PIPELINE resolver enables
+--     you to execute a series of @Function@ in a serial manner. You can
+--     use a pipeline resolver to execute a GraphQL query against multiple
+--     data sources.
 --
--- * 'urRequestMappingTemplate' - The new request mapping template.
-updateResolver
-    :: Text -- ^ 'urApiId'
-    -> Text -- ^ 'urTypeName'
-    -> Text -- ^ 'urFieldName'
-    -> Text -- ^ 'urDataSourceName'
-    -> Text -- ^ 'urRequestMappingTemplate'
-    -> UpdateResolver
-updateResolver pApiId_ pTypeName_ pFieldName_ pDataSourceName_ pRequestMappingTemplate_ =
+-- 'syncConfig', 'updateResolver_syncConfig' - The @SyncConfig@ for a resolver attached to a versioned datasource.
+--
+-- 'dataSourceName', 'updateResolver_dataSourceName' - The new data source name.
+--
+-- 'cachingConfig', 'updateResolver_cachingConfig' - The caching configuration for the resolver.
+--
+-- 'pipelineConfig', 'updateResolver_pipelineConfig' - The @PipelineConfig@.
+--
+-- 'requestMappingTemplate', 'updateResolver_requestMappingTemplate' - The new request mapping template.
+--
+-- A resolver uses a request mapping template to convert a GraphQL
+-- expression into a format that a data source can understand. Mapping
+-- templates are written in Apache Velocity Template Language (VTL).
+--
+-- VTL request mapping templates are optional when using a Lambda data
+-- source. For all other data sources, VTL request and response mapping
+-- templates are required.
+--
+-- 'apiId', 'updateResolver_apiId' - The API ID.
+--
+-- 'typeName', 'updateResolver_typeName' - The new type name.
+--
+-- 'fieldName', 'updateResolver_fieldName' - The new field name.
+newUpdateResolver ::
+  -- | 'apiId'
+  Prelude.Text ->
+  -- | 'typeName'
+  Prelude.Text ->
+  -- | 'fieldName'
+  Prelude.Text ->
+  UpdateResolver
+newUpdateResolver pApiId_ pTypeName_ pFieldName_ =
   UpdateResolver'
-    { _urResponseMappingTemplate = Nothing
-    , _urApiId = pApiId_
-    , _urTypeName = pTypeName_
-    , _urFieldName = pFieldName_
-    , _urDataSourceName = pDataSourceName_
-    , _urRequestMappingTemplate = pRequestMappingTemplate_
+    { responseMappingTemplate =
+        Prelude.Nothing,
+      kind = Prelude.Nothing,
+      syncConfig = Prelude.Nothing,
+      dataSourceName = Prelude.Nothing,
+      cachingConfig = Prelude.Nothing,
+      pipelineConfig = Prelude.Nothing,
+      requestMappingTemplate = Prelude.Nothing,
+      apiId = pApiId_,
+      typeName = pTypeName_,
+      fieldName = pFieldName_
     }
 
-
 -- | The new response mapping template.
-urResponseMappingTemplate :: Lens' UpdateResolver (Maybe Text)
-urResponseMappingTemplate = lens _urResponseMappingTemplate (\ s a -> s{_urResponseMappingTemplate = a})
+updateResolver_responseMappingTemplate :: Lens.Lens' UpdateResolver (Prelude.Maybe Prelude.Text)
+updateResolver_responseMappingTemplate = Lens.lens (\UpdateResolver' {responseMappingTemplate} -> responseMappingTemplate) (\s@UpdateResolver' {} a -> s {responseMappingTemplate = a} :: UpdateResolver)
 
--- | The API ID.
-urApiId :: Lens' UpdateResolver Text
-urApiId = lens _urApiId (\ s a -> s{_urApiId = a})
+-- | The resolver type.
+--
+-- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default
+--     resolver type. A UNIT resolver enables you to execute a GraphQL
+--     query against a single data source.
+--
+-- -   __PIPELINE__: A PIPELINE resolver type. A PIPELINE resolver enables
+--     you to execute a series of @Function@ in a serial manner. You can
+--     use a pipeline resolver to execute a GraphQL query against multiple
+--     data sources.
+updateResolver_kind :: Lens.Lens' UpdateResolver (Prelude.Maybe ResolverKind)
+updateResolver_kind = Lens.lens (\UpdateResolver' {kind} -> kind) (\s@UpdateResolver' {} a -> s {kind = a} :: UpdateResolver)
 
--- | The new type name.
-urTypeName :: Lens' UpdateResolver Text
-urTypeName = lens _urTypeName (\ s a -> s{_urTypeName = a})
-
--- | The new field name.
-urFieldName :: Lens' UpdateResolver Text
-urFieldName = lens _urFieldName (\ s a -> s{_urFieldName = a})
+-- | The @SyncConfig@ for a resolver attached to a versioned datasource.
+updateResolver_syncConfig :: Lens.Lens' UpdateResolver (Prelude.Maybe SyncConfig)
+updateResolver_syncConfig = Lens.lens (\UpdateResolver' {syncConfig} -> syncConfig) (\s@UpdateResolver' {} a -> s {syncConfig = a} :: UpdateResolver)
 
 -- | The new data source name.
-urDataSourceName :: Lens' UpdateResolver Text
-urDataSourceName = lens _urDataSourceName (\ s a -> s{_urDataSourceName = a})
+updateResolver_dataSourceName :: Lens.Lens' UpdateResolver (Prelude.Maybe Prelude.Text)
+updateResolver_dataSourceName = Lens.lens (\UpdateResolver' {dataSourceName} -> dataSourceName) (\s@UpdateResolver' {} a -> s {dataSourceName = a} :: UpdateResolver)
+
+-- | The caching configuration for the resolver.
+updateResolver_cachingConfig :: Lens.Lens' UpdateResolver (Prelude.Maybe CachingConfig)
+updateResolver_cachingConfig = Lens.lens (\UpdateResolver' {cachingConfig} -> cachingConfig) (\s@UpdateResolver' {} a -> s {cachingConfig = a} :: UpdateResolver)
+
+-- | The @PipelineConfig@.
+updateResolver_pipelineConfig :: Lens.Lens' UpdateResolver (Prelude.Maybe PipelineConfig)
+updateResolver_pipelineConfig = Lens.lens (\UpdateResolver' {pipelineConfig} -> pipelineConfig) (\s@UpdateResolver' {} a -> s {pipelineConfig = a} :: UpdateResolver)
 
 -- | The new request mapping template.
-urRequestMappingTemplate :: Lens' UpdateResolver Text
-urRequestMappingTemplate = lens _urRequestMappingTemplate (\ s a -> s{_urRequestMappingTemplate = a})
+--
+-- A resolver uses a request mapping template to convert a GraphQL
+-- expression into a format that a data source can understand. Mapping
+-- templates are written in Apache Velocity Template Language (VTL).
+--
+-- VTL request mapping templates are optional when using a Lambda data
+-- source. For all other data sources, VTL request and response mapping
+-- templates are required.
+updateResolver_requestMappingTemplate :: Lens.Lens' UpdateResolver (Prelude.Maybe Prelude.Text)
+updateResolver_requestMappingTemplate = Lens.lens (\UpdateResolver' {requestMappingTemplate} -> requestMappingTemplate) (\s@UpdateResolver' {} a -> s {requestMappingTemplate = a} :: UpdateResolver)
 
-instance AWSRequest UpdateResolver where
-        type Rs UpdateResolver = UpdateResolverResponse
-        request = postJSON appSync
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateResolverResponse' <$>
-                   (x .?> "resolver") <*> (pure (fromEnum s)))
+-- | The API ID.
+updateResolver_apiId :: Lens.Lens' UpdateResolver Prelude.Text
+updateResolver_apiId = Lens.lens (\UpdateResolver' {apiId} -> apiId) (\s@UpdateResolver' {} a -> s {apiId = a} :: UpdateResolver)
 
-instance Hashable UpdateResolver where
+-- | The new type name.
+updateResolver_typeName :: Lens.Lens' UpdateResolver Prelude.Text
+updateResolver_typeName = Lens.lens (\UpdateResolver' {typeName} -> typeName) (\s@UpdateResolver' {} a -> s {typeName = a} :: UpdateResolver)
 
-instance NFData UpdateResolver where
+-- | The new field name.
+updateResolver_fieldName :: Lens.Lens' UpdateResolver Prelude.Text
+updateResolver_fieldName = Lens.lens (\UpdateResolver' {fieldName} -> fieldName) (\s@UpdateResolver' {} a -> s {fieldName = a} :: UpdateResolver)
 
-instance ToHeaders UpdateResolver where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.AWSRequest UpdateResolver where
+  type Rs UpdateResolver = UpdateResolverResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateResolverResponse'
+            Prelude.<$> (x Prelude..?> "resolver")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToJSON UpdateResolver where
-        toJSON UpdateResolver'{..}
-          = object
-              (catMaybes
-                 [("responseMappingTemplate" .=) <$>
-                    _urResponseMappingTemplate,
-                  Just ("dataSourceName" .= _urDataSourceName),
-                  Just
-                    ("requestMappingTemplate" .=
-                       _urRequestMappingTemplate)])
+instance Prelude.Hashable UpdateResolver
 
-instance ToPath UpdateResolver where
-        toPath UpdateResolver'{..}
-          = mconcat
-              ["/v1/apis/", toBS _urApiId, "/types/",
-               toBS _urTypeName, "/resolvers/", toBS _urFieldName]
+instance Prelude.NFData UpdateResolver
 
-instance ToQuery UpdateResolver where
-        toQuery = const mempty
+instance Prelude.ToHeaders UpdateResolver where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
--- | /See:/ 'updateResolverResponse' smart constructor.
+instance Prelude.ToJSON UpdateResolver where
+  toJSON UpdateResolver' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("responseMappingTemplate" Prelude..=)
+              Prelude.<$> responseMappingTemplate,
+            ("kind" Prelude..=) Prelude.<$> kind,
+            ("syncConfig" Prelude..=) Prelude.<$> syncConfig,
+            ("dataSourceName" Prelude..=)
+              Prelude.<$> dataSourceName,
+            ("cachingConfig" Prelude..=)
+              Prelude.<$> cachingConfig,
+            ("pipelineConfig" Prelude..=)
+              Prelude.<$> pipelineConfig,
+            ("requestMappingTemplate" Prelude..=)
+              Prelude.<$> requestMappingTemplate
+          ]
+      )
+
+instance Prelude.ToPath UpdateResolver where
+  toPath UpdateResolver' {..} =
+    Prelude.mconcat
+      [ "/v1/apis/",
+        Prelude.toBS apiId,
+        "/types/",
+        Prelude.toBS typeName,
+        "/resolvers/",
+        Prelude.toBS fieldName
+      ]
+
+instance Prelude.ToQuery UpdateResolver where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newUpdateResolverResponse' smart constructor.
 data UpdateResolverResponse = UpdateResolverResponse'
-  { _urrsResolver       :: !(Maybe Resolver)
-  , _urrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The updated @Resolver@ object.
+    resolver :: Prelude.Maybe Resolver,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateResolverResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateResolverResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urrsResolver' - The updated @Resolver@ object.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'urrsResponseStatus' - -- | The response status code.
-updateResolverResponse
-    :: Int -- ^ 'urrsResponseStatus'
-    -> UpdateResolverResponse
-updateResolverResponse pResponseStatus_ =
+-- 'resolver', 'updateResolverResponse_resolver' - The updated @Resolver@ object.
+--
+-- 'httpStatus', 'updateResolverResponse_httpStatus' - The response's http status code.
+newUpdateResolverResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateResolverResponse
+newUpdateResolverResponse pHttpStatus_ =
   UpdateResolverResponse'
-    {_urrsResolver = Nothing, _urrsResponseStatus = pResponseStatus_}
-
+    { resolver = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The updated @Resolver@ object.
-urrsResolver :: Lens' UpdateResolverResponse (Maybe Resolver)
-urrsResolver = lens _urrsResolver (\ s a -> s{_urrsResolver = a})
+updateResolverResponse_resolver :: Lens.Lens' UpdateResolverResponse (Prelude.Maybe Resolver)
+updateResolverResponse_resolver = Lens.lens (\UpdateResolverResponse' {resolver} -> resolver) (\s@UpdateResolverResponse' {} a -> s {resolver = a} :: UpdateResolverResponse)
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UpdateResolverResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a})
+-- | The response's http status code.
+updateResolverResponse_httpStatus :: Lens.Lens' UpdateResolverResponse Prelude.Int
+updateResolverResponse_httpStatus = Lens.lens (\UpdateResolverResponse' {httpStatus} -> httpStatus) (\s@UpdateResolverResponse' {} a -> s {httpStatus = a} :: UpdateResolverResponse)
 
-instance NFData UpdateResolverResponse where
+instance Prelude.NFData UpdateResolverResponse

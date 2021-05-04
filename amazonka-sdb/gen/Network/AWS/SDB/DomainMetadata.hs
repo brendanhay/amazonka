@@ -1,187 +1,215 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SDB.DomainMetadata
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the domain, including when the domain was created, the number of items and attributes in the domain, and the size of the attribute names and values.
---
---
+-- Returns information about the domain, including when the domain was
+-- created, the number of items and attributes in the domain, and the size
+-- of the attribute names and values.
 module Network.AWS.SDB.DomainMetadata
-    (
-    -- * Creating a Request
-      domainMetadata
-    , DomainMetadata
+  ( -- * Creating a Request
+    DomainMetadata (..),
+    newDomainMetadata,
+
     -- * Request Lenses
-    , dmDomainName
+    domainMetadata_domainName,
 
     -- * Destructuring the Response
-    , domainMetadataResponse
-    , DomainMetadataResponse
+    DomainMetadataResponse (..),
+    newDomainMetadataResponse,
+
     -- * Response Lenses
-    , dmrsItemNamesSizeBytes
-    , dmrsAttributeValuesSizeBytes
-    , dmrsAttributeNameCount
-    , dmrsAttributeNamesSizeBytes
-    , dmrsAttributeValueCount
-    , dmrsItemCount
-    , dmrsTimestamp
-    , dmrsResponseStatus
-    ) where
+    domainMetadataResponse_attributeNamesSizeBytes,
+    domainMetadataResponse_attributeValueCount,
+    domainMetadataResponse_attributeNameCount,
+    domainMetadataResponse_attributeValuesSizeBytes,
+    domainMetadataResponse_timestamp,
+    domainMetadataResponse_itemCount,
+    domainMetadataResponse_itemNamesSizeBytes,
+    domainMetadataResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SDB.Types
-import Network.AWS.SDB.Types.Product
 
--- | /See:/ 'domainMetadata' smart constructor.
-newtype DomainMetadata = DomainMetadata'
-  { _dmDomainName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDomainMetadata' smart constructor.
+data DomainMetadata = DomainMetadata'
+  { -- | The name of the domain for which to display the metadata of.
+    domainName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DomainMetadata' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DomainMetadata' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmDomainName' - The name of the domain for which to display the metadata of.
-domainMetadata
-    :: Text -- ^ 'dmDomainName'
-    -> DomainMetadata
-domainMetadata pDomainName_ = DomainMetadata' {_dmDomainName = pDomainName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'domainName', 'domainMetadata_domainName' - The name of the domain for which to display the metadata of.
+newDomainMetadata ::
+  -- | 'domainName'
+  Prelude.Text ->
+  DomainMetadata
+newDomainMetadata pDomainName_ =
+  DomainMetadata' {domainName = pDomainName_}
 
 -- | The name of the domain for which to display the metadata of.
-dmDomainName :: Lens' DomainMetadata Text
-dmDomainName = lens _dmDomainName (\ s a -> s{_dmDomainName = a})
+domainMetadata_domainName :: Lens.Lens' DomainMetadata Prelude.Text
+domainMetadata_domainName = Lens.lens (\DomainMetadata' {domainName} -> domainName) (\s@DomainMetadata' {} a -> s {domainName = a} :: DomainMetadata)
 
-instance AWSRequest DomainMetadata where
-        type Rs DomainMetadata = DomainMetadataResponse
-        request = postQuery sdb
-        response
-          = receiveXMLWrapper "DomainMetadataResult"
-              (\ s h x ->
-                 DomainMetadataResponse' <$>
-                   (x .@? "ItemNamesSizeBytes") <*>
-                     (x .@? "AttributeValuesSizeBytes")
-                     <*> (x .@? "AttributeNameCount")
-                     <*> (x .@? "AttributeNamesSizeBytes")
-                     <*> (x .@? "AttributeValueCount")
-                     <*> (x .@? "ItemCount")
-                     <*> (x .@? "Timestamp")
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DomainMetadata where
+  type Rs DomainMetadata = DomainMetadataResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DomainMetadataResult"
+      ( \s h x ->
+          DomainMetadataResponse'
+            Prelude.<$> (x Prelude..@? "AttributeNamesSizeBytes")
+            Prelude.<*> (x Prelude..@? "AttributeValueCount")
+            Prelude.<*> (x Prelude..@? "AttributeNameCount")
+            Prelude.<*> (x Prelude..@? "AttributeValuesSizeBytes")
+            Prelude.<*> (x Prelude..@? "Timestamp")
+            Prelude.<*> (x Prelude..@? "ItemCount")
+            Prelude.<*> (x Prelude..@? "ItemNamesSizeBytes")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DomainMetadata where
+instance Prelude.Hashable DomainMetadata
 
-instance NFData DomainMetadata where
+instance Prelude.NFData DomainMetadata
 
-instance ToHeaders DomainMetadata where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DomainMetadata where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DomainMetadata where
-        toPath = const "/"
+instance Prelude.ToPath DomainMetadata where
+  toPath = Prelude.const "/"
 
-instance ToQuery DomainMetadata where
-        toQuery DomainMetadata'{..}
-          = mconcat
-              ["Action" =: ("DomainMetadata" :: ByteString),
-               "Version" =: ("2009-04-15" :: ByteString),
-               "DomainName" =: _dmDomainName]
+instance Prelude.ToQuery DomainMetadata where
+  toQuery DomainMetadata' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DomainMetadata" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2009-04-15" :: Prelude.ByteString),
+        "DomainName" Prelude.=: domainName
+      ]
 
--- | /See:/ 'domainMetadataResponse' smart constructor.
+-- | /See:/ 'newDomainMetadataResponse' smart constructor.
 data DomainMetadataResponse = DomainMetadataResponse'
-  { _dmrsItemNamesSizeBytes       :: !(Maybe Integer)
-  , _dmrsAttributeValuesSizeBytes :: !(Maybe Integer)
-  , _dmrsAttributeNameCount       :: !(Maybe Int)
-  , _dmrsAttributeNamesSizeBytes  :: !(Maybe Integer)
-  , _dmrsAttributeValueCount      :: !(Maybe Int)
-  , _dmrsItemCount                :: !(Maybe Int)
-  , _dmrsTimestamp                :: !(Maybe Int)
-  , _dmrsResponseStatus           :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The total size of all unique attribute names in the domain, in bytes.
+    attributeNamesSizeBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The number of all attribute name\/value pairs in the domain.
+    attributeValueCount :: Prelude.Maybe Prelude.Int,
+    -- | The number of unique attribute names in the domain.
+    attributeNameCount :: Prelude.Maybe Prelude.Int,
+    -- | The total size of all attribute values in the domain, in bytes.
+    attributeValuesSizeBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
+    timestamp :: Prelude.Maybe Prelude.Int,
+    -- | The number of all items in the domain.
+    itemCount :: Prelude.Maybe Prelude.Int,
+    -- | The total size of all item names in the domain, in bytes.
+    itemNamesSizeBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DomainMetadataResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DomainMetadataResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmrsItemNamesSizeBytes' - The total size of all item names in the domain, in bytes.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dmrsAttributeValuesSizeBytes' - The total size of all attribute values in the domain, in bytes.
+-- 'attributeNamesSizeBytes', 'domainMetadataResponse_attributeNamesSizeBytes' - The total size of all unique attribute names in the domain, in bytes.
 --
--- * 'dmrsAttributeNameCount' - The number of unique attribute names in the domain.
+-- 'attributeValueCount', 'domainMetadataResponse_attributeValueCount' - The number of all attribute name\/value pairs in the domain.
 --
--- * 'dmrsAttributeNamesSizeBytes' - The total size of all unique attribute names in the domain, in bytes.
+-- 'attributeNameCount', 'domainMetadataResponse_attributeNameCount' - The number of unique attribute names in the domain.
 --
--- * 'dmrsAttributeValueCount' - The number of all attribute name/value pairs in the domain.
+-- 'attributeValuesSizeBytes', 'domainMetadataResponse_attributeValuesSizeBytes' - The total size of all attribute values in the domain, in bytes.
 --
--- * 'dmrsItemCount' - The number of all items in the domain.
+-- 'timestamp', 'domainMetadataResponse_timestamp' - The data and time when metadata was calculated, in Epoch (UNIX) seconds.
 --
--- * 'dmrsTimestamp' - The data and time when metadata was calculated, in Epoch (UNIX) seconds.
+-- 'itemCount', 'domainMetadataResponse_itemCount' - The number of all items in the domain.
 --
--- * 'dmrsResponseStatus' - -- | The response status code.
-domainMetadataResponse
-    :: Int -- ^ 'dmrsResponseStatus'
-    -> DomainMetadataResponse
-domainMetadataResponse pResponseStatus_ =
+-- 'itemNamesSizeBytes', 'domainMetadataResponse_itemNamesSizeBytes' - The total size of all item names in the domain, in bytes.
+--
+-- 'httpStatus', 'domainMetadataResponse_httpStatus' - The response's http status code.
+newDomainMetadataResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DomainMetadataResponse
+newDomainMetadataResponse pHttpStatus_ =
   DomainMetadataResponse'
-    { _dmrsItemNamesSizeBytes = Nothing
-    , _dmrsAttributeValuesSizeBytes = Nothing
-    , _dmrsAttributeNameCount = Nothing
-    , _dmrsAttributeNamesSizeBytes = Nothing
-    , _dmrsAttributeValueCount = Nothing
-    , _dmrsItemCount = Nothing
-    , _dmrsTimestamp = Nothing
-    , _dmrsResponseStatus = pResponseStatus_
+    { attributeNamesSizeBytes =
+        Prelude.Nothing,
+      attributeValueCount = Prelude.Nothing,
+      attributeNameCount = Prelude.Nothing,
+      attributeValuesSizeBytes = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
+      itemCount = Prelude.Nothing,
+      itemNamesSizeBytes = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The total size of all unique attribute names in the domain, in bytes.
+domainMetadataResponse_attributeNamesSizeBytes :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Integer)
+domainMetadataResponse_attributeNamesSizeBytes = Lens.lens (\DomainMetadataResponse' {attributeNamesSizeBytes} -> attributeNamesSizeBytes) (\s@DomainMetadataResponse' {} a -> s {attributeNamesSizeBytes = a} :: DomainMetadataResponse)
 
--- | The total size of all item names in the domain, in bytes.
-dmrsItemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-dmrsItemNamesSizeBytes = lens _dmrsItemNamesSizeBytes (\ s a -> s{_dmrsItemNamesSizeBytes = a})
-
--- | The total size of all attribute values in the domain, in bytes.
-dmrsAttributeValuesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-dmrsAttributeValuesSizeBytes = lens _dmrsAttributeValuesSizeBytes (\ s a -> s{_dmrsAttributeValuesSizeBytes = a})
+-- | The number of all attribute name\/value pairs in the domain.
+domainMetadataResponse_attributeValueCount :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Int)
+domainMetadataResponse_attributeValueCount = Lens.lens (\DomainMetadataResponse' {attributeValueCount} -> attributeValueCount) (\s@DomainMetadataResponse' {} a -> s {attributeValueCount = a} :: DomainMetadataResponse)
 
 -- | The number of unique attribute names in the domain.
-dmrsAttributeNameCount :: Lens' DomainMetadataResponse (Maybe Int)
-dmrsAttributeNameCount = lens _dmrsAttributeNameCount (\ s a -> s{_dmrsAttributeNameCount = a})
+domainMetadataResponse_attributeNameCount :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Int)
+domainMetadataResponse_attributeNameCount = Lens.lens (\DomainMetadataResponse' {attributeNameCount} -> attributeNameCount) (\s@DomainMetadataResponse' {} a -> s {attributeNameCount = a} :: DomainMetadataResponse)
 
--- | The total size of all unique attribute names in the domain, in bytes.
-dmrsAttributeNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-dmrsAttributeNamesSizeBytes = lens _dmrsAttributeNamesSizeBytes (\ s a -> s{_dmrsAttributeNamesSizeBytes = a})
-
--- | The number of all attribute name/value pairs in the domain.
-dmrsAttributeValueCount :: Lens' DomainMetadataResponse (Maybe Int)
-dmrsAttributeValueCount = lens _dmrsAttributeValueCount (\ s a -> s{_dmrsAttributeValueCount = a})
-
--- | The number of all items in the domain.
-dmrsItemCount :: Lens' DomainMetadataResponse (Maybe Int)
-dmrsItemCount = lens _dmrsItemCount (\ s a -> s{_dmrsItemCount = a})
+-- | The total size of all attribute values in the domain, in bytes.
+domainMetadataResponse_attributeValuesSizeBytes :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Integer)
+domainMetadataResponse_attributeValuesSizeBytes = Lens.lens (\DomainMetadataResponse' {attributeValuesSizeBytes} -> attributeValuesSizeBytes) (\s@DomainMetadataResponse' {} a -> s {attributeValuesSizeBytes = a} :: DomainMetadataResponse)
 
 -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
-dmrsTimestamp :: Lens' DomainMetadataResponse (Maybe Int)
-dmrsTimestamp = lens _dmrsTimestamp (\ s a -> s{_dmrsTimestamp = a})
+domainMetadataResponse_timestamp :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Int)
+domainMetadataResponse_timestamp = Lens.lens (\DomainMetadataResponse' {timestamp} -> timestamp) (\s@DomainMetadataResponse' {} a -> s {timestamp = a} :: DomainMetadataResponse)
 
--- | -- | The response status code.
-dmrsResponseStatus :: Lens' DomainMetadataResponse Int
-dmrsResponseStatus = lens _dmrsResponseStatus (\ s a -> s{_dmrsResponseStatus = a})
+-- | The number of all items in the domain.
+domainMetadataResponse_itemCount :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Int)
+domainMetadataResponse_itemCount = Lens.lens (\DomainMetadataResponse' {itemCount} -> itemCount) (\s@DomainMetadataResponse' {} a -> s {itemCount = a} :: DomainMetadataResponse)
 
-instance NFData DomainMetadataResponse where
+-- | The total size of all item names in the domain, in bytes.
+domainMetadataResponse_itemNamesSizeBytes :: Lens.Lens' DomainMetadataResponse (Prelude.Maybe Prelude.Integer)
+domainMetadataResponse_itemNamesSizeBytes = Lens.lens (\DomainMetadataResponse' {itemNamesSizeBytes} -> itemNamesSizeBytes) (\s@DomainMetadataResponse' {} a -> s {itemNamesSizeBytes = a} :: DomainMetadataResponse)
+
+-- | The response's http status code.
+domainMetadataResponse_httpStatus :: Lens.Lens' DomainMetadataResponse Prelude.Int
+domainMetadataResponse_httpStatus = Lens.lens (\DomainMetadataResponse' {httpStatus} -> httpStatus) (\s@DomainMetadataResponse' {} a -> s {httpStatus = a} :: DomainMetadataResponse)
+
+instance Prelude.NFData DomainMetadataResponse

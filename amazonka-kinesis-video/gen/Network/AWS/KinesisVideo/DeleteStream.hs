@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.KinesisVideo.DeleteStream
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,115 +23,155 @@
 --
 -- Deletes a Kinesis video stream and the data contained in the stream.
 --
+-- This method marks the stream for deletion, and makes the data in the
+-- stream inaccessible immediately.
 --
--- This method marks the stream for deletion, and makes the data in the stream inaccessible immediately.
+-- To ensure that you have the latest version of the stream before deleting
+-- it, you can specify the stream version. Kinesis Video Streams assigns a
+-- version to each stream. When you update a stream, Kinesis Video Streams
+-- assigns a new version number. To get the latest stream version, use the
+-- @DescribeStream@ API.
 --
---
---
--- To ensure that you have the latest version of the stream before deleting it, you can specify the stream version. Kinesis Video Streams assigns a version to each stream. When you update a stream, Kinesis Video Streams assigns a new version number. To get the latest stream version, use the @DescribeStream@ API.
---
--- This operation requires permission for the @KinesisVideo:DeleteStream@ action.
---
+-- This operation requires permission for the @KinesisVideo:DeleteStream@
+-- action.
 module Network.AWS.KinesisVideo.DeleteStream
-    (
-    -- * Creating a Request
-      deleteStream
-    , DeleteStream
+  ( -- * Creating a Request
+    DeleteStream (..),
+    newDeleteStream,
+
     -- * Request Lenses
-    , dsCurrentVersion
-    , dsStreamARN
+    deleteStream_currentVersion,
+    deleteStream_streamARN,
 
     -- * Destructuring the Response
-    , deleteStreamResponse
-    , DeleteStreamResponse
+    DeleteStreamResponse (..),
+    newDeleteStreamResponse,
+
     -- * Response Lenses
-    , dsrsResponseStatus
-    ) where
+    deleteStreamResponse_httpStatus,
+  )
+where
 
 import Network.AWS.KinesisVideo.Types
-import Network.AWS.KinesisVideo.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteStream' smart constructor.
+-- | /See:/ 'newDeleteStream' smart constructor.
 data DeleteStream = DeleteStream'
-  { _dsCurrentVersion :: !(Maybe Text)
-  , _dsStreamARN      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Optional: The version of the stream that you want to delete.
+    --
+    -- Specify the version as a safeguard to ensure that your are deleting the
+    -- correct stream. To get the stream version, use the @DescribeStream@ API.
+    --
+    -- If not specified, only the @CreationTime@ is checked before deleting the
+    -- stream.
+    currentVersion :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the stream that you want to delete.
+    streamARN :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteStream' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteStream' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsCurrentVersion' - Optional: The version of the stream that you want to delete.  Specify the version as a safeguard to ensure that your are deleting the correct stream. To get the stream version, use the @DescribeStream@ API. If not specified, only the @CreationTime@ is checked before deleting the stream.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsStreamARN' - The Amazon Resource Name (ARN) of the stream that you want to delete.
-deleteStream
-    :: Text -- ^ 'dsStreamARN'
-    -> DeleteStream
-deleteStream pStreamARN_ =
-  DeleteStream' {_dsCurrentVersion = Nothing, _dsStreamARN = pStreamARN_}
+-- 'currentVersion', 'deleteStream_currentVersion' - Optional: The version of the stream that you want to delete.
+--
+-- Specify the version as a safeguard to ensure that your are deleting the
+-- correct stream. To get the stream version, use the @DescribeStream@ API.
+--
+-- If not specified, only the @CreationTime@ is checked before deleting the
+-- stream.
+--
+-- 'streamARN', 'deleteStream_streamARN' - The Amazon Resource Name (ARN) of the stream that you want to delete.
+newDeleteStream ::
+  -- | 'streamARN'
+  Prelude.Text ->
+  DeleteStream
+newDeleteStream pStreamARN_ =
+  DeleteStream'
+    { currentVersion = Prelude.Nothing,
+      streamARN = pStreamARN_
+    }
 
-
--- | Optional: The version of the stream that you want to delete.  Specify the version as a safeguard to ensure that your are deleting the correct stream. To get the stream version, use the @DescribeStream@ API. If not specified, only the @CreationTime@ is checked before deleting the stream.
-dsCurrentVersion :: Lens' DeleteStream (Maybe Text)
-dsCurrentVersion = lens _dsCurrentVersion (\ s a -> s{_dsCurrentVersion = a})
+-- | Optional: The version of the stream that you want to delete.
+--
+-- Specify the version as a safeguard to ensure that your are deleting the
+-- correct stream. To get the stream version, use the @DescribeStream@ API.
+--
+-- If not specified, only the @CreationTime@ is checked before deleting the
+-- stream.
+deleteStream_currentVersion :: Lens.Lens' DeleteStream (Prelude.Maybe Prelude.Text)
+deleteStream_currentVersion = Lens.lens (\DeleteStream' {currentVersion} -> currentVersion) (\s@DeleteStream' {} a -> s {currentVersion = a} :: DeleteStream)
 
 -- | The Amazon Resource Name (ARN) of the stream that you want to delete.
-dsStreamARN :: Lens' DeleteStream Text
-dsStreamARN = lens _dsStreamARN (\ s a -> s{_dsStreamARN = a})
+deleteStream_streamARN :: Lens.Lens' DeleteStream Prelude.Text
+deleteStream_streamARN = Lens.lens (\DeleteStream' {streamARN} -> streamARN) (\s@DeleteStream' {} a -> s {streamARN = a} :: DeleteStream)
 
-instance AWSRequest DeleteStream where
-        type Rs DeleteStream = DeleteStreamResponse
-        request = postJSON kinesisVideo
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteStreamResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest DeleteStream where
+  type Rs DeleteStream = DeleteStreamResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteStreamResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteStream where
+instance Prelude.Hashable DeleteStream
 
-instance NFData DeleteStream where
+instance Prelude.NFData DeleteStream
 
-instance ToHeaders DeleteStream where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DeleteStream where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON DeleteStream where
-        toJSON DeleteStream'{..}
-          = object
-              (catMaybes
-                 [("CurrentVersion" .=) <$> _dsCurrentVersion,
-                  Just ("StreamARN" .= _dsStreamARN)])
+instance Prelude.ToJSON DeleteStream where
+  toJSON DeleteStream' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("CurrentVersion" Prelude..=)
+              Prelude.<$> currentVersion,
+            Prelude.Just ("StreamARN" Prelude..= streamARN)
+          ]
+      )
 
-instance ToPath DeleteStream where
-        toPath = const "/deleteStream"
+instance Prelude.ToPath DeleteStream where
+  toPath = Prelude.const "/deleteStream"
 
-instance ToQuery DeleteStream where
-        toQuery = const mempty
+instance Prelude.ToQuery DeleteStream where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteStreamResponse' smart constructor.
-newtype DeleteStreamResponse = DeleteStreamResponse'
-  { _dsrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteStreamResponse' smart constructor.
+data DeleteStreamResponse = DeleteStreamResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteStreamResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteStreamResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsrsResponseStatus' - -- | The response status code.
-deleteStreamResponse
-    :: Int -- ^ 'dsrsResponseStatus'
-    -> DeleteStreamResponse
-deleteStreamResponse pResponseStatus_ =
-  DeleteStreamResponse' {_dsrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteStreamResponse_httpStatus' - The response's http status code.
+newDeleteStreamResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteStreamResponse
+newDeleteStreamResponse pHttpStatus_ =
+  DeleteStreamResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+deleteStreamResponse_httpStatus :: Lens.Lens' DeleteStreamResponse Prelude.Int
+deleteStreamResponse_httpStatus = Lens.lens (\DeleteStreamResponse' {httpStatus} -> httpStatus) (\s@DeleteStreamResponse' {} a -> s {httpStatus = a} :: DeleteStreamResponse)
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DeleteStreamResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
-
-instance NFData DeleteStreamResponse where
+instance Prelude.NFData DeleteStreamResponse

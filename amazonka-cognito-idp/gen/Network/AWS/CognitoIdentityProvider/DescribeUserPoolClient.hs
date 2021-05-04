@@ -1,154 +1,187 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Client method for returning the configuration information and metadata of the specified user pool client.
---
---
+-- Client method for returning the configuration information and metadata
+-- of the specified user pool app client.
 module Network.AWS.CognitoIdentityProvider.DescribeUserPoolClient
-    (
-    -- * Creating a Request
-      describeUserPoolClient
-    , DescribeUserPoolClient
+  ( -- * Creating a Request
+    DescribeUserPoolClient (..),
+    newDescribeUserPoolClient,
+
     -- * Request Lenses
-    , dupcuUserPoolId
-    , dupcuClientId
+    describeUserPoolClient_userPoolId,
+    describeUserPoolClient_clientId,
 
     -- * Destructuring the Response
-    , describeUserPoolClientResponse
-    , DescribeUserPoolClientResponse
+    DescribeUserPoolClientResponse (..),
+    newDescribeUserPoolClientResponse,
+
     -- * Response Lenses
-    , dupcrsUserPoolClient
-    , dupcrsResponseStatus
-    ) where
+    describeUserPoolClientResponse_userPoolClient,
+    describeUserPoolClientResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to describe a user pool client.
 --
---
---
--- /See:/ 'describeUserPoolClient' smart constructor.
+-- /See:/ 'newDescribeUserPoolClient' smart constructor.
 data DescribeUserPoolClient = DescribeUserPoolClient'
-  { _dupcuUserPoolId :: !Text
-  , _dupcuClientId   :: !(Sensitive Text)
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The user pool ID for the user pool you want to describe.
+    userPoolId :: Prelude.Text,
+    -- | The app client ID of the app associated with the user pool.
+    clientId :: Prelude.Sensitive Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeUserPoolClient' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeUserPoolClient' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dupcuUserPoolId' - The user pool ID for the user pool you want to describe.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dupcuClientId' - The app client ID of the app associated with the user pool.
-describeUserPoolClient
-    :: Text -- ^ 'dupcuUserPoolId'
-    -> Text -- ^ 'dupcuClientId'
-    -> DescribeUserPoolClient
-describeUserPoolClient pUserPoolId_ pClientId_ =
+-- 'userPoolId', 'describeUserPoolClient_userPoolId' - The user pool ID for the user pool you want to describe.
+--
+-- 'clientId', 'describeUserPoolClient_clientId' - The app client ID of the app associated with the user pool.
+newDescribeUserPoolClient ::
+  -- | 'userPoolId'
+  Prelude.Text ->
+  -- | 'clientId'
+  Prelude.Text ->
+  DescribeUserPoolClient
+newDescribeUserPoolClient pUserPoolId_ pClientId_ =
   DescribeUserPoolClient'
-    {_dupcuUserPoolId = pUserPoolId_, _dupcuClientId = _Sensitive # pClientId_}
-
+    { userPoolId = pUserPoolId_,
+      clientId = Prelude._Sensitive Lens.# pClientId_
+    }
 
 -- | The user pool ID for the user pool you want to describe.
-dupcuUserPoolId :: Lens' DescribeUserPoolClient Text
-dupcuUserPoolId = lens _dupcuUserPoolId (\ s a -> s{_dupcuUserPoolId = a})
+describeUserPoolClient_userPoolId :: Lens.Lens' DescribeUserPoolClient Prelude.Text
+describeUserPoolClient_userPoolId = Lens.lens (\DescribeUserPoolClient' {userPoolId} -> userPoolId) (\s@DescribeUserPoolClient' {} a -> s {userPoolId = a} :: DescribeUserPoolClient)
 
 -- | The app client ID of the app associated with the user pool.
-dupcuClientId :: Lens' DescribeUserPoolClient Text
-dupcuClientId = lens _dupcuClientId (\ s a -> s{_dupcuClientId = a}) . _Sensitive
+describeUserPoolClient_clientId :: Lens.Lens' DescribeUserPoolClient Prelude.Text
+describeUserPoolClient_clientId = Lens.lens (\DescribeUserPoolClient' {clientId} -> clientId) (\s@DescribeUserPoolClient' {} a -> s {clientId = a} :: DescribeUserPoolClient) Prelude.. Prelude._Sensitive
 
-instance AWSRequest DescribeUserPoolClient where
-        type Rs DescribeUserPoolClient =
-             DescribeUserPoolClientResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeUserPoolClientResponse' <$>
-                   (x .?> "UserPoolClient") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeUserPoolClient where
+  type
+    Rs DescribeUserPoolClient =
+      DescribeUserPoolClientResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeUserPoolClientResponse'
+            Prelude.<$> (x Prelude..?> "UserPoolClient")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeUserPoolClient where
+instance Prelude.Hashable DescribeUserPoolClient
 
-instance NFData DescribeUserPoolClient where
+instance Prelude.NFData DescribeUserPoolClient
 
-instance ToHeaders DescribeUserPoolClient where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.DescribeUserPoolClient"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DescribeUserPoolClient where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSCognitoIdentityProviderService.DescribeUserPoolClient" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DescribeUserPoolClient where
-        toJSON DescribeUserPoolClient'{..}
-          = object
-              (catMaybes
-                 [Just ("UserPoolId" .= _dupcuUserPoolId),
-                  Just ("ClientId" .= _dupcuClientId)])
+instance Prelude.ToJSON DescribeUserPoolClient where
+  toJSON DescribeUserPoolClient' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPoolId" Prelude..= userPoolId),
+            Prelude.Just ("ClientId" Prelude..= clientId)
+          ]
+      )
 
-instance ToPath DescribeUserPoolClient where
-        toPath = const "/"
+instance Prelude.ToPath DescribeUserPoolClient where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeUserPoolClient where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeUserPoolClient where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Represents the response from the server from a request to describe the user pool client.
+-- | Represents the response from the server from a request to describe the
+-- user pool client.
 --
---
---
--- /See:/ 'describeUserPoolClientResponse' smart constructor.
+-- /See:/ 'newDescribeUserPoolClientResponse' smart constructor.
 data DescribeUserPoolClientResponse = DescribeUserPoolClientResponse'
-  { _dupcrsUserPoolClient :: !(Maybe UserPoolClientType)
-  , _dupcrsResponseStatus :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The user pool client from a server response to describe the user pool
+    -- client.
+    userPoolClient :: Prelude.Maybe UserPoolClientType,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeUserPoolClientResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeUserPoolClientResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dupcrsUserPoolClient' - The user pool client from a server response to describe the user pool client.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dupcrsResponseStatus' - -- | The response status code.
-describeUserPoolClientResponse
-    :: Int -- ^ 'dupcrsResponseStatus'
-    -> DescribeUserPoolClientResponse
-describeUserPoolClientResponse pResponseStatus_ =
+-- 'userPoolClient', 'describeUserPoolClientResponse_userPoolClient' - The user pool client from a server response to describe the user pool
+-- client.
+--
+-- 'httpStatus', 'describeUserPoolClientResponse_httpStatus' - The response's http status code.
+newDescribeUserPoolClientResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeUserPoolClientResponse
+newDescribeUserPoolClientResponse pHttpStatus_ =
   DescribeUserPoolClientResponse'
-    {_dupcrsUserPoolClient = Nothing, _dupcrsResponseStatus = pResponseStatus_}
+    { userPoolClient =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The user pool client from a server response to describe the user pool
+-- client.
+describeUserPoolClientResponse_userPoolClient :: Lens.Lens' DescribeUserPoolClientResponse (Prelude.Maybe UserPoolClientType)
+describeUserPoolClientResponse_userPoolClient = Lens.lens (\DescribeUserPoolClientResponse' {userPoolClient} -> userPoolClient) (\s@DescribeUserPoolClientResponse' {} a -> s {userPoolClient = a} :: DescribeUserPoolClientResponse)
 
--- | The user pool client from a server response to describe the user pool client.
-dupcrsUserPoolClient :: Lens' DescribeUserPoolClientResponse (Maybe UserPoolClientType)
-dupcrsUserPoolClient = lens _dupcrsUserPoolClient (\ s a -> s{_dupcrsUserPoolClient = a})
+-- | The response's http status code.
+describeUserPoolClientResponse_httpStatus :: Lens.Lens' DescribeUserPoolClientResponse Prelude.Int
+describeUserPoolClientResponse_httpStatus = Lens.lens (\DescribeUserPoolClientResponse' {httpStatus} -> httpStatus) (\s@DescribeUserPoolClientResponse' {} a -> s {httpStatus = a} :: DescribeUserPoolClientResponse)
 
--- | -- | The response status code.
-dupcrsResponseStatus :: Lens' DescribeUserPoolClientResponse Int
-dupcrsResponseStatus = lens _dupcrsResponseStatus (\ s a -> s{_dupcrsResponseStatus = a})
-
-instance NFData DescribeUserPoolClientResponse where
+instance
+  Prelude.NFData
+    DescribeUserPoolClientResponse

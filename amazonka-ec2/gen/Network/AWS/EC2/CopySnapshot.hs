@@ -1,210 +1,466 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.CopySnapshot
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can copy the snapshot within the same region or from one region to another. You can use the snapshot to create EBS volumes or Amazon Machine Images (AMIs). The snapshot is copied to the regional endpoint that you send the HTTP request to.
+-- Copies a point-in-time snapshot of an EBS volume and stores it in Amazon
+-- S3. You can copy a snapshot within the same Region, from one Region to
+-- another, or from a Region to an Outpost. You can\'t copy a snapshot from
+-- an Outpost to a Region, from one Outpost to another, or within the same
+-- Outpost.
 --
+-- You can use the snapshot to create EBS volumes or Amazon Machine Images
+-- (AMIs).
 --
--- Copies of encrypted EBS snapshots remain encrypted. Copies of unencrypted snapshots remain unencrypted, unless the @Encrypted@ flag is specified during the snapshot copy operation. By default, encrypted snapshot copies use the default AWS Key Management Service (AWS KMS) customer master key (CMK); however, you can specify a non-default CMK with the @KmsKeyId@ parameter.
+-- When copying snapshots to a Region, copies of encrypted EBS snapshots
+-- remain encrypted. Copies of unencrypted snapshots remain unencrypted,
+-- unless you enable encryption for the snapshot copy operation. By
+-- default, encrypted snapshot copies use the default AWS Key Management
+-- Service (AWS KMS) customer master key (CMK); however, you can specify a
+-- different CMK. To copy an encrypted snapshot that has been shared from
+-- another account, you must have permissions for the CMK used to encrypt
+-- the snapshot.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html Copying an Amazon EBS Snapshot> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- Snapshots copied to an Outpost are encrypted by default using the
+-- default encryption key for the Region, or a different key that you
+-- specify in the request using __KmsKeyId__. Outposts do not support
+-- unencrypted snapshots. For more information,
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami Amazon EBS local snapshots on Outposts>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
+-- Snapshots created by copying another snapshot have an arbitrary volume
+-- ID that should not be used for any purpose.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html Copying an Amazon EBS snapshot>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 module Network.AWS.EC2.CopySnapshot
-    (
-    -- * Creating a Request
-      copySnapshot
-    , CopySnapshot
+  ( -- * Creating a Request
+    CopySnapshot (..),
+    newCopySnapshot,
+
     -- * Request Lenses
-    , csPresignedURL
-    , csEncrypted
-    , csDestinationRegion
-    , csKMSKeyId
-    , csDescription
-    , csDryRun
-    , csSourceRegion
-    , csSourceSnapshotId
+    copySnapshot_tagSpecifications,
+    copySnapshot_destinationRegion,
+    copySnapshot_dryRun,
+    copySnapshot_encrypted,
+    copySnapshot_kmsKeyId,
+    copySnapshot_destinationOutpostArn,
+    copySnapshot_presignedUrl,
+    copySnapshot_description,
+    copySnapshot_sourceRegion,
+    copySnapshot_sourceSnapshotId,
 
     -- * Destructuring the Response
-    , copySnapshotResponse
-    , CopySnapshotResponse
+    CopySnapshotResponse (..),
+    newCopySnapshotResponse,
+
     -- * Response Lenses
-    , csrsSnapshotId
-    , csrsResponseStatus
-    ) where
+    copySnapshotResponse_snapshotId,
+    copySnapshotResponse_tags,
+    copySnapshotResponse_httpStatus,
+  )
+where
 
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for CopySnapshot.
---
---
---
--- /See:/ 'copySnapshot' smart constructor.
+-- | /See:/ 'newCopySnapshot' smart constructor.
 data CopySnapshot = CopySnapshot'
-  { _csPresignedURL      :: !(Maybe Text)
-  , _csEncrypted         :: !(Maybe Bool)
-  , _csDestinationRegion :: !(Maybe Text)
-  , _csKMSKeyId          :: !(Maybe Text)
-  , _csDescription       :: !(Maybe Text)
-  , _csDryRun            :: !(Maybe Bool)
-  , _csSourceRegion      :: !Text
-  , _csSourceSnapshotId  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The tags to apply to the new snapshot.
+    tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | The destination Region to use in the @PresignedUrl@ parameter of a
+    -- snapshot copy operation. This parameter is only valid for specifying the
+    -- destination Region in a @PresignedUrl@ parameter, where it is required.
+    --
+    -- The snapshot copy is sent to the regional endpoint that you sent the
+    -- HTTP request to (for example, @ec2.us-east-1.amazonaws.com@). With the
+    -- AWS CLI, this is specified using the @--region@ parameter or the default
+    -- Region in your AWS configuration file.
+    destinationRegion :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | To encrypt a copy of an unencrypted snapshot if encryption by default is
+    -- not enabled, enable encryption using this parameter. Otherwise, omit
+    -- this parameter. Encrypted snapshots are encrypted, even if you omit this
+    -- parameter and encryption by default is not enabled. You cannot set this
+    -- parameter to false. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | The identifier of the AWS Key Management Service (AWS KMS) customer
+    -- master key (CMK) to use for Amazon EBS encryption. If this parameter is
+    -- not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is
+    -- specified, the encrypted state must be @true@.
+    --
+    -- You can specify the CMK using any of the following:
+    --
+    -- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
+    --
+    -- -   Key alias. For example, alias\/ExampleAlias.
+    --
+    -- -   Key ARN. For example,
+    --     arn:aws:kms:us-east-1:012345678910:key\/1234abcd-12ab-34cd-56ef-1234567890ab.
+    --
+    -- -   Alias ARN. For example,
+    --     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
+    --
+    -- AWS authenticates the CMK asynchronously. Therefore, if you specify an
+    -- ID, alias, or ARN that is not valid, the action can appear to complete,
+    -- but eventually fails.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Outpost to which to copy the
+    -- snapshot. Only specify this parameter when copying a snapshot from an
+    -- AWS Region to an Outpost. The snapshot must be in the Region for the
+    -- destination Outpost. You cannot copy a snapshot from an Outpost to a
+    -- Region, from one Outpost to another, or within the same Outpost.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots Copying snapshots from an AWS Region to an Outpost>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    destinationOutpostArn :: Prelude.Maybe Prelude.Text,
+    -- | When you copy an encrypted source snapshot using the Amazon EC2 Query
+    -- API, you must supply a pre-signed URL. This parameter is optional for
+    -- unencrypted snapshots. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html Query requests>.
+    --
+    -- The @PresignedUrl@ should use the snapshot source endpoint, the
+    -- @CopySnapshot@ action, and include the @SourceRegion@,
+    -- @SourceSnapshotId@, and @DestinationRegion@ parameters. The
+    -- @PresignedUrl@ must be signed using AWS Signature Version 4. Because EBS
+    -- snapshots are stored in Amazon S3, the signing algorithm for this
+    -- parameter uses the same logic that is described in
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests: Using Query Parameters (AWS Signature Version 4)>
+    -- in the /Amazon Simple Storage Service API Reference/. An invalid or
+    -- improperly signed @PresignedUrl@ will cause the copy operation to fail
+    -- asynchronously, and the snapshot will move to an @error@ state.
+    presignedUrl :: Prelude.Maybe Prelude.Text,
+    -- | A description for the EBS snapshot.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Region that contains the snapshot to be copied.
+    sourceRegion :: Prelude.Text,
+    -- | The ID of the EBS snapshot to copy.
+    sourceSnapshotId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CopySnapshot' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CopySnapshot' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'csPresignedURL' - When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply a pre-signed URL. This parameter is optional for unencrypted snapshots. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html Query Requests> . The @PresignedUrl@ should use the snapshot source endpoint, the @CopySnapshot@ action, and include the @SourceRegion@ , @SourceSnapshotId@ , and @DestinationRegion@ parameters. The @PresignedUrl@ must be signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic that is described in <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests by Using Query Parameters (AWS Signature Version 4)> in the /Amazon Simple Storage Service API Reference/ . An invalid or improperly signed @PresignedUrl@ will cause the copy operation to fail asynchronously, and the snapshot will move to an @error@ state.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'csEncrypted' - Specifies whether the destination snapshot should be encrypted. You can encrypt a copy of an unencrypted snapshot using this flag, but you cannot use it to create an unencrypted copy from an encrypted snapshot. Your default CMK for EBS is used unless a non-default AWS Key Management Service (AWS KMS) CMK is specified with @KmsKeyId@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
+-- 'tagSpecifications', 'copySnapshot_tagSpecifications' - The tags to apply to the new snapshot.
 --
--- * 'csDestinationRegion' - The destination region to use in the @PresignedUrl@ parameter of a snapshot copy operation. This parameter is only valid for specifying the destination region in a @PresignedUrl@ parameter, where it is required.
+-- 'destinationRegion', 'copySnapshot_destinationRegion' - The destination Region to use in the @PresignedUrl@ parameter of a
+-- snapshot copy operation. This parameter is only valid for specifying the
+-- destination Region in a @PresignedUrl@ parameter, where it is required.
 --
--- * 'csKMSKeyId' - An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.  The CMK identifier may be provided in any of the following formats:      * Key ID     * Key alias     * ARN using key ID. The ID ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @key@ namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :key//abcd1234-a123-456a-a12b-a123b4cd56ef/ .      * ARN using key alias. The alias ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @alias@ namespace, and then the CMK alias. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :alias//ExampleAlias/ .  AWS parses @KmsKeyId@ asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. The action will eventually fail.
+-- The snapshot copy is sent to the regional endpoint that you sent the
+-- HTTP request to (for example, @ec2.us-east-1.amazonaws.com@). With the
+-- AWS CLI, this is specified using the @--region@ parameter or the default
+-- Region in your AWS configuration file.
 --
--- * 'csDescription' - A description for the EBS snapshot.
+-- 'dryRun', 'copySnapshot_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'csDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- 'encrypted', 'copySnapshot_encrypted' - To encrypt a copy of an unencrypted snapshot if encryption by default is
+-- not enabled, enable encryption using this parameter. Otherwise, omit
+-- this parameter. Encrypted snapshots are encrypted, even if you omit this
+-- parameter and encryption by default is not enabled. You cannot set this
+-- parameter to false. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- * 'csSourceRegion' - The ID of the region that contains the snapshot to be copied.
+-- 'kmsKeyId', 'copySnapshot_kmsKeyId' - The identifier of the AWS Key Management Service (AWS KMS) customer
+-- master key (CMK) to use for Amazon EBS encryption. If this parameter is
+-- not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is
+-- specified, the encrypted state must be @true@.
 --
--- * 'csSourceSnapshotId' - The ID of the EBS snapshot to copy.
-copySnapshot
-    :: Text -- ^ 'csSourceRegion'
-    -> Text -- ^ 'csSourceSnapshotId'
-    -> CopySnapshot
-copySnapshot pSourceRegion_ pSourceSnapshotId_ =
+-- You can specify the CMK using any of the following:
+--
+-- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
+--
+-- -   Key alias. For example, alias\/ExampleAlias.
+--
+-- -   Key ARN. For example,
+--     arn:aws:kms:us-east-1:012345678910:key\/1234abcd-12ab-34cd-56ef-1234567890ab.
+--
+-- -   Alias ARN. For example,
+--     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
+--
+-- AWS authenticates the CMK asynchronously. Therefore, if you specify an
+-- ID, alias, or ARN that is not valid, the action can appear to complete,
+-- but eventually fails.
+--
+-- 'destinationOutpostArn', 'copySnapshot_destinationOutpostArn' - The Amazon Resource Name (ARN) of the Outpost to which to copy the
+-- snapshot. Only specify this parameter when copying a snapshot from an
+-- AWS Region to an Outpost. The snapshot must be in the Region for the
+-- destination Outpost. You cannot copy a snapshot from an Outpost to a
+-- Region, from one Outpost to another, or within the same Outpost.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots Copying snapshots from an AWS Region to an Outpost>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- 'presignedUrl', 'copySnapshot_presignedUrl' - When you copy an encrypted source snapshot using the Amazon EC2 Query
+-- API, you must supply a pre-signed URL. This parameter is optional for
+-- unencrypted snapshots. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html Query requests>.
+--
+-- The @PresignedUrl@ should use the snapshot source endpoint, the
+-- @CopySnapshot@ action, and include the @SourceRegion@,
+-- @SourceSnapshotId@, and @DestinationRegion@ parameters. The
+-- @PresignedUrl@ must be signed using AWS Signature Version 4. Because EBS
+-- snapshots are stored in Amazon S3, the signing algorithm for this
+-- parameter uses the same logic that is described in
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests: Using Query Parameters (AWS Signature Version 4)>
+-- in the /Amazon Simple Storage Service API Reference/. An invalid or
+-- improperly signed @PresignedUrl@ will cause the copy operation to fail
+-- asynchronously, and the snapshot will move to an @error@ state.
+--
+-- 'description', 'copySnapshot_description' - A description for the EBS snapshot.
+--
+-- 'sourceRegion', 'copySnapshot_sourceRegion' - The ID of the Region that contains the snapshot to be copied.
+--
+-- 'sourceSnapshotId', 'copySnapshot_sourceSnapshotId' - The ID of the EBS snapshot to copy.
+newCopySnapshot ::
+  -- | 'sourceRegion'
+  Prelude.Text ->
+  -- | 'sourceSnapshotId'
+  Prelude.Text ->
+  CopySnapshot
+newCopySnapshot pSourceRegion_ pSourceSnapshotId_ =
   CopySnapshot'
-    { _csPresignedURL = Nothing
-    , _csEncrypted = Nothing
-    , _csDestinationRegion = Nothing
-    , _csKMSKeyId = Nothing
-    , _csDescription = Nothing
-    , _csDryRun = Nothing
-    , _csSourceRegion = pSourceRegion_
-    , _csSourceSnapshotId = pSourceSnapshotId_
+    { tagSpecifications = Prelude.Nothing,
+      destinationRegion = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      encrypted = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      destinationOutpostArn = Prelude.Nothing,
+      presignedUrl = Prelude.Nothing,
+      description = Prelude.Nothing,
+      sourceRegion = pSourceRegion_,
+      sourceSnapshotId = pSourceSnapshotId_
     }
 
+-- | The tags to apply to the new snapshot.
+copySnapshot_tagSpecifications :: Lens.Lens' CopySnapshot (Prelude.Maybe [TagSpecification])
+copySnapshot_tagSpecifications = Lens.lens (\CopySnapshot' {tagSpecifications} -> tagSpecifications) (\s@CopySnapshot' {} a -> s {tagSpecifications = a} :: CopySnapshot) Prelude.. Lens.mapping Prelude._Coerce
 
--- | When you copy an encrypted source snapshot using the Amazon EC2 Query API, you must supply a pre-signed URL. This parameter is optional for unencrypted snapshots. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html Query Requests> . The @PresignedUrl@ should use the snapshot source endpoint, the @CopySnapshot@ action, and include the @SourceRegion@ , @SourceSnapshotId@ , and @DestinationRegion@ parameters. The @PresignedUrl@ must be signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon S3, the signing algorithm for this parameter uses the same logic that is described in <http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests by Using Query Parameters (AWS Signature Version 4)> in the /Amazon Simple Storage Service API Reference/ . An invalid or improperly signed @PresignedUrl@ will cause the copy operation to fail asynchronously, and the snapshot will move to an @error@ state.
-csPresignedURL :: Lens' CopySnapshot (Maybe Text)
-csPresignedURL = lens _csPresignedURL (\ s a -> s{_csPresignedURL = a})
+-- | The destination Region to use in the @PresignedUrl@ parameter of a
+-- snapshot copy operation. This parameter is only valid for specifying the
+-- destination Region in a @PresignedUrl@ parameter, where it is required.
+--
+-- The snapshot copy is sent to the regional endpoint that you sent the
+-- HTTP request to (for example, @ec2.us-east-1.amazonaws.com@). With the
+-- AWS CLI, this is specified using the @--region@ parameter or the default
+-- Region in your AWS configuration file.
+copySnapshot_destinationRegion :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
+copySnapshot_destinationRegion = Lens.lens (\CopySnapshot' {destinationRegion} -> destinationRegion) (\s@CopySnapshot' {} a -> s {destinationRegion = a} :: CopySnapshot)
 
--- | Specifies whether the destination snapshot should be encrypted. You can encrypt a copy of an unencrypted snapshot using this flag, but you cannot use it to create an unencrypted copy from an encrypted snapshot. Your default CMK for EBS is used unless a non-default AWS Key Management Service (AWS KMS) CMK is specified with @KmsKeyId@ . For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/ .
-csEncrypted :: Lens' CopySnapshot (Maybe Bool)
-csEncrypted = lens _csEncrypted (\ s a -> s{_csEncrypted = a})
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+copySnapshot_dryRun :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Bool)
+copySnapshot_dryRun = Lens.lens (\CopySnapshot' {dryRun} -> dryRun) (\s@CopySnapshot' {} a -> s {dryRun = a} :: CopySnapshot)
 
--- | The destination region to use in the @PresignedUrl@ parameter of a snapshot copy operation. This parameter is only valid for specifying the destination region in a @PresignedUrl@ parameter, where it is required.
-csDestinationRegion :: Lens' CopySnapshot (Maybe Text)
-csDestinationRegion = lens _csDestinationRegion (\ s a -> s{_csDestinationRegion = a})
+-- | To encrypt a copy of an unencrypted snapshot if encryption by default is
+-- not enabled, enable encryption using this parameter. Otherwise, omit
+-- this parameter. Encrypted snapshots are encrypted, even if you omit this
+-- parameter and encryption by default is not enabled. You cannot set this
+-- parameter to false. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+copySnapshot_encrypted :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Bool)
+copySnapshot_encrypted = Lens.lens (\CopySnapshot' {encrypted} -> encrypted) (\s@CopySnapshot' {} a -> s {encrypted = a} :: CopySnapshot)
 
--- | An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.  The CMK identifier may be provided in any of the following formats:      * Key ID     * Key alias     * ARN using key ID. The ID ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @key@ namespace, and then the CMK ID. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :key//abcd1234-a123-456a-a12b-a123b4cd56ef/ .      * ARN using key alias. The alias ARN contains the @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the @alias@ namespace, and then the CMK alias. For example, arn:aws:kms:/us-east-1/ :/012345678910/ :alias//ExampleAlias/ .  AWS parses @KmsKeyId@ asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. The action will eventually fail.
-csKMSKeyId :: Lens' CopySnapshot (Maybe Text)
-csKMSKeyId = lens _csKMSKeyId (\ s a -> s{_csKMSKeyId = a})
+-- | The identifier of the AWS Key Management Service (AWS KMS) customer
+-- master key (CMK) to use for Amazon EBS encryption. If this parameter is
+-- not specified, your AWS managed CMK for EBS is used. If @KmsKeyId@ is
+-- specified, the encrypted state must be @true@.
+--
+-- You can specify the CMK using any of the following:
+--
+-- -   Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.
+--
+-- -   Key alias. For example, alias\/ExampleAlias.
+--
+-- -   Key ARN. For example,
+--     arn:aws:kms:us-east-1:012345678910:key\/1234abcd-12ab-34cd-56ef-1234567890ab.
+--
+-- -   Alias ARN. For example,
+--     arn:aws:kms:us-east-1:012345678910:alias\/ExampleAlias.
+--
+-- AWS authenticates the CMK asynchronously. Therefore, if you specify an
+-- ID, alias, or ARN that is not valid, the action can appear to complete,
+-- but eventually fails.
+copySnapshot_kmsKeyId :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
+copySnapshot_kmsKeyId = Lens.lens (\CopySnapshot' {kmsKeyId} -> kmsKeyId) (\s@CopySnapshot' {} a -> s {kmsKeyId = a} :: CopySnapshot)
+
+-- | The Amazon Resource Name (ARN) of the Outpost to which to copy the
+-- snapshot. Only specify this parameter when copying a snapshot from an
+-- AWS Region to an Outpost. The snapshot must be in the Region for the
+-- destination Outpost. You cannot copy a snapshot from an Outpost to a
+-- Region, from one Outpost to another, or within the same Outpost.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots Copying snapshots from an AWS Region to an Outpost>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+copySnapshot_destinationOutpostArn :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
+copySnapshot_destinationOutpostArn = Lens.lens (\CopySnapshot' {destinationOutpostArn} -> destinationOutpostArn) (\s@CopySnapshot' {} a -> s {destinationOutpostArn = a} :: CopySnapshot)
+
+-- | When you copy an encrypted source snapshot using the Amazon EC2 Query
+-- API, you must supply a pre-signed URL. This parameter is optional for
+-- unencrypted snapshots. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html Query requests>.
+--
+-- The @PresignedUrl@ should use the snapshot source endpoint, the
+-- @CopySnapshot@ action, and include the @SourceRegion@,
+-- @SourceSnapshotId@, and @DestinationRegion@ parameters. The
+-- @PresignedUrl@ must be signed using AWS Signature Version 4. Because EBS
+-- snapshots are stored in Amazon S3, the signing algorithm for this
+-- parameter uses the same logic that is described in
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html Authenticating Requests: Using Query Parameters (AWS Signature Version 4)>
+-- in the /Amazon Simple Storage Service API Reference/. An invalid or
+-- improperly signed @PresignedUrl@ will cause the copy operation to fail
+-- asynchronously, and the snapshot will move to an @error@ state.
+copySnapshot_presignedUrl :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
+copySnapshot_presignedUrl = Lens.lens (\CopySnapshot' {presignedUrl} -> presignedUrl) (\s@CopySnapshot' {} a -> s {presignedUrl = a} :: CopySnapshot)
 
 -- | A description for the EBS snapshot.
-csDescription :: Lens' CopySnapshot (Maybe Text)
-csDescription = lens _csDescription (\ s a -> s{_csDescription = a})
+copySnapshot_description :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
+copySnapshot_description = Lens.lens (\CopySnapshot' {description} -> description) (\s@CopySnapshot' {} a -> s {description = a} :: CopySnapshot)
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-csDryRun :: Lens' CopySnapshot (Maybe Bool)
-csDryRun = lens _csDryRun (\ s a -> s{_csDryRun = a})
-
--- | The ID of the region that contains the snapshot to be copied.
-csSourceRegion :: Lens' CopySnapshot Text
-csSourceRegion = lens _csSourceRegion (\ s a -> s{_csSourceRegion = a})
+-- | The ID of the Region that contains the snapshot to be copied.
+copySnapshot_sourceRegion :: Lens.Lens' CopySnapshot Prelude.Text
+copySnapshot_sourceRegion = Lens.lens (\CopySnapshot' {sourceRegion} -> sourceRegion) (\s@CopySnapshot' {} a -> s {sourceRegion = a} :: CopySnapshot)
 
 -- | The ID of the EBS snapshot to copy.
-csSourceSnapshotId :: Lens' CopySnapshot Text
-csSourceSnapshotId = lens _csSourceSnapshotId (\ s a -> s{_csSourceSnapshotId = a})
+copySnapshot_sourceSnapshotId :: Lens.Lens' CopySnapshot Prelude.Text
+copySnapshot_sourceSnapshotId = Lens.lens (\CopySnapshot' {sourceSnapshotId} -> sourceSnapshotId) (\s@CopySnapshot' {} a -> s {sourceSnapshotId = a} :: CopySnapshot)
 
-instance AWSRequest CopySnapshot where
-        type Rs CopySnapshot = CopySnapshotResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 CopySnapshotResponse' <$>
-                   (x .@? "snapshotId") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest CopySnapshot where
+  type Rs CopySnapshot = CopySnapshotResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          CopySnapshotResponse'
+            Prelude.<$> (x Prelude..@? "snapshotId")
+            Prelude.<*> ( x Prelude..@? "tagSet" Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CopySnapshot where
+instance Prelude.Hashable CopySnapshot
 
-instance NFData CopySnapshot where
+instance Prelude.NFData CopySnapshot
 
-instance ToHeaders CopySnapshot where
-        toHeaders = const mempty
+instance Prelude.ToHeaders CopySnapshot where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath CopySnapshot where
-        toPath = const "/"
+instance Prelude.ToPath CopySnapshot where
+  toPath = Prelude.const "/"
 
-instance ToQuery CopySnapshot where
-        toQuery CopySnapshot'{..}
-          = mconcat
-              ["Action" =: ("CopySnapshot" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "PresignedUrl" =: _csPresignedURL,
-               "Encrypted" =: _csEncrypted,
-               "DestinationRegion" =: _csDestinationRegion,
-               "KmsKeyId" =: _csKMSKeyId,
-               "Description" =: _csDescription,
-               "DryRun" =: _csDryRun,
-               "SourceRegion" =: _csSourceRegion,
-               "SourceSnapshotId" =: _csSourceSnapshotId]
+instance Prelude.ToQuery CopySnapshot where
+  toQuery CopySnapshot' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("CopySnapshot" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
+        Prelude.toQuery
+          ( Prelude.toQueryList "TagSpecification"
+              Prelude.<$> tagSpecifications
+          ),
+        "DestinationRegion" Prelude.=: destinationRegion,
+        "DryRun" Prelude.=: dryRun,
+        "Encrypted" Prelude.=: encrypted,
+        "KmsKeyId" Prelude.=: kmsKeyId,
+        "DestinationOutpostArn"
+          Prelude.=: destinationOutpostArn,
+        "PresignedUrl" Prelude.=: presignedUrl,
+        "Description" Prelude.=: description,
+        "SourceRegion" Prelude.=: sourceRegion,
+        "SourceSnapshotId" Prelude.=: sourceSnapshotId
+      ]
 
--- | Contains the output of CopySnapshot.
---
---
---
--- /See:/ 'copySnapshotResponse' smart constructor.
+-- | /See:/ 'newCopySnapshotResponse' smart constructor.
 data CopySnapshotResponse = CopySnapshotResponse'
-  { _csrsSnapshotId     :: !(Maybe Text)
-  , _csrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the new snapshot.
+    snapshotId :: Prelude.Maybe Prelude.Text,
+    -- | Any tags applied to the new snapshot.
+    tags :: Prelude.Maybe [Tag],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CopySnapshotResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CopySnapshotResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'csrsSnapshotId' - The ID of the new snapshot.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'csrsResponseStatus' - -- | The response status code.
-copySnapshotResponse
-    :: Int -- ^ 'csrsResponseStatus'
-    -> CopySnapshotResponse
-copySnapshotResponse pResponseStatus_ =
+-- 'snapshotId', 'copySnapshotResponse_snapshotId' - The ID of the new snapshot.
+--
+-- 'tags', 'copySnapshotResponse_tags' - Any tags applied to the new snapshot.
+--
+-- 'httpStatus', 'copySnapshotResponse_httpStatus' - The response's http status code.
+newCopySnapshotResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CopySnapshotResponse
+newCopySnapshotResponse pHttpStatus_ =
   CopySnapshotResponse'
-    {_csrsSnapshotId = Nothing, _csrsResponseStatus = pResponseStatus_}
-
+    { snapshotId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The ID of the new snapshot.
-csrsSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
-csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a})
+copySnapshotResponse_snapshotId :: Lens.Lens' CopySnapshotResponse (Prelude.Maybe Prelude.Text)
+copySnapshotResponse_snapshotId = Lens.lens (\CopySnapshotResponse' {snapshotId} -> snapshotId) (\s@CopySnapshotResponse' {} a -> s {snapshotId = a} :: CopySnapshotResponse)
 
--- | -- | The response status code.
-csrsResponseStatus :: Lens' CopySnapshotResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a})
+-- | Any tags applied to the new snapshot.
+copySnapshotResponse_tags :: Lens.Lens' CopySnapshotResponse (Prelude.Maybe [Tag])
+copySnapshotResponse_tags = Lens.lens (\CopySnapshotResponse' {tags} -> tags) (\s@CopySnapshotResponse' {} a -> s {tags = a} :: CopySnapshotResponse) Prelude.. Lens.mapping Prelude._Coerce
 
-instance NFData CopySnapshotResponse where
+-- | The response's http status code.
+copySnapshotResponse_httpStatus :: Lens.Lens' CopySnapshotResponse Prelude.Int
+copySnapshotResponse_httpStatus = Lens.lens (\CopySnapshotResponse' {httpStatus} -> httpStatus) (\s@CopySnapshotResponse' {} a -> s {httpStatus = a} :: CopySnapshotResponse)
+
+instance Prelude.NFData CopySnapshotResponse

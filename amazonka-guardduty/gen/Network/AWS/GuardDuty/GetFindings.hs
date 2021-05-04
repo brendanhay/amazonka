@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GuardDuty.GetFindings
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,136 +23,166 @@
 --
 -- Describes Amazon GuardDuty findings specified by finding IDs.
 module Network.AWS.GuardDuty.GetFindings
-    (
-    -- * Creating a Request
-      getFindings
-    , GetFindings
+  ( -- * Creating a Request
+    GetFindings (..),
+    newGetFindings,
+
     -- * Request Lenses
-    , gfFindingIds
-    , gfSortCriteria
-    , gfDetectorId
+    getFindings_sortCriteria,
+    getFindings_detectorId,
+    getFindings_findingIds,
 
     -- * Destructuring the Response
-    , getFindingsResponse
-    , GetFindingsResponse
+    GetFindingsResponse (..),
+    newGetFindingsResponse,
+
     -- * Response Lenses
-    , grsFindings
-    , grsResponseStatus
-    ) where
+    getFindingsResponse_httpStatus,
+    getFindingsResponse_findings,
+  )
+where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.GuardDuty.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | GetFindings request body.
---
--- /See:/ 'getFindings' smart constructor.
+-- | /See:/ 'newGetFindings' smart constructor.
 data GetFindings = GetFindings'
-  { _gfFindingIds   :: !(Maybe [Text])
-  , _gfSortCriteria :: !(Maybe SortCriteria)
-  , _gfDetectorId   :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Represents the criteria used for sorting findings.
+    sortCriteria :: Prelude.Maybe SortCriteria,
+    -- | The ID of the detector that specifies the GuardDuty service whose
+    -- findings you want to retrieve.
+    detectorId :: Prelude.Text,
+    -- | The IDs of the findings that you want to retrieve.
+    findingIds :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetFindings' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetFindings' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gfFindingIds' - IDs of the findings that you want to retrieve.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gfSortCriteria' - Represents the criteria used for sorting findings.
+-- 'sortCriteria', 'getFindings_sortCriteria' - Represents the criteria used for sorting findings.
 --
--- * 'gfDetectorId' - The ID of the detector that specifies the GuardDuty service whose findings you want to retrieve.
-getFindings
-    :: Text -- ^ 'gfDetectorId'
-    -> GetFindings
-getFindings pDetectorId_ =
+-- 'detectorId', 'getFindings_detectorId' - The ID of the detector that specifies the GuardDuty service whose
+-- findings you want to retrieve.
+--
+-- 'findingIds', 'getFindings_findingIds' - The IDs of the findings that you want to retrieve.
+newGetFindings ::
+  -- | 'detectorId'
+  Prelude.Text ->
+  GetFindings
+newGetFindings pDetectorId_ =
   GetFindings'
-    { _gfFindingIds = Nothing
-    , _gfSortCriteria = Nothing
-    , _gfDetectorId = pDetectorId_
+    { sortCriteria = Prelude.Nothing,
+      detectorId = pDetectorId_,
+      findingIds = Prelude.mempty
     }
 
-
--- | IDs of the findings that you want to retrieve.
-gfFindingIds :: Lens' GetFindings [Text]
-gfFindingIds = lens _gfFindingIds (\ s a -> s{_gfFindingIds = a}) . _Default . _Coerce
-
 -- | Represents the criteria used for sorting findings.
-gfSortCriteria :: Lens' GetFindings (Maybe SortCriteria)
-gfSortCriteria = lens _gfSortCriteria (\ s a -> s{_gfSortCriteria = a})
+getFindings_sortCriteria :: Lens.Lens' GetFindings (Prelude.Maybe SortCriteria)
+getFindings_sortCriteria = Lens.lens (\GetFindings' {sortCriteria} -> sortCriteria) (\s@GetFindings' {} a -> s {sortCriteria = a} :: GetFindings)
 
--- | The ID of the detector that specifies the GuardDuty service whose findings you want to retrieve.
-gfDetectorId :: Lens' GetFindings Text
-gfDetectorId = lens _gfDetectorId (\ s a -> s{_gfDetectorId = a})
+-- | The ID of the detector that specifies the GuardDuty service whose
+-- findings you want to retrieve.
+getFindings_detectorId :: Lens.Lens' GetFindings Prelude.Text
+getFindings_detectorId = Lens.lens (\GetFindings' {detectorId} -> detectorId) (\s@GetFindings' {} a -> s {detectorId = a} :: GetFindings)
 
-instance AWSRequest GetFindings where
-        type Rs GetFindings = GetFindingsResponse
-        request = postJSON guardDuty
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetFindingsResponse' <$>
-                   (x .?> "findings" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+-- | The IDs of the findings that you want to retrieve.
+getFindings_findingIds :: Lens.Lens' GetFindings [Prelude.Text]
+getFindings_findingIds = Lens.lens (\GetFindings' {findingIds} -> findingIds) (\s@GetFindings' {} a -> s {findingIds = a} :: GetFindings) Prelude.. Prelude._Coerce
 
-instance Hashable GetFindings where
+instance Prelude.AWSRequest GetFindings where
+  type Rs GetFindings = GetFindingsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetFindingsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Prelude..?> "findings"
+                            Prelude..!@ Prelude.mempty
+                        )
+      )
 
-instance NFData GetFindings where
+instance Prelude.Hashable GetFindings
 
-instance ToHeaders GetFindings where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData GetFindings
 
-instance ToJSON GetFindings where
-        toJSON GetFindings'{..}
-          = object
-              (catMaybes
-                 [("findingIds" .=) <$> _gfFindingIds,
-                  ("sortCriteria" .=) <$> _gfSortCriteria])
+instance Prelude.ToHeaders GetFindings where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToPath GetFindings where
-        toPath GetFindings'{..}
-          = mconcat
-              ["/detector/", toBS _gfDetectorId, "/findings/get"]
+instance Prelude.ToJSON GetFindings where
+  toJSON GetFindings' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("sortCriteria" Prelude..=)
+              Prelude.<$> sortCriteria,
+            Prelude.Just ("findingIds" Prelude..= findingIds)
+          ]
+      )
 
-instance ToQuery GetFindings where
-        toQuery = const mempty
+instance Prelude.ToPath GetFindings where
+  toPath GetFindings' {..} =
+    Prelude.mconcat
+      [ "/detector/",
+        Prelude.toBS detectorId,
+        "/findings/get"
+      ]
 
--- | /See:/ 'getFindingsResponse' smart constructor.
+instance Prelude.ToQuery GetFindings where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetFindingsResponse' smart constructor.
 data GetFindingsResponse = GetFindingsResponse'
-  { _grsFindings       :: !(Maybe [Finding])
-  , _grsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A list of findings.
+    findings :: [Finding]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetFindingsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetFindingsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grsFindings' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'grsResponseStatus' - -- | The response status code.
-getFindingsResponse
-    :: Int -- ^ 'grsResponseStatus'
-    -> GetFindingsResponse
-getFindingsResponse pResponseStatus_ =
+-- 'httpStatus', 'getFindingsResponse_httpStatus' - The response's http status code.
+--
+-- 'findings', 'getFindingsResponse_findings' - A list of findings.
+newGetFindingsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetFindingsResponse
+newGetFindingsResponse pHttpStatus_ =
   GetFindingsResponse'
-    {_grsFindings = Nothing, _grsResponseStatus = pResponseStatus_}
+    { httpStatus = pHttpStatus_,
+      findings = Prelude.mempty
+    }
 
+-- | The response's http status code.
+getFindingsResponse_httpStatus :: Lens.Lens' GetFindingsResponse Prelude.Int
+getFindingsResponse_httpStatus = Lens.lens (\GetFindingsResponse' {httpStatus} -> httpStatus) (\s@GetFindingsResponse' {} a -> s {httpStatus = a} :: GetFindingsResponse)
 
--- | Undocumented member.
-grsFindings :: Lens' GetFindingsResponse [Finding]
-grsFindings = lens _grsFindings (\ s a -> s{_grsFindings = a}) . _Default . _Coerce
+-- | A list of findings.
+getFindingsResponse_findings :: Lens.Lens' GetFindingsResponse [Finding]
+getFindingsResponse_findings = Lens.lens (\GetFindingsResponse' {findings} -> findings) (\s@GetFindingsResponse' {} a -> s {findings = a} :: GetFindingsResponse) Prelude.. Prelude._Coerce
 
--- | -- | The response status code.
-grsResponseStatus :: Lens' GetFindingsResponse Int
-grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a})
-
-instance NFData GetFindingsResponse where
+instance Prelude.NFData GetFindingsResponse

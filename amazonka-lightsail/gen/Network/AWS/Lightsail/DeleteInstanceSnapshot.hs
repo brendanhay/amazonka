@@ -1,138 +1,182 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.DeleteInstanceSnapshot
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specific snapshot of a virtual private server (or /instance/ ).
+-- Deletes a specific snapshot of a virtual private server (or /instance/).
 --
---
+-- The @delete instance snapshot@ operation supports tag-based access
+-- control via resource tags applied to the resource identified by
+-- @instance snapshot name@. For more information, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
 module Network.AWS.Lightsail.DeleteInstanceSnapshot
-    (
-    -- * Creating a Request
-      deleteInstanceSnapshot
-    , DeleteInstanceSnapshot
+  ( -- * Creating a Request
+    DeleteInstanceSnapshot (..),
+    newDeleteInstanceSnapshot,
+
     -- * Request Lenses
-    , disInstanceSnapshotName
+    deleteInstanceSnapshot_instanceSnapshotName,
 
     -- * Destructuring the Response
-    , deleteInstanceSnapshotResponse
-    , DeleteInstanceSnapshotResponse
+    DeleteInstanceSnapshotResponse (..),
+    newDeleteInstanceSnapshotResponse,
+
     -- * Response Lenses
-    , disrsOperations
-    , disrsResponseStatus
-    ) where
+    deleteInstanceSnapshotResponse_operations,
+    deleteInstanceSnapshotResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteInstanceSnapshot' smart constructor.
-newtype DeleteInstanceSnapshot = DeleteInstanceSnapshot'
-  { _disInstanceSnapshotName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteInstanceSnapshot' smart constructor.
+data DeleteInstanceSnapshot = DeleteInstanceSnapshot'
+  { -- | The name of the snapshot to delete.
+    instanceSnapshotName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteInstanceSnapshot' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteInstanceSnapshot' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'disInstanceSnapshotName' - The name of the snapshot to delete.
-deleteInstanceSnapshot
-    :: Text -- ^ 'disInstanceSnapshotName'
-    -> DeleteInstanceSnapshot
-deleteInstanceSnapshot pInstanceSnapshotName_ =
-  DeleteInstanceSnapshot' {_disInstanceSnapshotName = pInstanceSnapshotName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'instanceSnapshotName', 'deleteInstanceSnapshot_instanceSnapshotName' - The name of the snapshot to delete.
+newDeleteInstanceSnapshot ::
+  -- | 'instanceSnapshotName'
+  Prelude.Text ->
+  DeleteInstanceSnapshot
+newDeleteInstanceSnapshot pInstanceSnapshotName_ =
+  DeleteInstanceSnapshot'
+    { instanceSnapshotName =
+        pInstanceSnapshotName_
+    }
 
 -- | The name of the snapshot to delete.
-disInstanceSnapshotName :: Lens' DeleteInstanceSnapshot Text
-disInstanceSnapshotName = lens _disInstanceSnapshotName (\ s a -> s{_disInstanceSnapshotName = a})
+deleteInstanceSnapshot_instanceSnapshotName :: Lens.Lens' DeleteInstanceSnapshot Prelude.Text
+deleteInstanceSnapshot_instanceSnapshotName = Lens.lens (\DeleteInstanceSnapshot' {instanceSnapshotName} -> instanceSnapshotName) (\s@DeleteInstanceSnapshot' {} a -> s {instanceSnapshotName = a} :: DeleteInstanceSnapshot)
 
-instance AWSRequest DeleteInstanceSnapshot where
-        type Rs DeleteInstanceSnapshot =
-             DeleteInstanceSnapshotResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteInstanceSnapshotResponse' <$>
-                   (x .?> "operations" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.AWSRequest DeleteInstanceSnapshot where
+  type
+    Rs DeleteInstanceSnapshot =
+      DeleteInstanceSnapshotResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteInstanceSnapshotResponse'
+            Prelude.<$> ( x Prelude..?> "operations"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteInstanceSnapshot where
+instance Prelude.Hashable DeleteInstanceSnapshot
 
-instance NFData DeleteInstanceSnapshot where
+instance Prelude.NFData DeleteInstanceSnapshot
 
-instance ToHeaders DeleteInstanceSnapshot where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.DeleteInstanceSnapshot" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DeleteInstanceSnapshot where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "Lightsail_20161128.DeleteInstanceSnapshot" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DeleteInstanceSnapshot where
-        toJSON DeleteInstanceSnapshot'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("instanceSnapshotName" .=
-                       _disInstanceSnapshotName)])
+instance Prelude.ToJSON DeleteInstanceSnapshot where
+  toJSON DeleteInstanceSnapshot' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "instanceSnapshotName"
+                  Prelude..= instanceSnapshotName
+              )
+          ]
+      )
 
-instance ToPath DeleteInstanceSnapshot where
-        toPath = const "/"
+instance Prelude.ToPath DeleteInstanceSnapshot where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteInstanceSnapshot where
-        toQuery = const mempty
+instance Prelude.ToQuery DeleteInstanceSnapshot where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteInstanceSnapshotResponse' smart constructor.
+-- | /See:/ 'newDeleteInstanceSnapshotResponse' smart constructor.
 data DeleteInstanceSnapshotResponse = DeleteInstanceSnapshotResponse'
-  { _disrsOperations     :: !(Maybe [Operation])
-  , _disrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of objects that describe the result of the action, such as the
+    -- status of the request, the timestamp of the request, and the resources
+    -- affected by the request.
+    operations :: Prelude.Maybe [Operation],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteInstanceSnapshotResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteInstanceSnapshotResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'disrsOperations' - An array of key-value pairs containing information about the results of your delete instance snapshot request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'disrsResponseStatus' - -- | The response status code.
-deleteInstanceSnapshotResponse
-    :: Int -- ^ 'disrsResponseStatus'
-    -> DeleteInstanceSnapshotResponse
-deleteInstanceSnapshotResponse pResponseStatus_ =
+-- 'operations', 'deleteInstanceSnapshotResponse_operations' - An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+--
+-- 'httpStatus', 'deleteInstanceSnapshotResponse_httpStatus' - The response's http status code.
+newDeleteInstanceSnapshotResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteInstanceSnapshotResponse
+newDeleteInstanceSnapshotResponse pHttpStatus_ =
   DeleteInstanceSnapshotResponse'
-    {_disrsOperations = Nothing, _disrsResponseStatus = pResponseStatus_}
+    { operations =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+deleteInstanceSnapshotResponse_operations :: Lens.Lens' DeleteInstanceSnapshotResponse (Prelude.Maybe [Operation])
+deleteInstanceSnapshotResponse_operations = Lens.lens (\DeleteInstanceSnapshotResponse' {operations} -> operations) (\s@DeleteInstanceSnapshotResponse' {} a -> s {operations = a} :: DeleteInstanceSnapshotResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | An array of key-value pairs containing information about the results of your delete instance snapshot request.
-disrsOperations :: Lens' DeleteInstanceSnapshotResponse [Operation]
-disrsOperations = lens _disrsOperations (\ s a -> s{_disrsOperations = a}) . _Default . _Coerce
+-- | The response's http status code.
+deleteInstanceSnapshotResponse_httpStatus :: Lens.Lens' DeleteInstanceSnapshotResponse Prelude.Int
+deleteInstanceSnapshotResponse_httpStatus = Lens.lens (\DeleteInstanceSnapshotResponse' {httpStatus} -> httpStatus) (\s@DeleteInstanceSnapshotResponse' {} a -> s {httpStatus = a} :: DeleteInstanceSnapshotResponse)
 
--- | -- | The response status code.
-disrsResponseStatus :: Lens' DeleteInstanceSnapshotResponse Int
-disrsResponseStatus = lens _disrsResponseStatus (\ s a -> s{_disrsResponseStatus = a})
-
-instance NFData DeleteInstanceSnapshotResponse where
+instance
+  Prelude.NFData
+    DeleteInstanceSnapshotResponse

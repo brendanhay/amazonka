@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.DetachInstancesFromLoadBalancer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,135 +23,196 @@
 --
 -- Detaches the specified instances from a Lightsail load balancer.
 --
+-- This operation waits until the instances are no longer needed before
+-- they are detached from the load balancer.
 --
--- This operation waits until the instances are no longer needed before they are detached from the load balancer.
---
+-- The @detach instances from load balancer@ operation supports tag-based
+-- access control via resource tags applied to the resource identified by
+-- @load balancer name@. For more information, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
 module Network.AWS.Lightsail.DetachInstancesFromLoadBalancer
-    (
-    -- * Creating a Request
-      detachInstancesFromLoadBalancer
-    , DetachInstancesFromLoadBalancer
+  ( -- * Creating a Request
+    DetachInstancesFromLoadBalancer (..),
+    newDetachInstancesFromLoadBalancer,
+
     -- * Request Lenses
-    , diflbLoadBalancerName
-    , diflbInstanceNames
+    detachInstancesFromLoadBalancer_loadBalancerName,
+    detachInstancesFromLoadBalancer_instanceNames,
 
     -- * Destructuring the Response
-    , detachInstancesFromLoadBalancerResponse
-    , DetachInstancesFromLoadBalancerResponse
+    DetachInstancesFromLoadBalancerResponse (..),
+    newDetachInstancesFromLoadBalancerResponse,
+
     -- * Response Lenses
-    , diflbrsOperations
-    , diflbrsResponseStatus
-    ) where
+    detachInstancesFromLoadBalancerResponse_operations,
+    detachInstancesFromLoadBalancerResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'detachInstancesFromLoadBalancer' smart constructor.
+-- | /See:/ 'newDetachInstancesFromLoadBalancer' smart constructor.
 data DetachInstancesFromLoadBalancer = DetachInstancesFromLoadBalancer'
-  { _diflbLoadBalancerName :: !Text
-  , _diflbInstanceNames    :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the Lightsail load balancer.
+    loadBalancerName :: Prelude.Text,
+    -- | An array of strings containing the names of the instances you want to
+    -- detach from the load balancer.
+    instanceNames :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DetachInstancesFromLoadBalancer' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DetachInstancesFromLoadBalancer' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'diflbLoadBalancerName' - The name of the Lightsail load balancer.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'diflbInstanceNames' - An array of strings containing the names of the instances you want to detach from the load balancer.
-detachInstancesFromLoadBalancer
-    :: Text -- ^ 'diflbLoadBalancerName'
-    -> DetachInstancesFromLoadBalancer
-detachInstancesFromLoadBalancer pLoadBalancerName_ =
+-- 'loadBalancerName', 'detachInstancesFromLoadBalancer_loadBalancerName' - The name of the Lightsail load balancer.
+--
+-- 'instanceNames', 'detachInstancesFromLoadBalancer_instanceNames' - An array of strings containing the names of the instances you want to
+-- detach from the load balancer.
+newDetachInstancesFromLoadBalancer ::
+  -- | 'loadBalancerName'
+  Prelude.Text ->
+  DetachInstancesFromLoadBalancer
+newDetachInstancesFromLoadBalancer pLoadBalancerName_ =
   DetachInstancesFromLoadBalancer'
-    {_diflbLoadBalancerName = pLoadBalancerName_, _diflbInstanceNames = mempty}
-
+    { loadBalancerName =
+        pLoadBalancerName_,
+      instanceNames = Prelude.mempty
+    }
 
 -- | The name of the Lightsail load balancer.
-diflbLoadBalancerName :: Lens' DetachInstancesFromLoadBalancer Text
-diflbLoadBalancerName = lens _diflbLoadBalancerName (\ s a -> s{_diflbLoadBalancerName = a})
+detachInstancesFromLoadBalancer_loadBalancerName :: Lens.Lens' DetachInstancesFromLoadBalancer Prelude.Text
+detachInstancesFromLoadBalancer_loadBalancerName = Lens.lens (\DetachInstancesFromLoadBalancer' {loadBalancerName} -> loadBalancerName) (\s@DetachInstancesFromLoadBalancer' {} a -> s {loadBalancerName = a} :: DetachInstancesFromLoadBalancer)
 
--- | An array of strings containing the names of the instances you want to detach from the load balancer.
-diflbInstanceNames :: Lens' DetachInstancesFromLoadBalancer [Text]
-diflbInstanceNames = lens _diflbInstanceNames (\ s a -> s{_diflbInstanceNames = a}) . _Coerce
+-- | An array of strings containing the names of the instances you want to
+-- detach from the load balancer.
+detachInstancesFromLoadBalancer_instanceNames :: Lens.Lens' DetachInstancesFromLoadBalancer [Prelude.Text]
+detachInstancesFromLoadBalancer_instanceNames = Lens.lens (\DetachInstancesFromLoadBalancer' {instanceNames} -> instanceNames) (\s@DetachInstancesFromLoadBalancer' {} a -> s {instanceNames = a} :: DetachInstancesFromLoadBalancer) Prelude.. Prelude._Coerce
 
-instance AWSRequest DetachInstancesFromLoadBalancer
-         where
-        type Rs DetachInstancesFromLoadBalancer =
-             DetachInstancesFromLoadBalancerResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DetachInstancesFromLoadBalancerResponse' <$>
-                   (x .?> "operations" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    DetachInstancesFromLoadBalancer
+  where
+  type
+    Rs DetachInstancesFromLoadBalancer =
+      DetachInstancesFromLoadBalancerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DetachInstancesFromLoadBalancerResponse'
+            Prelude.<$> ( x Prelude..?> "operations"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DetachInstancesFromLoadBalancer
-         where
+instance
+  Prelude.Hashable
+    DetachInstancesFromLoadBalancer
 
-instance NFData DetachInstancesFromLoadBalancer where
+instance
+  Prelude.NFData
+    DetachInstancesFromLoadBalancer
 
-instance ToHeaders DetachInstancesFromLoadBalancer
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.DetachInstancesFromLoadBalancer"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Prelude.ToHeaders
+    DetachInstancesFromLoadBalancer
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "Lightsail_20161128.DetachInstancesFromLoadBalancer" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DetachInstancesFromLoadBalancer where
-        toJSON DetachInstancesFromLoadBalancer'{..}
-          = object
-              (catMaybes
-                 [Just ("loadBalancerName" .= _diflbLoadBalancerName),
-                  Just ("instanceNames" .= _diflbInstanceNames)])
+instance
+  Prelude.ToJSON
+    DetachInstancesFromLoadBalancer
+  where
+  toJSON DetachInstancesFromLoadBalancer' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("loadBalancerName" Prelude..= loadBalancerName),
+            Prelude.Just
+              ("instanceNames" Prelude..= instanceNames)
+          ]
+      )
 
-instance ToPath DetachInstancesFromLoadBalancer where
-        toPath = const "/"
+instance
+  Prelude.ToPath
+    DetachInstancesFromLoadBalancer
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery DetachInstancesFromLoadBalancer
-         where
-        toQuery = const mempty
+instance
+  Prelude.ToQuery
+    DetachInstancesFromLoadBalancer
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'detachInstancesFromLoadBalancerResponse' smart constructor.
+-- | /See:/ 'newDetachInstancesFromLoadBalancerResponse' smart constructor.
 data DetachInstancesFromLoadBalancerResponse = DetachInstancesFromLoadBalancerResponse'
-  { _diflbrsOperations     :: !(Maybe [Operation])
-  , _diflbrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of objects that describe the result of the action, such as the
+    -- status of the request, the timestamp of the request, and the resources
+    -- affected by the request.
+    operations :: Prelude.Maybe [Operation],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DetachInstancesFromLoadBalancerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DetachInstancesFromLoadBalancerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'diflbrsOperations' - An object describing the API operations.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'diflbrsResponseStatus' - -- | The response status code.
-detachInstancesFromLoadBalancerResponse
-    :: Int -- ^ 'diflbrsResponseStatus'
-    -> DetachInstancesFromLoadBalancerResponse
-detachInstancesFromLoadBalancerResponse pResponseStatus_ =
-  DetachInstancesFromLoadBalancerResponse'
-    {_diflbrsOperations = Nothing, _diflbrsResponseStatus = pResponseStatus_}
+-- 'operations', 'detachInstancesFromLoadBalancerResponse_operations' - An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+--
+-- 'httpStatus', 'detachInstancesFromLoadBalancerResponse_httpStatus' - The response's http status code.
+newDetachInstancesFromLoadBalancerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DetachInstancesFromLoadBalancerResponse
+newDetachInstancesFromLoadBalancerResponse
+  pHttpStatus_ =
+    DetachInstancesFromLoadBalancerResponse'
+      { operations =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
+-- | An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+detachInstancesFromLoadBalancerResponse_operations :: Lens.Lens' DetachInstancesFromLoadBalancerResponse (Prelude.Maybe [Operation])
+detachInstancesFromLoadBalancerResponse_operations = Lens.lens (\DetachInstancesFromLoadBalancerResponse' {operations} -> operations) (\s@DetachInstancesFromLoadBalancerResponse' {} a -> s {operations = a} :: DetachInstancesFromLoadBalancerResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | An object describing the API operations.
-diflbrsOperations :: Lens' DetachInstancesFromLoadBalancerResponse [Operation]
-diflbrsOperations = lens _diflbrsOperations (\ s a -> s{_diflbrsOperations = a}) . _Default . _Coerce
+-- | The response's http status code.
+detachInstancesFromLoadBalancerResponse_httpStatus :: Lens.Lens' DetachInstancesFromLoadBalancerResponse Prelude.Int
+detachInstancesFromLoadBalancerResponse_httpStatus = Lens.lens (\DetachInstancesFromLoadBalancerResponse' {httpStatus} -> httpStatus) (\s@DetachInstancesFromLoadBalancerResponse' {} a -> s {httpStatus = a} :: DetachInstancesFromLoadBalancerResponse)
 
--- | -- | The response status code.
-diflbrsResponseStatus :: Lens' DetachInstancesFromLoadBalancerResponse Int
-diflbrsResponseStatus = lens _diflbrsResponseStatus (\ s a -> s{_diflbrsResponseStatus = a})
-
-instance NFData
-           DetachInstancesFromLoadBalancerResponse
-         where
+instance
+  Prelude.NFData
+    DetachInstancesFromLoadBalancerResponse

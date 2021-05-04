@@ -1,115 +1,140 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.GetIndexingConfiguration
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the search configuration.
---
---
+-- Gets the indexing configuration.
 module Network.AWS.IoT.GetIndexingConfiguration
-    (
-    -- * Creating a Request
-      getIndexingConfiguration
-    , GetIndexingConfiguration
+  ( -- * Creating a Request
+    GetIndexingConfiguration (..),
+    newGetIndexingConfiguration,
 
     -- * Destructuring the Response
-    , getIndexingConfigurationResponse
-    , GetIndexingConfigurationResponse
+    GetIndexingConfigurationResponse (..),
+    newGetIndexingConfigurationResponse,
+
     -- * Response Lenses
-    , gicrsThingIndexingConfiguration
-    , gicrsResponseStatus
-    ) where
+    getIndexingConfigurationResponse_thingGroupIndexingConfiguration,
+    getIndexingConfigurationResponse_thingIndexingConfiguration,
+    getIndexingConfigurationResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getIndexingConfiguration' smart constructor.
-data GetIndexingConfiguration =
+-- | /See:/ 'newGetIndexingConfiguration' smart constructor.
+data GetIndexingConfiguration = GetIndexingConfiguration'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetIndexingConfiguration' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newGetIndexingConfiguration ::
+  GetIndexingConfiguration
+newGetIndexingConfiguration =
   GetIndexingConfiguration'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
+instance Prelude.AWSRequest GetIndexingConfiguration where
+  type
+    Rs GetIndexingConfiguration =
+      GetIndexingConfigurationResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetIndexingConfigurationResponse'
+            Prelude.<$> (x Prelude..?> "thingGroupIndexingConfiguration")
+            Prelude.<*> (x Prelude..?> "thingIndexingConfiguration")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | Creates a value of 'GetIndexingConfiguration' with the minimum fields required to make a request.
---
-getIndexingConfiguration
-    :: GetIndexingConfiguration
-getIndexingConfiguration = GetIndexingConfiguration'
+instance Prelude.Hashable GetIndexingConfiguration
 
+instance Prelude.NFData GetIndexingConfiguration
 
-instance AWSRequest GetIndexingConfiguration where
-        type Rs GetIndexingConfiguration =
-             GetIndexingConfigurationResponse
-        request = get ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetIndexingConfigurationResponse' <$>
-                   (x .?> "thingIndexingConfiguration") <*>
-                     (pure (fromEnum s)))
+instance Prelude.ToHeaders GetIndexingConfiguration where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance Hashable GetIndexingConfiguration where
+instance Prelude.ToPath GetIndexingConfiguration where
+  toPath = Prelude.const "/indexing/config"
 
-instance NFData GetIndexingConfiguration where
+instance Prelude.ToQuery GetIndexingConfiguration where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToHeaders GetIndexingConfiguration where
-        toHeaders = const mempty
-
-instance ToPath GetIndexingConfiguration where
-        toPath = const "/indexing/config"
-
-instance ToQuery GetIndexingConfiguration where
-        toQuery = const mempty
-
--- | /See:/ 'getIndexingConfigurationResponse' smart constructor.
+-- | /See:/ 'newGetIndexingConfigurationResponse' smart constructor.
 data GetIndexingConfigurationResponse = GetIndexingConfigurationResponse'
-  { _gicrsThingIndexingConfiguration :: !(Maybe ThingIndexingConfiguration)
-  , _gicrsResponseStatus             :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The index configuration.
+    thingGroupIndexingConfiguration :: Prelude.Maybe ThingGroupIndexingConfiguration,
+    -- | Thing indexing configuration.
+    thingIndexingConfiguration :: Prelude.Maybe ThingIndexingConfiguration,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetIndexingConfigurationResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetIndexingConfigurationResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gicrsThingIndexingConfiguration' - Thing indexing configuration.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gicrsResponseStatus' - -- | The response status code.
-getIndexingConfigurationResponse
-    :: Int -- ^ 'gicrsResponseStatus'
-    -> GetIndexingConfigurationResponse
-getIndexingConfigurationResponse pResponseStatus_ =
+-- 'thingGroupIndexingConfiguration', 'getIndexingConfigurationResponse_thingGroupIndexingConfiguration' - The index configuration.
+--
+-- 'thingIndexingConfiguration', 'getIndexingConfigurationResponse_thingIndexingConfiguration' - Thing indexing configuration.
+--
+-- 'httpStatus', 'getIndexingConfigurationResponse_httpStatus' - The response's http status code.
+newGetIndexingConfigurationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetIndexingConfigurationResponse
+newGetIndexingConfigurationResponse pHttpStatus_ =
   GetIndexingConfigurationResponse'
-    { _gicrsThingIndexingConfiguration = Nothing
-    , _gicrsResponseStatus = pResponseStatus_
+    { thingGroupIndexingConfiguration =
+        Prelude.Nothing,
+      thingIndexingConfiguration =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The index configuration.
+getIndexingConfigurationResponse_thingGroupIndexingConfiguration :: Lens.Lens' GetIndexingConfigurationResponse (Prelude.Maybe ThingGroupIndexingConfiguration)
+getIndexingConfigurationResponse_thingGroupIndexingConfiguration = Lens.lens (\GetIndexingConfigurationResponse' {thingGroupIndexingConfiguration} -> thingGroupIndexingConfiguration) (\s@GetIndexingConfigurationResponse' {} a -> s {thingGroupIndexingConfiguration = a} :: GetIndexingConfigurationResponse)
 
 -- | Thing indexing configuration.
-gicrsThingIndexingConfiguration :: Lens' GetIndexingConfigurationResponse (Maybe ThingIndexingConfiguration)
-gicrsThingIndexingConfiguration = lens _gicrsThingIndexingConfiguration (\ s a -> s{_gicrsThingIndexingConfiguration = a})
+getIndexingConfigurationResponse_thingIndexingConfiguration :: Lens.Lens' GetIndexingConfigurationResponse (Prelude.Maybe ThingIndexingConfiguration)
+getIndexingConfigurationResponse_thingIndexingConfiguration = Lens.lens (\GetIndexingConfigurationResponse' {thingIndexingConfiguration} -> thingIndexingConfiguration) (\s@GetIndexingConfigurationResponse' {} a -> s {thingIndexingConfiguration = a} :: GetIndexingConfigurationResponse)
 
--- | -- | The response status code.
-gicrsResponseStatus :: Lens' GetIndexingConfigurationResponse Int
-gicrsResponseStatus = lens _gicrsResponseStatus (\ s a -> s{_gicrsResponseStatus = a})
+-- | The response's http status code.
+getIndexingConfigurationResponse_httpStatus :: Lens.Lens' GetIndexingConfigurationResponse Prelude.Int
+getIndexingConfigurationResponse_httpStatus = Lens.lens (\GetIndexingConfigurationResponse' {httpStatus} -> httpStatus) (\s@GetIndexingConfigurationResponse' {} a -> s {httpStatus = a} :: GetIndexingConfigurationResponse)
 
-instance NFData GetIndexingConfigurationResponse
-         where
+instance
+  Prelude.NFData
+    GetIndexingConfigurationResponse

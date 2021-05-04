@@ -1,180 +1,206 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.RegisterCertificate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers a device certificate with AWS IoT. If you have more than one CA certificate that has the same subject field, you must specify the CA certificate that was used to sign the device certificate being registered.
---
---
+-- Registers a device certificate with AWS IoT. If you have more than one
+-- CA certificate that has the same subject field, you must specify the CA
+-- certificate that was used to sign the device certificate being
+-- registered.
 module Network.AWS.IoT.RegisterCertificate
-    (
-    -- * Creating a Request
-      registerCertificate
-    , RegisterCertificate
+  ( -- * Creating a Request
+    RegisterCertificate (..),
+    newRegisterCertificate,
+
     -- * Request Lenses
-    , rcStatus
-    , rcCaCertificatePem
-    , rcSetAsActive
-    , rcCertificatePem
+    registerCertificate_caCertificatePem,
+    registerCertificate_setAsActive,
+    registerCertificate_status,
+    registerCertificate_certificatePem,
 
     -- * Destructuring the Response
-    , registerCertificateResponse
-    , RegisterCertificateResponse
+    RegisterCertificateResponse (..),
+    newRegisterCertificateResponse,
+
     -- * Response Lenses
-    , rcrsCertificateARN
-    , rcrsCertificateId
-    , rcrsResponseStatus
-    ) where
+    registerCertificateResponse_certificateArn,
+    registerCertificateResponse_certificateId,
+    registerCertificateResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input to the RegisterCertificate operation.
 --
---
---
--- /See:/ 'registerCertificate' smart constructor.
+-- /See:/ 'newRegisterCertificate' smart constructor.
 data RegisterCertificate = RegisterCertificate'
-  { _rcStatus           :: !(Maybe CertificateStatus)
-  , _rcCaCertificatePem :: !(Maybe Text)
-  , _rcSetAsActive      :: !(Maybe Bool)
-  , _rcCertificatePem   :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The CA certificate used to sign the device certificate being registered.
+    caCertificatePem :: Prelude.Maybe Prelude.Text,
+    -- | A boolean value that specifies if the certificate is set to active.
+    setAsActive :: Prelude.Maybe Prelude.Bool,
+    -- | The status of the register certificate request.
+    status :: Prelude.Maybe CertificateStatus,
+    -- | The certificate data, in PEM format.
+    certificatePem :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterCertificate' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterCertificate' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rcStatus' - The status of the register certificate request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rcCaCertificatePem' - The CA certificate used to sign the device certificate being registered.
+-- 'caCertificatePem', 'registerCertificate_caCertificatePem' - The CA certificate used to sign the device certificate being registered.
 --
--- * 'rcSetAsActive' - A boolean value that specifies if the CA certificate is set to active.
+-- 'setAsActive', 'registerCertificate_setAsActive' - A boolean value that specifies if the certificate is set to active.
 --
--- * 'rcCertificatePem' - The certificate data, in PEM format.
-registerCertificate
-    :: Text -- ^ 'rcCertificatePem'
-    -> RegisterCertificate
-registerCertificate pCertificatePem_ =
+-- 'status', 'registerCertificate_status' - The status of the register certificate request.
+--
+-- 'certificatePem', 'registerCertificate_certificatePem' - The certificate data, in PEM format.
+newRegisterCertificate ::
+  -- | 'certificatePem'
+  Prelude.Text ->
+  RegisterCertificate
+newRegisterCertificate pCertificatePem_ =
   RegisterCertificate'
-    { _rcStatus = Nothing
-    , _rcCaCertificatePem = Nothing
-    , _rcSetAsActive = Nothing
-    , _rcCertificatePem = pCertificatePem_
+    { caCertificatePem =
+        Prelude.Nothing,
+      setAsActive = Prelude.Nothing,
+      status = Prelude.Nothing,
+      certificatePem = pCertificatePem_
     }
 
+-- | The CA certificate used to sign the device certificate being registered.
+registerCertificate_caCertificatePem :: Lens.Lens' RegisterCertificate (Prelude.Maybe Prelude.Text)
+registerCertificate_caCertificatePem = Lens.lens (\RegisterCertificate' {caCertificatePem} -> caCertificatePem) (\s@RegisterCertificate' {} a -> s {caCertificatePem = a} :: RegisterCertificate)
+
+-- | A boolean value that specifies if the certificate is set to active.
+registerCertificate_setAsActive :: Lens.Lens' RegisterCertificate (Prelude.Maybe Prelude.Bool)
+registerCertificate_setAsActive = Lens.lens (\RegisterCertificate' {setAsActive} -> setAsActive) (\s@RegisterCertificate' {} a -> s {setAsActive = a} :: RegisterCertificate)
 
 -- | The status of the register certificate request.
-rcStatus :: Lens' RegisterCertificate (Maybe CertificateStatus)
-rcStatus = lens _rcStatus (\ s a -> s{_rcStatus = a})
-
--- | The CA certificate used to sign the device certificate being registered.
-rcCaCertificatePem :: Lens' RegisterCertificate (Maybe Text)
-rcCaCertificatePem = lens _rcCaCertificatePem (\ s a -> s{_rcCaCertificatePem = a})
-
--- | A boolean value that specifies if the CA certificate is set to active.
-rcSetAsActive :: Lens' RegisterCertificate (Maybe Bool)
-rcSetAsActive = lens _rcSetAsActive (\ s a -> s{_rcSetAsActive = a})
+registerCertificate_status :: Lens.Lens' RegisterCertificate (Prelude.Maybe CertificateStatus)
+registerCertificate_status = Lens.lens (\RegisterCertificate' {status} -> status) (\s@RegisterCertificate' {} a -> s {status = a} :: RegisterCertificate)
 
 -- | The certificate data, in PEM format.
-rcCertificatePem :: Lens' RegisterCertificate Text
-rcCertificatePem = lens _rcCertificatePem (\ s a -> s{_rcCertificatePem = a})
+registerCertificate_certificatePem :: Lens.Lens' RegisterCertificate Prelude.Text
+registerCertificate_certificatePem = Lens.lens (\RegisterCertificate' {certificatePem} -> certificatePem) (\s@RegisterCertificate' {} a -> s {certificatePem = a} :: RegisterCertificate)
 
-instance AWSRequest RegisterCertificate where
-        type Rs RegisterCertificate =
-             RegisterCertificateResponse
-        request = postJSON ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 RegisterCertificateResponse' <$>
-                   (x .?> "certificateArn") <*> (x .?> "certificateId")
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest RegisterCertificate where
+  type
+    Rs RegisterCertificate =
+      RegisterCertificateResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RegisterCertificateResponse'
+            Prelude.<$> (x Prelude..?> "certificateArn")
+            Prelude.<*> (x Prelude..?> "certificateId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable RegisterCertificate where
+instance Prelude.Hashable RegisterCertificate
 
-instance NFData RegisterCertificate where
+instance Prelude.NFData RegisterCertificate
 
-instance ToHeaders RegisterCertificate where
-        toHeaders = const mempty
+instance Prelude.ToHeaders RegisterCertificate where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON RegisterCertificate where
-        toJSON RegisterCertificate'{..}
-          = object
-              (catMaybes
-                 [("status" .=) <$> _rcStatus,
-                  ("caCertificatePem" .=) <$> _rcCaCertificatePem,
-                  Just ("certificatePem" .= _rcCertificatePem)])
+instance Prelude.ToJSON RegisterCertificate where
+  toJSON RegisterCertificate' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("caCertificatePem" Prelude..=)
+              Prelude.<$> caCertificatePem,
+            ("status" Prelude..=) Prelude.<$> status,
+            Prelude.Just
+              ("certificatePem" Prelude..= certificatePem)
+          ]
+      )
 
-instance ToPath RegisterCertificate where
-        toPath = const "/certificate/register"
+instance Prelude.ToPath RegisterCertificate where
+  toPath = Prelude.const "/certificate/register"
 
-instance ToQuery RegisterCertificate where
-        toQuery RegisterCertificate'{..}
-          = mconcat ["setAsActive" =: _rcSetAsActive]
+instance Prelude.ToQuery RegisterCertificate where
+  toQuery RegisterCertificate' {..} =
+    Prelude.mconcat
+      ["setAsActive" Prelude.=: setAsActive]
 
 -- | The output from the RegisterCertificate operation.
 --
---
---
--- /See:/ 'registerCertificateResponse' smart constructor.
+-- /See:/ 'newRegisterCertificateResponse' smart constructor.
 data RegisterCertificateResponse = RegisterCertificateResponse'
-  { _rcrsCertificateARN :: !(Maybe Text)
-  , _rcrsCertificateId  :: !(Maybe Text)
-  , _rcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The certificate ARN.
+    certificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The certificate identifier.
+    certificateId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterCertificateResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterCertificateResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rcrsCertificateARN' - The certificate ARN.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rcrsCertificateId' - The certificate identifier.
+-- 'certificateArn', 'registerCertificateResponse_certificateArn' - The certificate ARN.
 --
--- * 'rcrsResponseStatus' - -- | The response status code.
-registerCertificateResponse
-    :: Int -- ^ 'rcrsResponseStatus'
-    -> RegisterCertificateResponse
-registerCertificateResponse pResponseStatus_ =
+-- 'certificateId', 'registerCertificateResponse_certificateId' - The certificate identifier.
+--
+-- 'httpStatus', 'registerCertificateResponse_httpStatus' - The response's http status code.
+newRegisterCertificateResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RegisterCertificateResponse
+newRegisterCertificateResponse pHttpStatus_ =
   RegisterCertificateResponse'
-    { _rcrsCertificateARN = Nothing
-    , _rcrsCertificateId = Nothing
-    , _rcrsResponseStatus = pResponseStatus_
+    { certificateArn =
+        Prelude.Nothing,
+      certificateId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The certificate ARN.
-rcrsCertificateARN :: Lens' RegisterCertificateResponse (Maybe Text)
-rcrsCertificateARN = lens _rcrsCertificateARN (\ s a -> s{_rcrsCertificateARN = a})
+registerCertificateResponse_certificateArn :: Lens.Lens' RegisterCertificateResponse (Prelude.Maybe Prelude.Text)
+registerCertificateResponse_certificateArn = Lens.lens (\RegisterCertificateResponse' {certificateArn} -> certificateArn) (\s@RegisterCertificateResponse' {} a -> s {certificateArn = a} :: RegisterCertificateResponse)
 
 -- | The certificate identifier.
-rcrsCertificateId :: Lens' RegisterCertificateResponse (Maybe Text)
-rcrsCertificateId = lens _rcrsCertificateId (\ s a -> s{_rcrsCertificateId = a})
+registerCertificateResponse_certificateId :: Lens.Lens' RegisterCertificateResponse (Prelude.Maybe Prelude.Text)
+registerCertificateResponse_certificateId = Lens.lens (\RegisterCertificateResponse' {certificateId} -> certificateId) (\s@RegisterCertificateResponse' {} a -> s {certificateId = a} :: RegisterCertificateResponse)
 
--- | -- | The response status code.
-rcrsResponseStatus :: Lens' RegisterCertificateResponse Int
-rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a})
+-- | The response's http status code.
+registerCertificateResponse_httpStatus :: Lens.Lens' RegisterCertificateResponse Prelude.Int
+registerCertificateResponse_httpStatus = Lens.lens (\RegisterCertificateResponse' {httpStatus} -> httpStatus) (\s@RegisterCertificateResponse' {} a -> s {httpStatus = a} :: RegisterCertificateResponse)
 
-instance NFData RegisterCertificateResponse where
+instance Prelude.NFData RegisterCertificateResponse

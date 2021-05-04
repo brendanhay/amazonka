@@ -1,199 +1,233 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.ListIdentities
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the identities in a pool.
---
+-- Lists the identities in an identity pool.
 --
 -- You must use AWS Developer credentials to call this API.
---
 module Network.AWS.CognitoIdentity.ListIdentities
-    (
-    -- * Creating a Request
-      listIdentities
-    , ListIdentities
+  ( -- * Creating a Request
+    ListIdentities (..),
+    newListIdentities,
+
     -- * Request Lenses
-    , liHideDisabled
-    , liNextToken
-    , liIdentityPoolId
-    , liMaxResults
+    listIdentities_nextToken,
+    listIdentities_hideDisabled,
+    listIdentities_identityPoolId,
+    listIdentities_maxResults,
 
     -- * Destructuring the Response
-    , listIdentitiesResponse
-    , ListIdentitiesResponse
+    ListIdentitiesResponse (..),
+    newListIdentitiesResponse,
+
     -- * Response Lenses
-    , lirsIdentityPoolId
-    , lirsNextToken
-    , lirsIdentities
-    , lirsResponseStatus
-    ) where
+    listIdentitiesResponse_identityPoolId,
+    listIdentitiesResponse_nextToken,
+    listIdentitiesResponse_identities,
+    listIdentitiesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input to the ListIdentities action.
 --
---
---
--- /See:/ 'listIdentities' smart constructor.
+-- /See:/ 'newListIdentities' smart constructor.
 data ListIdentities = ListIdentities'
-  { _liHideDisabled   :: !(Maybe Bool)
-  , _liNextToken      :: !(Maybe Text)
-  , _liIdentityPoolId :: !Text
-  , _liMaxResults     :: !Nat
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional boolean parameter that allows you to hide disabled
+    -- identities. If omitted, the ListIdentities API will include disabled
+    -- identities in the response.
+    hideDisabled :: Prelude.Maybe Prelude.Bool,
+    -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Prelude.Text,
+    -- | The maximum number of identities to return.
+    maxResults :: Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListIdentities' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListIdentities' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'liHideDisabled' - An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'liNextToken' - A pagination token.
+-- 'nextToken', 'listIdentities_nextToken' - A pagination token.
 --
--- * 'liIdentityPoolId' - An identity pool ID in the format REGION:GUID.
+-- 'hideDisabled', 'listIdentities_hideDisabled' - An optional boolean parameter that allows you to hide disabled
+-- identities. If omitted, the ListIdentities API will include disabled
+-- identities in the response.
 --
--- * 'liMaxResults' - The maximum number of identities to return.
-listIdentities
-    :: Text -- ^ 'liIdentityPoolId'
-    -> Natural -- ^ 'liMaxResults'
-    -> ListIdentities
-listIdentities pIdentityPoolId_ pMaxResults_ =
+-- 'identityPoolId', 'listIdentities_identityPoolId' - An identity pool ID in the format REGION:GUID.
+--
+-- 'maxResults', 'listIdentities_maxResults' - The maximum number of identities to return.
+newListIdentities ::
+  -- | 'identityPoolId'
+  Prelude.Text ->
+  -- | 'maxResults'
+  Prelude.Natural ->
+  ListIdentities
+newListIdentities pIdentityPoolId_ pMaxResults_ =
   ListIdentities'
-    { _liHideDisabled = Nothing
-    , _liNextToken = Nothing
-    , _liIdentityPoolId = pIdentityPoolId_
-    , _liMaxResults = _Nat # pMaxResults_
+    { nextToken = Prelude.Nothing,
+      hideDisabled = Prelude.Nothing,
+      identityPoolId = pIdentityPoolId_,
+      maxResults = pMaxResults_
     }
 
-
--- | An optional boolean parameter that allows you to hide disabled identities. If omitted, the ListIdentities API will include disabled identities in the response.
-liHideDisabled :: Lens' ListIdentities (Maybe Bool)
-liHideDisabled = lens _liHideDisabled (\ s a -> s{_liHideDisabled = a})
-
 -- | A pagination token.
-liNextToken :: Lens' ListIdentities (Maybe Text)
-liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a})
+listIdentities_nextToken :: Lens.Lens' ListIdentities (Prelude.Maybe Prelude.Text)
+listIdentities_nextToken = Lens.lens (\ListIdentities' {nextToken} -> nextToken) (\s@ListIdentities' {} a -> s {nextToken = a} :: ListIdentities)
+
+-- | An optional boolean parameter that allows you to hide disabled
+-- identities. If omitted, the ListIdentities API will include disabled
+-- identities in the response.
+listIdentities_hideDisabled :: Lens.Lens' ListIdentities (Prelude.Maybe Prelude.Bool)
+listIdentities_hideDisabled = Lens.lens (\ListIdentities' {hideDisabled} -> hideDisabled) (\s@ListIdentities' {} a -> s {hideDisabled = a} :: ListIdentities)
 
 -- | An identity pool ID in the format REGION:GUID.
-liIdentityPoolId :: Lens' ListIdentities Text
-liIdentityPoolId = lens _liIdentityPoolId (\ s a -> s{_liIdentityPoolId = a})
+listIdentities_identityPoolId :: Lens.Lens' ListIdentities Prelude.Text
+listIdentities_identityPoolId = Lens.lens (\ListIdentities' {identityPoolId} -> identityPoolId) (\s@ListIdentities' {} a -> s {identityPoolId = a} :: ListIdentities)
 
 -- | The maximum number of identities to return.
-liMaxResults :: Lens' ListIdentities Natural
-liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . _Nat
+listIdentities_maxResults :: Lens.Lens' ListIdentities Prelude.Natural
+listIdentities_maxResults = Lens.lens (\ListIdentities' {maxResults} -> maxResults) (\s@ListIdentities' {} a -> s {maxResults = a} :: ListIdentities)
 
-instance AWSRequest ListIdentities where
-        type Rs ListIdentities = ListIdentitiesResponse
-        request = postJSON cognitoIdentity
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListIdentitiesResponse' <$>
-                   (x .?> "IdentityPoolId") <*> (x .?> "NextToken") <*>
-                     (x .?> "Identities" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest ListIdentities where
+  type Rs ListIdentities = ListIdentitiesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListIdentitiesResponse'
+            Prelude.<$> (x Prelude..?> "IdentityPoolId")
+            Prelude.<*> (x Prelude..?> "NextToken")
+            Prelude.<*> ( x Prelude..?> "Identities"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListIdentities where
+instance Prelude.Hashable ListIdentities
 
-instance NFData ListIdentities where
+instance Prelude.NFData ListIdentities
 
-instance ToHeaders ListIdentities where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityService.ListIdentities" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders ListIdentities where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSCognitoIdentityService.ListIdentities" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON ListIdentities where
-        toJSON ListIdentities'{..}
-          = object
-              (catMaybes
-                 [("HideDisabled" .=) <$> _liHideDisabled,
-                  ("NextToken" .=) <$> _liNextToken,
-                  Just ("IdentityPoolId" .= _liIdentityPoolId),
-                  Just ("MaxResults" .= _liMaxResults)])
+instance Prelude.ToJSON ListIdentities where
+  toJSON ListIdentities' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("HideDisabled" Prelude..=) Prelude.<$> hideDisabled,
+            Prelude.Just
+              ("IdentityPoolId" Prelude..= identityPoolId),
+            Prelude.Just ("MaxResults" Prelude..= maxResults)
+          ]
+      )
 
-instance ToPath ListIdentities where
-        toPath = const "/"
+instance Prelude.ToPath ListIdentities where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListIdentities where
-        toQuery = const mempty
+instance Prelude.ToQuery ListIdentities where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The response to a ListIdentities request.
 --
---
---
--- /See:/ 'listIdentitiesResponse' smart constructor.
+-- /See:/ 'newListIdentitiesResponse' smart constructor.
 data ListIdentitiesResponse = ListIdentitiesResponse'
-  { _lirsIdentityPoolId :: !(Maybe Text)
-  , _lirsNextToken      :: !(Maybe Text)
-  , _lirsIdentities     :: !(Maybe [IdentityDescription])
-  , _lirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An identity pool ID in the format REGION:GUID.
+    identityPoolId :: Prelude.Maybe Prelude.Text,
+    -- | A pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An object containing a set of identities and associated mappings.
+    identities :: Prelude.Maybe [IdentityDescription],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListIdentitiesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListIdentitiesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lirsIdentityPoolId' - An identity pool ID in the format REGION:GUID.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lirsNextToken' - A pagination token.
+-- 'identityPoolId', 'listIdentitiesResponse_identityPoolId' - An identity pool ID in the format REGION:GUID.
 --
--- * 'lirsIdentities' - An object containing a set of identities and associated mappings.
+-- 'nextToken', 'listIdentitiesResponse_nextToken' - A pagination token.
 --
--- * 'lirsResponseStatus' - -- | The response status code.
-listIdentitiesResponse
-    :: Int -- ^ 'lirsResponseStatus'
-    -> ListIdentitiesResponse
-listIdentitiesResponse pResponseStatus_ =
+-- 'identities', 'listIdentitiesResponse_identities' - An object containing a set of identities and associated mappings.
+--
+-- 'httpStatus', 'listIdentitiesResponse_httpStatus' - The response's http status code.
+newListIdentitiesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListIdentitiesResponse
+newListIdentitiesResponse pHttpStatus_ =
   ListIdentitiesResponse'
-    { _lirsIdentityPoolId = Nothing
-    , _lirsNextToken = Nothing
-    , _lirsIdentities = Nothing
-    , _lirsResponseStatus = pResponseStatus_
+    { identityPoolId =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      identities = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | An identity pool ID in the format REGION:GUID.
-lirsIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
-lirsIdentityPoolId = lens _lirsIdentityPoolId (\ s a -> s{_lirsIdentityPoolId = a})
+listIdentitiesResponse_identityPoolId :: Lens.Lens' ListIdentitiesResponse (Prelude.Maybe Prelude.Text)
+listIdentitiesResponse_identityPoolId = Lens.lens (\ListIdentitiesResponse' {identityPoolId} -> identityPoolId) (\s@ListIdentitiesResponse' {} a -> s {identityPoolId = a} :: ListIdentitiesResponse)
 
 -- | A pagination token.
-lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a})
+listIdentitiesResponse_nextToken :: Lens.Lens' ListIdentitiesResponse (Prelude.Maybe Prelude.Text)
+listIdentitiesResponse_nextToken = Lens.lens (\ListIdentitiesResponse' {nextToken} -> nextToken) (\s@ListIdentitiesResponse' {} a -> s {nextToken = a} :: ListIdentitiesResponse)
 
 -- | An object containing a set of identities and associated mappings.
-lirsIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
-lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Default . _Coerce
+listIdentitiesResponse_identities :: Lens.Lens' ListIdentitiesResponse (Prelude.Maybe [IdentityDescription])
+listIdentitiesResponse_identities = Lens.lens (\ListIdentitiesResponse' {identities} -> identities) (\s@ListIdentitiesResponse' {} a -> s {identities = a} :: ListIdentitiesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-lirsResponseStatus :: Lens' ListIdentitiesResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a})
+-- | The response's http status code.
+listIdentitiesResponse_httpStatus :: Lens.Lens' ListIdentitiesResponse Prelude.Int
+listIdentitiesResponse_httpStatus = Lens.lens (\ListIdentitiesResponse' {httpStatus} -> httpStatus) (\s@ListIdentitiesResponse' {} a -> s {httpStatus = a} :: ListIdentitiesResponse)
 
-instance NFData ListIdentitiesResponse where
+instance Prelude.NFData ListIdentitiesResponse

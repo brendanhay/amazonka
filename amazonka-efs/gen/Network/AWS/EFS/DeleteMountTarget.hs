@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EFS.DeleteMountTarget
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,98 +23,115 @@
 --
 -- Deletes the specified mount target.
 --
+-- This operation forcibly breaks any mounts of the file system by using
+-- the mount target that is being deleted, which might disrupt instances or
+-- applications using those mounts. To avoid applications getting cut off
+-- abruptly, you might consider unmounting any mounts of the mount target,
+-- if feasible. The operation also deletes the associated network
+-- interface. Uncommitted writes might be lost, but breaking a mount target
+-- using this operation does not corrupt the file system itself. The file
+-- system you created remains. You can mount an EC2 instance in your VPC by
+-- using another mount target.
 --
--- This operation forcibly breaks any mounts of the file system via the mount target that is being deleted, which might disrupt instances or applications using those mounts. To avoid applications getting cut off abruptly, you might consider unmounting any mounts of the mount target, if feasible. The operation also deletes the associated network interface. Uncommitted writes may be lost, but breaking a mount target using this operation does not corrupt the file system itself. The file system you created remains. You can mount an EC2 instance in your VPC via another mount target.
+-- This operation requires permissions for the following action on the file
+-- system:
 --
--- This operation requires permissions for the following action on the file system:
+-- -   @elasticfilesystem:DeleteMountTarget@
 --
---     * @elasticfilesystem:DeleteMountTarget@
+-- The @DeleteMountTarget@ call returns while the mount target state is
+-- still @deleting@. You can check the mount target deletion by calling the
+-- DescribeMountTargets operation, which returns a list of mount target
+-- descriptions for the given file system.
 --
+-- The operation also requires permissions for the following Amazon EC2
+-- action on the mount target\'s network interface:
 --
---
--- The operation also requires permissions for the following Amazon EC2 action on the mount target's network interface:
---
---     * @ec2:DeleteNetworkInterface@
---
---
---
+-- -   @ec2:DeleteNetworkInterface@
 module Network.AWS.EFS.DeleteMountTarget
-    (
-    -- * Creating a Request
-      deleteMountTarget
-    , DeleteMountTarget
+  ( -- * Creating a Request
+    DeleteMountTarget (..),
+    newDeleteMountTarget,
+
     -- * Request Lenses
-    , dMountTargetId
+    deleteMountTarget_mountTargetId,
 
     -- * Destructuring the Response
-    , deleteMountTargetResponse
-    , DeleteMountTargetResponse
-    ) where
+    DeleteMountTargetResponse (..),
+    newDeleteMountTargetResponse,
+  )
+where
 
 import Network.AWS.EFS.Types
-import Network.AWS.EFS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
+-- /See:/ 'newDeleteMountTarget' smart constructor.
+data DeleteMountTarget = DeleteMountTarget'
+  { -- | The ID of the mount target to delete (String).
+    mountTargetId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteMountTarget' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteMountTarget' smart constructor.
-newtype DeleteMountTarget = DeleteMountTarget'
-  { _dMountTargetId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteMountTarget' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'mountTargetId', 'deleteMountTarget_mountTargetId' - The ID of the mount target to delete (String).
+newDeleteMountTarget ::
+  -- | 'mountTargetId'
+  Prelude.Text ->
+  DeleteMountTarget
+newDeleteMountTarget pMountTargetId_ =
+  DeleteMountTarget' {mountTargetId = pMountTargetId_}
+
+-- | The ID of the mount target to delete (String).
+deleteMountTarget_mountTargetId :: Lens.Lens' DeleteMountTarget Prelude.Text
+deleteMountTarget_mountTargetId = Lens.lens (\DeleteMountTarget' {mountTargetId} -> mountTargetId) (\s@DeleteMountTarget' {} a -> s {mountTargetId = a} :: DeleteMountTarget)
+
+instance Prelude.AWSRequest DeleteMountTarget where
+  type Rs DeleteMountTarget = DeleteMountTargetResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveNull DeleteMountTargetResponse'
+
+instance Prelude.Hashable DeleteMountTarget
+
+instance Prelude.NFData DeleteMountTarget
+
+instance Prelude.ToHeaders DeleteMountTarget where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath DeleteMountTarget where
+  toPath DeleteMountTarget' {..} =
+    Prelude.mconcat
+      [ "/2015-02-01/mount-targets/",
+        Prelude.toBS mountTargetId
+      ]
+
+instance Prelude.ToQuery DeleteMountTarget where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteMountTargetResponse' smart constructor.
+data DeleteMountTargetResponse = DeleteMountTargetResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteMountTargetResponse' with all optional fields omitted.
 --
--- * 'dMountTargetId' - ID of the mount target to delete (String).
-deleteMountTarget
-    :: Text -- ^ 'dMountTargetId'
-    -> DeleteMountTarget
-deleteMountTarget pMountTargetId_ =
-  DeleteMountTarget' {_dMountTargetId = pMountTargetId_}
-
-
--- | ID of the mount target to delete (String).
-dMountTargetId :: Lens' DeleteMountTarget Text
-dMountTargetId = lens _dMountTargetId (\ s a -> s{_dMountTargetId = a})
-
-instance AWSRequest DeleteMountTarget where
-        type Rs DeleteMountTarget = DeleteMountTargetResponse
-        request = delete efs
-        response = receiveNull DeleteMountTargetResponse'
-
-instance Hashable DeleteMountTarget where
-
-instance NFData DeleteMountTarget where
-
-instance ToHeaders DeleteMountTarget where
-        toHeaders = const mempty
-
-instance ToPath DeleteMountTarget where
-        toPath DeleteMountTarget'{..}
-          = mconcat
-              ["/2015-02-01/mount-targets/", toBS _dMountTargetId]
-
-instance ToQuery DeleteMountTarget where
-        toQuery = const mempty
-
--- | /See:/ 'deleteMountTargetResponse' smart constructor.
-data DeleteMountTargetResponse =
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteMountTargetResponse ::
+  DeleteMountTargetResponse
+newDeleteMountTargetResponse =
   DeleteMountTargetResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'DeleteMountTargetResponse' with the minimum fields required to make a request.
---
-deleteMountTargetResponse
-    :: DeleteMountTargetResponse
-deleteMountTargetResponse = DeleteMountTargetResponse'
-
-
-instance NFData DeleteMountTargetResponse where
+instance Prelude.NFData DeleteMountTargetResponse

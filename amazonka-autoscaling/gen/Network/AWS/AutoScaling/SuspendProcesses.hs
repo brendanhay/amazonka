@@ -1,121 +1,202 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AutoScaling.SuspendProcesses
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Suspends the specified Auto Scaling processes, or all processes, for the specified Auto Scaling group.
+-- Suspends the specified auto scaling processes, or all processes, for the
+-- specified Auto Scaling group.
 --
+-- If you suspend either the @Launch@ or @Terminate@ process types, it can
+-- prevent other process types from functioning properly. For more
+-- information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html Suspending and resuming scaling processes>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 --
--- Note that if you suspend either the @Launch@ or @Terminate@ process types, it can prevent other process types from functioning properly.
---
--- To resume processes that have been suspended, use 'ResumeProcesses' .
---
--- For more information, see <http://docs.aws.amazon.com/autoscaling/latest/userguide/as-suspend-resume-processes.html Suspending and Resuming Auto Scaling Processes> in the /Auto Scaling User Guide/ .
---
+-- To resume processes that have been suspended, call the ResumeProcesses
+-- API.
 module Network.AWS.AutoScaling.SuspendProcesses
-    (
-    -- * Creating a Request
-      suspendProcesses
-    , SuspendProcesses
+  ( -- * Creating a Request
+    SuspendProcesses (..),
+    newSuspendProcesses,
+
     -- * Request Lenses
-    , spScalingProcesses
-    , spAutoScalingGroupName
+    suspendProcesses_scalingProcesses,
+    suspendProcesses_autoScalingGroupName,
 
     -- * Destructuring the Response
-    , suspendProcessesResponse
-    , SuspendProcessesResponse
-    ) where
+    SuspendProcessesResponse (..),
+    newSuspendProcessesResponse,
+  )
+where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'suspendProcesses' smart constructor.
+-- | /See:/ 'newSuspendProcesses' smart constructor.
 data SuspendProcesses = SuspendProcesses'
-  { _spScalingProcesses     :: !(Maybe [Text])
-  , _spAutoScalingGroupName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | One or more of the following processes:
+    --
+    -- -   @Launch@
+    --
+    -- -   @Terminate@
+    --
+    -- -   @AddToLoadBalancer@
+    --
+    -- -   @AlarmNotification@
+    --
+    -- -   @AZRebalance@
+    --
+    -- -   @HealthCheck@
+    --
+    -- -   @InstanceRefresh@
+    --
+    -- -   @ReplaceUnhealthy@
+    --
+    -- -   @ScheduledActions@
+    --
+    -- If you omit this parameter, all processes are specified.
+    scalingProcesses :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'SuspendProcesses' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SuspendProcesses' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'spScalingProcesses' - One or more of the following processes. If you omit this parameter, all processes are specified.     * @Launch@      * @Terminate@      * @HealthCheck@      * @ReplaceUnhealthy@      * @AZRebalance@      * @AlarmNotification@      * @ScheduledActions@      * @AddToLoadBalancer@
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'spAutoScalingGroupName' - The name of the Auto Scaling group.
-suspendProcesses
-    :: Text -- ^ 'spAutoScalingGroupName'
-    -> SuspendProcesses
-suspendProcesses pAutoScalingGroupName_ =
+-- 'scalingProcesses', 'suspendProcesses_scalingProcesses' - One or more of the following processes:
+--
+-- -   @Launch@
+--
+-- -   @Terminate@
+--
+-- -   @AddToLoadBalancer@
+--
+-- -   @AlarmNotification@
+--
+-- -   @AZRebalance@
+--
+-- -   @HealthCheck@
+--
+-- -   @InstanceRefresh@
+--
+-- -   @ReplaceUnhealthy@
+--
+-- -   @ScheduledActions@
+--
+-- If you omit this parameter, all processes are specified.
+--
+-- 'autoScalingGroupName', 'suspendProcesses_autoScalingGroupName' - The name of the Auto Scaling group.
+newSuspendProcesses ::
+  -- | 'autoScalingGroupName'
+  Prelude.Text ->
+  SuspendProcesses
+newSuspendProcesses pAutoScalingGroupName_ =
   SuspendProcesses'
-    { _spScalingProcesses = Nothing
-    , _spAutoScalingGroupName = pAutoScalingGroupName_
+    { scalingProcesses =
+        Prelude.Nothing,
+      autoScalingGroupName = pAutoScalingGroupName_
     }
 
-
--- | One or more of the following processes. If you omit this parameter, all processes are specified.     * @Launch@      * @Terminate@      * @HealthCheck@      * @ReplaceUnhealthy@      * @AZRebalance@      * @AlarmNotification@      * @ScheduledActions@      * @AddToLoadBalancer@
-spScalingProcesses :: Lens' SuspendProcesses [Text]
-spScalingProcesses = lens _spScalingProcesses (\ s a -> s{_spScalingProcesses = a}) . _Default . _Coerce
+-- | One or more of the following processes:
+--
+-- -   @Launch@
+--
+-- -   @Terminate@
+--
+-- -   @AddToLoadBalancer@
+--
+-- -   @AlarmNotification@
+--
+-- -   @AZRebalance@
+--
+-- -   @HealthCheck@
+--
+-- -   @InstanceRefresh@
+--
+-- -   @ReplaceUnhealthy@
+--
+-- -   @ScheduledActions@
+--
+-- If you omit this parameter, all processes are specified.
+suspendProcesses_scalingProcesses :: Lens.Lens' SuspendProcesses (Prelude.Maybe [Prelude.Text])
+suspendProcesses_scalingProcesses = Lens.lens (\SuspendProcesses' {scalingProcesses} -> scalingProcesses) (\s@SuspendProcesses' {} a -> s {scalingProcesses = a} :: SuspendProcesses) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The name of the Auto Scaling group.
-spAutoScalingGroupName :: Lens' SuspendProcesses Text
-spAutoScalingGroupName = lens _spAutoScalingGroupName (\ s a -> s{_spAutoScalingGroupName = a})
+suspendProcesses_autoScalingGroupName :: Lens.Lens' SuspendProcesses Prelude.Text
+suspendProcesses_autoScalingGroupName = Lens.lens (\SuspendProcesses' {autoScalingGroupName} -> autoScalingGroupName) (\s@SuspendProcesses' {} a -> s {autoScalingGroupName = a} :: SuspendProcesses)
 
-instance AWSRequest SuspendProcesses where
-        type Rs SuspendProcesses = SuspendProcessesResponse
-        request = postQuery autoScaling
-        response = receiveNull SuspendProcessesResponse'
+instance Prelude.AWSRequest SuspendProcesses where
+  type Rs SuspendProcesses = SuspendProcessesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull SuspendProcessesResponse'
 
-instance Hashable SuspendProcesses where
+instance Prelude.Hashable SuspendProcesses
 
-instance NFData SuspendProcesses where
+instance Prelude.NFData SuspendProcesses
 
-instance ToHeaders SuspendProcesses where
-        toHeaders = const mempty
+instance Prelude.ToHeaders SuspendProcesses where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath SuspendProcesses where
-        toPath = const "/"
+instance Prelude.ToPath SuspendProcesses where
+  toPath = Prelude.const "/"
 
-instance ToQuery SuspendProcesses where
-        toQuery SuspendProcesses'{..}
-          = mconcat
-              ["Action" =: ("SuspendProcesses" :: ByteString),
-               "Version" =: ("2011-01-01" :: ByteString),
-               "ScalingProcesses" =:
-                 toQuery
-                   (toQueryList "member" <$> _spScalingProcesses),
-               "AutoScalingGroupName" =: _spAutoScalingGroupName]
+instance Prelude.ToQuery SuspendProcesses where
+  toQuery SuspendProcesses' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("SuspendProcesses" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
+        "ScalingProcesses"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "member"
+                Prelude.<$> scalingProcesses
+            ),
+        "AutoScalingGroupName"
+          Prelude.=: autoScalingGroupName
+      ]
 
--- | /See:/ 'suspendProcessesResponse' smart constructor.
-data SuspendProcessesResponse =
-  SuspendProcessesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newSuspendProcessesResponse' smart constructor.
+data SuspendProcessesResponse = SuspendProcessesResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'SuspendProcessesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SuspendProcessesResponse' with all optional fields omitted.
 --
-suspendProcessesResponse
-    :: SuspendProcessesResponse
-suspendProcessesResponse = SuspendProcessesResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newSuspendProcessesResponse ::
+  SuspendProcessesResponse
+newSuspendProcessesResponse =
+  SuspendProcessesResponse'
 
-
-instance NFData SuspendProcessesResponse where
+instance Prelude.NFData SuspendProcessesResponse

@@ -1,143 +1,188 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.UpdateThingGroupsForThing
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the groups to which the thing belongs.
---
---
 module Network.AWS.IoT.UpdateThingGroupsForThing
-    (
-    -- * Creating a Request
-      updateThingGroupsForThing
-    , UpdateThingGroupsForThing
+  ( -- * Creating a Request
+    UpdateThingGroupsForThing (..),
+    newUpdateThingGroupsForThing,
+
     -- * Request Lenses
-    , utgftThingGroupsToAdd
-    , utgftThingGroupsToRemove
-    , utgftThingName
+    updateThingGroupsForThing_thingName,
+    updateThingGroupsForThing_overrideDynamicGroups,
+    updateThingGroupsForThing_thingGroupsToRemove,
+    updateThingGroupsForThing_thingGroupsToAdd,
 
     -- * Destructuring the Response
-    , updateThingGroupsForThingResponse
-    , UpdateThingGroupsForThingResponse
+    UpdateThingGroupsForThingResponse (..),
+    newUpdateThingGroupsForThingResponse,
+
     -- * Response Lenses
-    , utgftrsResponseStatus
-    ) where
+    updateThingGroupsForThingResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateThingGroupsForThing' smart constructor.
+-- | /See:/ 'newUpdateThingGroupsForThing' smart constructor.
 data UpdateThingGroupsForThing = UpdateThingGroupsForThing'
-  { _utgftThingGroupsToAdd    :: !(Maybe [Text])
-  , _utgftThingGroupsToRemove :: !(Maybe [Text])
-  , _utgftThingName           :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The thing whose group memberships will be updated.
+    thingName :: Prelude.Maybe Prelude.Text,
+    -- | Override dynamic thing groups with static thing groups when 10-group
+    -- limit is reached. If a thing belongs to 10 thing groups, and one or more
+    -- of those groups are dynamic thing groups, adding a thing to a static
+    -- group removes the thing from the last dynamic group.
+    overrideDynamicGroups :: Prelude.Maybe Prelude.Bool,
+    -- | The groups from which the thing will be removed.
+    thingGroupsToRemove :: Prelude.Maybe [Prelude.Text],
+    -- | The groups to which the thing will be added.
+    thingGroupsToAdd :: Prelude.Maybe [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateThingGroupsForThing' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateThingGroupsForThing' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'utgftThingGroupsToAdd' - The groups to which the thing will be added.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'utgftThingGroupsToRemove' - The groups from which the thing will be removed.
+-- 'thingName', 'updateThingGroupsForThing_thingName' - The thing whose group memberships will be updated.
 --
--- * 'utgftThingName' - The thing whose group memberships will be updated.
-updateThingGroupsForThing
-    :: UpdateThingGroupsForThing
-updateThingGroupsForThing =
+-- 'overrideDynamicGroups', 'updateThingGroupsForThing_overrideDynamicGroups' - Override dynamic thing groups with static thing groups when 10-group
+-- limit is reached. If a thing belongs to 10 thing groups, and one or more
+-- of those groups are dynamic thing groups, adding a thing to a static
+-- group removes the thing from the last dynamic group.
+--
+-- 'thingGroupsToRemove', 'updateThingGroupsForThing_thingGroupsToRemove' - The groups from which the thing will be removed.
+--
+-- 'thingGroupsToAdd', 'updateThingGroupsForThing_thingGroupsToAdd' - The groups to which the thing will be added.
+newUpdateThingGroupsForThing ::
+  UpdateThingGroupsForThing
+newUpdateThingGroupsForThing =
   UpdateThingGroupsForThing'
-    { _utgftThingGroupsToAdd = Nothing
-    , _utgftThingGroupsToRemove = Nothing
-    , _utgftThingName = Nothing
+    { thingName =
+        Prelude.Nothing,
+      overrideDynamicGroups = Prelude.Nothing,
+      thingGroupsToRemove = Prelude.Nothing,
+      thingGroupsToAdd = Prelude.Nothing
     }
 
+-- | The thing whose group memberships will be updated.
+updateThingGroupsForThing_thingName :: Lens.Lens' UpdateThingGroupsForThing (Prelude.Maybe Prelude.Text)
+updateThingGroupsForThing_thingName = Lens.lens (\UpdateThingGroupsForThing' {thingName} -> thingName) (\s@UpdateThingGroupsForThing' {} a -> s {thingName = a} :: UpdateThingGroupsForThing)
 
--- | The groups to which the thing will be added.
-utgftThingGroupsToAdd :: Lens' UpdateThingGroupsForThing [Text]
-utgftThingGroupsToAdd = lens _utgftThingGroupsToAdd (\ s a -> s{_utgftThingGroupsToAdd = a}) . _Default . _Coerce
+-- | Override dynamic thing groups with static thing groups when 10-group
+-- limit is reached. If a thing belongs to 10 thing groups, and one or more
+-- of those groups are dynamic thing groups, adding a thing to a static
+-- group removes the thing from the last dynamic group.
+updateThingGroupsForThing_overrideDynamicGroups :: Lens.Lens' UpdateThingGroupsForThing (Prelude.Maybe Prelude.Bool)
+updateThingGroupsForThing_overrideDynamicGroups = Lens.lens (\UpdateThingGroupsForThing' {overrideDynamicGroups} -> overrideDynamicGroups) (\s@UpdateThingGroupsForThing' {} a -> s {overrideDynamicGroups = a} :: UpdateThingGroupsForThing)
 
 -- | The groups from which the thing will be removed.
-utgftThingGroupsToRemove :: Lens' UpdateThingGroupsForThing [Text]
-utgftThingGroupsToRemove = lens _utgftThingGroupsToRemove (\ s a -> s{_utgftThingGroupsToRemove = a}) . _Default . _Coerce
+updateThingGroupsForThing_thingGroupsToRemove :: Lens.Lens' UpdateThingGroupsForThing (Prelude.Maybe [Prelude.Text])
+updateThingGroupsForThing_thingGroupsToRemove = Lens.lens (\UpdateThingGroupsForThing' {thingGroupsToRemove} -> thingGroupsToRemove) (\s@UpdateThingGroupsForThing' {} a -> s {thingGroupsToRemove = a} :: UpdateThingGroupsForThing) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The thing whose group memberships will be updated.
-utgftThingName :: Lens' UpdateThingGroupsForThing (Maybe Text)
-utgftThingName = lens _utgftThingName (\ s a -> s{_utgftThingName = a})
+-- | The groups to which the thing will be added.
+updateThingGroupsForThing_thingGroupsToAdd :: Lens.Lens' UpdateThingGroupsForThing (Prelude.Maybe [Prelude.Text])
+updateThingGroupsForThing_thingGroupsToAdd = Lens.lens (\UpdateThingGroupsForThing' {thingGroupsToAdd} -> thingGroupsToAdd) (\s@UpdateThingGroupsForThing' {} a -> s {thingGroupsToAdd = a} :: UpdateThingGroupsForThing) Prelude.. Lens.mapping Prelude._Coerce
 
-instance AWSRequest UpdateThingGroupsForThing where
-        type Rs UpdateThingGroupsForThing =
-             UpdateThingGroupsForThingResponse
-        request = putJSON ioT
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateThingGroupsForThingResponse' <$>
-                   (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateThingGroupsForThing where
+  type
+    Rs UpdateThingGroupsForThing =
+      UpdateThingGroupsForThingResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateThingGroupsForThingResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateThingGroupsForThing where
+instance Prelude.Hashable UpdateThingGroupsForThing
 
-instance NFData UpdateThingGroupsForThing where
+instance Prelude.NFData UpdateThingGroupsForThing
 
-instance ToHeaders UpdateThingGroupsForThing where
-        toHeaders = const mempty
+instance Prelude.ToHeaders UpdateThingGroupsForThing where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON UpdateThingGroupsForThing where
-        toJSON UpdateThingGroupsForThing'{..}
-          = object
-              (catMaybes
-                 [("thingGroupsToAdd" .=) <$> _utgftThingGroupsToAdd,
-                  ("thingGroupsToRemove" .=) <$>
-                    _utgftThingGroupsToRemove,
-                  ("thingName" .=) <$> _utgftThingName])
+instance Prelude.ToJSON UpdateThingGroupsForThing where
+  toJSON UpdateThingGroupsForThing' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("thingName" Prelude..=) Prelude.<$> thingName,
+            ("overrideDynamicGroups" Prelude..=)
+              Prelude.<$> overrideDynamicGroups,
+            ("thingGroupsToRemove" Prelude..=)
+              Prelude.<$> thingGroupsToRemove,
+            ("thingGroupsToAdd" Prelude..=)
+              Prelude.<$> thingGroupsToAdd
+          ]
+      )
 
-instance ToPath UpdateThingGroupsForThing where
-        toPath
-          = const "/thing-groups/updateThingGroupsForThing"
+instance Prelude.ToPath UpdateThingGroupsForThing where
+  toPath =
+    Prelude.const
+      "/thing-groups/updateThingGroupsForThing"
 
-instance ToQuery UpdateThingGroupsForThing where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateThingGroupsForThing where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateThingGroupsForThingResponse' smart constructor.
-newtype UpdateThingGroupsForThingResponse = UpdateThingGroupsForThingResponse'
-  { _utgftrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateThingGroupsForThingResponse' smart constructor.
+data UpdateThingGroupsForThingResponse = UpdateThingGroupsForThingResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateThingGroupsForThingResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateThingGroupsForThingResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'utgftrsResponseStatus' - -- | The response status code.
-updateThingGroupsForThingResponse
-    :: Int -- ^ 'utgftrsResponseStatus'
-    -> UpdateThingGroupsForThingResponse
-updateThingGroupsForThingResponse pResponseStatus_ =
-  UpdateThingGroupsForThingResponse' {_utgftrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateThingGroupsForThingResponse_httpStatus' - The response's http status code.
+newUpdateThingGroupsForThingResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateThingGroupsForThingResponse
+newUpdateThingGroupsForThingResponse pHttpStatus_ =
+  UpdateThingGroupsForThingResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+updateThingGroupsForThingResponse_httpStatus :: Lens.Lens' UpdateThingGroupsForThingResponse Prelude.Int
+updateThingGroupsForThingResponse_httpStatus = Lens.lens (\UpdateThingGroupsForThingResponse' {httpStatus} -> httpStatus) (\s@UpdateThingGroupsForThingResponse' {} a -> s {httpStatus = a} :: UpdateThingGroupsForThingResponse)
 
--- | -- | The response status code.
-utgftrsResponseStatus :: Lens' UpdateThingGroupsForThingResponse Int
-utgftrsResponseStatus = lens _utgftrsResponseStatus (\ s a -> s{_utgftrsResponseStatus = a})
-
-instance NFData UpdateThingGroupsForThingResponse
-         where
+instance
+  Prelude.NFData
+    UpdateThingGroupsForThingResponse

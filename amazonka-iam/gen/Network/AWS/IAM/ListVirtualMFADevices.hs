@@ -1,186 +1,302 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.ListVirtualMFADevices
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the virtual MFA devices defined in the AWS account by assignment status. If you do not specify an assignment status, the operation returns a list of all virtual MFA devices. Assignment status can be @Assigned@ , @Unassigned@ , or @Any@ .
+-- Lists the virtual MFA devices defined in the AWS account by assignment
+-- status. If you do not specify an assignment status, the operation
+-- returns a list of all virtual MFA devices. Assignment status can be
+-- @Assigned@, @Unassigned@, or @Any@.
 --
+-- IAM resource-listing operations return a subset of the available
+-- attributes for the resource. For example, this operation does not return
+-- tags, even though they are an attribute of the returned object. To view
+-- all of the information for a virtual MFA device, see
+-- ListVirtualMFADevices.
 --
--- You can paginate the results using the @MaxItems@ and @Marker@ parameters.
---
+-- You can paginate the results using the @MaxItems@ and @Marker@
+-- parameters.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListVirtualMFADevices
-    (
-    -- * Creating a Request
-      listVirtualMFADevices
-    , ListVirtualMFADevices
+  ( -- * Creating a Request
+    ListVirtualMFADevices (..),
+    newListVirtualMFADevices,
+
     -- * Request Lenses
-    , lvmdAssignmentStatus
-    , lvmdMarker
-    , lvmdMaxItems
+    listVirtualMFADevices_assignmentStatus,
+    listVirtualMFADevices_maxItems,
+    listVirtualMFADevices_marker,
 
     -- * Destructuring the Response
-    , listVirtualMFADevicesResponse
-    , ListVirtualMFADevicesResponse
+    ListVirtualMFADevicesResponse (..),
+    newListVirtualMFADevicesResponse,
+
     -- * Response Lenses
-    , lvmdrsMarker
-    , lvmdrsIsTruncated
-    , lvmdrsResponseStatus
-    , lvmdrsVirtualMFADevices
-    ) where
+    listVirtualMFADevicesResponse_isTruncated,
+    listVirtualMFADevicesResponse_marker,
+    listVirtualMFADevicesResponse_httpStatus,
+    listVirtualMFADevicesResponse_virtualMFADevices,
+  )
+where
 
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listVirtualMFADevices' smart constructor.
+-- | /See:/ 'newListVirtualMFADevices' smart constructor.
 data ListVirtualMFADevices = ListVirtualMFADevices'
-  { _lvmdAssignmentStatus :: !(Maybe AssignmentStatusType)
-  , _lvmdMarker           :: !(Maybe Text)
-  , _lvmdMaxItems         :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The status (@Unassigned@ or @Assigned@) of the devices to list. If you
+    -- do not specify an @AssignmentStatus@, the operation defaults to @Any@,
+    -- which lists both assigned and unassigned virtual MFA devices.,
+    assignmentStatus :: Prelude.Maybe AssignmentStatusType,
+    -- | Use this only when paginating results to indicate the maximum number of
+    -- items you want in the response. If additional items exist beyond the
+    -- maximum you specify, the @IsTruncated@ response element is @true@.
+    --
+    -- If you do not include this parameter, the number of items defaults to
+    -- 100. Note that IAM might return fewer results, even when there are more
+    -- results available. In that case, the @IsTruncated@ response element
+    -- returns @true@, and @Marker@ contains a value to include in the
+    -- subsequent call that tells the service where to continue from.
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | Use this parameter only when paginating results and only after you
+    -- receive a response indicating that the results are truncated. Set it to
+    -- the value of the @Marker@ element in the response that you received to
+    -- indicate where the next call should start.
+    marker :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListVirtualMFADevices' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListVirtualMFADevices' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lvmdAssignmentStatus' - The status (@Unassigned@ or @Assigned@ ) of the devices to list. If you do not specify an @AssignmentStatus@ , the operation defaults to @Any@ which lists both assigned and unassigned virtual MFA devices.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lvmdMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- 'assignmentStatus', 'listVirtualMFADevices_assignmentStatus' - The status (@Unassigned@ or @Assigned@) of the devices to list. If you
+-- do not specify an @AssignmentStatus@, the operation defaults to @Any@,
+-- which lists both assigned and unassigned virtual MFA devices.,
 --
--- * 'lvmdMaxItems' - (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-listVirtualMFADevices
-    :: ListVirtualMFADevices
-listVirtualMFADevices =
+-- 'maxItems', 'listVirtualMFADevices_maxItems' - Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
+--
+-- 'marker', 'listVirtualMFADevices_marker' - Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+newListVirtualMFADevices ::
+  ListVirtualMFADevices
+newListVirtualMFADevices =
   ListVirtualMFADevices'
-    { _lvmdAssignmentStatus = Nothing
-    , _lvmdMarker = Nothing
-    , _lvmdMaxItems = Nothing
+    { assignmentStatus =
+        Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
+-- | The status (@Unassigned@ or @Assigned@) of the devices to list. If you
+-- do not specify an @AssignmentStatus@, the operation defaults to @Any@,
+-- which lists both assigned and unassigned virtual MFA devices.,
+listVirtualMFADevices_assignmentStatus :: Lens.Lens' ListVirtualMFADevices (Prelude.Maybe AssignmentStatusType)
+listVirtualMFADevices_assignmentStatus = Lens.lens (\ListVirtualMFADevices' {assignmentStatus} -> assignmentStatus) (\s@ListVirtualMFADevices' {} a -> s {assignmentStatus = a} :: ListVirtualMFADevices)
 
--- | The status (@Unassigned@ or @Assigned@ ) of the devices to list. If you do not specify an @AssignmentStatus@ , the operation defaults to @Any@ which lists both assigned and unassigned virtual MFA devices.
-lvmdAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe AssignmentStatusType)
-lvmdAssignmentStatus = lens _lvmdAssignmentStatus (\ s a -> s{_lvmdAssignmentStatus = a})
-
--- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
-lvmdMarker :: Lens' ListVirtualMFADevices (Maybe Text)
-lvmdMarker = lens _lvmdMarker (\ s a -> s{_lvmdMarker = a})
-
--- | (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-lvmdMaxItems :: Lens' ListVirtualMFADevices (Maybe Natural)
-lvmdMaxItems = lens _lvmdMaxItems (\ s a -> s{_lvmdMaxItems = a}) . mapping _Nat
-
-instance AWSPager ListVirtualMFADevices where
-        page rq rs
-          | stop (rs ^. lvmdrsIsTruncated) = Nothing
-          | isNothing (rs ^. lvmdrsMarker) = Nothing
-          | otherwise =
-            Just $ rq & lvmdMarker .~ rs ^. lvmdrsMarker
-
-instance AWSRequest ListVirtualMFADevices where
-        type Rs ListVirtualMFADevices =
-             ListVirtualMFADevicesResponse
-        request = postQuery iam
-        response
-          = receiveXMLWrapper "ListVirtualMFADevicesResult"
-              (\ s h x ->
-                 ListVirtualMFADevicesResponse' <$>
-                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (pure (fromEnum s))
-                     <*>
-                     (x .@? "VirtualMFADevices" .!@ mempty >>=
-                        parseXMLList "member"))
-
-instance Hashable ListVirtualMFADevices where
-
-instance NFData ListVirtualMFADevices where
-
-instance ToHeaders ListVirtualMFADevices where
-        toHeaders = const mempty
-
-instance ToPath ListVirtualMFADevices where
-        toPath = const "/"
-
-instance ToQuery ListVirtualMFADevices where
-        toQuery ListVirtualMFADevices'{..}
-          = mconcat
-              ["Action" =: ("ListVirtualMFADevices" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "AssignmentStatus" =: _lvmdAssignmentStatus,
-               "Marker" =: _lvmdMarker, "MaxItems" =: _lvmdMaxItems]
-
--- | Contains the response to a successful 'ListVirtualMFADevices' request.
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
 --
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
+listVirtualMFADevices_maxItems :: Lens.Lens' ListVirtualMFADevices (Prelude.Maybe Prelude.Natural)
+listVirtualMFADevices_maxItems = Lens.lens (\ListVirtualMFADevices' {maxItems} -> maxItems) (\s@ListVirtualMFADevices' {} a -> s {maxItems = a} :: ListVirtualMFADevices)
+
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+listVirtualMFADevices_marker :: Lens.Lens' ListVirtualMFADevices (Prelude.Maybe Prelude.Text)
+listVirtualMFADevices_marker = Lens.lens (\ListVirtualMFADevices' {marker} -> marker) (\s@ListVirtualMFADevices' {} a -> s {marker = a} :: ListVirtualMFADevices)
+
+instance Pager.AWSPager ListVirtualMFADevices where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listVirtualMFADevicesResponse_isTruncated
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listVirtualMFADevicesResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listVirtualMFADevices_marker
+          Lens..~ rs
+          Lens.^? listVirtualMFADevicesResponse_marker
+            Prelude.. Lens._Just
+
+instance Prelude.AWSRequest ListVirtualMFADevices where
+  type
+    Rs ListVirtualMFADevices =
+      ListVirtualMFADevicesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ListVirtualMFADevicesResult"
+      ( \s h x ->
+          ListVirtualMFADevicesResponse'
+            Prelude.<$> (x Prelude..@? "IsTruncated")
+            Prelude.<*> (x Prelude..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Prelude..@? "VirtualMFADevices"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.parseXMLList "member"
+                        )
+      )
+
+instance Prelude.Hashable ListVirtualMFADevices
+
+instance Prelude.NFData ListVirtualMFADevices
+
+instance Prelude.ToHeaders ListVirtualMFADevices where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath ListVirtualMFADevices where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery ListVirtualMFADevices where
+  toQuery ListVirtualMFADevices' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("ListVirtualMFADevices" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
+        "AssignmentStatus" Prelude.=: assignmentStatus,
+        "MaxItems" Prelude.=: maxItems,
+        "Marker" Prelude.=: marker
+      ]
+
+-- | Contains the response to a successful ListVirtualMFADevices request.
 --
---
--- /See:/ 'listVirtualMFADevicesResponse' smart constructor.
+-- /See:/ 'newListVirtualMFADevicesResponse' smart constructor.
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
-  { _lvmdrsMarker            :: !(Maybe Text)
-  , _lvmdrsIsTruncated       :: !(Maybe Bool)
-  , _lvmdrsResponseStatus    :: !Int
-  , _lvmdrsVirtualMFADevices :: ![VirtualMFADevice]
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | A flag that indicates whether there are more items to return. If your
+    -- results were truncated, you can make a subsequent pagination request
+    -- using the @Marker@ request parameter to retrieve more items. Note that
+    -- IAM might return fewer than the @MaxItems@ number of results even when
+    -- there are more results available. We recommend that you check
+    -- @IsTruncated@ after every call to ensure that you receive all your
+    -- results.
+    isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The list of virtual MFA devices in the current account that match the
+    -- @AssignmentStatus@ value that was passed in the request.
+    virtualMFADevices :: [VirtualMFADevice]
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListVirtualMFADevicesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListVirtualMFADevicesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lvmdrsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lvmdrsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
+-- 'isTruncated', 'listVirtualMFADevicesResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items. Note that
+-- IAM might return fewer than the @MaxItems@ number of results even when
+-- there are more results available. We recommend that you check
+-- @IsTruncated@ after every call to ensure that you receive all your
+-- results.
 --
--- * 'lvmdrsResponseStatus' - -- | The response status code.
+-- 'marker', 'listVirtualMFADevicesResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 --
--- * 'lvmdrsVirtualMFADevices' - The list of virtual MFA devices in the current account that match the @AssignmentStatus@ value that was passed in the request.
-listVirtualMFADevicesResponse
-    :: Int -- ^ 'lvmdrsResponseStatus'
-    -> ListVirtualMFADevicesResponse
-listVirtualMFADevicesResponse pResponseStatus_ =
+-- 'httpStatus', 'listVirtualMFADevicesResponse_httpStatus' - The response's http status code.
+--
+-- 'virtualMFADevices', 'listVirtualMFADevicesResponse_virtualMFADevices' - The list of virtual MFA devices in the current account that match the
+-- @AssignmentStatus@ value that was passed in the request.
+newListVirtualMFADevicesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListVirtualMFADevicesResponse
+newListVirtualMFADevicesResponse pHttpStatus_ =
   ListVirtualMFADevicesResponse'
-    { _lvmdrsMarker = Nothing
-    , _lvmdrsIsTruncated = Nothing
-    , _lvmdrsResponseStatus = pResponseStatus_
-    , _lvmdrsVirtualMFADevices = mempty
+    { isTruncated =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_,
+      virtualMFADevices = Prelude.mempty
     }
 
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items. Note that
+-- IAM might return fewer than the @MaxItems@ number of results even when
+-- there are more results available. We recommend that you check
+-- @IsTruncated@ after every call to ensure that you receive all your
+-- results.
+listVirtualMFADevicesResponse_isTruncated :: Lens.Lens' ListVirtualMFADevicesResponse (Prelude.Maybe Prelude.Bool)
+listVirtualMFADevicesResponse_isTruncated = Lens.lens (\ListVirtualMFADevicesResponse' {isTruncated} -> isTruncated) (\s@ListVirtualMFADevicesResponse' {} a -> s {isTruncated = a} :: ListVirtualMFADevicesResponse)
 
--- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
-lvmdrsMarker :: Lens' ListVirtualMFADevicesResponse (Maybe Text)
-lvmdrsMarker = lens _lvmdrsMarker (\ s a -> s{_lvmdrsMarker = a})
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listVirtualMFADevicesResponse_marker :: Lens.Lens' ListVirtualMFADevicesResponse (Prelude.Maybe Prelude.Text)
+listVirtualMFADevicesResponse_marker = Lens.lens (\ListVirtualMFADevicesResponse' {marker} -> marker) (\s@ListVirtualMFADevicesResponse' {} a -> s {marker = a} :: ListVirtualMFADevicesResponse)
 
--- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
-lvmdrsIsTruncated :: Lens' ListVirtualMFADevicesResponse (Maybe Bool)
-lvmdrsIsTruncated = lens _lvmdrsIsTruncated (\ s a -> s{_lvmdrsIsTruncated = a})
+-- | The response's http status code.
+listVirtualMFADevicesResponse_httpStatus :: Lens.Lens' ListVirtualMFADevicesResponse Prelude.Int
+listVirtualMFADevicesResponse_httpStatus = Lens.lens (\ListVirtualMFADevicesResponse' {httpStatus} -> httpStatus) (\s@ListVirtualMFADevicesResponse' {} a -> s {httpStatus = a} :: ListVirtualMFADevicesResponse)
 
--- | -- | The response status code.
-lvmdrsResponseStatus :: Lens' ListVirtualMFADevicesResponse Int
-lvmdrsResponseStatus = lens _lvmdrsResponseStatus (\ s a -> s{_lvmdrsResponseStatus = a})
+-- | The list of virtual MFA devices in the current account that match the
+-- @AssignmentStatus@ value that was passed in the request.
+listVirtualMFADevicesResponse_virtualMFADevices :: Lens.Lens' ListVirtualMFADevicesResponse [VirtualMFADevice]
+listVirtualMFADevicesResponse_virtualMFADevices = Lens.lens (\ListVirtualMFADevicesResponse' {virtualMFADevices} -> virtualMFADevices) (\s@ListVirtualMFADevicesResponse' {} a -> s {virtualMFADevices = a} :: ListVirtualMFADevicesResponse) Prelude.. Prelude._Coerce
 
--- | The list of virtual MFA devices in the current account that match the @AssignmentStatus@ value that was passed in the request.
-lvmdrsVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevice]
-lvmdrsVirtualMFADevices = lens _lvmdrsVirtualMFADevices (\ s a -> s{_lvmdrsVirtualMFADevices = a}) . _Coerce
-
-instance NFData ListVirtualMFADevicesResponse where
+instance Prelude.NFData ListVirtualMFADevicesResponse

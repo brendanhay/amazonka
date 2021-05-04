@@ -1,165 +1,209 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.AddTagsToResource
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds one or more tags to the specified resource. You use tags to add metadata to resources, which you can use to categorize these resources. For example, you can categorize resources by purpose, owner, environment, or team. Each tag consists of a key and a value, which you define. You can add tags to the following AWS Storage Gateway resources:
+-- Adds one or more tags to the specified resource. You use tags to add
+-- metadata to resources, which you can use to categorize these resources.
+-- For example, you can categorize resources by purpose, owner,
+-- environment, or team. Each tag consists of a key and a value, which you
+-- define. You can add tags to the following AWS Storage Gateway resources:
 --
+-- -   Storage gateways of all types
 --
---     * Storage gateways of all types
+-- -   Storage volumes
 --
+-- -   Virtual tapes
 --
+-- -   NFS and SMB file shares
 --
---     * Storage Volumes
---
---
---
---     * Virtual Tapes
---
---
---
--- You can create a maximum of 10 tags for each resource. Virtual tapes and storage volumes that are recovered to a new gateway maintain their tags.
---
+-- You can create a maximum of 50 tags for each resource. Virtual tapes and
+-- storage volumes that are recovered to a new gateway maintain their tags.
 module Network.AWS.StorageGateway.AddTagsToResource
-    (
-    -- * Creating a Request
-      addTagsToResource
-    , AddTagsToResource
+  ( -- * Creating a Request
+    AddTagsToResource (..),
+    newAddTagsToResource,
+
     -- * Request Lenses
-    , attrResourceARN
-    , attrTags
+    addTagsToResource_resourceARN,
+    addTagsToResource_tags,
 
     -- * Destructuring the Response
-    , addTagsToResourceResponse
-    , AddTagsToResourceResponse
-    -- * Response Lenses
-    , attrrsResourceARN
-    , attrrsResponseStatus
-    ) where
+    AddTagsToResourceResponse (..),
+    newAddTagsToResourceResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    addTagsToResourceResponse_resourceARN,
+    addTagsToResourceResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
 -- | AddTagsToResourceInput
 --
---
---
--- /See:/ 'addTagsToResource' smart constructor.
+-- /See:/ 'newAddTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
-  { _attrResourceARN :: !Text
-  , _attrTags        :: ![Tag]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the resource you want to add tags to.
+    resourceARN :: Prelude.Text,
+    -- | The key-value pair that represents the tag you want to add to the
+    -- resource. The value can be an empty string.
+    --
+    -- Valid characters for key and value are letters, spaces, and numbers
+    -- representable in UTF-8 format, and the following special characters: + -
+    -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
+    -- the maximum length for a tag\'s value is 256.
+    tags :: [Tag]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AddTagsToResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AddTagsToResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'attrResourceARN' - The Amazon Resource Name (ARN) of the resource you want to add tags to.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'attrTags' - The key-value pair that represents the tag you want to add to the resource. The value can be an empty string.
-addTagsToResource
-    :: Text -- ^ 'attrResourceARN'
-    -> AddTagsToResource
-addTagsToResource pResourceARN_ =
-  AddTagsToResource' {_attrResourceARN = pResourceARN_, _attrTags = mempty}
-
+-- 'resourceARN', 'addTagsToResource_resourceARN' - The Amazon Resource Name (ARN) of the resource you want to add tags to.
+--
+-- 'tags', 'addTagsToResource_tags' - The key-value pair that represents the tag you want to add to the
+-- resource. The value can be an empty string.
+--
+-- Valid characters for key and value are letters, spaces, and numbers
+-- representable in UTF-8 format, and the following special characters: + -
+-- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
+-- the maximum length for a tag\'s value is 256.
+newAddTagsToResource ::
+  -- | 'resourceARN'
+  Prelude.Text ->
+  AddTagsToResource
+newAddTagsToResource pResourceARN_ =
+  AddTagsToResource'
+    { resourceARN = pResourceARN_,
+      tags = Prelude.mempty
+    }
 
 -- | The Amazon Resource Name (ARN) of the resource you want to add tags to.
-attrResourceARN :: Lens' AddTagsToResource Text
-attrResourceARN = lens _attrResourceARN (\ s a -> s{_attrResourceARN = a})
+addTagsToResource_resourceARN :: Lens.Lens' AddTagsToResource Prelude.Text
+addTagsToResource_resourceARN = Lens.lens (\AddTagsToResource' {resourceARN} -> resourceARN) (\s@AddTagsToResource' {} a -> s {resourceARN = a} :: AddTagsToResource)
 
--- | The key-value pair that represents the tag you want to add to the resource. The value can be an empty string.
-attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce
+-- | The key-value pair that represents the tag you want to add to the
+-- resource. The value can be an empty string.
+--
+-- Valid characters for key and value are letters, spaces, and numbers
+-- representable in UTF-8 format, and the following special characters: + -
+-- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
+-- the maximum length for a tag\'s value is 256.
+addTagsToResource_tags :: Lens.Lens' AddTagsToResource [Tag]
+addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Prelude._Coerce
 
-instance AWSRequest AddTagsToResource where
-        type Rs AddTagsToResource = AddTagsToResourceResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 AddTagsToResourceResponse' <$>
-                   (x .?> "ResourceARN") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest AddTagsToResource where
+  type Rs AddTagsToResource = AddTagsToResourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AddTagsToResourceResponse'
+            Prelude.<$> (x Prelude..?> "ResourceARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AddTagsToResource where
+instance Prelude.Hashable AddTagsToResource
 
-instance NFData AddTagsToResource where
+instance Prelude.NFData AddTagsToResource
 
-instance ToHeaders AddTagsToResource where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.AddTagsToResource" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders AddTagsToResource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "StorageGateway_20130630.AddTagsToResource" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON AddTagsToResource where
-        toJSON AddTagsToResource'{..}
-          = object
-              (catMaybes
-                 [Just ("ResourceARN" .= _attrResourceARN),
-                  Just ("Tags" .= _attrTags)])
+instance Prelude.ToJSON AddTagsToResource where
+  toJSON AddTagsToResource' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceARN" Prelude..= resourceARN),
+            Prelude.Just ("Tags" Prelude..= tags)
+          ]
+      )
 
-instance ToPath AddTagsToResource where
-        toPath = const "/"
+instance Prelude.ToPath AddTagsToResource where
+  toPath = Prelude.const "/"
 
-instance ToQuery AddTagsToResource where
-        toQuery = const mempty
+instance Prelude.ToQuery AddTagsToResource where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | AddTagsToResourceOutput
 --
---
---
--- /See:/ 'addTagsToResourceResponse' smart constructor.
+-- /See:/ 'newAddTagsToResourceResponse' smart constructor.
 data AddTagsToResourceResponse = AddTagsToResourceResponse'
-  { _attrrsResourceARN    :: !(Maybe Text)
-  , _attrrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the resource you want to add tags to.
+    resourceARN :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AddTagsToResourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AddTagsToResourceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'attrrsResourceARN' - The Amazon Resource Name (ARN) of the resource you want to add tags to.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'attrrsResponseStatus' - -- | The response status code.
-addTagsToResourceResponse
-    :: Int -- ^ 'attrrsResponseStatus'
-    -> AddTagsToResourceResponse
-addTagsToResourceResponse pResponseStatus_ =
+-- 'resourceARN', 'addTagsToResourceResponse_resourceARN' - The Amazon Resource Name (ARN) of the resource you want to add tags to.
+--
+-- 'httpStatus', 'addTagsToResourceResponse_httpStatus' - The response's http status code.
+newAddTagsToResourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AddTagsToResourceResponse
+newAddTagsToResourceResponse pHttpStatus_ =
   AddTagsToResourceResponse'
-    {_attrrsResourceARN = Nothing, _attrrsResponseStatus = pResponseStatus_}
-
+    { resourceARN =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The Amazon Resource Name (ARN) of the resource you want to add tags to.
-attrrsResourceARN :: Lens' AddTagsToResourceResponse (Maybe Text)
-attrrsResourceARN = lens _attrrsResourceARN (\ s a -> s{_attrrsResourceARN = a})
+addTagsToResourceResponse_resourceARN :: Lens.Lens' AddTagsToResourceResponse (Prelude.Maybe Prelude.Text)
+addTagsToResourceResponse_resourceARN = Lens.lens (\AddTagsToResourceResponse' {resourceARN} -> resourceARN) (\s@AddTagsToResourceResponse' {} a -> s {resourceARN = a} :: AddTagsToResourceResponse)
 
--- | -- | The response status code.
-attrrsResponseStatus :: Lens' AddTagsToResourceResponse Int
-attrrsResponseStatus = lens _attrrsResponseStatus (\ s a -> s{_attrrsResponseStatus = a})
+-- | The response's http status code.
+addTagsToResourceResponse_httpStatus :: Lens.Lens' AddTagsToResourceResponse Prelude.Int
+addTagsToResourceResponse_httpStatus = Lens.lens (\AddTagsToResourceResponse' {httpStatus} -> httpStatus) (\s@AddTagsToResourceResponse' {} a -> s {httpStatus = a} :: AddTagsToResourceResponse)
 
-instance NFData AddTagsToResourceResponse where
+instance Prelude.NFData AddTagsToResourceResponse

@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminEnableUser
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,126 +23,145 @@
 --
 -- Enables the specified user as an administrator. Works on any user.
 --
---
--- Requires developer credentials.
---
+-- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminEnableUser
-    (
-    -- * Creating a Request
-      adminEnableUser
-    , AdminEnableUser
+  ( -- * Creating a Request
+    AdminEnableUser (..),
+    newAdminEnableUser,
+
     -- * Request Lenses
-    , aeuUserPoolId
-    , aeuUsername
+    adminEnableUser_userPoolId,
+    adminEnableUser_username,
 
     -- * Destructuring the Response
-    , adminEnableUserResponse
-    , AdminEnableUserResponse
+    AdminEnableUserResponse (..),
+    newAdminEnableUserResponse,
+
     -- * Response Lenses
-    , aeursResponseStatus
-    ) where
+    adminEnableUserResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request that enables the user as an administrator.
 --
---
---
--- /See:/ 'adminEnableUser' smart constructor.
+-- /See:/ 'newAdminEnableUser' smart constructor.
 data AdminEnableUser = AdminEnableUser'
-  { _aeuUserPoolId :: !Text
-  , _aeuUsername   :: !(Sensitive Text)
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The user pool ID for the user pool where you want to enable the user.
+    userPoolId :: Prelude.Text,
+    -- | The user name of the user you wish to enable.
+    username :: Prelude.Sensitive Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AdminEnableUser' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AdminEnableUser' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'aeuUserPoolId' - The user pool ID for the user pool where you want to enable the user.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'aeuUsername' - The user name of the user you wish to enable.
-adminEnableUser
-    :: Text -- ^ 'aeuUserPoolId'
-    -> Text -- ^ 'aeuUsername'
-    -> AdminEnableUser
-adminEnableUser pUserPoolId_ pUsername_ =
+-- 'userPoolId', 'adminEnableUser_userPoolId' - The user pool ID for the user pool where you want to enable the user.
+--
+-- 'username', 'adminEnableUser_username' - The user name of the user you wish to enable.
+newAdminEnableUser ::
+  -- | 'userPoolId'
+  Prelude.Text ->
+  -- | 'username'
+  Prelude.Text ->
+  AdminEnableUser
+newAdminEnableUser pUserPoolId_ pUsername_ =
   AdminEnableUser'
-    {_aeuUserPoolId = pUserPoolId_, _aeuUsername = _Sensitive # pUsername_}
-
+    { userPoolId = pUserPoolId_,
+      username = Prelude._Sensitive Lens.# pUsername_
+    }
 
 -- | The user pool ID for the user pool where you want to enable the user.
-aeuUserPoolId :: Lens' AdminEnableUser Text
-aeuUserPoolId = lens _aeuUserPoolId (\ s a -> s{_aeuUserPoolId = a})
+adminEnableUser_userPoolId :: Lens.Lens' AdminEnableUser Prelude.Text
+adminEnableUser_userPoolId = Lens.lens (\AdminEnableUser' {userPoolId} -> userPoolId) (\s@AdminEnableUser' {} a -> s {userPoolId = a} :: AdminEnableUser)
 
 -- | The user name of the user you wish to enable.
-aeuUsername :: Lens' AdminEnableUser Text
-aeuUsername = lens _aeuUsername (\ s a -> s{_aeuUsername = a}) . _Sensitive
+adminEnableUser_username :: Lens.Lens' AdminEnableUser Prelude.Text
+adminEnableUser_username = Lens.lens (\AdminEnableUser' {username} -> username) (\s@AdminEnableUser' {} a -> s {username = a} :: AdminEnableUser) Prelude.. Prelude._Sensitive
 
-instance AWSRequest AdminEnableUser where
-        type Rs AdminEnableUser = AdminEnableUserResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 AdminEnableUserResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest AdminEnableUser where
+  type Rs AdminEnableUser = AdminEnableUserResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          AdminEnableUserResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AdminEnableUser where
+instance Prelude.Hashable AdminEnableUser
 
-instance NFData AdminEnableUser where
+instance Prelude.NFData AdminEnableUser
 
-instance ToHeaders AdminEnableUser where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.AdminEnableUser"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders AdminEnableUser where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSCognitoIdentityProviderService.AdminEnableUser" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON AdminEnableUser where
-        toJSON AdminEnableUser'{..}
-          = object
-              (catMaybes
-                 [Just ("UserPoolId" .= _aeuUserPoolId),
-                  Just ("Username" .= _aeuUsername)])
+instance Prelude.ToJSON AdminEnableUser where
+  toJSON AdminEnableUser' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("UserPoolId" Prelude..= userPoolId),
+            Prelude.Just ("Username" Prelude..= username)
+          ]
+      )
 
-instance ToPath AdminEnableUser where
-        toPath = const "/"
+instance Prelude.ToPath AdminEnableUser where
+  toPath = Prelude.const "/"
 
-instance ToQuery AdminEnableUser where
-        toQuery = const mempty
+instance Prelude.ToQuery AdminEnableUser where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Represents the response from the server for the request to enable a user as an administrator.
+-- | Represents the response from the server for the request to enable a user
+-- as an administrator.
 --
+-- /See:/ 'newAdminEnableUserResponse' smart constructor.
+data AdminEnableUserResponse = AdminEnableUserResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'AdminEnableUserResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'adminEnableUserResponse' smart constructor.
-newtype AdminEnableUserResponse = AdminEnableUserResponse'
-  { _aeursResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'AdminEnableUserResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aeursResponseStatus' - -- | The response status code.
-adminEnableUserResponse
-    :: Int -- ^ 'aeursResponseStatus'
-    -> AdminEnableUserResponse
-adminEnableUserResponse pResponseStatus_ =
-  AdminEnableUserResponse' {_aeursResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'adminEnableUserResponse_httpStatus' - The response's http status code.
+newAdminEnableUserResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AdminEnableUserResponse
+newAdminEnableUserResponse pHttpStatus_ =
+  AdminEnableUserResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+adminEnableUserResponse_httpStatus :: Lens.Lens' AdminEnableUserResponse Prelude.Int
+adminEnableUserResponse_httpStatus = Lens.lens (\AdminEnableUserResponse' {httpStatus} -> httpStatus) (\s@AdminEnableUserResponse' {} a -> s {httpStatus = a} :: AdminEnableUserResponse)
 
--- | -- | The response status code.
-aeursResponseStatus :: Lens' AdminEnableUserResponse Int
-aeursResponseStatus = lens _aeursResponseStatus (\ s a -> s{_aeursResponseStatus = a})
-
-instance NFData AdminEnableUserResponse where
+instance Prelude.NFData AdminEnableUserResponse

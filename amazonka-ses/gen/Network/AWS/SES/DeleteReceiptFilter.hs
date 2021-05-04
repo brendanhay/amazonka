@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.DeleteReceiptFilter
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,109 +23,128 @@
 --
 -- Deletes the specified IP address filter.
 --
---
--- For information about managing IP address filters, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html Amazon SES Developer Guide> .
+-- For information about managing IP address filters, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html Amazon SES Developer Guide>.
 --
 -- You can execute this operation no more than once per second.
---
 module Network.AWS.SES.DeleteReceiptFilter
-    (
-    -- * Creating a Request
-      deleteReceiptFilter
-    , DeleteReceiptFilter
+  ( -- * Creating a Request
+    DeleteReceiptFilter (..),
+    newDeleteReceiptFilter,
+
     -- * Request Lenses
-    , drfFilterName
+    deleteReceiptFilter_filterName,
 
     -- * Destructuring the Response
-    , deleteReceiptFilterResponse
-    , DeleteReceiptFilterResponse
+    DeleteReceiptFilterResponse (..),
+    newDeleteReceiptFilterResponse,
+
     -- * Response Lenses
-    , drfrsResponseStatus
-    ) where
+    deleteReceiptFilterResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request to delete an IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
+-- | Represents a request to delete an IP address filter. You use IP address
+-- filters when you receive email with Amazon SES. For more information,
+-- see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide>.
 --
---
---
--- /See:/ 'deleteReceiptFilter' smart constructor.
-newtype DeleteReceiptFilter = DeleteReceiptFilter'
-  { _drfFilterName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDeleteReceiptFilter' smart constructor.
+data DeleteReceiptFilter = DeleteReceiptFilter'
+  { -- | The name of the IP address filter to delete.
+    filterName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteReceiptFilter' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteReceiptFilter' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drfFilterName' - The name of the IP address filter to delete.
-deleteReceiptFilter
-    :: Text -- ^ 'drfFilterName'
-    -> DeleteReceiptFilter
-deleteReceiptFilter pFilterName_ =
-  DeleteReceiptFilter' {_drfFilterName = pFilterName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'filterName', 'deleteReceiptFilter_filterName' - The name of the IP address filter to delete.
+newDeleteReceiptFilter ::
+  -- | 'filterName'
+  Prelude.Text ->
+  DeleteReceiptFilter
+newDeleteReceiptFilter pFilterName_ =
+  DeleteReceiptFilter' {filterName = pFilterName_}
 
 -- | The name of the IP address filter to delete.
-drfFilterName :: Lens' DeleteReceiptFilter Text
-drfFilterName = lens _drfFilterName (\ s a -> s{_drfFilterName = a})
+deleteReceiptFilter_filterName :: Lens.Lens' DeleteReceiptFilter Prelude.Text
+deleteReceiptFilter_filterName = Lens.lens (\DeleteReceiptFilter' {filterName} -> filterName) (\s@DeleteReceiptFilter' {} a -> s {filterName = a} :: DeleteReceiptFilter)
 
-instance AWSRequest DeleteReceiptFilter where
-        type Rs DeleteReceiptFilter =
-             DeleteReceiptFilterResponse
-        request = postQuery ses
-        response
-          = receiveXMLWrapper "DeleteReceiptFilterResult"
-              (\ s h x ->
-                 DeleteReceiptFilterResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest DeleteReceiptFilter where
+  type
+    Rs DeleteReceiptFilter =
+      DeleteReceiptFilterResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DeleteReceiptFilterResult"
+      ( \s h x ->
+          DeleteReceiptFilterResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteReceiptFilter where
+instance Prelude.Hashable DeleteReceiptFilter
 
-instance NFData DeleteReceiptFilter where
+instance Prelude.NFData DeleteReceiptFilter
 
-instance ToHeaders DeleteReceiptFilter where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DeleteReceiptFilter where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteReceiptFilter where
-        toPath = const "/"
+instance Prelude.ToPath DeleteReceiptFilter where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteReceiptFilter where
-        toQuery DeleteReceiptFilter'{..}
-          = mconcat
-              ["Action" =: ("DeleteReceiptFilter" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "FilterName" =: _drfFilterName]
+instance Prelude.ToQuery DeleteReceiptFilter where
+  toQuery DeleteReceiptFilter' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DeleteReceiptFilter" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
+        "FilterName" Prelude.=: filterName
+      ]
 
 -- | An empty element returned on a successful request.
 --
+-- /See:/ 'newDeleteReceiptFilterResponse' smart constructor.
+data DeleteReceiptFilterResponse = DeleteReceiptFilterResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteReceiptFilterResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteReceiptFilterResponse' smart constructor.
-newtype DeleteReceiptFilterResponse = DeleteReceiptFilterResponse'
-  { _drfrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteReceiptFilterResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drfrsResponseStatus' - -- | The response status code.
-deleteReceiptFilterResponse
-    :: Int -- ^ 'drfrsResponseStatus'
-    -> DeleteReceiptFilterResponse
-deleteReceiptFilterResponse pResponseStatus_ =
-  DeleteReceiptFilterResponse' {_drfrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'deleteReceiptFilterResponse_httpStatus' - The response's http status code.
+newDeleteReceiptFilterResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteReceiptFilterResponse
+newDeleteReceiptFilterResponse pHttpStatus_ =
+  DeleteReceiptFilterResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteReceiptFilterResponse_httpStatus :: Lens.Lens' DeleteReceiptFilterResponse Prelude.Int
+deleteReceiptFilterResponse_httpStatus = Lens.lens (\DeleteReceiptFilterResponse' {httpStatus} -> httpStatus) (\s@DeleteReceiptFilterResponse' {} a -> s {httpStatus = a} :: DeleteReceiptFilterResponse)
 
--- | -- | The response status code.
-drfrsResponseStatus :: Lens' DeleteReceiptFilterResponse Int
-drfrsResponseStatus = lens _drfrsResponseStatus (\ s a -> s{_drfrsResponseStatus = a})
-
-instance NFData DeleteReceiptFilterResponse where
+instance Prelude.NFData DeleteReceiptFilterResponse

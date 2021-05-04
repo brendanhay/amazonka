@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ECS.UpdateContainerInstancesState
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,173 +23,268 @@
 --
 -- Modifies the status of an Amazon ECS container instance.
 --
+-- Once a container instance has reached an @ACTIVE@ state, you can change
+-- the status of a container instance to @DRAINING@ to manually remove an
+-- instance from a cluster, for example to perform system updates, update
+-- the Docker daemon, or scale down the cluster size.
 --
--- You can change the status of a container instance to @DRAINING@ to manually remove an instance from a cluster, for example to perform system updates, update the Docker daemon, or scale down the cluster size.
+-- A container instance cannot be changed to @DRAINING@ until it has
+-- reached an @ACTIVE@ status. If the instance is in any other status, an
+-- error will be received.
 --
--- When you set a container instance to @DRAINING@ , Amazon ECS prevents new tasks from being scheduled for placement on the container instance and replacement service tasks are started on other container instances in the cluster if the resources are available. Service tasks on the container instance that are in the @PENDING@ state are stopped immediately.
+-- When you set a container instance to @DRAINING@, Amazon ECS prevents new
+-- tasks from being scheduled for placement on the container instance and
+-- replacement service tasks are started on other container instances in
+-- the cluster if the resources are available. Service tasks on the
+-- container instance that are in the @PENDING@ state are stopped
+-- immediately.
 --
--- Service tasks on the container instance that are in the @RUNNING@ state are stopped and replaced according to the service's deployment configuration parameters, @minimumHealthyPercent@ and @maximumPercent@ . You can change the deployment configuration of your service using 'UpdateService' .
+-- Service tasks on the container instance that are in the @RUNNING@ state
+-- are stopped and replaced according to the service\'s deployment
+-- configuration parameters, @minimumHealthyPercent@ and @maximumPercent@.
+-- You can change the deployment configuration of your service using
+-- UpdateService.
 --
---     * If @minimumHealthyPercent@ is below 100%, the scheduler can ignore @desiredCount@ temporarily during task replacement. For example, @desiredCount@ is four tasks, a minimum of 50% allows the scheduler to stop two existing tasks before starting two new tasks. If the minimum is 100%, the service scheduler can't remove existing tasks until the replacement tasks are considered healthy. Tasks for services that do not use a load balancer are considered healthy if they are in the @RUNNING@ state. Tasks for services that use a load balancer are considered healthy if they are in the @RUNNING@ state and the container instance they are hosted on is reported as healthy by the load balancer.
+-- -   If @minimumHealthyPercent@ is below 100%, the scheduler can ignore
+--     @desiredCount@ temporarily during task replacement. For example,
+--     @desiredCount@ is four tasks, a minimum of 50% allows the scheduler
+--     to stop two existing tasks before starting two new tasks. If the
+--     minimum is 100%, the service scheduler can\'t remove existing tasks
+--     until the replacement tasks are considered healthy. Tasks for
+--     services that do not use a load balancer are considered healthy if
+--     they are in the @RUNNING@ state. Tasks for services that use a load
+--     balancer are considered healthy if they are in the @RUNNING@ state
+--     and the container instance they are hosted on is reported as healthy
+--     by the load balancer.
 --
---     * The @maximumPercent@ parameter represents an upper limit on the number of running tasks during task replacement, which enables you to define the replacement batch size. For example, if @desiredCount@ of four tasks, a maximum of 200% starts four new tasks before stopping the four tasks to be drained (provided that the cluster resources required to do this are available). If the maximum is 100%, then replacement tasks can't start until the draining tasks have stopped.
+-- -   The @maximumPercent@ parameter represents an upper limit on the
+--     number of running tasks during task replacement, which enables you
+--     to define the replacement batch size. For example, if @desiredCount@
+--     is four tasks, a maximum of 200% starts four new tasks before
+--     stopping the four tasks to be drained, provided that the cluster
+--     resources required to do this are available. If the maximum is 100%,
+--     then replacement tasks can\'t start until the draining tasks have
+--     stopped.
 --
+-- Any @PENDING@ or @RUNNING@ tasks that do not belong to a service are not
+-- affected. You must wait for them to finish or stop them manually.
 --
+-- A container instance has completed draining when it has no more
+-- @RUNNING@ tasks. You can verify this using ListTasks.
 --
--- Any @PENDING@ or @RUNNING@ tasks that do not belong to a service are not affected; you must wait for them to finish or stop them manually.
---
--- A container instance has completed draining when it has no more @RUNNING@ tasks. You can verify this using 'ListTasks' .
---
--- When you set a container instance to @ACTIVE@ , the Amazon ECS scheduler can begin scheduling tasks on the instance again.
---
+-- When a container instance has been drained, you can set a container
+-- instance to @ACTIVE@ status and once it has reached that status the
+-- Amazon ECS scheduler can begin scheduling tasks on the instance again.
 module Network.AWS.ECS.UpdateContainerInstancesState
-    (
-    -- * Creating a Request
-      updateContainerInstancesState
-    , UpdateContainerInstancesState
+  ( -- * Creating a Request
+    UpdateContainerInstancesState (..),
+    newUpdateContainerInstancesState,
+
     -- * Request Lenses
-    , ucisCluster
-    , ucisContainerInstances
-    , ucisStatus
+    updateContainerInstancesState_cluster,
+    updateContainerInstancesState_containerInstances,
+    updateContainerInstancesState_status,
 
     -- * Destructuring the Response
-    , updateContainerInstancesStateResponse
-    , UpdateContainerInstancesStateResponse
+    UpdateContainerInstancesStateResponse (..),
+    newUpdateContainerInstancesStateResponse,
+
     -- * Response Lenses
-    , ucisrsFailures
-    , ucisrsContainerInstances
-    , ucisrsResponseStatus
-    ) where
+    updateContainerInstancesStateResponse_failures,
+    updateContainerInstancesStateResponse_containerInstances,
+    updateContainerInstancesStateResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateContainerInstancesState' smart constructor.
+-- | /See:/ 'newUpdateContainerInstancesState' smart constructor.
 data UpdateContainerInstancesState = UpdateContainerInstancesState'
-  { _ucisCluster            :: !(Maybe Text)
-  , _ucisContainerInstances :: ![Text]
-  , _ucisStatus             :: !ContainerInstanceStatus
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that
+    -- hosts the container instance to update. If you do not specify a cluster,
+    -- the default cluster is assumed.
+    cluster :: Prelude.Maybe Prelude.Text,
+    -- | A list of container instance IDs or full ARN entries.
+    containerInstances :: [Prelude.Text],
+    -- | The container instance state with which to update the container
+    -- instance. The only valid values for this action are @ACTIVE@ and
+    -- @DRAINING@. A container instance can only be updated to @DRAINING@
+    -- status once it has reached an @ACTIVE@ state. If a container instance is
+    -- in @REGISTERING@, @DEREGISTERING@, or @REGISTRATION_FAILED@ state you
+    -- can describe the container instance but will be unable to update the
+    -- container instance state.
+    status :: ContainerInstanceStatus
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateContainerInstancesState' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateContainerInstancesState' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ucisCluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to update. If you do not specify a cluster, the default cluster is assumed.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ucisContainerInstances' - A list of container instance IDs or full ARN entries.
+-- 'cluster', 'updateContainerInstancesState_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
+-- hosts the container instance to update. If you do not specify a cluster,
+-- the default cluster is assumed.
 --
--- * 'ucisStatus' - The container instance state with which to update the container instance.
-updateContainerInstancesState
-    :: ContainerInstanceStatus -- ^ 'ucisStatus'
-    -> UpdateContainerInstancesState
-updateContainerInstancesState pStatus_ =
+-- 'containerInstances', 'updateContainerInstancesState_containerInstances' - A list of container instance IDs or full ARN entries.
+--
+-- 'status', 'updateContainerInstancesState_status' - The container instance state with which to update the container
+-- instance. The only valid values for this action are @ACTIVE@ and
+-- @DRAINING@. A container instance can only be updated to @DRAINING@
+-- status once it has reached an @ACTIVE@ state. If a container instance is
+-- in @REGISTERING@, @DEREGISTERING@, or @REGISTRATION_FAILED@ state you
+-- can describe the container instance but will be unable to update the
+-- container instance state.
+newUpdateContainerInstancesState ::
+  -- | 'status'
+  ContainerInstanceStatus ->
+  UpdateContainerInstancesState
+newUpdateContainerInstancesState pStatus_ =
   UpdateContainerInstancesState'
-    { _ucisCluster = Nothing
-    , _ucisContainerInstances = mempty
-    , _ucisStatus = pStatus_
+    { cluster =
+        Prelude.Nothing,
+      containerInstances = Prelude.mempty,
+      status = pStatus_
     }
 
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to update. If you do not specify a cluster, the default cluster is assumed.
-ucisCluster :: Lens' UpdateContainerInstancesState (Maybe Text)
-ucisCluster = lens _ucisCluster (\ s a -> s{_ucisCluster = a})
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that
+-- hosts the container instance to update. If you do not specify a cluster,
+-- the default cluster is assumed.
+updateContainerInstancesState_cluster :: Lens.Lens' UpdateContainerInstancesState (Prelude.Maybe Prelude.Text)
+updateContainerInstancesState_cluster = Lens.lens (\UpdateContainerInstancesState' {cluster} -> cluster) (\s@UpdateContainerInstancesState' {} a -> s {cluster = a} :: UpdateContainerInstancesState)
 
 -- | A list of container instance IDs or full ARN entries.
-ucisContainerInstances :: Lens' UpdateContainerInstancesState [Text]
-ucisContainerInstances = lens _ucisContainerInstances (\ s a -> s{_ucisContainerInstances = a}) . _Coerce
+updateContainerInstancesState_containerInstances :: Lens.Lens' UpdateContainerInstancesState [Prelude.Text]
+updateContainerInstancesState_containerInstances = Lens.lens (\UpdateContainerInstancesState' {containerInstances} -> containerInstances) (\s@UpdateContainerInstancesState' {} a -> s {containerInstances = a} :: UpdateContainerInstancesState) Prelude.. Prelude._Coerce
 
--- | The container instance state with which to update the container instance.
-ucisStatus :: Lens' UpdateContainerInstancesState ContainerInstanceStatus
-ucisStatus = lens _ucisStatus (\ s a -> s{_ucisStatus = a})
+-- | The container instance state with which to update the container
+-- instance. The only valid values for this action are @ACTIVE@ and
+-- @DRAINING@. A container instance can only be updated to @DRAINING@
+-- status once it has reached an @ACTIVE@ state. If a container instance is
+-- in @REGISTERING@, @DEREGISTERING@, or @REGISTRATION_FAILED@ state you
+-- can describe the container instance but will be unable to update the
+-- container instance state.
+updateContainerInstancesState_status :: Lens.Lens' UpdateContainerInstancesState ContainerInstanceStatus
+updateContainerInstancesState_status = Lens.lens (\UpdateContainerInstancesState' {status} -> status) (\s@UpdateContainerInstancesState' {} a -> s {status = a} :: UpdateContainerInstancesState)
 
-instance AWSRequest UpdateContainerInstancesState
-         where
-        type Rs UpdateContainerInstancesState =
-             UpdateContainerInstancesStateResponse
-        request = postJSON ecs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateContainerInstancesStateResponse' <$>
-                   (x .?> "failures" .!@ mempty) <*>
-                     (x .?> "containerInstances" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    UpdateContainerInstancesState
+  where
+  type
+    Rs UpdateContainerInstancesState =
+      UpdateContainerInstancesStateResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateContainerInstancesStateResponse'
+            Prelude.<$> (x Prelude..?> "failures" Prelude..!@ Prelude.mempty)
+            Prelude.<*> ( x Prelude..?> "containerInstances"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateContainerInstancesState where
+instance
+  Prelude.Hashable
+    UpdateContainerInstancesState
 
-instance NFData UpdateContainerInstancesState where
+instance Prelude.NFData UpdateContainerInstancesState
 
-instance ToHeaders UpdateContainerInstancesState
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Prelude.ToHeaders
+    UpdateContainerInstancesState
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateContainerInstancesState where
-        toJSON UpdateContainerInstancesState'{..}
-          = object
-              (catMaybes
-                 [("cluster" .=) <$> _ucisCluster,
-                  Just
-                    ("containerInstances" .= _ucisContainerInstances),
-                  Just ("status" .= _ucisStatus)])
+instance Prelude.ToJSON UpdateContainerInstancesState where
+  toJSON UpdateContainerInstancesState' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("cluster" Prelude..=) Prelude.<$> cluster,
+            Prelude.Just
+              ("containerInstances" Prelude..= containerInstances),
+            Prelude.Just ("status" Prelude..= status)
+          ]
+      )
 
-instance ToPath UpdateContainerInstancesState where
-        toPath = const "/"
+instance Prelude.ToPath UpdateContainerInstancesState where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateContainerInstancesState where
-        toQuery = const mempty
+instance
+  Prelude.ToQuery
+    UpdateContainerInstancesState
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateContainerInstancesStateResponse' smart constructor.
+-- | /See:/ 'newUpdateContainerInstancesStateResponse' smart constructor.
 data UpdateContainerInstancesStateResponse = UpdateContainerInstancesStateResponse'
-  { _ucisrsFailures           :: !(Maybe [Failure])
-  , _ucisrsContainerInstances :: !(Maybe [ContainerInstance])
-  , _ucisrsResponseStatus     :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Any failures associated with the call.
+    failures :: Prelude.Maybe [Failure],
+    -- | The list of container instances.
+    containerInstances :: Prelude.Maybe [ContainerInstance],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateContainerInstancesStateResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateContainerInstancesStateResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ucisrsFailures' - Any failures associated with the call.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ucisrsContainerInstances' - The list of container instances.
+-- 'failures', 'updateContainerInstancesStateResponse_failures' - Any failures associated with the call.
 --
--- * 'ucisrsResponseStatus' - -- | The response status code.
-updateContainerInstancesStateResponse
-    :: Int -- ^ 'ucisrsResponseStatus'
-    -> UpdateContainerInstancesStateResponse
-updateContainerInstancesStateResponse pResponseStatus_ =
+-- 'containerInstances', 'updateContainerInstancesStateResponse_containerInstances' - The list of container instances.
+--
+-- 'httpStatus', 'updateContainerInstancesStateResponse_httpStatus' - The response's http status code.
+newUpdateContainerInstancesStateResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateContainerInstancesStateResponse
+newUpdateContainerInstancesStateResponse pHttpStatus_ =
   UpdateContainerInstancesStateResponse'
-    { _ucisrsFailures = Nothing
-    , _ucisrsContainerInstances = Nothing
-    , _ucisrsResponseStatus = pResponseStatus_
+    { failures =
+        Prelude.Nothing,
+      containerInstances = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | Any failures associated with the call.
-ucisrsFailures :: Lens' UpdateContainerInstancesStateResponse [Failure]
-ucisrsFailures = lens _ucisrsFailures (\ s a -> s{_ucisrsFailures = a}) . _Default . _Coerce
+updateContainerInstancesStateResponse_failures :: Lens.Lens' UpdateContainerInstancesStateResponse (Prelude.Maybe [Failure])
+updateContainerInstancesStateResponse_failures = Lens.lens (\UpdateContainerInstancesStateResponse' {failures} -> failures) (\s@UpdateContainerInstancesStateResponse' {} a -> s {failures = a} :: UpdateContainerInstancesStateResponse) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The list of container instances.
-ucisrsContainerInstances :: Lens' UpdateContainerInstancesStateResponse [ContainerInstance]
-ucisrsContainerInstances = lens _ucisrsContainerInstances (\ s a -> s{_ucisrsContainerInstances = a}) . _Default . _Coerce
+updateContainerInstancesStateResponse_containerInstances :: Lens.Lens' UpdateContainerInstancesStateResponse (Prelude.Maybe [ContainerInstance])
+updateContainerInstancesStateResponse_containerInstances = Lens.lens (\UpdateContainerInstancesStateResponse' {containerInstances} -> containerInstances) (\s@UpdateContainerInstancesStateResponse' {} a -> s {containerInstances = a} :: UpdateContainerInstancesStateResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-ucisrsResponseStatus :: Lens' UpdateContainerInstancesStateResponse Int
-ucisrsResponseStatus = lens _ucisrsResponseStatus (\ s a -> s{_ucisrsResponseStatus = a})
+-- | The response's http status code.
+updateContainerInstancesStateResponse_httpStatus :: Lens.Lens' UpdateContainerInstancesStateResponse Prelude.Int
+updateContainerInstancesStateResponse_httpStatus = Lens.lens (\UpdateContainerInstancesStateResponse' {httpStatus} -> httpStatus) (\s@UpdateContainerInstancesStateResponse' {} a -> s {httpStatus = a} :: UpdateContainerInstancesStateResponse)
 
-instance NFData UpdateContainerInstancesStateResponse
-         where
+instance
+  Prelude.NFData
+    UpdateContainerInstancesStateResponse

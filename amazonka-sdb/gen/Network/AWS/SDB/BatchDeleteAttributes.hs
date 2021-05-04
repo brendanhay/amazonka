@@ -1,115 +1,135 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SDB.BatchDeleteAttributes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Performs multiple DeleteAttributes operations in a single call, which reduces round trips and latencies. This enables Amazon SimpleDB to optimize requests, which generally yields better throughput.
+-- Performs multiple DeleteAttributes operations in a single call, which
+-- reduces round trips and latencies. This enables Amazon SimpleDB to
+-- optimize requests, which generally yields better throughput.
 --
+-- The following limitations are enforced for this operation:
 --
--- The following limitations are enforced for this operation:     * 1 MB request size    * 25 item limit per BatchDeleteAttributes operation
---
---
---
+-- -   1 MB request size
+-- -   25 item limit per BatchDeleteAttributes operation
 module Network.AWS.SDB.BatchDeleteAttributes
-    (
-    -- * Creating a Request
-      batchDeleteAttributes
-    , BatchDeleteAttributes
+  ( -- * Creating a Request
+    BatchDeleteAttributes (..),
+    newBatchDeleteAttributes,
+
     -- * Request Lenses
-    , bdaDomainName
-    , bdaItems
+    batchDeleteAttributes_domainName,
+    batchDeleteAttributes_items,
 
     -- * Destructuring the Response
-    , batchDeleteAttributesResponse
-    , BatchDeleteAttributesResponse
-    ) where
+    BatchDeleteAttributesResponse (..),
+    newBatchDeleteAttributesResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SDB.Types
-import Network.AWS.SDB.Types.Product
 
--- | /See:/ 'batchDeleteAttributes' smart constructor.
+-- | /See:/ 'newBatchDeleteAttributes' smart constructor.
 data BatchDeleteAttributes = BatchDeleteAttributes'
-  { _bdaDomainName :: !Text
-  , _bdaItems      :: ![DeletableItem]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the domain in which the attributes are being deleted.
+    domainName :: Prelude.Text,
+    -- | A list of items on which to perform the operation.
+    items :: [DeletableItem]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'BatchDeleteAttributes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'BatchDeleteAttributes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'bdaDomainName' - The name of the domain in which the attributes are being deleted.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'bdaItems' - A list of items on which to perform the operation.
-batchDeleteAttributes
-    :: Text -- ^ 'bdaDomainName'
-    -> BatchDeleteAttributes
-batchDeleteAttributes pDomainName_ =
-  BatchDeleteAttributes' {_bdaDomainName = pDomainName_, _bdaItems = mempty}
-
+-- 'domainName', 'batchDeleteAttributes_domainName' - The name of the domain in which the attributes are being deleted.
+--
+-- 'items', 'batchDeleteAttributes_items' - A list of items on which to perform the operation.
+newBatchDeleteAttributes ::
+  -- | 'domainName'
+  Prelude.Text ->
+  BatchDeleteAttributes
+newBatchDeleteAttributes pDomainName_ =
+  BatchDeleteAttributes'
+    { domainName = pDomainName_,
+      items = Prelude.mempty
+    }
 
 -- | The name of the domain in which the attributes are being deleted.
-bdaDomainName :: Lens' BatchDeleteAttributes Text
-bdaDomainName = lens _bdaDomainName (\ s a -> s{_bdaDomainName = a})
+batchDeleteAttributes_domainName :: Lens.Lens' BatchDeleteAttributes Prelude.Text
+batchDeleteAttributes_domainName = Lens.lens (\BatchDeleteAttributes' {domainName} -> domainName) (\s@BatchDeleteAttributes' {} a -> s {domainName = a} :: BatchDeleteAttributes)
 
 -- | A list of items on which to perform the operation.
-bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
-bdaItems = lens _bdaItems (\ s a -> s{_bdaItems = a}) . _Coerce
+batchDeleteAttributes_items :: Lens.Lens' BatchDeleteAttributes [DeletableItem]
+batchDeleteAttributes_items = Lens.lens (\BatchDeleteAttributes' {items} -> items) (\s@BatchDeleteAttributes' {} a -> s {items = a} :: BatchDeleteAttributes) Prelude.. Prelude._Coerce
 
-instance AWSRequest BatchDeleteAttributes where
-        type Rs BatchDeleteAttributes =
-             BatchDeleteAttributesResponse
-        request = postQuery sdb
-        response = receiveNull BatchDeleteAttributesResponse'
+instance Prelude.AWSRequest BatchDeleteAttributes where
+  type
+    Rs BatchDeleteAttributes =
+      BatchDeleteAttributesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull BatchDeleteAttributesResponse'
 
-instance Hashable BatchDeleteAttributes where
+instance Prelude.Hashable BatchDeleteAttributes
 
-instance NFData BatchDeleteAttributes where
+instance Prelude.NFData BatchDeleteAttributes
 
-instance ToHeaders BatchDeleteAttributes where
-        toHeaders = const mempty
+instance Prelude.ToHeaders BatchDeleteAttributes where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath BatchDeleteAttributes where
-        toPath = const "/"
+instance Prelude.ToPath BatchDeleteAttributes where
+  toPath = Prelude.const "/"
 
-instance ToQuery BatchDeleteAttributes where
-        toQuery BatchDeleteAttributes'{..}
-          = mconcat
-              ["Action" =: ("BatchDeleteAttributes" :: ByteString),
-               "Version" =: ("2009-04-15" :: ByteString),
-               "DomainName" =: _bdaDomainName,
-               toQueryList "Item" _bdaItems]
+instance Prelude.ToQuery BatchDeleteAttributes where
+  toQuery BatchDeleteAttributes' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("BatchDeleteAttributes" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2009-04-15" :: Prelude.ByteString),
+        "DomainName" Prelude.=: domainName,
+        Prelude.toQueryList "Item" items
+      ]
 
--- | /See:/ 'batchDeleteAttributesResponse' smart constructor.
-data BatchDeleteAttributesResponse =
-  BatchDeleteAttributesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newBatchDeleteAttributesResponse' smart constructor.
+data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'BatchDeleteAttributesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'BatchDeleteAttributesResponse' with all optional fields omitted.
 --
-batchDeleteAttributesResponse
-    :: BatchDeleteAttributesResponse
-batchDeleteAttributesResponse = BatchDeleteAttributesResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newBatchDeleteAttributesResponse ::
+  BatchDeleteAttributesResponse
+newBatchDeleteAttributesResponse =
+  BatchDeleteAttributesResponse'
 
-
-instance NFData BatchDeleteAttributesResponse where
+instance Prelude.NFData BatchDeleteAttributesResponse

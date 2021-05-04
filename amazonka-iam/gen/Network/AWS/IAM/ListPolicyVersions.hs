@@ -1,184 +1,314 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.ListPolicyVersions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists information about the versions of the specified managed policy, including the version that is currently set as the policy's default version.
+-- Lists information about the versions of the specified managed policy,
+-- including the version that is currently set as the policy\'s default
+-- version.
 --
---
--- For more information about managed policies, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
---
+-- For more information about managed policies, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed policies and inline policies>
+-- in the /IAM User Guide/.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListPolicyVersions
-    (
-    -- * Creating a Request
-      listPolicyVersions
-    , ListPolicyVersions
+  ( -- * Creating a Request
+    ListPolicyVersions (..),
+    newListPolicyVersions,
+
     -- * Request Lenses
-    , lpvMarker
-    , lpvMaxItems
-    , lpvPolicyARN
+    listPolicyVersions_maxItems,
+    listPolicyVersions_marker,
+    listPolicyVersions_policyArn,
 
     -- * Destructuring the Response
-    , listPolicyVersionsResponse
-    , ListPolicyVersionsResponse
+    ListPolicyVersionsResponse (..),
+    newListPolicyVersionsResponse,
+
     -- * Response Lenses
-    , lpvrsVersions
-    , lpvrsMarker
-    , lpvrsIsTruncated
-    , lpvrsResponseStatus
-    ) where
+    listPolicyVersionsResponse_versions,
+    listPolicyVersionsResponse_isTruncated,
+    listPolicyVersionsResponse_marker,
+    listPolicyVersionsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listPolicyVersions' smart constructor.
+-- | /See:/ 'newListPolicyVersions' smart constructor.
 data ListPolicyVersions = ListPolicyVersions'
-  { _lpvMarker    :: !(Maybe Text)
-  , _lpvMaxItems  :: !(Maybe Nat)
-  , _lpvPolicyARN :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Use this only when paginating results to indicate the maximum number of
+    -- items you want in the response. If additional items exist beyond the
+    -- maximum you specify, the @IsTruncated@ response element is @true@.
+    --
+    -- If you do not include this parameter, the number of items defaults to
+    -- 100. Note that IAM might return fewer results, even when there are more
+    -- results available. In that case, the @IsTruncated@ response element
+    -- returns @true@, and @Marker@ contains a value to include in the
+    -- subsequent call that tells the service where to continue from.
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | Use this parameter only when paginating results and only after you
+    -- receive a response indicating that the results are truncated. Set it to
+    -- the value of the @Marker@ element in the response that you received to
+    -- indicate where the next call should start.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM policy for which you want the
+    -- versions.
+    --
+    -- For more information about ARNs, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+    -- in the /AWS General Reference/.
+    policyArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListPolicyVersions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListPolicyVersions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lpvMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lpvMaxItems' - (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+-- 'maxItems', 'listPolicyVersions_maxItems' - Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
 --
--- * 'lpvPolicyARN' - The Amazon Resource Name (ARN) of the IAM policy for which you want the versions. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-listPolicyVersions
-    :: Text -- ^ 'lpvPolicyARN'
-    -> ListPolicyVersions
-listPolicyVersions pPolicyARN_ =
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
+--
+-- 'marker', 'listPolicyVersions_marker' - Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+--
+-- 'policyArn', 'listPolicyVersions_policyArn' - The Amazon Resource Name (ARN) of the IAM policy for which you want the
+-- versions.
+--
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /AWS General Reference/.
+newListPolicyVersions ::
+  -- | 'policyArn'
+  Prelude.Text ->
+  ListPolicyVersions
+newListPolicyVersions pPolicyArn_ =
   ListPolicyVersions'
-    {_lpvMarker = Nothing, _lpvMaxItems = Nothing, _lpvPolicyARN = pPolicyARN_}
-
-
--- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
-lpvMarker :: Lens' ListPolicyVersions (Maybe Text)
-lpvMarker = lens _lpvMarker (\ s a -> s{_lpvMarker = a})
-
--- | (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-lpvMaxItems :: Lens' ListPolicyVersions (Maybe Natural)
-lpvMaxItems = lens _lpvMaxItems (\ s a -> s{_lpvMaxItems = a}) . mapping _Nat
-
--- | The Amazon Resource Name (ARN) of the IAM policy for which you want the versions. For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-lpvPolicyARN :: Lens' ListPolicyVersions Text
-lpvPolicyARN = lens _lpvPolicyARN (\ s a -> s{_lpvPolicyARN = a})
-
-instance AWSPager ListPolicyVersions where
-        page rq rs
-          | stop (rs ^. lpvrsIsTruncated) = Nothing
-          | isNothing (rs ^. lpvrsMarker) = Nothing
-          | otherwise =
-            Just $ rq & lpvMarker .~ rs ^. lpvrsMarker
-
-instance AWSRequest ListPolicyVersions where
-        type Rs ListPolicyVersions =
-             ListPolicyVersionsResponse
-        request = postQuery iam
-        response
-          = receiveXMLWrapper "ListPolicyVersionsResult"
-              (\ s h x ->
-                 ListPolicyVersionsResponse' <$>
-                   (x .@? "Versions" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (x .@? "Marker")
-                     <*> (x .@? "IsTruncated")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListPolicyVersions where
-
-instance NFData ListPolicyVersions where
-
-instance ToHeaders ListPolicyVersions where
-        toHeaders = const mempty
-
-instance ToPath ListPolicyVersions where
-        toPath = const "/"
-
-instance ToQuery ListPolicyVersions where
-        toQuery ListPolicyVersions'{..}
-          = mconcat
-              ["Action" =: ("ListPolicyVersions" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "Marker" =: _lpvMarker, "MaxItems" =: _lpvMaxItems,
-               "PolicyArn" =: _lpvPolicyARN]
-
--- | Contains the response to a successful 'ListPolicyVersions' request.
---
---
---
--- /See:/ 'listPolicyVersionsResponse' smart constructor.
-data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
-  { _lpvrsVersions       :: !(Maybe [PolicyVersion])
-  , _lpvrsMarker         :: !(Maybe Text)
-  , _lpvrsIsTruncated    :: !(Maybe Bool)
-  , _lpvrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListPolicyVersionsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lpvrsVersions' - A list of policy versions. For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
---
--- * 'lpvrsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
---
--- * 'lpvrsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
---
--- * 'lpvrsResponseStatus' - -- | The response status code.
-listPolicyVersionsResponse
-    :: Int -- ^ 'lpvrsResponseStatus'
-    -> ListPolicyVersionsResponse
-listPolicyVersionsResponse pResponseStatus_ =
-  ListPolicyVersionsResponse'
-    { _lpvrsVersions = Nothing
-    , _lpvrsMarker = Nothing
-    , _lpvrsIsTruncated = Nothing
-    , _lpvrsResponseStatus = pResponseStatus_
+    { maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      policyArn = pPolicyArn_
     }
 
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
+listPolicyVersions_maxItems :: Lens.Lens' ListPolicyVersions (Prelude.Maybe Prelude.Natural)
+listPolicyVersions_maxItems = Lens.lens (\ListPolicyVersions' {maxItems} -> maxItems) (\s@ListPolicyVersions' {} a -> s {maxItems = a} :: ListPolicyVersions)
 
--- | A list of policy versions. For more information about managed policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
-lpvrsVersions :: Lens' ListPolicyVersionsResponse [PolicyVersion]
-lpvrsVersions = lens _lpvrsVersions (\ s a -> s{_lpvrsVersions = a}) . _Default . _Coerce
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+listPolicyVersions_marker :: Lens.Lens' ListPolicyVersions (Prelude.Maybe Prelude.Text)
+listPolicyVersions_marker = Lens.lens (\ListPolicyVersions' {marker} -> marker) (\s@ListPolicyVersions' {} a -> s {marker = a} :: ListPolicyVersions)
 
--- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
-lpvrsMarker :: Lens' ListPolicyVersionsResponse (Maybe Text)
-lpvrsMarker = lens _lpvrsMarker (\ s a -> s{_lpvrsMarker = a})
+-- | The Amazon Resource Name (ARN) of the IAM policy for which you want the
+-- versions.
+--
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
+-- in the /AWS General Reference/.
+listPolicyVersions_policyArn :: Lens.Lens' ListPolicyVersions Prelude.Text
+listPolicyVersions_policyArn = Lens.lens (\ListPolicyVersions' {policyArn} -> policyArn) (\s@ListPolicyVersions' {} a -> s {policyArn = a} :: ListPolicyVersions)
 
--- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
-lpvrsIsTruncated :: Lens' ListPolicyVersionsResponse (Maybe Bool)
-lpvrsIsTruncated = lens _lpvrsIsTruncated (\ s a -> s{_lpvrsIsTruncated = a})
+instance Pager.AWSPager ListPolicyVersions where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listPolicyVersionsResponse_isTruncated
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listPolicyVersionsResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listPolicyVersions_marker
+          Lens..~ rs
+          Lens.^? listPolicyVersionsResponse_marker
+            Prelude.. Lens._Just
 
--- | -- | The response status code.
-lpvrsResponseStatus :: Lens' ListPolicyVersionsResponse Int
-lpvrsResponseStatus = lens _lpvrsResponseStatus (\ s a -> s{_lpvrsResponseStatus = a})
+instance Prelude.AWSRequest ListPolicyVersions where
+  type
+    Rs ListPolicyVersions =
+      ListPolicyVersionsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ListPolicyVersionsResult"
+      ( \s h x ->
+          ListPolicyVersionsResponse'
+            Prelude.<$> ( x Prelude..@? "Versions" Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+            Prelude.<*> (x Prelude..@? "IsTruncated")
+            Prelude.<*> (x Prelude..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData ListPolicyVersionsResponse where
+instance Prelude.Hashable ListPolicyVersions
+
+instance Prelude.NFData ListPolicyVersions
+
+instance Prelude.ToHeaders ListPolicyVersions where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath ListPolicyVersions where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery ListPolicyVersions where
+  toQuery ListPolicyVersions' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("ListPolicyVersions" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
+        "MaxItems" Prelude.=: maxItems,
+        "Marker" Prelude.=: marker,
+        "PolicyArn" Prelude.=: policyArn
+      ]
+
+-- | Contains the response to a successful ListPolicyVersions request.
+--
+-- /See:/ 'newListPolicyVersionsResponse' smart constructor.
+data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
+  { -- | A list of policy versions.
+    --
+    -- For more information about managed policy versions, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
+    -- in the /IAM User Guide/.
+    versions :: Prelude.Maybe [PolicyVersion],
+    -- | A flag that indicates whether there are more items to return. If your
+    -- results were truncated, you can make a subsequent pagination request
+    -- using the @Marker@ request parameter to retrieve more items. Note that
+    -- IAM might return fewer than the @MaxItems@ number of results even when
+    -- there are more results available. We recommend that you check
+    -- @IsTruncated@ after every call to ensure that you receive all your
+    -- results.
+    isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListPolicyVersionsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'versions', 'listPolicyVersionsResponse_versions' - A list of policy versions.
+--
+-- For more information about managed policy versions, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
+-- in the /IAM User Guide/.
+--
+-- 'isTruncated', 'listPolicyVersionsResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items. Note that
+-- IAM might return fewer than the @MaxItems@ number of results even when
+-- there are more results available. We recommend that you check
+-- @IsTruncated@ after every call to ensure that you receive all your
+-- results.
+--
+-- 'marker', 'listPolicyVersionsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+--
+-- 'httpStatus', 'listPolicyVersionsResponse_httpStatus' - The response's http status code.
+newListPolicyVersionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListPolicyVersionsResponse
+newListPolicyVersionsResponse pHttpStatus_ =
+  ListPolicyVersionsResponse'
+    { versions =
+        Prelude.Nothing,
+      isTruncated = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | A list of policy versions.
+--
+-- For more information about managed policy versions, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for managed policies>
+-- in the /IAM User Guide/.
+listPolicyVersionsResponse_versions :: Lens.Lens' ListPolicyVersionsResponse (Prelude.Maybe [PolicyVersion])
+listPolicyVersionsResponse_versions = Lens.lens (\ListPolicyVersionsResponse' {versions} -> versions) (\s@ListPolicyVersionsResponse' {} a -> s {versions = a} :: ListPolicyVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items. Note that
+-- IAM might return fewer than the @MaxItems@ number of results even when
+-- there are more results available. We recommend that you check
+-- @IsTruncated@ after every call to ensure that you receive all your
+-- results.
+listPolicyVersionsResponse_isTruncated :: Lens.Lens' ListPolicyVersionsResponse (Prelude.Maybe Prelude.Bool)
+listPolicyVersionsResponse_isTruncated = Lens.lens (\ListPolicyVersionsResponse' {isTruncated} -> isTruncated) (\s@ListPolicyVersionsResponse' {} a -> s {isTruncated = a} :: ListPolicyVersionsResponse)
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listPolicyVersionsResponse_marker :: Lens.Lens' ListPolicyVersionsResponse (Prelude.Maybe Prelude.Text)
+listPolicyVersionsResponse_marker = Lens.lens (\ListPolicyVersionsResponse' {marker} -> marker) (\s@ListPolicyVersionsResponse' {} a -> s {marker = a} :: ListPolicyVersionsResponse)
+
+-- | The response's http status code.
+listPolicyVersionsResponse_httpStatus :: Lens.Lens' ListPolicyVersionsResponse Prelude.Int
+listPolicyVersionsResponse_httpStatus = Lens.lens (\ListPolicyVersionsResponse' {httpStatus} -> httpStatus) (\s@ListPolicyVersionsResponse' {} a -> s {httpStatus = a} :: ListPolicyVersionsResponse)
+
+instance Prelude.NFData ListPolicyVersionsResponse

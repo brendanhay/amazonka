@@ -1,135 +1,161 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFront.GetFieldLevelEncryption
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the field-level encryption configuration information.
---
---
 module Network.AWS.CloudFront.GetFieldLevelEncryption
-    (
-    -- * Creating a Request
-      getFieldLevelEncryption
-    , GetFieldLevelEncryption
+  ( -- * Creating a Request
+    GetFieldLevelEncryption (..),
+    newGetFieldLevelEncryption,
+
     -- * Request Lenses
-    , gfleId
+    getFieldLevelEncryption_id,
 
     -- * Destructuring the Response
-    , getFieldLevelEncryptionResponse
-    , GetFieldLevelEncryptionResponse
+    GetFieldLevelEncryptionResponse (..),
+    newGetFieldLevelEncryptionResponse,
+
     -- * Response Lenses
-    , gflersETag
-    , gflersFieldLevelEncryption
-    , gflersResponseStatus
-    ) where
+    getFieldLevelEncryptionResponse_eTag,
+    getFieldLevelEncryptionResponse_fieldLevelEncryption,
+    getFieldLevelEncryptionResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getFieldLevelEncryption' smart constructor.
-newtype GetFieldLevelEncryption = GetFieldLevelEncryption'
-  { _gfleId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetFieldLevelEncryption' smart constructor.
+data GetFieldLevelEncryption = GetFieldLevelEncryption'
+  { -- | Request the ID for the field-level encryption configuration information.
+    id :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetFieldLevelEncryption' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetFieldLevelEncryption' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gfleId' - Request the ID for the field-level encryption configuration information.
-getFieldLevelEncryption
-    :: Text -- ^ 'gfleId'
-    -> GetFieldLevelEncryption
-getFieldLevelEncryption pId_ = GetFieldLevelEncryption' {_gfleId = pId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'id', 'getFieldLevelEncryption_id' - Request the ID for the field-level encryption configuration information.
+newGetFieldLevelEncryption ::
+  -- | 'id'
+  Prelude.Text ->
+  GetFieldLevelEncryption
+newGetFieldLevelEncryption pId_ =
+  GetFieldLevelEncryption' {id = pId_}
 
 -- | Request the ID for the field-level encryption configuration information.
-gfleId :: Lens' GetFieldLevelEncryption Text
-gfleId = lens _gfleId (\ s a -> s{_gfleId = a})
+getFieldLevelEncryption_id :: Lens.Lens' GetFieldLevelEncryption Prelude.Text
+getFieldLevelEncryption_id = Lens.lens (\GetFieldLevelEncryption' {id} -> id) (\s@GetFieldLevelEncryption' {} a -> s {id = a} :: GetFieldLevelEncryption)
 
-instance AWSRequest GetFieldLevelEncryption where
-        type Rs GetFieldLevelEncryption =
-             GetFieldLevelEncryptionResponse
-        request = get cloudFront
-        response
-          = receiveXML
-              (\ s h x ->
-                 GetFieldLevelEncryptionResponse' <$>
-                   (h .#? "ETag") <*> (parseXML x) <*>
-                     (pure (fromEnum s)))
+instance Prelude.AWSRequest GetFieldLevelEncryption where
+  type
+    Rs GetFieldLevelEncryption =
+      GetFieldLevelEncryptionResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          GetFieldLevelEncryptionResponse'
+            Prelude.<$> (h Prelude..#? "ETag")
+            Prelude.<*> (Prelude.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetFieldLevelEncryption where
+instance Prelude.Hashable GetFieldLevelEncryption
 
-instance NFData GetFieldLevelEncryption where
+instance Prelude.NFData GetFieldLevelEncryption
 
-instance ToHeaders GetFieldLevelEncryption where
-        toHeaders = const mempty
+instance Prelude.ToHeaders GetFieldLevelEncryption where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath GetFieldLevelEncryption where
-        toPath GetFieldLevelEncryption'{..}
-          = mconcat
-              ["/2017-10-30/field-level-encryption/", toBS _gfleId]
+instance Prelude.ToPath GetFieldLevelEncryption where
+  toPath GetFieldLevelEncryption' {..} =
+    Prelude.mconcat
+      [ "/2020-05-31/field-level-encryption/",
+        Prelude.toBS id
+      ]
 
-instance ToQuery GetFieldLevelEncryption where
-        toQuery = const mempty
+instance Prelude.ToQuery GetFieldLevelEncryption where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getFieldLevelEncryptionResponse' smart constructor.
+-- | /See:/ 'newGetFieldLevelEncryptionResponse' smart constructor.
 data GetFieldLevelEncryptionResponse = GetFieldLevelEncryptionResponse'
-  { _gflersETag                 :: !(Maybe Text)
-  , _gflersFieldLevelEncryption :: !(Maybe FieldLevelEncryption)
-  , _gflersResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The current version of the field level encryption configuration. For
+    -- example: @E2QWRUHAPOMQZL@.
+    eTag :: Prelude.Maybe Prelude.Text,
+    -- | Return the field-level encryption configuration information.
+    fieldLevelEncryption :: Prelude.Maybe FieldLevelEncryption,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetFieldLevelEncryptionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetFieldLevelEncryptionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gflersETag' - The current version of the field level encryption configuration. For example: @E2QWRUHAPOMQZL@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gflersFieldLevelEncryption' - Return the field-level encryption configuration information.
+-- 'eTag', 'getFieldLevelEncryptionResponse_eTag' - The current version of the field level encryption configuration. For
+-- example: @E2QWRUHAPOMQZL@.
 --
--- * 'gflersResponseStatus' - -- | The response status code.
-getFieldLevelEncryptionResponse
-    :: Int -- ^ 'gflersResponseStatus'
-    -> GetFieldLevelEncryptionResponse
-getFieldLevelEncryptionResponse pResponseStatus_ =
+-- 'fieldLevelEncryption', 'getFieldLevelEncryptionResponse_fieldLevelEncryption' - Return the field-level encryption configuration information.
+--
+-- 'httpStatus', 'getFieldLevelEncryptionResponse_httpStatus' - The response's http status code.
+newGetFieldLevelEncryptionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetFieldLevelEncryptionResponse
+newGetFieldLevelEncryptionResponse pHttpStatus_ =
   GetFieldLevelEncryptionResponse'
-    { _gflersETag = Nothing
-    , _gflersFieldLevelEncryption = Nothing
-    , _gflersResponseStatus = pResponseStatus_
+    { eTag =
+        Prelude.Nothing,
+      fieldLevelEncryption = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The current version of the field level encryption configuration. For example: @E2QWRUHAPOMQZL@ .
-gflersETag :: Lens' GetFieldLevelEncryptionResponse (Maybe Text)
-gflersETag = lens _gflersETag (\ s a -> s{_gflersETag = a})
+-- | The current version of the field level encryption configuration. For
+-- example: @E2QWRUHAPOMQZL@.
+getFieldLevelEncryptionResponse_eTag :: Lens.Lens' GetFieldLevelEncryptionResponse (Prelude.Maybe Prelude.Text)
+getFieldLevelEncryptionResponse_eTag = Lens.lens (\GetFieldLevelEncryptionResponse' {eTag} -> eTag) (\s@GetFieldLevelEncryptionResponse' {} a -> s {eTag = a} :: GetFieldLevelEncryptionResponse)
 
 -- | Return the field-level encryption configuration information.
-gflersFieldLevelEncryption :: Lens' GetFieldLevelEncryptionResponse (Maybe FieldLevelEncryption)
-gflersFieldLevelEncryption = lens _gflersFieldLevelEncryption (\ s a -> s{_gflersFieldLevelEncryption = a})
+getFieldLevelEncryptionResponse_fieldLevelEncryption :: Lens.Lens' GetFieldLevelEncryptionResponse (Prelude.Maybe FieldLevelEncryption)
+getFieldLevelEncryptionResponse_fieldLevelEncryption = Lens.lens (\GetFieldLevelEncryptionResponse' {fieldLevelEncryption} -> fieldLevelEncryption) (\s@GetFieldLevelEncryptionResponse' {} a -> s {fieldLevelEncryption = a} :: GetFieldLevelEncryptionResponse)
 
--- | -- | The response status code.
-gflersResponseStatus :: Lens' GetFieldLevelEncryptionResponse Int
-gflersResponseStatus = lens _gflersResponseStatus (\ s a -> s{_gflersResponseStatus = a})
+-- | The response's http status code.
+getFieldLevelEncryptionResponse_httpStatus :: Lens.Lens' GetFieldLevelEncryptionResponse Prelude.Int
+getFieldLevelEncryptionResponse_httpStatus = Lens.lens (\GetFieldLevelEncryptionResponse' {httpStatus} -> httpStatus) (\s@GetFieldLevelEncryptionResponse' {} a -> s {httpStatus = a} :: GetFieldLevelEncryptionResponse)
 
-instance NFData GetFieldLevelEncryptionResponse where
+instance
+  Prelude.NFData
+    GetFieldLevelEncryptionResponse

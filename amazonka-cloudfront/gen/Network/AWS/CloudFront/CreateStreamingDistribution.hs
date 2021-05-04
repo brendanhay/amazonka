@@ -1,169 +1,197 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFront.CreateStreamingDistribution
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new RMTP distribution. An RTMP distribution is similar to a web distribution, but an RTMP distribution streams media files using the Adobe Real-Time Messaging Protocol (RTMP) instead of serving files using HTTP.
---
---
--- To create a new web distribution, submit a @POST@ request to the /CloudFront API version/ /distribution resource. The request body must include a document with a /StreamingDistributionConfig/ element. The response echoes the @StreamingDistributionConfig@ element and returns other information about the RTMP distribution.
---
--- To get the status of your request, use the /GET StreamingDistribution/ API action. When the value of @Enabled@ is @true@ and the value of @Status@ is @Deployed@ , your distribution is ready. A distribution usually deploys in less than 15 minutes.
---
--- For more information about web distributions, see <http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-rtmp.html Working with RTMP Distributions> in the /Amazon CloudFront Developer Guide/ .
---
--- /Important:/ Beginning with the 2012-05-05 version of the CloudFront API, we made substantial changes to the format of the XML document that you include in the request body when you create or update a web distribution or an RTMP distribution, and when you invalidate objects. With previous versions of the API, we discovered that it was too easy to accidentally delete one or more values for an element that accepts multiple values, for example, CNAMEs and trusted signers. Our changes for the 2012-05-05 release are intended to prevent these accidental deletions and to notify you when there's a mismatch between the number of values you say you're specifying in the @Quantity@ element and the number of values specified.
---
+-- This API is deprecated. Amazon CloudFront is deprecating real-time
+-- messaging protocol (RTMP) distributions on December 31, 2020. For more
+-- information,
+-- <http://forums.aws.amazon.com/ann.jspa?annID=7356 read the announcement>
+-- on the Amazon CloudFront discussion forum.
 module Network.AWS.CloudFront.CreateStreamingDistribution
-    (
-    -- * Creating a Request
-      createStreamingDistribution
-    , CreateStreamingDistribution
+  ( -- * Creating a Request
+    CreateStreamingDistribution (..),
+    newCreateStreamingDistribution,
+
     -- * Request Lenses
-    , csdStreamingDistributionConfig
+    createStreamingDistribution_streamingDistributionConfig,
 
     -- * Destructuring the Response
-    , createStreamingDistributionResponse
-    , CreateStreamingDistributionResponse
+    CreateStreamingDistributionResponse (..),
+    newCreateStreamingDistributionResponse,
+
     -- * Response Lenses
-    , csdrsETag
-    , csdrsLocation
-    , csdrsStreamingDistribution
-    , csdrsResponseStatus
-    ) where
+    createStreamingDistributionResponse_eTag,
+    createStreamingDistributionResponse_streamingDistribution,
+    createStreamingDistributionResponse_location,
+    createStreamingDistributionResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to create a new streaming distribution.
 --
+-- /See:/ 'newCreateStreamingDistribution' smart constructor.
+data CreateStreamingDistribution = CreateStreamingDistribution'
+  { -- | The streaming distribution\'s configuration information.
+    streamingDistributionConfig :: StreamingDistributionConfig
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateStreamingDistribution' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'createStreamingDistribution' smart constructor.
-newtype CreateStreamingDistribution = CreateStreamingDistribution'
-  { _csdStreamingDistributionConfig :: StreamingDistributionConfig
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateStreamingDistribution' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'csdStreamingDistributionConfig' - The streaming distribution's configuration information.
-createStreamingDistribution
-    :: StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
-    -> CreateStreamingDistribution
-createStreamingDistribution pStreamingDistributionConfig_ =
-  CreateStreamingDistribution'
-    {_csdStreamingDistributionConfig = pStreamingDistributionConfig_}
+-- 'streamingDistributionConfig', 'createStreamingDistribution_streamingDistributionConfig' - The streaming distribution\'s configuration information.
+newCreateStreamingDistribution ::
+  -- | 'streamingDistributionConfig'
+  StreamingDistributionConfig ->
+  CreateStreamingDistribution
+newCreateStreamingDistribution
+  pStreamingDistributionConfig_ =
+    CreateStreamingDistribution'
+      { streamingDistributionConfig =
+          pStreamingDistributionConfig_
+      }
 
+-- | The streaming distribution\'s configuration information.
+createStreamingDistribution_streamingDistributionConfig :: Lens.Lens' CreateStreamingDistribution StreamingDistributionConfig
+createStreamingDistribution_streamingDistributionConfig = Lens.lens (\CreateStreamingDistribution' {streamingDistributionConfig} -> streamingDistributionConfig) (\s@CreateStreamingDistribution' {} a -> s {streamingDistributionConfig = a} :: CreateStreamingDistribution)
 
--- | The streaming distribution's configuration information.
-csdStreamingDistributionConfig :: Lens' CreateStreamingDistribution StreamingDistributionConfig
-csdStreamingDistributionConfig = lens _csdStreamingDistributionConfig (\ s a -> s{_csdStreamingDistributionConfig = a})
+instance
+  Prelude.AWSRequest
+    CreateStreamingDistribution
+  where
+  type
+    Rs CreateStreamingDistribution =
+      CreateStreamingDistributionResponse
+  request = Request.postXML defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          CreateStreamingDistributionResponse'
+            Prelude.<$> (h Prelude..#? "ETag")
+            Prelude.<*> (Prelude.parseXML x)
+            Prelude.<*> (h Prelude..#? "Location")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest CreateStreamingDistribution where
-        type Rs CreateStreamingDistribution =
-             CreateStreamingDistributionResponse
-        request = postXML cloudFront
-        response
-          = receiveXML
-              (\ s h x ->
-                 CreateStreamingDistributionResponse' <$>
-                   (h .#? "ETag") <*> (h .#? "Location") <*>
-                     (parseXML x)
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable CreateStreamingDistribution
 
-instance Hashable CreateStreamingDistribution where
+instance Prelude.NFData CreateStreamingDistribution
 
-instance NFData CreateStreamingDistribution where
+instance
+  Prelude.ToElement
+    CreateStreamingDistribution
+  where
+  toElement CreateStreamingDistribution' {..} =
+    Prelude.mkElement
+      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}StreamingDistributionConfig"
+      streamingDistributionConfig
 
-instance ToElement CreateStreamingDistribution where
-        toElement
-          = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}StreamingDistributionConfig"
-              .
-              _csdStreamingDistributionConfig
+instance
+  Prelude.ToHeaders
+    CreateStreamingDistribution
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders CreateStreamingDistribution where
-        toHeaders = const mempty
+instance Prelude.ToPath CreateStreamingDistribution where
+  toPath =
+    Prelude.const "/2020-05-31/streaming-distribution"
 
-instance ToPath CreateStreamingDistribution where
-        toPath = const "/2017-10-30/streaming-distribution"
-
-instance ToQuery CreateStreamingDistribution where
-        toQuery = const mempty
+instance Prelude.ToQuery CreateStreamingDistribution where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The returned result of the corresponding request.
 --
---
---
--- /See:/ 'createStreamingDistributionResponse' smart constructor.
+-- /See:/ 'newCreateStreamingDistributionResponse' smart constructor.
 data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
-  { _csdrsETag                  :: !(Maybe Text)
-  , _csdrsLocation              :: !(Maybe Text)
-  , _csdrsStreamingDistribution :: !(Maybe StreamingDistribution)
-  , _csdrsResponseStatus        :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The current version of the streaming distribution created.
+    eTag :: Prelude.Maybe Prelude.Text,
+    -- | The streaming distribution\'s information.
+    streamingDistribution :: Prelude.Maybe StreamingDistribution,
+    -- | The fully qualified URI of the new streaming distribution resource just
+    -- created.
+    location :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateStreamingDistributionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateStreamingDistributionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'csdrsETag' - The current version of the streaming distribution created.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'csdrsLocation' - The fully qualified URI of the new streaming distribution resource just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8@ .
+-- 'eTag', 'createStreamingDistributionResponse_eTag' - The current version of the streaming distribution created.
 --
--- * 'csdrsStreamingDistribution' - The streaming distribution's information.
+-- 'streamingDistribution', 'createStreamingDistributionResponse_streamingDistribution' - The streaming distribution\'s information.
 --
--- * 'csdrsResponseStatus' - -- | The response status code.
-createStreamingDistributionResponse
-    :: Int -- ^ 'csdrsResponseStatus'
-    -> CreateStreamingDistributionResponse
-createStreamingDistributionResponse pResponseStatus_ =
+-- 'location', 'createStreamingDistributionResponse_location' - The fully qualified URI of the new streaming distribution resource just
+-- created.
+--
+-- 'httpStatus', 'createStreamingDistributionResponse_httpStatus' - The response's http status code.
+newCreateStreamingDistributionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateStreamingDistributionResponse
+newCreateStreamingDistributionResponse pHttpStatus_ =
   CreateStreamingDistributionResponse'
-    { _csdrsETag = Nothing
-    , _csdrsLocation = Nothing
-    , _csdrsStreamingDistribution = Nothing
-    , _csdrsResponseStatus = pResponseStatus_
+    { eTag =
+        Prelude.Nothing,
+      streamingDistribution =
+        Prelude.Nothing,
+      location = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The current version of the streaming distribution created.
-csdrsETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
-csdrsETag = lens _csdrsETag (\ s a -> s{_csdrsETag = a})
+createStreamingDistributionResponse_eTag :: Lens.Lens' CreateStreamingDistributionResponse (Prelude.Maybe Prelude.Text)
+createStreamingDistributionResponse_eTag = Lens.lens (\CreateStreamingDistributionResponse' {eTag} -> eTag) (\s@CreateStreamingDistributionResponse' {} a -> s {eTag = a} :: CreateStreamingDistributionResponse)
 
--- | The fully qualified URI of the new streaming distribution resource just created. For example: @https://cloudfront.amazonaws.com/2010-11-01/streaming-distribution/EGTXBD79H29TRA8@ .
-csdrsLocation :: Lens' CreateStreamingDistributionResponse (Maybe Text)
-csdrsLocation = lens _csdrsLocation (\ s a -> s{_csdrsLocation = a})
+-- | The streaming distribution\'s information.
+createStreamingDistributionResponse_streamingDistribution :: Lens.Lens' CreateStreamingDistributionResponse (Prelude.Maybe StreamingDistribution)
+createStreamingDistributionResponse_streamingDistribution = Lens.lens (\CreateStreamingDistributionResponse' {streamingDistribution} -> streamingDistribution) (\s@CreateStreamingDistributionResponse' {} a -> s {streamingDistribution = a} :: CreateStreamingDistributionResponse)
 
--- | The streaming distribution's information.
-csdrsStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)
-csdrsStreamingDistribution = lens _csdrsStreamingDistribution (\ s a -> s{_csdrsStreamingDistribution = a})
+-- | The fully qualified URI of the new streaming distribution resource just
+-- created.
+createStreamingDistributionResponse_location :: Lens.Lens' CreateStreamingDistributionResponse (Prelude.Maybe Prelude.Text)
+createStreamingDistributionResponse_location = Lens.lens (\CreateStreamingDistributionResponse' {location} -> location) (\s@CreateStreamingDistributionResponse' {} a -> s {location = a} :: CreateStreamingDistributionResponse)
 
--- | -- | The response status code.
-csdrsResponseStatus :: Lens' CreateStreamingDistributionResponse Int
-csdrsResponseStatus = lens _csdrsResponseStatus (\ s a -> s{_csdrsResponseStatus = a})
+-- | The response's http status code.
+createStreamingDistributionResponse_httpStatus :: Lens.Lens' CreateStreamingDistributionResponse Prelude.Int
+createStreamingDistributionResponse_httpStatus = Lens.lens (\CreateStreamingDistributionResponse' {httpStatus} -> httpStatus) (\s@CreateStreamingDistributionResponse' {} a -> s {httpStatus = a} :: CreateStreamingDistributionResponse)
 
-instance NFData CreateStreamingDistributionResponse
-         where
+instance
+  Prelude.NFData
+    CreateStreamingDistributionResponse

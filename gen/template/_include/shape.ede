@@ -1,8 +1,0 @@
-{% case shape.type %}
-{% when "sum" %}
-  {% include "sum.ede" %}
-{% when "product" %}
-  {% include "product.ede" %}
-{% when "function" %}
-  {% include "function.ede" with function = shape %}
-{% endcase %}

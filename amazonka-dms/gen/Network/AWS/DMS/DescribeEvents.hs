@@ -1,244 +1,328 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DMS.DescribeEvents
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists events for a given source identifier and source type. You can also specify a start and end time. For more information on AWS DMS events, see <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications > .
---
---
+-- Lists events for a given source identifier and source type. You can also
+-- specify a start and end time. For more information on AWS DMS events,
+-- see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications>
+-- in the /AWS Database Migration User Guide./
 --
 -- This operation returns paginated results.
 module Network.AWS.DMS.DescribeEvents
-    (
-    -- * Creating a Request
-      describeEvents
-    , DescribeEvents
+  ( -- * Creating a Request
+    DescribeEvents (..),
+    newDescribeEvents,
+
     -- * Request Lenses
-    , deStartTime
-    , deSourceType
-    , deFilters
-    , deSourceIdentifier
-    , deEventCategories
-    , deMarker
-    , deMaxRecords
-    , deEndTime
-    , deDuration
+    describeEvents_duration,
+    describeEvents_startTime,
+    describeEvents_eventCategories,
+    describeEvents_endTime,
+    describeEvents_sourceIdentifier,
+    describeEvents_filters,
+    describeEvents_sourceType,
+    describeEvents_marker,
+    describeEvents_maxRecords,
 
     -- * Destructuring the Response
-    , describeEventsResponse
-    , DescribeEventsResponse
+    DescribeEventsResponse (..),
+    newDescribeEventsResponse,
+
     -- * Response Lenses
-    , deersEvents
-    , deersMarker
-    , deersResponseStatus
-    ) where
+    describeEventsResponse_events,
+    describeEventsResponse_marker,
+    describeEventsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DMS.Types
-import Network.AWS.DMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeEvents' smart constructor.
+-- /See:/ 'newDescribeEvents' smart constructor.
 data DescribeEvents = DescribeEvents'
-  { _deStartTime        :: !(Maybe POSIX)
-  , _deSourceType       :: !(Maybe SourceType)
-  , _deFilters          :: !(Maybe [Filter])
-  , _deSourceIdentifier :: !(Maybe Text)
-  , _deEventCategories  :: !(Maybe [Text])
-  , _deMarker           :: !(Maybe Text)
-  , _deMaxRecords       :: !(Maybe Int)
-  , _deEndTime          :: !(Maybe POSIX)
-  , _deDuration         :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The duration of the events to be listed.
+    duration :: Prelude.Maybe Prelude.Int,
+    -- | The start time for the events to be listed.
+    startTime :: Prelude.Maybe Prelude.POSIX,
+    -- | A list of event categories for the source type that you\'ve chosen.
+    eventCategories :: Prelude.Maybe [Prelude.Text],
+    -- | The end time for the events to be listed.
+    endTime :: Prelude.Maybe Prelude.POSIX,
+    -- | The identifier of an event source.
+    sourceIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | Filters applied to events.
+    filters :: Prelude.Maybe [Filter],
+    -- | The type of AWS DMS resource that generates events.
+    --
+    -- Valid values: replication-instance | replication-task
+    sourceType :: Prelude.Maybe SourceType,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified @MaxRecords@ value, a pagination token
+    -- called a marker is included in the response so that the remaining
+    -- results can be retrieved.
+    --
+    -- Default: 100
+    --
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeEvents' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'deStartTime' - The start time for the events to be listed.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'deSourceType' - The type of AWS DMS resource that generates events. Valid values: replication-instance | migration-task
+-- 'duration', 'describeEvents_duration' - The duration of the events to be listed.
 --
--- * 'deFilters' - Filters applied to the action.
+-- 'startTime', 'describeEvents_startTime' - The start time for the events to be listed.
 --
--- * 'deSourceIdentifier' - The identifier of the event source. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens. It cannot end with a hyphen or contain two consecutive hyphens.
+-- 'eventCategories', 'describeEvents_eventCategories' - A list of event categories for the source type that you\'ve chosen.
 --
--- * 'deEventCategories' - A list of event categories for a source type that you want to subscribe to.
+-- 'endTime', 'describeEvents_endTime' - The end time for the events to be listed.
 --
--- * 'deMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- 'sourceIdentifier', 'describeEvents_sourceIdentifier' - The identifier of an event source.
 --
--- * 'deMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
+-- 'filters', 'describeEvents_filters' - Filters applied to events.
 --
--- * 'deEndTime' - The end time for the events to be listed.
+-- 'sourceType', 'describeEvents_sourceType' - The type of AWS DMS resource that generates events.
 --
--- * 'deDuration' - The duration of the events to be listed.
-describeEvents
-    :: DescribeEvents
-describeEvents =
+-- Valid values: replication-instance | replication-task
+--
+-- 'marker', 'describeEvents_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
+-- 'maxRecords', 'describeEvents_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results can be retrieved.
+--
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+newDescribeEvents ::
+  DescribeEvents
+newDescribeEvents =
   DescribeEvents'
-    { _deStartTime = Nothing
-    , _deSourceType = Nothing
-    , _deFilters = Nothing
-    , _deSourceIdentifier = Nothing
-    , _deEventCategories = Nothing
-    , _deMarker = Nothing
-    , _deMaxRecords = Nothing
-    , _deEndTime = Nothing
-    , _deDuration = Nothing
+    { duration = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      eventCategories = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      sourceIdentifier = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      sourceType = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
-
-
--- | The start time for the events to be listed.
-deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
-deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time
-
--- | The type of AWS DMS resource that generates events. Valid values: replication-instance | migration-task
-deSourceType :: Lens' DescribeEvents (Maybe SourceType)
-deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a})
-
--- | Filters applied to the action.
-deFilters :: Lens' DescribeEvents [Filter]
-deFilters = lens _deFilters (\ s a -> s{_deFilters = a}) . _Default . _Coerce
-
--- | The identifier of the event source. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens. It cannot end with a hyphen or contain two consecutive hyphens.
-deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
-deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a})
-
--- | A list of event categories for a source type that you want to subscribe to.
-deEventCategories :: Lens' DescribeEvents [Text]
-deEventCategories = lens _deEventCategories (\ s a -> s{_deEventCategories = a}) . _Default . _Coerce
-
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-deMarker :: Lens' DescribeEvents (Maybe Text)
-deMarker = lens _deMarker (\ s a -> s{_deMarker = a})
-
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.  Default: 100 Constraints: Minimum 20, maximum 100.
-deMaxRecords :: Lens' DescribeEvents (Maybe Int)
-deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a})
-
--- | The end time for the events to be listed.
-deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
-deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time
 
 -- | The duration of the events to be listed.
-deDuration :: Lens' DescribeEvents (Maybe Int)
-deDuration = lens _deDuration (\ s a -> s{_deDuration = a})
+describeEvents_duration :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
+describeEvents_duration = Lens.lens (\DescribeEvents' {duration} -> duration) (\s@DescribeEvents' {} a -> s {duration = a} :: DescribeEvents)
 
-instance AWSPager DescribeEvents where
-        page rq rs
-          | stop (rs ^. deersMarker) = Nothing
-          | stop (rs ^. deersEvents) = Nothing
-          | otherwise =
-            Just $ rq & deMarker .~ rs ^. deersMarker
+-- | The start time for the events to be listed.
+describeEvents_startTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
+describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Prelude._Time
 
-instance AWSRequest DescribeEvents where
-        type Rs DescribeEvents = DescribeEventsResponse
-        request = postJSON dms
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeEventsResponse' <$>
-                   (x .?> "Events" .!@ mempty) <*> (x .?> "Marker") <*>
-                     (pure (fromEnum s)))
+-- | A list of event categories for the source type that you\'ve chosen.
+describeEvents_eventCategories :: Lens.Lens' DescribeEvents (Prelude.Maybe [Prelude.Text])
+describeEvents_eventCategories = Lens.lens (\DescribeEvents' {eventCategories} -> eventCategories) (\s@DescribeEvents' {} a -> s {eventCategories = a} :: DescribeEvents) Prelude.. Lens.mapping Prelude._Coerce
 
-instance Hashable DescribeEvents where
+-- | The end time for the events to be listed.
+describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
+describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Prelude._Time
 
-instance NFData DescribeEvents where
+-- | The identifier of an event source.
+describeEvents_sourceIdentifier :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_sourceIdentifier = Lens.lens (\DescribeEvents' {sourceIdentifier} -> sourceIdentifier) (\s@DescribeEvents' {} a -> s {sourceIdentifier = a} :: DescribeEvents)
 
-instance ToHeaders DescribeEvents where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonDMSv20160101.DescribeEvents" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+-- | Filters applied to events.
+describeEvents_filters :: Lens.Lens' DescribeEvents (Prelude.Maybe [Filter])
+describeEvents_filters = Lens.lens (\DescribeEvents' {filters} -> filters) (\s@DescribeEvents' {} a -> s {filters = a} :: DescribeEvents) Prelude.. Lens.mapping Prelude._Coerce
 
-instance ToJSON DescribeEvents where
-        toJSON DescribeEvents'{..}
-          = object
-              (catMaybes
-                 [("StartTime" .=) <$> _deStartTime,
-                  ("SourceType" .=) <$> _deSourceType,
-                  ("Filters" .=) <$> _deFilters,
-                  ("SourceIdentifier" .=) <$> _deSourceIdentifier,
-                  ("EventCategories" .=) <$> _deEventCategories,
-                  ("Marker" .=) <$> _deMarker,
-                  ("MaxRecords" .=) <$> _deMaxRecords,
-                  ("EndTime" .=) <$> _deEndTime,
-                  ("Duration" .=) <$> _deDuration])
+-- | The type of AWS DMS resource that generates events.
+--
+-- Valid values: replication-instance | replication-task
+describeEvents_sourceType :: Lens.Lens' DescribeEvents (Prelude.Maybe SourceType)
+describeEvents_sourceType = Lens.lens (\DescribeEvents' {sourceType} -> sourceType) (\s@DescribeEvents' {} a -> s {sourceType = a} :: DescribeEvents)
 
-instance ToPath DescribeEvents where
-        toPath = const "/"
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeEvents_marker :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@DescribeEvents' {} a -> s {marker = a} :: DescribeEvents)
 
-instance ToQuery DescribeEvents where
-        toQuery = const mempty
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results can be retrieved.
+--
+-- Default: 100
+--
+-- Constraints: Minimum 20, maximum 100.
+describeEvents_maxRecords :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
+describeEvents_maxRecords = Lens.lens (\DescribeEvents' {maxRecords} -> maxRecords) (\s@DescribeEvents' {} a -> s {maxRecords = a} :: DescribeEvents)
+
+instance Pager.AWSPager DescribeEvents where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeEventsResponse_marker Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeEventsResponse_events Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeEvents_marker
+          Lens..~ rs
+          Lens.^? describeEventsResponse_marker Prelude.. Lens._Just
+
+instance Prelude.AWSRequest DescribeEvents where
+  type Rs DescribeEvents = DescribeEventsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeEventsResponse'
+            Prelude.<$> (x Prelude..?> "Events" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (x Prelude..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeEvents
+
+instance Prelude.NFData DescribeEvents
+
+instance Prelude.ToHeaders DescribeEvents where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonDMSv20160101.DescribeEvents" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON DescribeEvents where
+  toJSON DescribeEvents' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Duration" Prelude..=) Prelude.<$> duration,
+            ("StartTime" Prelude..=) Prelude.<$> startTime,
+            ("EventCategories" Prelude..=)
+              Prelude.<$> eventCategories,
+            ("EndTime" Prelude..=) Prelude.<$> endTime,
+            ("SourceIdentifier" Prelude..=)
+              Prelude.<$> sourceIdentifier,
+            ("Filters" Prelude..=) Prelude.<$> filters,
+            ("SourceType" Prelude..=) Prelude.<$> sourceType,
+            ("Marker" Prelude..=) Prelude.<$> marker,
+            ("MaxRecords" Prelude..=) Prelude.<$> maxRecords
+          ]
+      )
+
+instance Prelude.ToPath DescribeEvents where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DescribeEvents where
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
---
---
--- /See:/ 'describeEventsResponse' smart constructor.
+-- /See:/ 'newDescribeEventsResponse' smart constructor.
 data DescribeEventsResponse = DescribeEventsResponse'
-  { _deersEvents         :: !(Maybe [Event])
-  , _deersMarker         :: !(Maybe Text)
-  , _deersResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The events described.
+    events :: Prelude.Maybe [Event],
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeEventsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'deersEvents' - The events described.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'deersMarker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- 'events', 'describeEventsResponse_events' - The events described.
 --
--- * 'deersResponseStatus' - -- | The response status code.
-describeEventsResponse
-    :: Int -- ^ 'deersResponseStatus'
-    -> DescribeEventsResponse
-describeEventsResponse pResponseStatus_ =
+-- 'marker', 'describeEventsResponse_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
+-- 'httpStatus', 'describeEventsResponse_httpStatus' - The response's http status code.
+newDescribeEventsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeEventsResponse
+newDescribeEventsResponse pHttpStatus_ =
   DescribeEventsResponse'
-    { _deersEvents = Nothing
-    , _deersMarker = Nothing
-    , _deersResponseStatus = pResponseStatus_
+    { events = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The events described.
-deersEvents :: Lens' DescribeEventsResponse [Event]
-deersEvents = lens _deersEvents (\ s a -> s{_deersEvents = a}) . _Default . _Coerce
+describeEventsResponse_events :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe [Event])
+describeEventsResponse_events = Lens.lens (\DescribeEventsResponse' {events} -> events) (\s@DescribeEventsResponse' {} a -> s {events = a} :: DescribeEventsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-deersMarker :: Lens' DescribeEventsResponse (Maybe Text)
-deersMarker = lens _deersMarker (\ s a -> s{_deersMarker = a})
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeEventsResponse_marker :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe Prelude.Text)
+describeEventsResponse_marker = Lens.lens (\DescribeEventsResponse' {marker} -> marker) (\s@DescribeEventsResponse' {} a -> s {marker = a} :: DescribeEventsResponse)
 
--- | -- | The response status code.
-deersResponseStatus :: Lens' DescribeEventsResponse Int
-deersResponseStatus = lens _deersResponseStatus (\ s a -> s{_deersResponseStatus = a})
+-- | The response's http status code.
+describeEventsResponse_httpStatus :: Lens.Lens' DescribeEventsResponse Prelude.Int
+describeEventsResponse_httpStatus = Lens.lens (\DescribeEventsResponse' {httpStatus} -> httpStatus) (\s@DescribeEventsResponse' {} a -> s {httpStatus = a} :: DescribeEventsResponse)
 
-instance NFData DescribeEventsResponse where
+instance Prelude.NFData DescribeEventsResponse

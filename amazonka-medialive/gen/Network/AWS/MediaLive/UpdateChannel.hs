@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaLive.UpdateChannel
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,176 +23,235 @@
 --
 -- Updates a channel.
 module Network.AWS.MediaLive.UpdateChannel
-    (
-    -- * Creating a Request
-      updateChannel
-    , UpdateChannel
+  ( -- * Creating a Request
+    UpdateChannel' (..),
+    newUpdateChannel',
+
     -- * Request Lenses
-    , ucInputSpecification
-    , ucInputAttachments
-    , ucDestinations
-    , ucName
-    , ucEncoderSettings
-    , ucRoleARN
-    , ucChannelId
+    updateChannel'_encoderSettings,
+    updateChannel'_roleArn,
+    updateChannel'_inputSpecification,
+    updateChannel'_logLevel,
+    updateChannel'_destinations,
+    updateChannel'_name,
+    updateChannel'_inputAttachments,
+    updateChannel'_cdiInputSpecification,
+    updateChannel'_channelId,
 
     -- * Destructuring the Response
-    , updateChannelResponse
-    , UpdateChannelResponse
-    -- * Response Lenses
-    , ucrsChannel
-    , ucrsResponseStatus
-    ) where
+    UpdateChannelResponse (..),
+    newUpdateChannelResponse,
 
-import Network.AWS.Lens
+    -- * Response Lenses
+    updateChannelResponse_channel,
+    updateChannelResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.MediaLive.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | A request to update a channel.
 --
--- /See:/ 'updateChannel' smart constructor.
-data UpdateChannel = UpdateChannel'
-  { _ucInputSpecification :: !(Maybe InputSpecification)
-  , _ucInputAttachments   :: !(Maybe [InputAttachment])
-  , _ucDestinations       :: !(Maybe [OutputDestination])
-  , _ucName               :: !(Maybe Text)
-  , _ucEncoderSettings    :: !(Maybe EncoderSettings)
-  , _ucRoleARN            :: !(Maybe Text)
-  , _ucChannelId          :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newUpdateChannel'' smart constructor.
+data UpdateChannel' = UpdateChannel''
+  { -- | The encoder settings for this channel.
+    encoderSettings :: Prelude.Maybe EncoderSettings,
+    -- | An optional Amazon Resource Name (ARN) of the role to assume when
+    -- running the Channel. If you do not specify this on an update call but
+    -- the role was previously set that role will be removed.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Specification of network and file inputs for this channel
+    inputSpecification :: Prelude.Maybe InputSpecification,
+    -- | The log level to write to CloudWatch Logs.
+    logLevel :: Prelude.Maybe LogLevel,
+    -- | A list of output destinations for this channel.
+    destinations :: Prelude.Maybe [OutputDestination],
+    -- | The name of the channel.
+    name :: Prelude.Maybe Prelude.Text,
+    inputAttachments :: Prelude.Maybe [InputAttachment],
+    -- | Specification of CDI inputs for this channel
+    cdiInputSpecification :: Prelude.Maybe CdiInputSpecification,
+    -- | channel ID
+    channelId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateChannel' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateChannel'' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ucInputSpecification' - Specification of input for this channel (max. bitrate, resolution, codec, etc.)
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ucInputAttachments' - Undocumented member.
+-- 'encoderSettings', 'updateChannel'_encoderSettings' - The encoder settings for this channel.
 --
--- * 'ucDestinations' - A list of output destinations for this channel.
+-- 'roleArn', 'updateChannel'_roleArn' - An optional Amazon Resource Name (ARN) of the role to assume when
+-- running the Channel. If you do not specify this on an update call but
+-- the role was previously set that role will be removed.
 --
--- * 'ucName' - The name of the channel.
+-- 'inputSpecification', 'updateChannel'_inputSpecification' - Specification of network and file inputs for this channel
 --
--- * 'ucEncoderSettings' - The encoder settings for this channel.
+-- 'logLevel', 'updateChannel'_logLevel' - The log level to write to CloudWatch Logs.
 --
--- * 'ucRoleARN' - An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.
+-- 'destinations', 'updateChannel'_destinations' - A list of output destinations for this channel.
 --
--- * 'ucChannelId' - channel ID
-updateChannel
-    :: Text -- ^ 'ucChannelId'
-    -> UpdateChannel
-updateChannel pChannelId_ =
+-- 'name', 'updateChannel'_name' - The name of the channel.
+--
+-- 'inputAttachments', 'updateChannel'_inputAttachments' - Undocumented member.
+--
+-- 'cdiInputSpecification', 'updateChannel'_cdiInputSpecification' - Specification of CDI inputs for this channel
+--
+-- 'channelId', 'updateChannel'_channelId' - channel ID
+newUpdateChannel' ::
+  -- | 'channelId'
+  Prelude.Text ->
   UpdateChannel'
-    { _ucInputSpecification = Nothing
-    , _ucInputAttachments = Nothing
-    , _ucDestinations = Nothing
-    , _ucName = Nothing
-    , _ucEncoderSettings = Nothing
-    , _ucRoleARN = Nothing
-    , _ucChannelId = pChannelId_
+newUpdateChannel' pChannelId_ =
+  UpdateChannel''
+    { encoderSettings = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      inputSpecification = Prelude.Nothing,
+      logLevel = Prelude.Nothing,
+      destinations = Prelude.Nothing,
+      name = Prelude.Nothing,
+      inputAttachments = Prelude.Nothing,
+      cdiInputSpecification = Prelude.Nothing,
+      channelId = pChannelId_
     }
 
+-- | The encoder settings for this channel.
+updateChannel'_encoderSettings :: Lens.Lens' UpdateChannel' (Prelude.Maybe EncoderSettings)
+updateChannel'_encoderSettings = Lens.lens (\UpdateChannel'' {encoderSettings} -> encoderSettings) (\s@UpdateChannel'' {} a -> s {encoderSettings = a} :: UpdateChannel')
 
--- | Specification of input for this channel (max. bitrate, resolution, codec, etc.)
-ucInputSpecification :: Lens' UpdateChannel (Maybe InputSpecification)
-ucInputSpecification = lens _ucInputSpecification (\ s a -> s{_ucInputSpecification = a})
+-- | An optional Amazon Resource Name (ARN) of the role to assume when
+-- running the Channel. If you do not specify this on an update call but
+-- the role was previously set that role will be removed.
+updateChannel'_roleArn :: Lens.Lens' UpdateChannel' (Prelude.Maybe Prelude.Text)
+updateChannel'_roleArn = Lens.lens (\UpdateChannel'' {roleArn} -> roleArn) (\s@UpdateChannel'' {} a -> s {roleArn = a} :: UpdateChannel')
 
--- | Undocumented member.
-ucInputAttachments :: Lens' UpdateChannel [InputAttachment]
-ucInputAttachments = lens _ucInputAttachments (\ s a -> s{_ucInputAttachments = a}) . _Default . _Coerce
+-- | Specification of network and file inputs for this channel
+updateChannel'_inputSpecification :: Lens.Lens' UpdateChannel' (Prelude.Maybe InputSpecification)
+updateChannel'_inputSpecification = Lens.lens (\UpdateChannel'' {inputSpecification} -> inputSpecification) (\s@UpdateChannel'' {} a -> s {inputSpecification = a} :: UpdateChannel')
+
+-- | The log level to write to CloudWatch Logs.
+updateChannel'_logLevel :: Lens.Lens' UpdateChannel' (Prelude.Maybe LogLevel)
+updateChannel'_logLevel = Lens.lens (\UpdateChannel'' {logLevel} -> logLevel) (\s@UpdateChannel'' {} a -> s {logLevel = a} :: UpdateChannel')
 
 -- | A list of output destinations for this channel.
-ucDestinations :: Lens' UpdateChannel [OutputDestination]
-ucDestinations = lens _ucDestinations (\ s a -> s{_ucDestinations = a}) . _Default . _Coerce
+updateChannel'_destinations :: Lens.Lens' UpdateChannel' (Prelude.Maybe [OutputDestination])
+updateChannel'_destinations = Lens.lens (\UpdateChannel'' {destinations} -> destinations) (\s@UpdateChannel'' {} a -> s {destinations = a} :: UpdateChannel') Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The name of the channel.
-ucName :: Lens' UpdateChannel (Maybe Text)
-ucName = lens _ucName (\ s a -> s{_ucName = a})
+updateChannel'_name :: Lens.Lens' UpdateChannel' (Prelude.Maybe Prelude.Text)
+updateChannel'_name = Lens.lens (\UpdateChannel'' {name} -> name) (\s@UpdateChannel'' {} a -> s {name = a} :: UpdateChannel')
 
--- | The encoder settings for this channel.
-ucEncoderSettings :: Lens' UpdateChannel (Maybe EncoderSettings)
-ucEncoderSettings = lens _ucEncoderSettings (\ s a -> s{_ucEncoderSettings = a})
+-- | Undocumented member.
+updateChannel'_inputAttachments :: Lens.Lens' UpdateChannel' (Prelude.Maybe [InputAttachment])
+updateChannel'_inputAttachments = Lens.lens (\UpdateChannel'' {inputAttachments} -> inputAttachments) (\s@UpdateChannel'' {} a -> s {inputAttachments = a} :: UpdateChannel') Prelude.. Lens.mapping Prelude._Coerce
 
--- | An optional Amazon Resource Name (ARN) of the role to assume when running the Channel. If you do not specify this on an update call but the role was previously set that role will be removed.
-ucRoleARN :: Lens' UpdateChannel (Maybe Text)
-ucRoleARN = lens _ucRoleARN (\ s a -> s{_ucRoleARN = a})
+-- | Specification of CDI inputs for this channel
+updateChannel'_cdiInputSpecification :: Lens.Lens' UpdateChannel' (Prelude.Maybe CdiInputSpecification)
+updateChannel'_cdiInputSpecification = Lens.lens (\UpdateChannel'' {cdiInputSpecification} -> cdiInputSpecification) (\s@UpdateChannel'' {} a -> s {cdiInputSpecification = a} :: UpdateChannel')
 
 -- | channel ID
-ucChannelId :: Lens' UpdateChannel Text
-ucChannelId = lens _ucChannelId (\ s a -> s{_ucChannelId = a})
+updateChannel'_channelId :: Lens.Lens' UpdateChannel' Prelude.Text
+updateChannel'_channelId = Lens.lens (\UpdateChannel'' {channelId} -> channelId) (\s@UpdateChannel'' {} a -> s {channelId = a} :: UpdateChannel')
 
-instance AWSRequest UpdateChannel where
-        type Rs UpdateChannel = UpdateChannelResponse
-        request = putJSON mediaLive
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateChannelResponse' <$>
-                   (x .?> "channel") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateChannel' where
+  type Rs UpdateChannel' = UpdateChannelResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateChannelResponse'
+            Prelude.<$> (x Prelude..?> "channel")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateChannel where
+instance Prelude.Hashable UpdateChannel'
 
-instance NFData UpdateChannel where
+instance Prelude.NFData UpdateChannel'
 
-instance ToHeaders UpdateChannel where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdateChannel' where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateChannel where
-        toJSON UpdateChannel'{..}
-          = object
-              (catMaybes
-                 [("inputSpecification" .=) <$> _ucInputSpecification,
-                  ("inputAttachments" .=) <$> _ucInputAttachments,
-                  ("destinations" .=) <$> _ucDestinations,
-                  ("name" .=) <$> _ucName,
-                  ("encoderSettings" .=) <$> _ucEncoderSettings,
-                  ("roleArn" .=) <$> _ucRoleARN])
+instance Prelude.ToJSON UpdateChannel' where
+  toJSON UpdateChannel'' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("encoderSettings" Prelude..=)
+              Prelude.<$> encoderSettings,
+            ("roleArn" Prelude..=) Prelude.<$> roleArn,
+            ("inputSpecification" Prelude..=)
+              Prelude.<$> inputSpecification,
+            ("logLevel" Prelude..=) Prelude.<$> logLevel,
+            ("destinations" Prelude..=) Prelude.<$> destinations,
+            ("name" Prelude..=) Prelude.<$> name,
+            ("inputAttachments" Prelude..=)
+              Prelude.<$> inputAttachments,
+            ("cdiInputSpecification" Prelude..=)
+              Prelude.<$> cdiInputSpecification
+          ]
+      )
 
-instance ToPath UpdateChannel where
-        toPath UpdateChannel'{..}
-          = mconcat ["/prod/channels/", toBS _ucChannelId]
+instance Prelude.ToPath UpdateChannel' where
+  toPath UpdateChannel'' {..} =
+    Prelude.mconcat
+      ["/prod/channels/", Prelude.toBS channelId]
 
-instance ToQuery UpdateChannel where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateChannel' where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for UpdateChannelResponse
 --
--- /See:/ 'updateChannelResponse' smart constructor.
+-- /See:/ 'newUpdateChannelResponse' smart constructor.
 data UpdateChannelResponse = UpdateChannelResponse'
-  { _ucrsChannel        :: !(Maybe Channel)
-  , _ucrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { channel :: Prelude.Maybe Channel,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateChannelResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateChannelResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ucrsChannel' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ucrsResponseStatus' - -- | The response status code.
-updateChannelResponse
-    :: Int -- ^ 'ucrsResponseStatus'
-    -> UpdateChannelResponse
-updateChannelResponse pResponseStatus_ =
+-- 'channel', 'updateChannelResponse_channel' - Undocumented member.
+--
+-- 'httpStatus', 'updateChannelResponse_httpStatus' - The response's http status code.
+newUpdateChannelResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateChannelResponse
+newUpdateChannelResponse pHttpStatus_ =
   UpdateChannelResponse'
-    {_ucrsChannel = Nothing, _ucrsResponseStatus = pResponseStatus_}
-
+    { channel = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-ucrsChannel :: Lens' UpdateChannelResponse (Maybe Channel)
-ucrsChannel = lens _ucrsChannel (\ s a -> s{_ucrsChannel = a})
+updateChannelResponse_channel :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Channel)
+updateChannelResponse_channel = Lens.lens (\UpdateChannelResponse' {channel} -> channel) (\s@UpdateChannelResponse' {} a -> s {channel = a} :: UpdateChannelResponse)
 
--- | -- | The response status code.
-ucrsResponseStatus :: Lens' UpdateChannelResponse Int
-ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a})
+-- | The response's http status code.
+updateChannelResponse_httpStatus :: Lens.Lens' UpdateChannelResponse Prelude.Int
+updateChannelResponse_httpStatus = Lens.lens (\UpdateChannelResponse' {httpStatus} -> httpStatus) (\s@UpdateChannelResponse' {} a -> s {httpStatus = a} :: UpdateChannelResponse)
 
-instance NFData UpdateChannelResponse where
+instance Prelude.NFData UpdateChannelResponse

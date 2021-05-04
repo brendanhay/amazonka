@@ -1,110 +1,120 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.DeleteRegistrationCode
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a CA certificate registration code.
---
---
 module Network.AWS.IoT.DeleteRegistrationCode
-    (
-    -- * Creating a Request
-      deleteRegistrationCode
-    , DeleteRegistrationCode
+  ( -- * Creating a Request
+    DeleteRegistrationCode (..),
+    newDeleteRegistrationCode,
 
     -- * Destructuring the Response
-    , deleteRegistrationCodeResponse
-    , DeleteRegistrationCodeResponse
+    DeleteRegistrationCodeResponse (..),
+    newDeleteRegistrationCodeResponse,
+
     -- * Response Lenses
-    , drcrsResponseStatus
-    ) where
+    deleteRegistrationCodeResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the DeleteRegistrationCode operation.
 --
+-- /See:/ 'newDeleteRegistrationCode' smart constructor.
+data DeleteRegistrationCode = DeleteRegistrationCode'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteRegistrationCode' with all optional fields omitted.
 --
---
--- /See:/ 'deleteRegistrationCode' smart constructor.
-data DeleteRegistrationCode =
-  DeleteRegistrationCode'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteRegistrationCode ::
+  DeleteRegistrationCode
+newDeleteRegistrationCode = DeleteRegistrationCode'
 
+instance Prelude.AWSRequest DeleteRegistrationCode where
+  type
+    Rs DeleteRegistrationCode =
+      DeleteRegistrationCodeResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteRegistrationCodeResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | Creates a value of 'DeleteRegistrationCode' with the minimum fields required to make a request.
---
-deleteRegistrationCode
-    :: DeleteRegistrationCode
-deleteRegistrationCode = DeleteRegistrationCode'
+instance Prelude.Hashable DeleteRegistrationCode
 
+instance Prelude.NFData DeleteRegistrationCode
 
-instance AWSRequest DeleteRegistrationCode where
-        type Rs DeleteRegistrationCode =
-             DeleteRegistrationCodeResponse
-        request = delete ioT
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteRegistrationCodeResponse' <$>
-                   (pure (fromEnum s)))
+instance Prelude.ToHeaders DeleteRegistrationCode where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance Hashable DeleteRegistrationCode where
+instance Prelude.ToPath DeleteRegistrationCode where
+  toPath = Prelude.const "/registrationcode"
 
-instance NFData DeleteRegistrationCode where
-
-instance ToHeaders DeleteRegistrationCode where
-        toHeaders = const mempty
-
-instance ToPath DeleteRegistrationCode where
-        toPath = const "/registrationcode"
-
-instance ToQuery DeleteRegistrationCode where
-        toQuery = const mempty
+instance Prelude.ToQuery DeleteRegistrationCode where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the DeleteRegistrationCode operation.
 --
+-- /See:/ 'newDeleteRegistrationCodeResponse' smart constructor.
+data DeleteRegistrationCodeResponse = DeleteRegistrationCodeResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteRegistrationCodeResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteRegistrationCodeResponse' smart constructor.
-newtype DeleteRegistrationCodeResponse = DeleteRegistrationCodeResponse'
-  { _drcrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteRegistrationCodeResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'drcrsResponseStatus' - -- | The response status code.
-deleteRegistrationCodeResponse
-    :: Int -- ^ 'drcrsResponseStatus'
-    -> DeleteRegistrationCodeResponse
-deleteRegistrationCodeResponse pResponseStatus_ =
-  DeleteRegistrationCodeResponse' {_drcrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'deleteRegistrationCodeResponse_httpStatus' - The response's http status code.
+newDeleteRegistrationCodeResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteRegistrationCodeResponse
+newDeleteRegistrationCodeResponse pHttpStatus_ =
+  DeleteRegistrationCodeResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteRegistrationCodeResponse_httpStatus :: Lens.Lens' DeleteRegistrationCodeResponse Prelude.Int
+deleteRegistrationCodeResponse_httpStatus = Lens.lens (\DeleteRegistrationCodeResponse' {httpStatus} -> httpStatus) (\s@DeleteRegistrationCodeResponse' {} a -> s {httpStatus = a} :: DeleteRegistrationCodeResponse)
 
--- | -- | The response status code.
-drcrsResponseStatus :: Lens' DeleteRegistrationCodeResponse Int
-drcrsResponseStatus = lens _drcrsResponseStatus (\ s a -> s{_drcrsResponseStatus = a})
-
-instance NFData DeleteRegistrationCodeResponse where
+instance
+  Prelude.NFData
+    DeleteRegistrationCodeResponse

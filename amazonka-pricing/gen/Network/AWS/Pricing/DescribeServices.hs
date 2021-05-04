@@ -1,197 +1,264 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pricing.DescribeServices
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the metadata for one service or a list of the metadata for all services. Use this without a service code to get the service codes for all services. Use it with a service code, such as @AmazonEC2@ , to get information specific to that service, such as the attribute names available for that service. For example, some of the attribute names available for EC2 are @volumeType@ , @maxIopsVolume@ , @operation@ , @locationType@ , and @instanceCapacity10xlarge@ .
---
---
+-- Returns the metadata for one service or a list of the metadata for all
+-- services. Use this without a service code to get the service codes for
+-- all services. Use it with a service code, such as @AmazonEC2@, to get
+-- information specific to that service, such as the attribute names
+-- available for that service. For example, some of the attribute names
+-- available for EC2 are @volumeType@, @maxIopsVolume@, @operation@,
+-- @locationType@, and @instanceCapacity10xlarge@.
 --
 -- This operation returns paginated results.
 module Network.AWS.Pricing.DescribeServices
-    (
-    -- * Creating a Request
-      describeServices
-    , DescribeServices
+  ( -- * Creating a Request
+    DescribeServices (..),
+    newDescribeServices,
+
     -- * Request Lenses
-    , dsFormatVersion
-    , dsNextToken
-    , dsServiceCode
-    , dsMaxResults
+    describeServices_nextToken,
+    describeServices_maxResults,
+    describeServices_serviceCode,
+    describeServices_formatVersion,
 
     -- * Destructuring the Response
-    , describeServicesResponse
-    , DescribeServicesResponse
+    DescribeServicesResponse (..),
+    newDescribeServicesResponse,
+
     -- * Response Lenses
-    , dsrsFormatVersion
-    , dsrsNextToken
-    , dsrsServices
-    , dsrsResponseStatus
-    ) where
+    describeServicesResponse_nextToken,
+    describeServicesResponse_services,
+    describeServicesResponse_formatVersion,
+    describeServicesResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Pricing.Types
-import Network.AWS.Pricing.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeServices' smart constructor.
+-- | /See:/ 'newDescribeServices' smart constructor.
 data DescribeServices = DescribeServices'
-  { _dsFormatVersion :: !(Maybe Text)
-  , _dsNextToken     :: !(Maybe Text)
-  , _dsServiceCode   :: !(Maybe Text)
-  , _dsMaxResults    :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pagination token that indicates the next set of results that you
+    -- want to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results that you want returned in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The code for the service whose information you want to retrieve, such as
+    -- @AmazonEC2@. You can use the @ServiceCode@ to filter the results in a
+    -- @GetProducts@ call. To retrieve a list of all services, leave this
+    -- blank.
+    serviceCode :: Prelude.Maybe Prelude.Text,
+    -- | The format version that you want the response to be in.
+    --
+    -- Valid values are: @aws_v1@
+    formatVersion :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeServices' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeServices' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsFormatVersion' - The format version that you want the response to be in. Valid values are: @aws_v1@
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsNextToken' - The pagination token that indicates the next set of results that you want to retrieve.
+-- 'nextToken', 'describeServices_nextToken' - The pagination token that indicates the next set of results that you
+-- want to retrieve.
 --
--- * 'dsServiceCode' - The code for the service whose information you want to retrieve, such as @AmazonEC2@ . You can use the @ServiceCode@ to filter the results in a @GetProducts@ call. To retrieve a list of all services, leave this blank.
+-- 'maxResults', 'describeServices_maxResults' - The maximum number of results that you want returned in the response.
 --
--- * 'dsMaxResults' - The maximum number of results that you want returned in the response.
-describeServices
-    :: DescribeServices
-describeServices =
+-- 'serviceCode', 'describeServices_serviceCode' - The code for the service whose information you want to retrieve, such as
+-- @AmazonEC2@. You can use the @ServiceCode@ to filter the results in a
+-- @GetProducts@ call. To retrieve a list of all services, leave this
+-- blank.
+--
+-- 'formatVersion', 'describeServices_formatVersion' - The format version that you want the response to be in.
+--
+-- Valid values are: @aws_v1@
+newDescribeServices ::
+  DescribeServices
+newDescribeServices =
   DescribeServices'
-    { _dsFormatVersion = Nothing
-    , _dsNextToken = Nothing
-    , _dsServiceCode = Nothing
-    , _dsMaxResults = Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      serviceCode = Prelude.Nothing,
+      formatVersion = Prelude.Nothing
     }
 
-
--- | The format version that you want the response to be in. Valid values are: @aws_v1@
-dsFormatVersion :: Lens' DescribeServices (Maybe Text)
-dsFormatVersion = lens _dsFormatVersion (\ s a -> s{_dsFormatVersion = a})
-
--- | The pagination token that indicates the next set of results that you want to retrieve.
-dsNextToken :: Lens' DescribeServices (Maybe Text)
-dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a})
-
--- | The code for the service whose information you want to retrieve, such as @AmazonEC2@ . You can use the @ServiceCode@ to filter the results in a @GetProducts@ call. To retrieve a list of all services, leave this blank.
-dsServiceCode :: Lens' DescribeServices (Maybe Text)
-dsServiceCode = lens _dsServiceCode (\ s a -> s{_dsServiceCode = a})
+-- | The pagination token that indicates the next set of results that you
+-- want to retrieve.
+describeServices_nextToken :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Text)
+describeServices_nextToken = Lens.lens (\DescribeServices' {nextToken} -> nextToken) (\s@DescribeServices' {} a -> s {nextToken = a} :: DescribeServices)
 
 -- | The maximum number of results that you want returned in the response.
-dsMaxResults :: Lens' DescribeServices (Maybe Natural)
-dsMaxResults = lens _dsMaxResults (\ s a -> s{_dsMaxResults = a}) . mapping _Nat
+describeServices_maxResults :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Natural)
+describeServices_maxResults = Lens.lens (\DescribeServices' {maxResults} -> maxResults) (\s@DescribeServices' {} a -> s {maxResults = a} :: DescribeServices)
 
-instance AWSPager DescribeServices where
-        page rq rs
-          | stop (rs ^. dsrsNextToken) = Nothing
-          | stop (rs ^. dsrsServices) = Nothing
-          | otherwise =
-            Just $ rq & dsNextToken .~ rs ^. dsrsNextToken
+-- | The code for the service whose information you want to retrieve, such as
+-- @AmazonEC2@. You can use the @ServiceCode@ to filter the results in a
+-- @GetProducts@ call. To retrieve a list of all services, leave this
+-- blank.
+describeServices_serviceCode :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Text)
+describeServices_serviceCode = Lens.lens (\DescribeServices' {serviceCode} -> serviceCode) (\s@DescribeServices' {} a -> s {serviceCode = a} :: DescribeServices)
 
-instance AWSRequest DescribeServices where
-        type Rs DescribeServices = DescribeServicesResponse
-        request = postJSON pricing
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeServicesResponse' <$>
-                   (x .?> "FormatVersion") <*> (x .?> "NextToken") <*>
-                     (x .?> "Services" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+-- | The format version that you want the response to be in.
+--
+-- Valid values are: @aws_v1@
+describeServices_formatVersion :: Lens.Lens' DescribeServices (Prelude.Maybe Prelude.Text)
+describeServices_formatVersion = Lens.lens (\DescribeServices' {formatVersion} -> formatVersion) (\s@DescribeServices' {} a -> s {formatVersion = a} :: DescribeServices)
 
-instance Hashable DescribeServices where
+instance Pager.AWSPager DescribeServices where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeServicesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeServicesResponse_services
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeServices_nextToken
+          Lens..~ rs
+          Lens.^? describeServicesResponse_nextToken
+            Prelude.. Lens._Just
 
-instance NFData DescribeServices where
+instance Prelude.AWSRequest DescribeServices where
+  type Rs DescribeServices = DescribeServicesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeServicesResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> (x Prelude..?> "Services" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (x Prelude..?> "FormatVersion")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToHeaders DescribeServices where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSPriceListService.DescribeServices" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.Hashable DescribeServices
 
-instance ToJSON DescribeServices where
-        toJSON DescribeServices'{..}
-          = object
-              (catMaybes
-                 [("FormatVersion" .=) <$> _dsFormatVersion,
-                  ("NextToken" .=) <$> _dsNextToken,
-                  ("ServiceCode" .=) <$> _dsServiceCode,
-                  ("MaxResults" .=) <$> _dsMaxResults])
+instance Prelude.NFData DescribeServices
 
-instance ToPath DescribeServices where
-        toPath = const "/"
+instance Prelude.ToHeaders DescribeServices where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSPriceListService.DescribeServices" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToQuery DescribeServices where
-        toQuery = const mempty
+instance Prelude.ToJSON DescribeServices where
+  toJSON DescribeServices' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
+            ("ServiceCode" Prelude..=) Prelude.<$> serviceCode,
+            ("FormatVersion" Prelude..=)
+              Prelude.<$> formatVersion
+          ]
+      )
 
--- | /See:/ 'describeServicesResponse' smart constructor.
+instance Prelude.ToPath DescribeServices where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DescribeServices where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-  { _dsrsFormatVersion  :: !(Maybe Text)
-  , _dsrsNextToken      :: !(Maybe Text)
-  , _dsrsServices       :: !(Maybe [PricingService])
-  , _dsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pagination token for the next set of retreivable results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The service metadata for the service or services in the response.
+    services :: Prelude.Maybe [PricingService],
+    -- | The format version of the response. For example, @aws_v1@.
+    formatVersion :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeServicesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeServicesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsrsFormatVersion' - The format version of the response. For example, @aws_v1@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsrsNextToken' - The pagination token for the next set of retreivable results.
+-- 'nextToken', 'describeServicesResponse_nextToken' - The pagination token for the next set of retreivable results.
 --
--- * 'dsrsServices' - The service metadata for the service or services in the response.
+-- 'services', 'describeServicesResponse_services' - The service metadata for the service or services in the response.
 --
--- * 'dsrsResponseStatus' - -- | The response status code.
-describeServicesResponse
-    :: Int -- ^ 'dsrsResponseStatus'
-    -> DescribeServicesResponse
-describeServicesResponse pResponseStatus_ =
+-- 'formatVersion', 'describeServicesResponse_formatVersion' - The format version of the response. For example, @aws_v1@.
+--
+-- 'httpStatus', 'describeServicesResponse_httpStatus' - The response's http status code.
+newDescribeServicesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeServicesResponse
+newDescribeServicesResponse pHttpStatus_ =
   DescribeServicesResponse'
-    { _dsrsFormatVersion = Nothing
-    , _dsrsNextToken = Nothing
-    , _dsrsServices = Nothing
-    , _dsrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      services = Prelude.Nothing,
+      formatVersion = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The format version of the response. For example, @aws_v1@ .
-dsrsFormatVersion :: Lens' DescribeServicesResponse (Maybe Text)
-dsrsFormatVersion = lens _dsrsFormatVersion (\ s a -> s{_dsrsFormatVersion = a})
-
 -- | The pagination token for the next set of retreivable results.
-dsrsNextToken :: Lens' DescribeServicesResponse (Maybe Text)
-dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a})
+describeServicesResponse_nextToken :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe Prelude.Text)
+describeServicesResponse_nextToken = Lens.lens (\DescribeServicesResponse' {nextToken} -> nextToken) (\s@DescribeServicesResponse' {} a -> s {nextToken = a} :: DescribeServicesResponse)
 
 -- | The service metadata for the service or services in the response.
-dsrsServices :: Lens' DescribeServicesResponse [PricingService]
-dsrsServices = lens _dsrsServices (\ s a -> s{_dsrsServices = a}) . _Default . _Coerce
+describeServicesResponse_services :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe [PricingService])
+describeServicesResponse_services = Lens.lens (\DescribeServicesResponse' {services} -> services) (\s@DescribeServicesResponse' {} a -> s {services = a} :: DescribeServicesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DescribeServicesResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
+-- | The format version of the response. For example, @aws_v1@.
+describeServicesResponse_formatVersion :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe Prelude.Text)
+describeServicesResponse_formatVersion = Lens.lens (\DescribeServicesResponse' {formatVersion} -> formatVersion) (\s@DescribeServicesResponse' {} a -> s {formatVersion = a} :: DescribeServicesResponse)
 
-instance NFData DescribeServicesResponse where
+-- | The response's http status code.
+describeServicesResponse_httpStatus :: Lens.Lens' DescribeServicesResponse Prelude.Int
+describeServicesResponse_httpStatus = Lens.lens (\DescribeServicesResponse' {httpStatus} -> httpStatus) (\s@DescribeServicesResponse' {} a -> s {httpStatus = a} :: DescribeServicesResponse)
+
+instance Prelude.NFData DescribeServicesResponse

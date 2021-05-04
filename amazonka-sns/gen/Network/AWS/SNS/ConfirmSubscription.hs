@@ -1,157 +1,194 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SNS.ConfirmSubscription
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Verifies an endpoint owner's intent to receive messages by validating the token sent to the endpoint by an earlier @Subscribe@ action. If the token is valid, the action creates a new subscription and returns its Amazon Resource Name (ARN). This call requires an AWS signature only when the @AuthenticateOnUnsubscribe@ flag is set to "true".
---
---
+-- Verifies an endpoint owner\'s intent to receive messages by validating
+-- the token sent to the endpoint by an earlier @Subscribe@ action. If the
+-- token is valid, the action creates a new subscription and returns its
+-- Amazon Resource Name (ARN). This call requires an AWS signature only
+-- when the @AuthenticateOnUnsubscribe@ flag is set to \"true\".
 module Network.AWS.SNS.ConfirmSubscription
-    (
-    -- * Creating a Request
-      confirmSubscription
-    , ConfirmSubscription
+  ( -- * Creating a Request
+    ConfirmSubscription (..),
+    newConfirmSubscription,
+
     -- * Request Lenses
-    , csAuthenticateOnUnsubscribe
-    , csTopicARN
-    , csToken
+    confirmSubscription_authenticateOnUnsubscribe,
+    confirmSubscription_topicArn,
+    confirmSubscription_token,
 
     -- * Destructuring the Response
-    , confirmSubscriptionResponse
-    , ConfirmSubscriptionResponse
-    -- * Response Lenses
-    , csrsSubscriptionARN
-    , csrsResponseStatus
-    ) where
+    ConfirmSubscriptionResponse (..),
+    newConfirmSubscriptionResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    confirmSubscriptionResponse_subscriptionArn,
+    confirmSubscriptionResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
-import Network.AWS.SNS.Types.Product
 
 -- | Input for ConfirmSubscription action.
 --
---
---
--- /See:/ 'confirmSubscription' smart constructor.
+-- /See:/ 'newConfirmSubscription' smart constructor.
 data ConfirmSubscription = ConfirmSubscription'
-  { _csAuthenticateOnUnsubscribe :: !(Maybe Text)
-  , _csTopicARN                  :: !Text
-  , _csToken                     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Disallows unauthenticated unsubscribes of the subscription. If the value
+    -- of this parameter is @true@ and the request has an AWS signature, then
+    -- only the topic owner and the subscription owner can unsubscribe the
+    -- endpoint. The unsubscribe action requires AWS authentication.
+    authenticateOnUnsubscribe :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the topic for which you wish to confirm a subscription.
+    topicArn :: Prelude.Text,
+    -- | Short-lived token sent to an endpoint during the @Subscribe@ action.
+    token :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ConfirmSubscription' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ConfirmSubscription' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'csAuthenticateOnUnsubscribe' - Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter is @true@ and the request has an AWS signature, then only the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires AWS authentication.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'csTopicARN' - The ARN of the topic for which you wish to confirm a subscription.
+-- 'authenticateOnUnsubscribe', 'confirmSubscription_authenticateOnUnsubscribe' - Disallows unauthenticated unsubscribes of the subscription. If the value
+-- of this parameter is @true@ and the request has an AWS signature, then
+-- only the topic owner and the subscription owner can unsubscribe the
+-- endpoint. The unsubscribe action requires AWS authentication.
 --
--- * 'csToken' - Short-lived token sent to an endpoint during the @Subscribe@ action.
-confirmSubscription
-    :: Text -- ^ 'csTopicARN'
-    -> Text -- ^ 'csToken'
-    -> ConfirmSubscription
-confirmSubscription pTopicARN_ pToken_ =
+-- 'topicArn', 'confirmSubscription_topicArn' - The ARN of the topic for which you wish to confirm a subscription.
+--
+-- 'token', 'confirmSubscription_token' - Short-lived token sent to an endpoint during the @Subscribe@ action.
+newConfirmSubscription ::
+  -- | 'topicArn'
+  Prelude.Text ->
+  -- | 'token'
+  Prelude.Text ->
+  ConfirmSubscription
+newConfirmSubscription pTopicArn_ pToken_ =
   ConfirmSubscription'
-    { _csAuthenticateOnUnsubscribe = Nothing
-    , _csTopicARN = pTopicARN_
-    , _csToken = pToken_
+    { authenticateOnUnsubscribe =
+        Prelude.Nothing,
+      topicArn = pTopicArn_,
+      token = pToken_
     }
 
-
--- | Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter is @true@ and the request has an AWS signature, then only the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires AWS authentication.
-csAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
-csAuthenticateOnUnsubscribe = lens _csAuthenticateOnUnsubscribe (\ s a -> s{_csAuthenticateOnUnsubscribe = a})
+-- | Disallows unauthenticated unsubscribes of the subscription. If the value
+-- of this parameter is @true@ and the request has an AWS signature, then
+-- only the topic owner and the subscription owner can unsubscribe the
+-- endpoint. The unsubscribe action requires AWS authentication.
+confirmSubscription_authenticateOnUnsubscribe :: Lens.Lens' ConfirmSubscription (Prelude.Maybe Prelude.Text)
+confirmSubscription_authenticateOnUnsubscribe = Lens.lens (\ConfirmSubscription' {authenticateOnUnsubscribe} -> authenticateOnUnsubscribe) (\s@ConfirmSubscription' {} a -> s {authenticateOnUnsubscribe = a} :: ConfirmSubscription)
 
 -- | The ARN of the topic for which you wish to confirm a subscription.
-csTopicARN :: Lens' ConfirmSubscription Text
-csTopicARN = lens _csTopicARN (\ s a -> s{_csTopicARN = a})
+confirmSubscription_topicArn :: Lens.Lens' ConfirmSubscription Prelude.Text
+confirmSubscription_topicArn = Lens.lens (\ConfirmSubscription' {topicArn} -> topicArn) (\s@ConfirmSubscription' {} a -> s {topicArn = a} :: ConfirmSubscription)
 
 -- | Short-lived token sent to an endpoint during the @Subscribe@ action.
-csToken :: Lens' ConfirmSubscription Text
-csToken = lens _csToken (\ s a -> s{_csToken = a})
+confirmSubscription_token :: Lens.Lens' ConfirmSubscription Prelude.Text
+confirmSubscription_token = Lens.lens (\ConfirmSubscription' {token} -> token) (\s@ConfirmSubscription' {} a -> s {token = a} :: ConfirmSubscription)
 
-instance AWSRequest ConfirmSubscription where
-        type Rs ConfirmSubscription =
-             ConfirmSubscriptionResponse
-        request = postQuery sns
-        response
-          = receiveXMLWrapper "ConfirmSubscriptionResult"
-              (\ s h x ->
-                 ConfirmSubscriptionResponse' <$>
-                   (x .@? "SubscriptionArn") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest ConfirmSubscription where
+  type
+    Rs ConfirmSubscription =
+      ConfirmSubscriptionResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ConfirmSubscriptionResult"
+      ( \s h x ->
+          ConfirmSubscriptionResponse'
+            Prelude.<$> (x Prelude..@? "SubscriptionArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ConfirmSubscription where
+instance Prelude.Hashable ConfirmSubscription
 
-instance NFData ConfirmSubscription where
+instance Prelude.NFData ConfirmSubscription
 
-instance ToHeaders ConfirmSubscription where
-        toHeaders = const mempty
+instance Prelude.ToHeaders ConfirmSubscription where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ConfirmSubscription where
-        toPath = const "/"
+instance Prelude.ToPath ConfirmSubscription where
+  toPath = Prelude.const "/"
 
-instance ToQuery ConfirmSubscription where
-        toQuery ConfirmSubscription'{..}
-          = mconcat
-              ["Action" =: ("ConfirmSubscription" :: ByteString),
-               "Version" =: ("2010-03-31" :: ByteString),
-               "AuthenticateOnUnsubscribe" =:
-                 _csAuthenticateOnUnsubscribe,
-               "TopicArn" =: _csTopicARN, "Token" =: _csToken]
+instance Prelude.ToQuery ConfirmSubscription where
+  toQuery ConfirmSubscription' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("ConfirmSubscription" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
+        "AuthenticateOnUnsubscribe"
+          Prelude.=: authenticateOnUnsubscribe,
+        "TopicArn" Prelude.=: topicArn,
+        "Token" Prelude.=: token
+      ]
 
 -- | Response for ConfirmSubscriptions action.
 --
---
---
--- /See:/ 'confirmSubscriptionResponse' smart constructor.
+-- /See:/ 'newConfirmSubscriptionResponse' smart constructor.
 data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'
-  { _csrsSubscriptionARN :: !(Maybe Text)
-  , _csrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the created subscription.
+    subscriptionArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ConfirmSubscriptionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ConfirmSubscriptionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'csrsSubscriptionARN' - The ARN of the created subscription.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'csrsResponseStatus' - -- | The response status code.
-confirmSubscriptionResponse
-    :: Int -- ^ 'csrsResponseStatus'
-    -> ConfirmSubscriptionResponse
-confirmSubscriptionResponse pResponseStatus_ =
+-- 'subscriptionArn', 'confirmSubscriptionResponse_subscriptionArn' - The ARN of the created subscription.
+--
+-- 'httpStatus', 'confirmSubscriptionResponse_httpStatus' - The response's http status code.
+newConfirmSubscriptionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ConfirmSubscriptionResponse
+newConfirmSubscriptionResponse pHttpStatus_ =
   ConfirmSubscriptionResponse'
-    {_csrsSubscriptionARN = Nothing, _csrsResponseStatus = pResponseStatus_}
-
+    { subscriptionArn =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The ARN of the created subscription.
-csrsSubscriptionARN :: Lens' ConfirmSubscriptionResponse (Maybe Text)
-csrsSubscriptionARN = lens _csrsSubscriptionARN (\ s a -> s{_csrsSubscriptionARN = a})
+confirmSubscriptionResponse_subscriptionArn :: Lens.Lens' ConfirmSubscriptionResponse (Prelude.Maybe Prelude.Text)
+confirmSubscriptionResponse_subscriptionArn = Lens.lens (\ConfirmSubscriptionResponse' {subscriptionArn} -> subscriptionArn) (\s@ConfirmSubscriptionResponse' {} a -> s {subscriptionArn = a} :: ConfirmSubscriptionResponse)
 
--- | -- | The response status code.
-csrsResponseStatus :: Lens' ConfirmSubscriptionResponse Int
-csrsResponseStatus = lens _csrsResponseStatus (\ s a -> s{_csrsResponseStatus = a})
+-- | The response's http status code.
+confirmSubscriptionResponse_httpStatus :: Lens.Lens' ConfirmSubscriptionResponse Prelude.Int
+confirmSubscriptionResponse_httpStatus = Lens.lens (\ConfirmSubscriptionResponse' {httpStatus} -> httpStatus) (\s@ConfirmSubscriptionResponse' {} a -> s {httpStatus = a} :: ConfirmSubscriptionResponse)
 
-instance NFData ConfirmSubscriptionResponse where
+instance Prelude.NFData ConfirmSubscriptionResponse

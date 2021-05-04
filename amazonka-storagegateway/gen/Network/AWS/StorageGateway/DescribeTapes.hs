@@ -1,196 +1,271 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.DescribeTapes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes. If a @TapeARN@ is not specified, returns a description of all virtual tapes associated with the specified gateway. This operation is only supported in the tape gateway type.
---
---
+-- Returns a description of the specified Amazon Resource Name (ARN) of
+-- virtual tapes. If a @TapeARN@ is not specified, returns a description of
+-- all virtual tapes associated with the specified gateway. This operation
+-- is only supported in the tape gateway type.
 --
 -- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeTapes
-    (
-    -- * Creating a Request
-      describeTapes
-    , DescribeTapes
+  ( -- * Creating a Request
+    DescribeTapes (..),
+    newDescribeTapes,
+
     -- * Request Lenses
-    , dtMarker
-    , dtLimit
-    , dtTapeARNs
-    , dtGatewayARN
+    describeTapes_tapeARNs,
+    describeTapes_limit,
+    describeTapes_marker,
+    describeTapes_gatewayARN,
 
     -- * Destructuring the Response
-    , describeTapesResponse
-    , DescribeTapesResponse
-    -- * Response Lenses
-    , dtsrsMarker
-    , dtsrsTapes
-    , dtsrsResponseStatus
-    ) where
+    DescribeTapesResponse (..),
+    newDescribeTapesResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    describeTapesResponse_tapes,
+    describeTapesResponse_marker,
+    describeTapesResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
 -- | DescribeTapesInput
 --
---
---
--- /See:/ 'describeTapes' smart constructor.
+-- /See:/ 'newDescribeTapes' smart constructor.
 data DescribeTapes = DescribeTapes'
-  { _dtMarker     :: !(Maybe Text)
-  , _dtLimit      :: !(Maybe Nat)
-  , _dtTapeARNs   :: !(Maybe [Text])
-  , _dtGatewayARN :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
+    -- the virtual tapes you want to describe. If this parameter is not
+    -- specified, Tape gateway returns a description of all virtual tapes
+    -- associated with the specified gateway.
+    tapeARNs :: Prelude.Maybe [Prelude.Text],
+    -- | Specifies that the number of virtual tapes described be limited to the
+    -- specified number.
+    --
+    -- Amazon Web Services may impose its own limit, if this field is not set.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | A marker value, obtained in a previous call to @DescribeTapes@. This
+    -- marker indicates which page of results to retrieve.
+    --
+    -- If not specified, the first page of results is retrieved.
+    marker :: Prelude.Maybe Prelude.Text,
+    gatewayARN :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTapes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTapes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtMarker' - A marker value, obtained in a previous call to @DescribeTapes@ . This marker indicates which page of results to retrieve.  If not specified, the first page of results is retrieved.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtLimit' - Specifies that the number of virtual tapes described be limited to the specified number.
+-- 'tapeARNs', 'describeTapes_tapeARNs' - Specifies one or more unique Amazon Resource Names (ARNs) that represent
+-- the virtual tapes you want to describe. If this parameter is not
+-- specified, Tape gateway returns a description of all virtual tapes
+-- associated with the specified gateway.
 --
--- * 'dtTapeARNs' - Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, Tape gateway returns a description of all virtual tapes associated with the specified gateway.
+-- 'limit', 'describeTapes_limit' - Specifies that the number of virtual tapes described be limited to the
+-- specified number.
 --
--- * 'dtGatewayARN' - Undocumented member.
-describeTapes
-    :: Text -- ^ 'dtGatewayARN'
-    -> DescribeTapes
-describeTapes pGatewayARN_ =
+-- Amazon Web Services may impose its own limit, if this field is not set.
+--
+-- 'marker', 'describeTapes_marker' - A marker value, obtained in a previous call to @DescribeTapes@. This
+-- marker indicates which page of results to retrieve.
+--
+-- If not specified, the first page of results is retrieved.
+--
+-- 'gatewayARN', 'describeTapes_gatewayARN' - Undocumented member.
+newDescribeTapes ::
+  -- | 'gatewayARN'
+  Prelude.Text ->
+  DescribeTapes
+newDescribeTapes pGatewayARN_ =
   DescribeTapes'
-    { _dtMarker = Nothing
-    , _dtLimit = Nothing
-    , _dtTapeARNs = Nothing
-    , _dtGatewayARN = pGatewayARN_
+    { tapeARNs = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      gatewayARN = pGatewayARN_
     }
 
+-- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
+-- the virtual tapes you want to describe. If this parameter is not
+-- specified, Tape gateway returns a description of all virtual tapes
+-- associated with the specified gateway.
+describeTapes_tapeARNs :: Lens.Lens' DescribeTapes (Prelude.Maybe [Prelude.Text])
+describeTapes_tapeARNs = Lens.lens (\DescribeTapes' {tapeARNs} -> tapeARNs) (\s@DescribeTapes' {} a -> s {tapeARNs = a} :: DescribeTapes) Prelude.. Lens.mapping Prelude._Coerce
 
--- | A marker value, obtained in a previous call to @DescribeTapes@ . This marker indicates which page of results to retrieve.  If not specified, the first page of results is retrieved.
-dtMarker :: Lens' DescribeTapes (Maybe Text)
-dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a})
+-- | Specifies that the number of virtual tapes described be limited to the
+-- specified number.
+--
+-- Amazon Web Services may impose its own limit, if this field is not set.
+describeTapes_limit :: Lens.Lens' DescribeTapes (Prelude.Maybe Prelude.Natural)
+describeTapes_limit = Lens.lens (\DescribeTapes' {limit} -> limit) (\s@DescribeTapes' {} a -> s {limit = a} :: DescribeTapes)
 
--- | Specifies that the number of virtual tapes described be limited to the specified number.
-dtLimit :: Lens' DescribeTapes (Maybe Natural)
-dtLimit = lens _dtLimit (\ s a -> s{_dtLimit = a}) . mapping _Nat
-
--- | Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual tapes you want to describe. If this parameter is not specified, Tape gateway returns a description of all virtual tapes associated with the specified gateway.
-dtTapeARNs :: Lens' DescribeTapes [Text]
-dtTapeARNs = lens _dtTapeARNs (\ s a -> s{_dtTapeARNs = a}) . _Default . _Coerce
+-- | A marker value, obtained in a previous call to @DescribeTapes@. This
+-- marker indicates which page of results to retrieve.
+--
+-- If not specified, the first page of results is retrieved.
+describeTapes_marker :: Lens.Lens' DescribeTapes (Prelude.Maybe Prelude.Text)
+describeTapes_marker = Lens.lens (\DescribeTapes' {marker} -> marker) (\s@DescribeTapes' {} a -> s {marker = a} :: DescribeTapes)
 
 -- | Undocumented member.
-dtGatewayARN :: Lens' DescribeTapes Text
-dtGatewayARN = lens _dtGatewayARN (\ s a -> s{_dtGatewayARN = a})
+describeTapes_gatewayARN :: Lens.Lens' DescribeTapes Prelude.Text
+describeTapes_gatewayARN = Lens.lens (\DescribeTapes' {gatewayARN} -> gatewayARN) (\s@DescribeTapes' {} a -> s {gatewayARN = a} :: DescribeTapes)
 
-instance AWSPager DescribeTapes where
-        page rq rs
-          | stop (rs ^. dtsrsMarker) = Nothing
-          | stop (rs ^. dtsrsTapes) = Nothing
-          | otherwise =
-            Just $ rq & dtMarker .~ rs ^. dtsrsMarker
+instance Pager.AWSPager DescribeTapes where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeTapesResponse_marker Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeTapesResponse_tapes Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeTapes_marker
+          Lens..~ rs
+          Lens.^? describeTapesResponse_marker Prelude.. Lens._Just
 
-instance AWSRequest DescribeTapes where
-        type Rs DescribeTapes = DescribeTapesResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeTapesResponse' <$>
-                   (x .?> "Marker") <*> (x .?> "Tapes" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeTapes where
+  type Rs DescribeTapes = DescribeTapesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeTapesResponse'
+            Prelude.<$> (x Prelude..?> "Tapes" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (x Prelude..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeTapes where
+instance Prelude.Hashable DescribeTapes
 
-instance NFData DescribeTapes where
+instance Prelude.NFData DescribeTapes
 
-instance ToHeaders DescribeTapes where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.DescribeTapes" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DescribeTapes where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "StorageGateway_20130630.DescribeTapes" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DescribeTapes where
-        toJSON DescribeTapes'{..}
-          = object
-              (catMaybes
-                 [("Marker" .=) <$> _dtMarker,
-                  ("Limit" .=) <$> _dtLimit,
-                  ("TapeARNs" .=) <$> _dtTapeARNs,
-                  Just ("GatewayARN" .= _dtGatewayARN)])
+instance Prelude.ToJSON DescribeTapes where
+  toJSON DescribeTapes' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("TapeARNs" Prelude..=) Prelude.<$> tapeARNs,
+            ("Limit" Prelude..=) Prelude.<$> limit,
+            ("Marker" Prelude..=) Prelude.<$> marker,
+            Prelude.Just ("GatewayARN" Prelude..= gatewayARN)
+          ]
+      )
 
-instance ToPath DescribeTapes where
-        toPath = const "/"
+instance Prelude.ToPath DescribeTapes where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeTapes where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeTapes where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | DescribeTapesOutput
 --
---
---
--- /See:/ 'describeTapesResponse' smart constructor.
+-- /See:/ 'newDescribeTapesResponse' smart constructor.
 data DescribeTapesResponse = DescribeTapesResponse'
-  { _dtsrsMarker         :: !(Maybe Text)
-  , _dtsrsTapes          :: !(Maybe [Tape])
-  , _dtsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of virtual tape descriptions.
+    tapes :: Prelude.Maybe [Tape],
+    -- | An opaque string which can be used as part of a subsequent DescribeTapes
+    -- call to retrieve the next page of results.
+    --
+    -- If a response does not contain a marker, then there are no more results
+    -- to be retrieved.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTapesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTapesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtsrsMarker' - An opaque string which can be used as part of a subsequent DescribeTapes call to retrieve the next page of results. If a response does not contain a marker, then there are no more results to be retrieved.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtsrsTapes' - An array of virtual tape descriptions.
+-- 'tapes', 'describeTapesResponse_tapes' - An array of virtual tape descriptions.
 --
--- * 'dtsrsResponseStatus' - -- | The response status code.
-describeTapesResponse
-    :: Int -- ^ 'dtsrsResponseStatus'
-    -> DescribeTapesResponse
-describeTapesResponse pResponseStatus_ =
+-- 'marker', 'describeTapesResponse_marker' - An opaque string which can be used as part of a subsequent DescribeTapes
+-- call to retrieve the next page of results.
+--
+-- If a response does not contain a marker, then there are no more results
+-- to be retrieved.
+--
+-- 'httpStatus', 'describeTapesResponse_httpStatus' - The response's http status code.
+newDescribeTapesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeTapesResponse
+newDescribeTapesResponse pHttpStatus_ =
   DescribeTapesResponse'
-    { _dtsrsMarker = Nothing
-    , _dtsrsTapes = Nothing
-    , _dtsrsResponseStatus = pResponseStatus_
+    { tapes = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | An opaque string which can be used as part of a subsequent DescribeTapes call to retrieve the next page of results. If a response does not contain a marker, then there are no more results to be retrieved.
-dtsrsMarker :: Lens' DescribeTapesResponse (Maybe Text)
-dtsrsMarker = lens _dtsrsMarker (\ s a -> s{_dtsrsMarker = a})
-
 -- | An array of virtual tape descriptions.
-dtsrsTapes :: Lens' DescribeTapesResponse [Tape]
-dtsrsTapes = lens _dtsrsTapes (\ s a -> s{_dtsrsTapes = a}) . _Default . _Coerce
+describeTapesResponse_tapes :: Lens.Lens' DescribeTapesResponse (Prelude.Maybe [Tape])
+describeTapesResponse_tapes = Lens.lens (\DescribeTapesResponse' {tapes} -> tapes) (\s@DescribeTapesResponse' {} a -> s {tapes = a} :: DescribeTapesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-dtsrsResponseStatus :: Lens' DescribeTapesResponse Int
-dtsrsResponseStatus = lens _dtsrsResponseStatus (\ s a -> s{_dtsrsResponseStatus = a})
+-- | An opaque string which can be used as part of a subsequent DescribeTapes
+-- call to retrieve the next page of results.
+--
+-- If a response does not contain a marker, then there are no more results
+-- to be retrieved.
+describeTapesResponse_marker :: Lens.Lens' DescribeTapesResponse (Prelude.Maybe Prelude.Text)
+describeTapesResponse_marker = Lens.lens (\DescribeTapesResponse' {marker} -> marker) (\s@DescribeTapesResponse' {} a -> s {marker = a} :: DescribeTapesResponse)
 
-instance NFData DescribeTapesResponse where
+-- | The response's http status code.
+describeTapesResponse_httpStatus :: Lens.Lens' DescribeTapesResponse Prelude.Int
+describeTapesResponse_httpStatus = Lens.lens (\DescribeTapesResponse' {httpStatus} -> httpStatus) (\s@DescribeTapesResponse' {} a -> s {httpStatus = a} :: DescribeTapesResponse)
+
+instance Prelude.NFData DescribeTapesResponse

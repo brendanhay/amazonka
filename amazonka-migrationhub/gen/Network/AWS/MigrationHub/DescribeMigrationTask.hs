@@ -1,149 +1,187 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MigrationHub.DescribeMigrationTask
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of all attributes associated with a specific migration task.
---
---
+-- Retrieves a list of all attributes associated with a specific migration
+-- task.
 module Network.AWS.MigrationHub.DescribeMigrationTask
-    (
-    -- * Creating a Request
-      describeMigrationTask
-    , DescribeMigrationTask
+  ( -- * Creating a Request
+    DescribeMigrationTask (..),
+    newDescribeMigrationTask,
+
     -- * Request Lenses
-    , dmtProgressUpdateStream
-    , dmtMigrationTaskName
+    describeMigrationTask_progressUpdateStream,
+    describeMigrationTask_migrationTaskName,
 
     -- * Destructuring the Response
-    , describeMigrationTaskResponse
-    , DescribeMigrationTaskResponse
+    DescribeMigrationTaskResponse (..),
+    newDescribeMigrationTaskResponse,
+
     -- * Response Lenses
-    , dmtrsMigrationTask
-    , dmtrsResponseStatus
-    ) where
+    describeMigrationTaskResponse_migrationTask,
+    describeMigrationTaskResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import Network.AWS.MigrationHub.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeMigrationTask' smart constructor.
+-- | /See:/ 'newDescribeMigrationTask' smart constructor.
 data DescribeMigrationTask = DescribeMigrationTask'
-  { _dmtProgressUpdateStream :: !Text
-  , _dmtMigrationTaskName    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the ProgressUpdateStream.
+    progressUpdateStream :: Prelude.Text,
+    -- | The identifier given to the MigrationTask. /Do not store personal data
+    -- in this field./
+    migrationTaskName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeMigrationTask' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeMigrationTask' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmtProgressUpdateStream' - The name of the ProgressUpdateStream.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dmtMigrationTaskName' - The identifier given to the MigrationTask.
-describeMigrationTask
-    :: Text -- ^ 'dmtProgressUpdateStream'
-    -> Text -- ^ 'dmtMigrationTaskName'
-    -> DescribeMigrationTask
-describeMigrationTask pProgressUpdateStream_ pMigrationTaskName_ =
-  DescribeMigrationTask'
-    { _dmtProgressUpdateStream = pProgressUpdateStream_
-    , _dmtMigrationTaskName = pMigrationTaskName_
-    }
-
+-- 'progressUpdateStream', 'describeMigrationTask_progressUpdateStream' - The name of the ProgressUpdateStream.
+--
+-- 'migrationTaskName', 'describeMigrationTask_migrationTaskName' - The identifier given to the MigrationTask. /Do not store personal data
+-- in this field./
+newDescribeMigrationTask ::
+  -- | 'progressUpdateStream'
+  Prelude.Text ->
+  -- | 'migrationTaskName'
+  Prelude.Text ->
+  DescribeMigrationTask
+newDescribeMigrationTask
+  pProgressUpdateStream_
+  pMigrationTaskName_ =
+    DescribeMigrationTask'
+      { progressUpdateStream =
+          pProgressUpdateStream_,
+        migrationTaskName = pMigrationTaskName_
+      }
 
 -- | The name of the ProgressUpdateStream.
-dmtProgressUpdateStream :: Lens' DescribeMigrationTask Text
-dmtProgressUpdateStream = lens _dmtProgressUpdateStream (\ s a -> s{_dmtProgressUpdateStream = a})
+describeMigrationTask_progressUpdateStream :: Lens.Lens' DescribeMigrationTask Prelude.Text
+describeMigrationTask_progressUpdateStream = Lens.lens (\DescribeMigrationTask' {progressUpdateStream} -> progressUpdateStream) (\s@DescribeMigrationTask' {} a -> s {progressUpdateStream = a} :: DescribeMigrationTask)
 
--- | The identifier given to the MigrationTask.
-dmtMigrationTaskName :: Lens' DescribeMigrationTask Text
-dmtMigrationTaskName = lens _dmtMigrationTaskName (\ s a -> s{_dmtMigrationTaskName = a})
+-- | The identifier given to the MigrationTask. /Do not store personal data
+-- in this field./
+describeMigrationTask_migrationTaskName :: Lens.Lens' DescribeMigrationTask Prelude.Text
+describeMigrationTask_migrationTaskName = Lens.lens (\DescribeMigrationTask' {migrationTaskName} -> migrationTaskName) (\s@DescribeMigrationTask' {} a -> s {migrationTaskName = a} :: DescribeMigrationTask)
 
-instance AWSRequest DescribeMigrationTask where
-        type Rs DescribeMigrationTask =
-             DescribeMigrationTaskResponse
-        request = postJSON migrationHub
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeMigrationTaskResponse' <$>
-                   (x .?> "MigrationTask") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeMigrationTask where
+  type
+    Rs DescribeMigrationTask =
+      DescribeMigrationTaskResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeMigrationTaskResponse'
+            Prelude.<$> (x Prelude..?> "MigrationTask")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeMigrationTask where
+instance Prelude.Hashable DescribeMigrationTask
 
-instance NFData DescribeMigrationTask where
+instance Prelude.NFData DescribeMigrationTask
 
-instance ToHeaders DescribeMigrationTask where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSMigrationHub.DescribeMigrationTask" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DescribeMigrationTask where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSMigrationHub.DescribeMigrationTask" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DescribeMigrationTask where
-        toJSON DescribeMigrationTask'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("ProgressUpdateStream" .= _dmtProgressUpdateStream),
-                  Just ("MigrationTaskName" .= _dmtMigrationTaskName)])
+instance Prelude.ToJSON DescribeMigrationTask where
+  toJSON DescribeMigrationTask' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "ProgressUpdateStream"
+                  Prelude..= progressUpdateStream
+              ),
+            Prelude.Just
+              ("MigrationTaskName" Prelude..= migrationTaskName)
+          ]
+      )
 
-instance ToPath DescribeMigrationTask where
-        toPath = const "/"
+instance Prelude.ToPath DescribeMigrationTask where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeMigrationTask where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeMigrationTask where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeMigrationTaskResponse' smart constructor.
+-- | /See:/ 'newDescribeMigrationTaskResponse' smart constructor.
 data DescribeMigrationTaskResponse = DescribeMigrationTaskResponse'
-  { _dmtrsMigrationTask  :: !(Maybe MigrationTask)
-  , _dmtrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Object encapsulating information about the migration task.
+    migrationTask :: Prelude.Maybe MigrationTask,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeMigrationTaskResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeMigrationTaskResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmtrsMigrationTask' - Object encapsulating information about the migration task.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dmtrsResponseStatus' - -- | The response status code.
-describeMigrationTaskResponse
-    :: Int -- ^ 'dmtrsResponseStatus'
-    -> DescribeMigrationTaskResponse
-describeMigrationTaskResponse pResponseStatus_ =
+-- 'migrationTask', 'describeMigrationTaskResponse_migrationTask' - Object encapsulating information about the migration task.
+--
+-- 'httpStatus', 'describeMigrationTaskResponse_httpStatus' - The response's http status code.
+newDescribeMigrationTaskResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeMigrationTaskResponse
+newDescribeMigrationTaskResponse pHttpStatus_ =
   DescribeMigrationTaskResponse'
-    {_dmtrsMigrationTask = Nothing, _dmtrsResponseStatus = pResponseStatus_}
-
+    { migrationTask =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Object encapsulating information about the migration task.
-dmtrsMigrationTask :: Lens' DescribeMigrationTaskResponse (Maybe MigrationTask)
-dmtrsMigrationTask = lens _dmtrsMigrationTask (\ s a -> s{_dmtrsMigrationTask = a})
+describeMigrationTaskResponse_migrationTask :: Lens.Lens' DescribeMigrationTaskResponse (Prelude.Maybe MigrationTask)
+describeMigrationTaskResponse_migrationTask = Lens.lens (\DescribeMigrationTaskResponse' {migrationTask} -> migrationTask) (\s@DescribeMigrationTaskResponse' {} a -> s {migrationTask = a} :: DescribeMigrationTaskResponse)
 
--- | -- | The response status code.
-dmtrsResponseStatus :: Lens' DescribeMigrationTaskResponse Int
-dmtrsResponseStatus = lens _dmtrsResponseStatus (\ s a -> s{_dmtrsResponseStatus = a})
+-- | The response's http status code.
+describeMigrationTaskResponse_httpStatus :: Lens.Lens' DescribeMigrationTaskResponse Prelude.Int
+describeMigrationTaskResponse_httpStatus = Lens.lens (\DescribeMigrationTaskResponse' {httpStatus} -> httpStatus) (\s@DescribeMigrationTaskResponse' {} a -> s {httpStatus = a} :: DescribeMigrationTaskResponse)
 
-instance NFData DescribeMigrationTaskResponse where
+instance Prelude.NFData DescribeMigrationTaskResponse

@@ -1,126 +1,150 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PutJobFailureResult
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Represents the failure of a job as returned to the pipeline by a job worker. Only used for custom actions.
---
---
+-- Represents the failure of a job as returned to the pipeline by a job
+-- worker. Used for custom actions only.
 module Network.AWS.CodePipeline.PutJobFailureResult
-    (
-    -- * Creating a Request
-      putJobFailureResult
-    , PutJobFailureResult
+  ( -- * Creating a Request
+    PutJobFailureResult (..),
+    newPutJobFailureResult,
+
     -- * Request Lenses
-    , pjfrJobId
-    , pjfrFailureDetails
+    putJobFailureResult_jobId,
+    putJobFailureResult_failureDetails,
 
     -- * Destructuring the Response
-    , putJobFailureResultResponse
-    , PutJobFailureResultResponse
-    ) where
+    PutJobFailureResultResponse (..),
+    newPutJobFailureResultResponse,
+  )
+where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input of a PutJobFailureResult action.
+-- | Represents the input of a @PutJobFailureResult@ action.
 --
---
---
--- /See:/ 'putJobFailureResult' smart constructor.
+-- /See:/ 'newPutJobFailureResult' smart constructor.
 data PutJobFailureResult = PutJobFailureResult'
-  { _pjfrJobId          :: !Text
-  , _pjfrFailureDetails :: !FailureDetails
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique system-generated ID of the job that failed. This is the same
+    -- ID returned from @PollForJobs@.
+    jobId :: Prelude.Text,
+    -- | The details about the failure of a job.
+    failureDetails :: FailureDetails
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PutJobFailureResult' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutJobFailureResult' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'pjfrJobId' - The unique system-generated ID of the job that failed. This is the same ID returned from PollForJobs.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'pjfrFailureDetails' - The details about the failure of a job.
-putJobFailureResult
-    :: Text -- ^ 'pjfrJobId'
-    -> FailureDetails -- ^ 'pjfrFailureDetails'
-    -> PutJobFailureResult
-putJobFailureResult pJobId_ pFailureDetails_ =
+-- 'jobId', 'putJobFailureResult_jobId' - The unique system-generated ID of the job that failed. This is the same
+-- ID returned from @PollForJobs@.
+--
+-- 'failureDetails', 'putJobFailureResult_failureDetails' - The details about the failure of a job.
+newPutJobFailureResult ::
+  -- | 'jobId'
+  Prelude.Text ->
+  -- | 'failureDetails'
+  FailureDetails ->
+  PutJobFailureResult
+newPutJobFailureResult pJobId_ pFailureDetails_ =
   PutJobFailureResult'
-    {_pjfrJobId = pJobId_, _pjfrFailureDetails = pFailureDetails_}
+    { jobId = pJobId_,
+      failureDetails = pFailureDetails_
+    }
 
-
--- | The unique system-generated ID of the job that failed. This is the same ID returned from PollForJobs.
-pjfrJobId :: Lens' PutJobFailureResult Text
-pjfrJobId = lens _pjfrJobId (\ s a -> s{_pjfrJobId = a})
+-- | The unique system-generated ID of the job that failed. This is the same
+-- ID returned from @PollForJobs@.
+putJobFailureResult_jobId :: Lens.Lens' PutJobFailureResult Prelude.Text
+putJobFailureResult_jobId = Lens.lens (\PutJobFailureResult' {jobId} -> jobId) (\s@PutJobFailureResult' {} a -> s {jobId = a} :: PutJobFailureResult)
 
 -- | The details about the failure of a job.
-pjfrFailureDetails :: Lens' PutJobFailureResult FailureDetails
-pjfrFailureDetails = lens _pjfrFailureDetails (\ s a -> s{_pjfrFailureDetails = a})
+putJobFailureResult_failureDetails :: Lens.Lens' PutJobFailureResult FailureDetails
+putJobFailureResult_failureDetails = Lens.lens (\PutJobFailureResult' {failureDetails} -> failureDetails) (\s@PutJobFailureResult' {} a -> s {failureDetails = a} :: PutJobFailureResult)
 
-instance AWSRequest PutJobFailureResult where
-        type Rs PutJobFailureResult =
-             PutJobFailureResultResponse
-        request = postJSON codePipeline
-        response = receiveNull PutJobFailureResultResponse'
+instance Prelude.AWSRequest PutJobFailureResult where
+  type
+    Rs PutJobFailureResult =
+      PutJobFailureResultResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull PutJobFailureResultResponse'
 
-instance Hashable PutJobFailureResult where
+instance Prelude.Hashable PutJobFailureResult
 
-instance NFData PutJobFailureResult where
+instance Prelude.NFData PutJobFailureResult
 
-instance ToHeaders PutJobFailureResult where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodePipeline_20150709.PutJobFailureResult" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders PutJobFailureResult where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CodePipeline_20150709.PutJobFailureResult" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON PutJobFailureResult where
-        toJSON PutJobFailureResult'{..}
-          = object
-              (catMaybes
-                 [Just ("jobId" .= _pjfrJobId),
-                  Just ("failureDetails" .= _pjfrFailureDetails)])
+instance Prelude.ToJSON PutJobFailureResult where
+  toJSON PutJobFailureResult' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("jobId" Prelude..= jobId),
+            Prelude.Just
+              ("failureDetails" Prelude..= failureDetails)
+          ]
+      )
 
-instance ToPath PutJobFailureResult where
-        toPath = const "/"
+instance Prelude.ToPath PutJobFailureResult where
+  toPath = Prelude.const "/"
 
-instance ToQuery PutJobFailureResult where
-        toQuery = const mempty
+instance Prelude.ToQuery PutJobFailureResult where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'putJobFailureResultResponse' smart constructor.
-data PutJobFailureResultResponse =
-  PutJobFailureResultResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newPutJobFailureResultResponse' smart constructor.
+data PutJobFailureResultResponse = PutJobFailureResultResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PutJobFailureResultResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutJobFailureResultResponse' with all optional fields omitted.
 --
-putJobFailureResultResponse
-    :: PutJobFailureResultResponse
-putJobFailureResultResponse = PutJobFailureResultResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newPutJobFailureResultResponse ::
+  PutJobFailureResultResponse
+newPutJobFailureResultResponse =
+  PutJobFailureResultResponse'
 
-
-instance NFData PutJobFailureResultResponse where
+instance Prelude.NFData PutJobFailureResultResponse

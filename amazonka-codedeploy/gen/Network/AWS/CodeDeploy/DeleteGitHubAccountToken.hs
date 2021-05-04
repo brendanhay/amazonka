@@ -1,141 +1,167 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.DeleteGitHubAccountToken
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a GitHub account connection.
---
---
 module Network.AWS.CodeDeploy.DeleteGitHubAccountToken
-    (
-    -- * Creating a Request
-      deleteGitHubAccountToken
-    , DeleteGitHubAccountToken
+  ( -- * Creating a Request
+    DeleteGitHubAccountToken (..),
+    newDeleteGitHubAccountToken,
+
     -- * Request Lenses
-    , dghatTokenName
+    deleteGitHubAccountToken_tokenName,
 
     -- * Destructuring the Response
-    , deleteGitHubAccountTokenResponse
-    , DeleteGitHubAccountTokenResponse
+    DeleteGitHubAccountTokenResponse (..),
+    newDeleteGitHubAccountTokenResponse,
+
     -- * Response Lenses
-    , dghatrsTokenName
-    , dghatrsResponseStatus
-    ) where
+    deleteGitHubAccountTokenResponse_tokenName,
+    deleteGitHubAccountTokenResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input of a DeleteGitHubAccount operation.
+-- | Represents the input of a @DeleteGitHubAccount@ operation.
 --
---
---
--- /See:/ 'deleteGitHubAccountToken' smart constructor.
-newtype DeleteGitHubAccountToken = DeleteGitHubAccountToken'
-  { _dghatTokenName :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDeleteGitHubAccountToken' smart constructor.
+data DeleteGitHubAccountToken = DeleteGitHubAccountToken'
+  { -- | The name of the GitHub account connection to delete.
+    tokenName :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteGitHubAccountToken' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteGitHubAccountToken' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dghatTokenName' - The name of the GitHub account connection to delete.
-deleteGitHubAccountToken
-    :: DeleteGitHubAccountToken
-deleteGitHubAccountToken = DeleteGitHubAccountToken' {_dghatTokenName = Nothing}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tokenName', 'deleteGitHubAccountToken_tokenName' - The name of the GitHub account connection to delete.
+newDeleteGitHubAccountToken ::
+  DeleteGitHubAccountToken
+newDeleteGitHubAccountToken =
+  DeleteGitHubAccountToken'
+    { tokenName =
+        Prelude.Nothing
+    }
 
 -- | The name of the GitHub account connection to delete.
-dghatTokenName :: Lens' DeleteGitHubAccountToken (Maybe Text)
-dghatTokenName = lens _dghatTokenName (\ s a -> s{_dghatTokenName = a})
+deleteGitHubAccountToken_tokenName :: Lens.Lens' DeleteGitHubAccountToken (Prelude.Maybe Prelude.Text)
+deleteGitHubAccountToken_tokenName = Lens.lens (\DeleteGitHubAccountToken' {tokenName} -> tokenName) (\s@DeleteGitHubAccountToken' {} a -> s {tokenName = a} :: DeleteGitHubAccountToken)
 
-instance AWSRequest DeleteGitHubAccountToken where
-        type Rs DeleteGitHubAccountToken =
-             DeleteGitHubAccountTokenResponse
-        request = postJSON codeDeploy
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteGitHubAccountTokenResponse' <$>
-                   (x .?> "tokenName") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DeleteGitHubAccountToken where
+  type
+    Rs DeleteGitHubAccountToken =
+      DeleteGitHubAccountTokenResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteGitHubAccountTokenResponse'
+            Prelude.<$> (x Prelude..?> "tokenName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteGitHubAccountToken where
+instance Prelude.Hashable DeleteGitHubAccountToken
 
-instance NFData DeleteGitHubAccountToken where
+instance Prelude.NFData DeleteGitHubAccountToken
 
-instance ToHeaders DeleteGitHubAccountToken where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeDeploy_20141006.DeleteGitHubAccountToken" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DeleteGitHubAccountToken where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CodeDeploy_20141006.DeleteGitHubAccountToken" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DeleteGitHubAccountToken where
-        toJSON DeleteGitHubAccountToken'{..}
-          = object
-              (catMaybes [("tokenName" .=) <$> _dghatTokenName])
+instance Prelude.ToJSON DeleteGitHubAccountToken where
+  toJSON DeleteGitHubAccountToken' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [("tokenName" Prelude..=) Prelude.<$> tokenName]
+      )
 
-instance ToPath DeleteGitHubAccountToken where
-        toPath = const "/"
+instance Prelude.ToPath DeleteGitHubAccountToken where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteGitHubAccountToken where
-        toQuery = const mempty
+instance Prelude.ToQuery DeleteGitHubAccountToken where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Represents the output of a DeleteGitHubAccountToken operation.
+-- | Represents the output of a @DeleteGitHubAccountToken@ operation.
 --
---
---
--- /See:/ 'deleteGitHubAccountTokenResponse' smart constructor.
+-- /See:/ 'newDeleteGitHubAccountTokenResponse' smart constructor.
 data DeleteGitHubAccountTokenResponse = DeleteGitHubAccountTokenResponse'
-  { _dghatrsTokenName      :: !(Maybe Text)
-  , _dghatrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the GitHub account connection that was deleted.
+    tokenName :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteGitHubAccountTokenResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteGitHubAccountTokenResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dghatrsTokenName' - The name of the GitHub account connection that was deleted.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dghatrsResponseStatus' - -- | The response status code.
-deleteGitHubAccountTokenResponse
-    :: Int -- ^ 'dghatrsResponseStatus'
-    -> DeleteGitHubAccountTokenResponse
-deleteGitHubAccountTokenResponse pResponseStatus_ =
+-- 'tokenName', 'deleteGitHubAccountTokenResponse_tokenName' - The name of the GitHub account connection that was deleted.
+--
+-- 'httpStatus', 'deleteGitHubAccountTokenResponse_httpStatus' - The response's http status code.
+newDeleteGitHubAccountTokenResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteGitHubAccountTokenResponse
+newDeleteGitHubAccountTokenResponse pHttpStatus_ =
   DeleteGitHubAccountTokenResponse'
-    {_dghatrsTokenName = Nothing, _dghatrsResponseStatus = pResponseStatus_}
-
+    { tokenName =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The name of the GitHub account connection that was deleted.
-dghatrsTokenName :: Lens' DeleteGitHubAccountTokenResponse (Maybe Text)
-dghatrsTokenName = lens _dghatrsTokenName (\ s a -> s{_dghatrsTokenName = a})
+deleteGitHubAccountTokenResponse_tokenName :: Lens.Lens' DeleteGitHubAccountTokenResponse (Prelude.Maybe Prelude.Text)
+deleteGitHubAccountTokenResponse_tokenName = Lens.lens (\DeleteGitHubAccountTokenResponse' {tokenName} -> tokenName) (\s@DeleteGitHubAccountTokenResponse' {} a -> s {tokenName = a} :: DeleteGitHubAccountTokenResponse)
 
--- | -- | The response status code.
-dghatrsResponseStatus :: Lens' DeleteGitHubAccountTokenResponse Int
-dghatrsResponseStatus = lens _dghatrsResponseStatus (\ s a -> s{_dghatrsResponseStatus = a})
+-- | The response's http status code.
+deleteGitHubAccountTokenResponse_httpStatus :: Lens.Lens' DeleteGitHubAccountTokenResponse Prelude.Int
+deleteGitHubAccountTokenResponse_httpStatus = Lens.lens (\DeleteGitHubAccountTokenResponse' {httpStatus} -> httpStatus) (\s@DeleteGitHubAccountTokenResponse' {} a -> s {httpStatus = a} :: DeleteGitHubAccountTokenResponse)
 
-instance NFData DeleteGitHubAccountTokenResponse
-         where
+instance
+  Prelude.NFData
+    DeleteGitHubAccountTokenResponse

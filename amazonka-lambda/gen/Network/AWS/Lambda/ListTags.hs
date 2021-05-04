@@ -1,121 +1,142 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lambda.ListTags
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of tags assigned to a function when supplied the function ARN (Amazon Resource Name). For more information on Tagging, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
---
---
+-- Returns a function\'s
+-- <https://docs.aws.amazon.com/lambda/latest/dg/tagging.html tags>. You
+-- can also view tags with GetFunction.
 module Network.AWS.Lambda.ListTags
-    (
-    -- * Creating a Request
-      listTags
-    , ListTags
+  ( -- * Creating a Request
+    ListTags (..),
+    newListTags,
+
     -- * Request Lenses
-    , ltResource
+    listTags_resource,
 
     -- * Destructuring the Response
-    , listTagsResponse
-    , ListTagsResponse
+    ListTagsResponse (..),
+    newListTagsResponse,
+
     -- * Response Lenses
-    , ltrsTags
-    , ltrsResponseStatus
-    ) where
+    listTagsResponse_tags,
+    listTagsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listTags' smart constructor.
-newtype ListTags = ListTags'
-  { _ltResource :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newListTags' smart constructor.
+data ListTags = ListTags'
+  { -- | The function\'s Amazon Resource Name (ARN).
+    resource :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListTags' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListTags' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ltResource' - The ARN (Amazon Resource Name) of the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
-listTags
-    :: Text -- ^ 'ltResource'
-    -> ListTags
-listTags pResource_ = ListTags' {_ltResource = pResource_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'resource', 'listTags_resource' - The function\'s Amazon Resource Name (ARN).
+newListTags ::
+  -- | 'resource'
+  Prelude.Text ->
+  ListTags
+newListTags pResource_ =
+  ListTags' {resource = pResource_}
 
+-- | The function\'s Amazon Resource Name (ARN).
+listTags_resource :: Lens.Lens' ListTags Prelude.Text
+listTags_resource = Lens.lens (\ListTags' {resource} -> resource) (\s@ListTags' {} a -> s {resource = a} :: ListTags)
 
--- | The ARN (Amazon Resource Name) of the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
-ltResource :: Lens' ListTags Text
-ltResource = lens _ltResource (\ s a -> s{_ltResource = a})
+instance Prelude.AWSRequest ListTags where
+  type Rs ListTags = ListTagsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListTagsResponse'
+            Prelude.<$> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest ListTags where
-        type Rs ListTags = ListTagsResponse
-        request = get lambda
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListTagsResponse' <$>
-                   (x .?> "Tags" .!@ mempty) <*> (pure (fromEnum s)))
+instance Prelude.Hashable ListTags
 
-instance Hashable ListTags where
+instance Prelude.NFData ListTags
 
-instance NFData ListTags where
+instance Prelude.ToHeaders ListTags where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders ListTags where
-        toHeaders = const mempty
+instance Prelude.ToPath ListTags where
+  toPath ListTags' {..} =
+    Prelude.mconcat
+      ["/2017-03-31/tags/", Prelude.toBS resource]
 
-instance ToPath ListTags where
-        toPath ListTags'{..}
-          = mconcat ["/2017-03-31/tags/", toBS _ltResource]
+instance Prelude.ToQuery ListTags where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery ListTags where
-        toQuery = const mempty
-
--- | /See:/ 'listTagsResponse' smart constructor.
+-- | /See:/ 'newListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { _ltrsTags           :: !(Maybe (Map Text Text))
-  , _ltrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The function\'s tags.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListTagsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ltrsTags' - The list of tags assigned to the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ltrsResponseStatus' - -- | The response status code.
-listTagsResponse
-    :: Int -- ^ 'ltrsResponseStatus'
-    -> ListTagsResponse
-listTagsResponse pResponseStatus_ =
+-- 'tags', 'listTagsResponse_tags' - The function\'s tags.
+--
+-- 'httpStatus', 'listTagsResponse_httpStatus' - The response's http status code.
+newListTagsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListTagsResponse
+newListTagsResponse pHttpStatus_ =
   ListTagsResponse'
-    {_ltrsTags = Nothing, _ltrsResponseStatus = pResponseStatus_}
+    { tags = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The function\'s tags.
+listTagsResponse_tags :: Lens.Lens' ListTagsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listTagsResponse_tags = Lens.lens (\ListTagsResponse' {tags} -> tags) (\s@ListTagsResponse' {} a -> s {tags = a} :: ListTagsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The list of tags assigned to the function. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/tagging.html Tagging Lambda Functions> in the __AWS Lambda Developer Guide__ .
-ltrsTags :: Lens' ListTagsResponse (HashMap Text Text)
-ltrsTags = lens _ltrsTags (\ s a -> s{_ltrsTags = a}) . _Default . _Map
+-- | The response's http status code.
+listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
+listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> httpStatus) (\s@ListTagsResponse' {} a -> s {httpStatus = a} :: ListTagsResponse)
 
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListTagsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a})
-
-instance NFData ListTagsResponse where
+instance Prelude.NFData ListTagsResponse

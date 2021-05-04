@@ -10,8 +10,4 @@ actual generator code/logic changes.
 
 Generate all models:
 
-    $ make
-
-Update and generate all models:
-
-    $ make clean all
+    $ nix-build generate.nix

@@ -1,115 +1,169 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.DeactivateMFADevice
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deactivates the specified MFA device and removes it from association with the user name for which it was originally enabled.
+-- Deactivates the specified MFA device and removes it from association
+-- with the user name for which it was originally enabled.
 --
---
--- For more information about creating and working with virtual MFA devices, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device> in the /IAM User Guide/ .
---
+-- For more information about creating and working with virtual MFA
+-- devices, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Enabling a virtual multi-factor authentication (MFA) device>
+-- in the /IAM User Guide/.
 module Network.AWS.IAM.DeactivateMFADevice
-    (
-    -- * Creating a Request
-      deactivateMFADevice
-    , DeactivateMFADevice
+  ( -- * Creating a Request
+    DeactivateMFADevice (..),
+    newDeactivateMFADevice,
+
     -- * Request Lenses
-    , dmdUserName
-    , dmdSerialNumber
+    deactivateMFADevice_userName,
+    deactivateMFADevice_serialNumber,
 
     -- * Destructuring the Response
-    , deactivateMFADeviceResponse
-    , DeactivateMFADeviceResponse
-    ) where
+    DeactivateMFADeviceResponse (..),
+    newDeactivateMFADeviceResponse,
+  )
+where
 
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deactivateMFADevice' smart constructor.
+-- | /See:/ 'newDeactivateMFADevice' smart constructor.
 data DeactivateMFADevice = DeactivateMFADevice'
-  { _dmdUserName     :: !Text
-  , _dmdSerialNumber :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the user whose MFA device you want to deactivate.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
+    userName :: Prelude.Text,
+    -- | The serial number that uniquely identifies the MFA device. For virtual
+    -- MFA devices, the serial number is the device ARN.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: =,.\@:\/-
+    serialNumber :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeactivateMFADevice' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeactivateMFADevice' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmdUserName' - The name of the user whose MFA device you want to deactivate. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dmdSerialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
-deactivateMFADevice
-    :: Text -- ^ 'dmdUserName'
-    -> Text -- ^ 'dmdSerialNumber'
-    -> DeactivateMFADevice
-deactivateMFADevice pUserName_ pSerialNumber_ =
+-- 'userName', 'deactivateMFADevice_userName' - The name of the user whose MFA device you want to deactivate.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+--
+-- 'serialNumber', 'deactivateMFADevice_serialNumber' - The serial number that uniquely identifies the MFA device. For virtual
+-- MFA devices, the serial number is the device ARN.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: =,.\@:\/-
+newDeactivateMFADevice ::
+  -- | 'userName'
+  Prelude.Text ->
+  -- | 'serialNumber'
+  Prelude.Text ->
+  DeactivateMFADevice
+newDeactivateMFADevice pUserName_ pSerialNumber_ =
   DeactivateMFADevice'
-    {_dmdUserName = pUserName_, _dmdSerialNumber = pSerialNumber_}
+    { userName = pUserName_,
+      serialNumber = pSerialNumber_
+    }
 
-
--- | The name of the user whose MFA device you want to deactivate. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-dmdUserName :: Lens' DeactivateMFADevice Text
-dmdUserName = lens _dmdUserName (\ s a -> s{_dmdUserName = a})
-
--- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the device ARN. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
-dmdSerialNumber :: Lens' DeactivateMFADevice Text
-dmdSerialNumber = lens _dmdSerialNumber (\ s a -> s{_dmdSerialNumber = a})
-
-instance AWSRequest DeactivateMFADevice where
-        type Rs DeactivateMFADevice =
-             DeactivateMFADeviceResponse
-        request = postQuery iam
-        response = receiveNull DeactivateMFADeviceResponse'
-
-instance Hashable DeactivateMFADevice where
-
-instance NFData DeactivateMFADevice where
-
-instance ToHeaders DeactivateMFADevice where
-        toHeaders = const mempty
-
-instance ToPath DeactivateMFADevice where
-        toPath = const "/"
-
-instance ToQuery DeactivateMFADevice where
-        toQuery DeactivateMFADevice'{..}
-          = mconcat
-              ["Action" =: ("DeactivateMFADevice" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _dmdUserName,
-               "SerialNumber" =: _dmdSerialNumber]
-
--- | /See:/ 'deactivateMFADeviceResponse' smart constructor.
-data DeactivateMFADeviceResponse =
-  DeactivateMFADeviceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeactivateMFADeviceResponse' with the minimum fields required to make a request.
+-- | The name of the user whose MFA device you want to deactivate.
 --
-deactivateMFADeviceResponse
-    :: DeactivateMFADeviceResponse
-deactivateMFADeviceResponse = DeactivateMFADeviceResponse'
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+deactivateMFADevice_userName :: Lens.Lens' DeactivateMFADevice Prelude.Text
+deactivateMFADevice_userName = Lens.lens (\DeactivateMFADevice' {userName} -> userName) (\s@DeactivateMFADevice' {} a -> s {userName = a} :: DeactivateMFADevice)
 
+-- | The serial number that uniquely identifies the MFA device. For virtual
+-- MFA devices, the serial number is the device ARN.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: =,.\@:\/-
+deactivateMFADevice_serialNumber :: Lens.Lens' DeactivateMFADevice Prelude.Text
+deactivateMFADevice_serialNumber = Lens.lens (\DeactivateMFADevice' {serialNumber} -> serialNumber) (\s@DeactivateMFADevice' {} a -> s {serialNumber = a} :: DeactivateMFADevice)
 
-instance NFData DeactivateMFADeviceResponse where
+instance Prelude.AWSRequest DeactivateMFADevice where
+  type
+    Rs DeactivateMFADevice =
+      DeactivateMFADeviceResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull DeactivateMFADeviceResponse'
+
+instance Prelude.Hashable DeactivateMFADevice
+
+instance Prelude.NFData DeactivateMFADevice
+
+instance Prelude.ToHeaders DeactivateMFADevice where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath DeactivateMFADevice where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DeactivateMFADevice where
+  toQuery DeactivateMFADevice' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DeactivateMFADevice" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
+        "UserName" Prelude.=: userName,
+        "SerialNumber" Prelude.=: serialNumber
+      ]
+
+-- | /See:/ 'newDeactivateMFADeviceResponse' smart constructor.
+data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeactivateMFADeviceResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeactivateMFADeviceResponse ::
+  DeactivateMFADeviceResponse
+newDeactivateMFADeviceResponse =
+  DeactivateMFADeviceResponse'
+
+instance Prelude.NFData DeactivateMFADeviceResponse

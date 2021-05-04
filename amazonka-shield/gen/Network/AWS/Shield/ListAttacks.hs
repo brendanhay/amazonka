@@ -1,187 +1,321 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Shield.ListAttacks
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all ongoing DDoS attacks or all DDoS attacks during a specified time period.
+-- Returns all ongoing DDoS attacks or all DDoS attacks during a specified
+-- time period.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.Shield.ListAttacks
-    (
-    -- * Creating a Request
-      listAttacks
-    , ListAttacks
+  ( -- * Creating a Request
+    ListAttacks (..),
+    newListAttacks,
+
     -- * Request Lenses
-    , laStartTime
-    , laResourceARNs
-    , laNextToken
-    , laEndTime
-    , laMaxResults
+    listAttacks_nextToken,
+    listAttacks_maxResults,
+    listAttacks_startTime,
+    listAttacks_endTime,
+    listAttacks_resourceArns,
 
     -- * Destructuring the Response
-    , listAttacksResponse
-    , ListAttacksResponse
+    ListAttacksResponse (..),
+    newListAttacksResponse,
+
     -- * Response Lenses
-    , larsAttackSummaries
-    , larsNextToken
-    , larsResponseStatus
-    ) where
+    listAttacksResponse_nextToken,
+    listAttacksResponse_attackSummaries,
+    listAttacksResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
-import Network.AWS.Shield.Types.Product
 
--- | /See:/ 'listAttacks' smart constructor.
+-- | /See:/ 'newListAttacks' smart constructor.
 data ListAttacks = ListAttacks'
-  { _laStartTime    :: !(Maybe TimeRange)
-  , _laResourceARNs :: !(Maybe [Text])
-  , _laNextToken    :: !(Maybe Text)
-  , _laEndTime      :: !(Maybe TimeRange)
-  , _laMaxResults   :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @ListAttacksRequest.NextMarker@ value from a previous call to
+    -- @ListAttacksRequest@. Pass null if this is the first call.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of AttackSummary objects to return. If you leave this
+    -- blank, Shield Advanced returns the first 20 results.
+    --
+    -- This is a maximum value. Shield Advanced might return the results in
+    -- smaller batches. That is, the number of objects returned could be less
+    -- than @MaxResults@, even if there are still more objects yet to return.
+    -- If there are more objects to return, Shield Advanced returns a value in
+    -- @NextToken@ that you can use in your next request, to get the next batch
+    -- of objects.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The start of the time period for the attacks. This is a @timestamp@
+    -- type. The sample request above indicates a @number@ type because the
+    -- default used by WAF is Unix time in seconds. However any valid
+    -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
+    -- is allowed.
+    startTime :: Prelude.Maybe TimeRange,
+    -- | The end of the time period for the attacks. This is a @timestamp@ type.
+    -- The sample request above indicates a @number@ type because the default
+    -- used by WAF is Unix time in seconds. However any valid
+    -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
+    -- is allowed.
+    endTime :: Prelude.Maybe TimeRange,
+    -- | The ARN (Amazon Resource Name) of the resource that was attacked. If
+    -- this is left blank, all applicable resources for this account will be
+    -- included.
+    resourceArns :: Prelude.Maybe [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListAttacks' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListAttacks' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'laStartTime' - The start of the time period for the attacks. This is a @timestamp@ type. The sample request above indicates a @number@ type because the default used by WAF is Unix time in seconds. However any valid <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format> is allowed.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'laResourceARNs' - The ARN (Amazon Resource Name) of the resource that was attacked. If this is left blank, all applicable resources for this account will be included.
+-- 'nextToken', 'listAttacks_nextToken' - The @ListAttacksRequest.NextMarker@ value from a previous call to
+-- @ListAttacksRequest@. Pass null if this is the first call.
 --
--- * 'laNextToken' - The @ListAttacksRequest.NextMarker@ value from a previous call to @ListAttacksRequest@ . Pass null if this is the first call.
+-- 'maxResults', 'listAttacks_maxResults' - The maximum number of AttackSummary objects to return. If you leave this
+-- blank, Shield Advanced returns the first 20 results.
 --
--- * 'laEndTime' - The end of the time period for the attacks. This is a @timestamp@ type. The sample request above indicates a @number@ type because the default used by WAF is Unix time in seconds. However any valid <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format> is allowed.
+-- This is a maximum value. Shield Advanced might return the results in
+-- smaller batches. That is, the number of objects returned could be less
+-- than @MaxResults@, even if there are still more objects yet to return.
+-- If there are more objects to return, Shield Advanced returns a value in
+-- @NextToken@ that you can use in your next request, to get the next batch
+-- of objects.
 --
--- * 'laMaxResults' - The maximum number of 'AttackSummary' objects to be returned. If this is left blank, the first 20 results will be returned.
-listAttacks
-    :: ListAttacks
-listAttacks =
+-- 'startTime', 'listAttacks_startTime' - The start of the time period for the attacks. This is a @timestamp@
+-- type. The sample request above indicates a @number@ type because the
+-- default used by WAF is Unix time in seconds. However any valid
+-- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
+-- is allowed.
+--
+-- 'endTime', 'listAttacks_endTime' - The end of the time period for the attacks. This is a @timestamp@ type.
+-- The sample request above indicates a @number@ type because the default
+-- used by WAF is Unix time in seconds. However any valid
+-- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
+-- is allowed.
+--
+-- 'resourceArns', 'listAttacks_resourceArns' - The ARN (Amazon Resource Name) of the resource that was attacked. If
+-- this is left blank, all applicable resources for this account will be
+-- included.
+newListAttacks ::
+  ListAttacks
+newListAttacks =
   ListAttacks'
-    { _laStartTime = Nothing
-    , _laResourceARNs = Nothing
-    , _laNextToken = Nothing
-    , _laEndTime = Nothing
-    , _laMaxResults = Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      startTime = Prelude.Nothing,
+      endTime = Prelude.Nothing,
+      resourceArns = Prelude.Nothing
     }
 
+-- | The @ListAttacksRequest.NextMarker@ value from a previous call to
+-- @ListAttacksRequest@. Pass null if this is the first call.
+listAttacks_nextToken :: Lens.Lens' ListAttacks (Prelude.Maybe Prelude.Text)
+listAttacks_nextToken = Lens.lens (\ListAttacks' {nextToken} -> nextToken) (\s@ListAttacks' {} a -> s {nextToken = a} :: ListAttacks)
 
--- | The start of the time period for the attacks. This is a @timestamp@ type. The sample request above indicates a @number@ type because the default used by WAF is Unix time in seconds. However any valid <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format> is allowed.
-laStartTime :: Lens' ListAttacks (Maybe TimeRange)
-laStartTime = lens _laStartTime (\ s a -> s{_laStartTime = a})
+-- | The maximum number of AttackSummary objects to return. If you leave this
+-- blank, Shield Advanced returns the first 20 results.
+--
+-- This is a maximum value. Shield Advanced might return the results in
+-- smaller batches. That is, the number of objects returned could be less
+-- than @MaxResults@, even if there are still more objects yet to return.
+-- If there are more objects to return, Shield Advanced returns a value in
+-- @NextToken@ that you can use in your next request, to get the next batch
+-- of objects.
+listAttacks_maxResults :: Lens.Lens' ListAttacks (Prelude.Maybe Prelude.Natural)
+listAttacks_maxResults = Lens.lens (\ListAttacks' {maxResults} -> maxResults) (\s@ListAttacks' {} a -> s {maxResults = a} :: ListAttacks)
 
--- | The ARN (Amazon Resource Name) of the resource that was attacked. If this is left blank, all applicable resources for this account will be included.
-laResourceARNs :: Lens' ListAttacks [Text]
-laResourceARNs = lens _laResourceARNs (\ s a -> s{_laResourceARNs = a}) . _Default . _Coerce
+-- | The start of the time period for the attacks. This is a @timestamp@
+-- type. The sample request above indicates a @number@ type because the
+-- default used by WAF is Unix time in seconds. However any valid
+-- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
+-- is allowed.
+listAttacks_startTime :: Lens.Lens' ListAttacks (Prelude.Maybe TimeRange)
+listAttacks_startTime = Lens.lens (\ListAttacks' {startTime} -> startTime) (\s@ListAttacks' {} a -> s {startTime = a} :: ListAttacks)
 
--- | The @ListAttacksRequest.NextMarker@ value from a previous call to @ListAttacksRequest@ . Pass null if this is the first call.
-laNextToken :: Lens' ListAttacks (Maybe Text)
-laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a})
+-- | The end of the time period for the attacks. This is a @timestamp@ type.
+-- The sample request above indicates a @number@ type because the default
+-- used by WAF is Unix time in seconds. However any valid
+-- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
+-- is allowed.
+listAttacks_endTime :: Lens.Lens' ListAttacks (Prelude.Maybe TimeRange)
+listAttacks_endTime = Lens.lens (\ListAttacks' {endTime} -> endTime) (\s@ListAttacks' {} a -> s {endTime = a} :: ListAttacks)
 
--- | The end of the time period for the attacks. This is a @timestamp@ type. The sample request above indicates a @number@ type because the default used by WAF is Unix time in seconds. However any valid <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format> is allowed.
-laEndTime :: Lens' ListAttacks (Maybe TimeRange)
-laEndTime = lens _laEndTime (\ s a -> s{_laEndTime = a})
+-- | The ARN (Amazon Resource Name) of the resource that was attacked. If
+-- this is left blank, all applicable resources for this account will be
+-- included.
+listAttacks_resourceArns :: Lens.Lens' ListAttacks (Prelude.Maybe [Prelude.Text])
+listAttacks_resourceArns = Lens.lens (\ListAttacks' {resourceArns} -> resourceArns) (\s@ListAttacks' {} a -> s {resourceArns = a} :: ListAttacks) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The maximum number of 'AttackSummary' objects to be returned. If this is left blank, the first 20 results will be returned.
-laMaxResults :: Lens' ListAttacks (Maybe Natural)
-laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat
+instance Pager.AWSPager ListAttacks where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listAttacksResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listAttacksResponse_attackSummaries
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listAttacks_nextToken
+          Lens..~ rs
+          Lens.^? listAttacksResponse_nextToken Prelude.. Lens._Just
 
-instance AWSRequest ListAttacks where
-        type Rs ListAttacks = ListAttacksResponse
-        request = postJSON shield
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListAttacksResponse' <$>
-                   (x .?> "AttackSummaries" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest ListAttacks where
+  type Rs ListAttacks = ListAttacksResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListAttacksResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> ( x Prelude..?> "AttackSummaries"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListAttacks where
+instance Prelude.Hashable ListAttacks
 
-instance NFData ListAttacks where
+instance Prelude.NFData ListAttacks
 
-instance ToHeaders ListAttacks where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSShield_20160616.ListAttacks" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders ListAttacks where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSShield_20160616.ListAttacks" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON ListAttacks where
-        toJSON ListAttacks'{..}
-          = object
-              (catMaybes
-                 [("StartTime" .=) <$> _laStartTime,
-                  ("ResourceArns" .=) <$> _laResourceARNs,
-                  ("NextToken" .=) <$> _laNextToken,
-                  ("EndTime" .=) <$> _laEndTime,
-                  ("MaxResults" .=) <$> _laMaxResults])
+instance Prelude.ToJSON ListAttacks where
+  toJSON ListAttacks' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
+            ("StartTime" Prelude..=) Prelude.<$> startTime,
+            ("EndTime" Prelude..=) Prelude.<$> endTime,
+            ("ResourceArns" Prelude..=)
+              Prelude.<$> resourceArns
+          ]
+      )
 
-instance ToPath ListAttacks where
-        toPath = const "/"
+instance Prelude.ToPath ListAttacks where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListAttacks where
-        toQuery = const mempty
+instance Prelude.ToQuery ListAttacks where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'listAttacksResponse' smart constructor.
+-- | /See:/ 'newListAttacksResponse' smart constructor.
 data ListAttacksResponse = ListAttacksResponse'
-  { _larsAttackSummaries :: !(Maybe [AttackSummary])
-  , _larsNextToken       :: !(Maybe Text)
-  , _larsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token returned by a previous call to indicate that there is more
+    -- data available. If not null, more results are available. Pass this value
+    -- for the @NextMarker@ parameter in a subsequent call to @ListAttacks@ to
+    -- retrieve the next set of items.
+    --
+    -- Shield Advanced might return the list of AttackSummary objects in
+    -- batches smaller than the number specified by MaxResults. If there are
+    -- more attack summary objects to return, Shield Advanced will always also
+    -- return a @NextToken@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The attack information for the specified time range.
+    attackSummaries :: Prelude.Maybe [AttackSummary],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListAttacksResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListAttacksResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'larsAttackSummaries' - The attack information for the specified time range.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'larsNextToken' - The token returned by a previous call to indicate that there is more data available. If not null, more results are available. Pass this value for the @NextMarker@ parameter in a subsequent call to @ListAttacks@ to retrieve the next set of items.
+-- 'nextToken', 'listAttacksResponse_nextToken' - The token returned by a previous call to indicate that there is more
+-- data available. If not null, more results are available. Pass this value
+-- for the @NextMarker@ parameter in a subsequent call to @ListAttacks@ to
+-- retrieve the next set of items.
 --
--- * 'larsResponseStatus' - -- | The response status code.
-listAttacksResponse
-    :: Int -- ^ 'larsResponseStatus'
-    -> ListAttacksResponse
-listAttacksResponse pResponseStatus_ =
+-- Shield Advanced might return the list of AttackSummary objects in
+-- batches smaller than the number specified by MaxResults. If there are
+-- more attack summary objects to return, Shield Advanced will always also
+-- return a @NextToken@.
+--
+-- 'attackSummaries', 'listAttacksResponse_attackSummaries' - The attack information for the specified time range.
+--
+-- 'httpStatus', 'listAttacksResponse_httpStatus' - The response's http status code.
+newListAttacksResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListAttacksResponse
+newListAttacksResponse pHttpStatus_ =
   ListAttacksResponse'
-    { _larsAttackSummaries = Nothing
-    , _larsNextToken = Nothing
-    , _larsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      attackSummaries = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The token returned by a previous call to indicate that there is more
+-- data available. If not null, more results are available. Pass this value
+-- for the @NextMarker@ parameter in a subsequent call to @ListAttacks@ to
+-- retrieve the next set of items.
+--
+-- Shield Advanced might return the list of AttackSummary objects in
+-- batches smaller than the number specified by MaxResults. If there are
+-- more attack summary objects to return, Shield Advanced will always also
+-- return a @NextToken@.
+listAttacksResponse_nextToken :: Lens.Lens' ListAttacksResponse (Prelude.Maybe Prelude.Text)
+listAttacksResponse_nextToken = Lens.lens (\ListAttacksResponse' {nextToken} -> nextToken) (\s@ListAttacksResponse' {} a -> s {nextToken = a} :: ListAttacksResponse)
 
 -- | The attack information for the specified time range.
-larsAttackSummaries :: Lens' ListAttacksResponse [AttackSummary]
-larsAttackSummaries = lens _larsAttackSummaries (\ s a -> s{_larsAttackSummaries = a}) . _Default . _Coerce
+listAttacksResponse_attackSummaries :: Lens.Lens' ListAttacksResponse (Prelude.Maybe [AttackSummary])
+listAttacksResponse_attackSummaries = Lens.lens (\ListAttacksResponse' {attackSummaries} -> attackSummaries) (\s@ListAttacksResponse' {} a -> s {attackSummaries = a} :: ListAttacksResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The token returned by a previous call to indicate that there is more data available. If not null, more results are available. Pass this value for the @NextMarker@ parameter in a subsequent call to @ListAttacks@ to retrieve the next set of items.
-larsNextToken :: Lens' ListAttacksResponse (Maybe Text)
-larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a})
+-- | The response's http status code.
+listAttacksResponse_httpStatus :: Lens.Lens' ListAttacksResponse Prelude.Int
+listAttacksResponse_httpStatus = Lens.lens (\ListAttacksResponse' {httpStatus} -> httpStatus) (\s@ListAttacksResponse' {} a -> s {httpStatus = a} :: ListAttacksResponse)
 
--- | -- | The response status code.
-larsResponseStatus :: Lens' ListAttacksResponse Int
-larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a})
-
-instance NFData ListAttacksResponse where
+instance Prelude.NFData ListAttacksResponse

@@ -1,190 +1,311 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Discovery.ListConfigurations
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a list of configuration items according to criteria that you specify in a filter. The filter criteria identifies the relationship requirements.
+-- Retrieves a list of configuration items as specified by the value passed
+-- to the required parameter @configurationType@. Optional filtering may be
+-- applied to refine search results.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.Discovery.ListConfigurations
-    (
-    -- * Creating a Request
-      listConfigurations
-    , ListConfigurations
+  ( -- * Creating a Request
+    ListConfigurations (..),
+    newListConfigurations,
+
     -- * Request Lenses
-    , lcOrderBy
-    , lcFilters
-    , lcNextToken
-    , lcMaxResults
-    , lcConfigurationType
+    listConfigurations_nextToken,
+    listConfigurations_maxResults,
+    listConfigurations_orderBy,
+    listConfigurations_filters,
+    listConfigurations_configurationType,
 
     -- * Destructuring the Response
-    , listConfigurationsResponse
-    , ListConfigurationsResponse
+    ListConfigurationsResponse (..),
+    newListConfigurationsResponse,
+
     -- * Response Lenses
-    , lcrsConfigurations
-    , lcrsNextToken
-    , lcrsResponseStatus
-    ) where
+    listConfigurationsResponse_nextToken,
+    listConfigurationsResponse_configurations,
+    listConfigurationsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Discovery.Types
-import Network.AWS.Discovery.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listConfigurations' smart constructor.
+-- | /See:/ 'newListConfigurations' smart constructor.
 data ListConfigurations = ListConfigurations'
-  { _lcOrderBy           :: !(Maybe [OrderByElement])
-  , _lcFilters           :: !(Maybe [Filter])
-  , _lcNextToken         :: !(Maybe Text)
-  , _lcMaxResults        :: !(Maybe Int)
-  , _lcConfigurationType :: !ConfigurationItemType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Token to retrieve the next set of results. For example, if a previous
+    -- call to ListConfigurations returned 100 items, but you set
+    -- @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10
+    -- results along with a token. Use that token in this query to get the next
+    -- set of 10.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The total number of items to return. The maximum value is 100.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | Certain filter criteria return output that can be sorted in ascending or
+    -- descending order. For a list of output characteristics for each filter,
+    -- see
+    -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
+    -- in the /AWS Application Discovery Service User Guide/.
+    orderBy :: Prelude.Maybe [OrderByElement],
+    -- | You can filter the request using various logical operators and a
+    -- /key/-/value/ format. For example:
+    --
+    -- @{\"key\": \"serverType\", \"value\": \"webServer\"}@
+    --
+    -- For a complete list of filter options and guidance about using them with
+    -- this action, see
+    -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
+    -- in the /AWS Application Discovery Service User Guide/.
+    filters :: Prelude.Maybe [Filter],
+    -- | A valid configuration identified by Application Discovery Service.
+    configurationType :: ConfigurationItemType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListConfigurations' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListConfigurations' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lcOrderBy' - Certain filter criteria return output that can be sorted in ascending or descending order. For a list of output characteristics for each filter, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action> .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lcFilters' - You can filter the request using various logical operators and a /key/ -/value/ format. For example:  @{"key": "serverType", "value": "webServer"}@  For a complete list of filter options and guidance about using them with this action, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#ListConfigurations Querying Discovered Configuration Items> .
+-- 'nextToken', 'listConfigurations_nextToken' - Token to retrieve the next set of results. For example, if a previous
+-- call to ListConfigurations returned 100 items, but you set
+-- @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10
+-- results along with a token. Use that token in this query to get the next
+-- set of 10.
 --
--- * 'lcNextToken' - Token to retrieve the next set of results. For example, if a previous call to ListConfigurations returned 100 items, but you set @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
+-- 'maxResults', 'listConfigurations_maxResults' - The total number of items to return. The maximum value is 100.
 --
--- * 'lcMaxResults' - The total number of items to return. The maximum value is 100.
+-- 'orderBy', 'listConfigurations_orderBy' - Certain filter criteria return output that can be sorted in ascending or
+-- descending order. For a list of output characteristics for each filter,
+-- see
+-- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
+-- in the /AWS Application Discovery Service User Guide/.
 --
--- * 'lcConfigurationType' - A valid configuration identified by Application Discovery Service.
-listConfigurations
-    :: ConfigurationItemType -- ^ 'lcConfigurationType'
-    -> ListConfigurations
-listConfigurations pConfigurationType_ =
+-- 'filters', 'listConfigurations_filters' - You can filter the request using various logical operators and a
+-- /key/-/value/ format. For example:
+--
+-- @{\"key\": \"serverType\", \"value\": \"webServer\"}@
+--
+-- For a complete list of filter options and guidance about using them with
+-- this action, see
+-- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
+-- in the /AWS Application Discovery Service User Guide/.
+--
+-- 'configurationType', 'listConfigurations_configurationType' - A valid configuration identified by Application Discovery Service.
+newListConfigurations ::
+  -- | 'configurationType'
+  ConfigurationItemType ->
+  ListConfigurations
+newListConfigurations pConfigurationType_ =
   ListConfigurations'
-    { _lcOrderBy = Nothing
-    , _lcFilters = Nothing
-    , _lcNextToken = Nothing
-    , _lcMaxResults = Nothing
-    , _lcConfigurationType = pConfigurationType_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      orderBy = Prelude.Nothing,
+      filters = Prelude.Nothing,
+      configurationType = pConfigurationType_
     }
 
-
--- | Certain filter criteria return output that can be sorted in ascending or descending order. For a list of output characteristics for each filter, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action> .
-lcOrderBy :: Lens' ListConfigurations [OrderByElement]
-lcOrderBy = lens _lcOrderBy (\ s a -> s{_lcOrderBy = a}) . _Default . _Coerce
-
--- | You can filter the request using various logical operators and a /key/ -/value/ format. For example:  @{"key": "serverType", "value": "webServer"}@  For a complete list of filter options and guidance about using them with this action, see <http://docs.aws.amazon.com/application-discovery/latest/APIReference/discovery-api-queries.html#ListConfigurations Querying Discovered Configuration Items> .
-lcFilters :: Lens' ListConfigurations [Filter]
-lcFilters = lens _lcFilters (\ s a -> s{_lcFilters = a}) . _Default . _Coerce
-
--- | Token to retrieve the next set of results. For example, if a previous call to ListConfigurations returned 100 items, but you set @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
-lcNextToken :: Lens' ListConfigurations (Maybe Text)
-lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a})
+-- | Token to retrieve the next set of results. For example, if a previous
+-- call to ListConfigurations returned 100 items, but you set
+-- @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10
+-- results along with a token. Use that token in this query to get the next
+-- set of 10.
+listConfigurations_nextToken :: Lens.Lens' ListConfigurations (Prelude.Maybe Prelude.Text)
+listConfigurations_nextToken = Lens.lens (\ListConfigurations' {nextToken} -> nextToken) (\s@ListConfigurations' {} a -> s {nextToken = a} :: ListConfigurations)
 
 -- | The total number of items to return. The maximum value is 100.
-lcMaxResults :: Lens' ListConfigurations (Maybe Int)
-lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a})
+listConfigurations_maxResults :: Lens.Lens' ListConfigurations (Prelude.Maybe Prelude.Int)
+listConfigurations_maxResults = Lens.lens (\ListConfigurations' {maxResults} -> maxResults) (\s@ListConfigurations' {} a -> s {maxResults = a} :: ListConfigurations)
+
+-- | Certain filter criteria return output that can be sorted in ascending or
+-- descending order. For a list of output characteristics for each filter,
+-- see
+-- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
+-- in the /AWS Application Discovery Service User Guide/.
+listConfigurations_orderBy :: Lens.Lens' ListConfigurations (Prelude.Maybe [OrderByElement])
+listConfigurations_orderBy = Lens.lens (\ListConfigurations' {orderBy} -> orderBy) (\s@ListConfigurations' {} a -> s {orderBy = a} :: ListConfigurations) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | You can filter the request using various logical operators and a
+-- /key/-/value/ format. For example:
+--
+-- @{\"key\": \"serverType\", \"value\": \"webServer\"}@
+--
+-- For a complete list of filter options and guidance about using them with
+-- this action, see
+-- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
+-- in the /AWS Application Discovery Service User Guide/.
+listConfigurations_filters :: Lens.Lens' ListConfigurations (Prelude.Maybe [Filter])
+listConfigurations_filters = Lens.lens (\ListConfigurations' {filters} -> filters) (\s@ListConfigurations' {} a -> s {filters = a} :: ListConfigurations) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | A valid configuration identified by Application Discovery Service.
-lcConfigurationType :: Lens' ListConfigurations ConfigurationItemType
-lcConfigurationType = lens _lcConfigurationType (\ s a -> s{_lcConfigurationType = a})
+listConfigurations_configurationType :: Lens.Lens' ListConfigurations ConfigurationItemType
+listConfigurations_configurationType = Lens.lens (\ListConfigurations' {configurationType} -> configurationType) (\s@ListConfigurations' {} a -> s {configurationType = a} :: ListConfigurations)
 
-instance AWSRequest ListConfigurations where
-        type Rs ListConfigurations =
-             ListConfigurationsResponse
-        request = postJSON discovery
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListConfigurationsResponse' <$>
-                   (x .?> "configurations" .!@ mempty) <*>
-                     (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+instance Pager.AWSPager ListConfigurations where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listConfigurationsResponse_configurations
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listConfigurations_nextToken
+          Lens..~ rs
+          Lens.^? listConfigurationsResponse_nextToken
+            Prelude.. Lens._Just
 
-instance Hashable ListConfigurations where
+instance Prelude.AWSRequest ListConfigurations where
+  type
+    Rs ListConfigurations =
+      ListConfigurationsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListConfigurationsResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> ( x Prelude..?> "configurations"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData ListConfigurations where
+instance Prelude.Hashable ListConfigurations
 
-instance ToHeaders ListConfigurations where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSPoseidonService_V2015_11_01.ListConfigurations"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData ListConfigurations
 
-instance ToJSON ListConfigurations where
-        toJSON ListConfigurations'{..}
-          = object
-              (catMaybes
-                 [("orderBy" .=) <$> _lcOrderBy,
-                  ("filters" .=) <$> _lcFilters,
-                  ("nextToken" .=) <$> _lcNextToken,
-                  ("maxResults" .=) <$> _lcMaxResults,
-                  Just ("configurationType" .= _lcConfigurationType)])
+instance Prelude.ToHeaders ListConfigurations where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSPoseidonService_V2015_11_01.ListConfigurations" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToPath ListConfigurations where
-        toPath = const "/"
+instance Prelude.ToJSON ListConfigurations where
+  toJSON ListConfigurations' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
+            ("maxResults" Prelude..=) Prelude.<$> maxResults,
+            ("orderBy" Prelude..=) Prelude.<$> orderBy,
+            ("filters" Prelude..=) Prelude.<$> filters,
+            Prelude.Just
+              ("configurationType" Prelude..= configurationType)
+          ]
+      )
 
-instance ToQuery ListConfigurations where
-        toQuery = const mempty
+instance Prelude.ToPath ListConfigurations where
+  toPath = Prelude.const "/"
 
--- | /See:/ 'listConfigurationsResponse' smart constructor.
+instance Prelude.ToQuery ListConfigurations where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListConfigurationsResponse' smart constructor.
 data ListConfigurationsResponse = ListConfigurationsResponse'
-  { _lcrsConfigurations :: !(Maybe [Map Text Text])
-  , _lcrsNextToken      :: !(Maybe Text)
-  , _lcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Token to retrieve the next set of results. For example, if your call to
+    -- ListConfigurations returned 100 items, but you set
+    -- @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10
+    -- results along with this token. Use this token in the next query to
+    -- retrieve the next set of 10.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns configuration details, including the configuration ID, attribute
+    -- names, and attribute values.
+    configurations :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListConfigurationsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListConfigurationsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lcrsConfigurations' - Returns configuration details, including the configuration ID, attribute names, and attribute values.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lcrsNextToken' - Token to retrieve the next set of results. For example, if your call to ListConfigurations returned 100 items, but you set @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
+-- 'nextToken', 'listConfigurationsResponse_nextToken' - Token to retrieve the next set of results. For example, if your call to
+-- ListConfigurations returned 100 items, but you set
+-- @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10
+-- results along with this token. Use this token in the next query to
+-- retrieve the next set of 10.
 --
--- * 'lcrsResponseStatus' - -- | The response status code.
-listConfigurationsResponse
-    :: Int -- ^ 'lcrsResponseStatus'
-    -> ListConfigurationsResponse
-listConfigurationsResponse pResponseStatus_ =
+-- 'configurations', 'listConfigurationsResponse_configurations' - Returns configuration details, including the configuration ID, attribute
+-- names, and attribute values.
+--
+-- 'httpStatus', 'listConfigurationsResponse_httpStatus' - The response's http status code.
+newListConfigurationsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListConfigurationsResponse
+newListConfigurationsResponse pHttpStatus_ =
   ListConfigurationsResponse'
-    { _lcrsConfigurations = Nothing
-    , _lcrsNextToken = Nothing
-    , _lcrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      configurations = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | Token to retrieve the next set of results. For example, if your call to
+-- ListConfigurations returned 100 items, but you set
+-- @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10
+-- results along with this token. Use this token in the next query to
+-- retrieve the next set of 10.
+listConfigurationsResponse_nextToken :: Lens.Lens' ListConfigurationsResponse (Prelude.Maybe Prelude.Text)
+listConfigurationsResponse_nextToken = Lens.lens (\ListConfigurationsResponse' {nextToken} -> nextToken) (\s@ListConfigurationsResponse' {} a -> s {nextToken = a} :: ListConfigurationsResponse)
 
--- | Returns configuration details, including the configuration ID, attribute names, and attribute values.
-lcrsConfigurations :: Lens' ListConfigurationsResponse [HashMap Text Text]
-lcrsConfigurations = lens _lcrsConfigurations (\ s a -> s{_lcrsConfigurations = a}) . _Default . _Coerce
+-- | Returns configuration details, including the configuration ID, attribute
+-- names, and attribute values.
+listConfigurationsResponse_configurations :: Lens.Lens' ListConfigurationsResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
+listConfigurationsResponse_configurations = Lens.lens (\ListConfigurationsResponse' {configurations} -> configurations) (\s@ListConfigurationsResponse' {} a -> s {configurations = a} :: ListConfigurationsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | Token to retrieve the next set of results. For example, if your call to ListConfigurations returned 100 items, but you set @ListConfigurationsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
-lcrsNextToken :: Lens' ListConfigurationsResponse (Maybe Text)
-lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a})
+-- | The response's http status code.
+listConfigurationsResponse_httpStatus :: Lens.Lens' ListConfigurationsResponse Prelude.Int
+listConfigurationsResponse_httpStatus = Lens.lens (\ListConfigurationsResponse' {httpStatus} -> httpStatus) (\s@ListConfigurationsResponse' {} a -> s {httpStatus = a} :: ListConfigurationsResponse)
 
--- | -- | The response status code.
-lcrsResponseStatus :: Lens' ListConfigurationsResponse Int
-lcrsResponseStatus = lens _lcrsResponseStatus (\ s a -> s{_lcrsResponseStatus = a})
-
-instance NFData ListConfigurationsResponse where
+instance Prelude.NFData ListConfigurationsResponse

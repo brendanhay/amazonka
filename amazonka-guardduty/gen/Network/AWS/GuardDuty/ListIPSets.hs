@@ -1,170 +1,223 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GuardDuty.ListIPSets
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the IPSets of the GuardDuty service specified by the detector ID.
+-- If you use this operation from a member account, the IPSets returned are
+-- the IPSets from the associated administrator account.
 --
 -- This operation returns paginated results.
 module Network.AWS.GuardDuty.ListIPSets
-    (
-    -- * Creating a Request
-      listIPSets
-    , ListIPSets
+  ( -- * Creating a Request
+    ListIPSets (..),
+    newListIPSets,
+
     -- * Request Lenses
-    , lisNextToken
-    , lisMaxResults
-    , lisDetectorId
+    listIPSets_nextToken,
+    listIPSets_maxResults,
+    listIPSets_detectorId,
 
     -- * Destructuring the Response
-    , listIPSetsResponse
-    , ListIPSetsResponse
+    ListIPSetsResponse (..),
+    newListIPSetsResponse,
+
     -- * Response Lenses
-    , lisrsNextToken
-    , lisrsIPSetIds
-    , lisrsResponseStatus
-    ) where
+    listIPSetsResponse_nextToken,
+    listIPSetsResponse_httpStatus,
+    listIPSetsResponse_ipSetIds,
+  )
+where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.GuardDuty.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listIPSets' smart constructor.
+-- | /See:/ 'newListIPSets' smart constructor.
 data ListIPSets = ListIPSets'
-  { _lisNextToken  :: !(Maybe Text)
-  , _lisMaxResults :: !(Maybe Nat)
-  , _lisDetectorId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | You can use this parameter when paginating results. Set the value of
+    -- this parameter to null on your first call to the list action. For
+    -- subsequent calls to the action, fill nextToken in the request with the
+    -- value of NextToken from the previous response to continue listing data.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | You can use this parameter to indicate the maximum number of items you
+    -- want in the response. The default value is 50. The maximum value is 50.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The unique ID of the detector that the IPSet is associated with.
+    detectorId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListIPSets' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListIPSets' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lisNextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListIPSet action. For subsequent calls to the action fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lisMaxResults' - You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 7. The maximum value is 7.
+-- 'nextToken', 'listIPSets_nextToken' - You can use this parameter when paginating results. Set the value of
+-- this parameter to null on your first call to the list action. For
+-- subsequent calls to the action, fill nextToken in the request with the
+-- value of NextToken from the previous response to continue listing data.
 --
--- * 'lisDetectorId' - The unique ID of the detector that you want to retrieve.
-listIPSets
-    :: Text -- ^ 'lisDetectorId'
-    -> ListIPSets
-listIPSets pDetectorId_ =
+-- 'maxResults', 'listIPSets_maxResults' - You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 50. The maximum value is 50.
+--
+-- 'detectorId', 'listIPSets_detectorId' - The unique ID of the detector that the IPSet is associated with.
+newListIPSets ::
+  -- | 'detectorId'
+  Prelude.Text ->
+  ListIPSets
+newListIPSets pDetectorId_ =
   ListIPSets'
-    { _lisNextToken = Nothing
-    , _lisMaxResults = Nothing
-    , _lisDetectorId = pDetectorId_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      detectorId = pDetectorId_
     }
 
+-- | You can use this parameter when paginating results. Set the value of
+-- this parameter to null on your first call to the list action. For
+-- subsequent calls to the action, fill nextToken in the request with the
+-- value of NextToken from the previous response to continue listing data.
+listIPSets_nextToken :: Lens.Lens' ListIPSets (Prelude.Maybe Prelude.Text)
+listIPSets_nextToken = Lens.lens (\ListIPSets' {nextToken} -> nextToken) (\s@ListIPSets' {} a -> s {nextToken = a} :: ListIPSets)
 
--- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListIPSet action. For subsequent calls to the action fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
-lisNextToken :: Lens' ListIPSets (Maybe Text)
-lisNextToken = lens _lisNextToken (\ s a -> s{_lisNextToken = a})
+-- | You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 50. The maximum value is 50.
+listIPSets_maxResults :: Lens.Lens' ListIPSets (Prelude.Maybe Prelude.Natural)
+listIPSets_maxResults = Lens.lens (\ListIPSets' {maxResults} -> maxResults) (\s@ListIPSets' {} a -> s {maxResults = a} :: ListIPSets)
 
--- | You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 7. The maximum value is 7.
-lisMaxResults :: Lens' ListIPSets (Maybe Natural)
-lisMaxResults = lens _lisMaxResults (\ s a -> s{_lisMaxResults = a}) . mapping _Nat
+-- | The unique ID of the detector that the IPSet is associated with.
+listIPSets_detectorId :: Lens.Lens' ListIPSets Prelude.Text
+listIPSets_detectorId = Lens.lens (\ListIPSets' {detectorId} -> detectorId) (\s@ListIPSets' {} a -> s {detectorId = a} :: ListIPSets)
 
--- | The unique ID of the detector that you want to retrieve.
-lisDetectorId :: Lens' ListIPSets Text
-lisDetectorId = lens _lisDetectorId (\ s a -> s{_lisDetectorId = a})
+instance Pager.AWSPager ListIPSets where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listIPSetsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop (rs Lens.^. listIPSetsResponse_ipSetIds) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listIPSets_nextToken
+          Lens..~ rs
+          Lens.^? listIPSetsResponse_nextToken Prelude.. Lens._Just
 
-instance AWSPager ListIPSets where
-        page rq rs
-          | stop (rs ^. lisrsNextToken) = Nothing
-          | stop (rs ^. lisrsIPSetIds) = Nothing
-          | otherwise =
-            Just $ rq & lisNextToken .~ rs ^. lisrsNextToken
+instance Prelude.AWSRequest ListIPSets where
+  type Rs ListIPSets = ListIPSetsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListIPSetsResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Prelude..?> "ipSetIds"
+                            Prelude..!@ Prelude.mempty
+                        )
+      )
 
-instance AWSRequest ListIPSets where
-        type Rs ListIPSets = ListIPSetsResponse
-        request = get guardDuty
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListIPSetsResponse' <$>
-                   (x .?> "nextToken") <*> (x .?> "ipSetIds" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable ListIPSets
 
-instance Hashable ListIPSets where
+instance Prelude.NFData ListIPSets
 
-instance NFData ListIPSets where
+instance Prelude.ToHeaders ListIPSets where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders ListIPSets where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToPath ListIPSets where
+  toPath ListIPSets' {..} =
+    Prelude.mconcat
+      ["/detector/", Prelude.toBS detectorId, "/ipset"]
 
-instance ToPath ListIPSets where
-        toPath ListIPSets'{..}
-          = mconcat
-              ["/detector/", toBS _lisDetectorId, "/ipset"]
+instance Prelude.ToQuery ListIPSets where
+  toQuery ListIPSets' {..} =
+    Prelude.mconcat
+      [ "nextToken" Prelude.=: nextToken,
+        "maxResults" Prelude.=: maxResults
+      ]
 
-instance ToQuery ListIPSets where
-        toQuery ListIPSets'{..}
-          = mconcat
-              ["nextToken" =: _lisNextToken,
-               "maxResults" =: _lisMaxResults]
-
--- | /See:/ 'listIPSetsResponse' smart constructor.
+-- | /See:/ 'newListIPSetsResponse' smart constructor.
 data ListIPSetsResponse = ListIPSetsResponse'
-  { _lisrsNextToken      :: !(Maybe Text)
-  , _lisrsIPSetIds       :: !(Maybe [Text])
-  , _lisrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pagination parameter to be used on the next list operation to
+    -- retrieve more items.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The IDs of the IPSet resources.
+    ipSetIds :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListIPSetsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListIPSetsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lisrsNextToken' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lisrsIPSetIds' - Undocumented member.
+-- 'nextToken', 'listIPSetsResponse_nextToken' - The pagination parameter to be used on the next list operation to
+-- retrieve more items.
 --
--- * 'lisrsResponseStatus' - -- | The response status code.
-listIPSetsResponse
-    :: Int -- ^ 'lisrsResponseStatus'
-    -> ListIPSetsResponse
-listIPSetsResponse pResponseStatus_ =
+-- 'httpStatus', 'listIPSetsResponse_httpStatus' - The response's http status code.
+--
+-- 'ipSetIds', 'listIPSetsResponse_ipSetIds' - The IDs of the IPSet resources.
+newListIPSetsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListIPSetsResponse
+newListIPSetsResponse pHttpStatus_ =
   ListIPSetsResponse'
-    { _lisrsNextToken = Nothing
-    , _lisrsIPSetIds = Nothing
-    , _lisrsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_,
+      ipSetIds = Prelude.mempty
     }
 
+-- | The pagination parameter to be used on the next list operation to
+-- retrieve more items.
+listIPSetsResponse_nextToken :: Lens.Lens' ListIPSetsResponse (Prelude.Maybe Prelude.Text)
+listIPSetsResponse_nextToken = Lens.lens (\ListIPSetsResponse' {nextToken} -> nextToken) (\s@ListIPSetsResponse' {} a -> s {nextToken = a} :: ListIPSetsResponse)
 
--- | Undocumented member.
-lisrsNextToken :: Lens' ListIPSetsResponse (Maybe Text)
-lisrsNextToken = lens _lisrsNextToken (\ s a -> s{_lisrsNextToken = a})
+-- | The response's http status code.
+listIPSetsResponse_httpStatus :: Lens.Lens' ListIPSetsResponse Prelude.Int
+listIPSetsResponse_httpStatus = Lens.lens (\ListIPSetsResponse' {httpStatus} -> httpStatus) (\s@ListIPSetsResponse' {} a -> s {httpStatus = a} :: ListIPSetsResponse)
 
--- | Undocumented member.
-lisrsIPSetIds :: Lens' ListIPSetsResponse [Text]
-lisrsIPSetIds = lens _lisrsIPSetIds (\ s a -> s{_lisrsIPSetIds = a}) . _Default . _Coerce
+-- | The IDs of the IPSet resources.
+listIPSetsResponse_ipSetIds :: Lens.Lens' ListIPSetsResponse [Prelude.Text]
+listIPSetsResponse_ipSetIds = Lens.lens (\ListIPSetsResponse' {ipSetIds} -> ipSetIds) (\s@ListIPSetsResponse' {} a -> s {ipSetIds = a} :: ListIPSetsResponse) Prelude.. Prelude._Coerce
 
--- | -- | The response status code.
-lisrsResponseStatus :: Lens' ListIPSetsResponse Int
-lisrsResponseStatus = lens _lisrsResponseStatus (\ s a -> s{_lisrsResponseStatus = a})
-
-instance NFData ListIPSetsResponse where
+instance Prelude.NFData ListIPSetsResponse

@@ -1,167 +1,242 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeMaintenanceWindows
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the Maintenance Windows in an AWS account.
+-- Retrieves the maintenance windows in an AWS account.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeMaintenanceWindows
-    (
-    -- * Creating a Request
-      describeMaintenanceWindows
-    , DescribeMaintenanceWindows
+  ( -- * Creating a Request
+    DescribeMaintenanceWindows (..),
+    newDescribeMaintenanceWindows,
+
     -- * Request Lenses
-    , dmwFilters
-    , dmwNextToken
-    , dmwMaxResults
+    describeMaintenanceWindows_nextToken,
+    describeMaintenanceWindows_maxResults,
+    describeMaintenanceWindows_filters,
 
     -- * Destructuring the Response
-    , describeMaintenanceWindowsResponse
-    , DescribeMaintenanceWindowsResponse
+    DescribeMaintenanceWindowsResponse (..),
+    newDescribeMaintenanceWindowsResponse,
+
     -- * Response Lenses
-    , dmwsrsWindowIdentities
-    , dmwsrsNextToken
-    , dmwsrsResponseStatus
-    ) where
+    describeMaintenanceWindowsResponse_nextToken,
+    describeMaintenanceWindowsResponse_windowIdentities,
+    describeMaintenanceWindowsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'describeMaintenanceWindows' smart constructor.
+-- | /See:/ 'newDescribeMaintenanceWindows' smart constructor.
 data DescribeMaintenanceWindows = DescribeMaintenanceWindows'
-  { _dmwFilters    :: !(Maybe [MaintenanceWindowFilter])
-  , _dmwNextToken  :: !(Maybe Text)
-  , _dmwMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return for this call. The call also
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Optional filters used to narrow down the scope of the returned
+    -- maintenance windows. Supported filter keys are __Name__ and __Enabled__.
+    filters :: Prelude.Maybe [MaintenanceWindowFilter]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeMaintenanceWindows' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeMaintenanceWindows' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dmwFilters' - Optional filters used to narrow down the scope of the returned Maintenance Windows. Supported filter keys are Name and Enabled.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dmwNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- 'nextToken', 'describeMaintenanceWindows_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
--- * 'dmwMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-describeMaintenanceWindows
-    :: DescribeMaintenanceWindows
-describeMaintenanceWindows =
+-- 'maxResults', 'describeMaintenanceWindows_maxResults' - The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+--
+-- 'filters', 'describeMaintenanceWindows_filters' - Optional filters used to narrow down the scope of the returned
+-- maintenance windows. Supported filter keys are __Name__ and __Enabled__.
+newDescribeMaintenanceWindows ::
+  DescribeMaintenanceWindows
+newDescribeMaintenanceWindows =
   DescribeMaintenanceWindows'
-    {_dmwFilters = Nothing, _dmwNextToken = Nothing, _dmwMaxResults = Nothing}
-
-
--- | Optional filters used to narrow down the scope of the returned Maintenance Windows. Supported filter keys are Name and Enabled.
-dmwFilters :: Lens' DescribeMaintenanceWindows [MaintenanceWindowFilter]
-dmwFilters = lens _dmwFilters (\ s a -> s{_dmwFilters = a}) . _Default . _Coerce
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
-dmwNextToken :: Lens' DescribeMaintenanceWindows (Maybe Text)
-dmwNextToken = lens _dmwNextToken (\ s a -> s{_dmwNextToken = a})
-
--- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-dmwMaxResults :: Lens' DescribeMaintenanceWindows (Maybe Natural)
-dmwMaxResults = lens _dmwMaxResults (\ s a -> s{_dmwMaxResults = a}) . mapping _Nat
-
-instance AWSRequest DescribeMaintenanceWindows where
-        type Rs DescribeMaintenanceWindows =
-             DescribeMaintenanceWindowsResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeMaintenanceWindowsResponse' <$>
-                   (x .?> "WindowIdentities" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeMaintenanceWindows where
-
-instance NFData DescribeMaintenanceWindows where
-
-instance ToHeaders DescribeMaintenanceWindows where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.DescribeMaintenanceWindows" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeMaintenanceWindows where
-        toJSON DescribeMaintenanceWindows'{..}
-          = object
-              (catMaybes
-                 [("Filters" .=) <$> _dmwFilters,
-                  ("NextToken" .=) <$> _dmwNextToken,
-                  ("MaxResults" .=) <$> _dmwMaxResults])
-
-instance ToPath DescribeMaintenanceWindows where
-        toPath = const "/"
-
-instance ToQuery DescribeMaintenanceWindows where
-        toQuery = const mempty
-
--- | /See:/ 'describeMaintenanceWindowsResponse' smart constructor.
-data DescribeMaintenanceWindowsResponse = DescribeMaintenanceWindowsResponse'
-  { _dmwsrsWindowIdentities :: !(Maybe [MaintenanceWindowIdentity])
-  , _dmwsrsNextToken        :: !(Maybe Text)
-  , _dmwsrsResponseStatus   :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeMaintenanceWindowsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dmwsrsWindowIdentities' - Information about the Maintenance Windows.
---
--- * 'dmwsrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- * 'dmwsrsResponseStatus' - -- | The response status code.
-describeMaintenanceWindowsResponse
-    :: Int -- ^ 'dmwsrsResponseStatus'
-    -> DescribeMaintenanceWindowsResponse
-describeMaintenanceWindowsResponse pResponseStatus_ =
-  DescribeMaintenanceWindowsResponse'
-    { _dmwsrsWindowIdentities = Nothing
-    , _dmwsrsNextToken = Nothing
-    , _dmwsrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeMaintenanceWindows_nextToken :: Lens.Lens' DescribeMaintenanceWindows (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindows_nextToken = Lens.lens (\DescribeMaintenanceWindows' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindows' {} a -> s {nextToken = a} :: DescribeMaintenanceWindows)
 
--- | Information about the Maintenance Windows.
-dmwsrsWindowIdentities :: Lens' DescribeMaintenanceWindowsResponse [MaintenanceWindowIdentity]
-dmwsrsWindowIdentities = lens _dmwsrsWindowIdentities (\ s a -> s{_dmwsrsWindowIdentities = a}) . _Default . _Coerce
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+describeMaintenanceWindows_maxResults :: Lens.Lens' DescribeMaintenanceWindows (Prelude.Maybe Prelude.Natural)
+describeMaintenanceWindows_maxResults = Lens.lens (\DescribeMaintenanceWindows' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindows' {} a -> s {maxResults = a} :: DescribeMaintenanceWindows)
 
--- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-dmwsrsNextToken :: Lens' DescribeMaintenanceWindowsResponse (Maybe Text)
-dmwsrsNextToken = lens _dmwsrsNextToken (\ s a -> s{_dmwsrsNextToken = a})
+-- | Optional filters used to narrow down the scope of the returned
+-- maintenance windows. Supported filter keys are __Name__ and __Enabled__.
+describeMaintenanceWindows_filters :: Lens.Lens' DescribeMaintenanceWindows (Prelude.Maybe [MaintenanceWindowFilter])
+describeMaintenanceWindows_filters = Lens.lens (\DescribeMaintenanceWindows' {filters} -> filters) (\s@DescribeMaintenanceWindows' {} a -> s {filters = a} :: DescribeMaintenanceWindows) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-dmwsrsResponseStatus :: Lens' DescribeMaintenanceWindowsResponse Int
-dmwsrsResponseStatus = lens _dmwsrsResponseStatus (\ s a -> s{_dmwsrsResponseStatus = a})
+instance Pager.AWSPager DescribeMaintenanceWindows where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeMaintenanceWindowsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeMaintenanceWindowsResponse_windowIdentities
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeMaintenanceWindows_nextToken
+          Lens..~ rs
+          Lens.^? describeMaintenanceWindowsResponse_nextToken
+            Prelude.. Lens._Just
 
-instance NFData DescribeMaintenanceWindowsResponse
-         where
+instance
+  Prelude.AWSRequest
+    DescribeMaintenanceWindows
+  where
+  type
+    Rs DescribeMaintenanceWindows =
+      DescribeMaintenanceWindowsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeMaintenanceWindowsResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> ( x Prelude..?> "WindowIdentities"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeMaintenanceWindows
+
+instance Prelude.NFData DescribeMaintenanceWindows
+
+instance Prelude.ToHeaders DescribeMaintenanceWindows where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonSSM.DescribeMaintenanceWindows" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON DescribeMaintenanceWindows where
+  toJSON DescribeMaintenanceWindows' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
+            ("Filters" Prelude..=) Prelude.<$> filters
+          ]
+      )
+
+instance Prelude.ToPath DescribeMaintenanceWindows where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DescribeMaintenanceWindows where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeMaintenanceWindowsResponse' smart constructor.
+data DescribeMaintenanceWindowsResponse = DescribeMaintenanceWindowsResponse'
+  { -- | The token to use when requesting the next set of items. If there are no
+    -- additional items to return, the string is empty.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the maintenance windows.
+    windowIdentities :: Prelude.Maybe [MaintenanceWindowIdentity],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeMaintenanceWindowsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeMaintenanceWindowsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
+--
+-- 'windowIdentities', 'describeMaintenanceWindowsResponse_windowIdentities' - Information about the maintenance windows.
+--
+-- 'httpStatus', 'describeMaintenanceWindowsResponse_httpStatus' - The response's http status code.
+newDescribeMaintenanceWindowsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeMaintenanceWindowsResponse
+newDescribeMaintenanceWindowsResponse pHttpStatus_ =
+  DescribeMaintenanceWindowsResponse'
+    { nextToken =
+        Prelude.Nothing,
+      windowIdentities = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
+describeMaintenanceWindowsResponse_nextToken :: Lens.Lens' DescribeMaintenanceWindowsResponse (Prelude.Maybe Prelude.Text)
+describeMaintenanceWindowsResponse_nextToken = Lens.lens (\DescribeMaintenanceWindowsResponse' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowsResponse' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowsResponse)
+
+-- | Information about the maintenance windows.
+describeMaintenanceWindowsResponse_windowIdentities :: Lens.Lens' DescribeMaintenanceWindowsResponse (Prelude.Maybe [MaintenanceWindowIdentity])
+describeMaintenanceWindowsResponse_windowIdentities = Lens.lens (\DescribeMaintenanceWindowsResponse' {windowIdentities} -> windowIdentities) (\s@DescribeMaintenanceWindowsResponse' {} a -> s {windowIdentities = a} :: DescribeMaintenanceWindowsResponse) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The response's http status code.
+describeMaintenanceWindowsResponse_httpStatus :: Lens.Lens' DescribeMaintenanceWindowsResponse Prelude.Int
+describeMaintenanceWindowsResponse_httpStatus = Lens.lens (\DescribeMaintenanceWindowsResponse' {httpStatus} -> httpStatus) (\s@DescribeMaintenanceWindowsResponse' {} a -> s {httpStatus = a} :: DescribeMaintenanceWindowsResponse)
+
+instance
+  Prelude.NFData
+    DescribeMaintenanceWindowsResponse

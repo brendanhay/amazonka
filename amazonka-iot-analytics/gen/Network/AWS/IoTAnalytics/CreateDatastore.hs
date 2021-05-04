@@ -1,159 +1,250 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTAnalytics.CreateDatastore
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a data store, which is a repository for messages.
---
---
 module Network.AWS.IoTAnalytics.CreateDatastore
-    (
-    -- * Creating a Request
-      createDatastore
-    , CreateDatastore
+  ( -- * Creating a Request
+    CreateDatastore (..),
+    newCreateDatastore,
+
     -- * Request Lenses
-    , cdRetentionPeriod
-    , cdDatastoreName
+    createDatastore_datastoreStorage,
+    createDatastore_fileFormatConfiguration,
+    createDatastore_retentionPeriod,
+    createDatastore_tags,
+    createDatastore_datastoreName,
 
     -- * Destructuring the Response
-    , createDatastoreResponse
-    , CreateDatastoreResponse
+    CreateDatastoreResponse (..),
+    newCreateDatastoreResponse,
+
     -- * Response Lenses
-    , cdrsDatastoreARN
-    , cdrsDatastoreName
-    , cdrsRetentionPeriod
-    , cdrsResponseStatus
-    ) where
+    createDatastoreResponse_datastoreArn,
+    createDatastoreResponse_retentionPeriod,
+    createDatastoreResponse_datastoreName,
+    createDatastoreResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.IoTAnalytics.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createDatastore' smart constructor.
+-- | /See:/ 'newCreateDatastore' smart constructor.
 data CreateDatastore = CreateDatastore'
-  { _cdRetentionPeriod :: !(Maybe RetentionPeriod)
-  , _cdDatastoreName   :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Where data store data is stored. You can choose one of
+    -- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
+    -- default is @serviceManagedS3@. You cannot change this storage option
+    -- after the data store is created.
+    datastoreStorage :: Prelude.Maybe DatastoreStorage,
+    -- | Contains the configuration information of file formats. AWS IoT
+    -- Analytics data stores support JSON and
+    -- <https://parquet.apache.org/ Parquet>.
+    --
+    -- The default file format is JSON. You can specify only one format.
+    --
+    -- You can\'t change the file format after you create the data store.
+    fileFormatConfiguration :: Prelude.Maybe FileFormatConfiguration,
+    -- | How long, in days, message data is kept for the data store. When
+    -- @customerManagedS3@ storage is selected, this parameter is ignored.
+    retentionPeriod :: Prelude.Maybe RetentionPeriod,
+    -- | Metadata which can be used to manage the data store.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The name of the data store.
+    datastoreName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDatastore' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDatastore' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdRetentionPeriod' - How long, in days, message data is kept for the data store.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdDatastoreName' - The name of the data store.
-createDatastore
-    :: Text -- ^ 'cdDatastoreName'
-    -> CreateDatastore
-createDatastore pDatastoreName_ =
+-- 'datastoreStorage', 'createDatastore_datastoreStorage' - Where data store data is stored. You can choose one of
+-- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
+-- default is @serviceManagedS3@. You cannot change this storage option
+-- after the data store is created.
+--
+-- 'fileFormatConfiguration', 'createDatastore_fileFormatConfiguration' - Contains the configuration information of file formats. AWS IoT
+-- Analytics data stores support JSON and
+-- <https://parquet.apache.org/ Parquet>.
+--
+-- The default file format is JSON. You can specify only one format.
+--
+-- You can\'t change the file format after you create the data store.
+--
+-- 'retentionPeriod', 'createDatastore_retentionPeriod' - How long, in days, message data is kept for the data store. When
+-- @customerManagedS3@ storage is selected, this parameter is ignored.
+--
+-- 'tags', 'createDatastore_tags' - Metadata which can be used to manage the data store.
+--
+-- 'datastoreName', 'createDatastore_datastoreName' - The name of the data store.
+newCreateDatastore ::
+  -- | 'datastoreName'
+  Prelude.Text ->
+  CreateDatastore
+newCreateDatastore pDatastoreName_ =
   CreateDatastore'
-    {_cdRetentionPeriod = Nothing, _cdDatastoreName = pDatastoreName_}
-
-
--- | How long, in days, message data is kept for the data store.
-cdRetentionPeriod :: Lens' CreateDatastore (Maybe RetentionPeriod)
-cdRetentionPeriod = lens _cdRetentionPeriod (\ s a -> s{_cdRetentionPeriod = a})
-
--- | The name of the data store.
-cdDatastoreName :: Lens' CreateDatastore Text
-cdDatastoreName = lens _cdDatastoreName (\ s a -> s{_cdDatastoreName = a})
-
-instance AWSRequest CreateDatastore where
-        type Rs CreateDatastore = CreateDatastoreResponse
-        request = postJSON ioTAnalytics
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateDatastoreResponse' <$>
-                   (x .?> "datastoreArn") <*> (x .?> "datastoreName")
-                     <*> (x .?> "retentionPeriod")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable CreateDatastore where
-
-instance NFData CreateDatastore where
-
-instance ToHeaders CreateDatastore where
-        toHeaders = const mempty
-
-instance ToJSON CreateDatastore where
-        toJSON CreateDatastore'{..}
-          = object
-              (catMaybes
-                 [("retentionPeriod" .=) <$> _cdRetentionPeriod,
-                  Just ("datastoreName" .= _cdDatastoreName)])
-
-instance ToPath CreateDatastore where
-        toPath = const "/datastores"
-
-instance ToQuery CreateDatastore where
-        toQuery = const mempty
-
--- | /See:/ 'createDatastoreResponse' smart constructor.
-data CreateDatastoreResponse = CreateDatastoreResponse'
-  { _cdrsDatastoreARN    :: !(Maybe Text)
-  , _cdrsDatastoreName   :: !(Maybe Text)
-  , _cdrsRetentionPeriod :: !(Maybe RetentionPeriod)
-  , _cdrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateDatastoreResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdrsDatastoreARN' - The ARN of the data store.
---
--- * 'cdrsDatastoreName' - The name of the data store.
---
--- * 'cdrsRetentionPeriod' - How long, in days, message data is kept for the data store.
---
--- * 'cdrsResponseStatus' - -- | The response status code.
-createDatastoreResponse
-    :: Int -- ^ 'cdrsResponseStatus'
-    -> CreateDatastoreResponse
-createDatastoreResponse pResponseStatus_ =
-  CreateDatastoreResponse'
-    { _cdrsDatastoreARN = Nothing
-    , _cdrsDatastoreName = Nothing
-    , _cdrsRetentionPeriod = Nothing
-    , _cdrsResponseStatus = pResponseStatus_
+    { datastoreStorage =
+        Prelude.Nothing,
+      fileFormatConfiguration = Prelude.Nothing,
+      retentionPeriod = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      datastoreName = pDatastoreName_
     }
 
+-- | Where data store data is stored. You can choose one of
+-- @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the
+-- default is @serviceManagedS3@. You cannot change this storage option
+-- after the data store is created.
+createDatastore_datastoreStorage :: Lens.Lens' CreateDatastore (Prelude.Maybe DatastoreStorage)
+createDatastore_datastoreStorage = Lens.lens (\CreateDatastore' {datastoreStorage} -> datastoreStorage) (\s@CreateDatastore' {} a -> s {datastoreStorage = a} :: CreateDatastore)
 
--- | The ARN of the data store.
-cdrsDatastoreARN :: Lens' CreateDatastoreResponse (Maybe Text)
-cdrsDatastoreARN = lens _cdrsDatastoreARN (\ s a -> s{_cdrsDatastoreARN = a})
+-- | Contains the configuration information of file formats. AWS IoT
+-- Analytics data stores support JSON and
+-- <https://parquet.apache.org/ Parquet>.
+--
+-- The default file format is JSON. You can specify only one format.
+--
+-- You can\'t change the file format after you create the data store.
+createDatastore_fileFormatConfiguration :: Lens.Lens' CreateDatastore (Prelude.Maybe FileFormatConfiguration)
+createDatastore_fileFormatConfiguration = Lens.lens (\CreateDatastore' {fileFormatConfiguration} -> fileFormatConfiguration) (\s@CreateDatastore' {} a -> s {fileFormatConfiguration = a} :: CreateDatastore)
+
+-- | How long, in days, message data is kept for the data store. When
+-- @customerManagedS3@ storage is selected, this parameter is ignored.
+createDatastore_retentionPeriod :: Lens.Lens' CreateDatastore (Prelude.Maybe RetentionPeriod)
+createDatastore_retentionPeriod = Lens.lens (\CreateDatastore' {retentionPeriod} -> retentionPeriod) (\s@CreateDatastore' {} a -> s {retentionPeriod = a} :: CreateDatastore)
+
+-- | Metadata which can be used to manage the data store.
+createDatastore_tags :: Lens.Lens' CreateDatastore (Prelude.Maybe (Prelude.NonEmpty Tag))
+createDatastore_tags = Lens.lens (\CreateDatastore' {tags} -> tags) (\s@CreateDatastore' {} a -> s {tags = a} :: CreateDatastore) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The name of the data store.
-cdrsDatastoreName :: Lens' CreateDatastoreResponse (Maybe Text)
-cdrsDatastoreName = lens _cdrsDatastoreName (\ s a -> s{_cdrsDatastoreName = a})
+createDatastore_datastoreName :: Lens.Lens' CreateDatastore Prelude.Text
+createDatastore_datastoreName = Lens.lens (\CreateDatastore' {datastoreName} -> datastoreName) (\s@CreateDatastore' {} a -> s {datastoreName = a} :: CreateDatastore)
+
+instance Prelude.AWSRequest CreateDatastore where
+  type Rs CreateDatastore = CreateDatastoreResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateDatastoreResponse'
+            Prelude.<$> (x Prelude..?> "datastoreArn")
+            Prelude.<*> (x Prelude..?> "retentionPeriod")
+            Prelude.<*> (x Prelude..?> "datastoreName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CreateDatastore
+
+instance Prelude.NFData CreateDatastore
+
+instance Prelude.ToHeaders CreateDatastore where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToJSON CreateDatastore where
+  toJSON CreateDatastore' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("datastoreStorage" Prelude..=)
+              Prelude.<$> datastoreStorage,
+            ("fileFormatConfiguration" Prelude..=)
+              Prelude.<$> fileFormatConfiguration,
+            ("retentionPeriod" Prelude..=)
+              Prelude.<$> retentionPeriod,
+            ("tags" Prelude..=) Prelude.<$> tags,
+            Prelude.Just
+              ("datastoreName" Prelude..= datastoreName)
+          ]
+      )
+
+instance Prelude.ToPath CreateDatastore where
+  toPath = Prelude.const "/datastores"
+
+instance Prelude.ToQuery CreateDatastore where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateDatastoreResponse' smart constructor.
+data CreateDatastoreResponse = CreateDatastoreResponse'
+  { -- | The ARN of the data store.
+    datastoreArn :: Prelude.Maybe Prelude.Text,
+    -- | How long, in days, message data is kept for the data store.
+    retentionPeriod :: Prelude.Maybe RetentionPeriod,
+    -- | The name of the data store.
+    datastoreName :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateDatastoreResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'datastoreArn', 'createDatastoreResponse_datastoreArn' - The ARN of the data store.
+--
+-- 'retentionPeriod', 'createDatastoreResponse_retentionPeriod' - How long, in days, message data is kept for the data store.
+--
+-- 'datastoreName', 'createDatastoreResponse_datastoreName' - The name of the data store.
+--
+-- 'httpStatus', 'createDatastoreResponse_httpStatus' - The response's http status code.
+newCreateDatastoreResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateDatastoreResponse
+newCreateDatastoreResponse pHttpStatus_ =
+  CreateDatastoreResponse'
+    { datastoreArn =
+        Prelude.Nothing,
+      retentionPeriod = Prelude.Nothing,
+      datastoreName = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The ARN of the data store.
+createDatastoreResponse_datastoreArn :: Lens.Lens' CreateDatastoreResponse (Prelude.Maybe Prelude.Text)
+createDatastoreResponse_datastoreArn = Lens.lens (\CreateDatastoreResponse' {datastoreArn} -> datastoreArn) (\s@CreateDatastoreResponse' {} a -> s {datastoreArn = a} :: CreateDatastoreResponse)
 
 -- | How long, in days, message data is kept for the data store.
-cdrsRetentionPeriod :: Lens' CreateDatastoreResponse (Maybe RetentionPeriod)
-cdrsRetentionPeriod = lens _cdrsRetentionPeriod (\ s a -> s{_cdrsRetentionPeriod = a})
+createDatastoreResponse_retentionPeriod :: Lens.Lens' CreateDatastoreResponse (Prelude.Maybe RetentionPeriod)
+createDatastoreResponse_retentionPeriod = Lens.lens (\CreateDatastoreResponse' {retentionPeriod} -> retentionPeriod) (\s@CreateDatastoreResponse' {} a -> s {retentionPeriod = a} :: CreateDatastoreResponse)
 
--- | -- | The response status code.
-cdrsResponseStatus :: Lens' CreateDatastoreResponse Int
-cdrsResponseStatus = lens _cdrsResponseStatus (\ s a -> s{_cdrsResponseStatus = a})
+-- | The name of the data store.
+createDatastoreResponse_datastoreName :: Lens.Lens' CreateDatastoreResponse (Prelude.Maybe Prelude.Text)
+createDatastoreResponse_datastoreName = Lens.lens (\CreateDatastoreResponse' {datastoreName} -> datastoreName) (\s@CreateDatastoreResponse' {} a -> s {datastoreName = a} :: CreateDatastoreResponse)
 
-instance NFData CreateDatastoreResponse where
+-- | The response's http status code.
+createDatastoreResponse_httpStatus :: Lens.Lens' CreateDatastoreResponse Prelude.Int
+createDatastoreResponse_httpStatus = Lens.lens (\CreateDatastoreResponse' {httpStatus} -> httpStatus) (\s@CreateDatastoreResponse' {} a -> s {httpStatus = a} :: CreateDatastoreResponse)
+
+instance Prelude.NFData CreateDatastoreResponse

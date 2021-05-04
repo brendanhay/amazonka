@@ -1,145 +1,198 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteClusterSnapshot
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified manual snapshot. The snapshot must be in the @available@ state, with no other users authorized to access the snapshot.
+-- Deletes the specified manual snapshot. The snapshot must be in the
+-- @available@ state, with no other users authorized to access the
+-- snapshot.
 --
---
--- Unlike automated snapshots, manual snapshots are retained even after you delete your cluster. Amazon Redshift does not delete your manual snapshots. You must delete manual snapshot explicitly to avoid getting charged. If other accounts are authorized to access the snapshot, you must revoke all of the authorizations before you can delete the snapshot.
---
+-- Unlike automated snapshots, manual snapshots are retained even after you
+-- delete your cluster. Amazon Redshift does not delete your manual
+-- snapshots. You must delete manual snapshot explicitly to avoid getting
+-- charged. If other accounts are authorized to access the snapshot, you
+-- must revoke all of the authorizations before you can delete the
+-- snapshot.
 module Network.AWS.Redshift.DeleteClusterSnapshot
-    (
-    -- * Creating a Request
-      deleteClusterSnapshot
-    , DeleteClusterSnapshot
+  ( -- * Creating a Request
+    DeleteClusterSnapshot (..),
+    newDeleteClusterSnapshot,
+
     -- * Request Lenses
-    , dcsSnapshotClusterIdentifier
-    , dcsSnapshotIdentifier
+    deleteClusterSnapshot_snapshotClusterIdentifier,
+    deleteClusterSnapshot_snapshotIdentifier,
 
     -- * Destructuring the Response
-    , deleteClusterSnapshotResponse
-    , DeleteClusterSnapshotResponse
-    -- * Response Lenses
-    , dcsrsSnapshot
-    , dcsrsResponseStatus
-    ) where
+    DeleteClusterSnapshotResponse (..),
+    newDeleteClusterSnapshotResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    deleteClusterSnapshotResponse_snapshot,
+    deleteClusterSnapshotResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
-import Network.AWS.Redshift.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'deleteClusterSnapshot' smart constructor.
+-- /See:/ 'newDeleteClusterSnapshot' smart constructor.
 data DeleteClusterSnapshot = DeleteClusterSnapshot'
-  { _dcsSnapshotClusterIdentifier :: !(Maybe Text)
-  , _dcsSnapshotIdentifier        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique identifier of the cluster the snapshot was created from. This
+    -- parameter is required if your IAM user has a policy containing a
+    -- snapshot resource element that specifies anything other than * for the
+    -- cluster name.
+    --
+    -- Constraints: Must be the name of valid cluster.
+    snapshotClusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the manual snapshot to be deleted.
+    --
+    -- Constraints: Must be the name of an existing snapshot that is in the
+    -- @available@, @failed@, or @cancelled@ state.
+    snapshotIdentifier :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteClusterSnapshot' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteClusterSnapshot' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcsSnapshotClusterIdentifier' - The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints: Must be the name of valid cluster.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dcsSnapshotIdentifier' - The unique identifier of the manual snapshot to be deleted. Constraints: Must be the name of an existing snapshot that is in the @available@ state.
-deleteClusterSnapshot
-    :: Text -- ^ 'dcsSnapshotIdentifier'
-    -> DeleteClusterSnapshot
-deleteClusterSnapshot pSnapshotIdentifier_ =
+-- 'snapshotClusterIdentifier', 'deleteClusterSnapshot_snapshotClusterIdentifier' - The unique identifier of the cluster the snapshot was created from. This
+-- parameter is required if your IAM user has a policy containing a
+-- snapshot resource element that specifies anything other than * for the
+-- cluster name.
+--
+-- Constraints: Must be the name of valid cluster.
+--
+-- 'snapshotIdentifier', 'deleteClusterSnapshot_snapshotIdentifier' - The unique identifier of the manual snapshot to be deleted.
+--
+-- Constraints: Must be the name of an existing snapshot that is in the
+-- @available@, @failed@, or @cancelled@ state.
+newDeleteClusterSnapshot ::
+  -- | 'snapshotIdentifier'
+  Prelude.Text ->
+  DeleteClusterSnapshot
+newDeleteClusterSnapshot pSnapshotIdentifier_ =
   DeleteClusterSnapshot'
-    { _dcsSnapshotClusterIdentifier = Nothing
-    , _dcsSnapshotIdentifier = pSnapshotIdentifier_
+    { snapshotClusterIdentifier =
+        Prelude.Nothing,
+      snapshotIdentifier = pSnapshotIdentifier_
     }
 
+-- | The unique identifier of the cluster the snapshot was created from. This
+-- parameter is required if your IAM user has a policy containing a
+-- snapshot resource element that specifies anything other than * for the
+-- cluster name.
+--
+-- Constraints: Must be the name of valid cluster.
+deleteClusterSnapshot_snapshotClusterIdentifier :: Lens.Lens' DeleteClusterSnapshot (Prelude.Maybe Prelude.Text)
+deleteClusterSnapshot_snapshotClusterIdentifier = Lens.lens (\DeleteClusterSnapshot' {snapshotClusterIdentifier} -> snapshotClusterIdentifier) (\s@DeleteClusterSnapshot' {} a -> s {snapshotClusterIdentifier = a} :: DeleteClusterSnapshot)
 
--- | The unique identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name. Constraints: Must be the name of valid cluster.
-dcsSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
-dcsSnapshotClusterIdentifier = lens _dcsSnapshotClusterIdentifier (\ s a -> s{_dcsSnapshotClusterIdentifier = a})
+-- | The unique identifier of the manual snapshot to be deleted.
+--
+-- Constraints: Must be the name of an existing snapshot that is in the
+-- @available@, @failed@, or @cancelled@ state.
+deleteClusterSnapshot_snapshotIdentifier :: Lens.Lens' DeleteClusterSnapshot Prelude.Text
+deleteClusterSnapshot_snapshotIdentifier = Lens.lens (\DeleteClusterSnapshot' {snapshotIdentifier} -> snapshotIdentifier) (\s@DeleteClusterSnapshot' {} a -> s {snapshotIdentifier = a} :: DeleteClusterSnapshot)
 
--- | The unique identifier of the manual snapshot to be deleted. Constraints: Must be the name of an existing snapshot that is in the @available@ state.
-dcsSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
-dcsSnapshotIdentifier = lens _dcsSnapshotIdentifier (\ s a -> s{_dcsSnapshotIdentifier = a})
+instance Prelude.AWSRequest DeleteClusterSnapshot where
+  type
+    Rs DeleteClusterSnapshot =
+      DeleteClusterSnapshotResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DeleteClusterSnapshotResult"
+      ( \s h x ->
+          DeleteClusterSnapshotResponse'
+            Prelude.<$> (x Prelude..@? "Snapshot")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DeleteClusterSnapshot where
-        type Rs DeleteClusterSnapshot =
-             DeleteClusterSnapshotResponse
-        request = postQuery redshift
-        response
-          = receiveXMLWrapper "DeleteClusterSnapshotResult"
-              (\ s h x ->
-                 DeleteClusterSnapshotResponse' <$>
-                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
+instance Prelude.Hashable DeleteClusterSnapshot
 
-instance Hashable DeleteClusterSnapshot where
+instance Prelude.NFData DeleteClusterSnapshot
 
-instance NFData DeleteClusterSnapshot where
+instance Prelude.ToHeaders DeleteClusterSnapshot where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DeleteClusterSnapshot where
-        toHeaders = const mempty
+instance Prelude.ToPath DeleteClusterSnapshot where
+  toPath = Prelude.const "/"
 
-instance ToPath DeleteClusterSnapshot where
-        toPath = const "/"
+instance Prelude.ToQuery DeleteClusterSnapshot where
+  toQuery DeleteClusterSnapshot' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DeleteClusterSnapshot" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+        "SnapshotClusterIdentifier"
+          Prelude.=: snapshotClusterIdentifier,
+        "SnapshotIdentifier" Prelude.=: snapshotIdentifier
+      ]
 
-instance ToQuery DeleteClusterSnapshot where
-        toQuery DeleteClusterSnapshot'{..}
-          = mconcat
-              ["Action" =: ("DeleteClusterSnapshot" :: ByteString),
-               "Version" =: ("2012-12-01" :: ByteString),
-               "SnapshotClusterIdentifier" =:
-                 _dcsSnapshotClusterIdentifier,
-               "SnapshotIdentifier" =: _dcsSnapshotIdentifier]
-
--- | /See:/ 'deleteClusterSnapshotResponse' smart constructor.
+-- | /See:/ 'newDeleteClusterSnapshotResponse' smart constructor.
 data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'
-  { _dcsrsSnapshot       :: !(Maybe Snapshot)
-  , _dcsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { snapshot :: Prelude.Maybe Snapshot,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteClusterSnapshotResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteClusterSnapshotResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcsrsSnapshot' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dcsrsResponseStatus' - -- | The response status code.
-deleteClusterSnapshotResponse
-    :: Int -- ^ 'dcsrsResponseStatus'
-    -> DeleteClusterSnapshotResponse
-deleteClusterSnapshotResponse pResponseStatus_ =
+-- 'snapshot', 'deleteClusterSnapshotResponse_snapshot' - Undocumented member.
+--
+-- 'httpStatus', 'deleteClusterSnapshotResponse_httpStatus' - The response's http status code.
+newDeleteClusterSnapshotResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteClusterSnapshotResponse
+newDeleteClusterSnapshotResponse pHttpStatus_ =
   DeleteClusterSnapshotResponse'
-    {_dcsrsSnapshot = Nothing, _dcsrsResponseStatus = pResponseStatus_}
-
+    { snapshot =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-dcsrsSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
-dcsrsSnapshot = lens _dcsrsSnapshot (\ s a -> s{_dcsrsSnapshot = a})
+deleteClusterSnapshotResponse_snapshot :: Lens.Lens' DeleteClusterSnapshotResponse (Prelude.Maybe Snapshot)
+deleteClusterSnapshotResponse_snapshot = Lens.lens (\DeleteClusterSnapshotResponse' {snapshot} -> snapshot) (\s@DeleteClusterSnapshotResponse' {} a -> s {snapshot = a} :: DeleteClusterSnapshotResponse)
 
--- | -- | The response status code.
-dcsrsResponseStatus :: Lens' DeleteClusterSnapshotResponse Int
-dcsrsResponseStatus = lens _dcsrsResponseStatus (\ s a -> s{_dcsrsResponseStatus = a})
+-- | The response's http status code.
+deleteClusterSnapshotResponse_httpStatus :: Lens.Lens' DeleteClusterSnapshotResponse Prelude.Int
+deleteClusterSnapshotResponse_httpStatus = Lens.lens (\DeleteClusterSnapshotResponse' {httpStatus} -> httpStatus) (\s@DeleteClusterSnapshotResponse' {} a -> s {httpStatus = a} :: DeleteClusterSnapshotResponse)
 
-instance NFData DeleteClusterSnapshotResponse where
+instance Prelude.NFData DeleteClusterSnapshotResponse

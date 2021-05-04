@@ -1,151 +1,185 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.GetEffectivePolicies
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets effective policies.
---
---
+-- Gets a list of the policies that have an effect on the authorization
+-- behavior of the specified device when it connects to the AWS IoT device
+-- gateway.
 module Network.AWS.IoT.GetEffectivePolicies
-    (
-    -- * Creating a Request
-      getEffectivePolicies
-    , GetEffectivePolicies
+  ( -- * Creating a Request
+    GetEffectivePolicies (..),
+    newGetEffectivePolicies,
+
     -- * Request Lenses
-    , gepPrincipal
-    , gepCognitoIdentityPoolId
-    , gepThingName
+    getEffectivePolicies_thingName,
+    getEffectivePolicies_cognitoIdentityPoolId,
+    getEffectivePolicies_principal,
 
     -- * Destructuring the Response
-    , getEffectivePoliciesResponse
-    , GetEffectivePoliciesResponse
+    GetEffectivePoliciesResponse (..),
+    newGetEffectivePoliciesResponse,
+
     -- * Response Lenses
-    , geprsEffectivePolicies
-    , geprsResponseStatus
-    ) where
+    getEffectivePoliciesResponse_effectivePolicies,
+    getEffectivePoliciesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getEffectivePolicies' smart constructor.
+-- | /See:/ 'newGetEffectivePolicies' smart constructor.
 data GetEffectivePolicies = GetEffectivePolicies'
-  { _gepPrincipal             :: !(Maybe Text)
-  , _gepCognitoIdentityPoolId :: !(Maybe Text)
-  , _gepThingName             :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The thing name.
+    thingName :: Prelude.Maybe Prelude.Text,
+    -- | The Cognito identity pool ID.
+    cognitoIdentityPoolId :: Prelude.Maybe Prelude.Text,
+    -- | The principal. Valid principals are CertificateArn
+    -- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn
+    -- (arn:aws:iot:/region/:/accountId/:thinggroup\//groupName/) and CognitoId
+    -- (/region/:/id/).
+    principal :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetEffectivePolicies' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetEffectivePolicies' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gepPrincipal' - The principal.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gepCognitoIdentityPoolId' - The Cognito identity pool ID.
+-- 'thingName', 'getEffectivePolicies_thingName' - The thing name.
 --
--- * 'gepThingName' - The thing name.
-getEffectivePolicies
-    :: GetEffectivePolicies
-getEffectivePolicies =
+-- 'cognitoIdentityPoolId', 'getEffectivePolicies_cognitoIdentityPoolId' - The Cognito identity pool ID.
+--
+-- 'principal', 'getEffectivePolicies_principal' - The principal. Valid principals are CertificateArn
+-- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn
+-- (arn:aws:iot:/region/:/accountId/:thinggroup\//groupName/) and CognitoId
+-- (/region/:/id/).
+newGetEffectivePolicies ::
+  GetEffectivePolicies
+newGetEffectivePolicies =
   GetEffectivePolicies'
-    { _gepPrincipal = Nothing
-    , _gepCognitoIdentityPoolId = Nothing
-    , _gepThingName = Nothing
+    { thingName = Prelude.Nothing,
+      cognitoIdentityPoolId = Prelude.Nothing,
+      principal = Prelude.Nothing
     }
 
-
--- | The principal.
-gepPrincipal :: Lens' GetEffectivePolicies (Maybe Text)
-gepPrincipal = lens _gepPrincipal (\ s a -> s{_gepPrincipal = a})
+-- | The thing name.
+getEffectivePolicies_thingName :: Lens.Lens' GetEffectivePolicies (Prelude.Maybe Prelude.Text)
+getEffectivePolicies_thingName = Lens.lens (\GetEffectivePolicies' {thingName} -> thingName) (\s@GetEffectivePolicies' {} a -> s {thingName = a} :: GetEffectivePolicies)
 
 -- | The Cognito identity pool ID.
-gepCognitoIdentityPoolId :: Lens' GetEffectivePolicies (Maybe Text)
-gepCognitoIdentityPoolId = lens _gepCognitoIdentityPoolId (\ s a -> s{_gepCognitoIdentityPoolId = a})
+getEffectivePolicies_cognitoIdentityPoolId :: Lens.Lens' GetEffectivePolicies (Prelude.Maybe Prelude.Text)
+getEffectivePolicies_cognitoIdentityPoolId = Lens.lens (\GetEffectivePolicies' {cognitoIdentityPoolId} -> cognitoIdentityPoolId) (\s@GetEffectivePolicies' {} a -> s {cognitoIdentityPoolId = a} :: GetEffectivePolicies)
 
--- | The thing name.
-gepThingName :: Lens' GetEffectivePolicies (Maybe Text)
-gepThingName = lens _gepThingName (\ s a -> s{_gepThingName = a})
+-- | The principal. Valid principals are CertificateArn
+-- (arn:aws:iot:/region/:/accountId/:cert\//certificateId/), thingGroupArn
+-- (arn:aws:iot:/region/:/accountId/:thinggroup\//groupName/) and CognitoId
+-- (/region/:/id/).
+getEffectivePolicies_principal :: Lens.Lens' GetEffectivePolicies (Prelude.Maybe Prelude.Text)
+getEffectivePolicies_principal = Lens.lens (\GetEffectivePolicies' {principal} -> principal) (\s@GetEffectivePolicies' {} a -> s {principal = a} :: GetEffectivePolicies)
 
-instance AWSRequest GetEffectivePolicies where
-        type Rs GetEffectivePolicies =
-             GetEffectivePoliciesResponse
-        request = postJSON ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetEffectivePoliciesResponse' <$>
-                   (x .?> "effectivePolicies" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.AWSRequest GetEffectivePolicies where
+  type
+    Rs GetEffectivePolicies =
+      GetEffectivePoliciesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetEffectivePoliciesResponse'
+            Prelude.<$> ( x Prelude..?> "effectivePolicies"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetEffectivePolicies where
+instance Prelude.Hashable GetEffectivePolicies
 
-instance NFData GetEffectivePolicies where
+instance Prelude.NFData GetEffectivePolicies
 
-instance ToHeaders GetEffectivePolicies where
-        toHeaders = const mempty
+instance Prelude.ToHeaders GetEffectivePolicies where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON GetEffectivePolicies where
-        toJSON GetEffectivePolicies'{..}
-          = object
-              (catMaybes
-                 [("principal" .=) <$> _gepPrincipal,
-                  ("cognitoIdentityPoolId" .=) <$>
-                    _gepCognitoIdentityPoolId])
+instance Prelude.ToJSON GetEffectivePolicies where
+  toJSON GetEffectivePolicies' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("cognitoIdentityPoolId" Prelude..=)
+              Prelude.<$> cognitoIdentityPoolId,
+            ("principal" Prelude..=) Prelude.<$> principal
+          ]
+      )
 
-instance ToPath GetEffectivePolicies where
-        toPath = const "/effective-policies"
+instance Prelude.ToPath GetEffectivePolicies where
+  toPath = Prelude.const "/effective-policies"
 
-instance ToQuery GetEffectivePolicies where
-        toQuery GetEffectivePolicies'{..}
-          = mconcat ["thingName" =: _gepThingName]
+instance Prelude.ToQuery GetEffectivePolicies where
+  toQuery GetEffectivePolicies' {..} =
+    Prelude.mconcat ["thingName" Prelude.=: thingName]
 
--- | /See:/ 'getEffectivePoliciesResponse' smart constructor.
+-- | /See:/ 'newGetEffectivePoliciesResponse' smart constructor.
 data GetEffectivePoliciesResponse = GetEffectivePoliciesResponse'
-  { _geprsEffectivePolicies :: !(Maybe [EffectivePolicy])
-  , _geprsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The effective policies.
+    effectivePolicies :: Prelude.Maybe [EffectivePolicy],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetEffectivePoliciesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetEffectivePoliciesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'geprsEffectivePolicies' - The effective policies.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'geprsResponseStatus' - -- | The response status code.
-getEffectivePoliciesResponse
-    :: Int -- ^ 'geprsResponseStatus'
-    -> GetEffectivePoliciesResponse
-getEffectivePoliciesResponse pResponseStatus_ =
+-- 'effectivePolicies', 'getEffectivePoliciesResponse_effectivePolicies' - The effective policies.
+--
+-- 'httpStatus', 'getEffectivePoliciesResponse_httpStatus' - The response's http status code.
+newGetEffectivePoliciesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetEffectivePoliciesResponse
+newGetEffectivePoliciesResponse pHttpStatus_ =
   GetEffectivePoliciesResponse'
-    {_geprsEffectivePolicies = Nothing, _geprsResponseStatus = pResponseStatus_}
-
+    { effectivePolicies =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The effective policies.
-geprsEffectivePolicies :: Lens' GetEffectivePoliciesResponse [EffectivePolicy]
-geprsEffectivePolicies = lens _geprsEffectivePolicies (\ s a -> s{_geprsEffectivePolicies = a}) . _Default . _Coerce
+getEffectivePoliciesResponse_effectivePolicies :: Lens.Lens' GetEffectivePoliciesResponse (Prelude.Maybe [EffectivePolicy])
+getEffectivePoliciesResponse_effectivePolicies = Lens.lens (\GetEffectivePoliciesResponse' {effectivePolicies} -> effectivePolicies) (\s@GetEffectivePoliciesResponse' {} a -> s {effectivePolicies = a} :: GetEffectivePoliciesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-geprsResponseStatus :: Lens' GetEffectivePoliciesResponse Int
-geprsResponseStatus = lens _geprsResponseStatus (\ s a -> s{_geprsResponseStatus = a})
+-- | The response's http status code.
+getEffectivePoliciesResponse_httpStatus :: Lens.Lens' GetEffectivePoliciesResponse Prelude.Int
+getEffectivePoliciesResponse_httpStatus = Lens.lens (\GetEffectivePoliciesResponse' {httpStatus} -> httpStatus) (\s@GetEffectivePoliciesResponse' {} a -> s {httpStatus = a} :: GetEffectivePoliciesResponse)
 
-instance NFData GetEffectivePoliciesResponse where
+instance Prelude.NFData GetEffectivePoliciesResponse

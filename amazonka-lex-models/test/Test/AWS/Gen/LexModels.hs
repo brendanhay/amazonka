@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.LexModels
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.LexModels where
 
 import Data.Proxy
@@ -28,660 +27,792 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDeleteIntentVersion $
---             deleteIntentVersion
---
---         , requestGetBotAliases $
---             getBotAliases
---
---         , requestDeleteBotChannelAssociation $
---             deleteBotChannelAssociation
---
---         , requestCreateSlotTypeVersion $
---             createSlotTypeVersion
---
---         , requestGetIntent $
---             getIntent
---
---         , requestPutIntent $
---             putIntent
---
---         , requestDeleteIntent $
---             deleteIntent
---
---         , requestGetBuiltinIntents $
---             getBuiltinIntents
---
---         , requestPutBot $
---             putBot
---
---         , requestDeleteBot $
---             deleteBot
---
---         , requestGetImport $
---             getImport
---
---         , requestGetIntentVersions $
---             getIntentVersions
---
---         , requestGetBuiltinIntent $
---             getBuiltinIntent
---
---         , requestPutBotAlias $
---             putBotAlias
---
---         , requestGetBotVersions $
---             getBotVersions
---
---         , requestGetBotChannelAssociations $
---             getBotChannelAssociations
---
---         , requestDeleteBotAlias $
---             deleteBotAlias
---
---         , requestGetSlotTypes $
---             getSlotTypes
---
---         , requestDeleteUtterances $
---             deleteUtterances
+--         [ requestDeleteSlotTypeVersion $
+--             newDeleteSlotTypeVersion
 --
 --         , requestGetBots $
---             getBots
+--             newGetBots
 --
---         , requestGetBot $
---             getBot
+--         , requestGetSlotTypes $
+--             newGetSlotTypes
 --
---         , requestCreateBotVersion $
---             createBotVersion
---
---         , requestDeleteSlotTypeVersion $
---             deleteSlotTypeVersion
---
---         , requestDeleteBotVersion $
---             deleteBotVersion
---
---         , requestGetSlotType $
---             getSlotType
---
---         , requestGetExport $
---             getExport
---
---         , requestCreateIntentVersion $
---             createIntentVersion
---
---         , requestDeleteSlotType $
---             deleteSlotType
---
---         , requestStartImport $
---             startImport
---
---         , requestGetBotChannelAssociation $
---             getBotChannelAssociation
---
---         , requestPutSlotType $
---             putSlotType
---
---         , requestGetBuiltinSlotTypes $
---             getBuiltinSlotTypes
---
---         , requestGetUtterancesView $
---             getUtterancesView
---
---         , requestGetSlotTypeVersions $
---             getSlotTypeVersions
---
---         , requestGetIntents $
---             getIntents
+--         , requestDeleteUtterances $
+--             newDeleteUtterances
 --
 --         , requestGetBotAlias $
---             getBotAlias
+--             newGetBotAlias
+--
+--         , requestGetBotChannelAssociations $
+--             newGetBotChannelAssociations
+--
+--         , requestPutBotAlias $
+--             newPutBotAlias
+--
+--         , requestGetUtterancesView $
+--             newGetUtterancesView
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestGetBuiltinIntent $
+--             newGetBuiltinIntent
+--
+--         , requestGetSlotTypeVersions $
+--             newGetSlotTypeVersions
+--
+--         , requestGetBuiltinSlotTypes $
+--             newGetBuiltinSlotTypes
+--
+--         , requestPutBot $
+--             newPutBot
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestDeleteSlotType $
+--             newDeleteSlotType
+--
+--         , requestPutIntent $
+--             newPutIntent
+--
+--         , requestGetBotChannelAssociation $
+--             newGetBotChannelAssociation
+--
+--         , requestCreateIntentVersion $
+--             newCreateIntentVersion
+--
+--         , requestGetExport $
+--             newGetExport
+--
+--         , requestGetSlotType $
+--             newGetSlotType
+--
+--         , requestDeleteIntentVersion $
+--             newDeleteIntentVersion
+--
+--         , requestCreateBotVersion $
+--             newCreateBotVersion
+--
+--         , requestGetBot $
+--             newGetBot
+--
+--         , requestGetBotAliases $
+--             newGetBotAliases
+--
+--         , requestGetIntents $
+--             newGetIntents
+--
+--         , requestGetBotVersions $
+--             newGetBotVersions
+--
+--         , requestDeleteBotAlias $
+--             newDeleteBotAlias
+--
+--         , requestGetImport $
+--             newGetImport
+--
+--         , requestGetIntentVersions $
+--             newGetIntentVersions
+--
+--         , requestGetBuiltinIntents $
+--             newGetBuiltinIntents
+--
+--         , requestDeleteBot $
+--             newDeleteBot
+--
+--         , requestPutSlotType $
+--             newPutSlotType
+--
+--         , requestStartImport $
+--             newStartImport
+--
+--         , requestDeleteIntent $
+--             newDeleteIntent
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestCreateSlotTypeVersion $
+--             newCreateSlotTypeVersion
+--
+--         , requestGetIntent $
+--             newGetIntent
+--
+--         , requestDeleteBotVersion $
+--             newDeleteBotVersion
+--
+--         , requestDeleteBotChannelAssociation $
+--             newDeleteBotChannelAssociation
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseDeleteIntentVersion $
---             deleteIntentVersionResponse
---
---         , responseGetBotAliases $
---             getBotAliasesResponse
---
---         , responseDeleteBotChannelAssociation $
---             deleteBotChannelAssociationResponse
---
---         , responseCreateSlotTypeVersion $
---             createSlotTypeVersionResponse
---
---         , responseGetIntent $
---             getIntentResponse
---
---         , responsePutIntent $
---             putIntentResponse
---
---         , responseDeleteIntent $
---             deleteIntentResponse
---
---         , responseGetBuiltinIntents $
---             getBuiltinIntentsResponse
---
---         , responsePutBot $
---             putBotResponse
---
---         , responseDeleteBot $
---             deleteBotResponse
---
---         , responseGetImport $
---             getImportResponse
---
---         , responseGetIntentVersions $
---             getIntentVersionsResponse
---
---         , responseGetBuiltinIntent $
---             getBuiltinIntentResponse
---
---         , responsePutBotAlias $
---             putBotAliasResponse
---
---         , responseGetBotVersions $
---             getBotVersionsResponse
---
---         , responseGetBotChannelAssociations $
---             getBotChannelAssociationsResponse
---
---         , responseDeleteBotAlias $
---             deleteBotAliasResponse
---
---         , responseGetSlotTypes $
---             getSlotTypesResponse
---
---         , responseDeleteUtterances $
---             deleteUtterancesResponse
+--         [ responseDeleteSlotTypeVersion $
+--             newDeleteSlotTypeVersionResponse
 --
 --         , responseGetBots $
---             getBotsResponse
+--             newGetBotsResponse
 --
---         , responseGetBot $
---             getBotResponse
+--         , responseGetSlotTypes $
+--             newGetSlotTypesResponse
 --
---         , responseCreateBotVersion $
---             createBotVersionResponse
---
---         , responseDeleteSlotTypeVersion $
---             deleteSlotTypeVersionResponse
---
---         , responseDeleteBotVersion $
---             deleteBotVersionResponse
---
---         , responseGetSlotType $
---             getSlotTypeResponse
---
---         , responseGetExport $
---             getExportResponse
---
---         , responseCreateIntentVersion $
---             createIntentVersionResponse
---
---         , responseDeleteSlotType $
---             deleteSlotTypeResponse
---
---         , responseStartImport $
---             startImportResponse
---
---         , responseGetBotChannelAssociation $
---             getBotChannelAssociationResponse
---
---         , responsePutSlotType $
---             putSlotTypeResponse
---
---         , responseGetBuiltinSlotTypes $
---             getBuiltinSlotTypesResponse
---
---         , responseGetUtterancesView $
---             getUtterancesViewResponse
---
---         , responseGetSlotTypeVersions $
---             getSlotTypeVersionsResponse
---
---         , responseGetIntents $
---             getIntentsResponse
+--         , responseDeleteUtterances $
+--             newDeleteUtterancesResponse
 --
 --         , responseGetBotAlias $
---             getBotAliasResponse
+--             newGetBotAliasResponse
+--
+--         , responseGetBotChannelAssociations $
+--             newGetBotChannelAssociationsResponse
+--
+--         , responsePutBotAlias $
+--             newPutBotAliasResponse
+--
+--         , responseGetUtterancesView $
+--             newGetUtterancesViewResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseGetBuiltinIntent $
+--             newGetBuiltinIntentResponse
+--
+--         , responseGetSlotTypeVersions $
+--             newGetSlotTypeVersionsResponse
+--
+--         , responseGetBuiltinSlotTypes $
+--             newGetBuiltinSlotTypesResponse
+--
+--         , responsePutBot $
+--             newPutBotResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseDeleteSlotType $
+--             newDeleteSlotTypeResponse
+--
+--         , responsePutIntent $
+--             newPutIntentResponse
+--
+--         , responseGetBotChannelAssociation $
+--             newGetBotChannelAssociationResponse
+--
+--         , responseCreateIntentVersion $
+--             newCreateIntentVersionResponse
+--
+--         , responseGetExport $
+--             newGetExportResponse
+--
+--         , responseGetSlotType $
+--             newGetSlotTypeResponse
+--
+--         , responseDeleteIntentVersion $
+--             newDeleteIntentVersionResponse
+--
+--         , responseCreateBotVersion $
+--             newCreateBotVersionResponse
+--
+--         , responseGetBot $
+--             newGetBotResponse
+--
+--         , responseGetBotAliases $
+--             newGetBotAliasesResponse
+--
+--         , responseGetIntents $
+--             newGetIntentsResponse
+--
+--         , responseGetBotVersions $
+--             newGetBotVersionsResponse
+--
+--         , responseDeleteBotAlias $
+--             newDeleteBotAliasResponse
+--
+--         , responseGetImport $
+--             newGetImportResponse
+--
+--         , responseGetIntentVersions $
+--             newGetIntentVersionsResponse
+--
+--         , responseGetBuiltinIntents $
+--             newGetBuiltinIntentsResponse
+--
+--         , responseDeleteBot $
+--             newDeleteBotResponse
+--
+--         , responsePutSlotType $
+--             newPutSlotTypeResponse
+--
+--         , responseStartImport $
+--             newStartImportResponse
+--
+--         , responseDeleteIntent $
+--             newDeleteIntentResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseCreateSlotTypeVersion $
+--             newCreateSlotTypeVersionResponse
+--
+--         , responseGetIntent $
+--             newGetIntentResponse
+--
+--         , responseDeleteBotVersion $
+--             newDeleteBotVersionResponse
+--
+--         , responseDeleteBotChannelAssociation $
+--             newDeleteBotChannelAssociationResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestDeleteIntentVersion :: DeleteIntentVersion -> TestTree
-requestDeleteIntentVersion = req
-    "DeleteIntentVersion"
-    "fixture/DeleteIntentVersion.yaml"
+requestDeleteSlotTypeVersion :: DeleteSlotTypeVersion -> TestTree
+requestDeleteSlotTypeVersion =
+  req
+    "DeleteSlotTypeVersion"
+    "fixture/DeleteSlotTypeVersion.yaml"
 
-requestGetBotAliases :: GetBotAliases -> TestTree
-requestGetBotAliases = req
-    "GetBotAliases"
-    "fixture/GetBotAliases.yaml"
-
-requestDeleteBotChannelAssociation :: DeleteBotChannelAssociation -> TestTree
-requestDeleteBotChannelAssociation = req
-    "DeleteBotChannelAssociation"
-    "fixture/DeleteBotChannelAssociation.yaml"
-
-requestCreateSlotTypeVersion :: CreateSlotTypeVersion -> TestTree
-requestCreateSlotTypeVersion = req
-    "CreateSlotTypeVersion"
-    "fixture/CreateSlotTypeVersion.yaml"
-
-requestGetIntent :: GetIntent -> TestTree
-requestGetIntent = req
-    "GetIntent"
-    "fixture/GetIntent.yaml"
-
-requestPutIntent :: PutIntent -> TestTree
-requestPutIntent = req
-    "PutIntent"
-    "fixture/PutIntent.yaml"
-
-requestDeleteIntent :: DeleteIntent -> TestTree
-requestDeleteIntent = req
-    "DeleteIntent"
-    "fixture/DeleteIntent.yaml"
-
-requestGetBuiltinIntents :: GetBuiltinIntents -> TestTree
-requestGetBuiltinIntents = req
-    "GetBuiltinIntents"
-    "fixture/GetBuiltinIntents.yaml"
-
-requestPutBot :: PutBot -> TestTree
-requestPutBot = req
-    "PutBot"
-    "fixture/PutBot.yaml"
-
-requestDeleteBot :: DeleteBot -> TestTree
-requestDeleteBot = req
-    "DeleteBot"
-    "fixture/DeleteBot.yaml"
-
-requestGetImport :: GetImport -> TestTree
-requestGetImport = req
-    "GetImport"
-    "fixture/GetImport.yaml"
-
-requestGetIntentVersions :: GetIntentVersions -> TestTree
-requestGetIntentVersions = req
-    "GetIntentVersions"
-    "fixture/GetIntentVersions.yaml"
-
-requestGetBuiltinIntent :: GetBuiltinIntent -> TestTree
-requestGetBuiltinIntent = req
-    "GetBuiltinIntent"
-    "fixture/GetBuiltinIntent.yaml"
-
-requestPutBotAlias :: PutBotAlias -> TestTree
-requestPutBotAlias = req
-    "PutBotAlias"
-    "fixture/PutBotAlias.yaml"
-
-requestGetBotVersions :: GetBotVersions -> TestTree
-requestGetBotVersions = req
-    "GetBotVersions"
-    "fixture/GetBotVersions.yaml"
-
-requestGetBotChannelAssociations :: GetBotChannelAssociations -> TestTree
-requestGetBotChannelAssociations = req
-    "GetBotChannelAssociations"
-    "fixture/GetBotChannelAssociations.yaml"
-
-requestDeleteBotAlias :: DeleteBotAlias -> TestTree
-requestDeleteBotAlias = req
-    "DeleteBotAlias"
-    "fixture/DeleteBotAlias.yaml"
+requestGetBots :: GetBots -> TestTree
+requestGetBots =
+  req
+    "GetBots"
+    "fixture/GetBots.yaml"
 
 requestGetSlotTypes :: GetSlotTypes -> TestTree
-requestGetSlotTypes = req
+requestGetSlotTypes =
+  req
     "GetSlotTypes"
     "fixture/GetSlotTypes.yaml"
 
 requestDeleteUtterances :: DeleteUtterances -> TestTree
-requestDeleteUtterances = req
+requestDeleteUtterances =
+  req
     "DeleteUtterances"
     "fixture/DeleteUtterances.yaml"
 
-requestGetBots :: GetBots -> TestTree
-requestGetBots = req
-    "GetBots"
-    "fixture/GetBots.yaml"
-
-requestGetBot :: GetBot -> TestTree
-requestGetBot = req
-    "GetBot"
-    "fixture/GetBot.yaml"
-
-requestCreateBotVersion :: CreateBotVersion -> TestTree
-requestCreateBotVersion = req
-    "CreateBotVersion"
-    "fixture/CreateBotVersion.yaml"
-
-requestDeleteSlotTypeVersion :: DeleteSlotTypeVersion -> TestTree
-requestDeleteSlotTypeVersion = req
-    "DeleteSlotTypeVersion"
-    "fixture/DeleteSlotTypeVersion.yaml"
-
-requestDeleteBotVersion :: DeleteBotVersion -> TestTree
-requestDeleteBotVersion = req
-    "DeleteBotVersion"
-    "fixture/DeleteBotVersion.yaml"
-
-requestGetSlotType :: GetSlotType -> TestTree
-requestGetSlotType = req
-    "GetSlotType"
-    "fixture/GetSlotType.yaml"
-
-requestGetExport :: GetExport -> TestTree
-requestGetExport = req
-    "GetExport"
-    "fixture/GetExport.yaml"
-
-requestCreateIntentVersion :: CreateIntentVersion -> TestTree
-requestCreateIntentVersion = req
-    "CreateIntentVersion"
-    "fixture/CreateIntentVersion.yaml"
-
-requestDeleteSlotType :: DeleteSlotType -> TestTree
-requestDeleteSlotType = req
-    "DeleteSlotType"
-    "fixture/DeleteSlotType.yaml"
-
-requestStartImport :: StartImport -> TestTree
-requestStartImport = req
-    "StartImport"
-    "fixture/StartImport.yaml"
-
-requestGetBotChannelAssociation :: GetBotChannelAssociation -> TestTree
-requestGetBotChannelAssociation = req
-    "GetBotChannelAssociation"
-    "fixture/GetBotChannelAssociation.yaml"
-
-requestPutSlotType :: PutSlotType -> TestTree
-requestPutSlotType = req
-    "PutSlotType"
-    "fixture/PutSlotType.yaml"
-
-requestGetBuiltinSlotTypes :: GetBuiltinSlotTypes -> TestTree
-requestGetBuiltinSlotTypes = req
-    "GetBuiltinSlotTypes"
-    "fixture/GetBuiltinSlotTypes.yaml"
-
-requestGetUtterancesView :: GetUtterancesView -> TestTree
-requestGetUtterancesView = req
-    "GetUtterancesView"
-    "fixture/GetUtterancesView.yaml"
-
-requestGetSlotTypeVersions :: GetSlotTypeVersions -> TestTree
-requestGetSlotTypeVersions = req
-    "GetSlotTypeVersions"
-    "fixture/GetSlotTypeVersions.yaml"
-
-requestGetIntents :: GetIntents -> TestTree
-requestGetIntents = req
-    "GetIntents"
-    "fixture/GetIntents.yaml"
-
 requestGetBotAlias :: GetBotAlias -> TestTree
-requestGetBotAlias = req
+requestGetBotAlias =
+  req
     "GetBotAlias"
     "fixture/GetBotAlias.yaml"
 
+requestGetBotChannelAssociations :: GetBotChannelAssociations -> TestTree
+requestGetBotChannelAssociations =
+  req
+    "GetBotChannelAssociations"
+    "fixture/GetBotChannelAssociations.yaml"
+
+requestPutBotAlias :: PutBotAlias -> TestTree
+requestPutBotAlias =
+  req
+    "PutBotAlias"
+    "fixture/PutBotAlias.yaml"
+
+requestGetUtterancesView :: GetUtterancesView -> TestTree
+requestGetUtterancesView =
+  req
+    "GetUtterancesView"
+    "fixture/GetUtterancesView.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestGetBuiltinIntent :: GetBuiltinIntent -> TestTree
+requestGetBuiltinIntent =
+  req
+    "GetBuiltinIntent"
+    "fixture/GetBuiltinIntent.yaml"
+
+requestGetSlotTypeVersions :: GetSlotTypeVersions -> TestTree
+requestGetSlotTypeVersions =
+  req
+    "GetSlotTypeVersions"
+    "fixture/GetSlotTypeVersions.yaml"
+
+requestGetBuiltinSlotTypes :: GetBuiltinSlotTypes -> TestTree
+requestGetBuiltinSlotTypes =
+  req
+    "GetBuiltinSlotTypes"
+    "fixture/GetBuiltinSlotTypes.yaml"
+
+requestPutBot :: PutBot -> TestTree
+requestPutBot =
+  req
+    "PutBot"
+    "fixture/PutBot.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestDeleteSlotType :: DeleteSlotType -> TestTree
+requestDeleteSlotType =
+  req
+    "DeleteSlotType"
+    "fixture/DeleteSlotType.yaml"
+
+requestPutIntent :: PutIntent -> TestTree
+requestPutIntent =
+  req
+    "PutIntent"
+    "fixture/PutIntent.yaml"
+
+requestGetBotChannelAssociation :: GetBotChannelAssociation -> TestTree
+requestGetBotChannelAssociation =
+  req
+    "GetBotChannelAssociation"
+    "fixture/GetBotChannelAssociation.yaml"
+
+requestCreateIntentVersion :: CreateIntentVersion -> TestTree
+requestCreateIntentVersion =
+  req
+    "CreateIntentVersion"
+    "fixture/CreateIntentVersion.yaml"
+
+requestGetExport :: GetExport -> TestTree
+requestGetExport =
+  req
+    "GetExport"
+    "fixture/GetExport.yaml"
+
+requestGetSlotType :: GetSlotType -> TestTree
+requestGetSlotType =
+  req
+    "GetSlotType"
+    "fixture/GetSlotType.yaml"
+
+requestDeleteIntentVersion :: DeleteIntentVersion -> TestTree
+requestDeleteIntentVersion =
+  req
+    "DeleteIntentVersion"
+    "fixture/DeleteIntentVersion.yaml"
+
+requestCreateBotVersion :: CreateBotVersion -> TestTree
+requestCreateBotVersion =
+  req
+    "CreateBotVersion"
+    "fixture/CreateBotVersion.yaml"
+
+requestGetBot :: GetBot -> TestTree
+requestGetBot =
+  req
+    "GetBot"
+    "fixture/GetBot.yaml"
+
+requestGetBotAliases :: GetBotAliases -> TestTree
+requestGetBotAliases =
+  req
+    "GetBotAliases"
+    "fixture/GetBotAliases.yaml"
+
+requestGetIntents :: GetIntents -> TestTree
+requestGetIntents =
+  req
+    "GetIntents"
+    "fixture/GetIntents.yaml"
+
+requestGetBotVersions :: GetBotVersions -> TestTree
+requestGetBotVersions =
+  req
+    "GetBotVersions"
+    "fixture/GetBotVersions.yaml"
+
+requestDeleteBotAlias :: DeleteBotAlias -> TestTree
+requestDeleteBotAlias =
+  req
+    "DeleteBotAlias"
+    "fixture/DeleteBotAlias.yaml"
+
+requestGetImport :: GetImport -> TestTree
+requestGetImport =
+  req
+    "GetImport"
+    "fixture/GetImport.yaml"
+
+requestGetIntentVersions :: GetIntentVersions -> TestTree
+requestGetIntentVersions =
+  req
+    "GetIntentVersions"
+    "fixture/GetIntentVersions.yaml"
+
+requestGetBuiltinIntents :: GetBuiltinIntents -> TestTree
+requestGetBuiltinIntents =
+  req
+    "GetBuiltinIntents"
+    "fixture/GetBuiltinIntents.yaml"
+
+requestDeleteBot :: DeleteBot -> TestTree
+requestDeleteBot =
+  req
+    "DeleteBot"
+    "fixture/DeleteBot.yaml"
+
+requestPutSlotType :: PutSlotType -> TestTree
+requestPutSlotType =
+  req
+    "PutSlotType"
+    "fixture/PutSlotType.yaml"
+
+requestStartImport :: StartImport -> TestTree
+requestStartImport =
+  req
+    "StartImport"
+    "fixture/StartImport.yaml"
+
+requestDeleteIntent :: DeleteIntent -> TestTree
+requestDeleteIntent =
+  req
+    "DeleteIntent"
+    "fixture/DeleteIntent.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestCreateSlotTypeVersion :: CreateSlotTypeVersion -> TestTree
+requestCreateSlotTypeVersion =
+  req
+    "CreateSlotTypeVersion"
+    "fixture/CreateSlotTypeVersion.yaml"
+
+requestGetIntent :: GetIntent -> TestTree
+requestGetIntent =
+  req
+    "GetIntent"
+    "fixture/GetIntent.yaml"
+
+requestDeleteBotVersion :: DeleteBotVersion -> TestTree
+requestDeleteBotVersion =
+  req
+    "DeleteBotVersion"
+    "fixture/DeleteBotVersion.yaml"
+
+requestDeleteBotChannelAssociation :: DeleteBotChannelAssociation -> TestTree
+requestDeleteBotChannelAssociation =
+  req
+    "DeleteBotChannelAssociation"
+    "fixture/DeleteBotChannelAssociation.yaml"
+
 -- Responses
 
-responseDeleteIntentVersion :: DeleteIntentVersionResponse -> TestTree
-responseDeleteIntentVersion = res
-    "DeleteIntentVersionResponse"
-    "fixture/DeleteIntentVersionResponse.proto"
-    lexModels
-    (Proxy :: Proxy DeleteIntentVersion)
+responseDeleteSlotTypeVersion :: DeleteSlotTypeVersionResponse -> TestTree
+responseDeleteSlotTypeVersion =
+  res
+    "DeleteSlotTypeVersionResponse"
+    "fixture/DeleteSlotTypeVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteSlotTypeVersion)
 
-responseGetBotAliases :: GetBotAliasesResponse -> TestTree
-responseGetBotAliases = res
-    "GetBotAliasesResponse"
-    "fixture/GetBotAliasesResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetBotAliases)
-
-responseDeleteBotChannelAssociation :: DeleteBotChannelAssociationResponse -> TestTree
-responseDeleteBotChannelAssociation = res
-    "DeleteBotChannelAssociationResponse"
-    "fixture/DeleteBotChannelAssociationResponse.proto"
-    lexModels
-    (Proxy :: Proxy DeleteBotChannelAssociation)
-
-responseCreateSlotTypeVersion :: CreateSlotTypeVersionResponse -> TestTree
-responseCreateSlotTypeVersion = res
-    "CreateSlotTypeVersionResponse"
-    "fixture/CreateSlotTypeVersionResponse.proto"
-    lexModels
-    (Proxy :: Proxy CreateSlotTypeVersion)
-
-responseGetIntent :: GetIntentResponse -> TestTree
-responseGetIntent = res
-    "GetIntentResponse"
-    "fixture/GetIntentResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetIntent)
-
-responsePutIntent :: PutIntentResponse -> TestTree
-responsePutIntent = res
-    "PutIntentResponse"
-    "fixture/PutIntentResponse.proto"
-    lexModels
-    (Proxy :: Proxy PutIntent)
-
-responseDeleteIntent :: DeleteIntentResponse -> TestTree
-responseDeleteIntent = res
-    "DeleteIntentResponse"
-    "fixture/DeleteIntentResponse.proto"
-    lexModels
-    (Proxy :: Proxy DeleteIntent)
-
-responseGetBuiltinIntents :: GetBuiltinIntentsResponse -> TestTree
-responseGetBuiltinIntents = res
-    "GetBuiltinIntentsResponse"
-    "fixture/GetBuiltinIntentsResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetBuiltinIntents)
-
-responsePutBot :: PutBotResponse -> TestTree
-responsePutBot = res
-    "PutBotResponse"
-    "fixture/PutBotResponse.proto"
-    lexModels
-    (Proxy :: Proxy PutBot)
-
-responseDeleteBot :: DeleteBotResponse -> TestTree
-responseDeleteBot = res
-    "DeleteBotResponse"
-    "fixture/DeleteBotResponse.proto"
-    lexModels
-    (Proxy :: Proxy DeleteBot)
-
-responseGetImport :: GetImportResponse -> TestTree
-responseGetImport = res
-    "GetImportResponse"
-    "fixture/GetImportResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetImport)
-
-responseGetIntentVersions :: GetIntentVersionsResponse -> TestTree
-responseGetIntentVersions = res
-    "GetIntentVersionsResponse"
-    "fixture/GetIntentVersionsResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetIntentVersions)
-
-responseGetBuiltinIntent :: GetBuiltinIntentResponse -> TestTree
-responseGetBuiltinIntent = res
-    "GetBuiltinIntentResponse"
-    "fixture/GetBuiltinIntentResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetBuiltinIntent)
-
-responsePutBotAlias :: PutBotAliasResponse -> TestTree
-responsePutBotAlias = res
-    "PutBotAliasResponse"
-    "fixture/PutBotAliasResponse.proto"
-    lexModels
-    (Proxy :: Proxy PutBotAlias)
-
-responseGetBotVersions :: GetBotVersionsResponse -> TestTree
-responseGetBotVersions = res
-    "GetBotVersionsResponse"
-    "fixture/GetBotVersionsResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetBotVersions)
-
-responseGetBotChannelAssociations :: GetBotChannelAssociationsResponse -> TestTree
-responseGetBotChannelAssociations = res
-    "GetBotChannelAssociationsResponse"
-    "fixture/GetBotChannelAssociationsResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetBotChannelAssociations)
-
-responseDeleteBotAlias :: DeleteBotAliasResponse -> TestTree
-responseDeleteBotAlias = res
-    "DeleteBotAliasResponse"
-    "fixture/DeleteBotAliasResponse.proto"
-    lexModels
-    (Proxy :: Proxy DeleteBotAlias)
+responseGetBots :: GetBotsResponse -> TestTree
+responseGetBots =
+  res
+    "GetBotsResponse"
+    "fixture/GetBotsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBots)
 
 responseGetSlotTypes :: GetSlotTypesResponse -> TestTree
-responseGetSlotTypes = res
+responseGetSlotTypes =
+  res
     "GetSlotTypesResponse"
     "fixture/GetSlotTypesResponse.proto"
-    lexModels
+    defaultService
     (Proxy :: Proxy GetSlotTypes)
 
 responseDeleteUtterances :: DeleteUtterancesResponse -> TestTree
-responseDeleteUtterances = res
+responseDeleteUtterances =
+  res
     "DeleteUtterancesResponse"
     "fixture/DeleteUtterancesResponse.proto"
-    lexModels
+    defaultService
     (Proxy :: Proxy DeleteUtterances)
 
-responseGetBots :: GetBotsResponse -> TestTree
-responseGetBots = res
-    "GetBotsResponse"
-    "fixture/GetBotsResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetBots)
-
-responseGetBot :: GetBotResponse -> TestTree
-responseGetBot = res
-    "GetBotResponse"
-    "fixture/GetBotResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetBot)
-
-responseCreateBotVersion :: CreateBotVersionResponse -> TestTree
-responseCreateBotVersion = res
-    "CreateBotVersionResponse"
-    "fixture/CreateBotVersionResponse.proto"
-    lexModels
-    (Proxy :: Proxy CreateBotVersion)
-
-responseDeleteSlotTypeVersion :: DeleteSlotTypeVersionResponse -> TestTree
-responseDeleteSlotTypeVersion = res
-    "DeleteSlotTypeVersionResponse"
-    "fixture/DeleteSlotTypeVersionResponse.proto"
-    lexModels
-    (Proxy :: Proxy DeleteSlotTypeVersion)
-
-responseDeleteBotVersion :: DeleteBotVersionResponse -> TestTree
-responseDeleteBotVersion = res
-    "DeleteBotVersionResponse"
-    "fixture/DeleteBotVersionResponse.proto"
-    lexModels
-    (Proxy :: Proxy DeleteBotVersion)
-
-responseGetSlotType :: GetSlotTypeResponse -> TestTree
-responseGetSlotType = res
-    "GetSlotTypeResponse"
-    "fixture/GetSlotTypeResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetSlotType)
-
-responseGetExport :: GetExportResponse -> TestTree
-responseGetExport = res
-    "GetExportResponse"
-    "fixture/GetExportResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetExport)
-
-responseCreateIntentVersion :: CreateIntentVersionResponse -> TestTree
-responseCreateIntentVersion = res
-    "CreateIntentVersionResponse"
-    "fixture/CreateIntentVersionResponse.proto"
-    lexModels
-    (Proxy :: Proxy CreateIntentVersion)
-
-responseDeleteSlotType :: DeleteSlotTypeResponse -> TestTree
-responseDeleteSlotType = res
-    "DeleteSlotTypeResponse"
-    "fixture/DeleteSlotTypeResponse.proto"
-    lexModels
-    (Proxy :: Proxy DeleteSlotType)
-
-responseStartImport :: StartImportResponse -> TestTree
-responseStartImport = res
-    "StartImportResponse"
-    "fixture/StartImportResponse.proto"
-    lexModels
-    (Proxy :: Proxy StartImport)
-
-responseGetBotChannelAssociation :: GetBotChannelAssociationResponse -> TestTree
-responseGetBotChannelAssociation = res
-    "GetBotChannelAssociationResponse"
-    "fixture/GetBotChannelAssociationResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetBotChannelAssociation)
-
-responsePutSlotType :: PutSlotTypeResponse -> TestTree
-responsePutSlotType = res
-    "PutSlotTypeResponse"
-    "fixture/PutSlotTypeResponse.proto"
-    lexModels
-    (Proxy :: Proxy PutSlotType)
-
-responseGetBuiltinSlotTypes :: GetBuiltinSlotTypesResponse -> TestTree
-responseGetBuiltinSlotTypes = res
-    "GetBuiltinSlotTypesResponse"
-    "fixture/GetBuiltinSlotTypesResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetBuiltinSlotTypes)
-
-responseGetUtterancesView :: GetUtterancesViewResponse -> TestTree
-responseGetUtterancesView = res
-    "GetUtterancesViewResponse"
-    "fixture/GetUtterancesViewResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetUtterancesView)
-
-responseGetSlotTypeVersions :: GetSlotTypeVersionsResponse -> TestTree
-responseGetSlotTypeVersions = res
-    "GetSlotTypeVersionsResponse"
-    "fixture/GetSlotTypeVersionsResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetSlotTypeVersions)
-
-responseGetIntents :: GetIntentsResponse -> TestTree
-responseGetIntents = res
-    "GetIntentsResponse"
-    "fixture/GetIntentsResponse.proto"
-    lexModels
-    (Proxy :: Proxy GetIntents)
-
 responseGetBotAlias :: GetBotAliasResponse -> TestTree
-responseGetBotAlias = res
+responseGetBotAlias =
+  res
     "GetBotAliasResponse"
     "fixture/GetBotAliasResponse.proto"
-    lexModels
+    defaultService
     (Proxy :: Proxy GetBotAlias)
+
+responseGetBotChannelAssociations :: GetBotChannelAssociationsResponse -> TestTree
+responseGetBotChannelAssociations =
+  res
+    "GetBotChannelAssociationsResponse"
+    "fixture/GetBotChannelAssociationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBotChannelAssociations)
+
+responsePutBotAlias :: PutBotAliasResponse -> TestTree
+responsePutBotAlias =
+  res
+    "PutBotAliasResponse"
+    "fixture/PutBotAliasResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutBotAlias)
+
+responseGetUtterancesView :: GetUtterancesViewResponse -> TestTree
+responseGetUtterancesView =
+  res
+    "GetUtterancesViewResponse"
+    "fixture/GetUtterancesViewResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetUtterancesView)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
+responseGetBuiltinIntent :: GetBuiltinIntentResponse -> TestTree
+responseGetBuiltinIntent =
+  res
+    "GetBuiltinIntentResponse"
+    "fixture/GetBuiltinIntentResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBuiltinIntent)
+
+responseGetSlotTypeVersions :: GetSlotTypeVersionsResponse -> TestTree
+responseGetSlotTypeVersions =
+  res
+    "GetSlotTypeVersionsResponse"
+    "fixture/GetSlotTypeVersionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSlotTypeVersions)
+
+responseGetBuiltinSlotTypes :: GetBuiltinSlotTypesResponse -> TestTree
+responseGetBuiltinSlotTypes =
+  res
+    "GetBuiltinSlotTypesResponse"
+    "fixture/GetBuiltinSlotTypesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBuiltinSlotTypes)
+
+responsePutBot :: PutBotResponse -> TestTree
+responsePutBot =
+  res
+    "PutBotResponse"
+    "fixture/PutBotResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutBot)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
+
+responseDeleteSlotType :: DeleteSlotTypeResponse -> TestTree
+responseDeleteSlotType =
+  res
+    "DeleteSlotTypeResponse"
+    "fixture/DeleteSlotTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteSlotType)
+
+responsePutIntent :: PutIntentResponse -> TestTree
+responsePutIntent =
+  res
+    "PutIntentResponse"
+    "fixture/PutIntentResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutIntent)
+
+responseGetBotChannelAssociation :: GetBotChannelAssociationResponse -> TestTree
+responseGetBotChannelAssociation =
+  res
+    "GetBotChannelAssociationResponse"
+    "fixture/GetBotChannelAssociationResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBotChannelAssociation)
+
+responseCreateIntentVersion :: CreateIntentVersionResponse -> TestTree
+responseCreateIntentVersion =
+  res
+    "CreateIntentVersionResponse"
+    "fixture/CreateIntentVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateIntentVersion)
+
+responseGetExport :: GetExportResponse -> TestTree
+responseGetExport =
+  res
+    "GetExportResponse"
+    "fixture/GetExportResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetExport)
+
+responseGetSlotType :: GetSlotTypeResponse -> TestTree
+responseGetSlotType =
+  res
+    "GetSlotTypeResponse"
+    "fixture/GetSlotTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSlotType)
+
+responseDeleteIntentVersion :: DeleteIntentVersionResponse -> TestTree
+responseDeleteIntentVersion =
+  res
+    "DeleteIntentVersionResponse"
+    "fixture/DeleteIntentVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteIntentVersion)
+
+responseCreateBotVersion :: CreateBotVersionResponse -> TestTree
+responseCreateBotVersion =
+  res
+    "CreateBotVersionResponse"
+    "fixture/CreateBotVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateBotVersion)
+
+responseGetBot :: GetBotResponse -> TestTree
+responseGetBot =
+  res
+    "GetBotResponse"
+    "fixture/GetBotResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBot)
+
+responseGetBotAliases :: GetBotAliasesResponse -> TestTree
+responseGetBotAliases =
+  res
+    "GetBotAliasesResponse"
+    "fixture/GetBotAliasesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBotAliases)
+
+responseGetIntents :: GetIntentsResponse -> TestTree
+responseGetIntents =
+  res
+    "GetIntentsResponse"
+    "fixture/GetIntentsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetIntents)
+
+responseGetBotVersions :: GetBotVersionsResponse -> TestTree
+responseGetBotVersions =
+  res
+    "GetBotVersionsResponse"
+    "fixture/GetBotVersionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBotVersions)
+
+responseDeleteBotAlias :: DeleteBotAliasResponse -> TestTree
+responseDeleteBotAlias =
+  res
+    "DeleteBotAliasResponse"
+    "fixture/DeleteBotAliasResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteBotAlias)
+
+responseGetImport :: GetImportResponse -> TestTree
+responseGetImport =
+  res
+    "GetImportResponse"
+    "fixture/GetImportResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetImport)
+
+responseGetIntentVersions :: GetIntentVersionsResponse -> TestTree
+responseGetIntentVersions =
+  res
+    "GetIntentVersionsResponse"
+    "fixture/GetIntentVersionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetIntentVersions)
+
+responseGetBuiltinIntents :: GetBuiltinIntentsResponse -> TestTree
+responseGetBuiltinIntents =
+  res
+    "GetBuiltinIntentsResponse"
+    "fixture/GetBuiltinIntentsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBuiltinIntents)
+
+responseDeleteBot :: DeleteBotResponse -> TestTree
+responseDeleteBot =
+  res
+    "DeleteBotResponse"
+    "fixture/DeleteBotResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteBot)
+
+responsePutSlotType :: PutSlotTypeResponse -> TestTree
+responsePutSlotType =
+  res
+    "PutSlotTypeResponse"
+    "fixture/PutSlotTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutSlotType)
+
+responseStartImport :: StartImportResponse -> TestTree
+responseStartImport =
+  res
+    "StartImportResponse"
+    "fixture/StartImportResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartImport)
+
+responseDeleteIntent :: DeleteIntentResponse -> TestTree
+responseDeleteIntent =
+  res
+    "DeleteIntentResponse"
+    "fixture/DeleteIntentResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteIntent)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)
+
+responseCreateSlotTypeVersion :: CreateSlotTypeVersionResponse -> TestTree
+responseCreateSlotTypeVersion =
+  res
+    "CreateSlotTypeVersionResponse"
+    "fixture/CreateSlotTypeVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateSlotTypeVersion)
+
+responseGetIntent :: GetIntentResponse -> TestTree
+responseGetIntent =
+  res
+    "GetIntentResponse"
+    "fixture/GetIntentResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetIntent)
+
+responseDeleteBotVersion :: DeleteBotVersionResponse -> TestTree
+responseDeleteBotVersion =
+  res
+    "DeleteBotVersionResponse"
+    "fixture/DeleteBotVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteBotVersion)
+
+responseDeleteBotChannelAssociation :: DeleteBotChannelAssociationResponse -> TestTree
+responseDeleteBotChannelAssociation =
+  res
+    "DeleteBotChannelAssociationResponse"
+    "fixture/DeleteBotChannelAssociationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteBotChannelAssociation)

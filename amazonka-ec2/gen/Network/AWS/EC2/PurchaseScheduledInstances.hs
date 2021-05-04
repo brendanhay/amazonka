@@ -1,166 +1,213 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.PurchaseScheduledInstances
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Purchases one or more Scheduled Instances with the specified schedule.
+-- Purchases the Scheduled Instances with the specified schedule.
 --
+-- Scheduled Instances enable you to purchase Amazon EC2 compute capacity
+-- by the hour for a one-year term. Before you can purchase a Scheduled
+-- Instance, you must call DescribeScheduledInstanceAvailability to check
+-- for available schedules and obtain a purchase token. After you purchase
+-- a Scheduled Instance, you must call RunScheduledInstances during each
+-- scheduled time period.
 --
--- Scheduled Instances enable you to purchase Amazon EC2 compute capacity by the hour for a one-year term. Before you can purchase a Scheduled Instance, you must call 'DescribeScheduledInstanceAvailability' to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance, you must call 'RunScheduledInstances' during each scheduled time period.
---
--- After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.
---
+-- After you purchase a Scheduled Instance, you can\'t cancel, modify, or
+-- resell your purchase.
 module Network.AWS.EC2.PurchaseScheduledInstances
-    (
-    -- * Creating a Request
-      purchaseScheduledInstances
-    , PurchaseScheduledInstances
+  ( -- * Creating a Request
+    PurchaseScheduledInstances (..),
+    newPurchaseScheduledInstances,
+
     -- * Request Lenses
-    , psiClientToken
-    , psiDryRun
-    , psiPurchaseRequests
+    purchaseScheduledInstances_dryRun,
+    purchaseScheduledInstances_clientToken,
+    purchaseScheduledInstances_purchaseRequests,
 
     -- * Destructuring the Response
-    , purchaseScheduledInstancesResponse
-    , PurchaseScheduledInstancesResponse
+    PurchaseScheduledInstancesResponse (..),
+    newPurchaseScheduledInstancesResponse,
+
     -- * Response Lenses
-    , psirsScheduledInstanceSet
-    , psirsResponseStatus
-    ) where
+    purchaseScheduledInstancesResponse_scheduledInstanceSet,
+    purchaseScheduledInstancesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for PurchaseScheduledInstances.
 --
---
---
--- /See:/ 'purchaseScheduledInstances' smart constructor.
+-- /See:/ 'newPurchaseScheduledInstances' smart constructor.
 data PurchaseScheduledInstances = PurchaseScheduledInstances'
-  { _psiClientToken      :: !(Maybe Text)
-  , _psiDryRun           :: !(Maybe Bool)
-  , _psiPurchaseRequests :: !(List1 PurchaseRequest)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Unique, case-sensitive identifier that ensures the idempotency of the
+    -- request. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+    clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The purchase requests.
+    purchaseRequests :: Prelude.NonEmpty PurchaseRequest
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PurchaseScheduledInstances' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PurchaseScheduledInstances' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'psiClientToken' - Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'psiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- 'dryRun', 'purchaseScheduledInstances_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'psiPurchaseRequests' - One or more purchase requests.
-purchaseScheduledInstances
-    :: NonEmpty PurchaseRequest -- ^ 'psiPurchaseRequests'
-    -> PurchaseScheduledInstances
-purchaseScheduledInstances pPurchaseRequests_ =
+-- 'clientToken', 'purchaseScheduledInstances_clientToken' - Unique, case-sensitive identifier that ensures the idempotency of the
+-- request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+--
+-- 'purchaseRequests', 'purchaseScheduledInstances_purchaseRequests' - The purchase requests.
+newPurchaseScheduledInstances ::
+  -- | 'purchaseRequests'
+  Prelude.NonEmpty PurchaseRequest ->
+  PurchaseScheduledInstances
+newPurchaseScheduledInstances pPurchaseRequests_ =
   PurchaseScheduledInstances'
-    { _psiClientToken = Nothing
-    , _psiDryRun = Nothing
-    , _psiPurchaseRequests = _List1 # pPurchaseRequests_
+    { dryRun =
+        Prelude.Nothing,
+      clientToken = Prelude.Nothing,
+      purchaseRequests =
+        Prelude._Coerce Lens.# pPurchaseRequests_
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+purchaseScheduledInstances_dryRun :: Lens.Lens' PurchaseScheduledInstances (Prelude.Maybe Prelude.Bool)
+purchaseScheduledInstances_dryRun = Lens.lens (\PurchaseScheduledInstances' {dryRun} -> dryRun) (\s@PurchaseScheduledInstances' {} a -> s {dryRun = a} :: PurchaseScheduledInstances)
 
--- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
-psiClientToken :: Lens' PurchaseScheduledInstances (Maybe Text)
-psiClientToken = lens _psiClientToken (\ s a -> s{_psiClientToken = a})
+-- | Unique, case-sensitive identifier that ensures the idempotency of the
+-- request. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+purchaseScheduledInstances_clientToken :: Lens.Lens' PurchaseScheduledInstances (Prelude.Maybe Prelude.Text)
+purchaseScheduledInstances_clientToken = Lens.lens (\PurchaseScheduledInstances' {clientToken} -> clientToken) (\s@PurchaseScheduledInstances' {} a -> s {clientToken = a} :: PurchaseScheduledInstances)
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-psiDryRun :: Lens' PurchaseScheduledInstances (Maybe Bool)
-psiDryRun = lens _psiDryRun (\ s a -> s{_psiDryRun = a})
+-- | The purchase requests.
+purchaseScheduledInstances_purchaseRequests :: Lens.Lens' PurchaseScheduledInstances (Prelude.NonEmpty PurchaseRequest)
+purchaseScheduledInstances_purchaseRequests = Lens.lens (\PurchaseScheduledInstances' {purchaseRequests} -> purchaseRequests) (\s@PurchaseScheduledInstances' {} a -> s {purchaseRequests = a} :: PurchaseScheduledInstances) Prelude.. Prelude._Coerce
 
--- | One or more purchase requests.
-psiPurchaseRequests :: Lens' PurchaseScheduledInstances (NonEmpty PurchaseRequest)
-psiPurchaseRequests = lens _psiPurchaseRequests (\ s a -> s{_psiPurchaseRequests = a}) . _List1
+instance
+  Prelude.AWSRequest
+    PurchaseScheduledInstances
+  where
+  type
+    Rs PurchaseScheduledInstances =
+      PurchaseScheduledInstancesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          PurchaseScheduledInstancesResponse'
+            Prelude.<$> ( x Prelude..@? "scheduledInstanceSet"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest PurchaseScheduledInstances where
-        type Rs PurchaseScheduledInstances =
-             PurchaseScheduledInstancesResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 PurchaseScheduledInstancesResponse' <$>
-                   (x .@? "scheduledInstanceSet" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable PurchaseScheduledInstances
 
-instance Hashable PurchaseScheduledInstances where
+instance Prelude.NFData PurchaseScheduledInstances
 
-instance NFData PurchaseScheduledInstances where
+instance Prelude.ToHeaders PurchaseScheduledInstances where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders PurchaseScheduledInstances where
-        toHeaders = const mempty
+instance Prelude.ToPath PurchaseScheduledInstances where
+  toPath = Prelude.const "/"
 
-instance ToPath PurchaseScheduledInstances where
-        toPath = const "/"
-
-instance ToQuery PurchaseScheduledInstances where
-        toQuery PurchaseScheduledInstances'{..}
-          = mconcat
-              ["Action" =:
-                 ("PurchaseScheduledInstances" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "ClientToken" =: _psiClientToken,
-               "DryRun" =: _psiDryRun,
-               toQueryList "PurchaseRequest" _psiPurchaseRequests]
+instance Prelude.ToQuery PurchaseScheduledInstances where
+  toQuery PurchaseScheduledInstances' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("PurchaseScheduledInstances" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Prelude.=: dryRun,
+        "ClientToken" Prelude.=: clientToken,
+        Prelude.toQueryList
+          "PurchaseRequest"
+          purchaseRequests
+      ]
 
 -- | Contains the output of PurchaseScheduledInstances.
 --
---
---
--- /See:/ 'purchaseScheduledInstancesResponse' smart constructor.
+-- /See:/ 'newPurchaseScheduledInstancesResponse' smart constructor.
 data PurchaseScheduledInstancesResponse = PurchaseScheduledInstancesResponse'
-  { _psirsScheduledInstanceSet :: !(Maybe [ScheduledInstance])
-  , _psirsResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the Scheduled Instances.
+    scheduledInstanceSet :: Prelude.Maybe [ScheduledInstance],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PurchaseScheduledInstancesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PurchaseScheduledInstancesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'psirsScheduledInstanceSet' - Information about the Scheduled Instances.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'psirsResponseStatus' - -- | The response status code.
-purchaseScheduledInstancesResponse
-    :: Int -- ^ 'psirsResponseStatus'
-    -> PurchaseScheduledInstancesResponse
-purchaseScheduledInstancesResponse pResponseStatus_ =
+-- 'scheduledInstanceSet', 'purchaseScheduledInstancesResponse_scheduledInstanceSet' - Information about the Scheduled Instances.
+--
+-- 'httpStatus', 'purchaseScheduledInstancesResponse_httpStatus' - The response's http status code.
+newPurchaseScheduledInstancesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  PurchaseScheduledInstancesResponse
+newPurchaseScheduledInstancesResponse pHttpStatus_ =
   PurchaseScheduledInstancesResponse'
-    { _psirsScheduledInstanceSet = Nothing
-    , _psirsResponseStatus = pResponseStatus_
+    { scheduledInstanceSet =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | Information about the Scheduled Instances.
-psirsScheduledInstanceSet :: Lens' PurchaseScheduledInstancesResponse [ScheduledInstance]
-psirsScheduledInstanceSet = lens _psirsScheduledInstanceSet (\ s a -> s{_psirsScheduledInstanceSet = a}) . _Default . _Coerce
+purchaseScheduledInstancesResponse_scheduledInstanceSet :: Lens.Lens' PurchaseScheduledInstancesResponse (Prelude.Maybe [ScheduledInstance])
+purchaseScheduledInstancesResponse_scheduledInstanceSet = Lens.lens (\PurchaseScheduledInstancesResponse' {scheduledInstanceSet} -> scheduledInstanceSet) (\s@PurchaseScheduledInstancesResponse' {} a -> s {scheduledInstanceSet = a} :: PurchaseScheduledInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-psirsResponseStatus :: Lens' PurchaseScheduledInstancesResponse Int
-psirsResponseStatus = lens _psirsResponseStatus (\ s a -> s{_psirsResponseStatus = a})
+-- | The response's http status code.
+purchaseScheduledInstancesResponse_httpStatus :: Lens.Lens' PurchaseScheduledInstancesResponse Prelude.Int
+purchaseScheduledInstancesResponse_httpStatus = Lens.lens (\PurchaseScheduledInstancesResponse' {httpStatus} -> httpStatus) (\s@PurchaseScheduledInstancesResponse' {} a -> s {httpStatus = a} :: PurchaseScheduledInstancesResponse)
 
-instance NFData PurchaseScheduledInstancesResponse
-         where
+instance
+  Prelude.NFData
+    PurchaseScheduledInstancesResponse

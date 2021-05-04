@@ -10,7 +10,7 @@
 
 -- |
 -- Module      : Network.AWS.S3.Internal
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
@@ -45,7 +45,6 @@ import Network.AWS.Data.XML
 import Network.AWS.Lens     (IndexedTraversal', Iso', Prism', Traversal')
 import Network.AWS.Lens     (iso, prism, traversed, _1, _2)
 import Network.AWS.Prelude
-
 import qualified Data.Text as Text
 
 newtype BucketName = BucketName Text
@@ -138,13 +137,12 @@ instance Hashable LocationConstraint
 instance NFData   LocationConstraint
 
 instance FromText LocationConstraint where
-    parser = LocationConstraint <$> (parser <|> go)
-      where
-        go = takeLowerText >>= \case
+    fromText text =
+      fmap LocationConstraint $
+        case Text.toLower text of
             ""   -> pure NorthVirginia
             "eu" -> pure Ireland
-            e    -> fromTextError $
-                "Failure parsing LocationConstraint from " <> e
+            other -> Left ("Failure parsing LocationConstraint from " ++ show other)
 
 instance FromXML LocationConstraint where
     parseXML = \case

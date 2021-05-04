@@ -1,187 +1,263 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.GetInventorySchema
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Return a list of inventory type names for the account, or return a list of attribute names for a specific Inventory item type.
+-- Return a list of inventory type names for the account, or return a list
+-- of attribute names for a specific Inventory item type.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.SSM.GetInventorySchema
-    (
-    -- * Creating a Request
-      getInventorySchema
-    , GetInventorySchema
+  ( -- * Creating a Request
+    GetInventorySchema (..),
+    newGetInventorySchema,
+
     -- * Request Lenses
-    , gisTypeName
-    , gisAggregator
-    , gisNextToken
-    , gisSubType
-    , gisMaxResults
+    getInventorySchema_typeName,
+    getInventorySchema_nextToken,
+    getInventorySchema_subType,
+    getInventorySchema_aggregator,
+    getInventorySchema_maxResults,
 
     -- * Destructuring the Response
-    , getInventorySchemaResponse
-    , GetInventorySchemaResponse
+    GetInventorySchemaResponse (..),
+    newGetInventorySchemaResponse,
+
     -- * Response Lenses
-    , gisrsSchemas
-    , gisrsNextToken
-    , gisrsResponseStatus
-    ) where
+    getInventorySchemaResponse_nextToken,
+    getInventorySchemaResponse_schemas,
+    getInventorySchemaResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'getInventorySchema' smart constructor.
+-- | /See:/ 'newGetInventorySchema' smart constructor.
 data GetInventorySchema = GetInventorySchema'
-  { _gisTypeName   :: !(Maybe Text)
-  , _gisAggregator :: !(Maybe Bool)
-  , _gisNextToken  :: !(Maybe Text)
-  , _gisSubType    :: !(Maybe Bool)
-  , _gisMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The type of inventory item to return.
+    typeName :: Prelude.Maybe Prelude.Text,
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns the sub-type schema for a specified inventory type.
+    subType :: Prelude.Maybe Prelude.Bool,
+    -- | Returns inventory schemas that support aggregation. For example, this
+    -- call returns the @AWS:InstanceInformation@ type, because it supports
+    -- aggregation based on the @PlatformName@, @PlatformType@, and
+    -- @PlatformVersion@ attributes.
+    aggregator :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of items to return for this call. The call also
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetInventorySchema' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetInventorySchema' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gisTypeName' - The type of inventory item to return.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gisAggregator' - Returns inventory schemas that support aggregation. For example, this call returns the @AWS:InstanceInformation@ type, because it supports aggregation based on the @PlatformName@ , @PlatformType@ , and @PlatformVersion@ attributes.
+-- 'typeName', 'getInventorySchema_typeName' - The type of inventory item to return.
 --
--- * 'gisNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- 'nextToken', 'getInventorySchema_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
--- * 'gisSubType' - Returns the sub-type schema for a specified inventory type.
+-- 'subType', 'getInventorySchema_subType' - Returns the sub-type schema for a specified inventory type.
 --
--- * 'gisMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-getInventorySchema
-    :: GetInventorySchema
-getInventorySchema =
+-- 'aggregator', 'getInventorySchema_aggregator' - Returns inventory schemas that support aggregation. For example, this
+-- call returns the @AWS:InstanceInformation@ type, because it supports
+-- aggregation based on the @PlatformName@, @PlatformType@, and
+-- @PlatformVersion@ attributes.
+--
+-- 'maxResults', 'getInventorySchema_maxResults' - The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+newGetInventorySchema ::
+  GetInventorySchema
+newGetInventorySchema =
   GetInventorySchema'
-    { _gisTypeName = Nothing
-    , _gisAggregator = Nothing
-    , _gisNextToken = Nothing
-    , _gisSubType = Nothing
-    , _gisMaxResults = Nothing
+    { typeName = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      subType = Prelude.Nothing,
+      aggregator = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
-
 
 -- | The type of inventory item to return.
-gisTypeName :: Lens' GetInventorySchema (Maybe Text)
-gisTypeName = lens _gisTypeName (\ s a -> s{_gisTypeName = a})
+getInventorySchema_typeName :: Lens.Lens' GetInventorySchema (Prelude.Maybe Prelude.Text)
+getInventorySchema_typeName = Lens.lens (\GetInventorySchema' {typeName} -> typeName) (\s@GetInventorySchema' {} a -> s {typeName = a} :: GetInventorySchema)
 
--- | Returns inventory schemas that support aggregation. For example, this call returns the @AWS:InstanceInformation@ type, because it supports aggregation based on the @PlatformName@ , @PlatformType@ , and @PlatformVersion@ attributes.
-gisAggregator :: Lens' GetInventorySchema (Maybe Bool)
-gisAggregator = lens _gisAggregator (\ s a -> s{_gisAggregator = a})
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
-gisNextToken :: Lens' GetInventorySchema (Maybe Text)
-gisNextToken = lens _gisNextToken (\ s a -> s{_gisNextToken = a})
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+getInventorySchema_nextToken :: Lens.Lens' GetInventorySchema (Prelude.Maybe Prelude.Text)
+getInventorySchema_nextToken = Lens.lens (\GetInventorySchema' {nextToken} -> nextToken) (\s@GetInventorySchema' {} a -> s {nextToken = a} :: GetInventorySchema)
 
 -- | Returns the sub-type schema for a specified inventory type.
-gisSubType :: Lens' GetInventorySchema (Maybe Bool)
-gisSubType = lens _gisSubType (\ s a -> s{_gisSubType = a})
+getInventorySchema_subType :: Lens.Lens' GetInventorySchema (Prelude.Maybe Prelude.Bool)
+getInventorySchema_subType = Lens.lens (\GetInventorySchema' {subType} -> subType) (\s@GetInventorySchema' {} a -> s {subType = a} :: GetInventorySchema)
 
--- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-gisMaxResults :: Lens' GetInventorySchema (Maybe Natural)
-gisMaxResults = lens _gisMaxResults (\ s a -> s{_gisMaxResults = a}) . mapping _Nat
+-- | Returns inventory schemas that support aggregation. For example, this
+-- call returns the @AWS:InstanceInformation@ type, because it supports
+-- aggregation based on the @PlatformName@, @PlatformType@, and
+-- @PlatformVersion@ attributes.
+getInventorySchema_aggregator :: Lens.Lens' GetInventorySchema (Prelude.Maybe Prelude.Bool)
+getInventorySchema_aggregator = Lens.lens (\GetInventorySchema' {aggregator} -> aggregator) (\s@GetInventorySchema' {} a -> s {aggregator = a} :: GetInventorySchema)
 
-instance AWSRequest GetInventorySchema where
-        type Rs GetInventorySchema =
-             GetInventorySchemaResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetInventorySchemaResponse' <$>
-                   (x .?> "Schemas" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+getInventorySchema_maxResults :: Lens.Lens' GetInventorySchema (Prelude.Maybe Prelude.Natural)
+getInventorySchema_maxResults = Lens.lens (\GetInventorySchema' {maxResults} -> maxResults) (\s@GetInventorySchema' {} a -> s {maxResults = a} :: GetInventorySchema)
 
-instance Hashable GetInventorySchema where
+instance Pager.AWSPager GetInventorySchema where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? getInventorySchemaResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? getInventorySchemaResponse_schemas
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& getInventorySchema_nextToken
+          Lens..~ rs
+          Lens.^? getInventorySchemaResponse_nextToken
+            Prelude.. Lens._Just
 
-instance NFData GetInventorySchema where
+instance Prelude.AWSRequest GetInventorySchema where
+  type
+    Rs GetInventorySchema =
+      GetInventorySchemaResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetInventorySchemaResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> (x Prelude..?> "Schemas" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToHeaders GetInventorySchema where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.GetInventorySchema" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.Hashable GetInventorySchema
 
-instance ToJSON GetInventorySchema where
-        toJSON GetInventorySchema'{..}
-          = object
-              (catMaybes
-                 [("TypeName" .=) <$> _gisTypeName,
-                  ("Aggregator" .=) <$> _gisAggregator,
-                  ("NextToken" .=) <$> _gisNextToken,
-                  ("SubType" .=) <$> _gisSubType,
-                  ("MaxResults" .=) <$> _gisMaxResults])
+instance Prelude.NFData GetInventorySchema
 
-instance ToPath GetInventorySchema where
-        toPath = const "/"
+instance Prelude.ToHeaders GetInventorySchema where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonSSM.GetInventorySchema" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToQuery GetInventorySchema where
-        toQuery = const mempty
+instance Prelude.ToJSON GetInventorySchema where
+  toJSON GetInventorySchema' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("TypeName" Prelude..=) Prelude.<$> typeName,
+            ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("SubType" Prelude..=) Prelude.<$> subType,
+            ("Aggregator" Prelude..=) Prelude.<$> aggregator,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+          ]
+      )
 
--- | /See:/ 'getInventorySchemaResponse' smart constructor.
+instance Prelude.ToPath GetInventorySchema where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery GetInventorySchema where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetInventorySchemaResponse' smart constructor.
 data GetInventorySchemaResponse = GetInventorySchemaResponse'
-  { _gisrsSchemas        :: !(Maybe [InventoryItemSchema])
-  , _gisrsNextToken      :: !(Maybe Text)
-  , _gisrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to use when requesting the next set of items. If there are no
+    -- additional items to return, the string is empty.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Inventory schemas returned by the request.
+    schemas :: Prelude.Maybe [InventoryItemSchema],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetInventorySchemaResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetInventorySchemaResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gisrsSchemas' - Inventory schemas returned by the request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gisrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- 'nextToken', 'getInventorySchemaResponse_nextToken' - The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
 --
--- * 'gisrsResponseStatus' - -- | The response status code.
-getInventorySchemaResponse
-    :: Int -- ^ 'gisrsResponseStatus'
-    -> GetInventorySchemaResponse
-getInventorySchemaResponse pResponseStatus_ =
+-- 'schemas', 'getInventorySchemaResponse_schemas' - Inventory schemas returned by the request.
+--
+-- 'httpStatus', 'getInventorySchemaResponse_httpStatus' - The response's http status code.
+newGetInventorySchemaResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetInventorySchemaResponse
+newGetInventorySchemaResponse pHttpStatus_ =
   GetInventorySchemaResponse'
-    { _gisrsSchemas = Nothing
-    , _gisrsNextToken = Nothing
-    , _gisrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      schemas = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
+getInventorySchemaResponse_nextToken :: Lens.Lens' GetInventorySchemaResponse (Prelude.Maybe Prelude.Text)
+getInventorySchemaResponse_nextToken = Lens.lens (\GetInventorySchemaResponse' {nextToken} -> nextToken) (\s@GetInventorySchemaResponse' {} a -> s {nextToken = a} :: GetInventorySchemaResponse)
 
 -- | Inventory schemas returned by the request.
-gisrsSchemas :: Lens' GetInventorySchemaResponse [InventoryItemSchema]
-gisrsSchemas = lens _gisrsSchemas (\ s a -> s{_gisrsSchemas = a}) . _Default . _Coerce
+getInventorySchemaResponse_schemas :: Lens.Lens' GetInventorySchemaResponse (Prelude.Maybe [InventoryItemSchema])
+getInventorySchemaResponse_schemas = Lens.lens (\GetInventorySchemaResponse' {schemas} -> schemas) (\s@GetInventorySchemaResponse' {} a -> s {schemas = a} :: GetInventorySchemaResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-gisrsNextToken :: Lens' GetInventorySchemaResponse (Maybe Text)
-gisrsNextToken = lens _gisrsNextToken (\ s a -> s{_gisrsNextToken = a})
+-- | The response's http status code.
+getInventorySchemaResponse_httpStatus :: Lens.Lens' GetInventorySchemaResponse Prelude.Int
+getInventorySchemaResponse_httpStatus = Lens.lens (\GetInventorySchemaResponse' {httpStatus} -> httpStatus) (\s@GetInventorySchemaResponse' {} a -> s {httpStatus = a} :: GetInventorySchemaResponse)
 
--- | -- | The response status code.
-gisrsResponseStatus :: Lens' GetInventorySchemaResponse Int
-gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a})
-
-instance NFData GetInventorySchemaResponse where
+instance Prelude.NFData GetInventorySchemaResponse

@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.DisassociateRoleFromGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,108 +23,137 @@
 --
 -- Disassociates the role from a group.
 module Network.AWS.Greengrass.DisassociateRoleFromGroup
-    (
-    -- * Creating a Request
-      disassociateRoleFromGroup
-    , DisassociateRoleFromGroup
+  ( -- * Creating a Request
+    DisassociateRoleFromGroup (..),
+    newDisassociateRoleFromGroup,
+
     -- * Request Lenses
-    , drfgGroupId
+    disassociateRoleFromGroup_groupId,
 
     -- * Destructuring the Response
-    , disassociateRoleFromGroupResponse
-    , DisassociateRoleFromGroupResponse
+    DisassociateRoleFromGroupResponse (..),
+    newDisassociateRoleFromGroupResponse,
+
     -- * Response Lenses
-    , drfgrsDisassociatedAt
-    , drfgrsResponseStatus
-    ) where
+    disassociateRoleFromGroupResponse_disassociatedAt,
+    disassociateRoleFromGroupResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'disassociateRoleFromGroup' smart constructor.
-newtype DisassociateRoleFromGroup = DisassociateRoleFromGroup'
-  { _drfgGroupId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDisassociateRoleFromGroup' smart constructor.
+data DisassociateRoleFromGroup = DisassociateRoleFromGroup'
+  { -- | The ID of the Greengrass group.
+    groupId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DisassociateRoleFromGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DisassociateRoleFromGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drfgGroupId' - The ID of the AWS Greengrass group.
-disassociateRoleFromGroup
-    :: Text -- ^ 'drfgGroupId'
-    -> DisassociateRoleFromGroup
-disassociateRoleFromGroup pGroupId_ =
-  DisassociateRoleFromGroup' {_drfgGroupId = pGroupId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'groupId', 'disassociateRoleFromGroup_groupId' - The ID of the Greengrass group.
+newDisassociateRoleFromGroup ::
+  -- | 'groupId'
+  Prelude.Text ->
+  DisassociateRoleFromGroup
+newDisassociateRoleFromGroup pGroupId_ =
+  DisassociateRoleFromGroup' {groupId = pGroupId_}
 
+-- | The ID of the Greengrass group.
+disassociateRoleFromGroup_groupId :: Lens.Lens' DisassociateRoleFromGroup Prelude.Text
+disassociateRoleFromGroup_groupId = Lens.lens (\DisassociateRoleFromGroup' {groupId} -> groupId) (\s@DisassociateRoleFromGroup' {} a -> s {groupId = a} :: DisassociateRoleFromGroup)
 
--- | The ID of the AWS Greengrass group.
-drfgGroupId :: Lens' DisassociateRoleFromGroup Text
-drfgGroupId = lens _drfgGroupId (\ s a -> s{_drfgGroupId = a})
+instance Prelude.AWSRequest DisassociateRoleFromGroup where
+  type
+    Rs DisassociateRoleFromGroup =
+      DisassociateRoleFromGroupResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DisassociateRoleFromGroupResponse'
+            Prelude.<$> (x Prelude..?> "DisassociatedAt")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DisassociateRoleFromGroup where
-        type Rs DisassociateRoleFromGroup =
-             DisassociateRoleFromGroupResponse
-        request = delete greengrass
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DisassociateRoleFromGroupResponse' <$>
-                   (x .?> "DisassociatedAt") <*> (pure (fromEnum s)))
+instance Prelude.Hashable DisassociateRoleFromGroup
 
-instance Hashable DisassociateRoleFromGroup where
+instance Prelude.NFData DisassociateRoleFromGroup
 
-instance NFData DisassociateRoleFromGroup where
+instance Prelude.ToHeaders DisassociateRoleFromGroup where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders DisassociateRoleFromGroup where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToPath DisassociateRoleFromGroup where
+  toPath DisassociateRoleFromGroup' {..} =
+    Prelude.mconcat
+      [ "/greengrass/groups/",
+        Prelude.toBS groupId,
+        "/role"
+      ]
 
-instance ToPath DisassociateRoleFromGroup where
-        toPath DisassociateRoleFromGroup'{..}
-          = mconcat
-              ["/greengrass/groups/", toBS _drfgGroupId, "/role"]
+instance Prelude.ToQuery DisassociateRoleFromGroup where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DisassociateRoleFromGroup where
-        toQuery = const mempty
-
--- | /See:/ 'disassociateRoleFromGroupResponse' smart constructor.
+-- | /See:/ 'newDisassociateRoleFromGroupResponse' smart constructor.
 data DisassociateRoleFromGroupResponse = DisassociateRoleFromGroupResponse'
-  { _drfgrsDisassociatedAt :: !(Maybe Text)
-  , _drfgrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The time, in milliseconds since the epoch, when the role was
+    -- disassociated from the group.
+    disassociatedAt :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DisassociateRoleFromGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DisassociateRoleFromGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drfgrsDisassociatedAt' - The time, in milliseconds since the epoch, when the role was disassociated from the group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drfgrsResponseStatus' - -- | The response status code.
-disassociateRoleFromGroupResponse
-    :: Int -- ^ 'drfgrsResponseStatus'
-    -> DisassociateRoleFromGroupResponse
-disassociateRoleFromGroupResponse pResponseStatus_ =
+-- 'disassociatedAt', 'disassociateRoleFromGroupResponse_disassociatedAt' - The time, in milliseconds since the epoch, when the role was
+-- disassociated from the group.
+--
+-- 'httpStatus', 'disassociateRoleFromGroupResponse_httpStatus' - The response's http status code.
+newDisassociateRoleFromGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DisassociateRoleFromGroupResponse
+newDisassociateRoleFromGroupResponse pHttpStatus_ =
   DisassociateRoleFromGroupResponse'
-    {_drfgrsDisassociatedAt = Nothing, _drfgrsResponseStatus = pResponseStatus_}
+    { disassociatedAt =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The time, in milliseconds since the epoch, when the role was
+-- disassociated from the group.
+disassociateRoleFromGroupResponse_disassociatedAt :: Lens.Lens' DisassociateRoleFromGroupResponse (Prelude.Maybe Prelude.Text)
+disassociateRoleFromGroupResponse_disassociatedAt = Lens.lens (\DisassociateRoleFromGroupResponse' {disassociatedAt} -> disassociatedAt) (\s@DisassociateRoleFromGroupResponse' {} a -> s {disassociatedAt = a} :: DisassociateRoleFromGroupResponse)
 
--- | The time, in milliseconds since the epoch, when the role was disassociated from the group.
-drfgrsDisassociatedAt :: Lens' DisassociateRoleFromGroupResponse (Maybe Text)
-drfgrsDisassociatedAt = lens _drfgrsDisassociatedAt (\ s a -> s{_drfgrsDisassociatedAt = a})
+-- | The response's http status code.
+disassociateRoleFromGroupResponse_httpStatus :: Lens.Lens' DisassociateRoleFromGroupResponse Prelude.Int
+disassociateRoleFromGroupResponse_httpStatus = Lens.lens (\DisassociateRoleFromGroupResponse' {httpStatus} -> httpStatus) (\s@DisassociateRoleFromGroupResponse' {} a -> s {httpStatus = a} :: DisassociateRoleFromGroupResponse)
 
--- | -- | The response status code.
-drfgrsResponseStatus :: Lens' DisassociateRoleFromGroupResponse Int
-drfgrsResponseStatus = lens _drfgrsResponseStatus (\ s a -> s{_drfgrsResponseStatus = a})
-
-instance NFData DisassociateRoleFromGroupResponse
-         where
+instance
+  Prelude.NFData
+    DisassociateRoleFromGroupResponse

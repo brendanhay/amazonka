@@ -1,190 +1,239 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateResourceDefinitionVersion
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a version of a resource definition that has already been defined.
+-- Creates a version of a resource definition that has already been
+-- defined.
 module Network.AWS.Greengrass.CreateResourceDefinitionVersion
-    (
-    -- * Creating a Request
-      createResourceDefinitionVersion
-    , CreateResourceDefinitionVersion
+  ( -- * Creating a Request
+    CreateResourceDefinitionVersion (..),
+    newCreateResourceDefinitionVersion,
+
     -- * Request Lenses
-    , crdvAmznClientToken
-    , crdvResources
-    , crdvResourceDefinitionId
+    createResourceDefinitionVersion_resources,
+    createResourceDefinitionVersion_amznClientToken,
+    createResourceDefinitionVersion_resourceDefinitionId,
 
     -- * Destructuring the Response
-    , createResourceDefinitionVersionResponse
-    , CreateResourceDefinitionVersionResponse
+    CreateResourceDefinitionVersionResponse (..),
+    newCreateResourceDefinitionVersionResponse,
+
     -- * Response Lenses
-    , crdvrsARN
-    , crdvrsCreationTimestamp
-    , crdvrsVersion
-    , crdvrsId
-    , crdvrsResponseStatus
-    ) where
+    createResourceDefinitionVersionResponse_creationTimestamp,
+    createResourceDefinitionVersionResponse_arn,
+    createResourceDefinitionVersionResponse_id,
+    createResourceDefinitionVersionResponse_version,
+    createResourceDefinitionVersionResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createResourceDefinitionVersion' smart constructor.
+-- | /See:/ 'newCreateResourceDefinitionVersion' smart constructor.
 data CreateResourceDefinitionVersion = CreateResourceDefinitionVersion'
-  { _crdvAmznClientToken      :: !(Maybe Text)
-  , _crdvResources            :: !(Maybe [Resource])
-  , _crdvResourceDefinitionId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of resources.
+    resources :: Prelude.Maybe [Resource],
+    -- | A client token used to correlate requests and responses.
+    amznClientToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the resource definition.
+    resourceDefinitionId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateResourceDefinitionVersion' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateResourceDefinitionVersion' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'crdvAmznClientToken' - A client token used to correlate requests and responses.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'crdvResources' - A list of resources.
+-- 'resources', 'createResourceDefinitionVersion_resources' - A list of resources.
 --
--- * 'crdvResourceDefinitionId' - The ID of the resource definition.
-createResourceDefinitionVersion
-    :: Text -- ^ 'crdvResourceDefinitionId'
-    -> CreateResourceDefinitionVersion
-createResourceDefinitionVersion pResourceDefinitionId_ =
-  CreateResourceDefinitionVersion'
-    { _crdvAmznClientToken = Nothing
-    , _crdvResources = Nothing
-    , _crdvResourceDefinitionId = pResourceDefinitionId_
-    }
-
-
--- | A client token used to correlate requests and responses.
-crdvAmznClientToken :: Lens' CreateResourceDefinitionVersion (Maybe Text)
-crdvAmznClientToken = lens _crdvAmznClientToken (\ s a -> s{_crdvAmznClientToken = a})
+-- 'amznClientToken', 'createResourceDefinitionVersion_amznClientToken' - A client token used to correlate requests and responses.
+--
+-- 'resourceDefinitionId', 'createResourceDefinitionVersion_resourceDefinitionId' - The ID of the resource definition.
+newCreateResourceDefinitionVersion ::
+  -- | 'resourceDefinitionId'
+  Prelude.Text ->
+  CreateResourceDefinitionVersion
+newCreateResourceDefinitionVersion
+  pResourceDefinitionId_ =
+    CreateResourceDefinitionVersion'
+      { resources =
+          Prelude.Nothing,
+        amznClientToken = Prelude.Nothing,
+        resourceDefinitionId =
+          pResourceDefinitionId_
+      }
 
 -- | A list of resources.
-crdvResources :: Lens' CreateResourceDefinitionVersion [Resource]
-crdvResources = lens _crdvResources (\ s a -> s{_crdvResources = a}) . _Default . _Coerce
+createResourceDefinitionVersion_resources :: Lens.Lens' CreateResourceDefinitionVersion (Prelude.Maybe [Resource])
+createResourceDefinitionVersion_resources = Lens.lens (\CreateResourceDefinitionVersion' {resources} -> resources) (\s@CreateResourceDefinitionVersion' {} a -> s {resources = a} :: CreateResourceDefinitionVersion) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | A client token used to correlate requests and responses.
+createResourceDefinitionVersion_amznClientToken :: Lens.Lens' CreateResourceDefinitionVersion (Prelude.Maybe Prelude.Text)
+createResourceDefinitionVersion_amznClientToken = Lens.lens (\CreateResourceDefinitionVersion' {amznClientToken} -> amznClientToken) (\s@CreateResourceDefinitionVersion' {} a -> s {amznClientToken = a} :: CreateResourceDefinitionVersion)
 
 -- | The ID of the resource definition.
-crdvResourceDefinitionId :: Lens' CreateResourceDefinitionVersion Text
-crdvResourceDefinitionId = lens _crdvResourceDefinitionId (\ s a -> s{_crdvResourceDefinitionId = a})
+createResourceDefinitionVersion_resourceDefinitionId :: Lens.Lens' CreateResourceDefinitionVersion Prelude.Text
+createResourceDefinitionVersion_resourceDefinitionId = Lens.lens (\CreateResourceDefinitionVersion' {resourceDefinitionId} -> resourceDefinitionId) (\s@CreateResourceDefinitionVersion' {} a -> s {resourceDefinitionId = a} :: CreateResourceDefinitionVersion)
 
-instance AWSRequest CreateResourceDefinitionVersion
-         where
-        type Rs CreateResourceDefinitionVersion =
-             CreateResourceDefinitionVersionResponse
-        request = postJSON greengrass
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateResourceDefinitionVersionResponse' <$>
-                   (x .?> "Arn") <*> (x .?> "CreationTimestamp") <*>
-                     (x .?> "Version")
-                     <*> (x .?> "Id")
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    CreateResourceDefinitionVersion
+  where
+  type
+    Rs CreateResourceDefinitionVersion =
+      CreateResourceDefinitionVersionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateResourceDefinitionVersionResponse'
+            Prelude.<$> (x Prelude..?> "CreationTimestamp")
+            Prelude.<*> (x Prelude..?> "Arn")
+            Prelude.<*> (x Prelude..?> "Id")
+            Prelude.<*> (x Prelude..?> "Version")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateResourceDefinitionVersion
-         where
+instance
+  Prelude.Hashable
+    CreateResourceDefinitionVersion
 
-instance NFData CreateResourceDefinitionVersion where
+instance
+  Prelude.NFData
+    CreateResourceDefinitionVersion
 
-instance ToHeaders CreateResourceDefinitionVersion
-         where
-        toHeaders CreateResourceDefinitionVersion'{..}
-          = mconcat
-              ["X-Amzn-Client-Token" =# _crdvAmznClientToken,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+instance
+  Prelude.ToHeaders
+    CreateResourceDefinitionVersion
+  where
+  toHeaders CreateResourceDefinitionVersion' {..} =
+    Prelude.mconcat
+      [ "X-Amzn-Client-Token" Prelude.=# amznClientToken,
+        "Content-Type"
+          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+      ]
 
-instance ToJSON CreateResourceDefinitionVersion where
-        toJSON CreateResourceDefinitionVersion'{..}
-          = object
-              (catMaybes [("Resources" .=) <$> _crdvResources])
+instance
+  Prelude.ToJSON
+    CreateResourceDefinitionVersion
+  where
+  toJSON CreateResourceDefinitionVersion' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [("Resources" Prelude..=) Prelude.<$> resources]
+      )
 
-instance ToPath CreateResourceDefinitionVersion where
-        toPath CreateResourceDefinitionVersion'{..}
-          = mconcat
-              ["/greengrass/definition/resources/",
-               toBS _crdvResourceDefinitionId, "/versions"]
+instance
+  Prelude.ToPath
+    CreateResourceDefinitionVersion
+  where
+  toPath CreateResourceDefinitionVersion' {..} =
+    Prelude.mconcat
+      [ "/greengrass/definition/resources/",
+        Prelude.toBS resourceDefinitionId,
+        "/versions"
+      ]
 
-instance ToQuery CreateResourceDefinitionVersion
-         where
-        toQuery = const mempty
+instance
+  Prelude.ToQuery
+    CreateResourceDefinitionVersion
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createResourceDefinitionVersionResponse' smart constructor.
+-- | /See:/ 'newCreateResourceDefinitionVersionResponse' smart constructor.
 data CreateResourceDefinitionVersionResponse = CreateResourceDefinitionVersionResponse'
-  { _crdvrsARN               :: !(Maybe Text)
-  , _crdvrsCreationTimestamp :: !(Maybe Text)
-  , _crdvrsVersion           :: !(Maybe Text)
-  , _crdvrsId                :: !(Maybe Text)
-  , _crdvrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The time, in milliseconds since the epoch, when the version was created.
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the version.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the parent definition that the version is associated with.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the version.
+    version :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateResourceDefinitionVersionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateResourceDefinitionVersionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'crdvrsARN' - The ARN of the version.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'crdvrsCreationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
+-- 'creationTimestamp', 'createResourceDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
 --
--- * 'crdvrsVersion' - The unique ID of the version.
+-- 'arn', 'createResourceDefinitionVersionResponse_arn' - The ARN of the version.
 --
--- * 'crdvrsId' - The ID of the version.
+-- 'id', 'createResourceDefinitionVersionResponse_id' - The ID of the parent definition that the version is associated with.
 --
--- * 'crdvrsResponseStatus' - -- | The response status code.
-createResourceDefinitionVersionResponse
-    :: Int -- ^ 'crdvrsResponseStatus'
-    -> CreateResourceDefinitionVersionResponse
-createResourceDefinitionVersionResponse pResponseStatus_ =
-  CreateResourceDefinitionVersionResponse'
-    { _crdvrsARN = Nothing
-    , _crdvrsCreationTimestamp = Nothing
-    , _crdvrsVersion = Nothing
-    , _crdvrsId = Nothing
-    , _crdvrsResponseStatus = pResponseStatus_
-    }
-
-
--- | The ARN of the version.
-crdvrsARN :: Lens' CreateResourceDefinitionVersionResponse (Maybe Text)
-crdvrsARN = lens _crdvrsARN (\ s a -> s{_crdvrsARN = a})
+-- 'version', 'createResourceDefinitionVersionResponse_version' - The ID of the version.
+--
+-- 'httpStatus', 'createResourceDefinitionVersionResponse_httpStatus' - The response's http status code.
+newCreateResourceDefinitionVersionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateResourceDefinitionVersionResponse
+newCreateResourceDefinitionVersionResponse
+  pHttpStatus_ =
+    CreateResourceDefinitionVersionResponse'
+      { creationTimestamp =
+          Prelude.Nothing,
+        arn = Prelude.Nothing,
+        id = Prelude.Nothing,
+        version = Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
 -- | The time, in milliseconds since the epoch, when the version was created.
-crdvrsCreationTimestamp :: Lens' CreateResourceDefinitionVersionResponse (Maybe Text)
-crdvrsCreationTimestamp = lens _crdvrsCreationTimestamp (\ s a -> s{_crdvrsCreationTimestamp = a})
+createResourceDefinitionVersionResponse_creationTimestamp :: Lens.Lens' CreateResourceDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+createResourceDefinitionVersionResponse_creationTimestamp = Lens.lens (\CreateResourceDefinitionVersionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateResourceDefinitionVersionResponse' {} a -> s {creationTimestamp = a} :: CreateResourceDefinitionVersionResponse)
 
--- | The unique ID of the version.
-crdvrsVersion :: Lens' CreateResourceDefinitionVersionResponse (Maybe Text)
-crdvrsVersion = lens _crdvrsVersion (\ s a -> s{_crdvrsVersion = a})
+-- | The ARN of the version.
+createResourceDefinitionVersionResponse_arn :: Lens.Lens' CreateResourceDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+createResourceDefinitionVersionResponse_arn = Lens.lens (\CreateResourceDefinitionVersionResponse' {arn} -> arn) (\s@CreateResourceDefinitionVersionResponse' {} a -> s {arn = a} :: CreateResourceDefinitionVersionResponse)
+
+-- | The ID of the parent definition that the version is associated with.
+createResourceDefinitionVersionResponse_id :: Lens.Lens' CreateResourceDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+createResourceDefinitionVersionResponse_id = Lens.lens (\CreateResourceDefinitionVersionResponse' {id} -> id) (\s@CreateResourceDefinitionVersionResponse' {} a -> s {id = a} :: CreateResourceDefinitionVersionResponse)
 
 -- | The ID of the version.
-crdvrsId :: Lens' CreateResourceDefinitionVersionResponse (Maybe Text)
-crdvrsId = lens _crdvrsId (\ s a -> s{_crdvrsId = a})
+createResourceDefinitionVersionResponse_version :: Lens.Lens' CreateResourceDefinitionVersionResponse (Prelude.Maybe Prelude.Text)
+createResourceDefinitionVersionResponse_version = Lens.lens (\CreateResourceDefinitionVersionResponse' {version} -> version) (\s@CreateResourceDefinitionVersionResponse' {} a -> s {version = a} :: CreateResourceDefinitionVersionResponse)
 
--- | -- | The response status code.
-crdvrsResponseStatus :: Lens' CreateResourceDefinitionVersionResponse Int
-crdvrsResponseStatus = lens _crdvrsResponseStatus (\ s a -> s{_crdvrsResponseStatus = a})
+-- | The response's http status code.
+createResourceDefinitionVersionResponse_httpStatus :: Lens.Lens' CreateResourceDefinitionVersionResponse Prelude.Int
+createResourceDefinitionVersionResponse_httpStatus = Lens.lens (\CreateResourceDefinitionVersionResponse' {httpStatus} -> httpStatus) (\s@CreateResourceDefinitionVersionResponse' {} a -> s {httpStatus = a} :: CreateResourceDefinitionVersionResponse)
 
-instance NFData
-           CreateResourceDefinitionVersionResponse
-         where
+instance
+  Prelude.NFData
+    CreateResourceDefinitionVersionResponse

@@ -1,156 +1,232 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListVPCEConfigurations
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about all Amazon Virtual Private Cloud (VPC) endpoint configurations in the AWS account.
+-- Returns information about all Amazon Virtual Private Cloud (VPC)
+-- endpoint configurations in the AWS account.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListVPCEConfigurations
-    (
-    -- * Creating a Request
-      listVPCEConfigurations
-    , ListVPCEConfigurations
+  ( -- * Creating a Request
+    ListVPCEConfigurations (..),
+    newListVPCEConfigurations,
+
     -- * Request Lenses
-    , lvecNextToken
-    , lvecMaxResults
+    listVPCEConfigurations_nextToken,
+    listVPCEConfigurations_maxResults,
 
     -- * Destructuring the Response
-    , listVPCEConfigurationsResponse
-    , ListVPCEConfigurationsResponse
+    ListVPCEConfigurationsResponse (..),
+    newListVPCEConfigurationsResponse,
+
     -- * Response Lenses
-    , lvecrsNextToken
-    , lvecrsVpceConfigurations
-    , lvecrsResponseStatus
-    ) where
+    listVPCEConfigurationsResponse_nextToken,
+    listVPCEConfigurationsResponse_vpceConfigurations,
+    listVPCEConfigurationsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listVPCEConfigurations' smart constructor.
+-- | /See:/ 'newListVPCEConfigurations' smart constructor.
 data ListVPCEConfigurations = ListVPCEConfigurations'
-  { _lvecNextToken  :: !(Maybe Text)
-  , _lvecMaxResults :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An integer that specifies the maximum number of items you want to return
+    -- in the API response.
+    maxResults :: Prelude.Maybe Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListVPCEConfigurations' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListVPCEConfigurations' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lvecNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lvecMaxResults' - An integer specifying the maximum number of items you want to return in the API response.
-listVPCEConfigurations
-    :: ListVPCEConfigurations
-listVPCEConfigurations =
-  ListVPCEConfigurations' {_lvecNextToken = Nothing, _lvecMaxResults = Nothing}
-
-
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lvecNextToken :: Lens' ListVPCEConfigurations (Maybe Text)
-lvecNextToken = lens _lvecNextToken (\ s a -> s{_lvecNextToken = a})
-
--- | An integer specifying the maximum number of items you want to return in the API response.
-lvecMaxResults :: Lens' ListVPCEConfigurations (Maybe Int)
-lvecMaxResults = lens _lvecMaxResults (\ s a -> s{_lvecMaxResults = a})
-
-instance AWSRequest ListVPCEConfigurations where
-        type Rs ListVPCEConfigurations =
-             ListVPCEConfigurationsResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListVPCEConfigurationsResponse' <$>
-                   (x .?> "nextToken") <*>
-                     (x .?> "vpceConfigurations" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListVPCEConfigurations where
-
-instance NFData ListVPCEConfigurations where
-
-instance ToHeaders ListVPCEConfigurations where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.ListVPCEConfigurations" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListVPCEConfigurations where
-        toJSON ListVPCEConfigurations'{..}
-          = object
-              (catMaybes
-                 [("nextToken" .=) <$> _lvecNextToken,
-                  ("maxResults" .=) <$> _lvecMaxResults])
-
-instance ToPath ListVPCEConfigurations where
-        toPath = const "/"
-
-instance ToQuery ListVPCEConfigurations where
-        toQuery = const mempty
-
--- | /See:/ 'listVPCEConfigurationsResponse' smart constructor.
-data ListVPCEConfigurationsResponse = ListVPCEConfigurationsResponse'
-  { _lvecrsNextToken          :: !(Maybe Text)
-  , _lvecrsVpceConfigurations :: !(Maybe [VPCEConfiguration])
-  , _lvecrsResponseStatus     :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListVPCEConfigurationsResponse' with the minimum fields required to make a request.
+-- 'nextToken', 'listVPCEConfigurations_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lvecrsNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- * 'lvecrsVpceConfigurations' - An array of @VPCEConfiguration@ objects containing information about your VPC endpoint configuration.
---
--- * 'lvecrsResponseStatus' - -- | The response status code.
-listVPCEConfigurationsResponse
-    :: Int -- ^ 'lvecrsResponseStatus'
-    -> ListVPCEConfigurationsResponse
-listVPCEConfigurationsResponse pResponseStatus_ =
-  ListVPCEConfigurationsResponse'
-    { _lvecrsNextToken = Nothing
-    , _lvecrsVpceConfigurations = Nothing
-    , _lvecrsResponseStatus = pResponseStatus_
+-- 'maxResults', 'listVPCEConfigurations_maxResults' - An integer that specifies the maximum number of items you want to return
+-- in the API response.
+newListVPCEConfigurations ::
+  ListVPCEConfigurations
+newListVPCEConfigurations =
+  ListVPCEConfigurations'
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listVPCEConfigurations_nextToken :: Lens.Lens' ListVPCEConfigurations (Prelude.Maybe Prelude.Text)
+listVPCEConfigurations_nextToken = Lens.lens (\ListVPCEConfigurations' {nextToken} -> nextToken) (\s@ListVPCEConfigurations' {} a -> s {nextToken = a} :: ListVPCEConfigurations)
 
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-lvecrsNextToken :: Lens' ListVPCEConfigurationsResponse (Maybe Text)
-lvecrsNextToken = lens _lvecrsNextToken (\ s a -> s{_lvecrsNextToken = a})
+-- | An integer that specifies the maximum number of items you want to return
+-- in the API response.
+listVPCEConfigurations_maxResults :: Lens.Lens' ListVPCEConfigurations (Prelude.Maybe Prelude.Int)
+listVPCEConfigurations_maxResults = Lens.lens (\ListVPCEConfigurations' {maxResults} -> maxResults) (\s@ListVPCEConfigurations' {} a -> s {maxResults = a} :: ListVPCEConfigurations)
 
--- | An array of @VPCEConfiguration@ objects containing information about your VPC endpoint configuration.
-lvecrsVpceConfigurations :: Lens' ListVPCEConfigurationsResponse [VPCEConfiguration]
-lvecrsVpceConfigurations = lens _lvecrsVpceConfigurations (\ s a -> s{_lvecrsVpceConfigurations = a}) . _Default . _Coerce
+instance Pager.AWSPager ListVPCEConfigurations where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listVPCEConfigurationsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listVPCEConfigurationsResponse_vpceConfigurations
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listVPCEConfigurations_nextToken
+          Lens..~ rs
+          Lens.^? listVPCEConfigurationsResponse_nextToken
+            Prelude.. Lens._Just
 
--- | -- | The response status code.
-lvecrsResponseStatus :: Lens' ListVPCEConfigurationsResponse Int
-lvecrsResponseStatus = lens _lvecrsResponseStatus (\ s a -> s{_lvecrsResponseStatus = a})
+instance Prelude.AWSRequest ListVPCEConfigurations where
+  type
+    Rs ListVPCEConfigurations =
+      ListVPCEConfigurationsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListVPCEConfigurationsResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> ( x Prelude..?> "vpceConfigurations"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData ListVPCEConfigurationsResponse where
+instance Prelude.Hashable ListVPCEConfigurations
+
+instance Prelude.NFData ListVPCEConfigurations
+
+instance Prelude.ToHeaders ListVPCEConfigurations where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "DeviceFarm_20150623.ListVPCEConfigurations" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON ListVPCEConfigurations where
+  toJSON ListVPCEConfigurations' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
+            ("maxResults" Prelude..=) Prelude.<$> maxResults
+          ]
+      )
+
+instance Prelude.ToPath ListVPCEConfigurations where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery ListVPCEConfigurations where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListVPCEConfigurationsResponse' smart constructor.
+data ListVPCEConfigurationsResponse = ListVPCEConfigurationsResponse'
+  { -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of @VPCEConfiguration@ objects that contain information about
+    -- your VPC endpoint configuration.
+    vpceConfigurations :: Prelude.Maybe [VPCEConfiguration],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListVPCEConfigurationsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listVPCEConfigurationsResponse_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+--
+-- 'vpceConfigurations', 'listVPCEConfigurationsResponse_vpceConfigurations' - An array of @VPCEConfiguration@ objects that contain information about
+-- your VPC endpoint configuration.
+--
+-- 'httpStatus', 'listVPCEConfigurationsResponse_httpStatus' - The response's http status code.
+newListVPCEConfigurationsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListVPCEConfigurationsResponse
+newListVPCEConfigurationsResponse pHttpStatus_ =
+  ListVPCEConfigurationsResponse'
+    { nextToken =
+        Prelude.Nothing,
+      vpceConfigurations = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listVPCEConfigurationsResponse_nextToken :: Lens.Lens' ListVPCEConfigurationsResponse (Prelude.Maybe Prelude.Text)
+listVPCEConfigurationsResponse_nextToken = Lens.lens (\ListVPCEConfigurationsResponse' {nextToken} -> nextToken) (\s@ListVPCEConfigurationsResponse' {} a -> s {nextToken = a} :: ListVPCEConfigurationsResponse)
+
+-- | An array of @VPCEConfiguration@ objects that contain information about
+-- your VPC endpoint configuration.
+listVPCEConfigurationsResponse_vpceConfigurations :: Lens.Lens' ListVPCEConfigurationsResponse (Prelude.Maybe [VPCEConfiguration])
+listVPCEConfigurationsResponse_vpceConfigurations = Lens.lens (\ListVPCEConfigurationsResponse' {vpceConfigurations} -> vpceConfigurations) (\s@ListVPCEConfigurationsResponse' {} a -> s {vpceConfigurations = a} :: ListVPCEConfigurationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The response's http status code.
+listVPCEConfigurationsResponse_httpStatus :: Lens.Lens' ListVPCEConfigurationsResponse Prelude.Int
+listVPCEConfigurationsResponse_httpStatus = Lens.lens (\ListVPCEConfigurationsResponse' {httpStatus} -> httpStatus) (\s@ListVPCEConfigurationsResponse' {} a -> s {httpStatus = a} :: ListVPCEConfigurationsResponse)
+
+instance
+  Prelude.NFData
+    ListVPCEConfigurationsResponse

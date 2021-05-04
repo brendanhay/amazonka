@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaConvert.GetPreset
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,104 +23,131 @@
 --
 -- Retrieve the JSON for a specific preset.
 module Network.AWS.MediaConvert.GetPreset
-    (
-    -- * Creating a Request
-      getPreset
-    , GetPreset
+  ( -- * Creating a Request
+    GetPreset (..),
+    newGetPreset,
+
     -- * Request Lenses
-    , gpName
+    getPreset_name,
 
     -- * Destructuring the Response
-    , getPresetResponse
-    , GetPresetResponse
+    GetPresetResponse (..),
+    newGetPresetResponse,
+
     -- * Response Lenses
-    , gprsPreset
-    , gprsResponseStatus
-    ) where
+    getPresetResponse_preset,
+    getPresetResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.MediaConvert.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getPreset' smart constructor.
-newtype GetPreset = GetPreset'
-  { _gpName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetPreset' smart constructor.
+data GetPreset = GetPreset'
+  { -- | The name of the preset.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetPreset' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetPreset' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gpName' - The name of the preset.
-getPreset
-    :: Text -- ^ 'gpName'
-    -> GetPreset
-getPreset pName_ = GetPreset' {_gpName = pName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'getPreset_name' - The name of the preset.
+newGetPreset ::
+  -- | 'name'
+  Prelude.Text ->
+  GetPreset
+newGetPreset pName_ = GetPreset' {name = pName_}
 
 -- | The name of the preset.
-gpName :: Lens' GetPreset Text
-gpName = lens _gpName (\ s a -> s{_gpName = a})
+getPreset_name :: Lens.Lens' GetPreset Prelude.Text
+getPreset_name = Lens.lens (\GetPreset' {name} -> name) (\s@GetPreset' {} a -> s {name = a} :: GetPreset)
 
-instance AWSRequest GetPreset where
-        type Rs GetPreset = GetPresetResponse
-        request = get mediaConvert
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetPresetResponse' <$>
-                   (x .?> "preset") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest GetPreset where
+  type Rs GetPreset = GetPresetResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetPresetResponse'
+            Prelude.<$> (x Prelude..?> "preset")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetPreset where
+instance Prelude.Hashable GetPreset
 
-instance NFData GetPreset where
+instance Prelude.NFData GetPreset
 
-instance ToHeaders GetPreset where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders GetPreset where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToPath GetPreset where
-        toPath GetPreset'{..}
-          = mconcat ["/2017-08-29/presets/", toBS _gpName]
+instance Prelude.ToPath GetPreset where
+  toPath GetPreset' {..} =
+    Prelude.mconcat
+      ["/2017-08-29/presets/", Prelude.toBS name]
 
-instance ToQuery GetPreset where
-        toQuery = const mempty
+instance Prelude.ToQuery GetPreset where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getPresetResponse' smart constructor.
+-- | /See:/ 'newGetPresetResponse' smart constructor.
 data GetPresetResponse = GetPresetResponse'
-  { _gprsPreset         :: !(Maybe Preset)
-  , _gprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A preset is a collection of preconfigured media conversion settings that
+    -- you want MediaConvert to apply to the output during the conversion
+    -- process.
+    preset :: Prelude.Maybe Preset,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetPresetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetPresetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gprsPreset' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gprsResponseStatus' - -- | The response status code.
-getPresetResponse
-    :: Int -- ^ 'gprsResponseStatus'
-    -> GetPresetResponse
-getPresetResponse pResponseStatus_ =
+-- 'preset', 'getPresetResponse_preset' - A preset is a collection of preconfigured media conversion settings that
+-- you want MediaConvert to apply to the output during the conversion
+-- process.
+--
+-- 'httpStatus', 'getPresetResponse_httpStatus' - The response's http status code.
+newGetPresetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetPresetResponse
+newGetPresetResponse pHttpStatus_ =
   GetPresetResponse'
-    {_gprsPreset = Nothing, _gprsResponseStatus = pResponseStatus_}
+    { preset = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | A preset is a collection of preconfigured media conversion settings that
+-- you want MediaConvert to apply to the output during the conversion
+-- process.
+getPresetResponse_preset :: Lens.Lens' GetPresetResponse (Prelude.Maybe Preset)
+getPresetResponse_preset = Lens.lens (\GetPresetResponse' {preset} -> preset) (\s@GetPresetResponse' {} a -> s {preset = a} :: GetPresetResponse)
 
--- | Undocumented member.
-gprsPreset :: Lens' GetPresetResponse (Maybe Preset)
-gprsPreset = lens _gprsPreset (\ s a -> s{_gprsPreset = a})
+-- | The response's http status code.
+getPresetResponse_httpStatus :: Lens.Lens' GetPresetResponse Prelude.Int
+getPresetResponse_httpStatus = Lens.lens (\GetPresetResponse' {httpStatus} -> httpStatus) (\s@GetPresetResponse' {} a -> s {httpStatus = a} :: GetPresetResponse)
 
--- | -- | The response status code.
-gprsResponseStatus :: Lens' GetPresetResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a})
-
-instance NFData GetPresetResponse where
+instance Prelude.NFData GetPresetResponse

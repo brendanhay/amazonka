@@ -1,136 +1,165 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectoryService.RemoveTagsFromResource
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes tags from a directory.
---
---
 module Network.AWS.DirectoryService.RemoveTagsFromResource
-    (
-    -- * Creating a Request
-      removeTagsFromResource
-    , RemoveTagsFromResource
+  ( -- * Creating a Request
+    RemoveTagsFromResource (..),
+    newRemoveTagsFromResource,
+
     -- * Request Lenses
-    , rtfrResourceId
-    , rtfrTagKeys
+    removeTagsFromResource_resourceId,
+    removeTagsFromResource_tagKeys,
 
     -- * Destructuring the Response
-    , removeTagsFromResourceResponse
-    , RemoveTagsFromResourceResponse
+    RemoveTagsFromResourceResponse (..),
+    newRemoveTagsFromResourceResponse,
+
     -- * Response Lenses
-    , rtfrrsResponseStatus
-    ) where
+    removeTagsFromResourceResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'removeTagsFromResource' smart constructor.
+-- | /See:/ 'newRemoveTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-  { _rtfrResourceId :: !Text
-  , _rtfrTagKeys    :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Identifier (ID) of the directory from which to remove the tag.
+    resourceId :: Prelude.Text,
+    -- | The tag key (name) of the tag to be removed.
+    tagKeys :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemoveTagsFromResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rtfrResourceId' - Identifier (ID) of the directory from which to remove the tag.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rtfrTagKeys' - The tag key (name) of the tag to be removed.
-removeTagsFromResource
-    :: Text -- ^ 'rtfrResourceId'
-    -> RemoveTagsFromResource
-removeTagsFromResource pResourceId_ =
+-- 'resourceId', 'removeTagsFromResource_resourceId' - Identifier (ID) of the directory from which to remove the tag.
+--
+-- 'tagKeys', 'removeTagsFromResource_tagKeys' - The tag key (name) of the tag to be removed.
+newRemoveTagsFromResource ::
+  -- | 'resourceId'
+  Prelude.Text ->
+  RemoveTagsFromResource
+newRemoveTagsFromResource pResourceId_ =
   RemoveTagsFromResource'
-    {_rtfrResourceId = pResourceId_, _rtfrTagKeys = mempty}
-
+    { resourceId = pResourceId_,
+      tagKeys = Prelude.mempty
+    }
 
 -- | Identifier (ID) of the directory from which to remove the tag.
-rtfrResourceId :: Lens' RemoveTagsFromResource Text
-rtfrResourceId = lens _rtfrResourceId (\ s a -> s{_rtfrResourceId = a})
+removeTagsFromResource_resourceId :: Lens.Lens' RemoveTagsFromResource Prelude.Text
+removeTagsFromResource_resourceId = Lens.lens (\RemoveTagsFromResource' {resourceId} -> resourceId) (\s@RemoveTagsFromResource' {} a -> s {resourceId = a} :: RemoveTagsFromResource)
 
 -- | The tag key (name) of the tag to be removed.
-rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce
+removeTagsFromResource_tagKeys :: Lens.Lens' RemoveTagsFromResource [Prelude.Text]
+removeTagsFromResource_tagKeys = Lens.lens (\RemoveTagsFromResource' {tagKeys} -> tagKeys) (\s@RemoveTagsFromResource' {} a -> s {tagKeys = a} :: RemoveTagsFromResource) Prelude.. Prelude._Coerce
 
-instance AWSRequest RemoveTagsFromResource where
-        type Rs RemoveTagsFromResource =
-             RemoveTagsFromResourceResponse
-        request = postJSON directoryService
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 RemoveTagsFromResourceResponse' <$>
-                   (pure (fromEnum s)))
+instance Prelude.AWSRequest RemoveTagsFromResource where
+  type
+    Rs RemoveTagsFromResource =
+      RemoveTagsFromResourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          RemoveTagsFromResourceResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable RemoveTagsFromResource where
+instance Prelude.Hashable RemoveTagsFromResource
 
-instance NFData RemoveTagsFromResource where
+instance Prelude.NFData RemoveTagsFromResource
 
-instance ToHeaders RemoveTagsFromResource where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DirectoryService_20150416.RemoveTagsFromResource"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders RemoveTagsFromResource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "DirectoryService_20150416.RemoveTagsFromResource" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON RemoveTagsFromResource where
-        toJSON RemoveTagsFromResource'{..}
-          = object
-              (catMaybes
-                 [Just ("ResourceId" .= _rtfrResourceId),
-                  Just ("TagKeys" .= _rtfrTagKeys)])
+instance Prelude.ToJSON RemoveTagsFromResource where
+  toJSON RemoveTagsFromResource' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceId" Prelude..= resourceId),
+            Prelude.Just ("TagKeys" Prelude..= tagKeys)
+          ]
+      )
 
-instance ToPath RemoveTagsFromResource where
-        toPath = const "/"
+instance Prelude.ToPath RemoveTagsFromResource where
+  toPath = Prelude.const "/"
 
-instance ToQuery RemoveTagsFromResource where
-        toQuery = const mempty
+instance Prelude.ToQuery RemoveTagsFromResource where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'removeTagsFromResourceResponse' smart constructor.
-newtype RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
-  { _rtfrrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newRemoveTagsFromResourceResponse' smart constructor.
+data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RemoveTagsFromResourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemoveTagsFromResourceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rtfrrsResponseStatus' - -- | The response status code.
-removeTagsFromResourceResponse
-    :: Int -- ^ 'rtfrrsResponseStatus'
-    -> RemoveTagsFromResourceResponse
-removeTagsFromResourceResponse pResponseStatus_ =
-  RemoveTagsFromResourceResponse' {_rtfrrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'removeTagsFromResourceResponse_httpStatus' - The response's http status code.
+newRemoveTagsFromResourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RemoveTagsFromResourceResponse
+newRemoveTagsFromResourceResponse pHttpStatus_ =
+  RemoveTagsFromResourceResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+removeTagsFromResourceResponse_httpStatus :: Lens.Lens' RemoveTagsFromResourceResponse Prelude.Int
+removeTagsFromResourceResponse_httpStatus = Lens.lens (\RemoveTagsFromResourceResponse' {httpStatus} -> httpStatus) (\s@RemoveTagsFromResourceResponse' {} a -> s {httpStatus = a} :: RemoveTagsFromResourceResponse)
 
--- | -- | The response status code.
-rtfrrsResponseStatus :: Lens' RemoveTagsFromResourceResponse Int
-rtfrrsResponseStatus = lens _rtfrrsResponseStatus (\ s a -> s{_rtfrrsResponseStatus = a})
-
-instance NFData RemoveTagsFromResourceResponse where
+instance
+  Prelude.NFData
+    RemoveTagsFromResourceResponse

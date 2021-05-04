@@ -1,168 +1,211 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Confirms a job worker has received the specified job. Only used for partner actions.
---
---
+-- Confirms a job worker has received the specified job. Used for partner
+-- actions only.
 module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
-    (
-    -- * Creating a Request
-      acknowledgeThirdPartyJob
-    , AcknowledgeThirdPartyJob
+  ( -- * Creating a Request
+    AcknowledgeThirdPartyJob (..),
+    newAcknowledgeThirdPartyJob,
+
     -- * Request Lenses
-    , atpjJobId
-    , atpjNonce
-    , atpjClientToken
+    acknowledgeThirdPartyJob_jobId,
+    acknowledgeThirdPartyJob_nonce,
+    acknowledgeThirdPartyJob_clientToken,
 
     -- * Destructuring the Response
-    , acknowledgeThirdPartyJobResponse
-    , AcknowledgeThirdPartyJobResponse
+    AcknowledgeThirdPartyJobResponse (..),
+    newAcknowledgeThirdPartyJobResponse,
+
     -- * Response Lenses
-    , atpjrsStatus
-    , atpjrsResponseStatus
-    ) where
+    acknowledgeThirdPartyJobResponse_status,
+    acknowledgeThirdPartyJobResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of an AcknowledgeThirdPartyJob action.
 --
---
---
--- /See:/ 'acknowledgeThirdPartyJob' smart constructor.
+-- /See:/ 'newAcknowledgeThirdPartyJob' smart constructor.
 data AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJob'
-  { _atpjJobId       :: !Text
-  , _atpjNonce       :: !Text
-  , _atpjClientToken :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique system-generated ID of the job.
+    jobId :: Prelude.Text,
+    -- | A system-generated random number that AWS CodePipeline uses to ensure
+    -- that the job is being worked on by only one job worker. Get this number
+    -- from the response to a GetThirdPartyJobDetails request.
+    nonce :: Prelude.Text,
+    -- | The clientToken portion of the clientId and clientToken pair used to
+    -- verify that the calling entity is allowed access to the job and its
+    -- details.
+    clientToken :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AcknowledgeThirdPartyJob' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AcknowledgeThirdPartyJob' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'atpjJobId' - The unique system-generated ID of the job.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'atpjNonce' - A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response to a 'GetThirdPartyJobDetails' request.
+-- 'jobId', 'acknowledgeThirdPartyJob_jobId' - The unique system-generated ID of the job.
 --
--- * 'atpjClientToken' - The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
-acknowledgeThirdPartyJob
-    :: Text -- ^ 'atpjJobId'
-    -> Text -- ^ 'atpjNonce'
-    -> Text -- ^ 'atpjClientToken'
-    -> AcknowledgeThirdPartyJob
-acknowledgeThirdPartyJob pJobId_ pNonce_ pClientToken_ =
-  AcknowledgeThirdPartyJob'
-    { _atpjJobId = pJobId_
-    , _atpjNonce = pNonce_
-    , _atpjClientToken = pClientToken_
-    }
-
+-- 'nonce', 'acknowledgeThirdPartyJob_nonce' - A system-generated random number that AWS CodePipeline uses to ensure
+-- that the job is being worked on by only one job worker. Get this number
+-- from the response to a GetThirdPartyJobDetails request.
+--
+-- 'clientToken', 'acknowledgeThirdPartyJob_clientToken' - The clientToken portion of the clientId and clientToken pair used to
+-- verify that the calling entity is allowed access to the job and its
+-- details.
+newAcknowledgeThirdPartyJob ::
+  -- | 'jobId'
+  Prelude.Text ->
+  -- | 'nonce'
+  Prelude.Text ->
+  -- | 'clientToken'
+  Prelude.Text ->
+  AcknowledgeThirdPartyJob
+newAcknowledgeThirdPartyJob
+  pJobId_
+  pNonce_
+  pClientToken_ =
+    AcknowledgeThirdPartyJob'
+      { jobId = pJobId_,
+        nonce = pNonce_,
+        clientToken = pClientToken_
+      }
 
 -- | The unique system-generated ID of the job.
-atpjJobId :: Lens' AcknowledgeThirdPartyJob Text
-atpjJobId = lens _atpjJobId (\ s a -> s{_atpjJobId = a})
+acknowledgeThirdPartyJob_jobId :: Lens.Lens' AcknowledgeThirdPartyJob Prelude.Text
+acknowledgeThirdPartyJob_jobId = Lens.lens (\AcknowledgeThirdPartyJob' {jobId} -> jobId) (\s@AcknowledgeThirdPartyJob' {} a -> s {jobId = a} :: AcknowledgeThirdPartyJob)
 
--- | A system-generated random number that AWS CodePipeline uses to ensure that the job is being worked on by only one job worker. Get this number from the response to a 'GetThirdPartyJobDetails' request.
-atpjNonce :: Lens' AcknowledgeThirdPartyJob Text
-atpjNonce = lens _atpjNonce (\ s a -> s{_atpjNonce = a})
+-- | A system-generated random number that AWS CodePipeline uses to ensure
+-- that the job is being worked on by only one job worker. Get this number
+-- from the response to a GetThirdPartyJobDetails request.
+acknowledgeThirdPartyJob_nonce :: Lens.Lens' AcknowledgeThirdPartyJob Prelude.Text
+acknowledgeThirdPartyJob_nonce = Lens.lens (\AcknowledgeThirdPartyJob' {nonce} -> nonce) (\s@AcknowledgeThirdPartyJob' {} a -> s {nonce = a} :: AcknowledgeThirdPartyJob)
 
--- | The clientToken portion of the clientId and clientToken pair used to verify that the calling entity is allowed access to the job and its details.
-atpjClientToken :: Lens' AcknowledgeThirdPartyJob Text
-atpjClientToken = lens _atpjClientToken (\ s a -> s{_atpjClientToken = a})
+-- | The clientToken portion of the clientId and clientToken pair used to
+-- verify that the calling entity is allowed access to the job and its
+-- details.
+acknowledgeThirdPartyJob_clientToken :: Lens.Lens' AcknowledgeThirdPartyJob Prelude.Text
+acknowledgeThirdPartyJob_clientToken = Lens.lens (\AcknowledgeThirdPartyJob' {clientToken} -> clientToken) (\s@AcknowledgeThirdPartyJob' {} a -> s {clientToken = a} :: AcknowledgeThirdPartyJob)
 
-instance AWSRequest AcknowledgeThirdPartyJob where
-        type Rs AcknowledgeThirdPartyJob =
-             AcknowledgeThirdPartyJobResponse
-        request = postJSON codePipeline
-        response
-          = receiveJSON
-              (\ s h x ->
-                 AcknowledgeThirdPartyJobResponse' <$>
-                   (x .?> "status") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest AcknowledgeThirdPartyJob where
+  type
+    Rs AcknowledgeThirdPartyJob =
+      AcknowledgeThirdPartyJobResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AcknowledgeThirdPartyJobResponse'
+            Prelude.<$> (x Prelude..?> "status")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AcknowledgeThirdPartyJob where
+instance Prelude.Hashable AcknowledgeThirdPartyJob
 
-instance NFData AcknowledgeThirdPartyJob where
+instance Prelude.NFData AcknowledgeThirdPartyJob
 
-instance ToHeaders AcknowledgeThirdPartyJob where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodePipeline_20150709.AcknowledgeThirdPartyJob" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders AcknowledgeThirdPartyJob where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CodePipeline_20150709.AcknowledgeThirdPartyJob" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON AcknowledgeThirdPartyJob where
-        toJSON AcknowledgeThirdPartyJob'{..}
-          = object
-              (catMaybes
-                 [Just ("jobId" .= _atpjJobId),
-                  Just ("nonce" .= _atpjNonce),
-                  Just ("clientToken" .= _atpjClientToken)])
+instance Prelude.ToJSON AcknowledgeThirdPartyJob where
+  toJSON AcknowledgeThirdPartyJob' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("jobId" Prelude..= jobId),
+            Prelude.Just ("nonce" Prelude..= nonce),
+            Prelude.Just ("clientToken" Prelude..= clientToken)
+          ]
+      )
 
-instance ToPath AcknowledgeThirdPartyJob where
-        toPath = const "/"
+instance Prelude.ToPath AcknowledgeThirdPartyJob where
+  toPath = Prelude.const "/"
 
-instance ToQuery AcknowledgeThirdPartyJob where
-        toQuery = const mempty
+instance Prelude.ToQuery AcknowledgeThirdPartyJob where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an AcknowledgeThirdPartyJob action.
 --
---
---
--- /See:/ 'acknowledgeThirdPartyJobResponse' smart constructor.
+-- /See:/ 'newAcknowledgeThirdPartyJobResponse' smart constructor.
 data AcknowledgeThirdPartyJobResponse = AcknowledgeThirdPartyJobResponse'
-  { _atpjrsStatus         :: !(Maybe JobStatus)
-  , _atpjrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The status information for the third party job, if any.
+    status :: Prelude.Maybe JobStatus,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AcknowledgeThirdPartyJobResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AcknowledgeThirdPartyJobResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'atpjrsStatus' - The status information for the third party job, if any.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'atpjrsResponseStatus' - -- | The response status code.
-acknowledgeThirdPartyJobResponse
-    :: Int -- ^ 'atpjrsResponseStatus'
-    -> AcknowledgeThirdPartyJobResponse
-acknowledgeThirdPartyJobResponse pResponseStatus_ =
+-- 'status', 'acknowledgeThirdPartyJobResponse_status' - The status information for the third party job, if any.
+--
+-- 'httpStatus', 'acknowledgeThirdPartyJobResponse_httpStatus' - The response's http status code.
+newAcknowledgeThirdPartyJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AcknowledgeThirdPartyJobResponse
+newAcknowledgeThirdPartyJobResponse pHttpStatus_ =
   AcknowledgeThirdPartyJobResponse'
-    {_atpjrsStatus = Nothing, _atpjrsResponseStatus = pResponseStatus_}
-
+    { status =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The status information for the third party job, if any.
-atpjrsStatus :: Lens' AcknowledgeThirdPartyJobResponse (Maybe JobStatus)
-atpjrsStatus = lens _atpjrsStatus (\ s a -> s{_atpjrsStatus = a})
+acknowledgeThirdPartyJobResponse_status :: Lens.Lens' AcknowledgeThirdPartyJobResponse (Prelude.Maybe JobStatus)
+acknowledgeThirdPartyJobResponse_status = Lens.lens (\AcknowledgeThirdPartyJobResponse' {status} -> status) (\s@AcknowledgeThirdPartyJobResponse' {} a -> s {status = a} :: AcknowledgeThirdPartyJobResponse)
 
--- | -- | The response status code.
-atpjrsResponseStatus :: Lens' AcknowledgeThirdPartyJobResponse Int
-atpjrsResponseStatus = lens _atpjrsResponseStatus (\ s a -> s{_atpjrsResponseStatus = a})
+-- | The response's http status code.
+acknowledgeThirdPartyJobResponse_httpStatus :: Lens.Lens' AcknowledgeThirdPartyJobResponse Prelude.Int
+acknowledgeThirdPartyJobResponse_httpStatus = Lens.lens (\AcknowledgeThirdPartyJobResponse' {httpStatus} -> httpStatus) (\s@AcknowledgeThirdPartyJobResponse' {} a -> s {httpStatus = a} :: AcknowledgeThirdPartyJobResponse)
 
-instance NFData AcknowledgeThirdPartyJobResponse
-         where
+instance
+  Prelude.NFData
+    AcknowledgeThirdPartyJobResponse

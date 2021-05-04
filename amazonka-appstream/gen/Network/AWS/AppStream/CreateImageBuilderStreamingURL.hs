@@ -1,162 +1,214 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AppStream.CreateImageBuilderStreamingURL
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a URL to start an image builder streaming session.
---
---
 module Network.AWS.AppStream.CreateImageBuilderStreamingURL
-    (
-    -- * Creating a Request
-      createImageBuilderStreamingURL
-    , CreateImageBuilderStreamingURL
+  ( -- * Creating a Request
+    CreateImageBuilderStreamingURL (..),
+    newCreateImageBuilderStreamingURL,
+
     -- * Request Lenses
-    , cibsuValidity
-    , cibsuName
+    createImageBuilderStreamingURL_validity,
+    createImageBuilderStreamingURL_name,
 
     -- * Destructuring the Response
-    , createImageBuilderStreamingURLResponse
-    , CreateImageBuilderStreamingURLResponse
+    CreateImageBuilderStreamingURLResponse (..),
+    newCreateImageBuilderStreamingURLResponse,
+
     -- * Response Lenses
-    , cibsursStreamingURL
-    , cibsursExpires
-    , cibsursResponseStatus
-    ) where
+    createImageBuilderStreamingURLResponse_streamingURL,
+    createImageBuilderStreamingURLResponse_expires,
+    createImageBuilderStreamingURLResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createImageBuilderStreamingURL' smart constructor.
+-- | /See:/ 'newCreateImageBuilderStreamingURL' smart constructor.
 data CreateImageBuilderStreamingURL = CreateImageBuilderStreamingURL'
-  { _cibsuValidity :: !(Maybe Integer)
-  , _cibsuName     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The time that the streaming URL will be valid, in seconds. Specify a
+    -- value between 1 and 604800 seconds. The default is 3600 seconds.
+    validity :: Prelude.Maybe Prelude.Integer,
+    -- | The name of the image builder.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateImageBuilderStreamingURL' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateImageBuilderStreamingURL' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cibsuValidity' - The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cibsuName' - The name of the image builder.
-createImageBuilderStreamingURL
-    :: Text -- ^ 'cibsuName'
-    -> CreateImageBuilderStreamingURL
-createImageBuilderStreamingURL pName_ =
+-- 'validity', 'createImageBuilderStreamingURL_validity' - The time that the streaming URL will be valid, in seconds. Specify a
+-- value between 1 and 604800 seconds. The default is 3600 seconds.
+--
+-- 'name', 'createImageBuilderStreamingURL_name' - The name of the image builder.
+newCreateImageBuilderStreamingURL ::
+  -- | 'name'
+  Prelude.Text ->
+  CreateImageBuilderStreamingURL
+newCreateImageBuilderStreamingURL pName_ =
   CreateImageBuilderStreamingURL'
-    {_cibsuValidity = Nothing, _cibsuName = pName_}
-
-
--- | The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 3600 seconds.
-cibsuValidity :: Lens' CreateImageBuilderStreamingURL (Maybe Integer)
-cibsuValidity = lens _cibsuValidity (\ s a -> s{_cibsuValidity = a})
-
--- | The name of the image builder.
-cibsuName :: Lens' CreateImageBuilderStreamingURL Text
-cibsuName = lens _cibsuName (\ s a -> s{_cibsuName = a})
-
-instance AWSRequest CreateImageBuilderStreamingURL
-         where
-        type Rs CreateImageBuilderStreamingURL =
-             CreateImageBuilderStreamingURLResponse
-        request = postJSON appStream
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateImageBuilderStreamingURLResponse' <$>
-                   (x .?> "StreamingURL") <*> (x .?> "Expires") <*>
-                     (pure (fromEnum s)))
-
-instance Hashable CreateImageBuilderStreamingURL
-         where
-
-instance NFData CreateImageBuilderStreamingURL where
-
-instance ToHeaders CreateImageBuilderStreamingURL
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("PhotonAdminProxyService.CreateImageBuilderStreamingURL"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON CreateImageBuilderStreamingURL where
-        toJSON CreateImageBuilderStreamingURL'{..}
-          = object
-              (catMaybes
-                 [("Validity" .=) <$> _cibsuValidity,
-                  Just ("Name" .= _cibsuName)])
-
-instance ToPath CreateImageBuilderStreamingURL where
-        toPath = const "/"
-
-instance ToQuery CreateImageBuilderStreamingURL where
-        toQuery = const mempty
-
--- | /See:/ 'createImageBuilderStreamingURLResponse' smart constructor.
-data CreateImageBuilderStreamingURLResponse = CreateImageBuilderStreamingURLResponse'
-  { _cibsursStreamingURL   :: !(Maybe Text)
-  , _cibsursExpires        :: !(Maybe POSIX)
-  , _cibsursResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateImageBuilderStreamingURLResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cibsursStreamingURL' - The URL to start the AppStream 2.0 streaming session.
---
--- * 'cibsursExpires' - The elapsed time, in seconds after the Unix epoch, when this URL expires.
---
--- * 'cibsursResponseStatus' - -- | The response status code.
-createImageBuilderStreamingURLResponse
-    :: Int -- ^ 'cibsursResponseStatus'
-    -> CreateImageBuilderStreamingURLResponse
-createImageBuilderStreamingURLResponse pResponseStatus_ =
-  CreateImageBuilderStreamingURLResponse'
-    { _cibsursStreamingURL = Nothing
-    , _cibsursExpires = Nothing
-    , _cibsursResponseStatus = pResponseStatus_
+    { validity =
+        Prelude.Nothing,
+      name = pName_
     }
 
+-- | The time that the streaming URL will be valid, in seconds. Specify a
+-- value between 1 and 604800 seconds. The default is 3600 seconds.
+createImageBuilderStreamingURL_validity :: Lens.Lens' CreateImageBuilderStreamingURL (Prelude.Maybe Prelude.Integer)
+createImageBuilderStreamingURL_validity = Lens.lens (\CreateImageBuilderStreamingURL' {validity} -> validity) (\s@CreateImageBuilderStreamingURL' {} a -> s {validity = a} :: CreateImageBuilderStreamingURL)
+
+-- | The name of the image builder.
+createImageBuilderStreamingURL_name :: Lens.Lens' CreateImageBuilderStreamingURL Prelude.Text
+createImageBuilderStreamingURL_name = Lens.lens (\CreateImageBuilderStreamingURL' {name} -> name) (\s@CreateImageBuilderStreamingURL' {} a -> s {name = a} :: CreateImageBuilderStreamingURL)
+
+instance
+  Prelude.AWSRequest
+    CreateImageBuilderStreamingURL
+  where
+  type
+    Rs CreateImageBuilderStreamingURL =
+      CreateImageBuilderStreamingURLResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateImageBuilderStreamingURLResponse'
+            Prelude.<$> (x Prelude..?> "StreamingURL")
+            Prelude.<*> (x Prelude..?> "Expires")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance
+  Prelude.Hashable
+    CreateImageBuilderStreamingURL
+
+instance
+  Prelude.NFData
+    CreateImageBuilderStreamingURL
+
+instance
+  Prelude.ToHeaders
+    CreateImageBuilderStreamingURL
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "PhotonAdminProxyService.CreateImageBuilderStreamingURL" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance
+  Prelude.ToJSON
+    CreateImageBuilderStreamingURL
+  where
+  toJSON CreateImageBuilderStreamingURL' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Validity" Prelude..=) Prelude.<$> validity,
+            Prelude.Just ("Name" Prelude..= name)
+          ]
+      )
+
+instance
+  Prelude.ToPath
+    CreateImageBuilderStreamingURL
+  where
+  toPath = Prelude.const "/"
+
+instance
+  Prelude.ToQuery
+    CreateImageBuilderStreamingURL
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateImageBuilderStreamingURLResponse' smart constructor.
+data CreateImageBuilderStreamingURLResponse = CreateImageBuilderStreamingURLResponse'
+  { -- | The URL to start the AppStream 2.0 streaming session.
+    streamingURL :: Prelude.Maybe Prelude.Text,
+    -- | The elapsed time, in seconds after the Unix epoch, when this URL
+    -- expires.
+    expires :: Prelude.Maybe Prelude.POSIX,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateImageBuilderStreamingURLResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'streamingURL', 'createImageBuilderStreamingURLResponse_streamingURL' - The URL to start the AppStream 2.0 streaming session.
+--
+-- 'expires', 'createImageBuilderStreamingURLResponse_expires' - The elapsed time, in seconds after the Unix epoch, when this URL
+-- expires.
+--
+-- 'httpStatus', 'createImageBuilderStreamingURLResponse_httpStatus' - The response's http status code.
+newCreateImageBuilderStreamingURLResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateImageBuilderStreamingURLResponse
+newCreateImageBuilderStreamingURLResponse
+  pHttpStatus_ =
+    CreateImageBuilderStreamingURLResponse'
+      { streamingURL =
+          Prelude.Nothing,
+        expires = Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
 -- | The URL to start the AppStream 2.0 streaming session.
-cibsursStreamingURL :: Lens' CreateImageBuilderStreamingURLResponse (Maybe Text)
-cibsursStreamingURL = lens _cibsursStreamingURL (\ s a -> s{_cibsursStreamingURL = a})
+createImageBuilderStreamingURLResponse_streamingURL :: Lens.Lens' CreateImageBuilderStreamingURLResponse (Prelude.Maybe Prelude.Text)
+createImageBuilderStreamingURLResponse_streamingURL = Lens.lens (\CreateImageBuilderStreamingURLResponse' {streamingURL} -> streamingURL) (\s@CreateImageBuilderStreamingURLResponse' {} a -> s {streamingURL = a} :: CreateImageBuilderStreamingURLResponse)
 
--- | The elapsed time, in seconds after the Unix epoch, when this URL expires.
-cibsursExpires :: Lens' CreateImageBuilderStreamingURLResponse (Maybe UTCTime)
-cibsursExpires = lens _cibsursExpires (\ s a -> s{_cibsursExpires = a}) . mapping _Time
+-- | The elapsed time, in seconds after the Unix epoch, when this URL
+-- expires.
+createImageBuilderStreamingURLResponse_expires :: Lens.Lens' CreateImageBuilderStreamingURLResponse (Prelude.Maybe Prelude.UTCTime)
+createImageBuilderStreamingURLResponse_expires = Lens.lens (\CreateImageBuilderStreamingURLResponse' {expires} -> expires) (\s@CreateImageBuilderStreamingURLResponse' {} a -> s {expires = a} :: CreateImageBuilderStreamingURLResponse) Prelude.. Lens.mapping Prelude._Time
 
--- | -- | The response status code.
-cibsursResponseStatus :: Lens' CreateImageBuilderStreamingURLResponse Int
-cibsursResponseStatus = lens _cibsursResponseStatus (\ s a -> s{_cibsursResponseStatus = a})
+-- | The response's http status code.
+createImageBuilderStreamingURLResponse_httpStatus :: Lens.Lens' CreateImageBuilderStreamingURLResponse Prelude.Int
+createImageBuilderStreamingURLResponse_httpStatus = Lens.lens (\CreateImageBuilderStreamingURLResponse' {httpStatus} -> httpStatus) (\s@CreateImageBuilderStreamingURLResponse' {} a -> s {httpStatus = a} :: CreateImageBuilderStreamingURLResponse)
 
-instance NFData
-           CreateImageBuilderStreamingURLResponse
-         where
+instance
+  Prelude.NFData
+    CreateImageBuilderStreamingURLResponse

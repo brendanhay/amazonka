@@ -1,173 +1,205 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.AttachObject
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches an existing object to another object. An object can be accessed in two ways:
+-- Attaches an existing object to another object. An object can be accessed
+-- in two ways:
 --
+-- 1.  Using the path
 --
---     * Using the path
---
---     * Using @ObjectIdentifier@
---
---
---
+-- 2.  Using @ObjectIdentifier@
 module Network.AWS.CloudDirectory.AttachObject
-    (
-    -- * Creating a Request
-      attachObject
-    , AttachObject
+  ( -- * Creating a Request
+    AttachObject (..),
+    newAttachObject,
+
     -- * Request Lenses
-    , aoDirectoryARN
-    , aoParentReference
-    , aoChildReference
-    , aoLinkName
+    attachObject_directoryArn,
+    attachObject_parentReference,
+    attachObject_childReference,
+    attachObject_linkName,
 
     -- * Destructuring the Response
-    , attachObjectResponse
-    , AttachObjectResponse
+    AttachObjectResponse (..),
+    newAttachObjectResponse,
+
     -- * Response Lenses
-    , aorsAttachedObjectIdentifier
-    , aorsResponseStatus
-    ) where
+    attachObjectResponse_attachedObjectIdentifier,
+    attachObjectResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'attachObject' smart constructor.
+-- | /See:/ 'newAttachObject' smart constructor.
 data AttachObject = AttachObject'
-  { _aoDirectoryARN    :: !Text
-  , _aoParentReference :: !ObjectReference
-  , _aoChildReference  :: !ObjectReference
-  , _aoLinkName        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Amazon Resource Name (ARN) that is associated with the Directory where
+    -- both objects reside. For more information, see arns.
+    directoryArn :: Prelude.Text,
+    -- | The parent object reference.
+    parentReference :: ObjectReference,
+    -- | The child object reference to be attached to the object.
+    childReference :: ObjectReference,
+    -- | The link name with which the child object is attached to the parent.
+    linkName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'AttachObject' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'directoryArn', 'attachObject_directoryArn' - Amazon Resource Name (ARN) that is associated with the Directory where
+-- both objects reside. For more information, see arns.
+--
+-- 'parentReference', 'attachObject_parentReference' - The parent object reference.
+--
+-- 'childReference', 'attachObject_childReference' - The child object reference to be attached to the object.
+--
+-- 'linkName', 'attachObject_linkName' - The link name with which the child object is attached to the parent.
+newAttachObject ::
+  -- | 'directoryArn'
+  Prelude.Text ->
+  -- | 'parentReference'
+  ObjectReference ->
+  -- | 'childReference'
+  ObjectReference ->
+  -- | 'linkName'
+  Prelude.Text ->
+  AttachObject
+newAttachObject
+  pDirectoryArn_
+  pParentReference_
+  pChildReference_
+  pLinkName_ =
+    AttachObject'
+      { directoryArn = pDirectoryArn_,
+        parentReference = pParentReference_,
+        childReference = pChildReference_,
+        linkName = pLinkName_
+      }
 
--- | Creates a value of 'AttachObject' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'aoDirectoryARN' - Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
---
--- * 'aoParentReference' - The parent object reference.
---
--- * 'aoChildReference' - The child object reference to be attached to the object.
---
--- * 'aoLinkName' - The link name with which the child object is attached to the parent.
-attachObject
-    :: Text -- ^ 'aoDirectoryARN'
-    -> ObjectReference -- ^ 'aoParentReference'
-    -> ObjectReference -- ^ 'aoChildReference'
-    -> Text -- ^ 'aoLinkName'
-    -> AttachObject
-attachObject pDirectoryARN_ pParentReference_ pChildReference_ pLinkName_ =
-  AttachObject'
-    { _aoDirectoryARN = pDirectoryARN_
-    , _aoParentReference = pParentReference_
-    , _aoChildReference = pChildReference_
-    , _aoLinkName = pLinkName_
-    }
-
-
--- | Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
-aoDirectoryARN :: Lens' AttachObject Text
-aoDirectoryARN = lens _aoDirectoryARN (\ s a -> s{_aoDirectoryARN = a})
+-- | Amazon Resource Name (ARN) that is associated with the Directory where
+-- both objects reside. For more information, see arns.
+attachObject_directoryArn :: Lens.Lens' AttachObject Prelude.Text
+attachObject_directoryArn = Lens.lens (\AttachObject' {directoryArn} -> directoryArn) (\s@AttachObject' {} a -> s {directoryArn = a} :: AttachObject)
 
 -- | The parent object reference.
-aoParentReference :: Lens' AttachObject ObjectReference
-aoParentReference = lens _aoParentReference (\ s a -> s{_aoParentReference = a})
+attachObject_parentReference :: Lens.Lens' AttachObject ObjectReference
+attachObject_parentReference = Lens.lens (\AttachObject' {parentReference} -> parentReference) (\s@AttachObject' {} a -> s {parentReference = a} :: AttachObject)
 
 -- | The child object reference to be attached to the object.
-aoChildReference :: Lens' AttachObject ObjectReference
-aoChildReference = lens _aoChildReference (\ s a -> s{_aoChildReference = a})
+attachObject_childReference :: Lens.Lens' AttachObject ObjectReference
+attachObject_childReference = Lens.lens (\AttachObject' {childReference} -> childReference) (\s@AttachObject' {} a -> s {childReference = a} :: AttachObject)
 
 -- | The link name with which the child object is attached to the parent.
-aoLinkName :: Lens' AttachObject Text
-aoLinkName = lens _aoLinkName (\ s a -> s{_aoLinkName = a})
+attachObject_linkName :: Lens.Lens' AttachObject Prelude.Text
+attachObject_linkName = Lens.lens (\AttachObject' {linkName} -> linkName) (\s@AttachObject' {} a -> s {linkName = a} :: AttachObject)
 
-instance AWSRequest AttachObject where
-        type Rs AttachObject = AttachObjectResponse
-        request = putJSON cloudDirectory
-        response
-          = receiveJSON
-              (\ s h x ->
-                 AttachObjectResponse' <$>
-                   (x .?> "AttachedObjectIdentifier") <*>
-                     (pure (fromEnum s)))
+instance Prelude.AWSRequest AttachObject where
+  type Rs AttachObject = AttachObjectResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AttachObjectResponse'
+            Prelude.<$> (x Prelude..?> "AttachedObjectIdentifier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AttachObject where
+instance Prelude.Hashable AttachObject
 
-instance NFData AttachObject where
+instance Prelude.NFData AttachObject
 
-instance ToHeaders AttachObject where
-        toHeaders AttachObject'{..}
-          = mconcat ["x-amz-data-partition" =# _aoDirectoryARN]
+instance Prelude.ToHeaders AttachObject where
+  toHeaders AttachObject' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Prelude.=# directoryArn]
 
-instance ToJSON AttachObject where
-        toJSON AttachObject'{..}
-          = object
-              (catMaybes
-                 [Just ("ParentReference" .= _aoParentReference),
-                  Just ("ChildReference" .= _aoChildReference),
-                  Just ("LinkName" .= _aoLinkName)])
+instance Prelude.ToJSON AttachObject where
+  toJSON AttachObject' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ParentReference" Prelude..= parentReference),
+            Prelude.Just
+              ("ChildReference" Prelude..= childReference),
+            Prelude.Just ("LinkName" Prelude..= linkName)
+          ]
+      )
 
-instance ToPath AttachObject where
-        toPath
-          = const
-              "/amazonclouddirectory/2017-01-11/object/attach"
+instance Prelude.ToPath AttachObject where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/object/attach"
 
-instance ToQuery AttachObject where
-        toQuery = const mempty
+instance Prelude.ToQuery AttachObject where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'attachObjectResponse' smart constructor.
+-- | /See:/ 'newAttachObjectResponse' smart constructor.
 data AttachObjectResponse = AttachObjectResponse'
-  { _aorsAttachedObjectIdentifier :: !(Maybe Text)
-  , _aorsResponseStatus           :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The attached @ObjectIdentifier@, which is the child @ObjectIdentifier@.
+    attachedObjectIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AttachObjectResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AttachObjectResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'aorsAttachedObjectIdentifier' - The attached @ObjectIdentifier@ , which is the child @ObjectIdentifier@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'aorsResponseStatus' - -- | The response status code.
-attachObjectResponse
-    :: Int -- ^ 'aorsResponseStatus'
-    -> AttachObjectResponse
-attachObjectResponse pResponseStatus_ =
+-- 'attachedObjectIdentifier', 'attachObjectResponse_attachedObjectIdentifier' - The attached @ObjectIdentifier@, which is the child @ObjectIdentifier@.
+--
+-- 'httpStatus', 'attachObjectResponse_httpStatus' - The response's http status code.
+newAttachObjectResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AttachObjectResponse
+newAttachObjectResponse pHttpStatus_ =
   AttachObjectResponse'
-    { _aorsAttachedObjectIdentifier = Nothing
-    , _aorsResponseStatus = pResponseStatus_
+    { attachedObjectIdentifier =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The attached @ObjectIdentifier@, which is the child @ObjectIdentifier@.
+attachObjectResponse_attachedObjectIdentifier :: Lens.Lens' AttachObjectResponse (Prelude.Maybe Prelude.Text)
+attachObjectResponse_attachedObjectIdentifier = Lens.lens (\AttachObjectResponse' {attachedObjectIdentifier} -> attachedObjectIdentifier) (\s@AttachObjectResponse' {} a -> s {attachedObjectIdentifier = a} :: AttachObjectResponse)
 
--- | The attached @ObjectIdentifier@ , which is the child @ObjectIdentifier@ .
-aorsAttachedObjectIdentifier :: Lens' AttachObjectResponse (Maybe Text)
-aorsAttachedObjectIdentifier = lens _aorsAttachedObjectIdentifier (\ s a -> s{_aorsAttachedObjectIdentifier = a})
+-- | The response's http status code.
+attachObjectResponse_httpStatus :: Lens.Lens' AttachObjectResponse Prelude.Int
+attachObjectResponse_httpStatus = Lens.lens (\AttachObjectResponse' {httpStatus} -> httpStatus) (\s@AttachObjectResponse' {} a -> s {httpStatus = a} :: AttachObjectResponse)
 
--- | -- | The response status code.
-aorsResponseStatus :: Lens' AttachObjectResponse Int
-aorsResponseStatus = lens _aorsResponseStatus (\ s a -> s{_aorsResponseStatus = a})
-
-instance NFData AttachObjectResponse where
+instance Prelude.NFData AttachObjectResponse

@@ -1,158 +1,255 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CertificateManagerPCA.ListCertificateAuthorities
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the private certificate authorities that you created by using the 'CreateCertificateAuthority' function.
+-- Lists the private certificate authorities that you created by using the
+-- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>
+-- action.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.CertificateManagerPCA.ListCertificateAuthorities
-    (
-    -- * Creating a Request
-      listCertificateAuthorities
-    , ListCertificateAuthorities
+  ( -- * Creating a Request
+    ListCertificateAuthorities (..),
+    newListCertificateAuthorities,
+
     -- * Request Lenses
-    , lcaNextToken
-    , lcaMaxResults
+    listCertificateAuthorities_nextToken,
+    listCertificateAuthorities_maxResults,
+    listCertificateAuthorities_resourceOwner,
 
     -- * Destructuring the Response
-    , listCertificateAuthoritiesResponse
-    , ListCertificateAuthoritiesResponse
+    ListCertificateAuthoritiesResponse (..),
+    newListCertificateAuthoritiesResponse,
+
     -- * Response Lenses
-    , lcarsCertificateAuthorities
-    , lcarsNextToken
-    , lcarsResponseStatus
-    ) where
+    listCertificateAuthoritiesResponse_nextToken,
+    listCertificateAuthoritiesResponse_certificateAuthorities,
+    listCertificateAuthoritiesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CertificateManagerPCA.Types
-import Network.AWS.CertificateManagerPCA.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listCertificateAuthorities' smart constructor.
+-- | /See:/ 'newListCertificateAuthorities' smart constructor.
 data ListCertificateAuthorities = ListCertificateAuthorities'
-  { _lcaNextToken  :: !(Maybe Text)
-  , _lcaMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Use this parameter when paginating results in a subsequent request after
+    -- you receive a response with truncated results. Set it to the value of
+    -- the @NextToken@ parameter from the response you just received.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter when paginating results to specify the maximum number
+    -- of items to return in the response on each page. If additional items
+    -- exist beyond the number you specify, the @NextToken@ element is sent in
+    -- the response. Use this @NextToken@ value in a subsequent request to
+    -- retrieve additional items.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Use this parameter to filter the returned set of certificate authorities
+    -- based on their owner. The default is SELF.
+    resourceOwner :: Prelude.Maybe ResourceOwner
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListCertificateAuthorities' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListCertificateAuthorities' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lcaNextToken' - Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the @NextToken@ parameter from the response you just received.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lcaMaxResults' - Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
-listCertificateAuthorities
-    :: ListCertificateAuthorities
-listCertificateAuthorities =
+-- 'nextToken', 'listCertificateAuthorities_nextToken' - Use this parameter when paginating results in a subsequent request after
+-- you receive a response with truncated results. Set it to the value of
+-- the @NextToken@ parameter from the response you just received.
+--
+-- 'maxResults', 'listCertificateAuthorities_maxResults' - Use this parameter when paginating results to specify the maximum number
+-- of items to return in the response on each page. If additional items
+-- exist beyond the number you specify, the @NextToken@ element is sent in
+-- the response. Use this @NextToken@ value in a subsequent request to
+-- retrieve additional items.
+--
+-- 'resourceOwner', 'listCertificateAuthorities_resourceOwner' - Use this parameter to filter the returned set of certificate authorities
+-- based on their owner. The default is SELF.
+newListCertificateAuthorities ::
+  ListCertificateAuthorities
+newListCertificateAuthorities =
   ListCertificateAuthorities'
-    {_lcaNextToken = Nothing, _lcaMaxResults = Nothing}
-
-
--- | Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of the @NextToken@ parameter from the response you just received.
-lcaNextToken :: Lens' ListCertificateAuthorities (Maybe Text)
-lcaNextToken = lens _lcaNextToken (\ s a -> s{_lcaNextToken = a})
-
--- | Use this parameter when paginating results to specify the maximum number of items to return in the response on each page. If additional items exist beyond the number you specify, the @NextToken@ element is sent in the response. Use this @NextToken@ value in a subsequent request to retrieve additional items.
-lcaMaxResults :: Lens' ListCertificateAuthorities (Maybe Natural)
-lcaMaxResults = lens _lcaMaxResults (\ s a -> s{_lcaMaxResults = a}) . mapping _Nat
-
-instance AWSRequest ListCertificateAuthorities where
-        type Rs ListCertificateAuthorities =
-             ListCertificateAuthoritiesResponse
-        request = postJSON certificateManagerPCA
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListCertificateAuthoritiesResponse' <$>
-                   (x .?> "CertificateAuthorities" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListCertificateAuthorities where
-
-instance NFData ListCertificateAuthorities where
-
-instance ToHeaders ListCertificateAuthorities where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("ACMPrivateCA.ListCertificateAuthorities" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListCertificateAuthorities where
-        toJSON ListCertificateAuthorities'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lcaNextToken,
-                  ("MaxResults" .=) <$> _lcaMaxResults])
-
-instance ToPath ListCertificateAuthorities where
-        toPath = const "/"
-
-instance ToQuery ListCertificateAuthorities where
-        toQuery = const mempty
-
--- | /See:/ 'listCertificateAuthoritiesResponse' smart constructor.
-data ListCertificateAuthoritiesResponse = ListCertificateAuthoritiesResponse'
-  { _lcarsCertificateAuthorities :: !(Maybe [CertificateAuthority])
-  , _lcarsNextToken              :: !(Maybe Text)
-  , _lcarsResponseStatus         :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListCertificateAuthoritiesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lcarsCertificateAuthorities' - Summary information about each certificate authority you have created.
---
--- * 'lcarsNextToken' - When the list is truncated, this value is present and should be used for the @NextToken@ parameter in a subsequent pagination request.
---
--- * 'lcarsResponseStatus' - -- | The response status code.
-listCertificateAuthoritiesResponse
-    :: Int -- ^ 'lcarsResponseStatus'
-    -> ListCertificateAuthoritiesResponse
-listCertificateAuthoritiesResponse pResponseStatus_ =
-  ListCertificateAuthoritiesResponse'
-    { _lcarsCertificateAuthorities = Nothing
-    , _lcarsNextToken = Nothing
-    , _lcarsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      resourceOwner = Prelude.Nothing
     }
 
+-- | Use this parameter when paginating results in a subsequent request after
+-- you receive a response with truncated results. Set it to the value of
+-- the @NextToken@ parameter from the response you just received.
+listCertificateAuthorities_nextToken :: Lens.Lens' ListCertificateAuthorities (Prelude.Maybe Prelude.Text)
+listCertificateAuthorities_nextToken = Lens.lens (\ListCertificateAuthorities' {nextToken} -> nextToken) (\s@ListCertificateAuthorities' {} a -> s {nextToken = a} :: ListCertificateAuthorities)
+
+-- | Use this parameter when paginating results to specify the maximum number
+-- of items to return in the response on each page. If additional items
+-- exist beyond the number you specify, the @NextToken@ element is sent in
+-- the response. Use this @NextToken@ value in a subsequent request to
+-- retrieve additional items.
+listCertificateAuthorities_maxResults :: Lens.Lens' ListCertificateAuthorities (Prelude.Maybe Prelude.Natural)
+listCertificateAuthorities_maxResults = Lens.lens (\ListCertificateAuthorities' {maxResults} -> maxResults) (\s@ListCertificateAuthorities' {} a -> s {maxResults = a} :: ListCertificateAuthorities)
+
+-- | Use this parameter to filter the returned set of certificate authorities
+-- based on their owner. The default is SELF.
+listCertificateAuthorities_resourceOwner :: Lens.Lens' ListCertificateAuthorities (Prelude.Maybe ResourceOwner)
+listCertificateAuthorities_resourceOwner = Lens.lens (\ListCertificateAuthorities' {resourceOwner} -> resourceOwner) (\s@ListCertificateAuthorities' {} a -> s {resourceOwner = a} :: ListCertificateAuthorities)
+
+instance Pager.AWSPager ListCertificateAuthorities where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listCertificateAuthoritiesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listCertificateAuthoritiesResponse_certificateAuthorities
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listCertificateAuthorities_nextToken
+          Lens..~ rs
+          Lens.^? listCertificateAuthoritiesResponse_nextToken
+            Prelude.. Lens._Just
+
+instance
+  Prelude.AWSRequest
+    ListCertificateAuthorities
+  where
+  type
+    Rs ListCertificateAuthorities =
+      ListCertificateAuthoritiesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListCertificateAuthoritiesResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> ( x Prelude..?> "CertificateAuthorities"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListCertificateAuthorities
+
+instance Prelude.NFData ListCertificateAuthorities
+
+instance Prelude.ToHeaders ListCertificateAuthorities where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "ACMPrivateCA.ListCertificateAuthorities" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON ListCertificateAuthorities where
+  toJSON ListCertificateAuthorities' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
+            ("ResourceOwner" Prelude..=)
+              Prelude.<$> resourceOwner
+          ]
+      )
+
+instance Prelude.ToPath ListCertificateAuthorities where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery ListCertificateAuthorities where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListCertificateAuthoritiesResponse' smart constructor.
+data ListCertificateAuthoritiesResponse = ListCertificateAuthoritiesResponse'
+  { -- | When the list is truncated, this value is present and should be used for
+    -- the @NextToken@ parameter in a subsequent pagination request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Summary information about each certificate authority you have created.
+    certificateAuthorities :: Prelude.Maybe [CertificateAuthority],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListCertificateAuthoritiesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listCertificateAuthoritiesResponse_nextToken' - When the list is truncated, this value is present and should be used for
+-- the @NextToken@ parameter in a subsequent pagination request.
+--
+-- 'certificateAuthorities', 'listCertificateAuthoritiesResponse_certificateAuthorities' - Summary information about each certificate authority you have created.
+--
+-- 'httpStatus', 'listCertificateAuthoritiesResponse_httpStatus' - The response's http status code.
+newListCertificateAuthoritiesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListCertificateAuthoritiesResponse
+newListCertificateAuthoritiesResponse pHttpStatus_ =
+  ListCertificateAuthoritiesResponse'
+    { nextToken =
+        Prelude.Nothing,
+      certificateAuthorities =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | When the list is truncated, this value is present and should be used for
+-- the @NextToken@ parameter in a subsequent pagination request.
+listCertificateAuthoritiesResponse_nextToken :: Lens.Lens' ListCertificateAuthoritiesResponse (Prelude.Maybe Prelude.Text)
+listCertificateAuthoritiesResponse_nextToken = Lens.lens (\ListCertificateAuthoritiesResponse' {nextToken} -> nextToken) (\s@ListCertificateAuthoritiesResponse' {} a -> s {nextToken = a} :: ListCertificateAuthoritiesResponse)
 
 -- | Summary information about each certificate authority you have created.
-lcarsCertificateAuthorities :: Lens' ListCertificateAuthoritiesResponse [CertificateAuthority]
-lcarsCertificateAuthorities = lens _lcarsCertificateAuthorities (\ s a -> s{_lcarsCertificateAuthorities = a}) . _Default . _Coerce
+listCertificateAuthoritiesResponse_certificateAuthorities :: Lens.Lens' ListCertificateAuthoritiesResponse (Prelude.Maybe [CertificateAuthority])
+listCertificateAuthoritiesResponse_certificateAuthorities = Lens.lens (\ListCertificateAuthoritiesResponse' {certificateAuthorities} -> certificateAuthorities) (\s@ListCertificateAuthoritiesResponse' {} a -> s {certificateAuthorities = a} :: ListCertificateAuthoritiesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | When the list is truncated, this value is present and should be used for the @NextToken@ parameter in a subsequent pagination request.
-lcarsNextToken :: Lens' ListCertificateAuthoritiesResponse (Maybe Text)
-lcarsNextToken = lens _lcarsNextToken (\ s a -> s{_lcarsNextToken = a})
+-- | The response's http status code.
+listCertificateAuthoritiesResponse_httpStatus :: Lens.Lens' ListCertificateAuthoritiesResponse Prelude.Int
+listCertificateAuthoritiesResponse_httpStatus = Lens.lens (\ListCertificateAuthoritiesResponse' {httpStatus} -> httpStatus) (\s@ListCertificateAuthoritiesResponse' {} a -> s {httpStatus = a} :: ListCertificateAuthoritiesResponse)
 
--- | -- | The response status code.
-lcarsResponseStatus :: Lens' ListCertificateAuthoritiesResponse Int
-lcarsResponseStatus = lens _lcarsResponseStatus (\ s a -> s{_lcarsResponseStatus = a})
-
-instance NFData ListCertificateAuthoritiesResponse
-         where
+instance
+  Prelude.NFData
+    ListCertificateAuthoritiesResponse

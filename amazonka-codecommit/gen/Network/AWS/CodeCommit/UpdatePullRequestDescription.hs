@@ -1,151 +1,200 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeCommit.UpdatePullRequestDescription
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Replaces the contents of the description of a pull request.
---
---
 module Network.AWS.CodeCommit.UpdatePullRequestDescription
-    (
-    -- * Creating a Request
-      updatePullRequestDescription
-    , UpdatePullRequestDescription
+  ( -- * Creating a Request
+    UpdatePullRequestDescription (..),
+    newUpdatePullRequestDescription,
+
     -- * Request Lenses
-    , uprdPullRequestId
-    , uprdDescription
+    updatePullRequestDescription_pullRequestId,
+    updatePullRequestDescription_description,
 
     -- * Destructuring the Response
-    , updatePullRequestDescriptionResponse
-    , UpdatePullRequestDescriptionResponse
+    UpdatePullRequestDescriptionResponse (..),
+    newUpdatePullRequestDescriptionResponse,
+
     -- * Response Lenses
-    , uprdrsResponseStatus
-    , uprdrsPullRequest
-    ) where
+    updatePullRequestDescriptionResponse_httpStatus,
+    updatePullRequestDescriptionResponse_pullRequest,
+  )
+where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.CodeCommit.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updatePullRequestDescription' smart constructor.
+-- | /See:/ 'newUpdatePullRequestDescription' smart constructor.
 data UpdatePullRequestDescription = UpdatePullRequestDescription'
-  { _uprdPullRequestId :: !Text
-  , _uprdDescription   :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The system-generated ID of the pull request. To get this ID, use
+    -- ListPullRequests.
+    pullRequestId :: Prelude.Text,
+    -- | The updated content of the description for the pull request. This
+    -- content replaces the existing description.
+    description :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdatePullRequestDescription' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdatePullRequestDescription' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uprdPullRequestId' - The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uprdDescription' - The updated content of the description for the pull request. This content will replace the existing description.
-updatePullRequestDescription
-    :: Text -- ^ 'uprdPullRequestId'
-    -> Text -- ^ 'uprdDescription'
-    -> UpdatePullRequestDescription
-updatePullRequestDescription pPullRequestId_ pDescription_ =
-  UpdatePullRequestDescription'
-    {_uprdPullRequestId = pPullRequestId_, _uprdDescription = pDescription_}
+-- 'pullRequestId', 'updatePullRequestDescription_pullRequestId' - The system-generated ID of the pull request. To get this ID, use
+-- ListPullRequests.
+--
+-- 'description', 'updatePullRequestDescription_description' - The updated content of the description for the pull request. This
+-- content replaces the existing description.
+newUpdatePullRequestDescription ::
+  -- | 'pullRequestId'
+  Prelude.Text ->
+  -- | 'description'
+  Prelude.Text ->
+  UpdatePullRequestDescription
+newUpdatePullRequestDescription
+  pPullRequestId_
+  pDescription_ =
+    UpdatePullRequestDescription'
+      { pullRequestId =
+          pPullRequestId_,
+        description = pDescription_
+      }
 
+-- | The system-generated ID of the pull request. To get this ID, use
+-- ListPullRequests.
+updatePullRequestDescription_pullRequestId :: Lens.Lens' UpdatePullRequestDescription Prelude.Text
+updatePullRequestDescription_pullRequestId = Lens.lens (\UpdatePullRequestDescription' {pullRequestId} -> pullRequestId) (\s@UpdatePullRequestDescription' {} a -> s {pullRequestId = a} :: UpdatePullRequestDescription)
 
--- | The system-generated ID of the pull request. To get this ID, use 'ListPullRequests' .
-uprdPullRequestId :: Lens' UpdatePullRequestDescription Text
-uprdPullRequestId = lens _uprdPullRequestId (\ s a -> s{_uprdPullRequestId = a})
+-- | The updated content of the description for the pull request. This
+-- content replaces the existing description.
+updatePullRequestDescription_description :: Lens.Lens' UpdatePullRequestDescription Prelude.Text
+updatePullRequestDescription_description = Lens.lens (\UpdatePullRequestDescription' {description} -> description) (\s@UpdatePullRequestDescription' {} a -> s {description = a} :: UpdatePullRequestDescription)
 
--- | The updated content of the description for the pull request. This content will replace the existing description.
-uprdDescription :: Lens' UpdatePullRequestDescription Text
-uprdDescription = lens _uprdDescription (\ s a -> s{_uprdDescription = a})
+instance
+  Prelude.AWSRequest
+    UpdatePullRequestDescription
+  where
+  type
+    Rs UpdatePullRequestDescription =
+      UpdatePullRequestDescriptionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdatePullRequestDescriptionResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..:> "pullRequest")
+      )
 
-instance AWSRequest UpdatePullRequestDescription
-         where
-        type Rs UpdatePullRequestDescription =
-             UpdatePullRequestDescriptionResponse
-        request = postJSON codeCommit
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdatePullRequestDescriptionResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "pullRequest"))
+instance
+  Prelude.Hashable
+    UpdatePullRequestDescription
 
-instance Hashable UpdatePullRequestDescription where
+instance Prelude.NFData UpdatePullRequestDescription
 
-instance NFData UpdatePullRequestDescription where
+instance
+  Prelude.ToHeaders
+    UpdatePullRequestDescription
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CodeCommit_20150413.UpdatePullRequestDescription" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders UpdatePullRequestDescription where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeCommit_20150413.UpdatePullRequestDescription"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON UpdatePullRequestDescription where
+  toJSON UpdatePullRequestDescription' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("pullRequestId" Prelude..= pullRequestId),
+            Prelude.Just ("description" Prelude..= description)
+          ]
+      )
 
-instance ToJSON UpdatePullRequestDescription where
-        toJSON UpdatePullRequestDescription'{..}
-          = object
-              (catMaybes
-                 [Just ("pullRequestId" .= _uprdPullRequestId),
-                  Just ("description" .= _uprdDescription)])
+instance Prelude.ToPath UpdatePullRequestDescription where
+  toPath = Prelude.const "/"
 
-instance ToPath UpdatePullRequestDescription where
-        toPath = const "/"
+instance Prelude.ToQuery UpdatePullRequestDescription where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery UpdatePullRequestDescription where
-        toQuery = const mempty
-
--- | /See:/ 'updatePullRequestDescriptionResponse' smart constructor.
+-- | /See:/ 'newUpdatePullRequestDescriptionResponse' smart constructor.
 data UpdatePullRequestDescriptionResponse = UpdatePullRequestDescriptionResponse'
-  { _uprdrsResponseStatus :: !Int
-  , _uprdrsPullRequest    :: !PullRequest
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Information about the updated pull request.
+    pullRequest :: PullRequest
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdatePullRequestDescriptionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdatePullRequestDescriptionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uprdrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uprdrsPullRequest' - Information about the updated pull request.
-updatePullRequestDescriptionResponse
-    :: Int -- ^ 'uprdrsResponseStatus'
-    -> PullRequest -- ^ 'uprdrsPullRequest'
-    -> UpdatePullRequestDescriptionResponse
-updatePullRequestDescriptionResponse pResponseStatus_ pPullRequest_ =
-  UpdatePullRequestDescriptionResponse'
-    { _uprdrsResponseStatus = pResponseStatus_
-    , _uprdrsPullRequest = pPullRequest_
-    }
+-- 'httpStatus', 'updatePullRequestDescriptionResponse_httpStatus' - The response's http status code.
+--
+-- 'pullRequest', 'updatePullRequestDescriptionResponse_pullRequest' - Information about the updated pull request.
+newUpdatePullRequestDescriptionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'pullRequest'
+  PullRequest ->
+  UpdatePullRequestDescriptionResponse
+newUpdatePullRequestDescriptionResponse
+  pHttpStatus_
+  pPullRequest_ =
+    UpdatePullRequestDescriptionResponse'
+      { httpStatus =
+          pHttpStatus_,
+        pullRequest = pPullRequest_
+      }
 
-
--- | -- | The response status code.
-uprdrsResponseStatus :: Lens' UpdatePullRequestDescriptionResponse Int
-uprdrsResponseStatus = lens _uprdrsResponseStatus (\ s a -> s{_uprdrsResponseStatus = a})
+-- | The response's http status code.
+updatePullRequestDescriptionResponse_httpStatus :: Lens.Lens' UpdatePullRequestDescriptionResponse Prelude.Int
+updatePullRequestDescriptionResponse_httpStatus = Lens.lens (\UpdatePullRequestDescriptionResponse' {httpStatus} -> httpStatus) (\s@UpdatePullRequestDescriptionResponse' {} a -> s {httpStatus = a} :: UpdatePullRequestDescriptionResponse)
 
 -- | Information about the updated pull request.
-uprdrsPullRequest :: Lens' UpdatePullRequestDescriptionResponse PullRequest
-uprdrsPullRequest = lens _uprdrsPullRequest (\ s a -> s{_uprdrsPullRequest = a})
+updatePullRequestDescriptionResponse_pullRequest :: Lens.Lens' UpdatePullRequestDescriptionResponse PullRequest
+updatePullRequestDescriptionResponse_pullRequest = Lens.lens (\UpdatePullRequestDescriptionResponse' {pullRequest} -> pullRequest) (\s@UpdatePullRequestDescriptionResponse' {} a -> s {pullRequest = a} :: UpdatePullRequestDescriptionResponse)
 
-instance NFData UpdatePullRequestDescriptionResponse
-         where
+instance
+  Prelude.NFData
+    UpdatePullRequestDescriptionResponse

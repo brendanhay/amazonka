@@ -1,132 +1,180 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.StartInstance
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance, use the reboot instance operation.
+-- Starts a specific Amazon Lightsail instance from a stopped state. To
+-- restart an instance, use the @reboot instance@ operation.
 --
+-- When you start a stopped instance, Lightsail assigns a new public IP
+-- address to the instance. To use the same IP address after stopping and
+-- starting an instance, create a static IP address and attach it to the
+-- instance. For more information, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en/articles/lightsail-create-static-ip Lightsail Dev Guide>.
 --
+-- The @start instance@ operation supports tag-based access control via
+-- resource tags applied to the resource identified by @instance name@. For
+-- more information, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
 module Network.AWS.Lightsail.StartInstance
-    (
-    -- * Creating a Request
-      startInstance
-    , StartInstance
+  ( -- * Creating a Request
+    StartInstance (..),
+    newStartInstance,
+
     -- * Request Lenses
-    , sInstanceName
+    startInstance_instanceName,
 
     -- * Destructuring the Response
-    , startInstanceResponse
-    , StartInstanceResponse
+    StartInstanceResponse (..),
+    newStartInstanceResponse,
+
     -- * Response Lenses
-    , srsOperations
-    , srsResponseStatus
-    ) where
+    startInstanceResponse_operations,
+    startInstanceResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'startInstance' smart constructor.
-newtype StartInstance = StartInstance'
-  { _sInstanceName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newStartInstance' smart constructor.
+data StartInstance = StartInstance'
+  { -- | The name of the instance (a virtual private server) to start.
+    instanceName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StartInstance' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartInstance' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sInstanceName' - The name of the instance (a virtual private server) to start.
-startInstance
-    :: Text -- ^ 'sInstanceName'
-    -> StartInstance
-startInstance pInstanceName_ = StartInstance' {_sInstanceName = pInstanceName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'instanceName', 'startInstance_instanceName' - The name of the instance (a virtual private server) to start.
+newStartInstance ::
+  -- | 'instanceName'
+  Prelude.Text ->
+  StartInstance
+newStartInstance pInstanceName_ =
+  StartInstance' {instanceName = pInstanceName_}
 
 -- | The name of the instance (a virtual private server) to start.
-sInstanceName :: Lens' StartInstance Text
-sInstanceName = lens _sInstanceName (\ s a -> s{_sInstanceName = a})
+startInstance_instanceName :: Lens.Lens' StartInstance Prelude.Text
+startInstance_instanceName = Lens.lens (\StartInstance' {instanceName} -> instanceName) (\s@StartInstance' {} a -> s {instanceName = a} :: StartInstance)
 
-instance AWSRequest StartInstance where
-        type Rs StartInstance = StartInstanceResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 StartInstanceResponse' <$>
-                   (x .?> "operations" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.AWSRequest StartInstance where
+  type Rs StartInstance = StartInstanceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          StartInstanceResponse'
+            Prelude.<$> ( x Prelude..?> "operations"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable StartInstance where
+instance Prelude.Hashable StartInstance
 
-instance NFData StartInstance where
+instance Prelude.NFData StartInstance
 
-instance ToHeaders StartInstance where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.StartInstance" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders StartInstance where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "Lightsail_20161128.StartInstance" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON StartInstance where
-        toJSON StartInstance'{..}
-          = object
-              (catMaybes [Just ("instanceName" .= _sInstanceName)])
+instance Prelude.ToJSON StartInstance where
+  toJSON StartInstance' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("instanceName" Prelude..= instanceName)
+          ]
+      )
 
-instance ToPath StartInstance where
-        toPath = const "/"
+instance Prelude.ToPath StartInstance where
+  toPath = Prelude.const "/"
 
-instance ToQuery StartInstance where
-        toQuery = const mempty
+instance Prelude.ToQuery StartInstance where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'startInstanceResponse' smart constructor.
+-- | /See:/ 'newStartInstanceResponse' smart constructor.
 data StartInstanceResponse = StartInstanceResponse'
-  { _srsOperations     :: !(Maybe [Operation])
-  , _srsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of objects that describe the result of the action, such as the
+    -- status of the request, the timestamp of the request, and the resources
+    -- affected by the request.
+    operations :: Prelude.Maybe [Operation],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StartInstanceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartInstanceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'srsOperations' - An array of key-value pairs containing information about the request operation.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'srsResponseStatus' - -- | The response status code.
-startInstanceResponse
-    :: Int -- ^ 'srsResponseStatus'
-    -> StartInstanceResponse
-startInstanceResponse pResponseStatus_ =
+-- 'operations', 'startInstanceResponse_operations' - An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+--
+-- 'httpStatus', 'startInstanceResponse_httpStatus' - The response's http status code.
+newStartInstanceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartInstanceResponse
+newStartInstanceResponse pHttpStatus_ =
   StartInstanceResponse'
-    {_srsOperations = Nothing, _srsResponseStatus = pResponseStatus_}
+    { operations =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+startInstanceResponse_operations :: Lens.Lens' StartInstanceResponse (Prelude.Maybe [Operation])
+startInstanceResponse_operations = Lens.lens (\StartInstanceResponse' {operations} -> operations) (\s@StartInstanceResponse' {} a -> s {operations = a} :: StartInstanceResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | An array of key-value pairs containing information about the request operation.
-srsOperations :: Lens' StartInstanceResponse [Operation]
-srsOperations = lens _srsOperations (\ s a -> s{_srsOperations = a}) . _Default . _Coerce
+-- | The response's http status code.
+startInstanceResponse_httpStatus :: Lens.Lens' StartInstanceResponse Prelude.Int
+startInstanceResponse_httpStatus = Lens.lens (\StartInstanceResponse' {httpStatus} -> httpStatus) (\s@StartInstanceResponse' {} a -> s {httpStatus = a} :: StartInstanceResponse)
 
--- | -- | The response status code.
-srsResponseStatus :: Lens' StartInstanceResponse Int
-srsResponseStatus = lens _srsResponseStatus (\ s a -> s{_srsResponseStatus = a})
-
-instance NFData StartInstanceResponse where
+instance Prelude.NFData StartInstanceResponse

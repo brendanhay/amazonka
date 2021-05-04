@@ -1,0 +1,47 @@
+{-# LANGUAGE NoImplicitPrelude #-}
+
+{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+{% include "_include/license.ede" %}
+--
+module {{ moduleName }}
+    (
+    -- * Operations
+{% for operation in operations %}
+
+    -- ** {{ operation.value.name }}
+    {% for lens in operation.value.input.lenses %}
+      {{ lens.value.name }},
+    {% endfor %}
+    {% for lens in operation.value.output.lenses %}
+      {{ lens.value.name }},
+    {% endfor %}
+{% endfor %}
+
+    -- * Types
+{% for shape in shapes %}
+  {% case shape.value.type %}
+  {% when "product" %}
+
+    -- ** {{ shape.value.name }}
+    {% for lens in shape.value.lenses %}
+      {{ lens.value.name }},
+    {% endfor %}
+  {% endcase %}
+{% endfor %}
+    ) where
+
+{% for operation in operations %}
+import {{ libraryNamespace }}.{{ operation.value.name }}
+{% endfor %}
+
+{% for shape in shapes %}
+{% case shape.value.type %}
+{% when "product" %}
+import {{ libraryNamespace }}.Types.{{ shape.value.name }}
+{% endcase %}  
+{% endfor %}
+

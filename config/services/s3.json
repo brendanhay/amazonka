@@ -1,0 +1,96 @@
+{
+    "libraryName": "amazonka-s3",
+    "extraDependencies": [
+        "text >= 1.1",
+        "lens >= 4.14"
+    ],
+    "operationPlugins": {
+        "DeleteObjects": ["Request.contentMD5Header"],
+        "PutBucketCORS": ["Request.contentMD5Header"],
+        "PutBucketLifecycle": ["Request.contentMD5Header"],
+        "PutBucketPolicy": ["Request.contentMD5Header"],
+        "PutBucketTagging": ["Request.contentMD5Header"],
+        "PutObject": ["Request.expectHeader"]
+    },
+    "typeModules": [
+        "Network.AWS.S3.Internal"
+    ],
+    "typeOverrides": {
+        "GetBucketPolicyOutput": {
+            "requiredFields": [
+                "Policy"
+            ]
+        },
+        "Error": {
+            "renamedTo": "S3ServiceError"
+        },
+        "Bucket": {
+            "requiredFields": [
+                "CreationDate",
+                "Name"
+            ]
+        },
+        "Object": {
+            "requiredFields": [
+                "ETag",
+                "Size",
+                "Key",
+                "StorageClass",
+                "LastModified"
+            ]
+        },
+        "CompletedPart": {
+            "requiredFields": [
+                "PartNumber",
+                "ETag"
+            ]
+        },
+        "BucketLocationConstraint": {
+            "replacedBy": {
+                "name": "LocationConstraint",
+                "underive": []
+            }
+        },
+        "BucketName": {
+            "replacedBy": {
+                "name": "BucketName",
+                "underive": []
+            }
+        },
+        "ObjectKey": {
+            "replacedBy": {
+                "name": "ObjectKey",
+                "underive": []
+            }
+        },
+        "ObjectVersionId": {
+            "replacedBy": {
+                "name": "ObjectVersionId",
+                "underive": []
+            }
+        },
+        "ETag": {
+            "replacedBy": {
+                "name": "ETag",
+                "underive": []
+            }
+        },
+        "Delimiter": {
+            "replacedBy": {
+                "name": "Delimiter",
+                "underive": []
+            }
+        },
+        "NoncurrentVersionExpiration": {
+            "requiredFields": [
+                "NoncurrentDays"
+            ]
+        },
+        "NoncurrentVersionTransition": {
+            "requiredFields": [
+                "NoncurrentDays",
+                "StorageClass"
+            ]
+        }
+    }
+}

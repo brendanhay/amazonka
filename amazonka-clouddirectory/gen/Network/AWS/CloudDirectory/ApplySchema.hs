@@ -1,155 +1,197 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ApplySchema
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Copies the input published schema, at the specified version, into the 'Directory' with the same name and version as that of the published schema.
---
---
+-- Copies the input published schema, at the specified version, into the
+-- Directory with the same name and version as that of the published
+-- schema.
 module Network.AWS.CloudDirectory.ApplySchema
-    (
-    -- * Creating a Request
-      applySchema
-    , ApplySchema
+  ( -- * Creating a Request
+    ApplySchema (..),
+    newApplySchema,
+
     -- * Request Lenses
-    , asPublishedSchemaARN
-    , asDirectoryARN
+    applySchema_publishedSchemaArn,
+    applySchema_directoryArn,
 
     -- * Destructuring the Response
-    , applySchemaResponse
-    , ApplySchemaResponse
+    ApplySchemaResponse (..),
+    newApplySchemaResponse,
+
     -- * Response Lenses
-    , asrsDirectoryARN
-    , asrsAppliedSchemaARN
-    , asrsResponseStatus
-    ) where
+    applySchemaResponse_directoryArn,
+    applySchemaResponse_appliedSchemaArn,
+    applySchemaResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'applySchema' smart constructor.
+-- | /See:/ 'newApplySchema' smart constructor.
 data ApplySchema = ApplySchema'
-  { _asPublishedSchemaARN :: !Text
-  , _asDirectoryARN       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Published schema Amazon Resource Name (ARN) that needs to be copied. For
+    -- more information, see arns.
+    publishedSchemaArn :: Prelude.Text,
+    -- | The Amazon Resource Name (ARN) that is associated with the Directory
+    -- into which the schema is copied. For more information, see arns.
+    directoryArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ApplySchema' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ApplySchema' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'asPublishedSchemaARN' - Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see 'arns' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'asDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' into which the schema is copied. For more information, see 'arns' .
-applySchema
-    :: Text -- ^ 'asPublishedSchemaARN'
-    -> Text -- ^ 'asDirectoryARN'
-    -> ApplySchema
-applySchema pPublishedSchemaARN_ pDirectoryARN_ =
+-- 'publishedSchemaArn', 'applySchema_publishedSchemaArn' - Published schema Amazon Resource Name (ARN) that needs to be copied. For
+-- more information, see arns.
+--
+-- 'directoryArn', 'applySchema_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory
+-- into which the schema is copied. For more information, see arns.
+newApplySchema ::
+  -- | 'publishedSchemaArn'
+  Prelude.Text ->
+  -- | 'directoryArn'
+  Prelude.Text ->
+  ApplySchema
+newApplySchema pPublishedSchemaArn_ pDirectoryArn_ =
   ApplySchema'
-    { _asPublishedSchemaARN = pPublishedSchemaARN_
-    , _asDirectoryARN = pDirectoryARN_
+    { publishedSchemaArn =
+        pPublishedSchemaArn_,
+      directoryArn = pDirectoryArn_
     }
 
+-- | Published schema Amazon Resource Name (ARN) that needs to be copied. For
+-- more information, see arns.
+applySchema_publishedSchemaArn :: Lens.Lens' ApplySchema Prelude.Text
+applySchema_publishedSchemaArn = Lens.lens (\ApplySchema' {publishedSchemaArn} -> publishedSchemaArn) (\s@ApplySchema' {} a -> s {publishedSchemaArn = a} :: ApplySchema)
 
--- | Published schema Amazon Resource Name (ARN) that needs to be copied. For more information, see 'arns' .
-asPublishedSchemaARN :: Lens' ApplySchema Text
-asPublishedSchemaARN = lens _asPublishedSchemaARN (\ s a -> s{_asPublishedSchemaARN = a})
+-- | The Amazon Resource Name (ARN) that is associated with the Directory
+-- into which the schema is copied. For more information, see arns.
+applySchema_directoryArn :: Lens.Lens' ApplySchema Prelude.Text
+applySchema_directoryArn = Lens.lens (\ApplySchema' {directoryArn} -> directoryArn) (\s@ApplySchema' {} a -> s {directoryArn = a} :: ApplySchema)
 
--- | The Amazon Resource Name (ARN) that is associated with the 'Directory' into which the schema is copied. For more information, see 'arns' .
-asDirectoryARN :: Lens' ApplySchema Text
-asDirectoryARN = lens _asDirectoryARN (\ s a -> s{_asDirectoryARN = a})
+instance Prelude.AWSRequest ApplySchema where
+  type Rs ApplySchema = ApplySchemaResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ApplySchemaResponse'
+            Prelude.<$> (x Prelude..?> "DirectoryArn")
+            Prelude.<*> (x Prelude..?> "AppliedSchemaArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest ApplySchema where
-        type Rs ApplySchema = ApplySchemaResponse
-        request = putJSON cloudDirectory
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ApplySchemaResponse' <$>
-                   (x .?> "DirectoryArn") <*> (x .?> "AppliedSchemaArn")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable ApplySchema
 
-instance Hashable ApplySchema where
+instance Prelude.NFData ApplySchema
 
-instance NFData ApplySchema where
+instance Prelude.ToHeaders ApplySchema where
+  toHeaders ApplySchema' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Prelude.=# directoryArn]
 
-instance ToHeaders ApplySchema where
-        toHeaders ApplySchema'{..}
-          = mconcat ["x-amz-data-partition" =# _asDirectoryARN]
+instance Prelude.ToJSON ApplySchema where
+  toJSON ApplySchema' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "PublishedSchemaArn"
+                  Prelude..= publishedSchemaArn
+              )
+          ]
+      )
 
-instance ToJSON ApplySchema where
-        toJSON ApplySchema'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("PublishedSchemaArn" .= _asPublishedSchemaARN)])
+instance Prelude.ToPath ApplySchema where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/schema/apply"
 
-instance ToPath ApplySchema where
-        toPath
-          = const
-              "/amazonclouddirectory/2017-01-11/schema/apply"
+instance Prelude.ToQuery ApplySchema where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery ApplySchema where
-        toQuery = const mempty
-
--- | /See:/ 'applySchemaResponse' smart constructor.
+-- | /See:/ 'newApplySchemaResponse' smart constructor.
 data ApplySchemaResponse = ApplySchemaResponse'
-  { _asrsDirectoryARN     :: !(Maybe Text)
-  , _asrsAppliedSchemaARN :: !(Maybe Text)
-  , _asrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN that is associated with the Directory. For more information, see
+    -- arns.
+    directoryArn :: Prelude.Maybe Prelude.Text,
+    -- | The applied schema ARN that is associated with the copied schema in the
+    -- Directory. You can use this ARN to describe the schema information
+    -- applied on this directory. For more information, see arns.
+    appliedSchemaArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ApplySchemaResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ApplySchemaResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'asrsDirectoryARN' - The ARN that is associated with the 'Directory' . For more information, see 'arns' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'asrsAppliedSchemaARN' - The applied schema ARN that is associated with the copied schema in the 'Directory' . You can use this ARN to describe the schema information applied on this directory. For more information, see 'arns' .
+-- 'directoryArn', 'applySchemaResponse_directoryArn' - The ARN that is associated with the Directory. For more information, see
+-- arns.
 --
--- * 'asrsResponseStatus' - -- | The response status code.
-applySchemaResponse
-    :: Int -- ^ 'asrsResponseStatus'
-    -> ApplySchemaResponse
-applySchemaResponse pResponseStatus_ =
+-- 'appliedSchemaArn', 'applySchemaResponse_appliedSchemaArn' - The applied schema ARN that is associated with the copied schema in the
+-- Directory. You can use this ARN to describe the schema information
+-- applied on this directory. For more information, see arns.
+--
+-- 'httpStatus', 'applySchemaResponse_httpStatus' - The response's http status code.
+newApplySchemaResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ApplySchemaResponse
+newApplySchemaResponse pHttpStatus_ =
   ApplySchemaResponse'
-    { _asrsDirectoryARN = Nothing
-    , _asrsAppliedSchemaARN = Nothing
-    , _asrsResponseStatus = pResponseStatus_
+    { directoryArn =
+        Prelude.Nothing,
+      appliedSchemaArn = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The ARN that is associated with the Directory. For more information, see
+-- arns.
+applySchemaResponse_directoryArn :: Lens.Lens' ApplySchemaResponse (Prelude.Maybe Prelude.Text)
+applySchemaResponse_directoryArn = Lens.lens (\ApplySchemaResponse' {directoryArn} -> directoryArn) (\s@ApplySchemaResponse' {} a -> s {directoryArn = a} :: ApplySchemaResponse)
 
--- | The ARN that is associated with the 'Directory' . For more information, see 'arns' .
-asrsDirectoryARN :: Lens' ApplySchemaResponse (Maybe Text)
-asrsDirectoryARN = lens _asrsDirectoryARN (\ s a -> s{_asrsDirectoryARN = a})
+-- | The applied schema ARN that is associated with the copied schema in the
+-- Directory. You can use this ARN to describe the schema information
+-- applied on this directory. For more information, see arns.
+applySchemaResponse_appliedSchemaArn :: Lens.Lens' ApplySchemaResponse (Prelude.Maybe Prelude.Text)
+applySchemaResponse_appliedSchemaArn = Lens.lens (\ApplySchemaResponse' {appliedSchemaArn} -> appliedSchemaArn) (\s@ApplySchemaResponse' {} a -> s {appliedSchemaArn = a} :: ApplySchemaResponse)
 
--- | The applied schema ARN that is associated with the copied schema in the 'Directory' . You can use this ARN to describe the schema information applied on this directory. For more information, see 'arns' .
-asrsAppliedSchemaARN :: Lens' ApplySchemaResponse (Maybe Text)
-asrsAppliedSchemaARN = lens _asrsAppliedSchemaARN (\ s a -> s{_asrsAppliedSchemaARN = a})
+-- | The response's http status code.
+applySchemaResponse_httpStatus :: Lens.Lens' ApplySchemaResponse Prelude.Int
+applySchemaResponse_httpStatus = Lens.lens (\ApplySchemaResponse' {httpStatus} -> httpStatus) (\s@ApplySchemaResponse' {} a -> s {httpStatus = a} :: ApplySchemaResponse)
 
--- | -- | The response status code.
-asrsResponseStatus :: Lens' ApplySchemaResponse Int
-asrsResponseStatus = lens _asrsResponseStatus (\ s a -> s{_asrsResponseStatus = a})
-
-instance NFData ApplySchemaResponse where
+instance Prelude.NFData ApplySchemaResponse

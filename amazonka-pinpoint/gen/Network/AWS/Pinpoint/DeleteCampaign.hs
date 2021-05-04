@@ -1,139 +1,172 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pinpoint.DeleteCampaign
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a campaign.
+-- Deletes a campaign from an application.
 module Network.AWS.Pinpoint.DeleteCampaign
-    (
-    -- * Creating a Request
-      deleteCampaign
-    , DeleteCampaign
+  ( -- * Creating a Request
+    DeleteCampaign (..),
+    newDeleteCampaign,
+
     -- * Request Lenses
-    , dcCampaignId
-    , dcApplicationId
+    deleteCampaign_campaignId,
+    deleteCampaign_applicationId,
 
     -- * Destructuring the Response
-    , deleteCampaignResponse
-    , DeleteCampaignResponse
+    DeleteCampaignResponse (..),
+    newDeleteCampaignResponse,
+
     -- * Response Lenses
-    , dcrsResponseStatus
-    , dcrsCampaignResponse
-    ) where
+    deleteCampaignResponse_httpStatus,
+    deleteCampaignResponse_campaignResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Pinpoint.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteCampaign' smart constructor.
+-- | /See:/ 'newDeleteCampaign' smart constructor.
 data DeleteCampaign = DeleteCampaign'
-  { _dcCampaignId    :: !Text
-  , _dcApplicationId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique identifier for the campaign.
+    campaignId :: Prelude.Text,
+    -- | The unique identifier for the application. This identifier is displayed
+    -- as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteCampaign' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteCampaign' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcCampaignId' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dcApplicationId' - Undocumented member.
-deleteCampaign
-    :: Text -- ^ 'dcCampaignId'
-    -> Text -- ^ 'dcApplicationId'
-    -> DeleteCampaign
-deleteCampaign pCampaignId_ pApplicationId_ =
+-- 'campaignId', 'deleteCampaign_campaignId' - The unique identifier for the campaign.
+--
+-- 'applicationId', 'deleteCampaign_applicationId' - The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+newDeleteCampaign ::
+  -- | 'campaignId'
+  Prelude.Text ->
+  -- | 'applicationId'
+  Prelude.Text ->
+  DeleteCampaign
+newDeleteCampaign pCampaignId_ pApplicationId_ =
   DeleteCampaign'
-    {_dcCampaignId = pCampaignId_, _dcApplicationId = pApplicationId_}
-
-
--- | Undocumented member.
-dcCampaignId :: Lens' DeleteCampaign Text
-dcCampaignId = lens _dcCampaignId (\ s a -> s{_dcCampaignId = a})
-
--- | Undocumented member.
-dcApplicationId :: Lens' DeleteCampaign Text
-dcApplicationId = lens _dcApplicationId (\ s a -> s{_dcApplicationId = a})
-
-instance AWSRequest DeleteCampaign where
-        type Rs DeleteCampaign = DeleteCampaignResponse
-        request = delete pinpoint
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteCampaignResponse' <$>
-                   (pure (fromEnum s)) <*> (eitherParseJSON x))
-
-instance Hashable DeleteCampaign where
-
-instance NFData DeleteCampaign where
-
-instance ToHeaders DeleteCampaign where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath DeleteCampaign where
-        toPath DeleteCampaign'{..}
-          = mconcat
-              ["/v1/apps/", toBS _dcApplicationId, "/campaigns/",
-               toBS _dcCampaignId]
-
-instance ToQuery DeleteCampaign where
-        toQuery = const mempty
-
--- | /See:/ 'deleteCampaignResponse' smart constructor.
-data DeleteCampaignResponse = DeleteCampaignResponse'
-  { _dcrsResponseStatus   :: !Int
-  , _dcrsCampaignResponse :: !CampaignResponse
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteCampaignResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcrsResponseStatus' - -- | The response status code.
---
--- * 'dcrsCampaignResponse' - Undocumented member.
-deleteCampaignResponse
-    :: Int -- ^ 'dcrsResponseStatus'
-    -> CampaignResponse -- ^ 'dcrsCampaignResponse'
-    -> DeleteCampaignResponse
-deleteCampaignResponse pResponseStatus_ pCampaignResponse_ =
-  DeleteCampaignResponse'
-    { _dcrsResponseStatus = pResponseStatus_
-    , _dcrsCampaignResponse = pCampaignResponse_
+    { campaignId = pCampaignId_,
+      applicationId = pApplicationId_
     }
 
+-- | The unique identifier for the campaign.
+deleteCampaign_campaignId :: Lens.Lens' DeleteCampaign Prelude.Text
+deleteCampaign_campaignId = Lens.lens (\DeleteCampaign' {campaignId} -> campaignId) (\s@DeleteCampaign' {} a -> s {campaignId = a} :: DeleteCampaign)
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DeleteCampaignResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
+-- | The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+deleteCampaign_applicationId :: Lens.Lens' DeleteCampaign Prelude.Text
+deleteCampaign_applicationId = Lens.lens (\DeleteCampaign' {applicationId} -> applicationId) (\s@DeleteCampaign' {} a -> s {applicationId = a} :: DeleteCampaign)
+
+instance Prelude.AWSRequest DeleteCampaign where
+  type Rs DeleteCampaign = DeleteCampaignResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteCampaignResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.eitherParseJSON x)
+      )
+
+instance Prelude.Hashable DeleteCampaign
+
+instance Prelude.NFData DeleteCampaign
+
+instance Prelude.ToHeaders DeleteCampaign where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToPath DeleteCampaign where
+  toPath DeleteCampaign' {..} =
+    Prelude.mconcat
+      [ "/v1/apps/",
+        Prelude.toBS applicationId,
+        "/campaigns/",
+        Prelude.toBS campaignId
+      ]
+
+instance Prelude.ToQuery DeleteCampaign where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteCampaignResponse' smart constructor.
+data DeleteCampaignResponse = DeleteCampaignResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    campaignResponse :: CampaignResponse
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteCampaignResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteCampaignResponse_httpStatus' - The response's http status code.
+--
+-- 'campaignResponse', 'deleteCampaignResponse_campaignResponse' - Undocumented member.
+newDeleteCampaignResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'campaignResponse'
+  CampaignResponse ->
+  DeleteCampaignResponse
+newDeleteCampaignResponse
+  pHttpStatus_
+  pCampaignResponse_ =
+    DeleteCampaignResponse'
+      { httpStatus = pHttpStatus_,
+        campaignResponse = pCampaignResponse_
+      }
+
+-- | The response's http status code.
+deleteCampaignResponse_httpStatus :: Lens.Lens' DeleteCampaignResponse Prelude.Int
+deleteCampaignResponse_httpStatus = Lens.lens (\DeleteCampaignResponse' {httpStatus} -> httpStatus) (\s@DeleteCampaignResponse' {} a -> s {httpStatus = a} :: DeleteCampaignResponse)
 
 -- | Undocumented member.
-dcrsCampaignResponse :: Lens' DeleteCampaignResponse CampaignResponse
-dcrsCampaignResponse = lens _dcrsCampaignResponse (\ s a -> s{_dcrsCampaignResponse = a})
+deleteCampaignResponse_campaignResponse :: Lens.Lens' DeleteCampaignResponse CampaignResponse
+deleteCampaignResponse_campaignResponse = Lens.lens (\DeleteCampaignResponse' {campaignResponse} -> campaignResponse) (\s@DeleteCampaignResponse' {} a -> s {campaignResponse = a} :: DeleteCampaignResponse)
 
-instance NFData DeleteCampaignResponse where
+instance Prelude.NFData DeleteCampaignResponse

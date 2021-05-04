@@ -1,125 +1,154 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkDocs.GetCurrentUser
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves details of the current user for whom the authentication token was generated. This is not a valid action for SigV4 (administrative API) clients.
+-- Retrieves details of the current user for whom the authentication token
+-- was generated. This is not a valid action for SigV4 (administrative API)
+-- clients.
 --
---
+-- This action requires an authentication token. To get an authentication
+-- token, register an application with Amazon WorkDocs. For more
+-- information, see
+-- <https://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html Authentication and Access Control for User Applications>
+-- in the /Amazon WorkDocs Developer Guide/.
 module Network.AWS.WorkDocs.GetCurrentUser
-    (
-    -- * Creating a Request
-      getCurrentUser
-    , GetCurrentUser
+  ( -- * Creating a Request
+    GetCurrentUser (..),
+    newGetCurrentUser,
+
     -- * Request Lenses
-    , gcuAuthenticationToken
+    getCurrentUser_authenticationToken,
 
     -- * Destructuring the Response
-    , getCurrentUserResponse
-    , GetCurrentUserResponse
+    GetCurrentUserResponse (..),
+    newGetCurrentUserResponse,
+
     -- * Response Lenses
-    , gcursUser
-    , gcursResponseStatus
-    ) where
+    getCurrentUserResponse_user,
+    getCurrentUserResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
-import Network.AWS.WorkDocs.Types.Product
 
--- | /See:/ 'getCurrentUser' smart constructor.
-newtype GetCurrentUser = GetCurrentUser'
-  { _gcuAuthenticationToken :: Sensitive Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetCurrentUser' smart constructor.
+data GetCurrentUser = GetCurrentUser'
+  { -- | Amazon WorkDocs authentication token.
+    authenticationToken :: Prelude.Sensitive Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetCurrentUser' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetCurrentUser' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gcuAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
-getCurrentUser
-    :: Text -- ^ 'gcuAuthenticationToken'
-    -> GetCurrentUser
-getCurrentUser pAuthenticationToken_ =
-  GetCurrentUser' {_gcuAuthenticationToken = _Sensitive # pAuthenticationToken_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'authenticationToken', 'getCurrentUser_authenticationToken' - Amazon WorkDocs authentication token.
+newGetCurrentUser ::
+  -- | 'authenticationToken'
+  Prelude.Text ->
+  GetCurrentUser
+newGetCurrentUser pAuthenticationToken_ =
+  GetCurrentUser'
+    { authenticationToken =
+        Prelude._Sensitive Lens.# pAuthenticationToken_
+    }
 
+-- | Amazon WorkDocs authentication token.
+getCurrentUser_authenticationToken :: Lens.Lens' GetCurrentUser Prelude.Text
+getCurrentUser_authenticationToken = Lens.lens (\GetCurrentUser' {authenticationToken} -> authenticationToken) (\s@GetCurrentUser' {} a -> s {authenticationToken = a} :: GetCurrentUser) Prelude.. Prelude._Sensitive
 
--- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
-gcuAuthenticationToken :: Lens' GetCurrentUser Text
-gcuAuthenticationToken = lens _gcuAuthenticationToken (\ s a -> s{_gcuAuthenticationToken = a}) . _Sensitive
+instance Prelude.AWSRequest GetCurrentUser where
+  type Rs GetCurrentUser = GetCurrentUserResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetCurrentUserResponse'
+            Prelude.<$> (x Prelude..?> "User")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetCurrentUser where
-        type Rs GetCurrentUser = GetCurrentUserResponse
-        request = get workDocs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetCurrentUserResponse' <$>
-                   (x .?> "User") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetCurrentUser
 
-instance Hashable GetCurrentUser where
+instance Prelude.NFData GetCurrentUser
 
-instance NFData GetCurrentUser where
+instance Prelude.ToHeaders GetCurrentUser where
+  toHeaders GetCurrentUser' {..} =
+    Prelude.mconcat
+      [ "Authentication" Prelude.=# authenticationToken,
+        "Content-Type"
+          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+      ]
 
-instance ToHeaders GetCurrentUser where
-        toHeaders GetCurrentUser'{..}
-          = mconcat
-              ["Authentication" =# _gcuAuthenticationToken,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+instance Prelude.ToPath GetCurrentUser where
+  toPath = Prelude.const "/api/v1/me"
 
-instance ToPath GetCurrentUser where
-        toPath = const "/api/v1/me"
+instance Prelude.ToQuery GetCurrentUser where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetCurrentUser where
-        toQuery = const mempty
-
--- | /See:/ 'getCurrentUserResponse' smart constructor.
+-- | /See:/ 'newGetCurrentUserResponse' smart constructor.
 data GetCurrentUserResponse = GetCurrentUserResponse'
-  { _gcursUser           :: !(Maybe User)
-  , _gcursResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Metadata of the user.
+    user :: Prelude.Maybe User,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetCurrentUserResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetCurrentUserResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gcursUser' - Metadata of the user.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gcursResponseStatus' - -- | The response status code.
-getCurrentUserResponse
-    :: Int -- ^ 'gcursResponseStatus'
-    -> GetCurrentUserResponse
-getCurrentUserResponse pResponseStatus_ =
+-- 'user', 'getCurrentUserResponse_user' - Metadata of the user.
+--
+-- 'httpStatus', 'getCurrentUserResponse_httpStatus' - The response's http status code.
+newGetCurrentUserResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetCurrentUserResponse
+newGetCurrentUserResponse pHttpStatus_ =
   GetCurrentUserResponse'
-    {_gcursUser = Nothing, _gcursResponseStatus = pResponseStatus_}
-
+    { user = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Metadata of the user.
-gcursUser :: Lens' GetCurrentUserResponse (Maybe User)
-gcursUser = lens _gcursUser (\ s a -> s{_gcursUser = a})
+getCurrentUserResponse_user :: Lens.Lens' GetCurrentUserResponse (Prelude.Maybe User)
+getCurrentUserResponse_user = Lens.lens (\GetCurrentUserResponse' {user} -> user) (\s@GetCurrentUserResponse' {} a -> s {user = a} :: GetCurrentUserResponse)
 
--- | -- | The response status code.
-gcursResponseStatus :: Lens' GetCurrentUserResponse Int
-gcursResponseStatus = lens _gcursResponseStatus (\ s a -> s{_gcursResponseStatus = a})
+-- | The response's http status code.
+getCurrentUserResponse_httpStatus :: Lens.Lens' GetCurrentUserResponse Prelude.Int
+getCurrentUserResponse_httpStatus = Lens.lens (\GetCurrentUserResponse' {httpStatus} -> httpStatus) (\s@GetCurrentUserResponse' {} a -> s {httpStatus = a} :: GetCurrentUserResponse)
 
-instance NFData GetCurrentUserResponse where
+instance Prelude.NFData GetCurrentUserResponse

@@ -1,140 +1,162 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectoryService.DeleteSnapshot
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a directory snapshot.
---
---
 module Network.AWS.DirectoryService.DeleteSnapshot
-    (
-    -- * Creating a Request
-      deleteSnapshot
-    , DeleteSnapshot
+  ( -- * Creating a Request
+    DeleteSnapshot (..),
+    newDeleteSnapshot,
+
     -- * Request Lenses
-    , dsSnapshotId
+    deleteSnapshot_snapshotId,
 
     -- * Destructuring the Response
-    , deleteSnapshotResponse
-    , DeleteSnapshotResponse
+    DeleteSnapshotResponse (..),
+    newDeleteSnapshotResponse,
+
     -- * Response Lenses
-    , dsrsSnapshotId
-    , dsrsResponseStatus
-    ) where
+    deleteSnapshotResponse_snapshotId,
+    deleteSnapshotResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DirectoryService.Types
-import Network.AWS.DirectoryService.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the inputs for the 'DeleteSnapshot' operation.
+-- | Contains the inputs for the DeleteSnapshot operation.
 --
---
---
--- /See:/ 'deleteSnapshot' smart constructor.
-newtype DeleteSnapshot = DeleteSnapshot'
-  { _dsSnapshotId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDeleteSnapshot' smart constructor.
+data DeleteSnapshot = DeleteSnapshot'
+  { -- | The identifier of the directory snapshot to be deleted.
+    snapshotId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteSnapshot' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteSnapshot' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsSnapshotId' - The identifier of the directory snapshot to be deleted.
-deleteSnapshot
-    :: Text -- ^ 'dsSnapshotId'
-    -> DeleteSnapshot
-deleteSnapshot pSnapshotId_ = DeleteSnapshot' {_dsSnapshotId = pSnapshotId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'snapshotId', 'deleteSnapshot_snapshotId' - The identifier of the directory snapshot to be deleted.
+newDeleteSnapshot ::
+  -- | 'snapshotId'
+  Prelude.Text ->
+  DeleteSnapshot
+newDeleteSnapshot pSnapshotId_ =
+  DeleteSnapshot' {snapshotId = pSnapshotId_}
 
 -- | The identifier of the directory snapshot to be deleted.
-dsSnapshotId :: Lens' DeleteSnapshot Text
-dsSnapshotId = lens _dsSnapshotId (\ s a -> s{_dsSnapshotId = a})
+deleteSnapshot_snapshotId :: Lens.Lens' DeleteSnapshot Prelude.Text
+deleteSnapshot_snapshotId = Lens.lens (\DeleteSnapshot' {snapshotId} -> snapshotId) (\s@DeleteSnapshot' {} a -> s {snapshotId = a} :: DeleteSnapshot)
 
-instance AWSRequest DeleteSnapshot where
-        type Rs DeleteSnapshot = DeleteSnapshotResponse
-        request = postJSON directoryService
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteSnapshotResponse' <$>
-                   (x .?> "SnapshotId") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DeleteSnapshot where
+  type Rs DeleteSnapshot = DeleteSnapshotResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteSnapshotResponse'
+            Prelude.<$> (x Prelude..?> "SnapshotId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteSnapshot where
+instance Prelude.Hashable DeleteSnapshot
 
-instance NFData DeleteSnapshot where
+instance Prelude.NFData DeleteSnapshot
 
-instance ToHeaders DeleteSnapshot where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DirectoryService_20150416.DeleteSnapshot" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DeleteSnapshot where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "DirectoryService_20150416.DeleteSnapshot" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DeleteSnapshot where
-        toJSON DeleteSnapshot'{..}
-          = object
-              (catMaybes [Just ("SnapshotId" .= _dsSnapshotId)])
+instance Prelude.ToJSON DeleteSnapshot where
+  toJSON DeleteSnapshot' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("SnapshotId" Prelude..= snapshotId)]
+      )
 
-instance ToPath DeleteSnapshot where
-        toPath = const "/"
+instance Prelude.ToPath DeleteSnapshot where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteSnapshot where
-        toQuery = const mempty
+instance Prelude.ToQuery DeleteSnapshot where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Contains the results of the 'DeleteSnapshot' operation.
+-- | Contains the results of the DeleteSnapshot operation.
 --
---
---
--- /See:/ 'deleteSnapshotResponse' smart constructor.
+-- /See:/ 'newDeleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-  { _dsrsSnapshotId     :: !(Maybe Text)
-  , _dsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The identifier of the directory snapshot that was deleted.
+    snapshotId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteSnapshotResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteSnapshotResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsrsSnapshotId' - The identifier of the directory snapshot that was deleted.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsrsResponseStatus' - -- | The response status code.
-deleteSnapshotResponse
-    :: Int -- ^ 'dsrsResponseStatus'
-    -> DeleteSnapshotResponse
-deleteSnapshotResponse pResponseStatus_ =
+-- 'snapshotId', 'deleteSnapshotResponse_snapshotId' - The identifier of the directory snapshot that was deleted.
+--
+-- 'httpStatus', 'deleteSnapshotResponse_httpStatus' - The response's http status code.
+newDeleteSnapshotResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteSnapshotResponse
+newDeleteSnapshotResponse pHttpStatus_ =
   DeleteSnapshotResponse'
-    {_dsrsSnapshotId = Nothing, _dsrsResponseStatus = pResponseStatus_}
-
+    { snapshotId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The identifier of the directory snapshot that was deleted.
-dsrsSnapshotId :: Lens' DeleteSnapshotResponse (Maybe Text)
-dsrsSnapshotId = lens _dsrsSnapshotId (\ s a -> s{_dsrsSnapshotId = a})
+deleteSnapshotResponse_snapshotId :: Lens.Lens' DeleteSnapshotResponse (Prelude.Maybe Prelude.Text)
+deleteSnapshotResponse_snapshotId = Lens.lens (\DeleteSnapshotResponse' {snapshotId} -> snapshotId) (\s@DeleteSnapshotResponse' {} a -> s {snapshotId = a} :: DeleteSnapshotResponse)
 
--- | -- | The response status code.
-dsrsResponseStatus :: Lens' DeleteSnapshotResponse Int
-dsrsResponseStatus = lens _dsrsResponseStatus (\ s a -> s{_dsrsResponseStatus = a})
+-- | The response's http status code.
+deleteSnapshotResponse_httpStatus :: Lens.Lens' DeleteSnapshotResponse Prelude.Int
+deleteSnapshotResponse_httpStatus = Lens.lens (\DeleteSnapshotResponse' {httpStatus} -> httpStatus) (\s@DeleteSnapshotResponse' {} a -> s {httpStatus = a} :: DeleteSnapshotResponse)
 
-instance NFData DeleteSnapshotResponse where
+instance Prelude.NFData DeleteSnapshotResponse

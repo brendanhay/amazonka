@@ -1,141 +1,154 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.GetTopicRule
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about the rule.
---
---
 module Network.AWS.IoT.GetTopicRule
-    (
-    -- * Creating a Request
-      getTopicRule
-    , GetTopicRule
+  ( -- * Creating a Request
+    GetTopicRule (..),
+    newGetTopicRule,
+
     -- * Request Lenses
-    , gtrRuleName
+    getTopicRule_ruleName,
 
     -- * Destructuring the Response
-    , getTopicRuleResponse
-    , GetTopicRuleResponse
+    GetTopicRuleResponse (..),
+    newGetTopicRuleResponse,
+
     -- * Response Lenses
-    , gtrrsRule
-    , gtrrsRuleARN
-    , gtrrsResponseStatus
-    ) where
+    getTopicRuleResponse_ruleArn,
+    getTopicRuleResponse_rule,
+    getTopicRuleResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the GetTopicRule operation.
 --
---
---
--- /See:/ 'getTopicRule' smart constructor.
-newtype GetTopicRule = GetTopicRule'
-  { _gtrRuleName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newGetTopicRule' smart constructor.
+data GetTopicRule = GetTopicRule'
+  { -- | The name of the rule.
+    ruleName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetTopicRule' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetTopicRule' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtrRuleName' - The name of the rule.
-getTopicRule
-    :: Text -- ^ 'gtrRuleName'
-    -> GetTopicRule
-getTopicRule pRuleName_ = GetTopicRule' {_gtrRuleName = pRuleName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'ruleName', 'getTopicRule_ruleName' - The name of the rule.
+newGetTopicRule ::
+  -- | 'ruleName'
+  Prelude.Text ->
+  GetTopicRule
+newGetTopicRule pRuleName_ =
+  GetTopicRule' {ruleName = pRuleName_}
 
 -- | The name of the rule.
-gtrRuleName :: Lens' GetTopicRule Text
-gtrRuleName = lens _gtrRuleName (\ s a -> s{_gtrRuleName = a})
+getTopicRule_ruleName :: Lens.Lens' GetTopicRule Prelude.Text
+getTopicRule_ruleName = Lens.lens (\GetTopicRule' {ruleName} -> ruleName) (\s@GetTopicRule' {} a -> s {ruleName = a} :: GetTopicRule)
 
-instance AWSRequest GetTopicRule where
-        type Rs GetTopicRule = GetTopicRuleResponse
-        request = get ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetTopicRuleResponse' <$>
-                   (x .?> "rule") <*> (x .?> "ruleArn") <*>
-                     (pure (fromEnum s)))
+instance Prelude.AWSRequest GetTopicRule where
+  type Rs GetTopicRule = GetTopicRuleResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetTopicRuleResponse'
+            Prelude.<$> (x Prelude..?> "ruleArn")
+            Prelude.<*> (x Prelude..?> "rule")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetTopicRule where
+instance Prelude.Hashable GetTopicRule
 
-instance NFData GetTopicRule where
+instance Prelude.NFData GetTopicRule
 
-instance ToHeaders GetTopicRule where
-        toHeaders = const mempty
+instance Prelude.ToHeaders GetTopicRule where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath GetTopicRule where
-        toPath GetTopicRule'{..}
-          = mconcat ["/rules/", toBS _gtrRuleName]
+instance Prelude.ToPath GetTopicRule where
+  toPath GetTopicRule' {..} =
+    Prelude.mconcat ["/rules/", Prelude.toBS ruleName]
 
-instance ToQuery GetTopicRule where
-        toQuery = const mempty
+instance Prelude.ToQuery GetTopicRule where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output from the GetTopicRule operation.
 --
---
---
--- /See:/ 'getTopicRuleResponse' smart constructor.
+-- /See:/ 'newGetTopicRuleResponse' smart constructor.
 data GetTopicRuleResponse = GetTopicRuleResponse'
-  { _gtrrsRule           :: !(Maybe TopicRule)
-  , _gtrrsRuleARN        :: !(Maybe Text)
-  , _gtrrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The rule ARN.
+    ruleArn :: Prelude.Maybe Prelude.Text,
+    -- | The rule.
+    rule :: Prelude.Maybe TopicRule,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetTopicRuleResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetTopicRuleResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtrrsRule' - The rule.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gtrrsRuleARN' - The rule ARN.
+-- 'ruleArn', 'getTopicRuleResponse_ruleArn' - The rule ARN.
 --
--- * 'gtrrsResponseStatus' - -- | The response status code.
-getTopicRuleResponse
-    :: Int -- ^ 'gtrrsResponseStatus'
-    -> GetTopicRuleResponse
-getTopicRuleResponse pResponseStatus_ =
+-- 'rule', 'getTopicRuleResponse_rule' - The rule.
+--
+-- 'httpStatus', 'getTopicRuleResponse_httpStatus' - The response's http status code.
+newGetTopicRuleResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetTopicRuleResponse
+newGetTopicRuleResponse pHttpStatus_ =
   GetTopicRuleResponse'
-    { _gtrrsRule = Nothing
-    , _gtrrsRuleARN = Nothing
-    , _gtrrsResponseStatus = pResponseStatus_
+    { ruleArn = Prelude.Nothing,
+      rule = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The rule ARN.
+getTopicRuleResponse_ruleArn :: Lens.Lens' GetTopicRuleResponse (Prelude.Maybe Prelude.Text)
+getTopicRuleResponse_ruleArn = Lens.lens (\GetTopicRuleResponse' {ruleArn} -> ruleArn) (\s@GetTopicRuleResponse' {} a -> s {ruleArn = a} :: GetTopicRuleResponse)
 
 -- | The rule.
-gtrrsRule :: Lens' GetTopicRuleResponse (Maybe TopicRule)
-gtrrsRule = lens _gtrrsRule (\ s a -> s{_gtrrsRule = a})
+getTopicRuleResponse_rule :: Lens.Lens' GetTopicRuleResponse (Prelude.Maybe TopicRule)
+getTopicRuleResponse_rule = Lens.lens (\GetTopicRuleResponse' {rule} -> rule) (\s@GetTopicRuleResponse' {} a -> s {rule = a} :: GetTopicRuleResponse)
 
--- | The rule ARN.
-gtrrsRuleARN :: Lens' GetTopicRuleResponse (Maybe Text)
-gtrrsRuleARN = lens _gtrrsRuleARN (\ s a -> s{_gtrrsRuleARN = a})
+-- | The response's http status code.
+getTopicRuleResponse_httpStatus :: Lens.Lens' GetTopicRuleResponse Prelude.Int
+getTopicRuleResponse_httpStatus = Lens.lens (\GetTopicRuleResponse' {httpStatus} -> httpStatus) (\s@GetTopicRuleResponse' {} a -> s {httpStatus = a} :: GetTopicRuleResponse)
 
--- | -- | The response status code.
-gtrrsResponseStatus :: Lens' GetTopicRuleResponse Int
-gtrrsResponseStatus = lens _gtrrsResponseStatus (\ s a -> s{_gtrrsResponseStatus = a})
-
-instance NFData GetTopicRuleResponse where
+instance Prelude.NFData GetTopicRuleResponse

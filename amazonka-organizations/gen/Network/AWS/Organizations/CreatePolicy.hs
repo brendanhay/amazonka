@@ -1,172 +1,292 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Organizations.CreatePolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a policy of a specified type that you can attach to a root, an organizational unit (OU), or an individual AWS account.
+-- Creates a policy of a specified type that you can attach to a root, an
+-- organizational unit (OU), or an individual AWS account.
 --
+-- For more information about policies and their use, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html Managing Organization Policies>.
 --
--- For more information about policies and their use, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html Managing Organization Policies> .
+-- If the request includes tags, then the requester must have the
+-- @organizations:TagResource@ permission.
 --
--- This operation can be called only from the organization's master account.
---
+-- This operation can be called only from the organization\'s management
+-- account.
 module Network.AWS.Organizations.CreatePolicy
-    (
-    -- * Creating a Request
-      createPolicy
-    , CreatePolicy
+  ( -- * Creating a Request
+    CreatePolicy (..),
+    newCreatePolicy,
+
     -- * Request Lenses
-    , cpContent
-    , cpDescription
-    , cpName
-    , cpType
+    createPolicy_tags,
+    createPolicy_content,
+    createPolicy_description,
+    createPolicy_name,
+    createPolicy_type,
 
     -- * Destructuring the Response
-    , createPolicyResponse
-    , CreatePolicyResponse
+    CreatePolicyResponse (..),
+    newCreatePolicyResponse,
+
     -- * Response Lenses
-    , cprsPolicy
-    , cprsResponseStatus
-    ) where
+    createPolicyResponse_policy,
+    createPolicyResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Organizations.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createPolicy' smart constructor.
+-- | /See:/ 'newCreatePolicy' smart constructor.
 data CreatePolicy = CreatePolicy'
-  { _cpContent     :: !Text
-  , _cpDescription :: !Text
-  , _cpName        :: !Text
-  , _cpType        :: !PolicyType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of tags that you want to attach to the newly created policy. For
+    -- each tag in the list, you must specify both a tag key and a value. You
+    -- can set the value to an empty string, but you can\'t set it to @null@.
+    -- For more information about tagging, see
+    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
+    -- in the AWS Organizations User Guide.
+    --
+    -- If any one of the tags is invalid or if you exceed the allowed number of
+    -- tags for a policy, then the entire request fails and the policy is not
+    -- created.
+    tags :: Prelude.Maybe [Tag],
+    -- | The policy text content to add to the new policy. The text that you
+    -- supply must adhere to the rules of the policy type you specify in the
+    -- @Type@ parameter.
+    content :: Prelude.Text,
+    -- | An optional description to assign to the policy.
+    description :: Prelude.Text,
+    -- | The friendly name to assign to the policy.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+    -- validate this parameter is a string of any of the characters in the
+    -- ASCII character range.
+    name :: Prelude.Text,
+    -- | The type of policy to create. You can specify one of the following
+    -- values:
+    --
+    -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>
+    --
+    -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>
+    --
+    -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY>
+    --
+    -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
+    type' :: PolicyType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreatePolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreatePolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cpContent' - The policy content to add to the new policy. For example, if you create a <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html service control policy> (SCP), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide/ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cpDescription' - An optional description to assign to the policy.
+-- 'tags', 'createPolicy_tags' - A list of tags that you want to attach to the newly created policy. For
+-- each tag in the list, you must specify both a tag key and a value. You
+-- can set the value to an empty string, but you can\'t set it to @null@.
+-- For more information about tagging, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
+-- in the AWS Organizations User Guide.
 --
--- * 'cpName' - The friendly name to assign to the policy. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+-- If any one of the tags is invalid or if you exceed the allowed number of
+-- tags for a policy, then the entire request fails and the policy is not
+-- created.
 --
--- * 'cpType' - The type of policy to create.
-createPolicy
-    :: Text -- ^ 'cpContent'
-    -> Text -- ^ 'cpDescription'
-    -> Text -- ^ 'cpName'
-    -> PolicyType -- ^ 'cpType'
-    -> CreatePolicy
-createPolicy pContent_ pDescription_ pName_ pType_ =
+-- 'content', 'createPolicy_content' - The policy text content to add to the new policy. The text that you
+-- supply must adhere to the rules of the policy type you specify in the
+-- @Type@ parameter.
+--
+-- 'description', 'createPolicy_description' - An optional description to assign to the policy.
+--
+-- 'name', 'createPolicy_name' - The friendly name to assign to the policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+-- validate this parameter is a string of any of the characters in the
+-- ASCII character range.
+--
+-- 'type'', 'createPolicy_type' - The type of policy to create. You can specify one of the following
+-- values:
+--
+-- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>
+--
+-- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>
+--
+-- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY>
+--
+-- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
+newCreatePolicy ::
+  -- | 'content'
+  Prelude.Text ->
+  -- | 'description'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'type''
+  PolicyType ->
+  CreatePolicy
+newCreatePolicy pContent_ pDescription_ pName_ pType_ =
   CreatePolicy'
-    { _cpContent = pContent_
-    , _cpDescription = pDescription_
-    , _cpName = pName_
-    , _cpType = pType_
+    { tags = Prelude.Nothing,
+      content = pContent_,
+      description = pDescription_,
+      name = pName_,
+      type' = pType_
     }
 
+-- | A list of tags that you want to attach to the newly created policy. For
+-- each tag in the list, you must specify both a tag key and a value. You
+-- can set the value to an empty string, but you can\'t set it to @null@.
+-- For more information about tagging, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
+-- in the AWS Organizations User Guide.
+--
+-- If any one of the tags is invalid or if you exceed the allowed number of
+-- tags for a policy, then the entire request fails and the policy is not
+-- created.
+createPolicy_tags :: Lens.Lens' CreatePolicy (Prelude.Maybe [Tag])
+createPolicy_tags = Lens.lens (\CreatePolicy' {tags} -> tags) (\s@CreatePolicy' {} a -> s {tags = a} :: CreatePolicy) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The policy content to add to the new policy. For example, if you create a <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html service control policy> (SCP), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles. For more information about the SCP syntax, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide/ .
-cpContent :: Lens' CreatePolicy Text
-cpContent = lens _cpContent (\ s a -> s{_cpContent = a})
+-- | The policy text content to add to the new policy. The text that you
+-- supply must adhere to the rules of the policy type you specify in the
+-- @Type@ parameter.
+createPolicy_content :: Lens.Lens' CreatePolicy Prelude.Text
+createPolicy_content = Lens.lens (\CreatePolicy' {content} -> content) (\s@CreatePolicy' {} a -> s {content = a} :: CreatePolicy)
 
 -- | An optional description to assign to the policy.
-cpDescription :: Lens' CreatePolicy Text
-cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a})
+createPolicy_description :: Lens.Lens' CreatePolicy Prelude.Text
+createPolicy_description = Lens.lens (\CreatePolicy' {description} -> description) (\s@CreatePolicy' {} a -> s {description = a} :: CreatePolicy)
 
--- | The friendly name to assign to the policy. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
-cpName :: Lens' CreatePolicy Text
-cpName = lens _cpName (\ s a -> s{_cpName = a})
+-- | The friendly name to assign to the policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+-- validate this parameter is a string of any of the characters in the
+-- ASCII character range.
+createPolicy_name :: Lens.Lens' CreatePolicy Prelude.Text
+createPolicy_name = Lens.lens (\CreatePolicy' {name} -> name) (\s@CreatePolicy' {} a -> s {name = a} :: CreatePolicy)
 
--- | The type of policy to create.
-cpType :: Lens' CreatePolicy PolicyType
-cpType = lens _cpType (\ s a -> s{_cpType = a})
+-- | The type of policy to create. You can specify one of the following
+-- values:
+--
+-- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html AISERVICES_OPT_OUT_POLICY>
+--
+-- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html BACKUP_POLICY>
+--
+-- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html SERVICE_CONTROL_POLICY>
+--
+-- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html TAG_POLICY>
+createPolicy_type :: Lens.Lens' CreatePolicy PolicyType
+createPolicy_type = Lens.lens (\CreatePolicy' {type'} -> type') (\s@CreatePolicy' {} a -> s {type' = a} :: CreatePolicy)
 
-instance AWSRequest CreatePolicy where
-        type Rs CreatePolicy = CreatePolicyResponse
-        request = postJSON organizations
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreatePolicyResponse' <$>
-                   (x .?> "Policy") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest CreatePolicy where
+  type Rs CreatePolicy = CreatePolicyResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreatePolicyResponse'
+            Prelude.<$> (x Prelude..?> "Policy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreatePolicy where
+instance Prelude.Hashable CreatePolicy
 
-instance NFData CreatePolicy where
+instance Prelude.NFData CreatePolicy
 
-instance ToHeaders CreatePolicy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSOrganizationsV20161128.CreatePolicy" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders CreatePolicy where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSOrganizationsV20161128.CreatePolicy" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON CreatePolicy where
-        toJSON CreatePolicy'{..}
-          = object
-              (catMaybes
-                 [Just ("Content" .= _cpContent),
-                  Just ("Description" .= _cpDescription),
-                  Just ("Name" .= _cpName), Just ("Type" .= _cpType)])
+instance Prelude.ToJSON CreatePolicy where
+  toJSON CreatePolicy' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Tags" Prelude..=) Prelude.<$> tags,
+            Prelude.Just ("Content" Prelude..= content),
+            Prelude.Just ("Description" Prelude..= description),
+            Prelude.Just ("Name" Prelude..= name),
+            Prelude.Just ("Type" Prelude..= type')
+          ]
+      )
 
-instance ToPath CreatePolicy where
-        toPath = const "/"
+instance Prelude.ToPath CreatePolicy where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreatePolicy where
-        toQuery = const mempty
+instance Prelude.ToQuery CreatePolicy where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createPolicyResponse' smart constructor.
+-- | /See:/ 'newCreatePolicyResponse' smart constructor.
 data CreatePolicyResponse = CreatePolicyResponse'
-  { _cprsPolicy         :: !(Maybe Policy)
-  , _cprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A structure that contains details about the newly created policy.
+    policy :: Prelude.Maybe Policy,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreatePolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreatePolicyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cprsPolicy' - A structure that contains details about the newly created policy.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cprsResponseStatus' - -- | The response status code.
-createPolicyResponse
-    :: Int -- ^ 'cprsResponseStatus'
-    -> CreatePolicyResponse
-createPolicyResponse pResponseStatus_ =
+-- 'policy', 'createPolicyResponse_policy' - A structure that contains details about the newly created policy.
+--
+-- 'httpStatus', 'createPolicyResponse_httpStatus' - The response's http status code.
+newCreatePolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreatePolicyResponse
+newCreatePolicyResponse pHttpStatus_ =
   CreatePolicyResponse'
-    {_cprsPolicy = Nothing, _cprsResponseStatus = pResponseStatus_}
-
+    { policy = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A structure that contains details about the newly created policy.
-cprsPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
-cprsPolicy = lens _cprsPolicy (\ s a -> s{_cprsPolicy = a})
+createPolicyResponse_policy :: Lens.Lens' CreatePolicyResponse (Prelude.Maybe Policy)
+createPolicyResponse_policy = Lens.lens (\CreatePolicyResponse' {policy} -> policy) (\s@CreatePolicyResponse' {} a -> s {policy = a} :: CreatePolicyResponse)
 
--- | -- | The response status code.
-cprsResponseStatus :: Lens' CreatePolicyResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
+-- | The response's http status code.
+createPolicyResponse_httpStatus :: Lens.Lens' CreatePolicyResponse Prelude.Int
+createPolicyResponse_httpStatus = Lens.lens (\CreatePolicyResponse' {httpStatus} -> httpStatus) (\s@CreatePolicyResponse' {} a -> s {httpStatus = a} :: CreatePolicyResponse)
 
-instance NFData CreatePolicyResponse where
+instance Prelude.NFData CreatePolicyResponse

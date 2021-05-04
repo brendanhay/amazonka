@@ -1,181 +1,235 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorksCM.DescribeBackups
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes backups. The results are ordered by time, with newest backups first. If you do not specify a BackupId or ServerName, the command returns all backups.
---
+-- Describes backups. The results are ordered by time, with newest backups
+-- first. If you do not specify a BackupId or ServerName, the command
+-- returns all backups.
 --
 -- This operation is synchronous.
 --
--- A @ResourceNotFoundException@ is thrown when the backup does not exist. A @ValidationException@ is raised when parameters of the request are not valid.
+-- A @ResourceNotFoundException@ is thrown when the backup does not exist.
+-- A @ValidationException@ is raised when parameters of the request are not
+-- valid.
 --
+-- This operation returns paginated results.
 module Network.AWS.OpsWorksCM.DescribeBackups
-    (
-    -- * Creating a Request
-      describeBackups
-    , DescribeBackups
+  ( -- * Creating a Request
+    DescribeBackups (..),
+    newDescribeBackups,
+
     -- * Request Lenses
-    , dServerName
-    , dBackupId
-    , dNextToken
-    , dMaxResults
+    describeBackups_nextToken,
+    describeBackups_maxResults,
+    describeBackups_backupId,
+    describeBackups_serverName,
 
     -- * Destructuring the Response
-    , describeBackupsResponse
-    , DescribeBackupsResponse
+    DescribeBackupsResponse (..),
+    newDescribeBackupsResponse,
+
     -- * Response Lenses
-    , drsBackups
-    , drsNextToken
-    , drsResponseStatus
-    ) where
+    describeBackupsResponse_nextToken,
+    describeBackupsResponse_backups,
+    describeBackupsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorksCM.Types
-import Network.AWS.OpsWorksCM.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeBackups' smart constructor.
+-- | /See:/ 'newDescribeBackups' smart constructor.
 data DescribeBackups = DescribeBackups'
-  { _dServerName :: !(Maybe Text)
-  , _dBackupId   :: !(Maybe Text)
-  , _dNextToken  :: !(Maybe Text)
-  , _dMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | This is not currently implemented for @DescribeBackups@ requests.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | This is not currently implemented for @DescribeBackups@ requests.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Describes a single backup.
+    backupId :: Prelude.Maybe Prelude.Text,
+    -- | Returns backups for the server with the specified ServerName.
+    serverName :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeBackups' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeBackups' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dServerName' - Returns backups for the server with the specified ServerName.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dBackupId' - Describes a single backup.
+-- 'nextToken', 'describeBackups_nextToken' - This is not currently implemented for @DescribeBackups@ requests.
 --
--- * 'dNextToken' - NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeBackups@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
+-- 'maxResults', 'describeBackups_maxResults' - This is not currently implemented for @DescribeBackups@ requests.
 --
--- * 'dMaxResults' - To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
-describeBackups
-    :: DescribeBackups
-describeBackups =
+-- 'backupId', 'describeBackups_backupId' - Describes a single backup.
+--
+-- 'serverName', 'describeBackups_serverName' - Returns backups for the server with the specified ServerName.
+newDescribeBackups ::
+  DescribeBackups
+newDescribeBackups =
   DescribeBackups'
-    { _dServerName = Nothing
-    , _dBackupId = Nothing
-    , _dNextToken = Nothing
-    , _dMaxResults = Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      backupId = Prelude.Nothing,
+      serverName = Prelude.Nothing
     }
 
+-- | This is not currently implemented for @DescribeBackups@ requests.
+describeBackups_nextToken :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Text)
+describeBackups_nextToken = Lens.lens (\DescribeBackups' {nextToken} -> nextToken) (\s@DescribeBackups' {} a -> s {nextToken = a} :: DescribeBackups)
 
--- | Returns backups for the server with the specified ServerName.
-dServerName :: Lens' DescribeBackups (Maybe Text)
-dServerName = lens _dServerName (\ s a -> s{_dServerName = a})
+-- | This is not currently implemented for @DescribeBackups@ requests.
+describeBackups_maxResults :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Natural)
+describeBackups_maxResults = Lens.lens (\DescribeBackups' {maxResults} -> maxResults) (\s@DescribeBackups' {} a -> s {maxResults = a} :: DescribeBackups)
 
 -- | Describes a single backup.
-dBackupId :: Lens' DescribeBackups (Maybe Text)
-dBackupId = lens _dBackupId (\ s a -> s{_dBackupId = a})
+describeBackups_backupId :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Text)
+describeBackups_backupId = Lens.lens (\DescribeBackups' {backupId} -> backupId) (\s@DescribeBackups' {} a -> s {backupId = a} :: DescribeBackups)
 
--- | NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeBackups@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
-dNextToken :: Lens' DescribeBackups (Maybe Text)
-dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a})
+-- | Returns backups for the server with the specified ServerName.
+describeBackups_serverName :: Lens.Lens' DescribeBackups (Prelude.Maybe Prelude.Text)
+describeBackups_serverName = Lens.lens (\DescribeBackups' {serverName} -> serverName) (\s@DescribeBackups' {} a -> s {serverName = a} :: DescribeBackups)
 
--- | To receive a paginated response, use this parameter to specify the maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a @NextToken@ value that you can assign to the @NextToken@ request parameter to get the next set of results.
-dMaxResults :: Lens' DescribeBackups (Maybe Natural)
-dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a}) . mapping _Nat
+instance Pager.AWSPager DescribeBackups where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeBackupsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeBackupsResponse_backups Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeBackups_nextToken
+          Lens..~ rs
+          Lens.^? describeBackupsResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest DescribeBackups where
-        type Rs DescribeBackups = DescribeBackupsResponse
-        request = postJSON opsWorksCM
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeBackupsResponse' <$>
-                   (x .?> "Backups" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeBackups where
+  type Rs DescribeBackups = DescribeBackupsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeBackupsResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> (x Prelude..?> "Backups" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeBackups where
+instance Prelude.Hashable DescribeBackups
 
-instance NFData DescribeBackups where
+instance Prelude.NFData DescribeBackups
 
-instance ToHeaders DescribeBackups where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorksCM_V2016_11_01.DescribeBackups" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DescribeBackups where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "OpsWorksCM_V2016_11_01.DescribeBackups" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DescribeBackups where
-        toJSON DescribeBackups'{..}
-          = object
-              (catMaybes
-                 [("ServerName" .=) <$> _dServerName,
-                  ("BackupId" .=) <$> _dBackupId,
-                  ("NextToken" .=) <$> _dNextToken,
-                  ("MaxResults" .=) <$> _dMaxResults])
+instance Prelude.ToJSON DescribeBackups where
+  toJSON DescribeBackups' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
+            ("BackupId" Prelude..=) Prelude.<$> backupId,
+            ("ServerName" Prelude..=) Prelude.<$> serverName
+          ]
+      )
 
-instance ToPath DescribeBackups where
-        toPath = const "/"
+instance Prelude.ToPath DescribeBackups where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeBackups where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeBackups where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeBackupsResponse' smart constructor.
+-- | /See:/ 'newDescribeBackupsResponse' smart constructor.
 data DescribeBackupsResponse = DescribeBackupsResponse'
-  { _drsBackups        :: !(Maybe [Backup])
-  , _drsNextToken      :: !(Maybe Text)
-  , _drsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | This is not currently implemented for @DescribeBackups@ requests.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Contains the response to a @DescribeBackups@ request.
+    backups :: Prelude.Maybe [Backup],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeBackupsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeBackupsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drsBackups' - Contains the response to a @DescribeBackups@ request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drsNextToken' - NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeBackups@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
+-- 'nextToken', 'describeBackupsResponse_nextToken' - This is not currently implemented for @DescribeBackups@ requests.
 --
--- * 'drsResponseStatus' - -- | The response status code.
-describeBackupsResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DescribeBackupsResponse
-describeBackupsResponse pResponseStatus_ =
+-- 'backups', 'describeBackupsResponse_backups' - Contains the response to a @DescribeBackups@ request.
+--
+-- 'httpStatus', 'describeBackupsResponse_httpStatus' - The response's http status code.
+newDescribeBackupsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeBackupsResponse
+newDescribeBackupsResponse pHttpStatus_ =
   DescribeBackupsResponse'
-    { _drsBackups = Nothing
-    , _drsNextToken = Nothing
-    , _drsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      backups = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | This is not currently implemented for @DescribeBackups@ requests.
+describeBackupsResponse_nextToken :: Lens.Lens' DescribeBackupsResponse (Prelude.Maybe Prelude.Text)
+describeBackupsResponse_nextToken = Lens.lens (\DescribeBackupsResponse' {nextToken} -> nextToken) (\s@DescribeBackupsResponse' {} a -> s {nextToken = a} :: DescribeBackupsResponse)
 
 -- | Contains the response to a @DescribeBackups@ request.
-drsBackups :: Lens' DescribeBackupsResponse [Backup]
-drsBackups = lens _drsBackups (\ s a -> s{_drsBackups = a}) . _Default . _Coerce
+describeBackupsResponse_backups :: Lens.Lens' DescribeBackupsResponse (Prelude.Maybe [Backup])
+describeBackupsResponse_backups = Lens.lens (\DescribeBackupsResponse' {backups} -> backups) (\s@DescribeBackupsResponse' {} a -> s {backups = a} :: DescribeBackupsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | NextToken is a string that is returned in some command responses. It indicates that not all entries have been returned, and that you must run at least one more request to get remaining items. To get remaining results, call @DescribeBackups@ again, and assign the token from the previous results as the value of the @nextToken@ parameter. If there are no more results, the response object's @nextToken@ parameter value is @null@ . Setting a @nextToken@ value that was not returned in your previous results causes an @InvalidNextTokenException@ to occur.
-drsNextToken :: Lens' DescribeBackupsResponse (Maybe Text)
-drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a})
+-- | The response's http status code.
+describeBackupsResponse_httpStatus :: Lens.Lens' DescribeBackupsResponse Prelude.Int
+describeBackupsResponse_httpStatus = Lens.lens (\DescribeBackupsResponse' {httpStatus} -> httpStatus) (\s@DescribeBackupsResponse' {} a -> s {httpStatus = a} :: DescribeBackupsResponse)
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeBackupsResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
-
-instance NFData DescribeBackupsResponse where
+instance Prelude.NFData DescribeBackupsResponse

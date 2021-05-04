@@ -1,164 +1,226 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53Domains.RenewDomain
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation renews a domain for the specified number of years. The cost of renewing your domain is billed to your AWS account.
+-- This operation renews a domain for the specified number of years. The
+-- cost of renewing your domain is billed to your AWS account.
 --
---
--- We recommend that you renew your domain several weeks before the expiration date. Some TLD registries delete domains before the expiration date if you haven't renewed far enough in advance. For more information about renewing domain registration, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html Renewing Registration for a Domain> in the Amazon Route 53 Developer Guide.
---
+-- We recommend that you renew your domain several weeks before the
+-- expiration date. Some TLD registries delete domains before the
+-- expiration date if you haven\'t renewed far enough in advance. For more
+-- information about renewing domain registration, see
+-- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html Renewing Registration for a Domain>
+-- in the /Amazon Route 53 Developer Guide/.
 module Network.AWS.Route53Domains.RenewDomain
-    (
-    -- * Creating a Request
-      renewDomain
-    , RenewDomain
+  ( -- * Creating a Request
+    RenewDomain (..),
+    newRenewDomain,
+
     -- * Request Lenses
-    , rdDurationInYears
-    , rdDomainName
-    , rdCurrentExpiryYear
+    renewDomain_durationInYears,
+    renewDomain_domainName,
+    renewDomain_currentExpiryYear,
 
     -- * Destructuring the Response
-    , renewDomainResponse
-    , RenewDomainResponse
+    RenewDomainResponse (..),
+    newRenewDomainResponse,
+
     -- * Response Lenses
-    , rrsResponseStatus
-    , rrsOperationId
-    ) where
+    renewDomainResponse_httpStatus,
+    renewDomainResponse_operationId,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
-import Network.AWS.Route53Domains.Types.Product
 
--- | A @RenewDomain@ request includes the number of years that you want to renew for and the current expiration year.
+-- | A @RenewDomain@ request includes the number of years that you want to
+-- renew for and the current expiration year.
 --
---
---
--- /See:/ 'renewDomain' smart constructor.
+-- /See:/ 'newRenewDomain' smart constructor.
 data RenewDomain = RenewDomain'
-  { _rdDurationInYears   :: !(Maybe Nat)
-  , _rdDomainName        :: !Text
-  , _rdCurrentExpiryYear :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The number of years that you want to renew the domain for. The maximum
+    -- number of years depends on the top-level domain. For the range of valid
+    -- values for your domain, see
+    -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53>
+    -- in the /Amazon Route 53 Developer Guide/.
+    --
+    -- Default: 1
+    durationInYears :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the domain that you want to renew.
+    domainName :: Prelude.Text,
+    -- | The year when the registration for the domain is set to expire. This
+    -- value must match the current expiration date for the domain.
+    currentExpiryYear :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RenewDomain' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RenewDomain' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rdDurationInYears' - The number of years that you want to renew the domain for. The maximum number of years depends on the top-level domain. For the range of valid values for your domain, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ . Default: 1
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rdDomainName' - The name of the domain that you want to renew.
+-- 'durationInYears', 'renewDomain_durationInYears' - The number of years that you want to renew the domain for. The maximum
+-- number of years depends on the top-level domain. For the range of valid
+-- values for your domain, see
+-- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53>
+-- in the /Amazon Route 53 Developer Guide/.
 --
--- * 'rdCurrentExpiryYear' - The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain.
-renewDomain
-    :: Text -- ^ 'rdDomainName'
-    -> Int -- ^ 'rdCurrentExpiryYear'
-    -> RenewDomain
-renewDomain pDomainName_ pCurrentExpiryYear_ =
+-- Default: 1
+--
+-- 'domainName', 'renewDomain_domainName' - The name of the domain that you want to renew.
+--
+-- 'currentExpiryYear', 'renewDomain_currentExpiryYear' - The year when the registration for the domain is set to expire. This
+-- value must match the current expiration date for the domain.
+newRenewDomain ::
+  -- | 'domainName'
+  Prelude.Text ->
+  -- | 'currentExpiryYear'
+  Prelude.Int ->
+  RenewDomain
+newRenewDomain pDomainName_ pCurrentExpiryYear_ =
   RenewDomain'
-    { _rdDurationInYears = Nothing
-    , _rdDomainName = pDomainName_
-    , _rdCurrentExpiryYear = pCurrentExpiryYear_
+    { durationInYears = Prelude.Nothing,
+      domainName = pDomainName_,
+      currentExpiryYear = pCurrentExpiryYear_
     }
 
-
--- | The number of years that you want to renew the domain for. The maximum number of years depends on the top-level domain. For the range of valid values for your domain, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ . Default: 1
-rdDurationInYears :: Lens' RenewDomain (Maybe Natural)
-rdDurationInYears = lens _rdDurationInYears (\ s a -> s{_rdDurationInYears = a}) . mapping _Nat
+-- | The number of years that you want to renew the domain for. The maximum
+-- number of years depends on the top-level domain. For the range of valid
+-- values for your domain, see
+-- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53>
+-- in the /Amazon Route 53 Developer Guide/.
+--
+-- Default: 1
+renewDomain_durationInYears :: Lens.Lens' RenewDomain (Prelude.Maybe Prelude.Natural)
+renewDomain_durationInYears = Lens.lens (\RenewDomain' {durationInYears} -> durationInYears) (\s@RenewDomain' {} a -> s {durationInYears = a} :: RenewDomain)
 
 -- | The name of the domain that you want to renew.
-rdDomainName :: Lens' RenewDomain Text
-rdDomainName = lens _rdDomainName (\ s a -> s{_rdDomainName = a})
+renewDomain_domainName :: Lens.Lens' RenewDomain Prelude.Text
+renewDomain_domainName = Lens.lens (\RenewDomain' {domainName} -> domainName) (\s@RenewDomain' {} a -> s {domainName = a} :: RenewDomain)
 
--- | The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain.
-rdCurrentExpiryYear :: Lens' RenewDomain Int
-rdCurrentExpiryYear = lens _rdCurrentExpiryYear (\ s a -> s{_rdCurrentExpiryYear = a})
+-- | The year when the registration for the domain is set to expire. This
+-- value must match the current expiration date for the domain.
+renewDomain_currentExpiryYear :: Lens.Lens' RenewDomain Prelude.Int
+renewDomain_currentExpiryYear = Lens.lens (\RenewDomain' {currentExpiryYear} -> currentExpiryYear) (\s@RenewDomain' {} a -> s {currentExpiryYear = a} :: RenewDomain)
 
-instance AWSRequest RenewDomain where
-        type Rs RenewDomain = RenewDomainResponse
-        request = postJSON route53Domains
-        response
-          = receiveJSON
-              (\ s h x ->
-                 RenewDomainResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "OperationId"))
+instance Prelude.AWSRequest RenewDomain where
+  type Rs RenewDomain = RenewDomainResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RenewDomainResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..:> "OperationId")
+      )
 
-instance Hashable RenewDomain where
+instance Prelude.Hashable RenewDomain
 
-instance NFData RenewDomain where
+instance Prelude.NFData RenewDomain
 
-instance ToHeaders RenewDomain where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Route53Domains_v20140515.RenewDomain" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders RenewDomain where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "Route53Domains_v20140515.RenewDomain" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON RenewDomain where
-        toJSON RenewDomain'{..}
-          = object
-              (catMaybes
-                 [("DurationInYears" .=) <$> _rdDurationInYears,
-                  Just ("DomainName" .= _rdDomainName),
-                  Just ("CurrentExpiryYear" .= _rdCurrentExpiryYear)])
+instance Prelude.ToJSON RenewDomain where
+  toJSON RenewDomain' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("DurationInYears" Prelude..=)
+              Prelude.<$> durationInYears,
+            Prelude.Just ("DomainName" Prelude..= domainName),
+            Prelude.Just
+              ("CurrentExpiryYear" Prelude..= currentExpiryYear)
+          ]
+      )
 
-instance ToPath RenewDomain where
-        toPath = const "/"
+instance Prelude.ToPath RenewDomain where
+  toPath = Prelude.const "/"
 
-instance ToQuery RenewDomain where
-        toQuery = const mempty
+instance Prelude.ToQuery RenewDomain where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'renewDomainResponse' smart constructor.
+-- | /See:/ 'newRenewDomainResponse' smart constructor.
 data RenewDomainResponse = RenewDomainResponse'
-  { _rrsResponseStatus :: !Int
-  , _rrsOperationId    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Identifier for tracking the progress of the request. To query the
+    -- operation status, use
+    -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+    operationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RenewDomainResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RenewDomainResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rrsOperationId' - The identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
-renewDomainResponse
-    :: Int -- ^ 'rrsResponseStatus'
-    -> Text -- ^ 'rrsOperationId'
-    -> RenewDomainResponse
-renewDomainResponse pResponseStatus_ pOperationId_ =
+-- 'httpStatus', 'renewDomainResponse_httpStatus' - The response's http status code.
+--
+-- 'operationId', 'renewDomainResponse_operationId' - Identifier for tracking the progress of the request. To query the
+-- operation status, use
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+newRenewDomainResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'operationId'
+  Prelude.Text ->
+  RenewDomainResponse
+newRenewDomainResponse pHttpStatus_ pOperationId_ =
   RenewDomainResponse'
-    {_rrsResponseStatus = pResponseStatus_, _rrsOperationId = pOperationId_}
+    { httpStatus = pHttpStatus_,
+      operationId = pOperationId_
+    }
 
+-- | The response's http status code.
+renewDomainResponse_httpStatus :: Lens.Lens' RenewDomainResponse Prelude.Int
+renewDomainResponse_httpStatus = Lens.lens (\RenewDomainResponse' {httpStatus} -> httpStatus) (\s@RenewDomainResponse' {} a -> s {httpStatus = a} :: RenewDomainResponse)
 
--- | -- | The response status code.
-rrsResponseStatus :: Lens' RenewDomainResponse Int
-rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a})
+-- | Identifier for tracking the progress of the request. To query the
+-- operation status, use
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>.
+renewDomainResponse_operationId :: Lens.Lens' RenewDomainResponse Prelude.Text
+renewDomainResponse_operationId = Lens.lens (\RenewDomainResponse' {operationId} -> operationId) (\s@RenewDomainResponse' {} a -> s {operationId = a} :: RenewDomainResponse)
 
--- | The identifier for tracking the progress of the request. To use this ID to query the operation status, use 'GetOperationDetail' .
-rrsOperationId :: Lens' RenewDomainResponse Text
-rrsOperationId = lens _rrsOperationId (\ s a -> s{_rrsOperationId = a})
-
-instance NFData RenewDomainResponse where
+instance Prelude.NFData RenewDomainResponse

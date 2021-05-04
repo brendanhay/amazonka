@@ -1,181 +1,264 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElastiCache.DescribeReplicationGroups
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a particular replication group. If no identifier is specified, @DescribeReplicationGroups@ returns information about all replication groups.
+-- Returns information about a particular replication group. If no
+-- identifier is specified, @DescribeReplicationGroups@ returns information
+-- about all replication groups.
 --
---
+-- This operation is valid for Redis only.
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeReplicationGroups
-    (
-    -- * Creating a Request
-      describeReplicationGroups
-    , DescribeReplicationGroups
+  ( -- * Creating a Request
+    DescribeReplicationGroups (..),
+    newDescribeReplicationGroups,
+
     -- * Request Lenses
-    , drgsMarker
-    , drgsMaxRecords
-    , drgsReplicationGroupId
+    describeReplicationGroups_replicationGroupId,
+    describeReplicationGroups_marker,
+    describeReplicationGroups_maxRecords,
 
     -- * Destructuring the Response
-    , describeReplicationGroupsResponse
-    , DescribeReplicationGroupsResponse
+    DescribeReplicationGroupsResponse (..),
+    newDescribeReplicationGroupsResponse,
+
     -- * Response Lenses
-    , drgrsMarker
-    , drgrsReplicationGroups
-    , drgrsResponseStatus
-    ) where
+    describeReplicationGroupsResponse_replicationGroups,
+    describeReplicationGroupsResponse_marker,
+    describeReplicationGroupsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DescribeReplicationGroups@ operation.
 --
---
---
--- /See:/ 'describeReplicationGroups' smart constructor.
+-- /See:/ 'newDescribeReplicationGroups' smart constructor.
 data DescribeReplicationGroups = DescribeReplicationGroups'
-  { _drgsMarker             :: !(Maybe Text)
-  , _drgsMaxRecords         :: !(Maybe Int)
-  , _drgsReplicationGroupId :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The identifier for the replication group to be described. This parameter
+    -- is not case sensitive.
+    --
+    -- If you do not specify this parameter, information about all replication
+    -- groups is returned.
+    replicationGroupId :: Prelude.Maybe Prelude.Text,
+    -- | An optional marker returned from a prior request. Use this marker for
+    -- pagination of results from this operation. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of records to include in the response. If more
+    -- records exist than the specified @MaxRecords@ value, a marker is
+    -- included in the response so that the remaining results can be retrieved.
+    --
+    -- Default: 100
+    --
+    -- Constraints: minimum 20; maximum 100.
+    maxRecords :: Prelude.Maybe Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeReplicationGroups' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeReplicationGroups' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drgsMarker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drgsMaxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
+-- 'replicationGroupId', 'describeReplicationGroups_replicationGroupId' - The identifier for the replication group to be described. This parameter
+-- is not case sensitive.
 --
--- * 'drgsReplicationGroupId' - The identifier for the replication group to be described. This parameter is not case sensitive. If you do not specify this parameter, information about all replication groups is returned.
-describeReplicationGroups
-    :: DescribeReplicationGroups
-describeReplicationGroups =
+-- If you do not specify this parameter, information about all replication
+-- groups is returned.
+--
+-- 'marker', 'describeReplicationGroups_marker' - An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+--
+-- 'maxRecords', 'describeReplicationGroups_maxRecords' - The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a marker is
+-- included in the response so that the remaining results can be retrieved.
+--
+-- Default: 100
+--
+-- Constraints: minimum 20; maximum 100.
+newDescribeReplicationGroups ::
+  DescribeReplicationGroups
+newDescribeReplicationGroups =
   DescribeReplicationGroups'
-    { _drgsMarker = Nothing
-    , _drgsMaxRecords = Nothing
-    , _drgsReplicationGroupId = Nothing
+    { replicationGroupId =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
+-- | The identifier for the replication group to be described. This parameter
+-- is not case sensitive.
+--
+-- If you do not specify this parameter, information about all replication
+-- groups is returned.
+describeReplicationGroups_replicationGroupId :: Lens.Lens' DescribeReplicationGroups (Prelude.Maybe Prelude.Text)
+describeReplicationGroups_replicationGroupId = Lens.lens (\DescribeReplicationGroups' {replicationGroupId} -> replicationGroupId) (\s@DescribeReplicationGroups' {} a -> s {replicationGroupId = a} :: DescribeReplicationGroups)
 
--- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-drgsMarker :: Lens' DescribeReplicationGroups (Maybe Text)
-drgsMarker = lens _drgsMarker (\ s a -> s{_drgsMarker = a})
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeReplicationGroups_marker :: Lens.Lens' DescribeReplicationGroups (Prelude.Maybe Prelude.Text)
+describeReplicationGroups_marker = Lens.lens (\DescribeReplicationGroups' {marker} -> marker) (\s@DescribeReplicationGroups' {} a -> s {marker = a} :: DescribeReplicationGroups)
 
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: minimum 20; maximum 100.
-drgsMaxRecords :: Lens' DescribeReplicationGroups (Maybe Int)
-drgsMaxRecords = lens _drgsMaxRecords (\ s a -> s{_drgsMaxRecords = a})
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a marker is
+-- included in the response so that the remaining results can be retrieved.
+--
+-- Default: 100
+--
+-- Constraints: minimum 20; maximum 100.
+describeReplicationGroups_maxRecords :: Lens.Lens' DescribeReplicationGroups (Prelude.Maybe Prelude.Int)
+describeReplicationGroups_maxRecords = Lens.lens (\DescribeReplicationGroups' {maxRecords} -> maxRecords) (\s@DescribeReplicationGroups' {} a -> s {maxRecords = a} :: DescribeReplicationGroups)
 
--- | The identifier for the replication group to be described. This parameter is not case sensitive. If you do not specify this parameter, information about all replication groups is returned.
-drgsReplicationGroupId :: Lens' DescribeReplicationGroups (Maybe Text)
-drgsReplicationGroupId = lens _drgsReplicationGroupId (\ s a -> s{_drgsReplicationGroupId = a})
+instance Pager.AWSPager DescribeReplicationGroups where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeReplicationGroupsResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeReplicationGroupsResponse_replicationGroups
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeReplicationGroups_marker
+          Lens..~ rs
+          Lens.^? describeReplicationGroupsResponse_marker
+            Prelude.. Lens._Just
 
-instance AWSPager DescribeReplicationGroups where
-        page rq rs
-          | stop (rs ^. drgrsMarker) = Nothing
-          | stop (rs ^. drgrsReplicationGroups) = Nothing
-          | otherwise =
-            Just $ rq & drgsMarker .~ rs ^. drgrsMarker
+instance Prelude.AWSRequest DescribeReplicationGroups where
+  type
+    Rs DescribeReplicationGroups =
+      DescribeReplicationGroupsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeReplicationGroupsResult"
+      ( \s h x ->
+          DescribeReplicationGroupsResponse'
+            Prelude.<$> ( x Prelude..@? "ReplicationGroups"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may
+                              (Prelude.parseXMLList "ReplicationGroup")
+                        )
+            Prelude.<*> (x Prelude..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeReplicationGroups where
-        type Rs DescribeReplicationGroups =
-             DescribeReplicationGroupsResponse
-        request = postQuery elastiCache
-        response
-          = receiveXMLWrapper "DescribeReplicationGroupsResult"
-              (\ s h x ->
-                 DescribeReplicationGroupsResponse' <$>
-                   (x .@? "Marker") <*>
-                     (x .@? "ReplicationGroups" .!@ mempty >>=
-                        may (parseXMLList "ReplicationGroup"))
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeReplicationGroups
 
-instance Hashable DescribeReplicationGroups where
+instance Prelude.NFData DescribeReplicationGroups
 
-instance NFData DescribeReplicationGroups where
+instance Prelude.ToHeaders DescribeReplicationGroups where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DescribeReplicationGroups where
-        toHeaders = const mempty
+instance Prelude.ToPath DescribeReplicationGroups where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeReplicationGroups where
-        toPath = const "/"
-
-instance ToQuery DescribeReplicationGroups where
-        toQuery DescribeReplicationGroups'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeReplicationGroups" :: ByteString),
-               "Version" =: ("2015-02-02" :: ByteString),
-               "Marker" =: _drgsMarker,
-               "MaxRecords" =: _drgsMaxRecords,
-               "ReplicationGroupId" =: _drgsReplicationGroupId]
+instance Prelude.ToQuery DescribeReplicationGroups where
+  toQuery DescribeReplicationGroups' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DescribeReplicationGroups" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2015-02-02" :: Prelude.ByteString),
+        "ReplicationGroupId" Prelude.=: replicationGroupId,
+        "Marker" Prelude.=: marker,
+        "MaxRecords" Prelude.=: maxRecords
+      ]
 
 -- | Represents the output of a @DescribeReplicationGroups@ operation.
 --
---
---
--- /See:/ 'describeReplicationGroupsResponse' smart constructor.
+-- /See:/ 'newDescribeReplicationGroupsResponse' smart constructor.
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
-  { _drgrsMarker            :: !(Maybe Text)
-  , _drgrsReplicationGroups :: !(Maybe [ReplicationGroup])
-  , _drgrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of replication groups. Each item in the list contains detailed
+    -- information about one replication group.
+    replicationGroups :: Prelude.Maybe [ReplicationGroup],
+    -- | Provides an identifier to allow retrieval of paginated results.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeReplicationGroupsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeReplicationGroupsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drgrsMarker' - Provides an identifier to allow retrieval of paginated results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drgrsReplicationGroups' - A list of replication groups. Each item in the list contains detailed information about one replication group.
+-- 'replicationGroups', 'describeReplicationGroupsResponse_replicationGroups' - A list of replication groups. Each item in the list contains detailed
+-- information about one replication group.
 --
--- * 'drgrsResponseStatus' - -- | The response status code.
-describeReplicationGroupsResponse
-    :: Int -- ^ 'drgrsResponseStatus'
-    -> DescribeReplicationGroupsResponse
-describeReplicationGroupsResponse pResponseStatus_ =
+-- 'marker', 'describeReplicationGroupsResponse_marker' - Provides an identifier to allow retrieval of paginated results.
+--
+-- 'httpStatus', 'describeReplicationGroupsResponse_httpStatus' - The response's http status code.
+newDescribeReplicationGroupsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeReplicationGroupsResponse
+newDescribeReplicationGroupsResponse pHttpStatus_ =
   DescribeReplicationGroupsResponse'
-    { _drgrsMarker = Nothing
-    , _drgrsReplicationGroups = Nothing
-    , _drgrsResponseStatus = pResponseStatus_
+    { replicationGroups =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | A list of replication groups. Each item in the list contains detailed
+-- information about one replication group.
+describeReplicationGroupsResponse_replicationGroups :: Lens.Lens' DescribeReplicationGroupsResponse (Prelude.Maybe [ReplicationGroup])
+describeReplicationGroupsResponse_replicationGroups = Lens.lens (\DescribeReplicationGroupsResponse' {replicationGroups} -> replicationGroups) (\s@DescribeReplicationGroupsResponse' {} a -> s {replicationGroups = a} :: DescribeReplicationGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | Provides an identifier to allow retrieval of paginated results.
-drgrsMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)
-drgrsMarker = lens _drgrsMarker (\ s a -> s{_drgrsMarker = a})
+describeReplicationGroupsResponse_marker :: Lens.Lens' DescribeReplicationGroupsResponse (Prelude.Maybe Prelude.Text)
+describeReplicationGroupsResponse_marker = Lens.lens (\DescribeReplicationGroupsResponse' {marker} -> marker) (\s@DescribeReplicationGroupsResponse' {} a -> s {marker = a} :: DescribeReplicationGroupsResponse)
 
--- | A list of replication groups. Each item in the list contains detailed information about one replication group.
-drgrsReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
-drgrsReplicationGroups = lens _drgrsReplicationGroups (\ s a -> s{_drgrsReplicationGroups = a}) . _Default . _Coerce
+-- | The response's http status code.
+describeReplicationGroupsResponse_httpStatus :: Lens.Lens' DescribeReplicationGroupsResponse Prelude.Int
+describeReplicationGroupsResponse_httpStatus = Lens.lens (\DescribeReplicationGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribeReplicationGroupsResponse' {} a -> s {httpStatus = a} :: DescribeReplicationGroupsResponse)
 
--- | -- | The response status code.
-drgrsResponseStatus :: Lens' DescribeReplicationGroupsResponse Int
-drgrsResponseStatus = lens _drgrsResponseStatus (\ s a -> s{_drgrsResponseStatus = a})
-
-instance NFData DescribeReplicationGroupsResponse
-         where
+instance
+  Prelude.NFData
+    DescribeReplicationGroupsResponse

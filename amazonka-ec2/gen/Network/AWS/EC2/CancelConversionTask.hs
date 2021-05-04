@@ -1,130 +1,155 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.CancelConversionTask
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is in the process of transferring the final disk image, the command fails and returns an exception.
+-- Cancels an active conversion task. The task can be the import of an
+-- instance or volume. The action removes all artifacts of the conversion,
+-- including a partially uploaded volume or instance. If the conversion is
+-- complete or is in the process of transferring the final disk image, the
+-- command fails and returns an exception.
 --
---
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI> .
---
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/CommandLineReference/ec2-cli-vmimport-export.html Importing a Virtual Machine Using the Amazon EC2 CLI>.
 module Network.AWS.EC2.CancelConversionTask
-    (
-    -- * Creating a Request
-      cancelConversionTask
-    , CancelConversionTask
+  ( -- * Creating a Request
+    CancelConversionTask (..),
+    newCancelConversionTask,
+
     -- * Request Lenses
-    , cctReasonMessage
-    , cctDryRun
-    , cctConversionTaskId
+    cancelConversionTask_dryRun,
+    cancelConversionTask_reasonMessage,
+    cancelConversionTask_conversionTaskId,
 
     -- * Destructuring the Response
-    , cancelConversionTaskResponse
-    , CancelConversionTaskResponse
-    ) where
+    CancelConversionTaskResponse (..),
+    newCancelConversionTaskResponse,
+  )
+where
 
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for CancelConversionTask.
---
---
---
--- /See:/ 'cancelConversionTask' smart constructor.
+-- | /See:/ 'newCancelConversionTask' smart constructor.
 data CancelConversionTask = CancelConversionTask'
-  { _cctReasonMessage    :: !(Maybe Text)
-  , _cctDryRun           :: !(Maybe Bool)
-  , _cctConversionTaskId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The reason for canceling the conversion task.
+    reasonMessage :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the conversion task.
+    conversionTaskId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CancelConversionTask' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CancelConversionTask' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cctReasonMessage' - The reason for canceling the conversion task.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cctDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- 'dryRun', 'cancelConversionTask_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'cctConversionTaskId' - The ID of the conversion task.
-cancelConversionTask
-    :: Text -- ^ 'cctConversionTaskId'
-    -> CancelConversionTask
-cancelConversionTask pConversionTaskId_ =
+-- 'reasonMessage', 'cancelConversionTask_reasonMessage' - The reason for canceling the conversion task.
+--
+-- 'conversionTaskId', 'cancelConversionTask_conversionTaskId' - The ID of the conversion task.
+newCancelConversionTask ::
+  -- | 'conversionTaskId'
+  Prelude.Text ->
+  CancelConversionTask
+newCancelConversionTask pConversionTaskId_ =
   CancelConversionTask'
-    { _cctReasonMessage = Nothing
-    , _cctDryRun = Nothing
-    , _cctConversionTaskId = pConversionTaskId_
+    { dryRun = Prelude.Nothing,
+      reasonMessage = Prelude.Nothing,
+      conversionTaskId = pConversionTaskId_
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+cancelConversionTask_dryRun :: Lens.Lens' CancelConversionTask (Prelude.Maybe Prelude.Bool)
+cancelConversionTask_dryRun = Lens.lens (\CancelConversionTask' {dryRun} -> dryRun) (\s@CancelConversionTask' {} a -> s {dryRun = a} :: CancelConversionTask)
 
 -- | The reason for canceling the conversion task.
-cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
-cctReasonMessage = lens _cctReasonMessage (\ s a -> s{_cctReasonMessage = a})
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-cctDryRun :: Lens' CancelConversionTask (Maybe Bool)
-cctDryRun = lens _cctDryRun (\ s a -> s{_cctDryRun = a})
+cancelConversionTask_reasonMessage :: Lens.Lens' CancelConversionTask (Prelude.Maybe Prelude.Text)
+cancelConversionTask_reasonMessage = Lens.lens (\CancelConversionTask' {reasonMessage} -> reasonMessage) (\s@CancelConversionTask' {} a -> s {reasonMessage = a} :: CancelConversionTask)
 
 -- | The ID of the conversion task.
-cctConversionTaskId :: Lens' CancelConversionTask Text
-cctConversionTaskId = lens _cctConversionTaskId (\ s a -> s{_cctConversionTaskId = a})
+cancelConversionTask_conversionTaskId :: Lens.Lens' CancelConversionTask Prelude.Text
+cancelConversionTask_conversionTaskId = Lens.lens (\CancelConversionTask' {conversionTaskId} -> conversionTaskId) (\s@CancelConversionTask' {} a -> s {conversionTaskId = a} :: CancelConversionTask)
 
-instance AWSRequest CancelConversionTask where
-        type Rs CancelConversionTask =
-             CancelConversionTaskResponse
-        request = postQuery ec2
-        response = receiveNull CancelConversionTaskResponse'
+instance Prelude.AWSRequest CancelConversionTask where
+  type
+    Rs CancelConversionTask =
+      CancelConversionTaskResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull CancelConversionTaskResponse'
 
-instance Hashable CancelConversionTask where
+instance Prelude.Hashable CancelConversionTask
 
-instance NFData CancelConversionTask where
+instance Prelude.NFData CancelConversionTask
 
-instance ToHeaders CancelConversionTask where
-        toHeaders = const mempty
+instance Prelude.ToHeaders CancelConversionTask where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath CancelConversionTask where
-        toPath = const "/"
+instance Prelude.ToPath CancelConversionTask where
+  toPath = Prelude.const "/"
 
-instance ToQuery CancelConversionTask where
-        toQuery CancelConversionTask'{..}
-          = mconcat
-              ["Action" =: ("CancelConversionTask" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "ReasonMessage" =: _cctReasonMessage,
-               "DryRun" =: _cctDryRun,
-               "ConversionTaskId" =: _cctConversionTaskId]
+instance Prelude.ToQuery CancelConversionTask where
+  toQuery CancelConversionTask' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("CancelConversionTask" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Prelude.=: dryRun,
+        "ReasonMessage" Prelude.=: reasonMessage,
+        "ConversionTaskId" Prelude.=: conversionTaskId
+      ]
 
--- | /See:/ 'cancelConversionTaskResponse' smart constructor.
-data CancelConversionTaskResponse =
-  CancelConversionTaskResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCancelConversionTaskResponse' smart constructor.
+data CancelConversionTaskResponse = CancelConversionTaskResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CancelConversionTaskResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CancelConversionTaskResponse' with all optional fields omitted.
 --
-cancelConversionTaskResponse
-    :: CancelConversionTaskResponse
-cancelConversionTaskResponse = CancelConversionTaskResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newCancelConversionTaskResponse ::
+  CancelConversionTaskResponse
+newCancelConversionTaskResponse =
+  CancelConversionTaskResponse'
 
-
-instance NFData CancelConversionTaskResponse where
+instance Prelude.NFData CancelConversionTaskResponse

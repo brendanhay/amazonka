@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELB.ModifyLoadBalancerAttributes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,160 +23,191 @@
 --
 -- Modifies the attributes of the specified load balancer.
 --
+-- You can modify the load balancer attributes, such as @AccessLogs@,
+-- @ConnectionDraining@, and @CrossZoneLoadBalancing@ by either enabling or
+-- disabling them. Or, you can modify the load balancer attribute
+-- @ConnectionSettings@ by specifying an idle connection timeout value for
+-- your load balancer.
 --
--- You can modify the load balancer attributes, such as @AccessLogs@ , @ConnectionDraining@ , and @CrossZoneLoadBalancing@ by either enabling or disabling them. Or, you can modify the load balancer attribute @ConnectionSettings@ by specifying an idle connection timeout value for your load balancer.
+-- For more information, see the following in the /Classic Load Balancers
+-- Guide/:
 --
--- For more information, see the following in the /Classic Load Balancer Guide/ :
+-- -   <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Cross-Zone Load Balancing>
 --
---     * <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html Cross-Zone Load Balancing>
+-- -   <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Connection Draining>
 --
---     * <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html Connection Draining>
+-- -   <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html Access Logs>
 --
---     * <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html Access Logs>
---
---     * <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Idle Connection Timeout>
---
---
---
+-- -   <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html Idle Connection Timeout>
 module Network.AWS.ELB.ModifyLoadBalancerAttributes
-    (
-    -- * Creating a Request
-      modifyLoadBalancerAttributes
-    , ModifyLoadBalancerAttributes
+  ( -- * Creating a Request
+    ModifyLoadBalancerAttributes (..),
+    newModifyLoadBalancerAttributes,
+
     -- * Request Lenses
-    , mlbaLoadBalancerName
-    , mlbaLoadBalancerAttributes
+    modifyLoadBalancerAttributes_loadBalancerName,
+    modifyLoadBalancerAttributes_loadBalancerAttributes,
 
     -- * Destructuring the Response
-    , modifyLoadBalancerAttributesResponse
-    , ModifyLoadBalancerAttributesResponse
+    ModifyLoadBalancerAttributesResponse (..),
+    newModifyLoadBalancerAttributesResponse,
+
     -- * Response Lenses
-    , mlbarsLoadBalancerName
-    , mlbarsLoadBalancerAttributes
-    , mlbarsResponseStatus
-    ) where
+    modifyLoadBalancerAttributesResponse_loadBalancerAttributes,
+    modifyLoadBalancerAttributesResponse_loadBalancerName,
+    modifyLoadBalancerAttributesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ELB.Types
-import Network.AWS.ELB.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for ModifyLoadBalancerAttributes.
 --
---
---
--- /See:/ 'modifyLoadBalancerAttributes' smart constructor.
+-- /See:/ 'newModifyLoadBalancerAttributes' smart constructor.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
-  { _mlbaLoadBalancerName       :: !Text
-  , _mlbaLoadBalancerAttributes :: !LoadBalancerAttributes
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the load balancer.
+    loadBalancerName :: Prelude.Text,
+    -- | The attributes for the load balancer.
+    loadBalancerAttributes :: LoadBalancerAttributes
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyLoadBalancerAttributes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyLoadBalancerAttributes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mlbaLoadBalancerName' - The name of the load balancer.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mlbaLoadBalancerAttributes' - The attributes for the load balancer.
-modifyLoadBalancerAttributes
-    :: Text -- ^ 'mlbaLoadBalancerName'
-    -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
-    -> ModifyLoadBalancerAttributes
-modifyLoadBalancerAttributes pLoadBalancerName_ pLoadBalancerAttributes_ =
-  ModifyLoadBalancerAttributes'
-    { _mlbaLoadBalancerName = pLoadBalancerName_
-    , _mlbaLoadBalancerAttributes = pLoadBalancerAttributes_
-    }
-
+-- 'loadBalancerName', 'modifyLoadBalancerAttributes_loadBalancerName' - The name of the load balancer.
+--
+-- 'loadBalancerAttributes', 'modifyLoadBalancerAttributes_loadBalancerAttributes' - The attributes for the load balancer.
+newModifyLoadBalancerAttributes ::
+  -- | 'loadBalancerName'
+  Prelude.Text ->
+  -- | 'loadBalancerAttributes'
+  LoadBalancerAttributes ->
+  ModifyLoadBalancerAttributes
+newModifyLoadBalancerAttributes
+  pLoadBalancerName_
+  pLoadBalancerAttributes_ =
+    ModifyLoadBalancerAttributes'
+      { loadBalancerName =
+          pLoadBalancerName_,
+        loadBalancerAttributes =
+          pLoadBalancerAttributes_
+      }
 
 -- | The name of the load balancer.
-mlbaLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
-mlbaLoadBalancerName = lens _mlbaLoadBalancerName (\ s a -> s{_mlbaLoadBalancerName = a})
+modifyLoadBalancerAttributes_loadBalancerName :: Lens.Lens' ModifyLoadBalancerAttributes Prelude.Text
+modifyLoadBalancerAttributes_loadBalancerName = Lens.lens (\ModifyLoadBalancerAttributes' {loadBalancerName} -> loadBalancerName) (\s@ModifyLoadBalancerAttributes' {} a -> s {loadBalancerName = a} :: ModifyLoadBalancerAttributes)
 
 -- | The attributes for the load balancer.
-mlbaLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
-mlbaLoadBalancerAttributes = lens _mlbaLoadBalancerAttributes (\ s a -> s{_mlbaLoadBalancerAttributes = a})
+modifyLoadBalancerAttributes_loadBalancerAttributes :: Lens.Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
+modifyLoadBalancerAttributes_loadBalancerAttributes = Lens.lens (\ModifyLoadBalancerAttributes' {loadBalancerAttributes} -> loadBalancerAttributes) (\s@ModifyLoadBalancerAttributes' {} a -> s {loadBalancerAttributes = a} :: ModifyLoadBalancerAttributes)
 
-instance AWSRequest ModifyLoadBalancerAttributes
-         where
-        type Rs ModifyLoadBalancerAttributes =
-             ModifyLoadBalancerAttributesResponse
-        request = postQuery elb
-        response
-          = receiveXMLWrapper
-              "ModifyLoadBalancerAttributesResult"
-              (\ s h x ->
-                 ModifyLoadBalancerAttributesResponse' <$>
-                   (x .@? "LoadBalancerName") <*>
-                     (x .@? "LoadBalancerAttributes")
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    ModifyLoadBalancerAttributes
+  where
+  type
+    Rs ModifyLoadBalancerAttributes =
+      ModifyLoadBalancerAttributesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ModifyLoadBalancerAttributesResult"
+      ( \s h x ->
+          ModifyLoadBalancerAttributesResponse'
+            Prelude.<$> (x Prelude..@? "LoadBalancerAttributes")
+            Prelude.<*> (x Prelude..@? "LoadBalancerName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ModifyLoadBalancerAttributes where
+instance
+  Prelude.Hashable
+    ModifyLoadBalancerAttributes
 
-instance NFData ModifyLoadBalancerAttributes where
+instance Prelude.NFData ModifyLoadBalancerAttributes
 
-instance ToHeaders ModifyLoadBalancerAttributes where
-        toHeaders = const mempty
+instance
+  Prelude.ToHeaders
+    ModifyLoadBalancerAttributes
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ModifyLoadBalancerAttributes where
-        toPath = const "/"
+instance Prelude.ToPath ModifyLoadBalancerAttributes where
+  toPath = Prelude.const "/"
 
-instance ToQuery ModifyLoadBalancerAttributes where
-        toQuery ModifyLoadBalancerAttributes'{..}
-          = mconcat
-              ["Action" =:
-                 ("ModifyLoadBalancerAttributes" :: ByteString),
-               "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _mlbaLoadBalancerName,
-               "LoadBalancerAttributes" =:
-                 _mlbaLoadBalancerAttributes]
+instance Prelude.ToQuery ModifyLoadBalancerAttributes where
+  toQuery ModifyLoadBalancerAttributes' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ( "ModifyLoadBalancerAttributes" ::
+                         Prelude.ByteString
+                     ),
+        "Version"
+          Prelude.=: ("2012-06-01" :: Prelude.ByteString),
+        "LoadBalancerName" Prelude.=: loadBalancerName,
+        "LoadBalancerAttributes"
+          Prelude.=: loadBalancerAttributes
+      ]
 
 -- | Contains the output of ModifyLoadBalancerAttributes.
 --
---
---
--- /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
+-- /See:/ 'newModifyLoadBalancerAttributesResponse' smart constructor.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
-  { _mlbarsLoadBalancerName       :: !(Maybe Text)
-  , _mlbarsLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
-  , _mlbarsResponseStatus         :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the load balancer attributes.
+    loadBalancerAttributes :: Prelude.Maybe LoadBalancerAttributes,
+    -- | The name of the load balancer.
+    loadBalancerName :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyLoadBalancerAttributesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyLoadBalancerAttributesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mlbarsLoadBalancerName' - The name of the load balancer.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mlbarsLoadBalancerAttributes' - Information about the load balancer attributes.
+-- 'loadBalancerAttributes', 'modifyLoadBalancerAttributesResponse_loadBalancerAttributes' - Information about the load balancer attributes.
 --
--- * 'mlbarsResponseStatus' - -- | The response status code.
-modifyLoadBalancerAttributesResponse
-    :: Int -- ^ 'mlbarsResponseStatus'
-    -> ModifyLoadBalancerAttributesResponse
-modifyLoadBalancerAttributesResponse pResponseStatus_ =
+-- 'loadBalancerName', 'modifyLoadBalancerAttributesResponse_loadBalancerName' - The name of the load balancer.
+--
+-- 'httpStatus', 'modifyLoadBalancerAttributesResponse_httpStatus' - The response's http status code.
+newModifyLoadBalancerAttributesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ModifyLoadBalancerAttributesResponse
+newModifyLoadBalancerAttributesResponse pHttpStatus_ =
   ModifyLoadBalancerAttributesResponse'
-    { _mlbarsLoadBalancerName = Nothing
-    , _mlbarsLoadBalancerAttributes = Nothing
-    , _mlbarsResponseStatus = pResponseStatus_
+    { loadBalancerAttributes =
+        Prelude.Nothing,
+      loadBalancerName = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | Information about the load balancer attributes.
+modifyLoadBalancerAttributesResponse_loadBalancerAttributes :: Lens.Lens' ModifyLoadBalancerAttributesResponse (Prelude.Maybe LoadBalancerAttributes)
+modifyLoadBalancerAttributesResponse_loadBalancerAttributes = Lens.lens (\ModifyLoadBalancerAttributesResponse' {loadBalancerAttributes} -> loadBalancerAttributes) (\s@ModifyLoadBalancerAttributesResponse' {} a -> s {loadBalancerAttributes = a} :: ModifyLoadBalancerAttributesResponse)
 
 -- | The name of the load balancer.
-mlbarsLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
-mlbarsLoadBalancerName = lens _mlbarsLoadBalancerName (\ s a -> s{_mlbarsLoadBalancerName = a})
+modifyLoadBalancerAttributesResponse_loadBalancerName :: Lens.Lens' ModifyLoadBalancerAttributesResponse (Prelude.Maybe Prelude.Text)
+modifyLoadBalancerAttributesResponse_loadBalancerName = Lens.lens (\ModifyLoadBalancerAttributesResponse' {loadBalancerName} -> loadBalancerName) (\s@ModifyLoadBalancerAttributesResponse' {} a -> s {loadBalancerName = a} :: ModifyLoadBalancerAttributesResponse)
 
--- | Information about the load balancer attributes.
-mlbarsLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
-mlbarsLoadBalancerAttributes = lens _mlbarsLoadBalancerAttributes (\ s a -> s{_mlbarsLoadBalancerAttributes = a})
+-- | The response's http status code.
+modifyLoadBalancerAttributesResponse_httpStatus :: Lens.Lens' ModifyLoadBalancerAttributesResponse Prelude.Int
+modifyLoadBalancerAttributesResponse_httpStatus = Lens.lens (\ModifyLoadBalancerAttributesResponse' {httpStatus} -> httpStatus) (\s@ModifyLoadBalancerAttributesResponse' {} a -> s {httpStatus = a} :: ModifyLoadBalancerAttributesResponse)
 
--- | -- | The response status code.
-mlbarsResponseStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
-mlbarsResponseStatus = lens _mlbarsResponseStatus (\ s a -> s{_mlbarsResponseStatus = a})
-
-instance NFData ModifyLoadBalancerAttributesResponse
-         where
+instance
+  Prelude.NFData
+    ModifyLoadBalancerAttributesResponse

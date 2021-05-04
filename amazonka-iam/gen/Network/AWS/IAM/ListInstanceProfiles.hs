@@ -1,183 +1,324 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.ListInstanceProfiles
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the instance profiles that have the specified path prefix. If there are none, the operation returns an empty list. For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles> .
+-- Lists the instance profiles that have the specified path prefix. If
+-- there are none, the operation returns an empty list. For more
+-- information about instance profiles, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About instance profiles>.
 --
+-- IAM resource-listing operations return a subset of the available
+-- attributes for the resource. For example, this operation does not return
+-- tags, even though they are an attribute of the returned object. To view
+-- all of the information for an instance profile, see GetInstanceProfile.
 --
--- You can paginate the results using the @MaxItems@ and @Marker@ parameters.
---
+-- You can paginate the results using the @MaxItems@ and @Marker@
+-- parameters.
 --
 -- This operation returns paginated results.
 module Network.AWS.IAM.ListInstanceProfiles
-    (
-    -- * Creating a Request
-      listInstanceProfiles
-    , ListInstanceProfiles
+  ( -- * Creating a Request
+    ListInstanceProfiles (..),
+    newListInstanceProfiles,
+
     -- * Request Lenses
-    , lipPathPrefix
-    , lipMarker
-    , lipMaxItems
+    listInstanceProfiles_pathPrefix,
+    listInstanceProfiles_maxItems,
+    listInstanceProfiles_marker,
 
     -- * Destructuring the Response
-    , listInstanceProfilesResponse
-    , ListInstanceProfilesResponse
+    ListInstanceProfilesResponse (..),
+    newListInstanceProfilesResponse,
+
     -- * Response Lenses
-    , liprsMarker
-    , liprsIsTruncated
-    , liprsResponseStatus
-    , liprsInstanceProfiles
-    ) where
+    listInstanceProfilesResponse_isTruncated,
+    listInstanceProfilesResponse_marker,
+    listInstanceProfilesResponse_httpStatus,
+    listInstanceProfilesResponse_instanceProfiles,
+  )
+where
 
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listInstanceProfiles' smart constructor.
+-- | /See:/ 'newListInstanceProfiles' smart constructor.
 data ListInstanceProfiles = ListInstanceProfiles'
-  { _lipPathPrefix :: !(Maybe Text)
-  , _lipMarker     :: !(Maybe Text)
-  , _lipMaxItems   :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The path prefix for filtering the results. For example, the prefix
+    -- @\/application_abc\/component_xyz\/@ gets all instance profiles whose
+    -- path starts with @\/application_abc\/component_xyz\/@.
+    --
+    -- This parameter is optional. If it is not included, it defaults to a
+    -- slash (\/), listing all instance profiles. This parameter allows
+    -- (through its <http://wikipedia.org/wiki/regex regex pattern>) a string
+    -- of characters consisting of either a forward slash (\/) by itself or a
+    -- string that must begin and end with forward slashes. In addition, it can
+    -- contain any ASCII character from the ! (@\\u0021@) through the DEL
+    -- character (@\\u007F@), including most punctuation characters, digits,
+    -- and upper and lowercased letters.
+    pathPrefix :: Prelude.Maybe Prelude.Text,
+    -- | Use this only when paginating results to indicate the maximum number of
+    -- items you want in the response. If additional items exist beyond the
+    -- maximum you specify, the @IsTruncated@ response element is @true@.
+    --
+    -- If you do not include this parameter, the number of items defaults to
+    -- 100. Note that IAM might return fewer results, even when there are more
+    -- results available. In that case, the @IsTruncated@ response element
+    -- returns @true@, and @Marker@ contains a value to include in the
+    -- subsequent call that tells the service where to continue from.
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | Use this parameter only when paginating results and only after you
+    -- receive a response indicating that the results are truncated. Set it to
+    -- the value of the @Marker@ element in the response that you received to
+    -- indicate where the next call should start.
+    marker :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListInstanceProfiles' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListInstanceProfiles' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lipPathPrefix' - The path prefix for filtering the results. For example, the prefix @/application_abc/component_xyz/@ gets all instance profiles whose path starts with @/application_abc/component_xyz/@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all instance profiles. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lipMarker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- 'pathPrefix', 'listInstanceProfiles_pathPrefix' - The path prefix for filtering the results. For example, the prefix
+-- @\/application_abc\/component_xyz\/@ gets all instance profiles whose
+-- path starts with @\/application_abc\/component_xyz\/@.
 --
--- * 'lipMaxItems' - (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-listInstanceProfiles
-    :: ListInstanceProfiles
-listInstanceProfiles =
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/), listing all instance profiles. This parameter allows
+-- (through its <http://wikipedia.org/wiki/regex regex pattern>) a string
+-- of characters consisting of either a forward slash (\/) by itself or a
+-- string that must begin and end with forward slashes. In addition, it can
+-- contain any ASCII character from the ! (@\\u0021@) through the DEL
+-- character (@\\u007F@), including most punctuation characters, digits,
+-- and upper and lowercased letters.
+--
+-- 'maxItems', 'listInstanceProfiles_maxItems' - Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
+--
+-- 'marker', 'listInstanceProfiles_marker' - Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+newListInstanceProfiles ::
+  ListInstanceProfiles
+newListInstanceProfiles =
   ListInstanceProfiles'
-    {_lipPathPrefix = Nothing, _lipMarker = Nothing, _lipMaxItems = Nothing}
-
-
--- | The path prefix for filtering the results. For example, the prefix @/application_abc/component_xyz/@ gets all instance profiles whose path starts with @/application_abc/component_xyz/@ . This parameter is optional. If it is not included, it defaults to a slash (/), listing all instance profiles. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of either a forward slash (/) by itself or a string that must begin and end with forward slashes. In addition, it can contain any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercased letters.
-lipPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
-lipPathPrefix = lens _lipPathPrefix (\ s a -> s{_lipPathPrefix = a})
-
--- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
-lipMarker :: Lens' ListInstanceProfiles (Maybe Text)
-lipMarker = lens _lipMarker (\ s a -> s{_lipMarker = a})
-
--- | (Optional) Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the @IsTruncated@ response element is @true@ . If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when there are more results available. In that case, the @IsTruncated@ response element returns @true@ and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-lipMaxItems :: Lens' ListInstanceProfiles (Maybe Natural)
-lipMaxItems = lens _lipMaxItems (\ s a -> s{_lipMaxItems = a}) . mapping _Nat
-
-instance AWSPager ListInstanceProfiles where
-        page rq rs
-          | stop (rs ^. liprsIsTruncated) = Nothing
-          | isNothing (rs ^. liprsMarker) = Nothing
-          | otherwise =
-            Just $ rq & lipMarker .~ rs ^. liprsMarker
-
-instance AWSRequest ListInstanceProfiles where
-        type Rs ListInstanceProfiles =
-             ListInstanceProfilesResponse
-        request = postQuery iam
-        response
-          = receiveXMLWrapper "ListInstanceProfilesResult"
-              (\ s h x ->
-                 ListInstanceProfilesResponse' <$>
-                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
-                     (pure (fromEnum s))
-                     <*>
-                     (x .@? "InstanceProfiles" .!@ mempty >>=
-                        parseXMLList "member"))
-
-instance Hashable ListInstanceProfiles where
-
-instance NFData ListInstanceProfiles where
-
-instance ToHeaders ListInstanceProfiles where
-        toHeaders = const mempty
-
-instance ToPath ListInstanceProfiles where
-        toPath = const "/"
-
-instance ToQuery ListInstanceProfiles where
-        toQuery ListInstanceProfiles'{..}
-          = mconcat
-              ["Action" =: ("ListInstanceProfiles" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _lipPathPrefix,
-               "Marker" =: _lipMarker, "MaxItems" =: _lipMaxItems]
-
--- | Contains the response to a successful 'ListInstanceProfiles' request.
---
---
---
--- /See:/ 'listInstanceProfilesResponse' smart constructor.
-data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
-  { _liprsMarker           :: !(Maybe Text)
-  , _liprsIsTruncated      :: !(Maybe Bool)
-  , _liprsResponseStatus   :: !Int
-  , _liprsInstanceProfiles :: ![InstanceProfile]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListInstanceProfilesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'liprsMarker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
---
--- * 'liprsIsTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
---
--- * 'liprsResponseStatus' - -- | The response status code.
---
--- * 'liprsInstanceProfiles' - A list of instance profiles.
-listInstanceProfilesResponse
-    :: Int -- ^ 'liprsResponseStatus'
-    -> ListInstanceProfilesResponse
-listInstanceProfilesResponse pResponseStatus_ =
-  ListInstanceProfilesResponse'
-    { _liprsMarker = Nothing
-    , _liprsIsTruncated = Nothing
-    , _liprsResponseStatus = pResponseStatus_
-    , _liprsInstanceProfiles = mempty
+    { pathPrefix = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
+-- | The path prefix for filtering the results. For example, the prefix
+-- @\/application_abc\/component_xyz\/@ gets all instance profiles whose
+-- path starts with @\/application_abc\/component_xyz\/@.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/), listing all instance profiles. This parameter allows
+-- (through its <http://wikipedia.org/wiki/regex regex pattern>) a string
+-- of characters consisting of either a forward slash (\/) by itself or a
+-- string that must begin and end with forward slashes. In addition, it can
+-- contain any ASCII character from the ! (@\\u0021@) through the DEL
+-- character (@\\u007F@), including most punctuation characters, digits,
+-- and upper and lowercased letters.
+listInstanceProfiles_pathPrefix :: Lens.Lens' ListInstanceProfiles (Prelude.Maybe Prelude.Text)
+listInstanceProfiles_pathPrefix = Lens.lens (\ListInstanceProfiles' {pathPrefix} -> pathPrefix) (\s@ListInstanceProfiles' {} a -> s {pathPrefix = a} :: ListInstanceProfiles)
 
--- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
-liprsMarker :: Lens' ListInstanceProfilesResponse (Maybe Text)
-liprsMarker = lens _liprsMarker (\ s a -> s{_liprsMarker = a})
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
+listInstanceProfiles_maxItems :: Lens.Lens' ListInstanceProfiles (Prelude.Maybe Prelude.Natural)
+listInstanceProfiles_maxItems = Lens.lens (\ListInstanceProfiles' {maxItems} -> maxItems) (\s@ListInstanceProfiles' {} a -> s {maxItems = a} :: ListInstanceProfiles)
 
--- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. Note that IAM might return fewer than the @MaxItems@ number of results even when there are more results available. We recommend that you check @IsTruncated@ after every call to ensure that you receive all of your results.
-liprsIsTruncated :: Lens' ListInstanceProfilesResponse (Maybe Bool)
-liprsIsTruncated = lens _liprsIsTruncated (\ s a -> s{_liprsIsTruncated = a})
+-- | Use this parameter only when paginating results and only after you
+-- receive a response indicating that the results are truncated. Set it to
+-- the value of the @Marker@ element in the response that you received to
+-- indicate where the next call should start.
+listInstanceProfiles_marker :: Lens.Lens' ListInstanceProfiles (Prelude.Maybe Prelude.Text)
+listInstanceProfiles_marker = Lens.lens (\ListInstanceProfiles' {marker} -> marker) (\s@ListInstanceProfiles' {} a -> s {marker = a} :: ListInstanceProfiles)
 
--- | -- | The response status code.
-liprsResponseStatus :: Lens' ListInstanceProfilesResponse Int
-liprsResponseStatus = lens _liprsResponseStatus (\ s a -> s{_liprsResponseStatus = a})
+instance Pager.AWSPager ListInstanceProfiles where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listInstanceProfilesResponse_isTruncated
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listInstanceProfilesResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listInstanceProfiles_marker
+          Lens..~ rs
+          Lens.^? listInstanceProfilesResponse_marker
+            Prelude.. Lens._Just
+
+instance Prelude.AWSRequest ListInstanceProfiles where
+  type
+    Rs ListInstanceProfiles =
+      ListInstanceProfilesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ListInstanceProfilesResult"
+      ( \s h x ->
+          ListInstanceProfilesResponse'
+            Prelude.<$> (x Prelude..@? "IsTruncated")
+            Prelude.<*> (x Prelude..@? "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Prelude..@? "InstanceProfiles"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.parseXMLList "member"
+                        )
+      )
+
+instance Prelude.Hashable ListInstanceProfiles
+
+instance Prelude.NFData ListInstanceProfiles
+
+instance Prelude.ToHeaders ListInstanceProfiles where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath ListInstanceProfiles where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery ListInstanceProfiles where
+  toQuery ListInstanceProfiles' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("ListInstanceProfiles" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
+        "PathPrefix" Prelude.=: pathPrefix,
+        "MaxItems" Prelude.=: maxItems,
+        "Marker" Prelude.=: marker
+      ]
+
+-- | Contains the response to a successful ListInstanceProfiles request.
+--
+-- /See:/ 'newListInstanceProfilesResponse' smart constructor.
+data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
+  { -- | A flag that indicates whether there are more items to return. If your
+    -- results were truncated, you can make a subsequent pagination request
+    -- using the @Marker@ request parameter to retrieve more items. Note that
+    -- IAM might return fewer than the @MaxItems@ number of results even when
+    -- there are more results available. We recommend that you check
+    -- @IsTruncated@ after every call to ensure that you receive all your
+    -- results.
+    isTruncated :: Prelude.Maybe Prelude.Bool,
+    -- | When @IsTruncated@ is @true@, this element is present and contains the
+    -- value to use for the @Marker@ parameter in a subsequent pagination
+    -- request.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A list of instance profiles.
+    instanceProfiles :: [InstanceProfile]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListInstanceProfilesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'isTruncated', 'listInstanceProfilesResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items. Note that
+-- IAM might return fewer than the @MaxItems@ number of results even when
+-- there are more results available. We recommend that you check
+-- @IsTruncated@ after every call to ensure that you receive all your
+-- results.
+--
+-- 'marker', 'listInstanceProfilesResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+--
+-- 'httpStatus', 'listInstanceProfilesResponse_httpStatus' - The response's http status code.
+--
+-- 'instanceProfiles', 'listInstanceProfilesResponse_instanceProfiles' - A list of instance profiles.
+newListInstanceProfilesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListInstanceProfilesResponse
+newListInstanceProfilesResponse pHttpStatus_ =
+  ListInstanceProfilesResponse'
+    { isTruncated =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_,
+      instanceProfiles = Prelude.mempty
+    }
+
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items. Note that
+-- IAM might return fewer than the @MaxItems@ number of results even when
+-- there are more results available. We recommend that you check
+-- @IsTruncated@ after every call to ensure that you receive all your
+-- results.
+listInstanceProfilesResponse_isTruncated :: Lens.Lens' ListInstanceProfilesResponse (Prelude.Maybe Prelude.Bool)
+listInstanceProfilesResponse_isTruncated = Lens.lens (\ListInstanceProfilesResponse' {isTruncated} -> isTruncated) (\s@ListInstanceProfilesResponse' {} a -> s {isTruncated = a} :: ListInstanceProfilesResponse)
+
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+listInstanceProfilesResponse_marker :: Lens.Lens' ListInstanceProfilesResponse (Prelude.Maybe Prelude.Text)
+listInstanceProfilesResponse_marker = Lens.lens (\ListInstanceProfilesResponse' {marker} -> marker) (\s@ListInstanceProfilesResponse' {} a -> s {marker = a} :: ListInstanceProfilesResponse)
+
+-- | The response's http status code.
+listInstanceProfilesResponse_httpStatus :: Lens.Lens' ListInstanceProfilesResponse Prelude.Int
+listInstanceProfilesResponse_httpStatus = Lens.lens (\ListInstanceProfilesResponse' {httpStatus} -> httpStatus) (\s@ListInstanceProfilesResponse' {} a -> s {httpStatus = a} :: ListInstanceProfilesResponse)
 
 -- | A list of instance profiles.
-liprsInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]
-liprsInstanceProfiles = lens _liprsInstanceProfiles (\ s a -> s{_liprsInstanceProfiles = a}) . _Coerce
+listInstanceProfilesResponse_instanceProfiles :: Lens.Lens' ListInstanceProfilesResponse [InstanceProfile]
+listInstanceProfilesResponse_instanceProfiles = Lens.lens (\ListInstanceProfilesResponse' {instanceProfiles} -> instanceProfiles) (\s@ListInstanceProfilesResponse' {} a -> s {instanceProfiles = a} :: ListInstanceProfilesResponse) Prelude.. Prelude._Coerce
 
-instance NFData ListInstanceProfilesResponse where
+instance Prelude.NFData ListInstanceProfilesResponse

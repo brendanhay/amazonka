@@ -1,177 +1,253 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.UpdateDocument
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The document you want to update.
---
---
+-- Updates one or more values for an SSM document.
 module Network.AWS.SSM.UpdateDocument
-    (
-    -- * Creating a Request
-      updateDocument
-    , UpdateDocument
+  ( -- * Creating a Request
+    UpdateDocument (..),
+    newUpdateDocument,
+
     -- * Request Lenses
-    , udTargetType
-    , udDocumentFormat
-    , udDocumentVersion
-    , udContent
-    , udName
+    updateDocument_targetType,
+    updateDocument_versionName,
+    updateDocument_documentFormat,
+    updateDocument_documentVersion,
+    updateDocument_attachments,
+    updateDocument_content,
+    updateDocument_name,
 
     -- * Destructuring the Response
-    , updateDocumentResponse
-    , UpdateDocumentResponse
+    UpdateDocumentResponse (..),
+    newUpdateDocumentResponse,
+
     -- * Response Lenses
-    , udrsDocumentDescription
-    , udrsResponseStatus
-    ) where
+    updateDocumentResponse_documentDescription,
+    updateDocumentResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'updateDocument' smart constructor.
+-- | /See:/ 'newUpdateDocument' smart constructor.
 data UpdateDocument = UpdateDocument'
-  { _udTargetType      :: !(Maybe Text)
-  , _udDocumentFormat  :: !(Maybe DocumentFormat)
-  , _udDocumentVersion :: !(Maybe Text)
-  , _udContent         :: !Text
-  , _udName            :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Specify a new target type for the document.
+    targetType :: Prelude.Maybe Prelude.Text,
+    -- | An optional field specifying the version of the artifact you are
+    -- updating with the document. For example, \"Release 12, Update 6\". This
+    -- value is unique across all versions of a document, and cannot be
+    -- changed.
+    versionName :: Prelude.Maybe Prelude.Text,
+    -- | Specify the document format for the new document version. Systems
+    -- Manager supports JSON and YAML documents. JSON is the default format.
+    documentFormat :: Prelude.Maybe DocumentFormat,
+    -- | (Required) The latest version of the document that you want to update.
+    -- The latest document version can be specified using the $LATEST variable
+    -- or by the version number. Updating a previous version of a document is
+    -- not supported.
+    documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | A list of key and value pairs that describe attachments to a version of
+    -- a document.
+    attachments :: Prelude.Maybe [AttachmentsSource],
+    -- | A valid JSON or YAML string.
+    content :: Prelude.Text,
+    -- | The name of the document that you want to update.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDocument' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDocument' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udTargetType' - Specify a new target type for the document.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udDocumentFormat' - Specify the document format for the new document version. Systems Manager supports JSON and YAML documents. JSON is the default format.
+-- 'targetType', 'updateDocument_targetType' - Specify a new target type for the document.
 --
--- * 'udDocumentVersion' - The version of the document that you want to update.
+-- 'versionName', 'updateDocument_versionName' - An optional field specifying the version of the artifact you are
+-- updating with the document. For example, \"Release 12, Update 6\". This
+-- value is unique across all versions of a document, and cannot be
+-- changed.
 --
--- * 'udContent' - The content in a document that you want to update.
+-- 'documentFormat', 'updateDocument_documentFormat' - Specify the document format for the new document version. Systems
+-- Manager supports JSON and YAML documents. JSON is the default format.
 --
--- * 'udName' - The name of the document that you want to update.
-updateDocument
-    :: Text -- ^ 'udContent'
-    -> Text -- ^ 'udName'
-    -> UpdateDocument
-updateDocument pContent_ pName_ =
+-- 'documentVersion', 'updateDocument_documentVersion' - (Required) The latest version of the document that you want to update.
+-- The latest document version can be specified using the $LATEST variable
+-- or by the version number. Updating a previous version of a document is
+-- not supported.
+--
+-- 'attachments', 'updateDocument_attachments' - A list of key and value pairs that describe attachments to a version of
+-- a document.
+--
+-- 'content', 'updateDocument_content' - A valid JSON or YAML string.
+--
+-- 'name', 'updateDocument_name' - The name of the document that you want to update.
+newUpdateDocument ::
+  -- | 'content'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  UpdateDocument
+newUpdateDocument pContent_ pName_ =
   UpdateDocument'
-    { _udTargetType = Nothing
-    , _udDocumentFormat = Nothing
-    , _udDocumentVersion = Nothing
-    , _udContent = pContent_
-    , _udName = pName_
+    { targetType = Prelude.Nothing,
+      versionName = Prelude.Nothing,
+      documentFormat = Prelude.Nothing,
+      documentVersion = Prelude.Nothing,
+      attachments = Prelude.Nothing,
+      content = pContent_,
+      name = pName_
     }
 
-
 -- | Specify a new target type for the document.
-udTargetType :: Lens' UpdateDocument (Maybe Text)
-udTargetType = lens _udTargetType (\ s a -> s{_udTargetType = a})
+updateDocument_targetType :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
+updateDocument_targetType = Lens.lens (\UpdateDocument' {targetType} -> targetType) (\s@UpdateDocument' {} a -> s {targetType = a} :: UpdateDocument)
 
--- | Specify the document format for the new document version. Systems Manager supports JSON and YAML documents. JSON is the default format.
-udDocumentFormat :: Lens' UpdateDocument (Maybe DocumentFormat)
-udDocumentFormat = lens _udDocumentFormat (\ s a -> s{_udDocumentFormat = a})
+-- | An optional field specifying the version of the artifact you are
+-- updating with the document. For example, \"Release 12, Update 6\". This
+-- value is unique across all versions of a document, and cannot be
+-- changed.
+updateDocument_versionName :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
+updateDocument_versionName = Lens.lens (\UpdateDocument' {versionName} -> versionName) (\s@UpdateDocument' {} a -> s {versionName = a} :: UpdateDocument)
 
--- | The version of the document that you want to update.
-udDocumentVersion :: Lens' UpdateDocument (Maybe Text)
-udDocumentVersion = lens _udDocumentVersion (\ s a -> s{_udDocumentVersion = a})
+-- | Specify the document format for the new document version. Systems
+-- Manager supports JSON and YAML documents. JSON is the default format.
+updateDocument_documentFormat :: Lens.Lens' UpdateDocument (Prelude.Maybe DocumentFormat)
+updateDocument_documentFormat = Lens.lens (\UpdateDocument' {documentFormat} -> documentFormat) (\s@UpdateDocument' {} a -> s {documentFormat = a} :: UpdateDocument)
 
--- | The content in a document that you want to update.
-udContent :: Lens' UpdateDocument Text
-udContent = lens _udContent (\ s a -> s{_udContent = a})
+-- | (Required) The latest version of the document that you want to update.
+-- The latest document version can be specified using the $LATEST variable
+-- or by the version number. Updating a previous version of a document is
+-- not supported.
+updateDocument_documentVersion :: Lens.Lens' UpdateDocument (Prelude.Maybe Prelude.Text)
+updateDocument_documentVersion = Lens.lens (\UpdateDocument' {documentVersion} -> documentVersion) (\s@UpdateDocument' {} a -> s {documentVersion = a} :: UpdateDocument)
+
+-- | A list of key and value pairs that describe attachments to a version of
+-- a document.
+updateDocument_attachments :: Lens.Lens' UpdateDocument (Prelude.Maybe [AttachmentsSource])
+updateDocument_attachments = Lens.lens (\UpdateDocument' {attachments} -> attachments) (\s@UpdateDocument' {} a -> s {attachments = a} :: UpdateDocument) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | A valid JSON or YAML string.
+updateDocument_content :: Lens.Lens' UpdateDocument Prelude.Text
+updateDocument_content = Lens.lens (\UpdateDocument' {content} -> content) (\s@UpdateDocument' {} a -> s {content = a} :: UpdateDocument)
 
 -- | The name of the document that you want to update.
-udName :: Lens' UpdateDocument Text
-udName = lens _udName (\ s a -> s{_udName = a})
+updateDocument_name :: Lens.Lens' UpdateDocument Prelude.Text
+updateDocument_name = Lens.lens (\UpdateDocument' {name} -> name) (\s@UpdateDocument' {} a -> s {name = a} :: UpdateDocument)
 
-instance AWSRequest UpdateDocument where
-        type Rs UpdateDocument = UpdateDocumentResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateDocumentResponse' <$>
-                   (x .?> "DocumentDescription") <*>
-                     (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateDocument where
+  type Rs UpdateDocument = UpdateDocumentResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateDocumentResponse'
+            Prelude.<$> (x Prelude..?> "DocumentDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateDocument where
+instance Prelude.Hashable UpdateDocument
 
-instance NFData UpdateDocument where
+instance Prelude.NFData UpdateDocument
 
-instance ToHeaders UpdateDocument where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.UpdateDocument" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdateDocument where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("AmazonSSM.UpdateDocument" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateDocument where
-        toJSON UpdateDocument'{..}
-          = object
-              (catMaybes
-                 [("TargetType" .=) <$> _udTargetType,
-                  ("DocumentFormat" .=) <$> _udDocumentFormat,
-                  ("DocumentVersion" .=) <$> _udDocumentVersion,
-                  Just ("Content" .= _udContent),
-                  Just ("Name" .= _udName)])
+instance Prelude.ToJSON UpdateDocument where
+  toJSON UpdateDocument' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("TargetType" Prelude..=) Prelude.<$> targetType,
+            ("VersionName" Prelude..=) Prelude.<$> versionName,
+            ("DocumentFormat" Prelude..=)
+              Prelude.<$> documentFormat,
+            ("DocumentVersion" Prelude..=)
+              Prelude.<$> documentVersion,
+            ("Attachments" Prelude..=) Prelude.<$> attachments,
+            Prelude.Just ("Content" Prelude..= content),
+            Prelude.Just ("Name" Prelude..= name)
+          ]
+      )
 
-instance ToPath UpdateDocument where
-        toPath = const "/"
+instance Prelude.ToPath UpdateDocument where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateDocument where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateDocument where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateDocumentResponse' smart constructor.
+-- | /See:/ 'newUpdateDocumentResponse' smart constructor.
 data UpdateDocumentResponse = UpdateDocumentResponse'
-  { _udrsDocumentDescription :: !(Maybe DocumentDescription)
-  , _udrsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A description of the document that was updated.
+    documentDescription :: Prelude.Maybe DocumentDescription,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDocumentResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDocumentResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udrsDocumentDescription' - A description of the document that was updated.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udrsResponseStatus' - -- | The response status code.
-updateDocumentResponse
-    :: Int -- ^ 'udrsResponseStatus'
-    -> UpdateDocumentResponse
-updateDocumentResponse pResponseStatus_ =
+-- 'documentDescription', 'updateDocumentResponse_documentDescription' - A description of the document that was updated.
+--
+-- 'httpStatus', 'updateDocumentResponse_httpStatus' - The response's http status code.
+newUpdateDocumentResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateDocumentResponse
+newUpdateDocumentResponse pHttpStatus_ =
   UpdateDocumentResponse'
-    {_udrsDocumentDescription = Nothing, _udrsResponseStatus = pResponseStatus_}
-
+    { documentDescription =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A description of the document that was updated.
-udrsDocumentDescription :: Lens' UpdateDocumentResponse (Maybe DocumentDescription)
-udrsDocumentDescription = lens _udrsDocumentDescription (\ s a -> s{_udrsDocumentDescription = a})
+updateDocumentResponse_documentDescription :: Lens.Lens' UpdateDocumentResponse (Prelude.Maybe DocumentDescription)
+updateDocumentResponse_documentDescription = Lens.lens (\UpdateDocumentResponse' {documentDescription} -> documentDescription) (\s@UpdateDocumentResponse' {} a -> s {documentDescription = a} :: UpdateDocumentResponse)
 
--- | -- | The response status code.
-udrsResponseStatus :: Lens' UpdateDocumentResponse Int
-udrsResponseStatus = lens _udrsResponseStatus (\ s a -> s{_udrsResponseStatus = a})
+-- | The response's http status code.
+updateDocumentResponse_httpStatus :: Lens.Lens' UpdateDocumentResponse Prelude.Int
+updateDocumentResponse_httpStatus = Lens.lens (\UpdateDocumentResponse' {httpStatus} -> httpStatus) (\s@UpdateDocumentResponse' {} a -> s {httpStatus = a} :: UpdateDocumentResponse)
 
-instance NFData UpdateDocumentResponse where
+instance Prelude.NFData UpdateDocumentResponse

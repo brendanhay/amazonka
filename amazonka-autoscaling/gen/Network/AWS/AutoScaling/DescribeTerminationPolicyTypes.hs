@@ -1,126 +1,172 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the termination policies supported by Auto Scaling.
+-- Describes the termination policies supported by Amazon EC2 Auto Scaling.
 --
---
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling which Auto Scaling instances terminate during scale in>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
-    (
-    -- * Creating a Request
-      describeTerminationPolicyTypes
-    , DescribeTerminationPolicyTypes
+  ( -- * Creating a Request
+    DescribeTerminationPolicyTypes (..),
+    newDescribeTerminationPolicyTypes,
 
     -- * Destructuring the Response
-    , describeTerminationPolicyTypesResponse
-    , DescribeTerminationPolicyTypesResponse
+    DescribeTerminationPolicyTypesResponse (..),
+    newDescribeTerminationPolicyTypesResponse,
+
     -- * Response Lenses
-    , dtptrsTerminationPolicyTypes
-    , dtptrsResponseStatus
-    ) where
+    describeTerminationPolicyTypesResponse_terminationPolicyTypes,
+    describeTerminationPolicyTypesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeTerminationPolicyTypes' smart constructor.
-data DescribeTerminationPolicyTypes =
+-- | /See:/ 'newDescribeTerminationPolicyTypes' smart constructor.
+data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeTerminationPolicyTypes' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDescribeTerminationPolicyTypes ::
+  DescribeTerminationPolicyTypes
+newDescribeTerminationPolicyTypes =
   DescribeTerminationPolicyTypes'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
+instance
+  Prelude.AWSRequest
+    DescribeTerminationPolicyTypes
+  where
+  type
+    Rs DescribeTerminationPolicyTypes =
+      DescribeTerminationPolicyTypesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeTerminationPolicyTypesResult"
+      ( \s h x ->
+          DescribeTerminationPolicyTypesResponse'
+            Prelude.<$> ( x Prelude..@? "TerminationPolicyTypes"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | Creates a value of 'DescribeTerminationPolicyTypes' with the minimum fields required to make a request.
---
-describeTerminationPolicyTypes
-    :: DescribeTerminationPolicyTypes
-describeTerminationPolicyTypes = DescribeTerminationPolicyTypes'
+instance
+  Prelude.Hashable
+    DescribeTerminationPolicyTypes
 
+instance
+  Prelude.NFData
+    DescribeTerminationPolicyTypes
 
-instance AWSRequest DescribeTerminationPolicyTypes
-         where
-        type Rs DescribeTerminationPolicyTypes =
-             DescribeTerminationPolicyTypesResponse
-        request = postQuery autoScaling
-        response
-          = receiveXMLWrapper
-              "DescribeTerminationPolicyTypesResult"
-              (\ s h x ->
-                 DescribeTerminationPolicyTypesResponse' <$>
-                   (x .@? "TerminationPolicyTypes" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.ToHeaders
+    DescribeTerminationPolicyTypes
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance Hashable DescribeTerminationPolicyTypes
-         where
+instance
+  Prelude.ToPath
+    DescribeTerminationPolicyTypes
+  where
+  toPath = Prelude.const "/"
 
-instance NFData DescribeTerminationPolicyTypes where
+instance
+  Prelude.ToQuery
+    DescribeTerminationPolicyTypes
+  where
+  toQuery =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Action"
+              Prelude.=: ( "DescribeTerminationPolicyTypes" ::
+                             Prelude.ByteString
+                         ),
+            "Version"
+              Prelude.=: ("2011-01-01" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders DescribeTerminationPolicyTypes
-         where
-        toHeaders = const mempty
-
-instance ToPath DescribeTerminationPolicyTypes where
-        toPath = const "/"
-
-instance ToQuery DescribeTerminationPolicyTypes where
-        toQuery
-          = const
-              (mconcat
-                 ["Action" =:
-                    ("DescribeTerminationPolicyTypes" :: ByteString),
-                  "Version" =: ("2011-01-01" :: ByteString)])
-
--- | /See:/ 'describeTerminationPolicyTypesResponse' smart constructor.
+-- | /See:/ 'newDescribeTerminationPolicyTypesResponse' smart constructor.
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
-  { _dtptrsTerminationPolicyTypes :: !(Maybe [Text])
-  , _dtptrsResponseStatus         :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The termination policies supported by Amazon EC2 Auto Scaling:
+    -- @OldestInstance@, @OldestLaunchConfiguration@, @NewestInstance@,
+    -- @ClosestToNextInstanceHour@, @Default@, @OldestLaunchTemplate@, and
+    -- @AllocationStrategy@.
+    terminationPolicyTypes :: Prelude.Maybe [Prelude.Text],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTerminationPolicyTypesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTerminationPolicyTypesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtptrsTerminationPolicyTypes' - The termination policies supported by Auto Scaling (@OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , and @Default@ ).
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtptrsResponseStatus' - -- | The response status code.
-describeTerminationPolicyTypesResponse
-    :: Int -- ^ 'dtptrsResponseStatus'
-    -> DescribeTerminationPolicyTypesResponse
-describeTerminationPolicyTypesResponse pResponseStatus_ =
-  DescribeTerminationPolicyTypesResponse'
-    { _dtptrsTerminationPolicyTypes = Nothing
-    , _dtptrsResponseStatus = pResponseStatus_
-    }
+-- 'terminationPolicyTypes', 'describeTerminationPolicyTypesResponse_terminationPolicyTypes' - The termination policies supported by Amazon EC2 Auto Scaling:
+-- @OldestInstance@, @OldestLaunchConfiguration@, @NewestInstance@,
+-- @ClosestToNextInstanceHour@, @Default@, @OldestLaunchTemplate@, and
+-- @AllocationStrategy@.
+--
+-- 'httpStatus', 'describeTerminationPolicyTypesResponse_httpStatus' - The response's http status code.
+newDescribeTerminationPolicyTypesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeTerminationPolicyTypesResponse
+newDescribeTerminationPolicyTypesResponse
+  pHttpStatus_ =
+    DescribeTerminationPolicyTypesResponse'
+      { terminationPolicyTypes =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
+-- | The termination policies supported by Amazon EC2 Auto Scaling:
+-- @OldestInstance@, @OldestLaunchConfiguration@, @NewestInstance@,
+-- @ClosestToNextInstanceHour@, @Default@, @OldestLaunchTemplate@, and
+-- @AllocationStrategy@.
+describeTerminationPolicyTypesResponse_terminationPolicyTypes :: Lens.Lens' DescribeTerminationPolicyTypesResponse (Prelude.Maybe [Prelude.Text])
+describeTerminationPolicyTypesResponse_terminationPolicyTypes = Lens.lens (\DescribeTerminationPolicyTypesResponse' {terminationPolicyTypes} -> terminationPolicyTypes) (\s@DescribeTerminationPolicyTypesResponse' {} a -> s {terminationPolicyTypes = a} :: DescribeTerminationPolicyTypesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The termination policies supported by Auto Scaling (@OldestInstance@ , @OldestLaunchConfiguration@ , @NewestInstance@ , @ClosestToNextInstanceHour@ , and @Default@ ).
-dtptrsTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
-dtptrsTerminationPolicyTypes = lens _dtptrsTerminationPolicyTypes (\ s a -> s{_dtptrsTerminationPolicyTypes = a}) . _Default . _Coerce
+-- | The response's http status code.
+describeTerminationPolicyTypesResponse_httpStatus :: Lens.Lens' DescribeTerminationPolicyTypesResponse Prelude.Int
+describeTerminationPolicyTypesResponse_httpStatus = Lens.lens (\DescribeTerminationPolicyTypesResponse' {httpStatus} -> httpStatus) (\s@DescribeTerminationPolicyTypesResponse' {} a -> s {httpStatus = a} :: DescribeTerminationPolicyTypesResponse)
 
--- | -- | The response status code.
-dtptrsResponseStatus :: Lens' DescribeTerminationPolicyTypesResponse Int
-dtptrsResponseStatus = lens _dtptrsResponseStatus (\ s a -> s{_dtptrsResponseStatus = a})
-
-instance NFData
-           DescribeTerminationPolicyTypesResponse
-         where
+instance
+  Prelude.NFData
+    DescribeTerminationPolicyTypesResponse

@@ -1,143 +1,174 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetRemoteAccessSession
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a link to a currently running remote access session.
---
---
 module Network.AWS.DeviceFarm.GetRemoteAccessSession
-    (
-    -- * Creating a Request
-      getRemoteAccessSession
-    , GetRemoteAccessSession
+  ( -- * Creating a Request
+    GetRemoteAccessSession (..),
+    newGetRemoteAccessSession,
+
     -- * Request Lenses
-    , grasArn
+    getRemoteAccessSession_arn,
 
     -- * Destructuring the Response
-    , getRemoteAccessSessionResponse
-    , GetRemoteAccessSessionResponse
+    GetRemoteAccessSessionResponse (..),
+    newGetRemoteAccessSessionResponse,
+
     -- * Response Lenses
-    , grasrsRemoteAccessSession
-    , grasrsResponseStatus
-    ) where
+    getRemoteAccessSessionResponse_remoteAccessSession,
+    getRemoteAccessSessionResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the request to get information about the specified remote access session.
+-- | Represents the request to get information about the specified remote
+-- access session.
 --
+-- /See:/ 'newGetRemoteAccessSession' smart constructor.
+data GetRemoteAccessSession = GetRemoteAccessSession'
+  { -- | The Amazon Resource Name (ARN) of the remote access session about which
+    -- you want to get session information.
+    arn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetRemoteAccessSession' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'getRemoteAccessSession' smart constructor.
-newtype GetRemoteAccessSession = GetRemoteAccessSession'
-  { _grasArn :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetRemoteAccessSession' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'arn', 'getRemoteAccessSession_arn' - The Amazon Resource Name (ARN) of the remote access session about which
+-- you want to get session information.
+newGetRemoteAccessSession ::
+  -- | 'arn'
+  Prelude.Text ->
+  GetRemoteAccessSession
+newGetRemoteAccessSession pArn_ =
+  GetRemoteAccessSession' {arn = pArn_}
+
+-- | The Amazon Resource Name (ARN) of the remote access session about which
+-- you want to get session information.
+getRemoteAccessSession_arn :: Lens.Lens' GetRemoteAccessSession Prelude.Text
+getRemoteAccessSession_arn = Lens.lens (\GetRemoteAccessSession' {arn} -> arn) (\s@GetRemoteAccessSession' {} a -> s {arn = a} :: GetRemoteAccessSession)
+
+instance Prelude.AWSRequest GetRemoteAccessSession where
+  type
+    Rs GetRemoteAccessSession =
+      GetRemoteAccessSessionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetRemoteAccessSessionResponse'
+            Prelude.<$> (x Prelude..?> "remoteAccessSession")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetRemoteAccessSession
+
+instance Prelude.NFData GetRemoteAccessSession
+
+instance Prelude.ToHeaders GetRemoteAccessSession where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "DeviceFarm_20150623.GetRemoteAccessSession" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON GetRemoteAccessSession where
+  toJSON GetRemoteAccessSession' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Prelude..= arn)]
+      )
+
+instance Prelude.ToPath GetRemoteAccessSession where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery GetRemoteAccessSession where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Represents the response from the server that lists detailed information
+-- about the remote access session.
 --
--- * 'grasArn' - The Amazon Resource Name (ARN) of the remote access session about which you want to get session information.
-getRemoteAccessSession
-    :: Text -- ^ 'grasArn'
-    -> GetRemoteAccessSession
-getRemoteAccessSession pArn_ = GetRemoteAccessSession' {_grasArn = pArn_}
-
-
--- | The Amazon Resource Name (ARN) of the remote access session about which you want to get session information.
-grasArn :: Lens' GetRemoteAccessSession Text
-grasArn = lens _grasArn (\ s a -> s{_grasArn = a})
-
-instance AWSRequest GetRemoteAccessSession where
-        type Rs GetRemoteAccessSession =
-             GetRemoteAccessSessionResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetRemoteAccessSessionResponse' <$>
-                   (x .?> "remoteAccessSession") <*>
-                     (pure (fromEnum s)))
-
-instance Hashable GetRemoteAccessSession where
-
-instance NFData GetRemoteAccessSession where
-
-instance ToHeaders GetRemoteAccessSession where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.GetRemoteAccessSession" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON GetRemoteAccessSession where
-        toJSON GetRemoteAccessSession'{..}
-          = object (catMaybes [Just ("arn" .= _grasArn)])
-
-instance ToPath GetRemoteAccessSession where
-        toPath = const "/"
-
-instance ToQuery GetRemoteAccessSession where
-        toQuery = const mempty
-
--- | Represents the response from the server that lists detailed information about the remote access session.
---
---
---
--- /See:/ 'getRemoteAccessSessionResponse' smart constructor.
+-- /See:/ 'newGetRemoteAccessSessionResponse' smart constructor.
 data GetRemoteAccessSessionResponse = GetRemoteAccessSessionResponse'
-  { _grasrsRemoteAccessSession :: !(Maybe RemoteAccessSession)
-  , _grasrsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A container that lists detailed information about the remote access
+    -- session.
+    remoteAccessSession :: Prelude.Maybe RemoteAccessSession,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetRemoteAccessSessionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetRemoteAccessSessionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grasrsRemoteAccessSession' - A container that lists detailed information about the remote access session.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'grasrsResponseStatus' - -- | The response status code.
-getRemoteAccessSessionResponse
-    :: Int -- ^ 'grasrsResponseStatus'
-    -> GetRemoteAccessSessionResponse
-getRemoteAccessSessionResponse pResponseStatus_ =
+-- 'remoteAccessSession', 'getRemoteAccessSessionResponse_remoteAccessSession' - A container that lists detailed information about the remote access
+-- session.
+--
+-- 'httpStatus', 'getRemoteAccessSessionResponse_httpStatus' - The response's http status code.
+newGetRemoteAccessSessionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetRemoteAccessSessionResponse
+newGetRemoteAccessSessionResponse pHttpStatus_ =
   GetRemoteAccessSessionResponse'
-    { _grasrsRemoteAccessSession = Nothing
-    , _grasrsResponseStatus = pResponseStatus_
+    { remoteAccessSession =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | A container that lists detailed information about the remote access
+-- session.
+getRemoteAccessSessionResponse_remoteAccessSession :: Lens.Lens' GetRemoteAccessSessionResponse (Prelude.Maybe RemoteAccessSession)
+getRemoteAccessSessionResponse_remoteAccessSession = Lens.lens (\GetRemoteAccessSessionResponse' {remoteAccessSession} -> remoteAccessSession) (\s@GetRemoteAccessSessionResponse' {} a -> s {remoteAccessSession = a} :: GetRemoteAccessSessionResponse)
 
--- | A container that lists detailed information about the remote access session.
-grasrsRemoteAccessSession :: Lens' GetRemoteAccessSessionResponse (Maybe RemoteAccessSession)
-grasrsRemoteAccessSession = lens _grasrsRemoteAccessSession (\ s a -> s{_grasrsRemoteAccessSession = a})
+-- | The response's http status code.
+getRemoteAccessSessionResponse_httpStatus :: Lens.Lens' GetRemoteAccessSessionResponse Prelude.Int
+getRemoteAccessSessionResponse_httpStatus = Lens.lens (\GetRemoteAccessSessionResponse' {httpStatus} -> httpStatus) (\s@GetRemoteAccessSessionResponse' {} a -> s {httpStatus = a} :: GetRemoteAccessSessionResponse)
 
--- | -- | The response status code.
-grasrsResponseStatus :: Lens' GetRemoteAccessSessionResponse Int
-grasrsResponseStatus = lens _grasrsResponseStatus (\ s a -> s{_grasrsResponseStatus = a})
-
-instance NFData GetRemoteAccessSessionResponse where
+instance
+  Prelude.NFData
+    GetRemoteAccessSessionResponse

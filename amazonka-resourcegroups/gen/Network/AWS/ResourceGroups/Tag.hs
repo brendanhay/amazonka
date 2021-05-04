@@ -1,145 +1,183 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ResourceGroups.Tag
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds specified tags to a resource with the specified ARN. Existing tags on a resource are not changed if they are not specified in the request parameters.
+-- Adds tags to a resource group with the specified ARN. Existing tags on a
+-- resource group are not changed if they are not specified in the request
+-- parameters.
 --
+-- Do not store personally identifiable information (PII) or other
+-- confidential or sensitive information in tags. We use tags to provide
+-- you with billing and administration services. Tags are not intended to
+-- be used for private or sensitive data.
 --
+-- __Minimum permissions__
+--
+-- To run this command, you must have the following permissions:
+--
+-- -   @resource-groups:Tag@
 module Network.AWS.ResourceGroups.Tag
-    (
-    -- * Creating a Request
-      tag
-    , Tag
+  ( -- * Creating a Request
+    Tag (..),
+    newTag,
+
     -- * Request Lenses
-    , tagARN
-    , tagTags
+    tag_arn,
+    tag_tags,
 
     -- * Destructuring the Response
-    , tagResponse
-    , TagResponse
+    TagResponse (..),
+    newTagResponse,
+
     -- * Response Lenses
-    , tagrsARN
-    , tagrsTags
-    , tagrsResponseStatus
-    ) where
+    tagResponse_arn,
+    tagResponse_tags,
+    tagResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
-import Network.AWS.ResourceGroups.Types.Product
-import Network.AWS.Response
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'tag' smart constructor.
+-- | /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { _tagARN  :: !Text
-  , _tagTags :: !(Map Text Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the resource group to which to add tags.
+    arn :: Prelude.Text,
+    -- | The tags to add to the specified resource group. A tag is a
+    -- string-to-string map of key-value pairs.
+    tags :: Prelude.HashMap Prelude.Text Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'Tag' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'Tag' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'tagARN' - The ARN of the resource to which to add tags.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'tagTags' - The tags to add to the specified resource. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 127 characters, and tag values can have a maximum length of 255 characters.
-tag
-    :: Text -- ^ 'tagARN'
-    -> Tag
-tag pARN_ = Tag' {_tagARN = pARN_, _tagTags = mempty}
+-- 'arn', 'tag_arn' - The ARN of the resource group to which to add tags.
+--
+-- 'tags', 'tag_tags' - The tags to add to the specified resource group. A tag is a
+-- string-to-string map of key-value pairs.
+newTag ::
+  -- | 'arn'
+  Prelude.Text ->
+  Tag
+newTag pArn_ =
+  Tag' {arn = pArn_, tags = Prelude.mempty}
 
+-- | The ARN of the resource group to which to add tags.
+tag_arn :: Lens.Lens' Tag Prelude.Text
+tag_arn = Lens.lens (\Tag' {arn} -> arn) (\s@Tag' {} a -> s {arn = a} :: Tag)
 
--- | The ARN of the resource to which to add tags.
-tagARN :: Lens' Tag Text
-tagARN = lens _tagARN (\ s a -> s{_tagARN = a})
+-- | The tags to add to the specified resource group. A tag is a
+-- string-to-string map of key-value pairs.
+tag_tags :: Lens.Lens' Tag (Prelude.HashMap Prelude.Text Prelude.Text)
+tag_tags = Lens.lens (\Tag' {tags} -> tags) (\s@Tag' {} a -> s {tags = a} :: Tag) Prelude.. Prelude._Coerce
 
--- | The tags to add to the specified resource. A tag is a string-to-string map of key-value pairs. Tag keys can have a maximum character length of 127 characters, and tag values can have a maximum length of 255 characters.
-tagTags :: Lens' Tag (HashMap Text Text)
-tagTags = lens _tagTags (\ s a -> s{_tagTags = a}) . _Map
+instance Prelude.AWSRequest Tag where
+  type Rs Tag = TagResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          TagResponse'
+            Prelude.<$> (x Prelude..?> "Arn")
+            Prelude.<*> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest Tag where
-        type Rs Tag = TagResponse
-        request = putJSON resourceGroups
-        response
-          = receiveJSON
-              (\ s h x ->
-                 TagResponse' <$>
-                   (x .?> "Arn") <*> (x .?> "Tags" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable Tag
 
-instance Hashable Tag where
+instance Prelude.NFData Tag
 
-instance NFData Tag where
+instance Prelude.ToHeaders Tag where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders Tag where
-        toHeaders = const mempty
+instance Prelude.ToJSON Tag where
+  toJSON Tag' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Tags" Prelude..= tags)]
+      )
 
-instance ToJSON Tag where
-        toJSON Tag'{..}
-          = object (catMaybes [Just ("Tags" .= _tagTags)])
+instance Prelude.ToPath Tag where
+  toPath Tag' {..} =
+    Prelude.mconcat
+      ["/resources/", Prelude.toBS arn, "/tags"]
 
-instance ToPath Tag where
-        toPath Tag'{..}
-          = mconcat ["/resources/", toBS _tagARN, "/tags"]
+instance Prelude.ToQuery Tag where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery Tag where
-        toQuery = const mempty
-
--- | /See:/ 'tagResponse' smart constructor.
+-- | /See:/ 'newTagResponse' smart constructor.
 data TagResponse = TagResponse'
-  { _tagrsARN            :: !(Maybe Text)
-  , _tagrsTags           :: !(Maybe (Map Text Text))
-  , _tagrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the tagged resource.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The tags that have been added to the specified resource group.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'TagResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'TagResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'tagrsARN' - The ARN of the tagged resource.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'tagrsTags' - The tags that have been added to the specified resource.
+-- 'arn', 'tagResponse_arn' - The ARN of the tagged resource.
 --
--- * 'tagrsResponseStatus' - -- | The response status code.
-tagResponse
-    :: Int -- ^ 'tagrsResponseStatus'
-    -> TagResponse
-tagResponse pResponseStatus_ =
+-- 'tags', 'tagResponse_tags' - The tags that have been added to the specified resource group.
+--
+-- 'httpStatus', 'tagResponse_httpStatus' - The response's http status code.
+newTagResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  TagResponse
+newTagResponse pHttpStatus_ =
   TagResponse'
-    { _tagrsARN = Nothing
-    , _tagrsTags = Nothing
-    , _tagrsResponseStatus = pResponseStatus_
+    { arn = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The ARN of the tagged resource.
-tagrsARN :: Lens' TagResponse (Maybe Text)
-tagrsARN = lens _tagrsARN (\ s a -> s{_tagrsARN = a})
+tagResponse_arn :: Lens.Lens' TagResponse (Prelude.Maybe Prelude.Text)
+tagResponse_arn = Lens.lens (\TagResponse' {arn} -> arn) (\s@TagResponse' {} a -> s {arn = a} :: TagResponse)
 
--- | The tags that have been added to the specified resource.
-tagrsTags :: Lens' TagResponse (HashMap Text Text)
-tagrsTags = lens _tagrsTags (\ s a -> s{_tagrsTags = a}) . _Default . _Map
+-- | The tags that have been added to the specified resource group.
+tagResponse_tags :: Lens.Lens' TagResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+tagResponse_tags = Lens.lens (\TagResponse' {tags} -> tags) (\s@TagResponse' {} a -> s {tags = a} :: TagResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-tagrsResponseStatus :: Lens' TagResponse Int
-tagrsResponseStatus = lens _tagrsResponseStatus (\ s a -> s{_tagrsResponseStatus = a})
+-- | The response's http status code.
+tagResponse_httpStatus :: Lens.Lens' TagResponse Prelude.Int
+tagResponse_httpStatus = Lens.lens (\TagResponse' {httpStatus} -> httpStatus) (\s@TagResponse' {} a -> s {httpStatus = a} :: TagResponse)
 
-instance NFData TagResponse where
+instance Prelude.NFData TagResponse

@@ -1,179 +1,248 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MachineLearning.CreateEvaluation
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new @Evaluation@ of an @MLModel@ . An @MLModel@ is evaluated on a set of observations associated to a @DataSource@ . Like a @DataSource@ for an @MLModel@ , the @DataSource@ for an @Evaluation@ contains values for the @Target Variable@ . The @Evaluation@ compares the predicted result for each observation to the actual outcome and provides a summary so that you know how effective the @MLModel@ functions on the test data. Evaluation generates a relevant performance metric, such as BinaryAUC, RegressionRMSE or MulticlassAvgFScore based on the corresponding @MLModelType@ : @BINARY@ , @REGRESSION@ or @MULTICLASS@ .
+-- Creates a new @Evaluation@ of an @MLModel@. An @MLModel@ is evaluated on
+-- a set of observations associated to a @DataSource@. Like a @DataSource@
+-- for an @MLModel@, the @DataSource@ for an @Evaluation@ contains values
+-- for the @Target Variable@. The @Evaluation@ compares the predicted
+-- result for each observation to the actual outcome and provides a summary
+-- so that you know how effective the @MLModel@ functions on the test data.
+-- Evaluation generates a relevant performance metric, such as BinaryAUC,
+-- RegressionRMSE or MulticlassAvgFScore based on the corresponding
+-- @MLModelType@: @BINARY@, @REGRESSION@ or @MULTICLASS@.
 --
+-- @CreateEvaluation@ is an asynchronous operation. In response to
+-- @CreateEvaluation@, Amazon Machine Learning (Amazon ML) immediately
+-- returns and sets the evaluation status to @PENDING@. After the
+-- @Evaluation@ is created and ready for use, Amazon ML sets the status to
+-- @COMPLETED@.
 --
--- @CreateEvaluation@ is an asynchronous operation. In response to @CreateEvaluation@ , Amazon Machine Learning (Amazon ML) immediately returns and sets the evaluation status to @PENDING@ . After the @Evaluation@ is created and ready for use, Amazon ML sets the status to @COMPLETED@ .
---
--- You can use the @GetEvaluation@ operation to check progress of the evaluation during the creation operation.
---
+-- You can use the @GetEvaluation@ operation to check progress of the
+-- evaluation during the creation operation.
 module Network.AWS.MachineLearning.CreateEvaluation
-    (
-    -- * Creating a Request
-      createEvaluation
-    , CreateEvaluation
+  ( -- * Creating a Request
+    CreateEvaluation (..),
+    newCreateEvaluation,
+
     -- * Request Lenses
-    , ceEvaluationName
-    , ceEvaluationId
-    , ceMLModelId
-    , ceEvaluationDataSourceId
+    createEvaluation_evaluationName,
+    createEvaluation_evaluationId,
+    createEvaluation_mLModelId,
+    createEvaluation_evaluationDataSourceId,
 
     -- * Destructuring the Response
-    , createEvaluationResponse
-    , CreateEvaluationResponse
+    CreateEvaluationResponse (..),
+    newCreateEvaluationResponse,
+
     -- * Response Lenses
-    , cersEvaluationId
-    , cersResponseStatus
-    ) where
+    createEvaluationResponse_evaluationId,
+    createEvaluationResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createEvaluation' smart constructor.
+-- | /See:/ 'newCreateEvaluation' smart constructor.
 data CreateEvaluation = CreateEvaluation'
-  { _ceEvaluationName         :: !(Maybe Text)
-  , _ceEvaluationId           :: !Text
-  , _ceMLModelId              :: !Text
-  , _ceEvaluationDataSourceId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A user-supplied name or description of the @Evaluation@.
+    evaluationName :: Prelude.Maybe Prelude.Text,
+    -- | A user-supplied ID that uniquely identifies the @Evaluation@.
+    evaluationId :: Prelude.Text,
+    -- | The ID of the @MLModel@ to evaluate.
+    --
+    -- The schema used in creating the @MLModel@ must match the schema of the
+    -- @DataSource@ used in the @Evaluation@.
+    mLModelId :: Prelude.Text,
+    -- | The ID of the @DataSource@ for the evaluation. The schema of the
+    -- @DataSource@ must match the schema used to create the @MLModel@.
+    evaluationDataSourceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateEvaluation' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'evaluationName', 'createEvaluation_evaluationName' - A user-supplied name or description of the @Evaluation@.
+--
+-- 'evaluationId', 'createEvaluation_evaluationId' - A user-supplied ID that uniquely identifies the @Evaluation@.
+--
+-- 'mLModelId', 'createEvaluation_mLModelId' - The ID of the @MLModel@ to evaluate.
+--
+-- The schema used in creating the @MLModel@ must match the schema of the
+-- @DataSource@ used in the @Evaluation@.
+--
+-- 'evaluationDataSourceId', 'createEvaluation_evaluationDataSourceId' - The ID of the @DataSource@ for the evaluation. The schema of the
+-- @DataSource@ must match the schema used to create the @MLModel@.
+newCreateEvaluation ::
+  -- | 'evaluationId'
+  Prelude.Text ->
+  -- | 'mLModelId'
+  Prelude.Text ->
+  -- | 'evaluationDataSourceId'
+  Prelude.Text ->
+  CreateEvaluation
+newCreateEvaluation
+  pEvaluationId_
+  pMLModelId_
+  pEvaluationDataSourceId_ =
+    CreateEvaluation'
+      { evaluationName = Prelude.Nothing,
+        evaluationId = pEvaluationId_,
+        mLModelId = pMLModelId_,
+        evaluationDataSourceId = pEvaluationDataSourceId_
+      }
 
--- | Creates a value of 'CreateEvaluation' with the minimum fields required to make a request.
+-- | A user-supplied name or description of the @Evaluation@.
+createEvaluation_evaluationName :: Lens.Lens' CreateEvaluation (Prelude.Maybe Prelude.Text)
+createEvaluation_evaluationName = Lens.lens (\CreateEvaluation' {evaluationName} -> evaluationName) (\s@CreateEvaluation' {} a -> s {evaluationName = a} :: CreateEvaluation)
+
+-- | A user-supplied ID that uniquely identifies the @Evaluation@.
+createEvaluation_evaluationId :: Lens.Lens' CreateEvaluation Prelude.Text
+createEvaluation_evaluationId = Lens.lens (\CreateEvaluation' {evaluationId} -> evaluationId) (\s@CreateEvaluation' {} a -> s {evaluationId = a} :: CreateEvaluation)
+
+-- | The ID of the @MLModel@ to evaluate.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- The schema used in creating the @MLModel@ must match the schema of the
+-- @DataSource@ used in the @Evaluation@.
+createEvaluation_mLModelId :: Lens.Lens' CreateEvaluation Prelude.Text
+createEvaluation_mLModelId = Lens.lens (\CreateEvaluation' {mLModelId} -> mLModelId) (\s@CreateEvaluation' {} a -> s {mLModelId = a} :: CreateEvaluation)
+
+-- | The ID of the @DataSource@ for the evaluation. The schema of the
+-- @DataSource@ must match the schema used to create the @MLModel@.
+createEvaluation_evaluationDataSourceId :: Lens.Lens' CreateEvaluation Prelude.Text
+createEvaluation_evaluationDataSourceId = Lens.lens (\CreateEvaluation' {evaluationDataSourceId} -> evaluationDataSourceId) (\s@CreateEvaluation' {} a -> s {evaluationDataSourceId = a} :: CreateEvaluation)
+
+instance Prelude.AWSRequest CreateEvaluation where
+  type Rs CreateEvaluation = CreateEvaluationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateEvaluationResponse'
+            Prelude.<$> (x Prelude..?> "EvaluationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CreateEvaluation
+
+instance Prelude.NFData CreateEvaluation
+
+instance Prelude.ToHeaders CreateEvaluation where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonML_20141212.CreateEvaluation" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON CreateEvaluation where
+  toJSON CreateEvaluation' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("EvaluationName" Prelude..=)
+              Prelude.<$> evaluationName,
+            Prelude.Just
+              ("EvaluationId" Prelude..= evaluationId),
+            Prelude.Just ("MLModelId" Prelude..= mLModelId),
+            Prelude.Just
+              ( "EvaluationDataSourceId"
+                  Prelude..= evaluationDataSourceId
+              )
+          ]
+      )
+
+instance Prelude.ToPath CreateEvaluation where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery CreateEvaluation where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Represents the output of a @CreateEvaluation@ operation, and is an
+-- acknowledgement that Amazon ML received the request.
 --
--- * 'ceEvaluationName' - A user-supplied name or description of the @Evaluation@ .
+-- @CreateEvaluation@ operation is asynchronous. You can poll for status
+-- updates by using the @GetEvcaluation@ operation and checking the
+-- @Status@ parameter.
 --
--- * 'ceEvaluationId' - A user-supplied ID that uniquely identifies the @Evaluation@ .
+-- /See:/ 'newCreateEvaluationResponse' smart constructor.
+data CreateEvaluationResponse = CreateEvaluationResponse'
+  { -- | The user-supplied ID that uniquely identifies the @Evaluation@. This
+    -- value should be identical to the value of the @EvaluationId@ in the
+    -- request.
+    evaluationId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateEvaluationResponse' with all optional fields omitted.
 --
--- * 'ceMLModelId' - The ID of the @MLModel@ to evaluate. The schema used in creating the @MLModel@ must match the schema of the @DataSource@ used in the @Evaluation@ .
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ceEvaluationDataSourceId' - The ID of the @DataSource@ for the evaluation. The schema of the @DataSource@ must match the schema used to create the @MLModel@ .
-createEvaluation
-    :: Text -- ^ 'ceEvaluationId'
-    -> Text -- ^ 'ceMLModelId'
-    -> Text -- ^ 'ceEvaluationDataSourceId'
-    -> CreateEvaluation
-createEvaluation pEvaluationId_ pMLModelId_ pEvaluationDataSourceId_ =
-  CreateEvaluation'
-    { _ceEvaluationName = Nothing
-    , _ceEvaluationId = pEvaluationId_
-    , _ceMLModelId = pMLModelId_
-    , _ceEvaluationDataSourceId = pEvaluationDataSourceId_
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'evaluationId', 'createEvaluationResponse_evaluationId' - The user-supplied ID that uniquely identifies the @Evaluation@. This
+-- value should be identical to the value of the @EvaluationId@ in the
+-- request.
+--
+-- 'httpStatus', 'createEvaluationResponse_httpStatus' - The response's http status code.
+newCreateEvaluationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateEvaluationResponse
+newCreateEvaluationResponse pHttpStatus_ =
+  CreateEvaluationResponse'
+    { evaluationId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The user-supplied ID that uniquely identifies the @Evaluation@. This
+-- value should be identical to the value of the @EvaluationId@ in the
+-- request.
+createEvaluationResponse_evaluationId :: Lens.Lens' CreateEvaluationResponse (Prelude.Maybe Prelude.Text)
+createEvaluationResponse_evaluationId = Lens.lens (\CreateEvaluationResponse' {evaluationId} -> evaluationId) (\s@CreateEvaluationResponse' {} a -> s {evaluationId = a} :: CreateEvaluationResponse)
 
--- | A user-supplied name or description of the @Evaluation@ .
-ceEvaluationName :: Lens' CreateEvaluation (Maybe Text)
-ceEvaluationName = lens _ceEvaluationName (\ s a -> s{_ceEvaluationName = a})
+-- | The response's http status code.
+createEvaluationResponse_httpStatus :: Lens.Lens' CreateEvaluationResponse Prelude.Int
+createEvaluationResponse_httpStatus = Lens.lens (\CreateEvaluationResponse' {httpStatus} -> httpStatus) (\s@CreateEvaluationResponse' {} a -> s {httpStatus = a} :: CreateEvaluationResponse)
 
--- | A user-supplied ID that uniquely identifies the @Evaluation@ .
-ceEvaluationId :: Lens' CreateEvaluation Text
-ceEvaluationId = lens _ceEvaluationId (\ s a -> s{_ceEvaluationId = a})
-
--- | The ID of the @MLModel@ to evaluate. The schema used in creating the @MLModel@ must match the schema of the @DataSource@ used in the @Evaluation@ .
-ceMLModelId :: Lens' CreateEvaluation Text
-ceMLModelId = lens _ceMLModelId (\ s a -> s{_ceMLModelId = a})
-
--- | The ID of the @DataSource@ for the evaluation. The schema of the @DataSource@ must match the schema used to create the @MLModel@ .
-ceEvaluationDataSourceId :: Lens' CreateEvaluation Text
-ceEvaluationDataSourceId = lens _ceEvaluationDataSourceId (\ s a -> s{_ceEvaluationDataSourceId = a})
-
-instance AWSRequest CreateEvaluation where
-        type Rs CreateEvaluation = CreateEvaluationResponse
-        request = postJSON machineLearning
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateEvaluationResponse' <$>
-                   (x .?> "EvaluationId") <*> (pure (fromEnum s)))
-
-instance Hashable CreateEvaluation where
-
-instance NFData CreateEvaluation where
-
-instance ToHeaders CreateEvaluation where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonML_20141212.CreateEvaluation" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON CreateEvaluation where
-        toJSON CreateEvaluation'{..}
-          = object
-              (catMaybes
-                 [("EvaluationName" .=) <$> _ceEvaluationName,
-                  Just ("EvaluationId" .= _ceEvaluationId),
-                  Just ("MLModelId" .= _ceMLModelId),
-                  Just
-                    ("EvaluationDataSourceId" .=
-                       _ceEvaluationDataSourceId)])
-
-instance ToPath CreateEvaluation where
-        toPath = const "/"
-
-instance ToQuery CreateEvaluation where
-        toQuery = const mempty
-
--- | Represents the output of a @CreateEvaluation@ operation, and is an acknowledgement that Amazon ML received the request.
---
---
--- @CreateEvaluation@ operation is asynchronous. You can poll for status updates by using the @GetEvcaluation@ operation and checking the @Status@ parameter.
---
---
--- /See:/ 'createEvaluationResponse' smart constructor.
-data CreateEvaluationResponse = CreateEvaluationResponse'
-  { _cersEvaluationId   :: !(Maybe Text)
-  , _cersResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateEvaluationResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cersEvaluationId' - The user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
---
--- * 'cersResponseStatus' - -- | The response status code.
-createEvaluationResponse
-    :: Int -- ^ 'cersResponseStatus'
-    -> CreateEvaluationResponse
-createEvaluationResponse pResponseStatus_ =
-  CreateEvaluationResponse'
-    {_cersEvaluationId = Nothing, _cersResponseStatus = pResponseStatus_}
-
-
--- | The user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
-cersEvaluationId :: Lens' CreateEvaluationResponse (Maybe Text)
-cersEvaluationId = lens _cersEvaluationId (\ s a -> s{_cersEvaluationId = a})
-
--- | -- | The response status code.
-cersResponseStatus :: Lens' CreateEvaluationResponse Int
-cersResponseStatus = lens _cersResponseStatus (\ s a -> s{_cersResponseStatus = a})
-
-instance NFData CreateEvaluationResponse where
+instance Prelude.NFData CreateEvaluationResponse

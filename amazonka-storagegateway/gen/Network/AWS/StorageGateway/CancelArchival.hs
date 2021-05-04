@@ -1,152 +1,184 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.CancelArchival
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated. This operation is only supported in the tape gateway type.
---
---
+-- Cancels archiving of a virtual tape to the virtual tape shelf (VTS)
+-- after the archiving process is initiated. This operation is only
+-- supported in the tape gateway type.
 module Network.AWS.StorageGateway.CancelArchival
-    (
-    -- * Creating a Request
-      cancelArchival
-    , CancelArchival
+  ( -- * Creating a Request
+    CancelArchival (..),
+    newCancelArchival,
+
     -- * Request Lenses
-    , caGatewayARN
-    , caTapeARN
+    cancelArchival_gatewayARN,
+    cancelArchival_tapeARN,
 
     -- * Destructuring the Response
-    , cancelArchivalResponse
-    , CancelArchivalResponse
-    -- * Response Lenses
-    , carsTapeARN
-    , carsResponseStatus
-    ) where
+    CancelArchivalResponse (..),
+    newCancelArchivalResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    cancelArchivalResponse_tapeARN,
+    cancelArchivalResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
 -- | CancelArchivalInput
 --
---
---
--- /See:/ 'cancelArchival' smart constructor.
+-- /See:/ 'newCancelArchival' smart constructor.
 data CancelArchival = CancelArchival'
-  { _caGatewayARN :: !Text
-  , _caTapeARN    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { gatewayARN :: Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
+    -- archiving for.
+    tapeARN :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CancelArchival' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CancelArchival' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'caGatewayARN' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'caTapeARN' - The Amazon Resource Name (ARN) of the virtual tape you want to cancel archiving for.
-cancelArchival
-    :: Text -- ^ 'caGatewayARN'
-    -> Text -- ^ 'caTapeARN'
-    -> CancelArchival
-cancelArchival pGatewayARN_ pTapeARN_ =
-  CancelArchival' {_caGatewayARN = pGatewayARN_, _caTapeARN = pTapeARN_}
-
+-- 'gatewayARN', 'cancelArchival_gatewayARN' - Undocumented member.
+--
+-- 'tapeARN', 'cancelArchival_tapeARN' - The Amazon Resource Name (ARN) of the virtual tape you want to cancel
+-- archiving for.
+newCancelArchival ::
+  -- | 'gatewayARN'
+  Prelude.Text ->
+  -- | 'tapeARN'
+  Prelude.Text ->
+  CancelArchival
+newCancelArchival pGatewayARN_ pTapeARN_ =
+  CancelArchival'
+    { gatewayARN = pGatewayARN_,
+      tapeARN = pTapeARN_
+    }
 
 -- | Undocumented member.
-caGatewayARN :: Lens' CancelArchival Text
-caGatewayARN = lens _caGatewayARN (\ s a -> s{_caGatewayARN = a})
+cancelArchival_gatewayARN :: Lens.Lens' CancelArchival Prelude.Text
+cancelArchival_gatewayARN = Lens.lens (\CancelArchival' {gatewayARN} -> gatewayARN) (\s@CancelArchival' {} a -> s {gatewayARN = a} :: CancelArchival)
 
--- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel archiving for.
-caTapeARN :: Lens' CancelArchival Text
-caTapeARN = lens _caTapeARN (\ s a -> s{_caTapeARN = a})
+-- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
+-- archiving for.
+cancelArchival_tapeARN :: Lens.Lens' CancelArchival Prelude.Text
+cancelArchival_tapeARN = Lens.lens (\CancelArchival' {tapeARN} -> tapeARN) (\s@CancelArchival' {} a -> s {tapeARN = a} :: CancelArchival)
 
-instance AWSRequest CancelArchival where
-        type Rs CancelArchival = CancelArchivalResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CancelArchivalResponse' <$>
-                   (x .?> "TapeARN") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest CancelArchival where
+  type Rs CancelArchival = CancelArchivalResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CancelArchivalResponse'
+            Prelude.<$> (x Prelude..?> "TapeARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CancelArchival where
+instance Prelude.Hashable CancelArchival
 
-instance NFData CancelArchival where
+instance Prelude.NFData CancelArchival
 
-instance ToHeaders CancelArchival where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.CancelArchival" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders CancelArchival where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "StorageGateway_20130630.CancelArchival" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON CancelArchival where
-        toJSON CancelArchival'{..}
-          = object
-              (catMaybes
-                 [Just ("GatewayARN" .= _caGatewayARN),
-                  Just ("TapeARN" .= _caTapeARN)])
+instance Prelude.ToJSON CancelArchival where
+  toJSON CancelArchival' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("GatewayARN" Prelude..= gatewayARN),
+            Prelude.Just ("TapeARN" Prelude..= tapeARN)
+          ]
+      )
 
-instance ToPath CancelArchival where
-        toPath = const "/"
+instance Prelude.ToPath CancelArchival where
+  toPath = Prelude.const "/"
 
-instance ToQuery CancelArchival where
-        toQuery = const mempty
+instance Prelude.ToQuery CancelArchival where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | CancelArchivalOutput
 --
---
---
--- /See:/ 'cancelArchivalResponse' smart constructor.
+-- /See:/ 'newCancelArchivalResponse' smart constructor.
 data CancelArchivalResponse = CancelArchivalResponse'
-  { _carsTapeARN        :: !(Maybe Text)
-  , _carsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the virtual tape for which archiving
+    -- was canceled.
+    tapeARN :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CancelArchivalResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CancelArchivalResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'carsTapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which archiving was canceled.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'carsResponseStatus' - -- | The response status code.
-cancelArchivalResponse
-    :: Int -- ^ 'carsResponseStatus'
-    -> CancelArchivalResponse
-cancelArchivalResponse pResponseStatus_ =
+-- 'tapeARN', 'cancelArchivalResponse_tapeARN' - The Amazon Resource Name (ARN) of the virtual tape for which archiving
+-- was canceled.
+--
+-- 'httpStatus', 'cancelArchivalResponse_httpStatus' - The response's http status code.
+newCancelArchivalResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CancelArchivalResponse
+newCancelArchivalResponse pHttpStatus_ =
   CancelArchivalResponse'
-    {_carsTapeARN = Nothing, _carsResponseStatus = pResponseStatus_}
+    { tapeARN = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The Amazon Resource Name (ARN) of the virtual tape for which archiving
+-- was canceled.
+cancelArchivalResponse_tapeARN :: Lens.Lens' CancelArchivalResponse (Prelude.Maybe Prelude.Text)
+cancelArchivalResponse_tapeARN = Lens.lens (\CancelArchivalResponse' {tapeARN} -> tapeARN) (\s@CancelArchivalResponse' {} a -> s {tapeARN = a} :: CancelArchivalResponse)
 
--- | The Amazon Resource Name (ARN) of the virtual tape for which archiving was canceled.
-carsTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
-carsTapeARN = lens _carsTapeARN (\ s a -> s{_carsTapeARN = a})
+-- | The response's http status code.
+cancelArchivalResponse_httpStatus :: Lens.Lens' CancelArchivalResponse Prelude.Int
+cancelArchivalResponse_httpStatus = Lens.lens (\CancelArchivalResponse' {httpStatus} -> httpStatus) (\s@CancelArchivalResponse' {} a -> s {httpStatus = a} :: CancelArchivalResponse)
 
--- | -- | The response status code.
-carsResponseStatus :: Lens' CancelArchivalResponse Int
-carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a})
-
-instance NFData CancelArchivalResponse where
+instance Prelude.NFData CancelArchivalResponse

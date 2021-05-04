@@ -1,189 +1,259 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListLaunchPaths
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
---
---
+-- Lists the paths to the specified product. A path is how the user has
+-- access to a specified product, and is necessary when provisioning a
+-- product. A path also determines the constraints put on the product.
 --
 -- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ListLaunchPaths
-    (
-    -- * Creating a Request
-      listLaunchPaths
-    , ListLaunchPaths
+  ( -- * Creating a Request
+    ListLaunchPaths (..),
+    newListLaunchPaths,
+
     -- * Request Lenses
-    , llpAcceptLanguage
-    , llpPageToken
-    , llpPageSize
-    , llpProductId
+    listLaunchPaths_pageSize,
+    listLaunchPaths_pageToken,
+    listLaunchPaths_acceptLanguage,
+    listLaunchPaths_productId,
 
     -- * Destructuring the Response
-    , listLaunchPathsResponse
-    , ListLaunchPathsResponse
+    ListLaunchPathsResponse (..),
+    newListLaunchPathsResponse,
+
     -- * Response Lenses
-    , llprsNextPageToken
-    , llprsLaunchPathSummaries
-    , llprsResponseStatus
-    ) where
+    listLaunchPathsResponse_launchPathSummaries,
+    listLaunchPathsResponse_nextPageToken,
+    listLaunchPathsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
-import Network.AWS.ServiceCatalog.Types.Product
 
--- | /See:/ 'listLaunchPaths' smart constructor.
+-- | /See:/ 'newListLaunchPaths' smart constructor.
 data ListLaunchPaths = ListLaunchPaths'
-  { _llpAcceptLanguage :: !(Maybe Text)
-  , _llpPageToken      :: !(Maybe Text)
-  , _llpPageSize       :: !(Maybe Nat)
-  , _llpProductId      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The product identifier.
+    productId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListLaunchPaths' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListLaunchPaths' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'llpAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'llpPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- 'pageSize', 'listLaunchPaths_pageSize' - The maximum number of items to return with this call.
 --
--- * 'llpPageSize' - The maximum number of items to return with this call.
+-- 'pageToken', 'listLaunchPaths_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
 --
--- * 'llpProductId' - The product identifier.
-listLaunchPaths
-    :: Text -- ^ 'llpProductId'
-    -> ListLaunchPaths
-listLaunchPaths pProductId_ =
+-- 'acceptLanguage', 'listLaunchPaths_acceptLanguage' - The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+--
+-- 'productId', 'listLaunchPaths_productId' - The product identifier.
+newListLaunchPaths ::
+  -- | 'productId'
+  Prelude.Text ->
+  ListLaunchPaths
+newListLaunchPaths pProductId_ =
   ListLaunchPaths'
-    { _llpAcceptLanguage = Nothing
-    , _llpPageToken = Nothing
-    , _llpPageSize = Nothing
-    , _llpProductId = pProductId_
+    { pageSize = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing,
+      productId = pProductId_
     }
-
-
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-llpAcceptLanguage :: Lens' ListLaunchPaths (Maybe Text)
-llpAcceptLanguage = lens _llpAcceptLanguage (\ s a -> s{_llpAcceptLanguage = a})
-
--- | The page token for the next set of results. To retrieve the first set of results, use null.
-llpPageToken :: Lens' ListLaunchPaths (Maybe Text)
-llpPageToken = lens _llpPageToken (\ s a -> s{_llpPageToken = a})
 
 -- | The maximum number of items to return with this call.
-llpPageSize :: Lens' ListLaunchPaths (Maybe Natural)
-llpPageSize = lens _llpPageSize (\ s a -> s{_llpPageSize = a}) . mapping _Nat
+listLaunchPaths_pageSize :: Lens.Lens' ListLaunchPaths (Prelude.Maybe Prelude.Natural)
+listLaunchPaths_pageSize = Lens.lens (\ListLaunchPaths' {pageSize} -> pageSize) (\s@ListLaunchPaths' {} a -> s {pageSize = a} :: ListLaunchPaths)
+
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listLaunchPaths_pageToken :: Lens.Lens' ListLaunchPaths (Prelude.Maybe Prelude.Text)
+listLaunchPaths_pageToken = Lens.lens (\ListLaunchPaths' {pageToken} -> pageToken) (\s@ListLaunchPaths' {} a -> s {pageToken = a} :: ListLaunchPaths)
+
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+listLaunchPaths_acceptLanguage :: Lens.Lens' ListLaunchPaths (Prelude.Maybe Prelude.Text)
+listLaunchPaths_acceptLanguage = Lens.lens (\ListLaunchPaths' {acceptLanguage} -> acceptLanguage) (\s@ListLaunchPaths' {} a -> s {acceptLanguage = a} :: ListLaunchPaths)
 
 -- | The product identifier.
-llpProductId :: Lens' ListLaunchPaths Text
-llpProductId = lens _llpProductId (\ s a -> s{_llpProductId = a})
+listLaunchPaths_productId :: Lens.Lens' ListLaunchPaths Prelude.Text
+listLaunchPaths_productId = Lens.lens (\ListLaunchPaths' {productId} -> productId) (\s@ListLaunchPaths' {} a -> s {productId = a} :: ListLaunchPaths)
 
-instance AWSPager ListLaunchPaths where
-        page rq rs
-          | stop (rs ^. llprsNextPageToken) = Nothing
-          | stop (rs ^. llprsLaunchPathSummaries) = Nothing
-          | otherwise =
-            Just $ rq & llpPageToken .~ rs ^. llprsNextPageToken
+instance Pager.AWSPager ListLaunchPaths where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listLaunchPathsResponse_nextPageToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listLaunchPathsResponse_launchPathSummaries
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listLaunchPaths_pageToken
+          Lens..~ rs
+          Lens.^? listLaunchPathsResponse_nextPageToken
+            Prelude.. Lens._Just
 
-instance AWSRequest ListLaunchPaths where
-        type Rs ListLaunchPaths = ListLaunchPathsResponse
-        request = postJSON serviceCatalog
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListLaunchPathsResponse' <$>
-                   (x .?> "NextPageToken") <*>
-                     (x .?> "LaunchPathSummaries" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest ListLaunchPaths where
+  type Rs ListLaunchPaths = ListLaunchPathsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListLaunchPathsResponse'
+            Prelude.<$> ( x Prelude..?> "LaunchPathSummaries"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Prelude..?> "NextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListLaunchPaths where
+instance Prelude.Hashable ListLaunchPaths
 
-instance NFData ListLaunchPaths where
+instance Prelude.NFData ListLaunchPaths
 
-instance ToHeaders ListLaunchPaths where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWS242ServiceCatalogService.ListLaunchPaths" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders ListLaunchPaths where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWS242ServiceCatalogService.ListLaunchPaths" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON ListLaunchPaths where
-        toJSON ListLaunchPaths'{..}
-          = object
-              (catMaybes
-                 [("AcceptLanguage" .=) <$> _llpAcceptLanguage,
-                  ("PageToken" .=) <$> _llpPageToken,
-                  ("PageSize" .=) <$> _llpPageSize,
-                  Just ("ProductId" .= _llpProductId)])
+instance Prelude.ToJSON ListLaunchPaths where
+  toJSON ListLaunchPaths' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("PageSize" Prelude..=) Prelude.<$> pageSize,
+            ("PageToken" Prelude..=) Prelude.<$> pageToken,
+            ("AcceptLanguage" Prelude..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("ProductId" Prelude..= productId)
+          ]
+      )
 
-instance ToPath ListLaunchPaths where
-        toPath = const "/"
+instance Prelude.ToPath ListLaunchPaths where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListLaunchPaths where
-        toQuery = const mempty
+instance Prelude.ToQuery ListLaunchPaths where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'listLaunchPathsResponse' smart constructor.
+-- | /See:/ 'newListLaunchPathsResponse' smart constructor.
 data ListLaunchPathsResponse = ListLaunchPathsResponse'
-  { _llprsNextPageToken       :: !(Maybe Text)
-  , _llprsLaunchPathSummaries :: !(Maybe [LaunchPathSummary])
-  , _llprsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the launch path.
+    launchPathSummaries :: Prelude.Maybe [LaunchPathSummary],
+    -- | The page token to use to retrieve the next set of results. If there are
+    -- no additional results, this value is null.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListLaunchPathsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListLaunchPathsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'llprsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'llprsLaunchPathSummaries' - Information about the launch path.
+-- 'launchPathSummaries', 'listLaunchPathsResponse_launchPathSummaries' - Information about the launch path.
 --
--- * 'llprsResponseStatus' - -- | The response status code.
-listLaunchPathsResponse
-    :: Int -- ^ 'llprsResponseStatus'
-    -> ListLaunchPathsResponse
-listLaunchPathsResponse pResponseStatus_ =
+-- 'nextPageToken', 'listLaunchPathsResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
+-- no additional results, this value is null.
+--
+-- 'httpStatus', 'listLaunchPathsResponse_httpStatus' - The response's http status code.
+newListLaunchPathsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListLaunchPathsResponse
+newListLaunchPathsResponse pHttpStatus_ =
   ListLaunchPathsResponse'
-    { _llprsNextPageToken = Nothing
-    , _llprsLaunchPathSummaries = Nothing
-    , _llprsResponseStatus = pResponseStatus_
+    { launchPathSummaries =
+        Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-llprsNextPageToken :: Lens' ListLaunchPathsResponse (Maybe Text)
-llprsNextPageToken = lens _llprsNextPageToken (\ s a -> s{_llprsNextPageToken = a})
-
 -- | Information about the launch path.
-llprsLaunchPathSummaries :: Lens' ListLaunchPathsResponse [LaunchPathSummary]
-llprsLaunchPathSummaries = lens _llprsLaunchPathSummaries (\ s a -> s{_llprsLaunchPathSummaries = a}) . _Default . _Coerce
+listLaunchPathsResponse_launchPathSummaries :: Lens.Lens' ListLaunchPathsResponse (Prelude.Maybe [LaunchPathSummary])
+listLaunchPathsResponse_launchPathSummaries = Lens.lens (\ListLaunchPathsResponse' {launchPathSummaries} -> launchPathSummaries) (\s@ListLaunchPathsResponse' {} a -> s {launchPathSummaries = a} :: ListLaunchPathsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-llprsResponseStatus :: Lens' ListLaunchPathsResponse Int
-llprsResponseStatus = lens _llprsResponseStatus (\ s a -> s{_llprsResponseStatus = a})
+-- | The page token to use to retrieve the next set of results. If there are
+-- no additional results, this value is null.
+listLaunchPathsResponse_nextPageToken :: Lens.Lens' ListLaunchPathsResponse (Prelude.Maybe Prelude.Text)
+listLaunchPathsResponse_nextPageToken = Lens.lens (\ListLaunchPathsResponse' {nextPageToken} -> nextPageToken) (\s@ListLaunchPathsResponse' {} a -> s {nextPageToken = a} :: ListLaunchPathsResponse)
 
-instance NFData ListLaunchPathsResponse where
+-- | The response's http status code.
+listLaunchPathsResponse_httpStatus :: Lens.Lens' ListLaunchPathsResponse Prelude.Int
+listLaunchPathsResponse_httpStatus = Lens.lens (\ListLaunchPathsResponse' {httpStatus} -> httpStatus) (\s@ListLaunchPathsResponse' {} a -> s {httpStatus = a} :: ListLaunchPathsResponse)
+
+instance Prelude.NFData ListLaunchPathsResponse

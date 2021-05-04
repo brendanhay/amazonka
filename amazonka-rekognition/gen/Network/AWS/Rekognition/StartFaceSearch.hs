@@ -1,190 +1,267 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Rekognition.StartFaceSearch
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts the asynchronous search for faces in a collection that match the faces of persons detected in a stored video.
+-- Starts the asynchronous search for faces in a collection that match the
+-- faces of persons detected in a stored video.
 --
---
--- The video must be stored in an Amazon S3 bucket. Use 'Video' to specify the bucket name and the filename of the video. @StartFaceSearch@ returns a job identifier (@JobId@ ) which you use to get the search results once the search has completed. When searching is finished, Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in @NotificationChannel@ . To get the search results, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call and pass the job identifier (@JobId@ ) from the initial call to @StartFaceSearch@ . For more information, see 'collections-search-person' .
---
+-- The video must be stored in an Amazon S3 bucket. Use Video to specify
+-- the bucket name and the filename of the video. @StartFaceSearch@ returns
+-- a job identifier (@JobId@) which you use to get the search results once
+-- the search has completed. When searching is finished, Amazon Rekognition
+-- Video publishes a completion status to the Amazon Simple Notification
+-- Service topic that you specify in @NotificationChannel@. To get the
+-- search results, first check that the status value published to the
+-- Amazon SNS topic is @SUCCEEDED@. If so, call GetFaceSearch and pass the
+-- job identifier (@JobId@) from the initial call to @StartFaceSearch@. For
+-- more information, see procedure-person-search-videos.
 module Network.AWS.Rekognition.StartFaceSearch
-    (
-    -- * Creating a Request
-      startFaceSearch
-    , StartFaceSearch
+  ( -- * Creating a Request
+    StartFaceSearch (..),
+    newStartFaceSearch,
+
     -- * Request Lenses
-    , sfsFaceMatchThreshold
-    , sfsJobTag
-    , sfsNotificationChannel
-    , sfsClientRequestToken
-    , sfsVideo
-    , sfsCollectionId
+    startFaceSearch_notificationChannel,
+    startFaceSearch_clientRequestToken,
+    startFaceSearch_jobTag,
+    startFaceSearch_faceMatchThreshold,
+    startFaceSearch_video,
+    startFaceSearch_collectionId,
 
     -- * Destructuring the Response
-    , startFaceSearchResponse
-    , StartFaceSearchResponse
+    StartFaceSearchResponse (..),
+    newStartFaceSearchResponse,
+
     -- * Response Lenses
-    , sfsrsJobId
-    , sfsrsResponseStatus
-    ) where
+    startFaceSearchResponse_jobId,
+    startFaceSearchResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Rekognition.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'startFaceSearch' smart constructor.
+-- | /See:/ 'newStartFaceSearch' smart constructor.
 data StartFaceSearch = StartFaceSearch'
-  { _sfsFaceMatchThreshold  :: !(Maybe Double)
-  , _sfsJobTag              :: !(Maybe Text)
-  , _sfsNotificationChannel :: !(Maybe NotificationChannel)
-  , _sfsClientRequestToken  :: !(Maybe Text)
-  , _sfsVideo               :: !Video
-  , _sfsCollectionId        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
+    -- Video to publish the completion status of the search.
+    notificationChannel :: Prelude.Maybe NotificationChannel,
+    -- | Idempotent token used to identify the start request. If you use the same
+    -- token with multiple @StartFaceSearch@ requests, the same @JobId@ is
+    -- returned. Use @ClientRequestToken@ to prevent the same job from being
+    -- accidently started more than once.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | An identifier you specify that\'s returned in the completion
+    -- notification that\'s published to your Amazon Simple Notification
+    -- Service topic. For example, you can use @JobTag@ to group related jobs
+    -- and identify them in the completion notification.
+    jobTag :: Prelude.Maybe Prelude.Text,
+    -- | The minimum confidence in the person match to return. For example,
+    -- don\'t return any matches where confidence in matches is less than 70%.
+    -- The default value is 80%.
+    faceMatchThreshold :: Prelude.Maybe Prelude.Double,
+    -- | The video you want to search. The video must be stored in an Amazon S3
+    -- bucket.
+    video :: Video,
+    -- | ID of the collection that contains the faces you want to search for.
+    collectionId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StartFaceSearch' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartFaceSearch' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sfsFaceMatchThreshold' - The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'sfsJobTag' - Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic.
+-- 'notificationChannel', 'startFaceSearch_notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition
+-- Video to publish the completion status of the search.
 --
--- * 'sfsNotificationChannel' - The ARN of the Amazon SNS topic to which you want Rekognition Video to publish the completion status of the search.
+-- 'clientRequestToken', 'startFaceSearch_clientRequestToken' - Idempotent token used to identify the start request. If you use the same
+-- token with multiple @StartFaceSearch@ requests, the same @JobId@ is
+-- returned. Use @ClientRequestToken@ to prevent the same job from being
+-- accidently started more than once.
 --
--- * 'sfsClientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartFaceSearch@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
+-- 'jobTag', 'startFaceSearch_jobTag' - An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
 --
--- * 'sfsVideo' - The video you want to search. The video must be stored in an Amazon S3 bucket.
+-- 'faceMatchThreshold', 'startFaceSearch_faceMatchThreshold' - The minimum confidence in the person match to return. For example,
+-- don\'t return any matches where confidence in matches is less than 70%.
+-- The default value is 80%.
 --
--- * 'sfsCollectionId' - ID of the collection that contains the faces you want to search for.
-startFaceSearch
-    :: Video -- ^ 'sfsVideo'
-    -> Text -- ^ 'sfsCollectionId'
-    -> StartFaceSearch
-startFaceSearch pVideo_ pCollectionId_ =
+-- 'video', 'startFaceSearch_video' - The video you want to search. The video must be stored in an Amazon S3
+-- bucket.
+--
+-- 'collectionId', 'startFaceSearch_collectionId' - ID of the collection that contains the faces you want to search for.
+newStartFaceSearch ::
+  -- | 'video'
+  Video ->
+  -- | 'collectionId'
+  Prelude.Text ->
+  StartFaceSearch
+newStartFaceSearch pVideo_ pCollectionId_ =
   StartFaceSearch'
-    { _sfsFaceMatchThreshold = Nothing
-    , _sfsJobTag = Nothing
-    , _sfsNotificationChannel = Nothing
-    , _sfsClientRequestToken = Nothing
-    , _sfsVideo = pVideo_
-    , _sfsCollectionId = pCollectionId_
+    { notificationChannel =
+        Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      jobTag = Prelude.Nothing,
+      faceMatchThreshold = Prelude.Nothing,
+      video = pVideo_,
+      collectionId = pCollectionId_
     }
 
+-- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
+-- Video to publish the completion status of the search.
+startFaceSearch_notificationChannel :: Lens.Lens' StartFaceSearch (Prelude.Maybe NotificationChannel)
+startFaceSearch_notificationChannel = Lens.lens (\StartFaceSearch' {notificationChannel} -> notificationChannel) (\s@StartFaceSearch' {} a -> s {notificationChannel = a} :: StartFaceSearch)
 
--- | The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%.
-sfsFaceMatchThreshold :: Lens' StartFaceSearch (Maybe Double)
-sfsFaceMatchThreshold = lens _sfsFaceMatchThreshold (\ s a -> s{_sfsFaceMatchThreshold = a})
+-- | Idempotent token used to identify the start request. If you use the same
+-- token with multiple @StartFaceSearch@ requests, the same @JobId@ is
+-- returned. Use @ClientRequestToken@ to prevent the same job from being
+-- accidently started more than once.
+startFaceSearch_clientRequestToken :: Lens.Lens' StartFaceSearch (Prelude.Maybe Prelude.Text)
+startFaceSearch_clientRequestToken = Lens.lens (\StartFaceSearch' {clientRequestToken} -> clientRequestToken) (\s@StartFaceSearch' {} a -> s {clientRequestToken = a} :: StartFaceSearch)
 
--- | Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic.
-sfsJobTag :: Lens' StartFaceSearch (Maybe Text)
-sfsJobTag = lens _sfsJobTag (\ s a -> s{_sfsJobTag = a})
+-- | An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+startFaceSearch_jobTag :: Lens.Lens' StartFaceSearch (Prelude.Maybe Prelude.Text)
+startFaceSearch_jobTag = Lens.lens (\StartFaceSearch' {jobTag} -> jobTag) (\s@StartFaceSearch' {} a -> s {jobTag = a} :: StartFaceSearch)
 
--- | The ARN of the Amazon SNS topic to which you want Rekognition Video to publish the completion status of the search.
-sfsNotificationChannel :: Lens' StartFaceSearch (Maybe NotificationChannel)
-sfsNotificationChannel = lens _sfsNotificationChannel (\ s a -> s{_sfsNotificationChannel = a})
+-- | The minimum confidence in the person match to return. For example,
+-- don\'t return any matches where confidence in matches is less than 70%.
+-- The default value is 80%.
+startFaceSearch_faceMatchThreshold :: Lens.Lens' StartFaceSearch (Prelude.Maybe Prelude.Double)
+startFaceSearch_faceMatchThreshold = Lens.lens (\StartFaceSearch' {faceMatchThreshold} -> faceMatchThreshold) (\s@StartFaceSearch' {} a -> s {faceMatchThreshold = a} :: StartFaceSearch)
 
--- | Idempotent token used to identify the start request. If you use the same token with multiple @StartFaceSearch@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
-sfsClientRequestToken :: Lens' StartFaceSearch (Maybe Text)
-sfsClientRequestToken = lens _sfsClientRequestToken (\ s a -> s{_sfsClientRequestToken = a})
-
--- | The video you want to search. The video must be stored in an Amazon S3 bucket.
-sfsVideo :: Lens' StartFaceSearch Video
-sfsVideo = lens _sfsVideo (\ s a -> s{_sfsVideo = a})
+-- | The video you want to search. The video must be stored in an Amazon S3
+-- bucket.
+startFaceSearch_video :: Lens.Lens' StartFaceSearch Video
+startFaceSearch_video = Lens.lens (\StartFaceSearch' {video} -> video) (\s@StartFaceSearch' {} a -> s {video = a} :: StartFaceSearch)
 
 -- | ID of the collection that contains the faces you want to search for.
-sfsCollectionId :: Lens' StartFaceSearch Text
-sfsCollectionId = lens _sfsCollectionId (\ s a -> s{_sfsCollectionId = a})
+startFaceSearch_collectionId :: Lens.Lens' StartFaceSearch Prelude.Text
+startFaceSearch_collectionId = Lens.lens (\StartFaceSearch' {collectionId} -> collectionId) (\s@StartFaceSearch' {} a -> s {collectionId = a} :: StartFaceSearch)
 
-instance AWSRequest StartFaceSearch where
-        type Rs StartFaceSearch = StartFaceSearchResponse
-        request = postJSON rekognition
-        response
-          = receiveJSON
-              (\ s h x ->
-                 StartFaceSearchResponse' <$>
-                   (x .?> "JobId") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest StartFaceSearch where
+  type Rs StartFaceSearch = StartFaceSearchResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          StartFaceSearchResponse'
+            Prelude.<$> (x Prelude..?> "JobId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable StartFaceSearch where
+instance Prelude.Hashable StartFaceSearch
 
-instance NFData StartFaceSearch where
+instance Prelude.NFData StartFaceSearch
 
-instance ToHeaders StartFaceSearch where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("RekognitionService.StartFaceSearch" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders StartFaceSearch where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "RekognitionService.StartFaceSearch" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON StartFaceSearch where
-        toJSON StartFaceSearch'{..}
-          = object
-              (catMaybes
-                 [("FaceMatchThreshold" .=) <$>
-                    _sfsFaceMatchThreshold,
-                  ("JobTag" .=) <$> _sfsJobTag,
-                  ("NotificationChannel" .=) <$>
-                    _sfsNotificationChannel,
-                  ("ClientRequestToken" .=) <$> _sfsClientRequestToken,
-                  Just ("Video" .= _sfsVideo),
-                  Just ("CollectionId" .= _sfsCollectionId)])
+instance Prelude.ToJSON StartFaceSearch where
+  toJSON StartFaceSearch' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NotificationChannel" Prelude..=)
+              Prelude.<$> notificationChannel,
+            ("ClientRequestToken" Prelude..=)
+              Prelude.<$> clientRequestToken,
+            ("JobTag" Prelude..=) Prelude.<$> jobTag,
+            ("FaceMatchThreshold" Prelude..=)
+              Prelude.<$> faceMatchThreshold,
+            Prelude.Just ("Video" Prelude..= video),
+            Prelude.Just
+              ("CollectionId" Prelude..= collectionId)
+          ]
+      )
 
-instance ToPath StartFaceSearch where
-        toPath = const "/"
+instance Prelude.ToPath StartFaceSearch where
+  toPath = Prelude.const "/"
 
-instance ToQuery StartFaceSearch where
-        toQuery = const mempty
+instance Prelude.ToQuery StartFaceSearch where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'startFaceSearchResponse' smart constructor.
+-- | /See:/ 'newStartFaceSearchResponse' smart constructor.
 data StartFaceSearchResponse = StartFaceSearchResponse'
-  { _sfsrsJobId          :: !(Maybe Text)
-  , _sfsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The identifier for the search job. Use @JobId@ to identify the job in a
+    -- subsequent call to @GetFaceSearch@.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StartFaceSearchResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartFaceSearchResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sfsrsJobId' - The identifier for the search job. Use @JobId@ to identify the job in a subsequent call to @GetFaceSearch@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'sfsrsResponseStatus' - -- | The response status code.
-startFaceSearchResponse
-    :: Int -- ^ 'sfsrsResponseStatus'
-    -> StartFaceSearchResponse
-startFaceSearchResponse pResponseStatus_ =
+-- 'jobId', 'startFaceSearchResponse_jobId' - The identifier for the search job. Use @JobId@ to identify the job in a
+-- subsequent call to @GetFaceSearch@.
+--
+-- 'httpStatus', 'startFaceSearchResponse_httpStatus' - The response's http status code.
+newStartFaceSearchResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartFaceSearchResponse
+newStartFaceSearchResponse pHttpStatus_ =
   StartFaceSearchResponse'
-    {_sfsrsJobId = Nothing, _sfsrsResponseStatus = pResponseStatus_}
+    { jobId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The identifier for the search job. Use @JobId@ to identify the job in a
+-- subsequent call to @GetFaceSearch@.
+startFaceSearchResponse_jobId :: Lens.Lens' StartFaceSearchResponse (Prelude.Maybe Prelude.Text)
+startFaceSearchResponse_jobId = Lens.lens (\StartFaceSearchResponse' {jobId} -> jobId) (\s@StartFaceSearchResponse' {} a -> s {jobId = a} :: StartFaceSearchResponse)
 
--- | The identifier for the search job. Use @JobId@ to identify the job in a subsequent call to @GetFaceSearch@ .
-sfsrsJobId :: Lens' StartFaceSearchResponse (Maybe Text)
-sfsrsJobId = lens _sfsrsJobId (\ s a -> s{_sfsrsJobId = a})
+-- | The response's http status code.
+startFaceSearchResponse_httpStatus :: Lens.Lens' StartFaceSearchResponse Prelude.Int
+startFaceSearchResponse_httpStatus = Lens.lens (\StartFaceSearchResponse' {httpStatus} -> httpStatus) (\s@StartFaceSearchResponse' {} a -> s {httpStatus = a} :: StartFaceSearchResponse)
 
--- | -- | The response status code.
-sfsrsResponseStatus :: Lens' StartFaceSearchResponse Int
-sfsrsResponseStatus = lens _sfsrsResponseStatus (\ s a -> s{_sfsrsResponseStatus = a})
-
-instance NFData StartFaceSearchResponse where
+instance Prelude.NFData StartFaceSearchResponse

@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.AWSHealth
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.AWSHealth where
 
 import Data.Proxy
@@ -28,120 +27,272 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeEntityAggregates $
---             describeEntityAggregates
+--         [ requestEnableHealthServiceAccessForOrganization $
+--             newEnableHealthServiceAccessForOrganization
 --
---         , requestDescribeEvents $
---             describeEvents
+--         , requestDescribeEntityAggregates $
+--             newDescribeEntityAggregates
+--
+--         , requestDisableHealthServiceAccessForOrganization $
+--             newDisableHealthServiceAccessForOrganization
+--
+--         , requestDescribeEventDetailsForOrganization $
+--             newDescribeEventDetailsForOrganization
 --
 --         , requestDescribeEventDetails $
---             describeEventDetails
+--             newDescribeEventDetails
+--
+--         , requestDescribeAffectedAccountsForOrganization $
+--             newDescribeAffectedAccountsForOrganization
+--
+--         , requestDescribeAffectedEntitiesForOrganization $
+--             newDescribeAffectedEntitiesForOrganization
+--
+--         , requestDescribeEvents $
+--             newDescribeEvents
 --
 --         , requestDescribeEventAggregates $
---             describeEventAggregates
+--             newDescribeEventAggregates
 --
---         , requestDescribeAffectedEntities $
---             describeAffectedEntities
+--         , requestDescribeHealthServiceStatusForOrganization $
+--             newDescribeHealthServiceStatusForOrganization
 --
 --         , requestDescribeEventTypes $
---             describeEventTypes
+--             newDescribeEventTypes
+--
+--         , requestDescribeAffectedEntities $
+--             newDescribeAffectedEntities
+--
+--         , requestDescribeEventsForOrganization $
+--             newDescribeEventsForOrganization
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeEntityAggregates $
---             describeEntityAggregatesResponse
+--         [ responseEnableHealthServiceAccessForOrganization $
+--             newEnableHealthServiceAccessForOrganizationResponse
 --
---         , responseDescribeEvents $
---             describeEventsResponse
+--         , responseDescribeEntityAggregates $
+--             newDescribeEntityAggregatesResponse
+--
+--         , responseDisableHealthServiceAccessForOrganization $
+--             newDisableHealthServiceAccessForOrganizationResponse
+--
+--         , responseDescribeEventDetailsForOrganization $
+--             newDescribeEventDetailsForOrganizationResponse
 --
 --         , responseDescribeEventDetails $
---             describeEventDetailsResponse
+--             newDescribeEventDetailsResponse
+--
+--         , responseDescribeAffectedAccountsForOrganization $
+--             newDescribeAffectedAccountsForOrganizationResponse
+--
+--         , responseDescribeAffectedEntitiesForOrganization $
+--             newDescribeAffectedEntitiesForOrganizationResponse
+--
+--         , responseDescribeEvents $
+--             newDescribeEventsResponse
 --
 --         , responseDescribeEventAggregates $
---             describeEventAggregatesResponse
+--             newDescribeEventAggregatesResponse
 --
---         , responseDescribeAffectedEntities $
---             describeAffectedEntitiesResponse
+--         , responseDescribeHealthServiceStatusForOrganization $
+--             newDescribeHealthServiceStatusForOrganizationResponse
 --
 --         , responseDescribeEventTypes $
---             describeEventTypesResponse
+--             newDescribeEventTypesResponse
+--
+--         , responseDescribeAffectedEntities $
+--             newDescribeAffectedEntitiesResponse
+--
+--         , responseDescribeEventsForOrganization $
+--             newDescribeEventsForOrganizationResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
+requestEnableHealthServiceAccessForOrganization :: EnableHealthServiceAccessForOrganization -> TestTree
+requestEnableHealthServiceAccessForOrganization =
+  req
+    "EnableHealthServiceAccessForOrganization"
+    "fixture/EnableHealthServiceAccessForOrganization.yaml"
+
 requestDescribeEntityAggregates :: DescribeEntityAggregates -> TestTree
-requestDescribeEntityAggregates = req
+requestDescribeEntityAggregates =
+  req
     "DescribeEntityAggregates"
     "fixture/DescribeEntityAggregates.yaml"
 
-requestDescribeEvents :: DescribeEvents -> TestTree
-requestDescribeEvents = req
-    "DescribeEvents"
-    "fixture/DescribeEvents.yaml"
+requestDisableHealthServiceAccessForOrganization :: DisableHealthServiceAccessForOrganization -> TestTree
+requestDisableHealthServiceAccessForOrganization =
+  req
+    "DisableHealthServiceAccessForOrganization"
+    "fixture/DisableHealthServiceAccessForOrganization.yaml"
+
+requestDescribeEventDetailsForOrganization :: DescribeEventDetailsForOrganization -> TestTree
+requestDescribeEventDetailsForOrganization =
+  req
+    "DescribeEventDetailsForOrganization"
+    "fixture/DescribeEventDetailsForOrganization.yaml"
 
 requestDescribeEventDetails :: DescribeEventDetails -> TestTree
-requestDescribeEventDetails = req
+requestDescribeEventDetails =
+  req
     "DescribeEventDetails"
     "fixture/DescribeEventDetails.yaml"
 
+requestDescribeAffectedAccountsForOrganization :: DescribeAffectedAccountsForOrganization -> TestTree
+requestDescribeAffectedAccountsForOrganization =
+  req
+    "DescribeAffectedAccountsForOrganization"
+    "fixture/DescribeAffectedAccountsForOrganization.yaml"
+
+requestDescribeAffectedEntitiesForOrganization :: DescribeAffectedEntitiesForOrganization -> TestTree
+requestDescribeAffectedEntitiesForOrganization =
+  req
+    "DescribeAffectedEntitiesForOrganization"
+    "fixture/DescribeAffectedEntitiesForOrganization.yaml"
+
+requestDescribeEvents :: DescribeEvents -> TestTree
+requestDescribeEvents =
+  req
+    "DescribeEvents"
+    "fixture/DescribeEvents.yaml"
+
 requestDescribeEventAggregates :: DescribeEventAggregates -> TestTree
-requestDescribeEventAggregates = req
+requestDescribeEventAggregates =
+  req
     "DescribeEventAggregates"
     "fixture/DescribeEventAggregates.yaml"
 
-requestDescribeAffectedEntities :: DescribeAffectedEntities -> TestTree
-requestDescribeAffectedEntities = req
-    "DescribeAffectedEntities"
-    "fixture/DescribeAffectedEntities.yaml"
+requestDescribeHealthServiceStatusForOrganization :: DescribeHealthServiceStatusForOrganization -> TestTree
+requestDescribeHealthServiceStatusForOrganization =
+  req
+    "DescribeHealthServiceStatusForOrganization"
+    "fixture/DescribeHealthServiceStatusForOrganization.yaml"
 
 requestDescribeEventTypes :: DescribeEventTypes -> TestTree
-requestDescribeEventTypes = req
+requestDescribeEventTypes =
+  req
     "DescribeEventTypes"
     "fixture/DescribeEventTypes.yaml"
 
+requestDescribeAffectedEntities :: DescribeAffectedEntities -> TestTree
+requestDescribeAffectedEntities =
+  req
+    "DescribeAffectedEntities"
+    "fixture/DescribeAffectedEntities.yaml"
+
+requestDescribeEventsForOrganization :: DescribeEventsForOrganization -> TestTree
+requestDescribeEventsForOrganization =
+  req
+    "DescribeEventsForOrganization"
+    "fixture/DescribeEventsForOrganization.yaml"
+
 -- Responses
 
+responseEnableHealthServiceAccessForOrganization :: EnableHealthServiceAccessForOrganizationResponse -> TestTree
+responseEnableHealthServiceAccessForOrganization =
+  res
+    "EnableHealthServiceAccessForOrganizationResponse"
+    "fixture/EnableHealthServiceAccessForOrganizationResponse.proto"
+    defaultService
+    (Proxy :: Proxy EnableHealthServiceAccessForOrganization)
+
 responseDescribeEntityAggregates :: DescribeEntityAggregatesResponse -> TestTree
-responseDescribeEntityAggregates = res
+responseDescribeEntityAggregates =
+  res
     "DescribeEntityAggregatesResponse"
     "fixture/DescribeEntityAggregatesResponse.proto"
-    awsHealth
+    defaultService
     (Proxy :: Proxy DescribeEntityAggregates)
 
-responseDescribeEvents :: DescribeEventsResponse -> TestTree
-responseDescribeEvents = res
-    "DescribeEventsResponse"
-    "fixture/DescribeEventsResponse.proto"
-    awsHealth
-    (Proxy :: Proxy DescribeEvents)
+responseDisableHealthServiceAccessForOrganization :: DisableHealthServiceAccessForOrganizationResponse -> TestTree
+responseDisableHealthServiceAccessForOrganization =
+  res
+    "DisableHealthServiceAccessForOrganizationResponse"
+    "fixture/DisableHealthServiceAccessForOrganizationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisableHealthServiceAccessForOrganization)
+
+responseDescribeEventDetailsForOrganization :: DescribeEventDetailsForOrganizationResponse -> TestTree
+responseDescribeEventDetailsForOrganization =
+  res
+    "DescribeEventDetailsForOrganizationResponse"
+    "fixture/DescribeEventDetailsForOrganizationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeEventDetailsForOrganization)
 
 responseDescribeEventDetails :: DescribeEventDetailsResponse -> TestTree
-responseDescribeEventDetails = res
+responseDescribeEventDetails =
+  res
     "DescribeEventDetailsResponse"
     "fixture/DescribeEventDetailsResponse.proto"
-    awsHealth
+    defaultService
     (Proxy :: Proxy DescribeEventDetails)
 
+responseDescribeAffectedAccountsForOrganization :: DescribeAffectedAccountsForOrganizationResponse -> TestTree
+responseDescribeAffectedAccountsForOrganization =
+  res
+    "DescribeAffectedAccountsForOrganizationResponse"
+    "fixture/DescribeAffectedAccountsForOrganizationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAffectedAccountsForOrganization)
+
+responseDescribeAffectedEntitiesForOrganization :: DescribeAffectedEntitiesForOrganizationResponse -> TestTree
+responseDescribeAffectedEntitiesForOrganization =
+  res
+    "DescribeAffectedEntitiesForOrganizationResponse"
+    "fixture/DescribeAffectedEntitiesForOrganizationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAffectedEntitiesForOrganization)
+
+responseDescribeEvents :: DescribeEventsResponse -> TestTree
+responseDescribeEvents =
+  res
+    "DescribeEventsResponse"
+    "fixture/DescribeEventsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeEvents)
+
 responseDescribeEventAggregates :: DescribeEventAggregatesResponse -> TestTree
-responseDescribeEventAggregates = res
+responseDescribeEventAggregates =
+  res
     "DescribeEventAggregatesResponse"
     "fixture/DescribeEventAggregatesResponse.proto"
-    awsHealth
+    defaultService
     (Proxy :: Proxy DescribeEventAggregates)
 
-responseDescribeAffectedEntities :: DescribeAffectedEntitiesResponse -> TestTree
-responseDescribeAffectedEntities = res
-    "DescribeAffectedEntitiesResponse"
-    "fixture/DescribeAffectedEntitiesResponse.proto"
-    awsHealth
-    (Proxy :: Proxy DescribeAffectedEntities)
+responseDescribeHealthServiceStatusForOrganization :: DescribeHealthServiceStatusForOrganizationResponse -> TestTree
+responseDescribeHealthServiceStatusForOrganization =
+  res
+    "DescribeHealthServiceStatusForOrganizationResponse"
+    "fixture/DescribeHealthServiceStatusForOrganizationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeHealthServiceStatusForOrganization)
 
 responseDescribeEventTypes :: DescribeEventTypesResponse -> TestTree
-responseDescribeEventTypes = res
+responseDescribeEventTypes =
+  res
     "DescribeEventTypesResponse"
     "fixture/DescribeEventTypesResponse.proto"
-    awsHealth
+    defaultService
     (Proxy :: Proxy DescribeEventTypes)
+
+responseDescribeAffectedEntities :: DescribeAffectedEntitiesResponse -> TestTree
+responseDescribeAffectedEntities =
+  res
+    "DescribeAffectedEntitiesResponse"
+    "fixture/DescribeAffectedEntitiesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAffectedEntities)
+
+responseDescribeEventsForOrganization :: DescribeEventsForOrganizationResponse -> TestTree
+responseDescribeEventsForOrganization =
+  res
+    "DescribeEventsForOrganizationResponse"
+    "fixture/DescribeEventsForOrganizationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeEventsForOrganization)

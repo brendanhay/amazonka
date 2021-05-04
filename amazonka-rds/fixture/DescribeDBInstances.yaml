@@ -1,11 +1,10 @@
-https://rds.us-west-2.amazonaws.com/
-   ?Action=DescribeDBInstances
-   &MaxRecords=100
-   &SignatureMethod=HmacSHA256
-   &SignatureVersion=4
-   &Version=2014-09-01
-   &X-Amz-Algorithm=AWS4-HMAC-SHA256
-   &X-Amz-Credential=AKIADQKE4SARGYLE/20140420/us-west-2/rds/aws4_request
-   &X-Amz-Date=20140420T171917Z
-   &X-Amz-SignedHeaders=content-type;host;user-agent;x-amz-content-sha256;x-amz-date
-   &X-Amz-Signature=caa44629fa60576c2c282d9b74d47647f9e9f229f6d0e52db1d3be0d095743b0
+---
+method: POST
+headers:
+  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/rds/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=?
+  Host:                  rds.us-east-1.amazonaws.com
+  Content-Type:          application/x-www-form-urlencoded; charset=utf-8
+  X-Amz-Content-SHA256:  abcdef
+  X-Amz-Date:            20091028T223200Z
+body:
+  ''

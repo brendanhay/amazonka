@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.ListOTAUpdates
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,138 +23,179 @@
 --
 -- Lists OTA updates.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListOTAUpdates
-    (
-    -- * Creating a Request
-      listOTAUpdates
-    , ListOTAUpdates
+  ( -- * Creating a Request
+    ListOTAUpdates (..),
+    newListOTAUpdates,
+
     -- * Request Lenses
-    , lotauNextToken
-    , lotauOtaUpdateStatus
-    , lotauMaxResults
+    listOTAUpdates_otaUpdateStatus,
+    listOTAUpdates_nextToken,
+    listOTAUpdates_maxResults,
 
     -- * Destructuring the Response
-    , listOTAUpdatesResponse
-    , ListOTAUpdatesResponse
+    ListOTAUpdatesResponse (..),
+    newListOTAUpdatesResponse,
+
     -- * Response Lenses
-    , lotaursNextToken
-    , lotaursOtaUpdates
-    , lotaursResponseStatus
-    ) where
+    listOTAUpdatesResponse_nextToken,
+    listOTAUpdatesResponse_otaUpdates,
+    listOTAUpdatesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listOTAUpdates' smart constructor.
+-- | /See:/ 'newListOTAUpdates' smart constructor.
 data ListOTAUpdates = ListOTAUpdates'
-  { _lotauNextToken       :: !(Maybe Text)
-  , _lotauOtaUpdateStatus :: !(Maybe OTAUpdateStatus)
-  , _lotauMaxResults      :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The OTA update job status.
+    otaUpdateStatus :: Prelude.Maybe OTAUpdateStatus,
+    -- | A token used to retrieve the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return at one time.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListOTAUpdates' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListOTAUpdates' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lotauNextToken' - A token used to retrieve the next set of results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lotauOtaUpdateStatus' - The OTA update job status.
+-- 'otaUpdateStatus', 'listOTAUpdates_otaUpdateStatus' - The OTA update job status.
 --
--- * 'lotauMaxResults' - The maximum number of results to return at one time.
-listOTAUpdates
-    :: ListOTAUpdates
-listOTAUpdates =
+-- 'nextToken', 'listOTAUpdates_nextToken' - A token used to retrieve the next set of results.
+--
+-- 'maxResults', 'listOTAUpdates_maxResults' - The maximum number of results to return at one time.
+newListOTAUpdates ::
+  ListOTAUpdates
+newListOTAUpdates =
   ListOTAUpdates'
-    { _lotauNextToken = Nothing
-    , _lotauOtaUpdateStatus = Nothing
-    , _lotauMaxResults = Nothing
+    { otaUpdateStatus = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
-
-
--- | A token used to retrieve the next set of results.
-lotauNextToken :: Lens' ListOTAUpdates (Maybe Text)
-lotauNextToken = lens _lotauNextToken (\ s a -> s{_lotauNextToken = a})
 
 -- | The OTA update job status.
-lotauOtaUpdateStatus :: Lens' ListOTAUpdates (Maybe OTAUpdateStatus)
-lotauOtaUpdateStatus = lens _lotauOtaUpdateStatus (\ s a -> s{_lotauOtaUpdateStatus = a})
+listOTAUpdates_otaUpdateStatus :: Lens.Lens' ListOTAUpdates (Prelude.Maybe OTAUpdateStatus)
+listOTAUpdates_otaUpdateStatus = Lens.lens (\ListOTAUpdates' {otaUpdateStatus} -> otaUpdateStatus) (\s@ListOTAUpdates' {} a -> s {otaUpdateStatus = a} :: ListOTAUpdates)
+
+-- | A token used to retrieve the next set of results.
+listOTAUpdates_nextToken :: Lens.Lens' ListOTAUpdates (Prelude.Maybe Prelude.Text)
+listOTAUpdates_nextToken = Lens.lens (\ListOTAUpdates' {nextToken} -> nextToken) (\s@ListOTAUpdates' {} a -> s {nextToken = a} :: ListOTAUpdates)
 
 -- | The maximum number of results to return at one time.
-lotauMaxResults :: Lens' ListOTAUpdates (Maybe Natural)
-lotauMaxResults = lens _lotauMaxResults (\ s a -> s{_lotauMaxResults = a}) . mapping _Nat
+listOTAUpdates_maxResults :: Lens.Lens' ListOTAUpdates (Prelude.Maybe Prelude.Natural)
+listOTAUpdates_maxResults = Lens.lens (\ListOTAUpdates' {maxResults} -> maxResults) (\s@ListOTAUpdates' {} a -> s {maxResults = a} :: ListOTAUpdates)
 
-instance AWSRequest ListOTAUpdates where
-        type Rs ListOTAUpdates = ListOTAUpdatesResponse
-        request = get ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListOTAUpdatesResponse' <$>
-                   (x .?> "nextToken") <*>
-                     (x .?> "otaUpdates" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Pager.AWSPager ListOTAUpdates where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listOTAUpdatesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listOTAUpdatesResponse_otaUpdates
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listOTAUpdates_nextToken
+          Lens..~ rs
+          Lens.^? listOTAUpdatesResponse_nextToken Prelude.. Lens._Just
 
-instance Hashable ListOTAUpdates where
+instance Prelude.AWSRequest ListOTAUpdates where
+  type Rs ListOTAUpdates = ListOTAUpdatesResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListOTAUpdatesResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> ( x Prelude..?> "otaUpdates"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData ListOTAUpdates where
+instance Prelude.Hashable ListOTAUpdates
 
-instance ToHeaders ListOTAUpdates where
-        toHeaders = const mempty
+instance Prelude.NFData ListOTAUpdates
 
-instance ToPath ListOTAUpdates where
-        toPath = const "/otaUpdates"
+instance Prelude.ToHeaders ListOTAUpdates where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToQuery ListOTAUpdates where
-        toQuery ListOTAUpdates'{..}
-          = mconcat
-              ["nextToken" =: _lotauNextToken,
-               "otaUpdateStatus" =: _lotauOtaUpdateStatus,
-               "maxResults" =: _lotauMaxResults]
+instance Prelude.ToPath ListOTAUpdates where
+  toPath = Prelude.const "/otaUpdates"
 
--- | /See:/ 'listOTAUpdatesResponse' smart constructor.
+instance Prelude.ToQuery ListOTAUpdates where
+  toQuery ListOTAUpdates' {..} =
+    Prelude.mconcat
+      [ "otaUpdateStatus" Prelude.=: otaUpdateStatus,
+        "nextToken" Prelude.=: nextToken,
+        "maxResults" Prelude.=: maxResults
+      ]
+
+-- | /See:/ 'newListOTAUpdatesResponse' smart constructor.
 data ListOTAUpdatesResponse = ListOTAUpdatesResponse'
-  { _lotaursNextToken      :: !(Maybe Text)
-  , _lotaursOtaUpdates     :: !(Maybe [OTAUpdateSummary])
-  , _lotaursResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A token to use to get the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of OTA update jobs.
+    otaUpdates :: Prelude.Maybe [OTAUpdateSummary],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListOTAUpdatesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListOTAUpdatesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lotaursNextToken' - A token to use to get the next set of results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lotaursOtaUpdates' - A list of OTA update jobs.
+-- 'nextToken', 'listOTAUpdatesResponse_nextToken' - A token to use to get the next set of results.
 --
--- * 'lotaursResponseStatus' - -- | The response status code.
-listOTAUpdatesResponse
-    :: Int -- ^ 'lotaursResponseStatus'
-    -> ListOTAUpdatesResponse
-listOTAUpdatesResponse pResponseStatus_ =
+-- 'otaUpdates', 'listOTAUpdatesResponse_otaUpdates' - A list of OTA update jobs.
+--
+-- 'httpStatus', 'listOTAUpdatesResponse_httpStatus' - The response's http status code.
+newListOTAUpdatesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListOTAUpdatesResponse
+newListOTAUpdatesResponse pHttpStatus_ =
   ListOTAUpdatesResponse'
-    { _lotaursNextToken = Nothing
-    , _lotaursOtaUpdates = Nothing
-    , _lotaursResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      otaUpdates = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | A token to use to get the next set of results.
-lotaursNextToken :: Lens' ListOTAUpdatesResponse (Maybe Text)
-lotaursNextToken = lens _lotaursNextToken (\ s a -> s{_lotaursNextToken = a})
+listOTAUpdatesResponse_nextToken :: Lens.Lens' ListOTAUpdatesResponse (Prelude.Maybe Prelude.Text)
+listOTAUpdatesResponse_nextToken = Lens.lens (\ListOTAUpdatesResponse' {nextToken} -> nextToken) (\s@ListOTAUpdatesResponse' {} a -> s {nextToken = a} :: ListOTAUpdatesResponse)
 
 -- | A list of OTA update jobs.
-lotaursOtaUpdates :: Lens' ListOTAUpdatesResponse [OTAUpdateSummary]
-lotaursOtaUpdates = lens _lotaursOtaUpdates (\ s a -> s{_lotaursOtaUpdates = a}) . _Default . _Coerce
+listOTAUpdatesResponse_otaUpdates :: Lens.Lens' ListOTAUpdatesResponse (Prelude.Maybe [OTAUpdateSummary])
+listOTAUpdatesResponse_otaUpdates = Lens.lens (\ListOTAUpdatesResponse' {otaUpdates} -> otaUpdates) (\s@ListOTAUpdatesResponse' {} a -> s {otaUpdates = a} :: ListOTAUpdatesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-lotaursResponseStatus :: Lens' ListOTAUpdatesResponse Int
-lotaursResponseStatus = lens _lotaursResponseStatus (\ s a -> s{_lotaursResponseStatus = a})
+-- | The response's http status code.
+listOTAUpdatesResponse_httpStatus :: Lens.Lens' ListOTAUpdatesResponse Prelude.Int
+listOTAUpdatesResponse_httpStatus = Lens.lens (\ListOTAUpdatesResponse' {httpStatus} -> httpStatus) (\s@ListOTAUpdatesResponse' {} a -> s {httpStatus = a} :: ListOTAUpdatesResponse)
 
-instance NFData ListOTAUpdatesResponse where
+instance Prelude.NFData ListOTAUpdatesResponse

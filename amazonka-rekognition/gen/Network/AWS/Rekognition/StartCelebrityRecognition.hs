@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Rekognition.StartCelebrityRecognition
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,152 +23,221 @@
 --
 -- Starts asynchronous recognition of celebrities in a stored video.
 --
+-- Amazon Rekognition Video can detect celebrities in a video must be
+-- stored in an Amazon S3 bucket. Use Video to specify the bucket name and
+-- the filename of the video. @StartCelebrityRecognition@ returns a job
+-- identifier (@JobId@) which you use to get the results of the analysis.
+-- When celebrity recognition analysis is finished, Amazon Rekognition
+-- Video publishes a completion status to the Amazon Simple Notification
+-- Service topic that you specify in @NotificationChannel@. To get the
+-- results of the celebrity recognition analysis, first check that the
+-- status value published to the Amazon SNS topic is @SUCCEEDED@. If so,
+-- call GetCelebrityRecognition and pass the job identifier (@JobId@) from
+-- the initial call to @StartCelebrityRecognition@.
 --
--- Rekognition Video can detect celebrities in a video must be stored in an Amazon S3 bucket. Use 'Video' to specify the bucket name and the filename of the video. @StartCelebrityRecognition@ returns a job identifier (@JobId@ ) which you use to get the results of the analysis. When celebrity recognition analysis is finished, Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in @NotificationChannel@ . To get the results of the celebrity recognition analysis, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call and pass the job identifier (@JobId@ ) from the initial call to @StartCelebrityRecognition@ . For more information, see 'celebrities' .
---
+-- For more information, see Recognizing Celebrities in the Amazon
+-- Rekognition Developer Guide.
 module Network.AWS.Rekognition.StartCelebrityRecognition
-    (
-    -- * Creating a Request
-      startCelebrityRecognition
-    , StartCelebrityRecognition
+  ( -- * Creating a Request
+    StartCelebrityRecognition (..),
+    newStartCelebrityRecognition,
+
     -- * Request Lenses
-    , scrJobTag
-    , scrNotificationChannel
-    , scrClientRequestToken
-    , scrVideo
+    startCelebrityRecognition_notificationChannel,
+    startCelebrityRecognition_clientRequestToken,
+    startCelebrityRecognition_jobTag,
+    startCelebrityRecognition_video,
 
     -- * Destructuring the Response
-    , startCelebrityRecognitionResponse
-    , StartCelebrityRecognitionResponse
+    StartCelebrityRecognitionResponse (..),
+    newStartCelebrityRecognitionResponse,
+
     -- * Response Lenses
-    , scrrsJobId
-    , scrrsResponseStatus
-    ) where
+    startCelebrityRecognitionResponse_jobId,
+    startCelebrityRecognitionResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Rekognition.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'startCelebrityRecognition' smart constructor.
+-- | /See:/ 'newStartCelebrityRecognition' smart constructor.
 data StartCelebrityRecognition = StartCelebrityRecognition'
-  { _scrJobTag              :: !(Maybe Text)
-  , _scrNotificationChannel :: !(Maybe NotificationChannel)
-  , _scrClientRequestToken  :: !(Maybe Text)
-  , _scrVideo               :: !Video
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
+    -- publish the completion status of the celebrity recognition analysis to.
+    notificationChannel :: Prelude.Maybe NotificationChannel,
+    -- | Idempotent token used to identify the start request. If you use the same
+    -- token with multiple @StartCelebrityRecognition@ requests, the same
+    -- @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job
+    -- from being accidently started more than once.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | An identifier you specify that\'s returned in the completion
+    -- notification that\'s published to your Amazon Simple Notification
+    -- Service topic. For example, you can use @JobTag@ to group related jobs
+    -- and identify them in the completion notification.
+    jobTag :: Prelude.Maybe Prelude.Text,
+    -- | The video in which you want to recognize celebrities. The video must be
+    -- stored in an Amazon S3 bucket.
+    video :: Video
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StartCelebrityRecognition' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartCelebrityRecognition' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'scrJobTag' - Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'scrNotificationChannel' - The Amazon SNS topic ARN that you want Rekognition Video to publish the completion status of the celebrity recognition analysis to.
+-- 'notificationChannel', 'startCelebrityRecognition_notificationChannel' - The Amazon SNS topic ARN that you want Amazon Rekognition Video to
+-- publish the completion status of the celebrity recognition analysis to.
 --
--- * 'scrClientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartCelebrityRecognition@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
+-- 'clientRequestToken', 'startCelebrityRecognition_clientRequestToken' - Idempotent token used to identify the start request. If you use the same
+-- token with multiple @StartCelebrityRecognition@ requests, the same
+-- @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job
+-- from being accidently started more than once.
 --
--- * 'scrVideo' - The video in which you want to recognize celebrities. The video must be stored in an Amazon S3 bucket.
-startCelebrityRecognition
-    :: Video -- ^ 'scrVideo'
-    -> StartCelebrityRecognition
-startCelebrityRecognition pVideo_ =
+-- 'jobTag', 'startCelebrityRecognition_jobTag' - An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+--
+-- 'video', 'startCelebrityRecognition_video' - The video in which you want to recognize celebrities. The video must be
+-- stored in an Amazon S3 bucket.
+newStartCelebrityRecognition ::
+  -- | 'video'
+  Video ->
+  StartCelebrityRecognition
+newStartCelebrityRecognition pVideo_ =
   StartCelebrityRecognition'
-    { _scrJobTag = Nothing
-    , _scrNotificationChannel = Nothing
-    , _scrClientRequestToken = Nothing
-    , _scrVideo = pVideo_
+    { notificationChannel =
+        Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      jobTag = Prelude.Nothing,
+      video = pVideo_
     }
 
+-- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
+-- publish the completion status of the celebrity recognition analysis to.
+startCelebrityRecognition_notificationChannel :: Lens.Lens' StartCelebrityRecognition (Prelude.Maybe NotificationChannel)
+startCelebrityRecognition_notificationChannel = Lens.lens (\StartCelebrityRecognition' {notificationChannel} -> notificationChannel) (\s@StartCelebrityRecognition' {} a -> s {notificationChannel = a} :: StartCelebrityRecognition)
 
--- | Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic.
-scrJobTag :: Lens' StartCelebrityRecognition (Maybe Text)
-scrJobTag = lens _scrJobTag (\ s a -> s{_scrJobTag = a})
+-- | Idempotent token used to identify the start request. If you use the same
+-- token with multiple @StartCelebrityRecognition@ requests, the same
+-- @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job
+-- from being accidently started more than once.
+startCelebrityRecognition_clientRequestToken :: Lens.Lens' StartCelebrityRecognition (Prelude.Maybe Prelude.Text)
+startCelebrityRecognition_clientRequestToken = Lens.lens (\StartCelebrityRecognition' {clientRequestToken} -> clientRequestToken) (\s@StartCelebrityRecognition' {} a -> s {clientRequestToken = a} :: StartCelebrityRecognition)
 
--- | The Amazon SNS topic ARN that you want Rekognition Video to publish the completion status of the celebrity recognition analysis to.
-scrNotificationChannel :: Lens' StartCelebrityRecognition (Maybe NotificationChannel)
-scrNotificationChannel = lens _scrNotificationChannel (\ s a -> s{_scrNotificationChannel = a})
+-- | An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+startCelebrityRecognition_jobTag :: Lens.Lens' StartCelebrityRecognition (Prelude.Maybe Prelude.Text)
+startCelebrityRecognition_jobTag = Lens.lens (\StartCelebrityRecognition' {jobTag} -> jobTag) (\s@StartCelebrityRecognition' {} a -> s {jobTag = a} :: StartCelebrityRecognition)
 
--- | Idempotent token used to identify the start request. If you use the same token with multiple @StartCelebrityRecognition@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
-scrClientRequestToken :: Lens' StartCelebrityRecognition (Maybe Text)
-scrClientRequestToken = lens _scrClientRequestToken (\ s a -> s{_scrClientRequestToken = a})
+-- | The video in which you want to recognize celebrities. The video must be
+-- stored in an Amazon S3 bucket.
+startCelebrityRecognition_video :: Lens.Lens' StartCelebrityRecognition Video
+startCelebrityRecognition_video = Lens.lens (\StartCelebrityRecognition' {video} -> video) (\s@StartCelebrityRecognition' {} a -> s {video = a} :: StartCelebrityRecognition)
 
--- | The video in which you want to recognize celebrities. The video must be stored in an Amazon S3 bucket.
-scrVideo :: Lens' StartCelebrityRecognition Video
-scrVideo = lens _scrVideo (\ s a -> s{_scrVideo = a})
+instance Prelude.AWSRequest StartCelebrityRecognition where
+  type
+    Rs StartCelebrityRecognition =
+      StartCelebrityRecognitionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          StartCelebrityRecognitionResponse'
+            Prelude.<$> (x Prelude..?> "JobId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest StartCelebrityRecognition where
-        type Rs StartCelebrityRecognition =
-             StartCelebrityRecognitionResponse
-        request = postJSON rekognition
-        response
-          = receiveJSON
-              (\ s h x ->
-                 StartCelebrityRecognitionResponse' <$>
-                   (x .?> "JobId") <*> (pure (fromEnum s)))
+instance Prelude.Hashable StartCelebrityRecognition
 
-instance Hashable StartCelebrityRecognition where
+instance Prelude.NFData StartCelebrityRecognition
 
-instance NFData StartCelebrityRecognition where
+instance Prelude.ToHeaders StartCelebrityRecognition where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "RekognitionService.StartCelebrityRecognition" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders StartCelebrityRecognition where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("RekognitionService.StartCelebrityRecognition" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON StartCelebrityRecognition where
+  toJSON StartCelebrityRecognition' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NotificationChannel" Prelude..=)
+              Prelude.<$> notificationChannel,
+            ("ClientRequestToken" Prelude..=)
+              Prelude.<$> clientRequestToken,
+            ("JobTag" Prelude..=) Prelude.<$> jobTag,
+            Prelude.Just ("Video" Prelude..= video)
+          ]
+      )
 
-instance ToJSON StartCelebrityRecognition where
-        toJSON StartCelebrityRecognition'{..}
-          = object
-              (catMaybes
-                 [("JobTag" .=) <$> _scrJobTag,
-                  ("NotificationChannel" .=) <$>
-                    _scrNotificationChannel,
-                  ("ClientRequestToken" .=) <$> _scrClientRequestToken,
-                  Just ("Video" .= _scrVideo)])
+instance Prelude.ToPath StartCelebrityRecognition where
+  toPath = Prelude.const "/"
 
-instance ToPath StartCelebrityRecognition where
-        toPath = const "/"
+instance Prelude.ToQuery StartCelebrityRecognition where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery StartCelebrityRecognition where
-        toQuery = const mempty
-
--- | /See:/ 'startCelebrityRecognitionResponse' smart constructor.
+-- | /See:/ 'newStartCelebrityRecognitionResponse' smart constructor.
 data StartCelebrityRecognitionResponse = StartCelebrityRecognitionResponse'
-  { _scrrsJobId          :: !(Maybe Text)
-  , _scrrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The identifier for the celebrity recognition analysis job. Use @JobId@
+    -- to identify the job in a subsequent call to @GetCelebrityRecognition@.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StartCelebrityRecognitionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartCelebrityRecognitionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'scrrsJobId' - The identifier for the celebrity recognition analysis job. Use @JobId@ to identify the job in a subsequent call to @GetCelebrityRecognition@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'scrrsResponseStatus' - -- | The response status code.
-startCelebrityRecognitionResponse
-    :: Int -- ^ 'scrrsResponseStatus'
-    -> StartCelebrityRecognitionResponse
-startCelebrityRecognitionResponse pResponseStatus_ =
+-- 'jobId', 'startCelebrityRecognitionResponse_jobId' - The identifier for the celebrity recognition analysis job. Use @JobId@
+-- to identify the job in a subsequent call to @GetCelebrityRecognition@.
+--
+-- 'httpStatus', 'startCelebrityRecognitionResponse_httpStatus' - The response's http status code.
+newStartCelebrityRecognitionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartCelebrityRecognitionResponse
+newStartCelebrityRecognitionResponse pHttpStatus_ =
   StartCelebrityRecognitionResponse'
-    {_scrrsJobId = Nothing, _scrrsResponseStatus = pResponseStatus_}
+    { jobId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The identifier for the celebrity recognition analysis job. Use @JobId@
+-- to identify the job in a subsequent call to @GetCelebrityRecognition@.
+startCelebrityRecognitionResponse_jobId :: Lens.Lens' StartCelebrityRecognitionResponse (Prelude.Maybe Prelude.Text)
+startCelebrityRecognitionResponse_jobId = Lens.lens (\StartCelebrityRecognitionResponse' {jobId} -> jobId) (\s@StartCelebrityRecognitionResponse' {} a -> s {jobId = a} :: StartCelebrityRecognitionResponse)
 
--- | The identifier for the celebrity recognition analysis job. Use @JobId@ to identify the job in a subsequent call to @GetCelebrityRecognition@ .
-scrrsJobId :: Lens' StartCelebrityRecognitionResponse (Maybe Text)
-scrrsJobId = lens _scrrsJobId (\ s a -> s{_scrrsJobId = a})
+-- | The response's http status code.
+startCelebrityRecognitionResponse_httpStatus :: Lens.Lens' StartCelebrityRecognitionResponse Prelude.Int
+startCelebrityRecognitionResponse_httpStatus = Lens.lens (\StartCelebrityRecognitionResponse' {httpStatus} -> httpStatus) (\s@StartCelebrityRecognitionResponse' {} a -> s {httpStatus = a} :: StartCelebrityRecognitionResponse)
 
--- | -- | The response status code.
-scrrsResponseStatus :: Lens' StartCelebrityRecognitionResponse Int
-scrrsResponseStatus = lens _scrrsResponseStatus (\ s a -> s{_scrrsResponseStatus = a})
-
-instance NFData StartCelebrityRecognitionResponse
-         where
+instance
+  Prelude.NFData
+    StartCelebrityRecognitionResponse

@@ -1,121 +1,176 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTAnalytics.DescribeChannel
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves information about a channel.
---
---
 module Network.AWS.IoTAnalytics.DescribeChannel
-    (
-    -- * Creating a Request
-      describeChannel
-    , DescribeChannel
+  ( -- * Creating a Request
+    DescribeChannel (..),
+    newDescribeChannel,
+
     -- * Request Lenses
-    , dChannelName
+    describeChannel_includeStatistics,
+    describeChannel_channelName,
 
     -- * Destructuring the Response
-    , describeChannelResponse
-    , DescribeChannelResponse
+    DescribeChannelResponse (..),
+    newDescribeChannelResponse,
+
     -- * Response Lenses
-    , dcrsChannel
-    , dcrsResponseStatus
-    ) where
+    describeChannelResponse_statistics,
+    describeChannelResponse_channel,
+    describeChannelResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.IoTAnalytics.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeChannel' smart constructor.
-newtype DescribeChannel = DescribeChannel'
-  { _dChannelName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeChannel' smart constructor.
+data DescribeChannel = DescribeChannel'
+  { -- | If true, additional statistical information about the channel is
+    -- included in the response. This feature cannot be used with a channel
+    -- whose S3 storage is customer-managed.
+    includeStatistics :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the channel whose information is retrieved.
+    channelName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeChannel' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeChannel' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dChannelName' - The name of the channel whose information is retrieved.
-describeChannel
-    :: Text -- ^ 'dChannelName'
-    -> DescribeChannel
-describeChannel pChannelName_ = DescribeChannel' {_dChannelName = pChannelName_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'includeStatistics', 'describeChannel_includeStatistics' - If true, additional statistical information about the channel is
+-- included in the response. This feature cannot be used with a channel
+-- whose S3 storage is customer-managed.
+--
+-- 'channelName', 'describeChannel_channelName' - The name of the channel whose information is retrieved.
+newDescribeChannel ::
+  -- | 'channelName'
+  Prelude.Text ->
+  DescribeChannel
+newDescribeChannel pChannelName_ =
+  DescribeChannel'
+    { includeStatistics =
+        Prelude.Nothing,
+      channelName = pChannelName_
+    }
 
+-- | If true, additional statistical information about the channel is
+-- included in the response. This feature cannot be used with a channel
+-- whose S3 storage is customer-managed.
+describeChannel_includeStatistics :: Lens.Lens' DescribeChannel (Prelude.Maybe Prelude.Bool)
+describeChannel_includeStatistics = Lens.lens (\DescribeChannel' {includeStatistics} -> includeStatistics) (\s@DescribeChannel' {} a -> s {includeStatistics = a} :: DescribeChannel)
 
 -- | The name of the channel whose information is retrieved.
-dChannelName :: Lens' DescribeChannel Text
-dChannelName = lens _dChannelName (\ s a -> s{_dChannelName = a})
+describeChannel_channelName :: Lens.Lens' DescribeChannel Prelude.Text
+describeChannel_channelName = Lens.lens (\DescribeChannel' {channelName} -> channelName) (\s@DescribeChannel' {} a -> s {channelName = a} :: DescribeChannel)
 
-instance AWSRequest DescribeChannel where
-        type Rs DescribeChannel = DescribeChannelResponse
-        request = get ioTAnalytics
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeChannelResponse' <$>
-                   (x .?> "channel") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeChannel where
+  type Rs DescribeChannel = DescribeChannelResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeChannelResponse'
+            Prelude.<$> (x Prelude..?> "statistics")
+            Prelude.<*> (x Prelude..?> "channel")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeChannel where
+instance Prelude.Hashable DescribeChannel
 
-instance NFData DescribeChannel where
+instance Prelude.NFData DescribeChannel
 
-instance ToHeaders DescribeChannel where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DescribeChannel where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeChannel where
-        toPath DescribeChannel'{..}
-          = mconcat ["/channels/", toBS _dChannelName]
+instance Prelude.ToPath DescribeChannel where
+  toPath DescribeChannel' {..} =
+    Prelude.mconcat
+      ["/channels/", Prelude.toBS channelName]
 
-instance ToQuery DescribeChannel where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeChannel where
+  toQuery DescribeChannel' {..} =
+    Prelude.mconcat
+      ["includeStatistics" Prelude.=: includeStatistics]
 
--- | /See:/ 'describeChannelResponse' smart constructor.
+-- | /See:/ 'newDescribeChannelResponse' smart constructor.
 data DescribeChannelResponse = DescribeChannelResponse'
-  { _dcrsChannel        :: !(Maybe Channel)
-  , _dcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Statistics about the channel. Included if the @includeStatistics@
+    -- parameter is set to @true@ in the request.
+    statistics :: Prelude.Maybe ChannelStatistics,
+    -- | An object that contains information about the channel.
+    channel :: Prelude.Maybe Channel,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeChannelResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeChannelResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcrsChannel' - An object that contains information about the channel.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dcrsResponseStatus' - -- | The response status code.
-describeChannelResponse
-    :: Int -- ^ 'dcrsResponseStatus'
-    -> DescribeChannelResponse
-describeChannelResponse pResponseStatus_ =
+-- 'statistics', 'describeChannelResponse_statistics' - Statistics about the channel. Included if the @includeStatistics@
+-- parameter is set to @true@ in the request.
+--
+-- 'channel', 'describeChannelResponse_channel' - An object that contains information about the channel.
+--
+-- 'httpStatus', 'describeChannelResponse_httpStatus' - The response's http status code.
+newDescribeChannelResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeChannelResponse
+newDescribeChannelResponse pHttpStatus_ =
   DescribeChannelResponse'
-    {_dcrsChannel = Nothing, _dcrsResponseStatus = pResponseStatus_}
+    { statistics =
+        Prelude.Nothing,
+      channel = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Statistics about the channel. Included if the @includeStatistics@
+-- parameter is set to @true@ in the request.
+describeChannelResponse_statistics :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe ChannelStatistics)
+describeChannelResponse_statistics = Lens.lens (\DescribeChannelResponse' {statistics} -> statistics) (\s@DescribeChannelResponse' {} a -> s {statistics = a} :: DescribeChannelResponse)
 
 -- | An object that contains information about the channel.
-dcrsChannel :: Lens' DescribeChannelResponse (Maybe Channel)
-dcrsChannel = lens _dcrsChannel (\ s a -> s{_dcrsChannel = a})
+describeChannelResponse_channel :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Channel)
+describeChannelResponse_channel = Lens.lens (\DescribeChannelResponse' {channel} -> channel) (\s@DescribeChannelResponse' {} a -> s {channel = a} :: DescribeChannelResponse)
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DescribeChannelResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
+-- | The response's http status code.
+describeChannelResponse_httpStatus :: Lens.Lens' DescribeChannelResponse Prelude.Int
+describeChannelResponse_httpStatus = Lens.lens (\DescribeChannelResponse' {httpStatus} -> httpStatus) (\s@DescribeChannelResponse' {} a -> s {httpStatus = a} :: DescribeChannelResponse)
 
-instance NFData DescribeChannelResponse where
+instance Prelude.NFData DescribeChannelResponse

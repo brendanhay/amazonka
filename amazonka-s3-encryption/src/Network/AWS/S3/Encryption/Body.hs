@@ -1,48 +1,56 @@
 {-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE NoImplicitPrelude #-}
 
 -- |
 -- Module      : Network.AWS.S3.Encryption.Body
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.S3.Encryption.Body where
 
-import           Conduit
-import           Data.ByteString       (ByteString)
-import qualified Data.ByteString       as BS
-import qualified Data.ByteString.Lazy  as LBS
-import           Network.AWS.Data.Body
+import qualified Conduit
+import qualified Data.ByteString as BS
+import qualified Data.ByteString.Lazy as LBS
+import Network.AWS.Data.Body
+import Network.AWS.Prelude
+import Prelude
 
 -- Resides here since it's unsafe without the use of enforceChunks,
 -- which incurs extra dependencies not desired in core.
 class ToChunkedBody a where
-    toChunked :: a -> ChunkedBody
+  toChunked :: a -> ChunkedBody
 
 instance ToChunkedBody ChunkedBody where
-    toChunked = id
+  toChunked = id
 
 instance ToChunkedBody HashedBody where
-    toChunked = \case
-        HashedStream _ n s -> enforceChunks n s
-        HashedBytes  _ b   -> enforceChunks (BS.length b) (mapM_ yield [b])
+  toChunked = \case
+    HashedStream _ n s -> enforceChunks n s
+    HashedBytes _ b -> enforceChunks (BS.length b) (mapM_ Conduit.yield [b])
 
 instance ToChunkedBody RqBody where
-    toChunked = \case
-        Chunked c -> c
-        Hashed  h -> toChunked h
+  toChunked = \case
+    Chunked c -> c
+    Hashed h -> toChunked h
 
-enforceChunks :: Integral a
-              => a
-              -> ConduitM () ByteString (ResourceT IO) ()
-              -> ChunkedBody
-enforceChunks sz =
-    ChunkedBody defaultChunkSize (fromIntegral sz) . flip fuse go
+enforceChunks ::
+  Integral a =>
+  a ->
+  Conduit.ConduitM () ByteString (Conduit.ResourceT IO) () ->
+  ChunkedBody
+enforceChunks size =
+  ChunkedBody defaultChunkSize (fromIntegral size) . flip Conduit.fuse loop
   where
-    go = awaitForever (\i -> leftover i >> sinkLazy >>= yield)
-      .| takeCE n
-      .| mapC LBS.toStrict
+    loop =
+      Conduit.awaitForever yield
+        Conduit..| Conduit.takeCE chunk
+        Conduit..| Conduit.mapC LBS.toStrict
 
-    n = fromIntegral defaultChunkSize
+    yield input = do
+      Conduit.leftover input
+      bytes <- Conduit.sinkLazy
+      Conduit.yield bytes
+
+    chunk = fromIntegral defaultChunkSize

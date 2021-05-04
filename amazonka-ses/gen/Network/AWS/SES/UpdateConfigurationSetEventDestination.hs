@@ -1,158 +1,205 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.UpdateConfigurationSetEventDestination
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the event destination of a configuration set. Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets, see <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Monitoring Your Amazon SES Sending Activity> in the /Amazon SES Developer Guide./
+-- Updates the event destination of a configuration set. Event destinations
+-- are associated with configuration sets, which enable you to publish
+-- email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or
+-- Amazon Simple Notification Service (Amazon SNS). For information about
+-- using configuration sets, see
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Monitoring Your Amazon SES Sending Activity>
+-- in the /Amazon SES Developer Guide./
 --
+-- When you create or update an event destination, you must provide one,
+-- and only one, destination. The destination can be Amazon CloudWatch,
+-- Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon
+-- SNS).
 --
 -- You can execute this operation no more than once per second.
---
 module Network.AWS.SES.UpdateConfigurationSetEventDestination
-    (
-    -- * Creating a Request
-      updateConfigurationSetEventDestination
-    , UpdateConfigurationSetEventDestination
+  ( -- * Creating a Request
+    UpdateConfigurationSetEventDestination (..),
+    newUpdateConfigurationSetEventDestination,
+
     -- * Request Lenses
-    , ucsedConfigurationSetName
-    , ucsedEventDestination
+    updateConfigurationSetEventDestination_configurationSetName,
+    updateConfigurationSetEventDestination_eventDestination,
 
     -- * Destructuring the Response
-    , updateConfigurationSetEventDestinationResponse
-    , UpdateConfigurationSetEventDestinationResponse
+    UpdateConfigurationSetEventDestinationResponse (..),
+    newUpdateConfigurationSetEventDestinationResponse,
+
     -- * Response Lenses
-    , ucsedrsResponseStatus
-    ) where
+    updateConfigurationSetEventDestinationResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request to update the event destination of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
+-- | Represents a request to update the event destination of a configuration
+-- set. Configuration sets enable you to publish email sending events. For
+-- information about using configuration sets, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide>.
 --
---
---
--- /See:/ 'updateConfigurationSetEventDestination' smart constructor.
+-- /See:/ 'newUpdateConfigurationSetEventDestination' smart constructor.
 data UpdateConfigurationSetEventDestination = UpdateConfigurationSetEventDestination'
-  { _ucsedConfigurationSetName :: !Text
-  , _ucsedEventDestination     :: !EventDestination
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the configuration set that contains the event destination
+    -- that you want to update.
+    configurationSetName :: Prelude.Text,
+    -- | The event destination object that you want to apply to the specified
+    -- configuration set.
+    eventDestination :: EventDestination
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateConfigurationSetEventDestination' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateConfigurationSetEventDestination' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ucsedConfigurationSetName' - The name of the configuration set that contains the event destination that you want to update.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ucsedEventDestination' - The event destination object that you want to apply to the specified configuration set.
-updateConfigurationSetEventDestination
-    :: Text -- ^ 'ucsedConfigurationSetName'
-    -> EventDestination -- ^ 'ucsedEventDestination'
-    -> UpdateConfigurationSetEventDestination
-updateConfigurationSetEventDestination pConfigurationSetName_ pEventDestination_ =
-  UpdateConfigurationSetEventDestination'
-    { _ucsedConfigurationSetName = pConfigurationSetName_
-    , _ucsedEventDestination = pEventDestination_
-    }
+-- 'configurationSetName', 'updateConfigurationSetEventDestination_configurationSetName' - The name of the configuration set that contains the event destination
+-- that you want to update.
+--
+-- 'eventDestination', 'updateConfigurationSetEventDestination_eventDestination' - The event destination object that you want to apply to the specified
+-- configuration set.
+newUpdateConfigurationSetEventDestination ::
+  -- | 'configurationSetName'
+  Prelude.Text ->
+  -- | 'eventDestination'
+  EventDestination ->
+  UpdateConfigurationSetEventDestination
+newUpdateConfigurationSetEventDestination
+  pConfigurationSetName_
+  pEventDestination_ =
+    UpdateConfigurationSetEventDestination'
+      { configurationSetName =
+          pConfigurationSetName_,
+        eventDestination =
+          pEventDestination_
+      }
 
+-- | The name of the configuration set that contains the event destination
+-- that you want to update.
+updateConfigurationSetEventDestination_configurationSetName :: Lens.Lens' UpdateConfigurationSetEventDestination Prelude.Text
+updateConfigurationSetEventDestination_configurationSetName = Lens.lens (\UpdateConfigurationSetEventDestination' {configurationSetName} -> configurationSetName) (\s@UpdateConfigurationSetEventDestination' {} a -> s {configurationSetName = a} :: UpdateConfigurationSetEventDestination)
 
--- | The name of the configuration set that contains the event destination that you want to update.
-ucsedConfigurationSetName :: Lens' UpdateConfigurationSetEventDestination Text
-ucsedConfigurationSetName = lens _ucsedConfigurationSetName (\ s a -> s{_ucsedConfigurationSetName = a})
+-- | The event destination object that you want to apply to the specified
+-- configuration set.
+updateConfigurationSetEventDestination_eventDestination :: Lens.Lens' UpdateConfigurationSetEventDestination EventDestination
+updateConfigurationSetEventDestination_eventDestination = Lens.lens (\UpdateConfigurationSetEventDestination' {eventDestination} -> eventDestination) (\s@UpdateConfigurationSetEventDestination' {} a -> s {eventDestination = a} :: UpdateConfigurationSetEventDestination)
 
--- | The event destination object that you want to apply to the specified configuration set.
-ucsedEventDestination :: Lens' UpdateConfigurationSetEventDestination EventDestination
-ucsedEventDestination = lens _ucsedEventDestination (\ s a -> s{_ucsedEventDestination = a})
+instance
+  Prelude.AWSRequest
+    UpdateConfigurationSetEventDestination
+  where
+  type
+    Rs UpdateConfigurationSetEventDestination =
+      UpdateConfigurationSetEventDestinationResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "UpdateConfigurationSetEventDestinationResult"
+      ( \s h x ->
+          UpdateConfigurationSetEventDestinationResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest
-           UpdateConfigurationSetEventDestination
-         where
-        type Rs UpdateConfigurationSetEventDestination =
-             UpdateConfigurationSetEventDestinationResponse
-        request = postQuery ses
-        response
-          = receiveXMLWrapper
-              "UpdateConfigurationSetEventDestinationResult"
-              (\ s h x ->
-                 UpdateConfigurationSetEventDestinationResponse' <$>
-                   (pure (fromEnum s)))
+instance
+  Prelude.Hashable
+    UpdateConfigurationSetEventDestination
 
-instance Hashable
-           UpdateConfigurationSetEventDestination
-         where
+instance
+  Prelude.NFData
+    UpdateConfigurationSetEventDestination
 
-instance NFData
-           UpdateConfigurationSetEventDestination
-         where
+instance
+  Prelude.ToHeaders
+    UpdateConfigurationSetEventDestination
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders
-           UpdateConfigurationSetEventDestination
-         where
-        toHeaders = const mempty
+instance
+  Prelude.ToPath
+    UpdateConfigurationSetEventDestination
+  where
+  toPath = Prelude.const "/"
 
-instance ToPath
-           UpdateConfigurationSetEventDestination
-         where
-        toPath = const "/"
-
-instance ToQuery
-           UpdateConfigurationSetEventDestination
-         where
-        toQuery UpdateConfigurationSetEventDestination'{..}
-          = mconcat
-              ["Action" =:
-                 ("UpdateConfigurationSetEventDestination" ::
-                    ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "ConfigurationSetName" =: _ucsedConfigurationSetName,
-               "EventDestination" =: _ucsedEventDestination]
+instance
+  Prelude.ToQuery
+    UpdateConfigurationSetEventDestination
+  where
+  toQuery UpdateConfigurationSetEventDestination' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ( "UpdateConfigurationSetEventDestination" ::
+                         Prelude.ByteString
+                     ),
+        "Version"
+          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
+        "ConfigurationSetName"
+          Prelude.=: configurationSetName,
+        "EventDestination" Prelude.=: eventDestination
+      ]
 
 -- | An empty element returned on a successful request.
 --
+-- /See:/ 'newUpdateConfigurationSetEventDestinationResponse' smart constructor.
+data UpdateConfigurationSetEventDestinationResponse = UpdateConfigurationSetEventDestinationResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'UpdateConfigurationSetEventDestinationResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'updateConfigurationSetEventDestinationResponse' smart constructor.
-newtype UpdateConfigurationSetEventDestinationResponse = UpdateConfigurationSetEventDestinationResponse'
-  { _ucsedrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateConfigurationSetEventDestinationResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucsedrsResponseStatus' - -- | The response status code.
-updateConfigurationSetEventDestinationResponse
-    :: Int -- ^ 'ucsedrsResponseStatus'
-    -> UpdateConfigurationSetEventDestinationResponse
-updateConfigurationSetEventDestinationResponse pResponseStatus_ =
-  UpdateConfigurationSetEventDestinationResponse'
-    {_ucsedrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'updateConfigurationSetEventDestinationResponse_httpStatus' - The response's http status code.
+newUpdateConfigurationSetEventDestinationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateConfigurationSetEventDestinationResponse
+newUpdateConfigurationSetEventDestinationResponse
+  pHttpStatus_ =
+    UpdateConfigurationSetEventDestinationResponse'
+      { httpStatus =
+          pHttpStatus_
+      }
 
+-- | The response's http status code.
+updateConfigurationSetEventDestinationResponse_httpStatus :: Lens.Lens' UpdateConfigurationSetEventDestinationResponse Prelude.Int
+updateConfigurationSetEventDestinationResponse_httpStatus = Lens.lens (\UpdateConfigurationSetEventDestinationResponse' {httpStatus} -> httpStatus) (\s@UpdateConfigurationSetEventDestinationResponse' {} a -> s {httpStatus = a} :: UpdateConfigurationSetEventDestinationResponse)
 
--- | -- | The response status code.
-ucsedrsResponseStatus :: Lens' UpdateConfigurationSetEventDestinationResponse Int
-ucsedrsResponseStatus = lens _ucsedrsResponseStatus (\ s a -> s{_ucsedrsResponseStatus = a})
-
-instance NFData
-           UpdateConfigurationSetEventDestinationResponse
-         where
+instance
+  Prelude.NFData
+    UpdateConfigurationSetEventDestinationResponse

@@ -1,124 +1,148 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaStore.DeleteContainer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified container. Before you make a @DeleteContainer@ request, delete any objects in the container or in any folders in the container. You can delete only empty containers.
---
---
+-- Deletes the specified container. Before you make a @DeleteContainer@
+-- request, delete any objects in the container or in any folders in the
+-- container. You can delete only empty containers.
 module Network.AWS.MediaStore.DeleteContainer
-    (
-    -- * Creating a Request
-      deleteContainer
-    , DeleteContainer
+  ( -- * Creating a Request
+    DeleteContainer (..),
+    newDeleteContainer,
+
     -- * Request Lenses
-    , dcContainerName
+    deleteContainer_containerName,
 
     -- * Destructuring the Response
-    , deleteContainerResponse
-    , DeleteContainerResponse
+    DeleteContainerResponse (..),
+    newDeleteContainerResponse,
+
     -- * Response Lenses
-    , dcrsResponseStatus
-    ) where
+    deleteContainerResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import Network.AWS.MediaStore.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteContainer' smart constructor.
-newtype DeleteContainer = DeleteContainer'
-  { _dcContainerName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteContainer' smart constructor.
+data DeleteContainer = DeleteContainer'
+  { -- | The name of the container to delete.
+    containerName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteContainer' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteContainer' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcContainerName' - The name of the container to delete.
-deleteContainer
-    :: Text -- ^ 'dcContainerName'
-    -> DeleteContainer
-deleteContainer pContainerName_ =
-  DeleteContainer' {_dcContainerName = pContainerName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'containerName', 'deleteContainer_containerName' - The name of the container to delete.
+newDeleteContainer ::
+  -- | 'containerName'
+  Prelude.Text ->
+  DeleteContainer
+newDeleteContainer pContainerName_ =
+  DeleteContainer' {containerName = pContainerName_}
 
 -- | The name of the container to delete.
-dcContainerName :: Lens' DeleteContainer Text
-dcContainerName = lens _dcContainerName (\ s a -> s{_dcContainerName = a})
+deleteContainer_containerName :: Lens.Lens' DeleteContainer Prelude.Text
+deleteContainer_containerName = Lens.lens (\DeleteContainer' {containerName} -> containerName) (\s@DeleteContainer' {} a -> s {containerName = a} :: DeleteContainer)
 
-instance AWSRequest DeleteContainer where
-        type Rs DeleteContainer = DeleteContainerResponse
-        request = postJSON mediaStore
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteContainerResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest DeleteContainer where
+  type Rs DeleteContainer = DeleteContainerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteContainerResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteContainer where
+instance Prelude.Hashable DeleteContainer
 
-instance NFData DeleteContainer where
+instance Prelude.NFData DeleteContainer
 
-instance ToHeaders DeleteContainer where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("MediaStore_20170901.DeleteContainer" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DeleteContainer where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "MediaStore_20170901.DeleteContainer" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DeleteContainer where
-        toJSON DeleteContainer'{..}
-          = object
-              (catMaybes
-                 [Just ("ContainerName" .= _dcContainerName)])
+instance Prelude.ToJSON DeleteContainer where
+  toJSON DeleteContainer' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("ContainerName" Prelude..= containerName)
+          ]
+      )
 
-instance ToPath DeleteContainer where
-        toPath = const "/"
+instance Prelude.ToPath DeleteContainer where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteContainer where
-        toQuery = const mempty
+instance Prelude.ToQuery DeleteContainer where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteContainerResponse' smart constructor.
-newtype DeleteContainerResponse = DeleteContainerResponse'
-  { _dcrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteContainerResponse' smart constructor.
+data DeleteContainerResponse = DeleteContainerResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteContainerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteContainerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcrsResponseStatus' - -- | The response status code.
-deleteContainerResponse
-    :: Int -- ^ 'dcrsResponseStatus'
-    -> DeleteContainerResponse
-deleteContainerResponse pResponseStatus_ =
-  DeleteContainerResponse' {_dcrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteContainerResponse_httpStatus' - The response's http status code.
+newDeleteContainerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteContainerResponse
+newDeleteContainerResponse pHttpStatus_ =
+  DeleteContainerResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+deleteContainerResponse_httpStatus :: Lens.Lens' DeleteContainerResponse Prelude.Int
+deleteContainerResponse_httpStatus = Lens.lens (\DeleteContainerResponse' {httpStatus} -> httpStatus) (\s@DeleteContainerResponse' {} a -> s {httpStatus = a} :: DeleteContainerResponse)
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DeleteContainerResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
-
-instance NFData DeleteContainerResponse where
+instance Prelude.NFData DeleteContainerResponse

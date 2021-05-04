@@ -1,152 +1,231 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.RDS.CreateDBSnapshot
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a DBSnapshot. The source DBInstance must be in "available" state.
---
---
+-- Creates a snapshot of a DB instance. The source DB instance must be in
+-- the @available@ or @storage-optimization@ state.
 module Network.AWS.RDS.CreateDBSnapshot
-    (
-    -- * Creating a Request
-      createDBSnapshot
-    , CreateDBSnapshot
+  ( -- * Creating a Request
+    CreateDBSnapshot (..),
+    newCreateDBSnapshot,
+
     -- * Request Lenses
-    , cdbsTags
-    , cdbsDBSnapshotIdentifier
-    , cdbsDBInstanceIdentifier
+    createDBSnapshot_tags,
+    createDBSnapshot_dbSnapshotIdentifier,
+    createDBSnapshot_dbInstanceIdentifier,
 
     -- * Destructuring the Response
-    , createDBSnapshotResponse
-    , CreateDBSnapshotResponse
-    -- * Response Lenses
-    , cdbsrsDBSnapshot
-    , cdbsrsResponseStatus
-    ) where
+    CreateDBSnapshotResponse (..),
+    newCreateDBSnapshotResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    createDBSnapshotResponse_dbSnapshot,
+    createDBSnapshotResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.RDS.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'createDBSnapshot' smart constructor.
+-- /See:/ 'newCreateDBSnapshot' smart constructor.
 data CreateDBSnapshot = CreateDBSnapshot'
-  { _cdbsTags                 :: !(Maybe [Tag])
-  , _cdbsDBSnapshotIdentifier :: !Text
-  , _cdbsDBInstanceIdentifier :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { tags :: Prelude.Maybe [Tag],
+    -- | The identifier for the DB snapshot.
+    --
+    -- Constraints:
+    --
+    -- -   Can\'t be null, empty, or blank
+    --
+    -- -   Must contain from 1 to 255 letters, numbers, or hyphens
+    --
+    -- -   First character must be a letter
+    --
+    -- -   Can\'t end with a hyphen or contain two consecutive hyphens
+    --
+    -- Example: @my-snapshot-id@
+    dbSnapshotIdentifier :: Prelude.Text,
+    -- | The identifier of the DB instance that you want to create the snapshot
+    -- of.
+    --
+    -- Constraints:
+    --
+    -- -   Must match the identifier of an existing DBInstance.
+    dbInstanceIdentifier :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateDBSnapshot' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tags', 'createDBSnapshot_tags' - Undocumented member.
+--
+-- 'dbSnapshotIdentifier', 'createDBSnapshot_dbSnapshotIdentifier' - The identifier for the DB snapshot.
+--
+-- Constraints:
+--
+-- -   Can\'t be null, empty, or blank
+--
+-- -   Must contain from 1 to 255 letters, numbers, or hyphens
+--
+-- -   First character must be a letter
+--
+-- -   Can\'t end with a hyphen or contain two consecutive hyphens
+--
+-- Example: @my-snapshot-id@
+--
+-- 'dbInstanceIdentifier', 'createDBSnapshot_dbInstanceIdentifier' - The identifier of the DB instance that you want to create the snapshot
+-- of.
+--
+-- Constraints:
+--
+-- -   Must match the identifier of an existing DBInstance.
+newCreateDBSnapshot ::
+  -- | 'dbSnapshotIdentifier'
+  Prelude.Text ->
+  -- | 'dbInstanceIdentifier'
+  Prelude.Text ->
+  CreateDBSnapshot
+newCreateDBSnapshot
+  pDBSnapshotIdentifier_
+  pDBInstanceIdentifier_ =
+    CreateDBSnapshot'
+      { tags = Prelude.Nothing,
+        dbSnapshotIdentifier = pDBSnapshotIdentifier_,
+        dbInstanceIdentifier = pDBInstanceIdentifier_
+      }
 
--- | Creates a value of 'CreateDBSnapshot' with the minimum fields required to make a request.
+-- | Undocumented member.
+createDBSnapshot_tags :: Lens.Lens' CreateDBSnapshot (Prelude.Maybe [Tag])
+createDBSnapshot_tags = Lens.lens (\CreateDBSnapshot' {tags} -> tags) (\s@CreateDBSnapshot' {} a -> s {tags = a} :: CreateDBSnapshot) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The identifier for the DB snapshot.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Constraints:
 --
--- * 'cdbsTags' - Undocumented member.
+-- -   Can\'t be null, empty, or blank
 --
--- * 'cdbsDBSnapshotIdentifier' - The identifier for the DB snapshot. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
+-- -   Must contain from 1 to 255 letters, numbers, or hyphens
 --
--- * 'cdbsDBInstanceIdentifier' - The identifier of the DB instance that you want to create the snapshot of. Constraints:     * Must match the identifier of an existing DBInstance.
-createDBSnapshot
-    :: Text -- ^ 'cdbsDBSnapshotIdentifier'
-    -> Text -- ^ 'cdbsDBInstanceIdentifier'
-    -> CreateDBSnapshot
-createDBSnapshot pDBSnapshotIdentifier_ pDBInstanceIdentifier_ =
-  CreateDBSnapshot'
-    { _cdbsTags = Nothing
-    , _cdbsDBSnapshotIdentifier = pDBSnapshotIdentifier_
-    , _cdbsDBInstanceIdentifier = pDBInstanceIdentifier_
+-- -   First character must be a letter
+--
+-- -   Can\'t end with a hyphen or contain two consecutive hyphens
+--
+-- Example: @my-snapshot-id@
+createDBSnapshot_dbSnapshotIdentifier :: Lens.Lens' CreateDBSnapshot Prelude.Text
+createDBSnapshot_dbSnapshotIdentifier = Lens.lens (\CreateDBSnapshot' {dbSnapshotIdentifier} -> dbSnapshotIdentifier) (\s@CreateDBSnapshot' {} a -> s {dbSnapshotIdentifier = a} :: CreateDBSnapshot)
+
+-- | The identifier of the DB instance that you want to create the snapshot
+-- of.
+--
+-- Constraints:
+--
+-- -   Must match the identifier of an existing DBInstance.
+createDBSnapshot_dbInstanceIdentifier :: Lens.Lens' CreateDBSnapshot Prelude.Text
+createDBSnapshot_dbInstanceIdentifier = Lens.lens (\CreateDBSnapshot' {dbInstanceIdentifier} -> dbInstanceIdentifier) (\s@CreateDBSnapshot' {} a -> s {dbInstanceIdentifier = a} :: CreateDBSnapshot)
+
+instance Prelude.AWSRequest CreateDBSnapshot where
+  type Rs CreateDBSnapshot = CreateDBSnapshotResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "CreateDBSnapshotResult"
+      ( \s h x ->
+          CreateDBSnapshotResponse'
+            Prelude.<$> (x Prelude..@? "DBSnapshot")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CreateDBSnapshot
+
+instance Prelude.NFData CreateDBSnapshot
+
+instance Prelude.ToHeaders CreateDBSnapshot where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath CreateDBSnapshot where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery CreateDBSnapshot where
+  toQuery CreateDBSnapshot' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("CreateDBSnapshot" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+        "Tags"
+          Prelude.=: Prelude.toQuery
+            (Prelude.toQueryList "Tag" Prelude.<$> tags),
+        "DBSnapshotIdentifier"
+          Prelude.=: dbSnapshotIdentifier,
+        "DBInstanceIdentifier"
+          Prelude.=: dbInstanceIdentifier
+      ]
+
+-- | /See:/ 'newCreateDBSnapshotResponse' smart constructor.
+data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
+  { dbSnapshot :: Prelude.Maybe DBSnapshot,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateDBSnapshotResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'dbSnapshot', 'createDBSnapshotResponse_dbSnapshot' - Undocumented member.
+--
+-- 'httpStatus', 'createDBSnapshotResponse_httpStatus' - The response's http status code.
+newCreateDBSnapshotResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateDBSnapshotResponse
+newCreateDBSnapshotResponse pHttpStatus_ =
+  CreateDBSnapshotResponse'
+    { dbSnapshot =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | Undocumented member.
-cdbsTags :: Lens' CreateDBSnapshot [Tag]
-cdbsTags = lens _cdbsTags (\ s a -> s{_cdbsTags = a}) . _Default . _Coerce
+createDBSnapshotResponse_dbSnapshot :: Lens.Lens' CreateDBSnapshotResponse (Prelude.Maybe DBSnapshot)
+createDBSnapshotResponse_dbSnapshot = Lens.lens (\CreateDBSnapshotResponse' {dbSnapshot} -> dbSnapshot) (\s@CreateDBSnapshotResponse' {} a -> s {dbSnapshot = a} :: CreateDBSnapshotResponse)
 
--- | The identifier for the DB snapshot. Constraints:     * Cannot be null, empty, or blank     * Must contain from 1 to 255 letters, numbers, or hyphens     * First character must be a letter     * Cannot end with a hyphen or contain two consecutive hyphens Example: @my-snapshot-id@
-cdbsDBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
-cdbsDBSnapshotIdentifier = lens _cdbsDBSnapshotIdentifier (\ s a -> s{_cdbsDBSnapshotIdentifier = a})
+-- | The response's http status code.
+createDBSnapshotResponse_httpStatus :: Lens.Lens' CreateDBSnapshotResponse Prelude.Int
+createDBSnapshotResponse_httpStatus = Lens.lens (\CreateDBSnapshotResponse' {httpStatus} -> httpStatus) (\s@CreateDBSnapshotResponse' {} a -> s {httpStatus = a} :: CreateDBSnapshotResponse)
 
--- | The identifier of the DB instance that you want to create the snapshot of. Constraints:     * Must match the identifier of an existing DBInstance.
-cdbsDBInstanceIdentifier :: Lens' CreateDBSnapshot Text
-cdbsDBInstanceIdentifier = lens _cdbsDBInstanceIdentifier (\ s a -> s{_cdbsDBInstanceIdentifier = a})
-
-instance AWSRequest CreateDBSnapshot where
-        type Rs CreateDBSnapshot = CreateDBSnapshotResponse
-        request = postQuery rds
-        response
-          = receiveXMLWrapper "CreateDBSnapshotResult"
-              (\ s h x ->
-                 CreateDBSnapshotResponse' <$>
-                   (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
-
-instance Hashable CreateDBSnapshot where
-
-instance NFData CreateDBSnapshot where
-
-instance ToHeaders CreateDBSnapshot where
-        toHeaders = const mempty
-
-instance ToPath CreateDBSnapshot where
-        toPath = const "/"
-
-instance ToQuery CreateDBSnapshot where
-        toQuery CreateDBSnapshot'{..}
-          = mconcat
-              ["Action" =: ("CreateDBSnapshot" :: ByteString),
-               "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _cdbsTags),
-               "DBSnapshotIdentifier" =: _cdbsDBSnapshotIdentifier,
-               "DBInstanceIdentifier" =: _cdbsDBInstanceIdentifier]
-
--- | /See:/ 'createDBSnapshotResponse' smart constructor.
-data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
-  { _cdbsrsDBSnapshot     :: !(Maybe DBSnapshot)
-  , _cdbsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateDBSnapshotResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cdbsrsDBSnapshot' - Undocumented member.
---
--- * 'cdbsrsResponseStatus' - -- | The response status code.
-createDBSnapshotResponse
-    :: Int -- ^ 'cdbsrsResponseStatus'
-    -> CreateDBSnapshotResponse
-createDBSnapshotResponse pResponseStatus_ =
-  CreateDBSnapshotResponse'
-    {_cdbsrsDBSnapshot = Nothing, _cdbsrsResponseStatus = pResponseStatus_}
-
-
--- | Undocumented member.
-cdbsrsDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
-cdbsrsDBSnapshot = lens _cdbsrsDBSnapshot (\ s a -> s{_cdbsrsDBSnapshot = a})
-
--- | -- | The response status code.
-cdbsrsResponseStatus :: Lens' CreateDBSnapshotResponse Int
-cdbsrsResponseStatus = lens _cdbsrsResponseStatus (\ s a -> s{_cdbsrsResponseStatus = a})
-
-instance NFData CreateDBSnapshotResponse where
+instance Prelude.NFData CreateDBSnapshotResponse

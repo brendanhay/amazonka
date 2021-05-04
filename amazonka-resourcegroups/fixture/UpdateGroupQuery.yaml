@@ -1,5 +1,5 @@
 ---
-method: PUT
+method: POST
 headers:
   Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/resource-groups/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=?
   Host:                  resource-groups.us-east-1.amazonaws.com

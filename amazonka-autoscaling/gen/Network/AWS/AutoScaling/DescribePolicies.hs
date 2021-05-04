@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribePolicies
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,173 +23,244 @@
 --
 -- Describes the policies for the specified Auto Scaling group.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribePolicies
-    (
-    -- * Creating a Request
-      describePolicies
-    , DescribePolicies
+  ( -- * Creating a Request
+    DescribePolicies (..),
+    newDescribePolicies,
+
     -- * Request Lenses
-    , dpsPolicyNames
-    , dpsNextToken
-    , dpsAutoScalingGroupName
-    , dpsMaxRecords
-    , dpsPolicyTypes
+    describePolicies_nextToken,
+    describePolicies_policyTypes,
+    describePolicies_policyNames,
+    describePolicies_autoScalingGroupName,
+    describePolicies_maxRecords,
 
     -- * Destructuring the Response
-    , describePoliciesResponse
-    , DescribePoliciesResponse
+    DescribePoliciesResponse (..),
+    newDescribePoliciesResponse,
+
     -- * Response Lenses
-    , dprsNextToken
-    , dprsScalingPolicies
-    , dprsResponseStatus
-    ) where
+    describePoliciesResponse_nextToken,
+    describePoliciesResponse_scalingPolicies,
+    describePoliciesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describePolicies' smart constructor.
+-- | /See:/ 'newDescribePolicies' smart constructor.
 data DescribePolicies = DescribePolicies'
-  { _dpsPolicyNames          :: !(Maybe [Text])
-  , _dpsNextToken            :: !(Maybe Text)
-  , _dpsAutoScalingGroupName :: !(Maybe Text)
-  , _dpsMaxRecords           :: !(Maybe Int)
-  , _dpsPolicyTypes          :: !(Maybe [Text])
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One or more policy types. The valid values are @SimpleScaling@,
+    -- @StepScaling@, and @TargetTrackingScaling@.
+    policyTypes :: Prelude.Maybe [Prelude.Text],
+    -- | The names of one or more policies. If you omit this parameter, all
+    -- policies are described. If a group name is provided, the results are
+    -- limited to that group. This list is limited to 50 items. If you specify
+    -- an unknown policy name, it is ignored with no error.
+    policyNames :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to be returned with each call. The default
+    -- value is @50@ and the maximum value is @100@.
+    maxRecords :: Prelude.Maybe Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribePolicies' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribePolicies' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpsPolicyNames' - The names of one or more policies. If you omit this parameter, all policies are described. If an group name is provided, the results are limited to that group. This list is limited to 50 items. If you specify an unknown policy name, it is ignored with no error.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dpsNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- 'nextToken', 'describePolicies_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
--- * 'dpsAutoScalingGroupName' - The name of the Auto Scaling group.
+-- 'policyTypes', 'describePolicies_policyTypes' - One or more policy types. The valid values are @SimpleScaling@,
+-- @StepScaling@, and @TargetTrackingScaling@.
 --
--- * 'dpsMaxRecords' - The maximum number of items to be returned with each call. The default value is 50 and the maximum value is 100.
+-- 'policyNames', 'describePolicies_policyNames' - The names of one or more policies. If you omit this parameter, all
+-- policies are described. If a group name is provided, the results are
+-- limited to that group. This list is limited to 50 items. If you specify
+-- an unknown policy name, it is ignored with no error.
 --
--- * 'dpsPolicyTypes' - One or more policy types. Valid values are @SimpleScaling@ and @StepScaling@ .
-describePolicies
-    :: DescribePolicies
-describePolicies =
+-- 'autoScalingGroupName', 'describePolicies_autoScalingGroupName' - The name of the Auto Scaling group.
+--
+-- 'maxRecords', 'describePolicies_maxRecords' - The maximum number of items to be returned with each call. The default
+-- value is @50@ and the maximum value is @100@.
+newDescribePolicies ::
+  DescribePolicies
+newDescribePolicies =
   DescribePolicies'
-    { _dpsPolicyNames = Nothing
-    , _dpsNextToken = Nothing
-    , _dpsAutoScalingGroupName = Nothing
-    , _dpsMaxRecords = Nothing
-    , _dpsPolicyTypes = Nothing
+    { nextToken = Prelude.Nothing,
+      policyTypes = Prelude.Nothing,
+      policyNames = Prelude.Nothing,
+      autoScalingGroupName = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describePolicies_nextToken :: Lens.Lens' DescribePolicies (Prelude.Maybe Prelude.Text)
+describePolicies_nextToken = Lens.lens (\DescribePolicies' {nextToken} -> nextToken) (\s@DescribePolicies' {} a -> s {nextToken = a} :: DescribePolicies)
 
--- | The names of one or more policies. If you omit this parameter, all policies are described. If an group name is provided, the results are limited to that group. This list is limited to 50 items. If you specify an unknown policy name, it is ignored with no error.
-dpsPolicyNames :: Lens' DescribePolicies [Text]
-dpsPolicyNames = lens _dpsPolicyNames (\ s a -> s{_dpsPolicyNames = a}) . _Default . _Coerce
+-- | One or more policy types. The valid values are @SimpleScaling@,
+-- @StepScaling@, and @TargetTrackingScaling@.
+describePolicies_policyTypes :: Lens.Lens' DescribePolicies (Prelude.Maybe [Prelude.Text])
+describePolicies_policyTypes = Lens.lens (\DescribePolicies' {policyTypes} -> policyTypes) (\s@DescribePolicies' {} a -> s {policyTypes = a} :: DescribePolicies) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The token for the next set of items to return. (You received this token from a previous call.)
-dpsNextToken :: Lens' DescribePolicies (Maybe Text)
-dpsNextToken = lens _dpsNextToken (\ s a -> s{_dpsNextToken = a})
+-- | The names of one or more policies. If you omit this parameter, all
+-- policies are described. If a group name is provided, the results are
+-- limited to that group. This list is limited to 50 items. If you specify
+-- an unknown policy name, it is ignored with no error.
+describePolicies_policyNames :: Lens.Lens' DescribePolicies (Prelude.Maybe [Prelude.Text])
+describePolicies_policyNames = Lens.lens (\DescribePolicies' {policyNames} -> policyNames) (\s@DescribePolicies' {} a -> s {policyNames = a} :: DescribePolicies) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The name of the Auto Scaling group.
-dpsAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
-dpsAutoScalingGroupName = lens _dpsAutoScalingGroupName (\ s a -> s{_dpsAutoScalingGroupName = a})
+describePolicies_autoScalingGroupName :: Lens.Lens' DescribePolicies (Prelude.Maybe Prelude.Text)
+describePolicies_autoScalingGroupName = Lens.lens (\DescribePolicies' {autoScalingGroupName} -> autoScalingGroupName) (\s@DescribePolicies' {} a -> s {autoScalingGroupName = a} :: DescribePolicies)
 
--- | The maximum number of items to be returned with each call. The default value is 50 and the maximum value is 100.
-dpsMaxRecords :: Lens' DescribePolicies (Maybe Int)
-dpsMaxRecords = lens _dpsMaxRecords (\ s a -> s{_dpsMaxRecords = a})
+-- | The maximum number of items to be returned with each call. The default
+-- value is @50@ and the maximum value is @100@.
+describePolicies_maxRecords :: Lens.Lens' DescribePolicies (Prelude.Maybe Prelude.Int)
+describePolicies_maxRecords = Lens.lens (\DescribePolicies' {maxRecords} -> maxRecords) (\s@DescribePolicies' {} a -> s {maxRecords = a} :: DescribePolicies)
 
--- | One or more policy types. Valid values are @SimpleScaling@ and @StepScaling@ .
-dpsPolicyTypes :: Lens' DescribePolicies [Text]
-dpsPolicyTypes = lens _dpsPolicyTypes (\ s a -> s{_dpsPolicyTypes = a}) . _Default . _Coerce
+instance Pager.AWSPager DescribePolicies where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describePoliciesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describePoliciesResponse_scalingPolicies
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describePolicies_nextToken
+          Lens..~ rs
+          Lens.^? describePoliciesResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSPager DescribePolicies where
-        page rq rs
-          | stop (rs ^. dprsNextToken) = Nothing
-          | stop (rs ^. dprsScalingPolicies) = Nothing
-          | otherwise =
-            Just $ rq & dpsNextToken .~ rs ^. dprsNextToken
+instance Prelude.AWSRequest DescribePolicies where
+  type Rs DescribePolicies = DescribePoliciesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribePoliciesResult"
+      ( \s h x ->
+          DescribePoliciesResponse'
+            Prelude.<$> (x Prelude..@? "NextToken")
+            Prelude.<*> ( x Prelude..@? "ScalingPolicies"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribePolicies where
-        type Rs DescribePolicies = DescribePoliciesResponse
-        request = postQuery autoScaling
-        response
-          = receiveXMLWrapper "DescribePoliciesResult"
-              (\ s h x ->
-                 DescribePoliciesResponse' <$>
-                   (x .@? "NextToken") <*>
-                     (x .@? "ScalingPolicies" .!@ mempty >>=
-                        may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribePolicies
 
-instance Hashable DescribePolicies where
+instance Prelude.NFData DescribePolicies
 
-instance NFData DescribePolicies where
+instance Prelude.ToHeaders DescribePolicies where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DescribePolicies where
-        toHeaders = const mempty
+instance Prelude.ToPath DescribePolicies where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribePolicies where
-        toPath = const "/"
+instance Prelude.ToQuery DescribePolicies where
+  toQuery DescribePolicies' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DescribePolicies" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
+        "NextToken" Prelude.=: nextToken,
+        "PolicyTypes"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "member"
+                Prelude.<$> policyTypes
+            ),
+        "PolicyNames"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "member"
+                Prelude.<$> policyNames
+            ),
+        "AutoScalingGroupName"
+          Prelude.=: autoScalingGroupName,
+        "MaxRecords" Prelude.=: maxRecords
+      ]
 
-instance ToQuery DescribePolicies where
-        toQuery DescribePolicies'{..}
-          = mconcat
-              ["Action" =: ("DescribePolicies" :: ByteString),
-               "Version" =: ("2011-01-01" :: ByteString),
-               "PolicyNames" =:
-                 toQuery (toQueryList "member" <$> _dpsPolicyNames),
-               "NextToken" =: _dpsNextToken,
-               "AutoScalingGroupName" =: _dpsAutoScalingGroupName,
-               "MaxRecords" =: _dpsMaxRecords,
-               "PolicyTypes" =:
-                 toQuery (toQueryList "member" <$> _dpsPolicyTypes)]
-
--- | /See:/ 'describePoliciesResponse' smart constructor.
+-- | /See:/ 'newDescribePoliciesResponse' smart constructor.
 data DescribePoliciesResponse = DescribePoliciesResponse'
-  { _dprsNextToken       :: !(Maybe Text)
-  , _dprsScalingPolicies :: !(Maybe [ScalingPolicy])
-  , _dprsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A string that indicates that the response contains more items than can
+    -- be returned in a single response. To receive additional items, specify
+    -- this string for the @NextToken@ value when requesting the next set of
+    -- items. This value is null when there are no more items to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The scaling policies.
+    scalingPolicies :: Prelude.Maybe [ScalingPolicy],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribePoliciesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribePoliciesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dprsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dprsScalingPolicies' - The scaling policies.
+-- 'nextToken', 'describePoliciesResponse_nextToken' - A string that indicates that the response contains more items than can
+-- be returned in a single response. To receive additional items, specify
+-- this string for the @NextToken@ value when requesting the next set of
+-- items. This value is null when there are no more items to return.
 --
--- * 'dprsResponseStatus' - -- | The response status code.
-describePoliciesResponse
-    :: Int -- ^ 'dprsResponseStatus'
-    -> DescribePoliciesResponse
-describePoliciesResponse pResponseStatus_ =
+-- 'scalingPolicies', 'describePoliciesResponse_scalingPolicies' - The scaling policies.
+--
+-- 'httpStatus', 'describePoliciesResponse_httpStatus' - The response's http status code.
+newDescribePoliciesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribePoliciesResponse
+newDescribePoliciesResponse pHttpStatus_ =
   DescribePoliciesResponse'
-    { _dprsNextToken = Nothing
-    , _dprsScalingPolicies = Nothing
-    , _dprsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      scalingPolicies = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-dprsNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
-dprsNextToken = lens _dprsNextToken (\ s a -> s{_dprsNextToken = a})
+-- | A string that indicates that the response contains more items than can
+-- be returned in a single response. To receive additional items, specify
+-- this string for the @NextToken@ value when requesting the next set of
+-- items. This value is null when there are no more items to return.
+describePoliciesResponse_nextToken :: Lens.Lens' DescribePoliciesResponse (Prelude.Maybe Prelude.Text)
+describePoliciesResponse_nextToken = Lens.lens (\DescribePoliciesResponse' {nextToken} -> nextToken) (\s@DescribePoliciesResponse' {} a -> s {nextToken = a} :: DescribePoliciesResponse)
 
 -- | The scaling policies.
-dprsScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
-dprsScalingPolicies = lens _dprsScalingPolicies (\ s a -> s{_dprsScalingPolicies = a}) . _Default . _Coerce
+describePoliciesResponse_scalingPolicies :: Lens.Lens' DescribePoliciesResponse (Prelude.Maybe [ScalingPolicy])
+describePoliciesResponse_scalingPolicies = Lens.lens (\DescribePoliciesResponse' {scalingPolicies} -> scalingPolicies) (\s@DescribePoliciesResponse' {} a -> s {scalingPolicies = a} :: DescribePoliciesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-dprsResponseStatus :: Lens' DescribePoliciesResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
+-- | The response's http status code.
+describePoliciesResponse_httpStatus :: Lens.Lens' DescribePoliciesResponse Prelude.Int
+describePoliciesResponse_httpStatus = Lens.lens (\DescribePoliciesResponse' {httpStatus} -> httpStatus) (\s@DescribePoliciesResponse' {} a -> s {httpStatus = a} :: DescribePoliciesResponse)
 
-instance NFData DescribePoliciesResponse where
+instance Prelude.NFData DescribePoliciesResponse

@@ -1,144 +1,171 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DMS.DeleteReplicationTask
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified replication task.
---
---
 module Network.AWS.DMS.DeleteReplicationTask
-    (
-    -- * Creating a Request
-      deleteReplicationTask
-    , DeleteReplicationTask
+  ( -- * Creating a Request
+    DeleteReplicationTask (..),
+    newDeleteReplicationTask,
+
     -- * Request Lenses
-    , drtReplicationTaskARN
+    deleteReplicationTask_replicationTaskArn,
 
     -- * Destructuring the Response
-    , deleteReplicationTaskResponse
-    , DeleteReplicationTaskResponse
+    DeleteReplicationTaskResponse (..),
+    newDeleteReplicationTaskResponse,
+
     -- * Response Lenses
-    , drtrsReplicationTask
-    , drtrsResponseStatus
-    ) where
+    deleteReplicationTaskResponse_replicationTask,
+    deleteReplicationTaskResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DMS.Types
-import Network.AWS.DMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'deleteReplicationTask' smart constructor.
-newtype DeleteReplicationTask = DeleteReplicationTask'
-  { _drtReplicationTaskARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDeleteReplicationTask' smart constructor.
+data DeleteReplicationTask = DeleteReplicationTask'
+  { -- | The Amazon Resource Name (ARN) of the replication task to be deleted.
+    replicationTaskArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteReplicationTask' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteReplicationTask' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drtReplicationTaskARN' - The Amazon Resource Name (ARN) of the replication task to be deleted.
-deleteReplicationTask
-    :: Text -- ^ 'drtReplicationTaskARN'
-    -> DeleteReplicationTask
-deleteReplicationTask pReplicationTaskARN_ =
-  DeleteReplicationTask' {_drtReplicationTaskARN = pReplicationTaskARN_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'replicationTaskArn', 'deleteReplicationTask_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task to be deleted.
+newDeleteReplicationTask ::
+  -- | 'replicationTaskArn'
+  Prelude.Text ->
+  DeleteReplicationTask
+newDeleteReplicationTask pReplicationTaskArn_ =
+  DeleteReplicationTask'
+    { replicationTaskArn =
+        pReplicationTaskArn_
+    }
 
 -- | The Amazon Resource Name (ARN) of the replication task to be deleted.
-drtReplicationTaskARN :: Lens' DeleteReplicationTask Text
-drtReplicationTaskARN = lens _drtReplicationTaskARN (\ s a -> s{_drtReplicationTaskARN = a})
+deleteReplicationTask_replicationTaskArn :: Lens.Lens' DeleteReplicationTask Prelude.Text
+deleteReplicationTask_replicationTaskArn = Lens.lens (\DeleteReplicationTask' {replicationTaskArn} -> replicationTaskArn) (\s@DeleteReplicationTask' {} a -> s {replicationTaskArn = a} :: DeleteReplicationTask)
 
-instance AWSRequest DeleteReplicationTask where
-        type Rs DeleteReplicationTask =
-             DeleteReplicationTaskResponse
-        request = postJSON dms
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteReplicationTaskResponse' <$>
-                   (x .?> "ReplicationTask") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DeleteReplicationTask where
+  type
+    Rs DeleteReplicationTask =
+      DeleteReplicationTaskResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteReplicationTaskResponse'
+            Prelude.<$> (x Prelude..?> "ReplicationTask")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteReplicationTask where
+instance Prelude.Hashable DeleteReplicationTask
 
-instance NFData DeleteReplicationTask where
+instance Prelude.NFData DeleteReplicationTask
 
-instance ToHeaders DeleteReplicationTask where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonDMSv20160101.DeleteReplicationTask" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DeleteReplicationTask where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonDMSv20160101.DeleteReplicationTask" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DeleteReplicationTask where
-        toJSON DeleteReplicationTask'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("ReplicationTaskArn" .= _drtReplicationTaskARN)])
+instance Prelude.ToJSON DeleteReplicationTask where
+  toJSON DeleteReplicationTask' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "ReplicationTaskArn"
+                  Prelude..= replicationTaskArn
+              )
+          ]
+      )
 
-instance ToPath DeleteReplicationTask where
-        toPath = const "/"
+instance Prelude.ToPath DeleteReplicationTask where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteReplicationTask where
-        toQuery = const mempty
+instance Prelude.ToQuery DeleteReplicationTask where
+  toQuery = Prelude.const Prelude.mempty
 
 -- |
 --
---
---
--- /See:/ 'deleteReplicationTaskResponse' smart constructor.
+-- /See:/ 'newDeleteReplicationTaskResponse' smart constructor.
 data DeleteReplicationTaskResponse = DeleteReplicationTaskResponse'
-  { _drtrsReplicationTask :: !(Maybe ReplicationTask)
-  , _drtrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The deleted replication task.
+    replicationTask :: Prelude.Maybe ReplicationTask,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteReplicationTaskResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteReplicationTaskResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drtrsReplicationTask' - The deleted replication task.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drtrsResponseStatus' - -- | The response status code.
-deleteReplicationTaskResponse
-    :: Int -- ^ 'drtrsResponseStatus'
-    -> DeleteReplicationTaskResponse
-deleteReplicationTaskResponse pResponseStatus_ =
+-- 'replicationTask', 'deleteReplicationTaskResponse_replicationTask' - The deleted replication task.
+--
+-- 'httpStatus', 'deleteReplicationTaskResponse_httpStatus' - The response's http status code.
+newDeleteReplicationTaskResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteReplicationTaskResponse
+newDeleteReplicationTaskResponse pHttpStatus_ =
   DeleteReplicationTaskResponse'
-    {_drtrsReplicationTask = Nothing, _drtrsResponseStatus = pResponseStatus_}
-
+    { replicationTask =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The deleted replication task.
-drtrsReplicationTask :: Lens' DeleteReplicationTaskResponse (Maybe ReplicationTask)
-drtrsReplicationTask = lens _drtrsReplicationTask (\ s a -> s{_drtrsReplicationTask = a})
+deleteReplicationTaskResponse_replicationTask :: Lens.Lens' DeleteReplicationTaskResponse (Prelude.Maybe ReplicationTask)
+deleteReplicationTaskResponse_replicationTask = Lens.lens (\DeleteReplicationTaskResponse' {replicationTask} -> replicationTask) (\s@DeleteReplicationTaskResponse' {} a -> s {replicationTask = a} :: DeleteReplicationTaskResponse)
 
--- | -- | The response status code.
-drtrsResponseStatus :: Lens' DeleteReplicationTaskResponse Int
-drtrsResponseStatus = lens _drtrsResponseStatus (\ s a -> s{_drtrsResponseStatus = a})
+-- | The response's http status code.
+deleteReplicationTaskResponse_httpStatus :: Lens.Lens' DeleteReplicationTaskResponse Prelude.Int
+deleteReplicationTaskResponse_httpStatus = Lens.lens (\DeleteReplicationTaskResponse' {httpStatus} -> httpStatus) (\s@DeleteReplicationTaskResponse' {} a -> s {httpStatus = a} :: DeleteReplicationTaskResponse)
 
-instance NFData DeleteReplicationTaskResponse where
+instance Prelude.NFData DeleteReplicationTaskResponse

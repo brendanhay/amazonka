@@ -1,136 +1,250 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaConvert.CreateQueue
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new transcoding queue. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+-- Create a new transcoding queue. For information about queues, see
+-- Working With Queues in the User Guide at
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-queues.html
 module Network.AWS.MediaConvert.CreateQueue
-    (
-    -- * Creating a Request
-      createQueue
-    , CreateQueue
+  ( -- * Creating a Request
+    CreateQueue (..),
+    newCreateQueue,
+
     -- * Request Lenses
-    , cqName
-    , cqDescription
+    createQueue_status,
+    createQueue_tags,
+    createQueue_reservationPlanSettings,
+    createQueue_description,
+    createQueue_pricingPlan,
+    createQueue_name,
 
     -- * Destructuring the Response
-    , createQueueResponse
-    , CreateQueueResponse
+    CreateQueueResponse (..),
+    newCreateQueueResponse,
+
     -- * Response Lenses
-    , cqrsQueue
-    , cqrsResponseStatus
-    ) where
+    createQueueResponse_queue,
+    createQueueResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.MediaConvert.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createQueue' smart constructor.
+-- | /See:/ 'newCreateQueue' smart constructor.
 data CreateQueue = CreateQueue'
-  { _cqName        :: !(Maybe Text)
-  , _cqDescription :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Initial state of the queue. If you create a paused queue, then jobs in
+    -- that queue won\'t begin.
+    status :: Prelude.Maybe QueueStatus,
+    -- | The tags that you want to add to the resource. You can tag resources
+    -- with a key-value pair or with only a key.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Details about the pricing plan for your reserved queue. Required for
+    -- reserved queues and not applicable to on-demand queues.
+    reservationPlanSettings :: Prelude.Maybe ReservationPlanSettings,
+    -- | Optional. A description of the queue that you are creating.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the pricing plan for the queue is on-demand or
+    -- reserved. For on-demand, you pay per minute, billed in increments of .01
+    -- minute. For reserved, you pay for the transcoding capacity of the entire
+    -- queue, regardless of how much or how little you use it. Reserved pricing
+    -- requires a 12-month commitment. When you use the API to create a queue,
+    -- the default is on-demand.
+    pricingPlan :: Prelude.Maybe PricingPlan,
+    -- | The name of the queue that you are creating.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateQueue' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateQueue' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cqName' - The name of the queue you are creating.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cqDescription' - Optional. A description of the queue you are creating.
-createQueue
-    :: CreateQueue
-createQueue = CreateQueue' {_cqName = Nothing, _cqDescription = Nothing}
+-- 'status', 'createQueue_status' - Initial state of the queue. If you create a paused queue, then jobs in
+-- that queue won\'t begin.
+--
+-- 'tags', 'createQueue_tags' - The tags that you want to add to the resource. You can tag resources
+-- with a key-value pair or with only a key.
+--
+-- 'reservationPlanSettings', 'createQueue_reservationPlanSettings' - Details about the pricing plan for your reserved queue. Required for
+-- reserved queues and not applicable to on-demand queues.
+--
+-- 'description', 'createQueue_description' - Optional. A description of the queue that you are creating.
+--
+-- 'pricingPlan', 'createQueue_pricingPlan' - Specifies whether the pricing plan for the queue is on-demand or
+-- reserved. For on-demand, you pay per minute, billed in increments of .01
+-- minute. For reserved, you pay for the transcoding capacity of the entire
+-- queue, regardless of how much or how little you use it. Reserved pricing
+-- requires a 12-month commitment. When you use the API to create a queue,
+-- the default is on-demand.
+--
+-- 'name', 'createQueue_name' - The name of the queue that you are creating.
+newCreateQueue ::
+  -- | 'name'
+  Prelude.Text ->
+  CreateQueue
+newCreateQueue pName_ =
+  CreateQueue'
+    { status = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      reservationPlanSettings = Prelude.Nothing,
+      description = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
+      name = pName_
+    }
 
+-- | Initial state of the queue. If you create a paused queue, then jobs in
+-- that queue won\'t begin.
+createQueue_status :: Lens.Lens' CreateQueue (Prelude.Maybe QueueStatus)
+createQueue_status = Lens.lens (\CreateQueue' {status} -> status) (\s@CreateQueue' {} a -> s {status = a} :: CreateQueue)
 
--- | The name of the queue you are creating.
-cqName :: Lens' CreateQueue (Maybe Text)
-cqName = lens _cqName (\ s a -> s{_cqName = a})
+-- | The tags that you want to add to the resource. You can tag resources
+-- with a key-value pair or with only a key.
+createQueue_tags :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Prelude.. Lens.mapping Prelude._Coerce
 
--- | Optional. A description of the queue you are creating.
-cqDescription :: Lens' CreateQueue (Maybe Text)
-cqDescription = lens _cqDescription (\ s a -> s{_cqDescription = a})
+-- | Details about the pricing plan for your reserved queue. Required for
+-- reserved queues and not applicable to on-demand queues.
+createQueue_reservationPlanSettings :: Lens.Lens' CreateQueue (Prelude.Maybe ReservationPlanSettings)
+createQueue_reservationPlanSettings = Lens.lens (\CreateQueue' {reservationPlanSettings} -> reservationPlanSettings) (\s@CreateQueue' {} a -> s {reservationPlanSettings = a} :: CreateQueue)
 
-instance AWSRequest CreateQueue where
-        type Rs CreateQueue = CreateQueueResponse
-        request = postJSON mediaConvert
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateQueueResponse' <$>
-                   (x .?> "queue") <*> (pure (fromEnum s)))
+-- | Optional. A description of the queue that you are creating.
+createQueue_description :: Lens.Lens' CreateQueue (Prelude.Maybe Prelude.Text)
+createQueue_description = Lens.lens (\CreateQueue' {description} -> description) (\s@CreateQueue' {} a -> s {description = a} :: CreateQueue)
 
-instance Hashable CreateQueue where
+-- | Specifies whether the pricing plan for the queue is on-demand or
+-- reserved. For on-demand, you pay per minute, billed in increments of .01
+-- minute. For reserved, you pay for the transcoding capacity of the entire
+-- queue, regardless of how much or how little you use it. Reserved pricing
+-- requires a 12-month commitment. When you use the API to create a queue,
+-- the default is on-demand.
+createQueue_pricingPlan :: Lens.Lens' CreateQueue (Prelude.Maybe PricingPlan)
+createQueue_pricingPlan = Lens.lens (\CreateQueue' {pricingPlan} -> pricingPlan) (\s@CreateQueue' {} a -> s {pricingPlan = a} :: CreateQueue)
 
-instance NFData CreateQueue where
+-- | The name of the queue that you are creating.
+createQueue_name :: Lens.Lens' CreateQueue Prelude.Text
+createQueue_name = Lens.lens (\CreateQueue' {name} -> name) (\s@CreateQueue' {} a -> s {name = a} :: CreateQueue)
 
-instance ToHeaders CreateQueue where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.AWSRequest CreateQueue where
+  type Rs CreateQueue = CreateQueueResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateQueueResponse'
+            Prelude.<$> (x Prelude..?> "queue")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToJSON CreateQueue where
-        toJSON CreateQueue'{..}
-          = object
-              (catMaybes
-                 [("name" .=) <$> _cqName,
-                  ("description" .=) <$> _cqDescription])
+instance Prelude.Hashable CreateQueue
 
-instance ToPath CreateQueue where
-        toPath = const "/2017-08-29/queues"
+instance Prelude.NFData CreateQueue
 
-instance ToQuery CreateQueue where
-        toQuery = const mempty
+instance Prelude.ToHeaders CreateQueue where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
--- | /See:/ 'createQueueResponse' smart constructor.
+instance Prelude.ToJSON CreateQueue where
+  toJSON CreateQueue' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("status" Prelude..=) Prelude.<$> status,
+            ("tags" Prelude..=) Prelude.<$> tags,
+            ("reservationPlanSettings" Prelude..=)
+              Prelude.<$> reservationPlanSettings,
+            ("description" Prelude..=) Prelude.<$> description,
+            ("pricingPlan" Prelude..=) Prelude.<$> pricingPlan,
+            Prelude.Just ("name" Prelude..= name)
+          ]
+      )
+
+instance Prelude.ToPath CreateQueue where
+  toPath = Prelude.const "/2017-08-29/queues"
+
+instance Prelude.ToQuery CreateQueue where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateQueueResponse' smart constructor.
 data CreateQueueResponse = CreateQueueResponse'
-  { _cqrsQueue          :: !(Maybe Queue)
-  , _cqrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | You can use queues to manage the resources that are available to your
+    -- AWS account for running multiple transcoding jobs at the same time. If
+    -- you don\'t specify a queue, the service sends all jobs through the
+    -- default queue. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-queues.html.
+    queue :: Prelude.Maybe Queue,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateQueueResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateQueueResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cqrsQueue' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cqrsResponseStatus' - -- | The response status code.
-createQueueResponse
-    :: Int -- ^ 'cqrsResponseStatus'
-    -> CreateQueueResponse
-createQueueResponse pResponseStatus_ =
+-- 'queue', 'createQueueResponse_queue' - You can use queues to manage the resources that are available to your
+-- AWS account for running multiple transcoding jobs at the same time. If
+-- you don\'t specify a queue, the service sends all jobs through the
+-- default queue. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-queues.html.
+--
+-- 'httpStatus', 'createQueueResponse_httpStatus' - The response's http status code.
+newCreateQueueResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateQueueResponse
+newCreateQueueResponse pHttpStatus_ =
   CreateQueueResponse'
-    {_cqrsQueue = Nothing, _cqrsResponseStatus = pResponseStatus_}
+    { queue = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | You can use queues to manage the resources that are available to your
+-- AWS account for running multiple transcoding jobs at the same time. If
+-- you don\'t specify a queue, the service sends all jobs through the
+-- default queue. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-queues.html.
+createQueueResponse_queue :: Lens.Lens' CreateQueueResponse (Prelude.Maybe Queue)
+createQueueResponse_queue = Lens.lens (\CreateQueueResponse' {queue} -> queue) (\s@CreateQueueResponse' {} a -> s {queue = a} :: CreateQueueResponse)
 
--- | Undocumented member.
-cqrsQueue :: Lens' CreateQueueResponse (Maybe Queue)
-cqrsQueue = lens _cqrsQueue (\ s a -> s{_cqrsQueue = a})
+-- | The response's http status code.
+createQueueResponse_httpStatus :: Lens.Lens' CreateQueueResponse Prelude.Int
+createQueueResponse_httpStatus = Lens.lens (\CreateQueueResponse' {httpStatus} -> httpStatus) (\s@CreateQueueResponse' {} a -> s {httpStatus = a} :: CreateQueueResponse)
 
--- | -- | The response status code.
-cqrsResponseStatus :: Lens' CreateQueueResponse Int
-cqrsResponseStatus = lens _cqrsResponseStatus (\ s a -> s{_cqrsResponseStatus = a})
-
-instance NFData CreateQueueResponse where
+instance Prelude.NFData CreateQueueResponse

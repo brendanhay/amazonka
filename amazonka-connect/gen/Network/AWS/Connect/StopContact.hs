@@ -1,133 +1,156 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Connect.StopContact
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Ends the contact initiated by the @StartOutboundVoiceContact@ operation.
---
---
--- If you are using an IAM account, it must have permissions to the @connect:StopContact@ operation.
---
+-- Ends the specified contact.
 module Network.AWS.Connect.StopContact
-    (
-    -- * Creating a Request
-      stopContact
-    , StopContact
+  ( -- * Creating a Request
+    StopContact (..),
+    newStopContact,
+
     -- * Request Lenses
-    , scContactId
-    , scInstanceId
+    stopContact_contactId,
+    stopContact_instanceId,
 
     -- * Destructuring the Response
-    , stopContactResponse
-    , StopContactResponse
+    StopContactResponse (..),
+    newStopContactResponse,
+
     -- * Response Lenses
-    , scrsResponseStatus
-    ) where
+    stopContactResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Connect.Types
-import Network.AWS.Connect.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'stopContact' smart constructor.
+-- | /See:/ 'newStopContact' smart constructor.
 data StopContact = StopContact'
-  { _scContactId  :: !Text
-  , _scInstanceId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the contact.
+    contactId :: Prelude.Text,
+    -- | The identifier of the Amazon Connect instance.
+    instanceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StopContact' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StopContact' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'scContactId' - The unique identifier of the contact to end. This is the @ContactId@ value returned from the @StartOutboundVoiceContact@ operation.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'scInstanceId' - The identifier of the Amazon Connect instance in which the contact is active.
-stopContact
-    :: Text -- ^ 'scContactId'
-    -> Text -- ^ 'scInstanceId'
-    -> StopContact
-stopContact pContactId_ pInstanceId_ =
-  StopContact' {_scContactId = pContactId_, _scInstanceId = pInstanceId_}
-
-
--- | The unique identifier of the contact to end. This is the @ContactId@ value returned from the @StartOutboundVoiceContact@ operation.
-scContactId :: Lens' StopContact Text
-scContactId = lens _scContactId (\ s a -> s{_scContactId = a})
-
--- | The identifier of the Amazon Connect instance in which the contact is active.
-scInstanceId :: Lens' StopContact Text
-scInstanceId = lens _scInstanceId (\ s a -> s{_scInstanceId = a})
-
-instance AWSRequest StopContact where
-        type Rs StopContact = StopContactResponse
-        request = postJSON connect
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 StopContactResponse' <$> (pure (fromEnum s)))
-
-instance Hashable StopContact where
-
-instance NFData StopContact where
-
-instance ToHeaders StopContact where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON StopContact where
-        toJSON StopContact'{..}
-          = object
-              (catMaybes
-                 [Just ("ContactId" .= _scContactId),
-                  Just ("InstanceId" .= _scInstanceId)])
-
-instance ToPath StopContact where
-        toPath = const "/contact/stop"
-
-instance ToQuery StopContact where
-        toQuery = const mempty
-
--- | /See:/ 'stopContactResponse' smart constructor.
-newtype StopContactResponse = StopContactResponse'
-  { _scrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'StopContactResponse' with the minimum fields required to make a request.
+-- 'contactId', 'stopContact_contactId' - The ID of the contact.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'instanceId', 'stopContact_instanceId' - The identifier of the Amazon Connect instance.
+newStopContact ::
+  -- | 'contactId'
+  Prelude.Text ->
+  -- | 'instanceId'
+  Prelude.Text ->
+  StopContact
+newStopContact pContactId_ pInstanceId_ =
+  StopContact'
+    { contactId = pContactId_,
+      instanceId = pInstanceId_
+    }
+
+-- | The ID of the contact.
+stopContact_contactId :: Lens.Lens' StopContact Prelude.Text
+stopContact_contactId = Lens.lens (\StopContact' {contactId} -> contactId) (\s@StopContact' {} a -> s {contactId = a} :: StopContact)
+
+-- | The identifier of the Amazon Connect instance.
+stopContact_instanceId :: Lens.Lens' StopContact Prelude.Text
+stopContact_instanceId = Lens.lens (\StopContact' {instanceId} -> instanceId) (\s@StopContact' {} a -> s {instanceId = a} :: StopContact)
+
+instance Prelude.AWSRequest StopContact where
+  type Rs StopContact = StopContactResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          StopContactResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable StopContact
+
+instance Prelude.NFData StopContact
+
+instance Prelude.ToHeaders StopContact where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON StopContact where
+  toJSON StopContact' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ContactId" Prelude..= contactId),
+            Prelude.Just ("InstanceId" Prelude..= instanceId)
+          ]
+      )
+
+instance Prelude.ToPath StopContact where
+  toPath = Prelude.const "/contact/stop"
+
+instance Prelude.ToQuery StopContact where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newStopContactResponse' smart constructor.
+data StopContactResponse = StopContactResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'StopContactResponse' with all optional fields omitted.
 --
--- * 'scrsResponseStatus' - -- | The response status code.
-stopContactResponse
-    :: Int -- ^ 'scrsResponseStatus'
-    -> StopContactResponse
-stopContactResponse pResponseStatus_ =
-  StopContactResponse' {_scrsResponseStatus = pResponseStatus_}
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'stopContactResponse_httpStatus' - The response's http status code.
+newStopContactResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StopContactResponse
+newStopContactResponse pHttpStatus_ =
+  StopContactResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+stopContactResponse_httpStatus :: Lens.Lens' StopContactResponse Prelude.Int
+stopContactResponse_httpStatus = Lens.lens (\StopContactResponse' {httpStatus} -> httpStatus) (\s@StopContactResponse' {} a -> s {httpStatus = a} :: StopContactResponse)
 
--- | -- | The response status code.
-scrsResponseStatus :: Lens' StopContactResponse Int
-scrsResponseStatus = lens _scrsResponseStatus (\ s a -> s{_scrsResponseStatus = a})
-
-instance NFData StopContactResponse where
+instance Prelude.NFData StopContactResponse

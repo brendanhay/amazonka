@@ -1,148 +1,182 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.PutMetricFilter
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through 'PutLogEvents' .
+-- Creates or updates a metric filter and associates it with the specified
+-- log group. Metric filters allow you to configure rules to extract metric
+-- data from log events ingested through
+-- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html PutLogEvents>.
 --
---
--- The maximum number of metric filters that can be associated with a log group is 100.
---
+-- The maximum number of metric filters that can be associated with a log
+-- group is 100.
 module Network.AWS.CloudWatchLogs.PutMetricFilter
-    (
-    -- * Creating a Request
-      putMetricFilter
-    , PutMetricFilter
+  ( -- * Creating a Request
+    PutMetricFilter (..),
+    newPutMetricFilter,
+
     -- * Request Lenses
-    , pmfLogGroupName
-    , pmfFilterName
-    , pmfFilterPattern
-    , pmfMetricTransformations
+    putMetricFilter_logGroupName,
+    putMetricFilter_filterName,
+    putMetricFilter_filterPattern,
+    putMetricFilter_metricTransformations,
 
     -- * Destructuring the Response
-    , putMetricFilterResponse
-    , PutMetricFilterResponse
-    ) where
+    PutMetricFilterResponse (..),
+    newPutMetricFilterResponse,
+  )
+where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'putMetricFilter' smart constructor.
+-- | /See:/ 'newPutMetricFilter' smart constructor.
 data PutMetricFilter = PutMetricFilter'
-  { _pmfLogGroupName          :: !Text
-  , _pmfFilterName            :: !Text
-  , _pmfFilterPattern         :: !Text
-  , _pmfMetricTransformations :: !(List1 MetricTransformation)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the log group.
+    logGroupName :: Prelude.Text,
+    -- | A name for the metric filter.
+    filterName :: Prelude.Text,
+    -- | A filter pattern for extracting metric data out of ingested log events.
+    filterPattern :: Prelude.Text,
+    -- | A collection of information that defines how metric data gets emitted.
+    metricTransformations :: Prelude.NonEmpty MetricTransformation
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PutMetricFilter' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutMetricFilter' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'pmfLogGroupName' - The name of the log group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'pmfFilterName' - A name for the metric filter.
+-- 'logGroupName', 'putMetricFilter_logGroupName' - The name of the log group.
 --
--- * 'pmfFilterPattern' - A filter pattern for extracting metric data out of ingested log events.
+-- 'filterName', 'putMetricFilter_filterName' - A name for the metric filter.
 --
--- * 'pmfMetricTransformations' - A collection of information that defines how metric data gets emitted.
-putMetricFilter
-    :: Text -- ^ 'pmfLogGroupName'
-    -> Text -- ^ 'pmfFilterName'
-    -> Text -- ^ 'pmfFilterPattern'
-    -> NonEmpty MetricTransformation -- ^ 'pmfMetricTransformations'
-    -> PutMetricFilter
-putMetricFilter pLogGroupName_ pFilterName_ pFilterPattern_ pMetricTransformations_ =
-  PutMetricFilter'
-    { _pmfLogGroupName = pLogGroupName_
-    , _pmfFilterName = pFilterName_
-    , _pmfFilterPattern = pFilterPattern_
-    , _pmfMetricTransformations = _List1 # pMetricTransformations_
-    }
-
+-- 'filterPattern', 'putMetricFilter_filterPattern' - A filter pattern for extracting metric data out of ingested log events.
+--
+-- 'metricTransformations', 'putMetricFilter_metricTransformations' - A collection of information that defines how metric data gets emitted.
+newPutMetricFilter ::
+  -- | 'logGroupName'
+  Prelude.Text ->
+  -- | 'filterName'
+  Prelude.Text ->
+  -- | 'filterPattern'
+  Prelude.Text ->
+  -- | 'metricTransformations'
+  Prelude.NonEmpty MetricTransformation ->
+  PutMetricFilter
+newPutMetricFilter
+  pLogGroupName_
+  pFilterName_
+  pFilterPattern_
+  pMetricTransformations_ =
+    PutMetricFilter'
+      { logGroupName = pLogGroupName_,
+        filterName = pFilterName_,
+        filterPattern = pFilterPattern_,
+        metricTransformations =
+          Prelude._Coerce Lens.# pMetricTransformations_
+      }
 
 -- | The name of the log group.
-pmfLogGroupName :: Lens' PutMetricFilter Text
-pmfLogGroupName = lens _pmfLogGroupName (\ s a -> s{_pmfLogGroupName = a})
+putMetricFilter_logGroupName :: Lens.Lens' PutMetricFilter Prelude.Text
+putMetricFilter_logGroupName = Lens.lens (\PutMetricFilter' {logGroupName} -> logGroupName) (\s@PutMetricFilter' {} a -> s {logGroupName = a} :: PutMetricFilter)
 
 -- | A name for the metric filter.
-pmfFilterName :: Lens' PutMetricFilter Text
-pmfFilterName = lens _pmfFilterName (\ s a -> s{_pmfFilterName = a})
+putMetricFilter_filterName :: Lens.Lens' PutMetricFilter Prelude.Text
+putMetricFilter_filterName = Lens.lens (\PutMetricFilter' {filterName} -> filterName) (\s@PutMetricFilter' {} a -> s {filterName = a} :: PutMetricFilter)
 
 -- | A filter pattern for extracting metric data out of ingested log events.
-pmfFilterPattern :: Lens' PutMetricFilter Text
-pmfFilterPattern = lens _pmfFilterPattern (\ s a -> s{_pmfFilterPattern = a})
+putMetricFilter_filterPattern :: Lens.Lens' PutMetricFilter Prelude.Text
+putMetricFilter_filterPattern = Lens.lens (\PutMetricFilter' {filterPattern} -> filterPattern) (\s@PutMetricFilter' {} a -> s {filterPattern = a} :: PutMetricFilter)
 
 -- | A collection of information that defines how metric data gets emitted.
-pmfMetricTransformations :: Lens' PutMetricFilter (NonEmpty MetricTransformation)
-pmfMetricTransformations = lens _pmfMetricTransformations (\ s a -> s{_pmfMetricTransformations = a}) . _List1
+putMetricFilter_metricTransformations :: Lens.Lens' PutMetricFilter (Prelude.NonEmpty MetricTransformation)
+putMetricFilter_metricTransformations = Lens.lens (\PutMetricFilter' {metricTransformations} -> metricTransformations) (\s@PutMetricFilter' {} a -> s {metricTransformations = a} :: PutMetricFilter) Prelude.. Prelude._Coerce
 
-instance AWSRequest PutMetricFilter where
-        type Rs PutMetricFilter = PutMetricFilterResponse
-        request = postJSON cloudWatchLogs
-        response = receiveNull PutMetricFilterResponse'
+instance Prelude.AWSRequest PutMetricFilter where
+  type Rs PutMetricFilter = PutMetricFilterResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull PutMetricFilterResponse'
 
-instance Hashable PutMetricFilter where
+instance Prelude.Hashable PutMetricFilter
 
-instance NFData PutMetricFilter where
+instance Prelude.NFData PutMetricFilter
 
-instance ToHeaders PutMetricFilter where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Logs_20140328.PutMetricFilter" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders PutMetricFilter where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "Logs_20140328.PutMetricFilter" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON PutMetricFilter where
-        toJSON PutMetricFilter'{..}
-          = object
-              (catMaybes
-                 [Just ("logGroupName" .= _pmfLogGroupName),
-                  Just ("filterName" .= _pmfFilterName),
-                  Just ("filterPattern" .= _pmfFilterPattern),
-                  Just
-                    ("metricTransformations" .=
-                       _pmfMetricTransformations)])
+instance Prelude.ToJSON PutMetricFilter where
+  toJSON PutMetricFilter' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("logGroupName" Prelude..= logGroupName),
+            Prelude.Just ("filterName" Prelude..= filterName),
+            Prelude.Just
+              ("filterPattern" Prelude..= filterPattern),
+            Prelude.Just
+              ( "metricTransformations"
+                  Prelude..= metricTransformations
+              )
+          ]
+      )
 
-instance ToPath PutMetricFilter where
-        toPath = const "/"
+instance Prelude.ToPath PutMetricFilter where
+  toPath = Prelude.const "/"
 
-instance ToQuery PutMetricFilter where
-        toQuery = const mempty
+instance Prelude.ToQuery PutMetricFilter where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'putMetricFilterResponse' smart constructor.
-data PutMetricFilterResponse =
-  PutMetricFilterResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newPutMetricFilterResponse' smart constructor.
+data PutMetricFilterResponse = PutMetricFilterResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PutMetricFilterResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutMetricFilterResponse' with all optional fields omitted.
 --
-putMetricFilterResponse
-    :: PutMetricFilterResponse
-putMetricFilterResponse = PutMetricFilterResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newPutMetricFilterResponse ::
+  PutMetricFilterResponse
+newPutMetricFilterResponse = PutMetricFilterResponse'
 
-
-instance NFData PutMetricFilterResponse where
+instance Prelude.NFData PutMetricFilterResponse

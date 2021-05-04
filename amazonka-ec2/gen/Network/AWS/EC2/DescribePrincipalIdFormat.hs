@@ -1,177 +1,289 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DescribePrincipalIdFormat
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the ID format settings for the root user and all IAM roles and IAM users that have explicitly specified a longer ID (17-character ID) preference.
+-- Describes the ID format settings for the root user and all IAM roles and
+-- IAM users that have explicitly specified a longer ID (17-character ID)
+-- preference.
 --
+-- By default, all IAM roles and IAM users default to the same ID settings
+-- as the root user, unless they explicitly override the settings. This
+-- request is useful for identifying those IAM users and IAM roles that
+-- have overridden the default ID settings.
 --
--- By default, all IAM roles and IAM users default to the same ID settings as the root user, unless they explicitly override the settings. This request is useful for identifying those IAM users and IAM roles that have overridden the default ID settings.
+-- The following resource types support longer IDs: @bundle@ |
+-- @conversion-task@ | @customer-gateway@ | @dhcp-options@ |
+-- @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ |
+-- @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ |
+-- @network-acl@ | @network-acl-association@ | @network-interface@ |
+-- @network-interface-attachment@ | @prefix-list@ | @reservation@ |
+-- @route-table@ | @route-table-association@ | @security-group@ |
+-- @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ |
+-- @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ |
+-- @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@.
 --
--- The following resource types support longer IDs: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
---
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribePrincipalIdFormat
-    (
-    -- * Creating a Request
-      describePrincipalIdFormat
-    , DescribePrincipalIdFormat
+  ( -- * Creating a Request
+    DescribePrincipalIdFormat (..),
+    newDescribePrincipalIdFormat,
+
     -- * Request Lenses
-    , dpifResources
-    , dpifNextToken
-    , dpifDryRun
-    , dpifMaxResults
+    describePrincipalIdFormat_nextToken,
+    describePrincipalIdFormat_dryRun,
+    describePrincipalIdFormat_maxResults,
+    describePrincipalIdFormat_resources,
 
     -- * Destructuring the Response
-    , describePrincipalIdFormatResponse
-    , DescribePrincipalIdFormatResponse
+    DescribePrincipalIdFormatResponse (..),
+    newDescribePrincipalIdFormatResponse,
+
     -- * Response Lenses
-    , dpifrsPrincipals
-    , dpifrsNextToken
-    , dpifrsResponseStatus
-    ) where
+    describePrincipalIdFormatResponse_nextToken,
+    describePrincipalIdFormatResponse_principals,
+    describePrincipalIdFormatResponse_httpStatus,
+  )
+where
 
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describePrincipalIdFormat' smart constructor.
+-- | /See:/ 'newDescribePrincipalIdFormat' smart constructor.
 data DescribePrincipalIdFormat = DescribePrincipalIdFormat'
-  { _dpifResources  :: !(Maybe [Text])
-  , _dpifNextToken  :: !(Maybe Text)
-  , _dpifDryRun     :: !(Maybe Bool)
-  , _dpifMaxResults :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to request the next page of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The maximum number of results to return in a single call. To retrieve
+    -- the remaining results, make another call with the returned NextToken
+    -- value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
+    -- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
+    -- @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ |
+    -- @internet-gateway@ | @network-acl@ | @network-acl-association@ |
+    -- @network-interface@ | @network-interface-attachment@ | @prefix-list@ |
+    -- @reservation@ | @route-table@ | @route-table-association@ |
+    -- @security-group@ | @snapshot@ | @subnet@ |
+    -- @subnet-cidr-block-association@ | @volume@ | @vpc@ |
+    -- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@
+    -- | @vpn-connection@ | @vpn-gateway@
+    resources :: Prelude.Maybe [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribePrincipalIdFormat' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribePrincipalIdFormat' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpifResources' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dpifNextToken' - The token to request the next page of results.
+-- 'nextToken', 'describePrincipalIdFormat_nextToken' - The token to request the next page of results.
 --
--- * 'dpifDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- 'dryRun', 'describePrincipalIdFormat_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'dpifMaxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value.
-describePrincipalIdFormat
-    :: DescribePrincipalIdFormat
-describePrincipalIdFormat =
+-- 'maxResults', 'describePrincipalIdFormat_maxResults' - The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned NextToken
+-- value.
+--
+-- 'resources', 'describePrincipalIdFormat_resources' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
+-- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
+-- @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ |
+-- @internet-gateway@ | @network-acl@ | @network-acl-association@ |
+-- @network-interface@ | @network-interface-attachment@ | @prefix-list@ |
+-- @reservation@ | @route-table@ | @route-table-association@ |
+-- @security-group@ | @snapshot@ | @subnet@ |
+-- @subnet-cidr-block-association@ | @volume@ | @vpc@ |
+-- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@
+-- | @vpn-connection@ | @vpn-gateway@
+newDescribePrincipalIdFormat ::
+  DescribePrincipalIdFormat
+newDescribePrincipalIdFormat =
   DescribePrincipalIdFormat'
-    { _dpifResources = Nothing
-    , _dpifNextToken = Nothing
-    , _dpifDryRun = Nothing
-    , _dpifMaxResults = Nothing
+    { nextToken =
+        Prelude.Nothing,
+      dryRun = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      resources = Prelude.Nothing
     }
-
-
--- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@
-dpifResources :: Lens' DescribePrincipalIdFormat [Text]
-dpifResources = lens _dpifResources (\ s a -> s{_dpifResources = a}) . _Default . _Coerce
 
 -- | The token to request the next page of results.
-dpifNextToken :: Lens' DescribePrincipalIdFormat (Maybe Text)
-dpifNextToken = lens _dpifNextToken (\ s a -> s{_dpifNextToken = a})
+describePrincipalIdFormat_nextToken :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe Prelude.Text)
+describePrincipalIdFormat_nextToken = Lens.lens (\DescribePrincipalIdFormat' {nextToken} -> nextToken) (\s@DescribePrincipalIdFormat' {} a -> s {nextToken = a} :: DescribePrincipalIdFormat)
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dpifDryRun :: Lens' DescribePrincipalIdFormat (Maybe Bool)
-dpifDryRun = lens _dpifDryRun (\ s a -> s{_dpifDryRun = a})
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describePrincipalIdFormat_dryRun :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe Prelude.Bool)
+describePrincipalIdFormat_dryRun = Lens.lens (\DescribePrincipalIdFormat' {dryRun} -> dryRun) (\s@DescribePrincipalIdFormat' {} a -> s {dryRun = a} :: DescribePrincipalIdFormat)
 
--- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned NextToken value.
-dpifMaxResults :: Lens' DescribePrincipalIdFormat (Maybe Int)
-dpifMaxResults = lens _dpifMaxResults (\ s a -> s{_dpifMaxResults = a})
+-- | The maximum number of results to return in a single call. To retrieve
+-- the remaining results, make another call with the returned NextToken
+-- value.
+describePrincipalIdFormat_maxResults :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe Prelude.Natural)
+describePrincipalIdFormat_maxResults = Lens.lens (\DescribePrincipalIdFormat' {maxResults} -> maxResults) (\s@DescribePrincipalIdFormat' {} a -> s {maxResults = a} :: DescribePrincipalIdFormat)
 
-instance AWSRequest DescribePrincipalIdFormat where
-        type Rs DescribePrincipalIdFormat =
-             DescribePrincipalIdFormatResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 DescribePrincipalIdFormatResponse' <$>
-                   (x .@? "principalSet" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (x .@? "nextToken")
-                     <*> (pure (fromEnum s)))
+-- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@
+-- | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ |
+-- @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ |
+-- @internet-gateway@ | @network-acl@ | @network-acl-association@ |
+-- @network-interface@ | @network-interface-attachment@ | @prefix-list@ |
+-- @reservation@ | @route-table@ | @route-table-association@ |
+-- @security-group@ | @snapshot@ | @subnet@ |
+-- @subnet-cidr-block-association@ | @volume@ | @vpc@ |
+-- @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@
+-- | @vpn-connection@ | @vpn-gateway@
+describePrincipalIdFormat_resources :: Lens.Lens' DescribePrincipalIdFormat (Prelude.Maybe [Prelude.Text])
+describePrincipalIdFormat_resources = Lens.lens (\DescribePrincipalIdFormat' {resources} -> resources) (\s@DescribePrincipalIdFormat' {} a -> s {resources = a} :: DescribePrincipalIdFormat) Prelude.. Lens.mapping Prelude._Coerce
 
-instance Hashable DescribePrincipalIdFormat where
+instance Pager.AWSPager DescribePrincipalIdFormat where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describePrincipalIdFormatResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describePrincipalIdFormatResponse_principals
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describePrincipalIdFormat_nextToken
+          Lens..~ rs
+          Lens.^? describePrincipalIdFormatResponse_nextToken
+            Prelude.. Lens._Just
 
-instance NFData DescribePrincipalIdFormat where
+instance Prelude.AWSRequest DescribePrincipalIdFormat where
+  type
+    Rs DescribePrincipalIdFormat =
+      DescribePrincipalIdFormatResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DescribePrincipalIdFormatResponse'
+            Prelude.<$> (x Prelude..@? "nextToken")
+            Prelude.<*> ( x Prelude..@? "principalSet"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToHeaders DescribePrincipalIdFormat where
-        toHeaders = const mempty
+instance Prelude.Hashable DescribePrincipalIdFormat
 
-instance ToPath DescribePrincipalIdFormat where
-        toPath = const "/"
+instance Prelude.NFData DescribePrincipalIdFormat
 
-instance ToQuery DescribePrincipalIdFormat where
-        toQuery DescribePrincipalIdFormat'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribePrincipalIdFormat" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               toQuery (toQueryList "Resource" <$> _dpifResources),
-               "NextToken" =: _dpifNextToken,
-               "DryRun" =: _dpifDryRun,
-               "MaxResults" =: _dpifMaxResults]
+instance Prelude.ToHeaders DescribePrincipalIdFormat where
+  toHeaders = Prelude.const Prelude.mempty
 
--- | /See:/ 'describePrincipalIdFormatResponse' smart constructor.
+instance Prelude.ToPath DescribePrincipalIdFormat where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DescribePrincipalIdFormat where
+  toQuery DescribePrincipalIdFormat' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DescribePrincipalIdFormat" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
+        "NextToken" Prelude.=: nextToken,
+        "DryRun" Prelude.=: dryRun,
+        "MaxResults" Prelude.=: maxResults,
+        Prelude.toQuery
+          ( Prelude.toQueryList "Resource"
+              Prelude.<$> resources
+          )
+      ]
+
+-- | /See:/ 'newDescribePrincipalIdFormatResponse' smart constructor.
 data DescribePrincipalIdFormatResponse = DescribePrincipalIdFormatResponse'
-  { _dpifrsPrincipals     :: !(Maybe [PrincipalIdFormat])
-  , _dpifrsNextToken      :: !(Maybe Text)
-  , _dpifrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to use to retrieve the next page of results. This value is
+    -- null when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the ID format settings for the ARN.
+    principals :: Prelude.Maybe [PrincipalIdFormat],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribePrincipalIdFormatResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribePrincipalIdFormatResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpifrsPrincipals' - Information about the ID format settings for the ARN.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dpifrsNextToken' - The token to use to retrieve the next page of results. This value is null when there are no more results to return.
+-- 'nextToken', 'describePrincipalIdFormatResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 --
--- * 'dpifrsResponseStatus' - -- | The response status code.
-describePrincipalIdFormatResponse
-    :: Int -- ^ 'dpifrsResponseStatus'
-    -> DescribePrincipalIdFormatResponse
-describePrincipalIdFormatResponse pResponseStatus_ =
+-- 'principals', 'describePrincipalIdFormatResponse_principals' - Information about the ID format settings for the ARN.
+--
+-- 'httpStatus', 'describePrincipalIdFormatResponse_httpStatus' - The response's http status code.
+newDescribePrincipalIdFormatResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribePrincipalIdFormatResponse
+newDescribePrincipalIdFormatResponse pHttpStatus_ =
   DescribePrincipalIdFormatResponse'
-    { _dpifrsPrincipals = Nothing
-    , _dpifrsNextToken = Nothing
-    , _dpifrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      principals = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
+describePrincipalIdFormatResponse_nextToken :: Lens.Lens' DescribePrincipalIdFormatResponse (Prelude.Maybe Prelude.Text)
+describePrincipalIdFormatResponse_nextToken = Lens.lens (\DescribePrincipalIdFormatResponse' {nextToken} -> nextToken) (\s@DescribePrincipalIdFormatResponse' {} a -> s {nextToken = a} :: DescribePrincipalIdFormatResponse)
 
 -- | Information about the ID format settings for the ARN.
-dpifrsPrincipals :: Lens' DescribePrincipalIdFormatResponse [PrincipalIdFormat]
-dpifrsPrincipals = lens _dpifrsPrincipals (\ s a -> s{_dpifrsPrincipals = a}) . _Default . _Coerce
+describePrincipalIdFormatResponse_principals :: Lens.Lens' DescribePrincipalIdFormatResponse (Prelude.Maybe [PrincipalIdFormat])
+describePrincipalIdFormatResponse_principals = Lens.lens (\DescribePrincipalIdFormatResponse' {principals} -> principals) (\s@DescribePrincipalIdFormatResponse' {} a -> s {principals = a} :: DescribePrincipalIdFormatResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The token to use to retrieve the next page of results. This value is null when there are no more results to return.
-dpifrsNextToken :: Lens' DescribePrincipalIdFormatResponse (Maybe Text)
-dpifrsNextToken = lens _dpifrsNextToken (\ s a -> s{_dpifrsNextToken = a})
+-- | The response's http status code.
+describePrincipalIdFormatResponse_httpStatus :: Lens.Lens' DescribePrincipalIdFormatResponse Prelude.Int
+describePrincipalIdFormatResponse_httpStatus = Lens.lens (\DescribePrincipalIdFormatResponse' {httpStatus} -> httpStatus) (\s@DescribePrincipalIdFormatResponse' {} a -> s {httpStatus = a} :: DescribePrincipalIdFormatResponse)
 
--- | -- | The response status code.
-dpifrsResponseStatus :: Lens' DescribePrincipalIdFormatResponse Int
-dpifrsResponseStatus = lens _dpifrsResponseStatus (\ s a -> s{_dpifrsResponseStatus = a})
-
-instance NFData DescribePrincipalIdFormatResponse
-         where
+instance
+  Prelude.NFData
+    DescribePrincipalIdFormatResponse

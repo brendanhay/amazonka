@@ -1,150 +1,176 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DeleteDirectConnectGateway
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a direct connect gateway. You must first delete all virtual interfaces that are attached to the direct connect gateway and disassociate all virtual private gateways that are associated with the direct connect gateway.
---
---
+-- Deletes the specified Direct Connect gateway. You must first delete all
+-- virtual interfaces that are attached to the Direct Connect gateway and
+-- disassociate all virtual private gateways associated with the Direct
+-- Connect gateway.
 module Network.AWS.DirectConnect.DeleteDirectConnectGateway
-    (
-    -- * Creating a Request
-      deleteDirectConnectGateway
-    , DeleteDirectConnectGateway
+  ( -- * Creating a Request
+    DeleteDirectConnectGateway (..),
+    newDeleteDirectConnectGateway,
+
     -- * Request Lenses
-    , ddcgdDirectConnectGatewayId
+    deleteDirectConnectGateway_directConnectGatewayId,
 
     -- * Destructuring the Response
-    , deleteDirectConnectGatewayResponse
-    , DeleteDirectConnectGatewayResponse
+    DeleteDirectConnectGatewayResponse (..),
+    newDeleteDirectConnectGatewayResponse,
+
     -- * Response Lenses
-    , ddcgdrsDirectConnectGateway
-    , ddcgdrsResponseStatus
-    ) where
+    deleteDirectConnectGatewayResponse_directConnectGateway,
+    deleteDirectConnectGatewayResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the DeleteDirectConnectGateway operation.
+-- | /See:/ 'newDeleteDirectConnectGateway' smart constructor.
+data DeleteDirectConnectGateway = DeleteDirectConnectGateway'
+  { -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteDirectConnectGateway' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'deleteDirectConnectGateway' smart constructor.
-newtype DeleteDirectConnectGateway = DeleteDirectConnectGateway'
-  { _ddcgdDirectConnectGatewayId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- 'directConnectGatewayId', 'deleteDirectConnectGateway_directConnectGatewayId' - The ID of the Direct Connect gateway.
+newDeleteDirectConnectGateway ::
+  -- | 'directConnectGatewayId'
+  Prelude.Text ->
+  DeleteDirectConnectGateway
+newDeleteDirectConnectGateway
+  pDirectConnectGatewayId_ =
+    DeleteDirectConnectGateway'
+      { directConnectGatewayId =
+          pDirectConnectGatewayId_
+      }
 
+-- | The ID of the Direct Connect gateway.
+deleteDirectConnectGateway_directConnectGatewayId :: Lens.Lens' DeleteDirectConnectGateway Prelude.Text
+deleteDirectConnectGateway_directConnectGatewayId = Lens.lens (\DeleteDirectConnectGateway' {directConnectGatewayId} -> directConnectGatewayId) (\s@DeleteDirectConnectGateway' {} a -> s {directConnectGatewayId = a} :: DeleteDirectConnectGateway)
 
--- | Creates a value of 'DeleteDirectConnectGateway' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ddcgdDirectConnectGatewayId' - The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
-deleteDirectConnectGateway
-    :: Text -- ^ 'ddcgdDirectConnectGatewayId'
-    -> DeleteDirectConnectGateway
-deleteDirectConnectGateway pDirectConnectGatewayId_ =
-  DeleteDirectConnectGateway'
-    {_ddcgdDirectConnectGatewayId = pDirectConnectGatewayId_}
+instance
+  Prelude.AWSRequest
+    DeleteDirectConnectGateway
+  where
+  type
+    Rs DeleteDirectConnectGateway =
+      DeleteDirectConnectGatewayResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteDirectConnectGatewayResponse'
+            Prelude.<$> (x Prelude..?> "directConnectGateway")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
+instance Prelude.Hashable DeleteDirectConnectGateway
 
--- | The ID of the direct connect gateway. Example: "abcd1234-dcba-5678-be23-cdef9876ab45" Default: None
-ddcgdDirectConnectGatewayId :: Lens' DeleteDirectConnectGateway Text
-ddcgdDirectConnectGatewayId = lens _ddcgdDirectConnectGatewayId (\ s a -> s{_ddcgdDirectConnectGatewayId = a})
+instance Prelude.NFData DeleteDirectConnectGateway
 
-instance AWSRequest DeleteDirectConnectGateway where
-        type Rs DeleteDirectConnectGateway =
-             DeleteDirectConnectGatewayResponse
-        request = postJSON directConnect
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteDirectConnectGatewayResponse' <$>
-                   (x .?> "directConnectGateway") <*>
-                     (pure (fromEnum s)))
+instance Prelude.ToHeaders DeleteDirectConnectGateway where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "OvertureService.DeleteDirectConnectGateway" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance Hashable DeleteDirectConnectGateway where
+instance Prelude.ToJSON DeleteDirectConnectGateway where
+  toJSON DeleteDirectConnectGateway' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "directConnectGatewayId"
+                  Prelude..= directConnectGatewayId
+              )
+          ]
+      )
 
-instance NFData DeleteDirectConnectGateway where
+instance Prelude.ToPath DeleteDirectConnectGateway where
+  toPath = Prelude.const "/"
 
-instance ToHeaders DeleteDirectConnectGateway where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OvertureService.DeleteDirectConnectGateway" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToQuery DeleteDirectConnectGateway where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToJSON DeleteDirectConnectGateway where
-        toJSON DeleteDirectConnectGateway'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("directConnectGatewayId" .=
-                       _ddcgdDirectConnectGatewayId)])
-
-instance ToPath DeleteDirectConnectGateway where
-        toPath = const "/"
-
-instance ToQuery DeleteDirectConnectGateway where
-        toQuery = const mempty
-
--- | Container for the response from the DeleteDirectConnectGateway API call
---
---
---
--- /See:/ 'deleteDirectConnectGatewayResponse' smart constructor.
+-- | /See:/ 'newDeleteDirectConnectGatewayResponse' smart constructor.
 data DeleteDirectConnectGatewayResponse = DeleteDirectConnectGatewayResponse'
-  { _ddcgdrsDirectConnectGateway :: !(Maybe DirectConnectGateway)
-  , _ddcgdrsResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Direct Connect gateway.
+    directConnectGateway :: Prelude.Maybe DirectConnectGateway,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteDirectConnectGatewayResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteDirectConnectGatewayResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddcgdrsDirectConnectGateway' - The direct connect gateway to be deleted.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ddcgdrsResponseStatus' - -- | The response status code.
-deleteDirectConnectGatewayResponse
-    :: Int -- ^ 'ddcgdrsResponseStatus'
-    -> DeleteDirectConnectGatewayResponse
-deleteDirectConnectGatewayResponse pResponseStatus_ =
+-- 'directConnectGateway', 'deleteDirectConnectGatewayResponse_directConnectGateway' - The Direct Connect gateway.
+--
+-- 'httpStatus', 'deleteDirectConnectGatewayResponse_httpStatus' - The response's http status code.
+newDeleteDirectConnectGatewayResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteDirectConnectGatewayResponse
+newDeleteDirectConnectGatewayResponse pHttpStatus_ =
   DeleteDirectConnectGatewayResponse'
-    { _ddcgdrsDirectConnectGateway = Nothing
-    , _ddcgdrsResponseStatus = pResponseStatus_
+    { directConnectGateway =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The Direct Connect gateway.
+deleteDirectConnectGatewayResponse_directConnectGateway :: Lens.Lens' DeleteDirectConnectGatewayResponse (Prelude.Maybe DirectConnectGateway)
+deleteDirectConnectGatewayResponse_directConnectGateway = Lens.lens (\DeleteDirectConnectGatewayResponse' {directConnectGateway} -> directConnectGateway) (\s@DeleteDirectConnectGatewayResponse' {} a -> s {directConnectGateway = a} :: DeleteDirectConnectGatewayResponse)
 
--- | The direct connect gateway to be deleted.
-ddcgdrsDirectConnectGateway :: Lens' DeleteDirectConnectGatewayResponse (Maybe DirectConnectGateway)
-ddcgdrsDirectConnectGateway = lens _ddcgdrsDirectConnectGateway (\ s a -> s{_ddcgdrsDirectConnectGateway = a})
+-- | The response's http status code.
+deleteDirectConnectGatewayResponse_httpStatus :: Lens.Lens' DeleteDirectConnectGatewayResponse Prelude.Int
+deleteDirectConnectGatewayResponse_httpStatus = Lens.lens (\DeleteDirectConnectGatewayResponse' {httpStatus} -> httpStatus) (\s@DeleteDirectConnectGatewayResponse' {} a -> s {httpStatus = a} :: DeleteDirectConnectGatewayResponse)
 
--- | -- | The response status code.
-ddcgdrsResponseStatus :: Lens' DeleteDirectConnectGatewayResponse Int
-ddcgdrsResponseStatus = lens _ddcgdrsResponseStatus (\ s a -> s{_ddcgdrsResponseStatus = a})
-
-instance NFData DeleteDirectConnectGatewayResponse
-         where
+instance
+  Prelude.NFData
+    DeleteDirectConnectGatewayResponse

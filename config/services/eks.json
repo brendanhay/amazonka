@@ -1,0 +1,8 @@
+{
+    "libraryName": "amazonka-eks",
+    "typeOverrides": {
+        "ErrorCode": {
+            "renamedTo": "EKSErrorCode"
+        }
+    }
+}

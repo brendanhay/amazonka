@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeTargetGroupAttributes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,114 +23,159 @@
 --
 -- Describes the attributes for the specified target group.
 --
+-- For more information, see the following:
 --
+-- -   <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#target-group-attributes Target group attributes>
+--     in the /Application Load Balancers Guide/
+--
+-- -   <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-group-attributes Target group attributes>
+--     in the /Network Load Balancers Guide/
+--
+-- -   <https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html#target-group-attributes Target group attributes>
+--     in the /Gateway Load Balancers Guide/
 module Network.AWS.ELBv2.DescribeTargetGroupAttributes
-    (
-    -- * Creating a Request
-      describeTargetGroupAttributes
-    , DescribeTargetGroupAttributes
+  ( -- * Creating a Request
+    DescribeTargetGroupAttributes (..),
+    newDescribeTargetGroupAttributes,
+
     -- * Request Lenses
-    , dtgaTargetGroupARN
+    describeTargetGroupAttributes_targetGroupArn,
 
     -- * Destructuring the Response
-    , describeTargetGroupAttributesResponse
-    , DescribeTargetGroupAttributesResponse
+    DescribeTargetGroupAttributesResponse (..),
+    newDescribeTargetGroupAttributesResponse,
+
     -- * Response Lenses
-    , dtgarsAttributes
-    , dtgarsResponseStatus
-    ) where
+    describeTargetGroupAttributesResponse_attributes,
+    describeTargetGroupAttributesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.ELBv2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeTargetGroupAttributes' smart constructor.
-newtype DescribeTargetGroupAttributes = DescribeTargetGroupAttributes'
-  { _dtgaTargetGroupARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeTargetGroupAttributes' smart constructor.
+data DescribeTargetGroupAttributes = DescribeTargetGroupAttributes'
+  { -- | The Amazon Resource Name (ARN) of the target group.
+    targetGroupArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTargetGroupAttributes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTargetGroupAttributes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtgaTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
-describeTargetGroupAttributes
-    :: Text -- ^ 'dtgaTargetGroupARN'
-    -> DescribeTargetGroupAttributes
-describeTargetGroupAttributes pTargetGroupARN_ =
-  DescribeTargetGroupAttributes' {_dtgaTargetGroupARN = pTargetGroupARN_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'targetGroupArn', 'describeTargetGroupAttributes_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.
+newDescribeTargetGroupAttributes ::
+  -- | 'targetGroupArn'
+  Prelude.Text ->
+  DescribeTargetGroupAttributes
+newDescribeTargetGroupAttributes pTargetGroupArn_ =
+  DescribeTargetGroupAttributes'
+    { targetGroupArn =
+        pTargetGroupArn_
+    }
 
 -- | The Amazon Resource Name (ARN) of the target group.
-dtgaTargetGroupARN :: Lens' DescribeTargetGroupAttributes Text
-dtgaTargetGroupARN = lens _dtgaTargetGroupARN (\ s a -> s{_dtgaTargetGroupARN = a})
+describeTargetGroupAttributes_targetGroupArn :: Lens.Lens' DescribeTargetGroupAttributes Prelude.Text
+describeTargetGroupAttributes_targetGroupArn = Lens.lens (\DescribeTargetGroupAttributes' {targetGroupArn} -> targetGroupArn) (\s@DescribeTargetGroupAttributes' {} a -> s {targetGroupArn = a} :: DescribeTargetGroupAttributes)
 
-instance AWSRequest DescribeTargetGroupAttributes
-         where
-        type Rs DescribeTargetGroupAttributes =
-             DescribeTargetGroupAttributesResponse
-        request = postQuery eLBv2
-        response
-          = receiveXMLWrapper
-              "DescribeTargetGroupAttributesResult"
-              (\ s h x ->
-                 DescribeTargetGroupAttributesResponse' <$>
-                   (x .@? "Attributes" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    DescribeTargetGroupAttributes
+  where
+  type
+    Rs DescribeTargetGroupAttributes =
+      DescribeTargetGroupAttributesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeTargetGroupAttributesResult"
+      ( \s h x ->
+          DescribeTargetGroupAttributesResponse'
+            Prelude.<$> ( x Prelude..@? "Attributes"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeTargetGroupAttributes where
+instance
+  Prelude.Hashable
+    DescribeTargetGroupAttributes
 
-instance NFData DescribeTargetGroupAttributes where
+instance Prelude.NFData DescribeTargetGroupAttributes
 
-instance ToHeaders DescribeTargetGroupAttributes
-         where
-        toHeaders = const mempty
+instance
+  Prelude.ToHeaders
+    DescribeTargetGroupAttributes
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeTargetGroupAttributes where
-        toPath = const "/"
+instance Prelude.ToPath DescribeTargetGroupAttributes where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeTargetGroupAttributes where
-        toQuery DescribeTargetGroupAttributes'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeTargetGroupAttributes" :: ByteString),
-               "Version" =: ("2015-12-01" :: ByteString),
-               "TargetGroupArn" =: _dtgaTargetGroupARN]
+instance
+  Prelude.ToQuery
+    DescribeTargetGroupAttributes
+  where
+  toQuery DescribeTargetGroupAttributes' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ( "DescribeTargetGroupAttributes" ::
+                         Prelude.ByteString
+                     ),
+        "Version"
+          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
+        "TargetGroupArn" Prelude.=: targetGroupArn
+      ]
 
--- | /See:/ 'describeTargetGroupAttributesResponse' smart constructor.
+-- | /See:/ 'newDescribeTargetGroupAttributesResponse' smart constructor.
 data DescribeTargetGroupAttributesResponse = DescribeTargetGroupAttributesResponse'
-  { _dtgarsAttributes     :: !(Maybe [TargetGroupAttribute])
-  , _dtgarsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the target group attributes
+    attributes :: Prelude.Maybe [TargetGroupAttribute],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTargetGroupAttributesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTargetGroupAttributesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtgarsAttributes' - Information about the target group attributes
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtgarsResponseStatus' - -- | The response status code.
-describeTargetGroupAttributesResponse
-    :: Int -- ^ 'dtgarsResponseStatus'
-    -> DescribeTargetGroupAttributesResponse
-describeTargetGroupAttributesResponse pResponseStatus_ =
+-- 'attributes', 'describeTargetGroupAttributesResponse_attributes' - Information about the target group attributes
+--
+-- 'httpStatus', 'describeTargetGroupAttributesResponse_httpStatus' - The response's http status code.
+newDescribeTargetGroupAttributesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeTargetGroupAttributesResponse
+newDescribeTargetGroupAttributesResponse pHttpStatus_ =
   DescribeTargetGroupAttributesResponse'
-    {_dtgarsAttributes = Nothing, _dtgarsResponseStatus = pResponseStatus_}
-
+    { attributes =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the target group attributes
-dtgarsAttributes :: Lens' DescribeTargetGroupAttributesResponse [TargetGroupAttribute]
-dtgarsAttributes = lens _dtgarsAttributes (\ s a -> s{_dtgarsAttributes = a}) . _Default . _Coerce
+describeTargetGroupAttributesResponse_attributes :: Lens.Lens' DescribeTargetGroupAttributesResponse (Prelude.Maybe [TargetGroupAttribute])
+describeTargetGroupAttributesResponse_attributes = Lens.lens (\DescribeTargetGroupAttributesResponse' {attributes} -> attributes) (\s@DescribeTargetGroupAttributesResponse' {} a -> s {attributes = a} :: DescribeTargetGroupAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-dtgarsResponseStatus :: Lens' DescribeTargetGroupAttributesResponse Int
-dtgarsResponseStatus = lens _dtgarsResponseStatus (\ s a -> s{_dtgarsResponseStatus = a})
+-- | The response's http status code.
+describeTargetGroupAttributesResponse_httpStatus :: Lens.Lens' DescribeTargetGroupAttributesResponse Prelude.Int
+describeTargetGroupAttributesResponse_httpStatus = Lens.lens (\DescribeTargetGroupAttributesResponse' {httpStatus} -> httpStatus) (\s@DescribeTargetGroupAttributesResponse' {} a -> s {httpStatus = a} :: DescribeTargetGroupAttributesResponse)
 
-instance NFData DescribeTargetGroupAttributesResponse
-         where
+instance
+  Prelude.NFData
+    DescribeTargetGroupAttributesResponse

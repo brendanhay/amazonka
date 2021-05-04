@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteSecurityGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,106 +23,132 @@
 --
 -- Deletes a security group.
 --
---
--- If you attempt to delete a security group that is associated with an instance, or is referenced by another security group, the operation fails with @InvalidGroup.InUse@ in EC2-Classic or @DependencyViolation@ in EC2-VPC.
---
+-- If you attempt to delete a security group that is associated with an
+-- instance, or is referenced by another security group, the operation
+-- fails with @InvalidGroup.InUse@ in EC2-Classic or @DependencyViolation@
+-- in EC2-VPC.
 module Network.AWS.EC2.DeleteSecurityGroup
-    (
-    -- * Creating a Request
-      deleteSecurityGroup
-    , DeleteSecurityGroup
+  ( -- * Creating a Request
+    DeleteSecurityGroup (..),
+    newDeleteSecurityGroup,
+
     -- * Request Lenses
-    , dsgGroupId
-    , dsgGroupName
-    , dsgDryRun
+    deleteSecurityGroup_dryRun,
+    deleteSecurityGroup_groupName,
+    deleteSecurityGroup_groupId,
 
     -- * Destructuring the Response
-    , deleteSecurityGroupResponse
-    , DeleteSecurityGroupResponse
-    ) where
+    DeleteSecurityGroupResponse (..),
+    newDeleteSecurityGroupResponse,
+  )
+where
 
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for DeleteSecurityGroup.
---
---
---
--- /See:/ 'deleteSecurityGroup' smart constructor.
+-- | /See:/ 'newDeleteSecurityGroup' smart constructor.
 data DeleteSecurityGroup = DeleteSecurityGroup'
-  { _dsgGroupId   :: !(Maybe Text)
-  , _dsgGroupName :: !(Maybe Text)
-  , _dsgDryRun    :: !(Maybe Bool)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | [EC2-Classic, default VPC] The name of the security group. You can
+    -- specify either the security group name or the security group ID.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the security group. Required for a nondefault VPC.
+    groupId :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteSecurityGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteSecurityGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsgGroupId' - The ID of the security group. Required for a nondefault VPC.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsgGroupName' - [EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID.
+-- 'dryRun', 'deleteSecurityGroup_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'dsgDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-deleteSecurityGroup
-    :: DeleteSecurityGroup
-deleteSecurityGroup =
+-- 'groupName', 'deleteSecurityGroup_groupName' - [EC2-Classic, default VPC] The name of the security group. You can
+-- specify either the security group name or the security group ID.
+--
+-- 'groupId', 'deleteSecurityGroup_groupId' - The ID of the security group. Required for a nondefault VPC.
+newDeleteSecurityGroup ::
+  DeleteSecurityGroup
+newDeleteSecurityGroup =
   DeleteSecurityGroup'
-    {_dsgGroupId = Nothing, _dsgGroupName = Nothing, _dsgDryRun = Nothing}
+    { dryRun = Prelude.Nothing,
+      groupName = Prelude.Nothing,
+      groupId = Prelude.Nothing
+    }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+deleteSecurityGroup_dryRun :: Lens.Lens' DeleteSecurityGroup (Prelude.Maybe Prelude.Bool)
+deleteSecurityGroup_dryRun = Lens.lens (\DeleteSecurityGroup' {dryRun} -> dryRun) (\s@DeleteSecurityGroup' {} a -> s {dryRun = a} :: DeleteSecurityGroup)
+
+-- | [EC2-Classic, default VPC] The name of the security group. You can
+-- specify either the security group name or the security group ID.
+deleteSecurityGroup_groupName :: Lens.Lens' DeleteSecurityGroup (Prelude.Maybe Prelude.Text)
+deleteSecurityGroup_groupName = Lens.lens (\DeleteSecurityGroup' {groupName} -> groupName) (\s@DeleteSecurityGroup' {} a -> s {groupName = a} :: DeleteSecurityGroup)
 
 -- | The ID of the security group. Required for a nondefault VPC.
-dsgGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
-dsgGroupId = lens _dsgGroupId (\ s a -> s{_dsgGroupId = a})
+deleteSecurityGroup_groupId :: Lens.Lens' DeleteSecurityGroup (Prelude.Maybe Prelude.Text)
+deleteSecurityGroup_groupId = Lens.lens (\DeleteSecurityGroup' {groupId} -> groupId) (\s@DeleteSecurityGroup' {} a -> s {groupId = a} :: DeleteSecurityGroup)
 
--- | [EC2-Classic, default VPC] The name of the security group. You can specify either the security group name or the security group ID.
-dsgGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
-dsgGroupName = lens _dsgGroupName (\ s a -> s{_dsgGroupName = a})
+instance Prelude.AWSRequest DeleteSecurityGroup where
+  type
+    Rs DeleteSecurityGroup =
+      DeleteSecurityGroupResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull DeleteSecurityGroupResponse'
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dsgDryRun :: Lens' DeleteSecurityGroup (Maybe Bool)
-dsgDryRun = lens _dsgDryRun (\ s a -> s{_dsgDryRun = a})
+instance Prelude.Hashable DeleteSecurityGroup
 
-instance AWSRequest DeleteSecurityGroup where
-        type Rs DeleteSecurityGroup =
-             DeleteSecurityGroupResponse
-        request = postQuery ec2
-        response = receiveNull DeleteSecurityGroupResponse'
+instance Prelude.NFData DeleteSecurityGroup
 
-instance Hashable DeleteSecurityGroup where
+instance Prelude.ToHeaders DeleteSecurityGroup where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance NFData DeleteSecurityGroup where
+instance Prelude.ToPath DeleteSecurityGroup where
+  toPath = Prelude.const "/"
 
-instance ToHeaders DeleteSecurityGroup where
-        toHeaders = const mempty
+instance Prelude.ToQuery DeleteSecurityGroup where
+  toQuery DeleteSecurityGroup' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DeleteSecurityGroup" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Prelude.=: dryRun,
+        "GroupName" Prelude.=: groupName,
+        "GroupId" Prelude.=: groupId
+      ]
 
-instance ToPath DeleteSecurityGroup where
-        toPath = const "/"
+-- | /See:/ 'newDeleteSecurityGroupResponse' smart constructor.
+data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-instance ToQuery DeleteSecurityGroup where
-        toQuery DeleteSecurityGroup'{..}
-          = mconcat
-              ["Action" =: ("DeleteSecurityGroup" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "GroupId" =: _dsgGroupId,
-               "GroupName" =: _dsgGroupName, "DryRun" =: _dsgDryRun]
-
--- | /See:/ 'deleteSecurityGroupResponse' smart constructor.
-data DeleteSecurityGroupResponse =
-  DeleteSecurityGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteSecurityGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteSecurityGroupResponse' with all optional fields omitted.
 --
-deleteSecurityGroupResponse
-    :: DeleteSecurityGroupResponse
-deleteSecurityGroupResponse = DeleteSecurityGroupResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteSecurityGroupResponse ::
+  DeleteSecurityGroupResponse
+newDeleteSecurityGroupResponse =
+  DeleteSecurityGroupResponse'
 
-
-instance NFData DeleteSecurityGroupResponse where
+instance Prelude.NFData DeleteSecurityGroupResponse

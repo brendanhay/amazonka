@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.UpdateSubscriptionDefinition
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,117 +23,152 @@
 --
 -- Updates a subscription definition.
 module Network.AWS.Greengrass.UpdateSubscriptionDefinition
-    (
-    -- * Creating a Request
-      updateSubscriptionDefinition
-    , UpdateSubscriptionDefinition
+  ( -- * Creating a Request
+    UpdateSubscriptionDefinition (..),
+    newUpdateSubscriptionDefinition,
+
     -- * Request Lenses
-    , usdName
-    , usdSubscriptionDefinitionId
+    updateSubscriptionDefinition_name,
+    updateSubscriptionDefinition_subscriptionDefinitionId,
 
     -- * Destructuring the Response
-    , updateSubscriptionDefinitionResponse
-    , UpdateSubscriptionDefinitionResponse
+    UpdateSubscriptionDefinitionResponse (..),
+    newUpdateSubscriptionDefinitionResponse,
+
     -- * Response Lenses
-    , usdrsResponseStatus
-    ) where
+    updateSubscriptionDefinitionResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateSubscriptionDefinition' smart constructor.
+-- | /See:/ 'newUpdateSubscriptionDefinition' smart constructor.
 data UpdateSubscriptionDefinition = UpdateSubscriptionDefinition'
-  { _usdName                     :: !(Maybe Text)
-  , _usdSubscriptionDefinitionId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the definition.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the subscription definition.
+    subscriptionDefinitionId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateSubscriptionDefinition' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateSubscriptionDefinition' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'usdName' - The name of the definition.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'usdSubscriptionDefinitionId' - The ID of the subscription definition.
-updateSubscriptionDefinition
-    :: Text -- ^ 'usdSubscriptionDefinitionId'
-    -> UpdateSubscriptionDefinition
-updateSubscriptionDefinition pSubscriptionDefinitionId_ =
-  UpdateSubscriptionDefinition'
-    { _usdName = Nothing
-    , _usdSubscriptionDefinitionId = pSubscriptionDefinitionId_
-    }
-
+-- 'name', 'updateSubscriptionDefinition_name' - The name of the definition.
+--
+-- 'subscriptionDefinitionId', 'updateSubscriptionDefinition_subscriptionDefinitionId' - The ID of the subscription definition.
+newUpdateSubscriptionDefinition ::
+  -- | 'subscriptionDefinitionId'
+  Prelude.Text ->
+  UpdateSubscriptionDefinition
+newUpdateSubscriptionDefinition
+  pSubscriptionDefinitionId_ =
+    UpdateSubscriptionDefinition'
+      { name =
+          Prelude.Nothing,
+        subscriptionDefinitionId =
+          pSubscriptionDefinitionId_
+      }
 
 -- | The name of the definition.
-usdName :: Lens' UpdateSubscriptionDefinition (Maybe Text)
-usdName = lens _usdName (\ s a -> s{_usdName = a})
+updateSubscriptionDefinition_name :: Lens.Lens' UpdateSubscriptionDefinition (Prelude.Maybe Prelude.Text)
+updateSubscriptionDefinition_name = Lens.lens (\UpdateSubscriptionDefinition' {name} -> name) (\s@UpdateSubscriptionDefinition' {} a -> s {name = a} :: UpdateSubscriptionDefinition)
 
 -- | The ID of the subscription definition.
-usdSubscriptionDefinitionId :: Lens' UpdateSubscriptionDefinition Text
-usdSubscriptionDefinitionId = lens _usdSubscriptionDefinitionId (\ s a -> s{_usdSubscriptionDefinitionId = a})
+updateSubscriptionDefinition_subscriptionDefinitionId :: Lens.Lens' UpdateSubscriptionDefinition Prelude.Text
+updateSubscriptionDefinition_subscriptionDefinitionId = Lens.lens (\UpdateSubscriptionDefinition' {subscriptionDefinitionId} -> subscriptionDefinitionId) (\s@UpdateSubscriptionDefinition' {} a -> s {subscriptionDefinitionId = a} :: UpdateSubscriptionDefinition)
 
-instance AWSRequest UpdateSubscriptionDefinition
-         where
-        type Rs UpdateSubscriptionDefinition =
-             UpdateSubscriptionDefinitionResponse
-        request = putJSON greengrass
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateSubscriptionDefinitionResponse' <$>
-                   (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    UpdateSubscriptionDefinition
+  where
+  type
+    Rs UpdateSubscriptionDefinition =
+      UpdateSubscriptionDefinitionResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateSubscriptionDefinitionResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateSubscriptionDefinition where
+instance
+  Prelude.Hashable
+    UpdateSubscriptionDefinition
 
-instance NFData UpdateSubscriptionDefinition where
+instance Prelude.NFData UpdateSubscriptionDefinition
 
-instance ToHeaders UpdateSubscriptionDefinition where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Prelude.ToHeaders
+    UpdateSubscriptionDefinition
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateSubscriptionDefinition where
-        toJSON UpdateSubscriptionDefinition'{..}
-          = object (catMaybes [("Name" .=) <$> _usdName])
+instance Prelude.ToJSON UpdateSubscriptionDefinition where
+  toJSON UpdateSubscriptionDefinition' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [("Name" Prelude..=) Prelude.<$> name]
+      )
 
-instance ToPath UpdateSubscriptionDefinition where
-        toPath UpdateSubscriptionDefinition'{..}
-          = mconcat
-              ["/greengrass/definition/subscriptions/",
-               toBS _usdSubscriptionDefinitionId]
+instance Prelude.ToPath UpdateSubscriptionDefinition where
+  toPath UpdateSubscriptionDefinition' {..} =
+    Prelude.mconcat
+      [ "/greengrass/definition/subscriptions/",
+        Prelude.toBS subscriptionDefinitionId
+      ]
 
-instance ToQuery UpdateSubscriptionDefinition where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateSubscriptionDefinition where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateSubscriptionDefinitionResponse' smart constructor.
-newtype UpdateSubscriptionDefinitionResponse = UpdateSubscriptionDefinitionResponse'
-  { _usdrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateSubscriptionDefinitionResponse' smart constructor.
+data UpdateSubscriptionDefinitionResponse = UpdateSubscriptionDefinitionResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateSubscriptionDefinitionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateSubscriptionDefinitionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'usdrsResponseStatus' - -- | The response status code.
-updateSubscriptionDefinitionResponse
-    :: Int -- ^ 'usdrsResponseStatus'
-    -> UpdateSubscriptionDefinitionResponse
-updateSubscriptionDefinitionResponse pResponseStatus_ =
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateSubscriptionDefinitionResponse_httpStatus' - The response's http status code.
+newUpdateSubscriptionDefinitionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateSubscriptionDefinitionResponse
+newUpdateSubscriptionDefinitionResponse pHttpStatus_ =
   UpdateSubscriptionDefinitionResponse'
-    {_usdrsResponseStatus = pResponseStatus_}
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+updateSubscriptionDefinitionResponse_httpStatus :: Lens.Lens' UpdateSubscriptionDefinitionResponse Prelude.Int
+updateSubscriptionDefinitionResponse_httpStatus = Lens.lens (\UpdateSubscriptionDefinitionResponse' {httpStatus} -> httpStatus) (\s@UpdateSubscriptionDefinitionResponse' {} a -> s {httpStatus = a} :: UpdateSubscriptionDefinitionResponse)
 
--- | -- | The response status code.
-usdrsResponseStatus :: Lens' UpdateSubscriptionDefinitionResponse Int
-usdrsResponseStatus = lens _usdrsResponseStatus (\ s a -> s{_usdrsResponseStatus = a})
-
-instance NFData UpdateSubscriptionDefinitionResponse
-         where
+instance
+  Prelude.NFData
+    UpdateSubscriptionDefinitionResponse

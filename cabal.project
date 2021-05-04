@@ -1,1 +1,21 @@
-packages: */
+-- Ensure deterministic package set.
+index-state: 2021-03-27T00:00:00Z
+
+-- Writing environment files prevents reproducible builds.
+write-ghc-environment-files: never
+
+-- 01 by default. You can override this locally via:
+--   cabal new-configure --disable-optimization
+optimization: 1
+
+-- Fix for some generator dependencies with >= GHC 8.10
+allow-newer:
+   base
+
+-- Local packages - without amazonka-examples.
+packages:
+   core/
+   gen/
+   test/
+   amazonka/
+   amazonka-*/

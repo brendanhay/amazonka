@@ -1,167 +1,208 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentity.GetOpenIdToken
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by 'GetId' . You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.
+-- Gets an OpenID token, using a known Cognito ID. This known Cognito ID is
+-- returned by GetId. You can optionally add additional logins for the
+-- identity. Supplying multiple logins creates an implicit link.
 --
---
--- The OpenId token is valid for 15 minutes.
+-- The OpenID token is valid for 10 minutes.
 --
 -- This is a public API. You do not need any credentials to call this API.
---
 module Network.AWS.CognitoIdentity.GetOpenIdToken
-    (
-    -- * Creating a Request
-      getOpenIdToken
-    , GetOpenIdToken
+  ( -- * Creating a Request
+    GetOpenIdToken (..),
+    newGetOpenIdToken,
+
     -- * Request Lenses
-    , goitLogins
-    , goitIdentityId
+    getOpenIdToken_logins,
+    getOpenIdToken_identityId,
 
     -- * Destructuring the Response
-    , getOpenIdTokenResponse
-    , GetOpenIdTokenResponse
+    GetOpenIdTokenResponse (..),
+    newGetOpenIdTokenResponse,
+
     -- * Response Lenses
-    , goitrsToken
-    , goitrsIdentityId
-    , goitrsResponseStatus
-    ) where
+    getOpenIdTokenResponse_identityId,
+    getOpenIdTokenResponse_token,
+    getOpenIdTokenResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentity.Types
-import Network.AWS.CognitoIdentity.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input to the GetOpenIdToken action.
 --
---
---
--- /See:/ 'getOpenIdToken' smart constructor.
+-- /See:/ 'newGetOpenIdToken' smart constructor.
 data GetOpenIdToken = GetOpenIdToken'
-  { _goitLogins     :: !(Maybe (Map Text Text))
-  , _goitIdentityId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A set of optional name-value pairs that map provider names to provider
+    -- tokens. When using graph.facebook.com and www.amazon.com, supply the
+    -- access_token returned from the provider\'s authflow. For
+    -- accounts.google.com, an Amazon Cognito user pool provider, or any other
+    -- OpenID Connect provider, always include the @id_token@.
+    logins :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A unique identifier in the format REGION:GUID.
+    identityId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetOpenIdToken' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetOpenIdToken' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'goitLogins' - A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito Identity Provider, or any other OpenId Connect provider, always include the @id_token@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'goitIdentityId' - A unique identifier in the format REGION:GUID.
-getOpenIdToken
-    :: Text -- ^ 'goitIdentityId'
-    -> GetOpenIdToken
-getOpenIdToken pIdentityId_ =
-  GetOpenIdToken' {_goitLogins = Nothing, _goitIdentityId = pIdentityId_}
+-- 'logins', 'getOpenIdToken_logins' - A set of optional name-value pairs that map provider names to provider
+-- tokens. When using graph.facebook.com and www.amazon.com, supply the
+-- access_token returned from the provider\'s authflow. For
+-- accounts.google.com, an Amazon Cognito user pool provider, or any other
+-- OpenID Connect provider, always include the @id_token@.
+--
+-- 'identityId', 'getOpenIdToken_identityId' - A unique identifier in the format REGION:GUID.
+newGetOpenIdToken ::
+  -- | 'identityId'
+  Prelude.Text ->
+  GetOpenIdToken
+newGetOpenIdToken pIdentityId_ =
+  GetOpenIdToken'
+    { logins = Prelude.Nothing,
+      identityId = pIdentityId_
+    }
 
-
--- | A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito Identity Provider, or any other OpenId Connect provider, always include the @id_token@ .
-goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
-goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . _Default . _Map
+-- | A set of optional name-value pairs that map provider names to provider
+-- tokens. When using graph.facebook.com and www.amazon.com, supply the
+-- access_token returned from the provider\'s authflow. For
+-- accounts.google.com, an Amazon Cognito user pool provider, or any other
+-- OpenID Connect provider, always include the @id_token@.
+getOpenIdToken_logins :: Lens.Lens' GetOpenIdToken (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getOpenIdToken_logins = Lens.lens (\GetOpenIdToken' {logins} -> logins) (\s@GetOpenIdToken' {} a -> s {logins = a} :: GetOpenIdToken) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | A unique identifier in the format REGION:GUID.
-goitIdentityId :: Lens' GetOpenIdToken Text
-goitIdentityId = lens _goitIdentityId (\ s a -> s{_goitIdentityId = a})
+getOpenIdToken_identityId :: Lens.Lens' GetOpenIdToken Prelude.Text
+getOpenIdToken_identityId = Lens.lens (\GetOpenIdToken' {identityId} -> identityId) (\s@GetOpenIdToken' {} a -> s {identityId = a} :: GetOpenIdToken)
 
-instance AWSRequest GetOpenIdToken where
-        type Rs GetOpenIdToken = GetOpenIdTokenResponse
-        request = postJSON cognitoIdentity
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetOpenIdTokenResponse' <$>
-                   (x .?> "Token") <*> (x .?> "IdentityId") <*>
-                     (pure (fromEnum s)))
+instance Prelude.AWSRequest GetOpenIdToken where
+  type Rs GetOpenIdToken = GetOpenIdTokenResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetOpenIdTokenResponse'
+            Prelude.<$> (x Prelude..?> "IdentityId")
+            Prelude.<*> (x Prelude..?> "Token")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetOpenIdToken where
+instance Prelude.Hashable GetOpenIdToken
 
-instance NFData GetOpenIdToken where
+instance Prelude.NFData GetOpenIdToken
 
-instance ToHeaders GetOpenIdToken where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityService.GetOpenIdToken" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders GetOpenIdToken where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSCognitoIdentityService.GetOpenIdToken" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON GetOpenIdToken where
-        toJSON GetOpenIdToken'{..}
-          = object
-              (catMaybes
-                 [("Logins" .=) <$> _goitLogins,
-                  Just ("IdentityId" .= _goitIdentityId)])
+instance Prelude.ToJSON GetOpenIdToken where
+  toJSON GetOpenIdToken' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Logins" Prelude..=) Prelude.<$> logins,
+            Prelude.Just ("IdentityId" Prelude..= identityId)
+          ]
+      )
 
-instance ToPath GetOpenIdToken where
-        toPath = const "/"
+instance Prelude.ToPath GetOpenIdToken where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetOpenIdToken where
-        toQuery = const mempty
+instance Prelude.ToQuery GetOpenIdToken where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Returned in response to a successful GetOpenIdToken request.
 --
---
---
--- /See:/ 'getOpenIdTokenResponse' smart constructor.
+-- /See:/ 'newGetOpenIdTokenResponse' smart constructor.
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
-  { _goitrsToken          :: !(Maybe Text)
-  , _goitrsIdentityId     :: !(Maybe Text)
-  , _goitrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A unique identifier in the format REGION:GUID. Note that the IdentityId
+    -- returned may not match the one passed on input.
+    identityId :: Prelude.Maybe Prelude.Text,
+    -- | An OpenID token, valid for 10 minutes.
+    token :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetOpenIdTokenResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetOpenIdTokenResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'goitrsToken' - An OpenID token, valid for 15 minutes.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'goitrsIdentityId' - A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.
+-- 'identityId', 'getOpenIdTokenResponse_identityId' - A unique identifier in the format REGION:GUID. Note that the IdentityId
+-- returned may not match the one passed on input.
 --
--- * 'goitrsResponseStatus' - -- | The response status code.
-getOpenIdTokenResponse
-    :: Int -- ^ 'goitrsResponseStatus'
-    -> GetOpenIdTokenResponse
-getOpenIdTokenResponse pResponseStatus_ =
+-- 'token', 'getOpenIdTokenResponse_token' - An OpenID token, valid for 10 minutes.
+--
+-- 'httpStatus', 'getOpenIdTokenResponse_httpStatus' - The response's http status code.
+newGetOpenIdTokenResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetOpenIdTokenResponse
+newGetOpenIdTokenResponse pHttpStatus_ =
   GetOpenIdTokenResponse'
-    { _goitrsToken = Nothing
-    , _goitrsIdentityId = Nothing
-    , _goitrsResponseStatus = pResponseStatus_
+    { identityId =
+        Prelude.Nothing,
+      token = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | A unique identifier in the format REGION:GUID. Note that the IdentityId
+-- returned may not match the one passed on input.
+getOpenIdTokenResponse_identityId :: Lens.Lens' GetOpenIdTokenResponse (Prelude.Maybe Prelude.Text)
+getOpenIdTokenResponse_identityId = Lens.lens (\GetOpenIdTokenResponse' {identityId} -> identityId) (\s@GetOpenIdTokenResponse' {} a -> s {identityId = a} :: GetOpenIdTokenResponse)
 
--- | An OpenID token, valid for 15 minutes.
-goitrsToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrsToken = lens _goitrsToken (\ s a -> s{_goitrsToken = a})
+-- | An OpenID token, valid for 10 minutes.
+getOpenIdTokenResponse_token :: Lens.Lens' GetOpenIdTokenResponse (Prelude.Maybe Prelude.Text)
+getOpenIdTokenResponse_token = Lens.lens (\GetOpenIdTokenResponse' {token} -> token) (\s@GetOpenIdTokenResponse' {} a -> s {token = a} :: GetOpenIdTokenResponse)
 
--- | A unique identifier in the format REGION:GUID. Note that the IdentityId returned may not match the one passed on input.
-goitrsIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrsIdentityId = lens _goitrsIdentityId (\ s a -> s{_goitrsIdentityId = a})
+-- | The response's http status code.
+getOpenIdTokenResponse_httpStatus :: Lens.Lens' GetOpenIdTokenResponse Prelude.Int
+getOpenIdTokenResponse_httpStatus = Lens.lens (\GetOpenIdTokenResponse' {httpStatus} -> httpStatus) (\s@GetOpenIdTokenResponse' {} a -> s {httpStatus = a} :: GetOpenIdTokenResponse)
 
--- | -- | The response status code.
-goitrsResponseStatus :: Lens' GetOpenIdTokenResponse Int
-goitrsResponseStatus = lens _goitrsResponseStatus (\ s a -> s{_goitrsResponseStatus = a})
-
-instance NFData GetOpenIdTokenResponse where
+instance Prelude.NFData GetOpenIdTokenResponse

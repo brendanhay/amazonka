@@ -1,179 +1,278 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Discovery.DescribeExportTasks
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve status of one or more export tasks. You can retrieve the status of up to 100 export tasks.
+-- Retrieve status of one or more export tasks. You can retrieve the status
+-- of up to 100 export tasks.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.Discovery.DescribeExportTasks
-    (
-    -- * Creating a Request
-      describeExportTasks
-    , DescribeExportTasks
+  ( -- * Creating a Request
+    DescribeExportTasks (..),
+    newDescribeExportTasks,
+
     -- * Request Lenses
-    , detFilters
-    , detNextToken
-    , detExportIds
-    , detMaxResults
+    describeExportTasks_nextToken,
+    describeExportTasks_maxResults,
+    describeExportTasks_exportIds,
+    describeExportTasks_filters,
 
     -- * Destructuring the Response
-    , describeExportTasksResponse
-    , DescribeExportTasksResponse
+    DescribeExportTasksResponse (..),
+    newDescribeExportTasksResponse,
+
     -- * Response Lenses
-    , detrsNextToken
-    , detrsExportsInfo
-    , detrsResponseStatus
-    ) where
+    describeExportTasksResponse_nextToken,
+    describeExportTasksResponse_exportsInfo,
+    describeExportTasksResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Discovery.Types
-import Network.AWS.Discovery.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeExportTasks' smart constructor.
+-- | /See:/ 'newDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { _detFilters    :: !(Maybe [ExportFilter])
-  , _detNextToken  :: !(Maybe Text)
-  , _detExportIds  :: !(Maybe [Text])
-  , _detMaxResults :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @nextToken@ value returned from a previous paginated
+    -- @DescribeExportTasks@ request where @maxResults@ was used and the
+    -- results exceeded the value of that parameter. Pagination continues from
+    -- the end of the previous results that returned the @nextToken@ value.
+    -- This value is null when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of volume results returned by @DescribeExportTasks@
+    -- in paginated output. When this parameter is used, @DescribeExportTasks@
+    -- only returns @maxResults@ results in a single page along with a
+    -- @nextToken@ response element.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | One or more unique identifiers used to query the status of an export
+    -- request.
+    exportIds :: Prelude.Maybe [Prelude.Text],
+    -- | One or more filters.
+    --
+    -- -   @AgentId@ - ID of the agent whose collected data will be exported
+    filters :: Prelude.Maybe [ExportFilter]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeExportTasks' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeExportTasks' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'detFilters' - One or more filters.     * @AgentId@ - ID of the agent whose collected data will be exported
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'detNextToken' - The @nextToken@ value returned from a previous paginated @DescribeExportTasks@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
+-- 'nextToken', 'describeExportTasks_nextToken' - The @nextToken@ value returned from a previous paginated
+-- @DescribeExportTasks@ request where @maxResults@ was used and the
+-- results exceeded the value of that parameter. Pagination continues from
+-- the end of the previous results that returned the @nextToken@ value.
+-- This value is null when there are no more results to return.
 --
--- * 'detExportIds' - One or more unique identifiers used to query the status of an export request.
+-- 'maxResults', 'describeExportTasks_maxResults' - The maximum number of volume results returned by @DescribeExportTasks@
+-- in paginated output. When this parameter is used, @DescribeExportTasks@
+-- only returns @maxResults@ results in a single page along with a
+-- @nextToken@ response element.
 --
--- * 'detMaxResults' - The maximum number of volume results returned by @DescribeExportTasks@ in paginated output. When this parameter is used, @DescribeExportTasks@ only returns @maxResults@ results in a single page along with a @nextToken@ response element.
-describeExportTasks
-    :: DescribeExportTasks
-describeExportTasks =
+-- 'exportIds', 'describeExportTasks_exportIds' - One or more unique identifiers used to query the status of an export
+-- request.
+--
+-- 'filters', 'describeExportTasks_filters' - One or more filters.
+--
+-- -   @AgentId@ - ID of the agent whose collected data will be exported
+newDescribeExportTasks ::
+  DescribeExportTasks
+newDescribeExportTasks =
   DescribeExportTasks'
-    { _detFilters = Nothing
-    , _detNextToken = Nothing
-    , _detExportIds = Nothing
-    , _detMaxResults = Nothing
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      exportIds = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
+-- | The @nextToken@ value returned from a previous paginated
+-- @DescribeExportTasks@ request where @maxResults@ was used and the
+-- results exceeded the value of that parameter. Pagination continues from
+-- the end of the previous results that returned the @nextToken@ value.
+-- This value is null when there are no more results to return.
+describeExportTasks_nextToken :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
+describeExportTasks_nextToken = Lens.lens (\DescribeExportTasks' {nextToken} -> nextToken) (\s@DescribeExportTasks' {} a -> s {nextToken = a} :: DescribeExportTasks)
 
--- | One or more filters.     * @AgentId@ - ID of the agent whose collected data will be exported
-detFilters :: Lens' DescribeExportTasks [ExportFilter]
-detFilters = lens _detFilters (\ s a -> s{_detFilters = a}) . _Default . _Coerce
+-- | The maximum number of volume results returned by @DescribeExportTasks@
+-- in paginated output. When this parameter is used, @DescribeExportTasks@
+-- only returns @maxResults@ results in a single page along with a
+-- @nextToken@ response element.
+describeExportTasks_maxResults :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Int)
+describeExportTasks_maxResults = Lens.lens (\DescribeExportTasks' {maxResults} -> maxResults) (\s@DescribeExportTasks' {} a -> s {maxResults = a} :: DescribeExportTasks)
 
--- | The @nextToken@ value returned from a previous paginated @DescribeExportTasks@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is null when there are no more results to return.
-detNextToken :: Lens' DescribeExportTasks (Maybe Text)
-detNextToken = lens _detNextToken (\ s a -> s{_detNextToken = a})
+-- | One or more unique identifiers used to query the status of an export
+-- request.
+describeExportTasks_exportIds :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Prelude.Text])
+describeExportTasks_exportIds = Lens.lens (\DescribeExportTasks' {exportIds} -> exportIds) (\s@DescribeExportTasks' {} a -> s {exportIds = a} :: DescribeExportTasks) Prelude.. Lens.mapping Prelude._Coerce
 
--- | One or more unique identifiers used to query the status of an export request.
-detExportIds :: Lens' DescribeExportTasks [Text]
-detExportIds = lens _detExportIds (\ s a -> s{_detExportIds = a}) . _Default . _Coerce
+-- | One or more filters.
+--
+-- -   @AgentId@ - ID of the agent whose collected data will be exported
+describeExportTasks_filters :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [ExportFilter])
+describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The maximum number of volume results returned by @DescribeExportTasks@ in paginated output. When this parameter is used, @DescribeExportTasks@ only returns @maxResults@ results in a single page along with a @nextToken@ response element.
-detMaxResults :: Lens' DescribeExportTasks (Maybe Int)
-detMaxResults = lens _detMaxResults (\ s a -> s{_detMaxResults = a})
+instance Pager.AWSPager DescribeExportTasks where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeExportTasksResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeExportTasksResponse_exportsInfo
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeExportTasks_nextToken
+          Lens..~ rs
+          Lens.^? describeExportTasksResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest DescribeExportTasks where
-        type Rs DescribeExportTasks =
-             DescribeExportTasksResponse
-        request = postJSON discovery
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeExportTasksResponse' <$>
-                   (x .?> "nextToken") <*>
-                     (x .?> "exportsInfo" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeExportTasks where
+  type
+    Rs DescribeExportTasks =
+      DescribeExportTasksResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeExportTasksResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> ( x Prelude..?> "exportsInfo"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeExportTasks where
+instance Prelude.Hashable DescribeExportTasks
 
-instance NFData DescribeExportTasks where
+instance Prelude.NFData DescribeExportTasks
 
-instance ToHeaders DescribeExportTasks where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSPoseidonService_V2015_11_01.DescribeExportTasks"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DescribeExportTasks where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSPoseidonService_V2015_11_01.DescribeExportTasks" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DescribeExportTasks where
-        toJSON DescribeExportTasks'{..}
-          = object
-              (catMaybes
-                 [("filters" .=) <$> _detFilters,
-                  ("nextToken" .=) <$> _detNextToken,
-                  ("exportIds" .=) <$> _detExportIds,
-                  ("maxResults" .=) <$> _detMaxResults])
+instance Prelude.ToJSON DescribeExportTasks where
+  toJSON DescribeExportTasks' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
+            ("maxResults" Prelude..=) Prelude.<$> maxResults,
+            ("exportIds" Prelude..=) Prelude.<$> exportIds,
+            ("filters" Prelude..=) Prelude.<$> filters
+          ]
+      )
 
-instance ToPath DescribeExportTasks where
-        toPath = const "/"
+instance Prelude.ToPath DescribeExportTasks where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeExportTasks where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeExportTasks where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeExportTasksResponse' smart constructor.
+-- | /See:/ 'newDescribeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-  { _detrsNextToken      :: !(Maybe Text)
-  , _detrsExportsInfo    :: !(Maybe [ExportInfo])
-  , _detrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @nextToken@ value to include in a future @DescribeExportTasks@
+    -- request. When the results of a @DescribeExportTasks@ request exceed
+    -- @maxResults@, this value can be used to retrieve the next page of
+    -- results. This value is null when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Contains one or more sets of export request details. When the status of
+    -- a request is @SUCCEEDED@, the response includes a URL for an Amazon S3
+    -- bucket where you can view the data in a CSV file.
+    exportsInfo :: Prelude.Maybe [ExportInfo],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeExportTasksResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'detrsNextToken' - The @nextToken@ value to include in a future @DescribeExportTasks@ request. When the results of a @DescribeExportTasks@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'detrsExportsInfo' - Contains one or more sets of export request details. When the status of a request is @SUCCEEDED@ , the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file.
+-- 'nextToken', 'describeExportTasksResponse_nextToken' - The @nextToken@ value to include in a future @DescribeExportTasks@
+-- request. When the results of a @DescribeExportTasks@ request exceed
+-- @maxResults@, this value can be used to retrieve the next page of
+-- results. This value is null when there are no more results to return.
 --
--- * 'detrsResponseStatus' - -- | The response status code.
-describeExportTasksResponse
-    :: Int -- ^ 'detrsResponseStatus'
-    -> DescribeExportTasksResponse
-describeExportTasksResponse pResponseStatus_ =
+-- 'exportsInfo', 'describeExportTasksResponse_exportsInfo' - Contains one or more sets of export request details. When the status of
+-- a request is @SUCCEEDED@, the response includes a URL for an Amazon S3
+-- bucket where you can view the data in a CSV file.
+--
+-- 'httpStatus', 'describeExportTasksResponse_httpStatus' - The response's http status code.
+newDescribeExportTasksResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeExportTasksResponse
+newDescribeExportTasksResponse pHttpStatus_ =
   DescribeExportTasksResponse'
-    { _detrsNextToken = Nothing
-    , _detrsExportsInfo = Nothing
-    , _detrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      exportsInfo = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The @nextToken@ value to include in a future @DescribeExportTasks@
+-- request. When the results of a @DescribeExportTasks@ request exceed
+-- @maxResults@, this value can be used to retrieve the next page of
+-- results. This value is null when there are no more results to return.
+describeExportTasksResponse_nextToken :: Lens.Lens' DescribeExportTasksResponse (Prelude.Maybe Prelude.Text)
+describeExportTasksResponse_nextToken = Lens.lens (\DescribeExportTasksResponse' {nextToken} -> nextToken) (\s@DescribeExportTasksResponse' {} a -> s {nextToken = a} :: DescribeExportTasksResponse)
 
--- | The @nextToken@ value to include in a future @DescribeExportTasks@ request. When the results of a @DescribeExportTasks@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is null when there are no more results to return.
-detrsNextToken :: Lens' DescribeExportTasksResponse (Maybe Text)
-detrsNextToken = lens _detrsNextToken (\ s a -> s{_detrsNextToken = a})
+-- | Contains one or more sets of export request details. When the status of
+-- a request is @SUCCEEDED@, the response includes a URL for an Amazon S3
+-- bucket where you can view the data in a CSV file.
+describeExportTasksResponse_exportsInfo :: Lens.Lens' DescribeExportTasksResponse (Prelude.Maybe [ExportInfo])
+describeExportTasksResponse_exportsInfo = Lens.lens (\DescribeExportTasksResponse' {exportsInfo} -> exportsInfo) (\s@DescribeExportTasksResponse' {} a -> s {exportsInfo = a} :: DescribeExportTasksResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | Contains one or more sets of export request details. When the status of a request is @SUCCEEDED@ , the response includes a URL for an Amazon S3 bucket where you can view the data in a CSV file.
-detrsExportsInfo :: Lens' DescribeExportTasksResponse [ExportInfo]
-detrsExportsInfo = lens _detrsExportsInfo (\ s a -> s{_detrsExportsInfo = a}) . _Default . _Coerce
+-- | The response's http status code.
+describeExportTasksResponse_httpStatus :: Lens.Lens' DescribeExportTasksResponse Prelude.Int
+describeExportTasksResponse_httpStatus = Lens.lens (\DescribeExportTasksResponse' {httpStatus} -> httpStatus) (\s@DescribeExportTasksResponse' {} a -> s {httpStatus = a} :: DescribeExportTasksResponse)
 
--- | -- | The response status code.
-detrsResponseStatus :: Lens' DescribeExportTasksResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a})
-
-instance NFData DescribeExportTasksResponse where
+instance Prelude.NFData DescribeExportTasksResponse

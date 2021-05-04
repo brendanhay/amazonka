@@ -1,159 +1,222 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListDeployments
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a history of deployments for the group.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListDeployments
-    (
-    -- * Creating a Request
-      listDeployments
-    , ListDeployments
+  ( -- * Creating a Request
+    ListDeployments (..),
+    newListDeployments,
+
     -- * Request Lenses
-    , lNextToken
-    , lMaxResults
-    , lGroupId
+    listDeployments_nextToken,
+    listDeployments_maxResults,
+    listDeployments_groupId,
 
     -- * Destructuring the Response
-    , listDeploymentsResponse
-    , ListDeploymentsResponse
+    ListDeploymentsResponse (..),
+    newListDeploymentsResponse,
+
     -- * Response Lenses
-    , ldrsNextToken
-    , ldrsDeployments
-    , ldrsResponseStatus
-    ) where
+    listDeploymentsResponse_nextToken,
+    listDeploymentsResponse_deployments,
+    listDeploymentsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listDeployments' smart constructor.
+-- | /See:/ 'newListDeployments' smart constructor.
 data ListDeployments = ListDeployments'
-  { _lNextToken  :: !(Maybe Text)
-  , _lMaxResults :: !(Maybe Text)
-  , _lGroupId    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+    -- additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Greengrass group.
+    groupId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListDeployments' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListDeployments' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lMaxResults' - The maximum number of results to be returned per request.
+-- 'nextToken', 'listDeployments_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
 --
--- * 'lGroupId' - The ID of the AWS Greengrass group.
-listDeployments
-    :: Text -- ^ 'lGroupId'
-    -> ListDeployments
-listDeployments pGroupId_ =
+-- 'maxResults', 'listDeployments_maxResults' - The maximum number of results to be returned per request.
+--
+-- 'groupId', 'listDeployments_groupId' - The ID of the Greengrass group.
+newListDeployments ::
+  -- | 'groupId'
+  Prelude.Text ->
+  ListDeployments
+newListDeployments pGroupId_ =
   ListDeployments'
-    {_lNextToken = Nothing, _lMaxResults = Nothing, _lGroupId = pGroupId_}
-
-
--- | The token for the next set of results, or ''null'' if there are no additional results.
-lNextToken :: Lens' ListDeployments (Maybe Text)
-lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a})
-
--- | The maximum number of results to be returned per request.
-lMaxResults :: Lens' ListDeployments (Maybe Text)
-lMaxResults = lens _lMaxResults (\ s a -> s{_lMaxResults = a})
-
--- | The ID of the AWS Greengrass group.
-lGroupId :: Lens' ListDeployments Text
-lGroupId = lens _lGroupId (\ s a -> s{_lGroupId = a})
-
-instance AWSRequest ListDeployments where
-        type Rs ListDeployments = ListDeploymentsResponse
-        request = get greengrass
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListDeploymentsResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "Deployments" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListDeployments where
-
-instance NFData ListDeployments where
-
-instance ToHeaders ListDeployments where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath ListDeployments where
-        toPath ListDeployments'{..}
-          = mconcat
-              ["/greengrass/groups/", toBS _lGroupId,
-               "/deployments"]
-
-instance ToQuery ListDeployments where
-        toQuery ListDeployments'{..}
-          = mconcat
-              ["NextToken" =: _lNextToken,
-               "MaxResults" =: _lMaxResults]
-
--- | /See:/ 'listDeploymentsResponse' smart constructor.
-data ListDeploymentsResponse = ListDeploymentsResponse'
-  { _ldrsNextToken      :: !(Maybe Text)
-  , _ldrsDeployments    :: !(Maybe [Deployment])
-  , _ldrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListDeploymentsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
---
--- * 'ldrsDeployments' - A list of deployments for the requested groups.
---
--- * 'ldrsResponseStatus' - -- | The response status code.
-listDeploymentsResponse
-    :: Int -- ^ 'ldrsResponseStatus'
-    -> ListDeploymentsResponse
-listDeploymentsResponse pResponseStatus_ =
-  ListDeploymentsResponse'
-    { _ldrsNextToken = Nothing
-    , _ldrsDeployments = Nothing
-    , _ldrsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      groupId = pGroupId_
     }
 
+-- | The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
+listDeployments_nextToken :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
+listDeployments_nextToken = Lens.lens (\ListDeployments' {nextToken} -> nextToken) (\s@ListDeployments' {} a -> s {nextToken = a} :: ListDeployments)
 
--- | The token for the next set of results, or ''null'' if there are no additional results.
-ldrsNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
-ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a})
+-- | The maximum number of results to be returned per request.
+listDeployments_maxResults :: Lens.Lens' ListDeployments (Prelude.Maybe Prelude.Text)
+listDeployments_maxResults = Lens.lens (\ListDeployments' {maxResults} -> maxResults) (\s@ListDeployments' {} a -> s {maxResults = a} :: ListDeployments)
+
+-- | The ID of the Greengrass group.
+listDeployments_groupId :: Lens.Lens' ListDeployments Prelude.Text
+listDeployments_groupId = Lens.lens (\ListDeployments' {groupId} -> groupId) (\s@ListDeployments' {} a -> s {groupId = a} :: ListDeployments)
+
+instance Pager.AWSPager ListDeployments where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listDeploymentsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listDeploymentsResponse_deployments
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listDeployments_nextToken
+          Lens..~ rs
+          Lens.^? listDeploymentsResponse_nextToken
+            Prelude.. Lens._Just
+
+instance Prelude.AWSRequest ListDeployments where
+  type Rs ListDeployments = ListDeploymentsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListDeploymentsResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> ( x Prelude..?> "Deployments"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListDeployments
+
+instance Prelude.NFData ListDeployments
+
+instance Prelude.ToHeaders ListDeployments where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToPath ListDeployments where
+  toPath ListDeployments' {..} =
+    Prelude.mconcat
+      [ "/greengrass/groups/",
+        Prelude.toBS groupId,
+        "/deployments"
+      ]
+
+instance Prelude.ToQuery ListDeployments where
+  toQuery ListDeployments' {..} =
+    Prelude.mconcat
+      [ "NextToken" Prelude.=: nextToken,
+        "MaxResults" Prelude.=: maxResults
+      ]
+
+-- | /See:/ 'newListDeploymentsResponse' smart constructor.
+data ListDeploymentsResponse = ListDeploymentsResponse'
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+    -- additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of deployments for the requested groups.
+    deployments :: Prelude.Maybe [Deployment],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListDeploymentsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listDeploymentsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
+--
+-- 'deployments', 'listDeploymentsResponse_deployments' - A list of deployments for the requested groups.
+--
+-- 'httpStatus', 'listDeploymentsResponse_httpStatus' - The response's http status code.
+newListDeploymentsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListDeploymentsResponse
+newListDeploymentsResponse pHttpStatus_ =
+  ListDeploymentsResponse'
+    { nextToken =
+        Prelude.Nothing,
+      deployments = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
+listDeploymentsResponse_nextToken :: Lens.Lens' ListDeploymentsResponse (Prelude.Maybe Prelude.Text)
+listDeploymentsResponse_nextToken = Lens.lens (\ListDeploymentsResponse' {nextToken} -> nextToken) (\s@ListDeploymentsResponse' {} a -> s {nextToken = a} :: ListDeploymentsResponse)
 
 -- | A list of deployments for the requested groups.
-ldrsDeployments :: Lens' ListDeploymentsResponse [Deployment]
-ldrsDeployments = lens _ldrsDeployments (\ s a -> s{_ldrsDeployments = a}) . _Default . _Coerce
+listDeploymentsResponse_deployments :: Lens.Lens' ListDeploymentsResponse (Prelude.Maybe [Deployment])
+listDeploymentsResponse_deployments = Lens.lens (\ListDeploymentsResponse' {deployments} -> deployments) (\s@ListDeploymentsResponse' {} a -> s {deployments = a} :: ListDeploymentsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-ldrsResponseStatus :: Lens' ListDeploymentsResponse Int
-ldrsResponseStatus = lens _ldrsResponseStatus (\ s a -> s{_ldrsResponseStatus = a})
+-- | The response's http status code.
+listDeploymentsResponse_httpStatus :: Lens.Lens' ListDeploymentsResponse Prelude.Int
+listDeploymentsResponse_httpStatus = Lens.lens (\ListDeploymentsResponse' {httpStatus} -> httpStatus) (\s@ListDeploymentsResponse' {} a -> s {httpStatus = a} :: ListDeploymentsResponse)
 
-instance NFData ListDeploymentsResponse where
+instance Prelude.NFData ListDeploymentsResponse

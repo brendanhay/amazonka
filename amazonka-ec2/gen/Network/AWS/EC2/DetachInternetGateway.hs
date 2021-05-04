@@ -1,129 +1,152 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DetachInternetGateway
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Detaches an Internet gateway from a VPC, disabling connectivity between the Internet and the VPC. The VPC must not contain any running instances with Elastic IP addresses or public IPv4 addresses.
---
---
+-- Detaches an internet gateway from a VPC, disabling connectivity between
+-- the internet and the VPC. The VPC must not contain any running instances
+-- with Elastic IP addresses or public IPv4 addresses.
 module Network.AWS.EC2.DetachInternetGateway
-    (
-    -- * Creating a Request
-      detachInternetGateway
-    , DetachInternetGateway
+  ( -- * Creating a Request
+    DetachInternetGateway (..),
+    newDetachInternetGateway,
+
     -- * Request Lenses
-    , digDryRun
-    , digInternetGatewayId
-    , digVPCId
+    detachInternetGateway_dryRun,
+    detachInternetGateway_internetGatewayId,
+    detachInternetGateway_vpcId,
 
     -- * Destructuring the Response
-    , detachInternetGatewayResponse
-    , DetachInternetGatewayResponse
-    ) where
+    DetachInternetGatewayResponse (..),
+    newDetachInternetGatewayResponse,
+  )
+where
 
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for DetachInternetGateway.
---
---
---
--- /See:/ 'detachInternetGateway' smart constructor.
+-- | /See:/ 'newDetachInternetGateway' smart constructor.
 data DetachInternetGateway = DetachInternetGateway'
-  { _digDryRun            :: !(Maybe Bool)
-  , _digInternetGatewayId :: !Text
-  , _digVPCId             :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the internet gateway.
+    internetGatewayId :: Prelude.Text,
+    -- | The ID of the VPC.
+    vpcId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DetachInternetGateway' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DetachInternetGateway' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'digDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'digInternetGatewayId' - The ID of the Internet gateway.
+-- 'dryRun', 'detachInternetGateway_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'digVPCId' - The ID of the VPC.
-detachInternetGateway
-    :: Text -- ^ 'digInternetGatewayId'
-    -> Text -- ^ 'digVPCId'
-    -> DetachInternetGateway
-detachInternetGateway pInternetGatewayId_ pVPCId_ =
+-- 'internetGatewayId', 'detachInternetGateway_internetGatewayId' - The ID of the internet gateway.
+--
+-- 'vpcId', 'detachInternetGateway_vpcId' - The ID of the VPC.
+newDetachInternetGateway ::
+  -- | 'internetGatewayId'
+  Prelude.Text ->
+  -- | 'vpcId'
+  Prelude.Text ->
+  DetachInternetGateway
+newDetachInternetGateway pInternetGatewayId_ pVpcId_ =
   DetachInternetGateway'
-    { _digDryRun = Nothing
-    , _digInternetGatewayId = pInternetGatewayId_
-    , _digVPCId = pVPCId_
+    { dryRun = Prelude.Nothing,
+      internetGatewayId = pInternetGatewayId_,
+      vpcId = pVpcId_
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+detachInternetGateway_dryRun :: Lens.Lens' DetachInternetGateway (Prelude.Maybe Prelude.Bool)
+detachInternetGateway_dryRun = Lens.lens (\DetachInternetGateway' {dryRun} -> dryRun) (\s@DetachInternetGateway' {} a -> s {dryRun = a} :: DetachInternetGateway)
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-digDryRun :: Lens' DetachInternetGateway (Maybe Bool)
-digDryRun = lens _digDryRun (\ s a -> s{_digDryRun = a})
-
--- | The ID of the Internet gateway.
-digInternetGatewayId :: Lens' DetachInternetGateway Text
-digInternetGatewayId = lens _digInternetGatewayId (\ s a -> s{_digInternetGatewayId = a})
+-- | The ID of the internet gateway.
+detachInternetGateway_internetGatewayId :: Lens.Lens' DetachInternetGateway Prelude.Text
+detachInternetGateway_internetGatewayId = Lens.lens (\DetachInternetGateway' {internetGatewayId} -> internetGatewayId) (\s@DetachInternetGateway' {} a -> s {internetGatewayId = a} :: DetachInternetGateway)
 
 -- | The ID of the VPC.
-digVPCId :: Lens' DetachInternetGateway Text
-digVPCId = lens _digVPCId (\ s a -> s{_digVPCId = a})
+detachInternetGateway_vpcId :: Lens.Lens' DetachInternetGateway Prelude.Text
+detachInternetGateway_vpcId = Lens.lens (\DetachInternetGateway' {vpcId} -> vpcId) (\s@DetachInternetGateway' {} a -> s {vpcId = a} :: DetachInternetGateway)
 
-instance AWSRequest DetachInternetGateway where
-        type Rs DetachInternetGateway =
-             DetachInternetGatewayResponse
-        request = postQuery ec2
-        response = receiveNull DetachInternetGatewayResponse'
+instance Prelude.AWSRequest DetachInternetGateway where
+  type
+    Rs DetachInternetGateway =
+      DetachInternetGatewayResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull DetachInternetGatewayResponse'
 
-instance Hashable DetachInternetGateway where
+instance Prelude.Hashable DetachInternetGateway
 
-instance NFData DetachInternetGateway where
+instance Prelude.NFData DetachInternetGateway
 
-instance ToHeaders DetachInternetGateway where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DetachInternetGateway where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DetachInternetGateway where
-        toPath = const "/"
+instance Prelude.ToPath DetachInternetGateway where
+  toPath = Prelude.const "/"
 
-instance ToQuery DetachInternetGateway where
-        toQuery DetachInternetGateway'{..}
-          = mconcat
-              ["Action" =: ("DetachInternetGateway" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _digDryRun,
-               "InternetGatewayId" =: _digInternetGatewayId,
-               "VpcId" =: _digVPCId]
+instance Prelude.ToQuery DetachInternetGateway where
+  toQuery DetachInternetGateway' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DetachInternetGateway" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Prelude.=: dryRun,
+        "InternetGatewayId" Prelude.=: internetGatewayId,
+        "VpcId" Prelude.=: vpcId
+      ]
 
--- | /See:/ 'detachInternetGatewayResponse' smart constructor.
-data DetachInternetGatewayResponse =
-  DetachInternetGatewayResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDetachInternetGatewayResponse' smart constructor.
+data DetachInternetGatewayResponse = DetachInternetGatewayResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DetachInternetGatewayResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DetachInternetGatewayResponse' with all optional fields omitted.
 --
-detachInternetGatewayResponse
-    :: DetachInternetGatewayResponse
-detachInternetGatewayResponse = DetachInternetGatewayResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDetachInternetGatewayResponse ::
+  DetachInternetGatewayResponse
+newDetachInternetGatewayResponse =
+  DetachInternetGatewayResponse'
 
-
-instance NFData DetachInternetGatewayResponse where
+instance Prelude.NFData DetachInternetGatewayResponse

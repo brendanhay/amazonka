@@ -1,158 +1,220 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Comprehend.BatchDetectKeyPhrases
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Detects the key noun phrases found in a batch of documents.
---
---
 module Network.AWS.Comprehend.BatchDetectKeyPhrases
-    (
-    -- * Creating a Request
-      batchDetectKeyPhrases
-    , BatchDetectKeyPhrases
+  ( -- * Creating a Request
+    BatchDetectKeyPhrases (..),
+    newBatchDetectKeyPhrases,
+
     -- * Request Lenses
-    , bdkpTextList
-    , bdkpLanguageCode
+    batchDetectKeyPhrases_textList,
+    batchDetectKeyPhrases_languageCode,
 
     -- * Destructuring the Response
-    , batchDetectKeyPhrasesResponse
-    , BatchDetectKeyPhrasesResponse
+    BatchDetectKeyPhrasesResponse (..),
+    newBatchDetectKeyPhrasesResponse,
+
     -- * Response Lenses
-    , bdkprsResponseStatus
-    , bdkprsResultList
-    , bdkprsErrorList
-    ) where
+    batchDetectKeyPhrasesResponse_httpStatus,
+    batchDetectKeyPhrasesResponse_resultList,
+    batchDetectKeyPhrasesResponse_errorList,
+  )
+where
 
 import Network.AWS.Comprehend.Types
-import Network.AWS.Comprehend.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'batchDetectKeyPhrases' smart constructor.
+-- | /See:/ 'newBatchDetectKeyPhrases' smart constructor.
 data BatchDetectKeyPhrases = BatchDetectKeyPhrases'
-  { _bdkpTextList     :: ![Text]
-  , _bdkpLanguageCode :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list containing the text of the input documents. The list can contain
+    -- a maximum of 25 documents. Each document must contain fewer that 5,000
+    -- bytes of UTF-8 encoded characters.
+    textList :: Prelude.Sensitive [Prelude.Sensitive Prelude.Text],
+    -- | The language of the input documents. You can specify any of the primary
+    -- languages supported by Amazon Comprehend. All documents must be in the
+    -- same language.
+    languageCode :: LanguageCode
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'BatchDetectKeyPhrases' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'BatchDetectKeyPhrases' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'bdkpTextList' - A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'bdkpLanguageCode' - The language of the input documents. All documents must be in the same language.
-batchDetectKeyPhrases
-    :: Text -- ^ 'bdkpLanguageCode'
-    -> BatchDetectKeyPhrases
-batchDetectKeyPhrases pLanguageCode_ =
+-- 'textList', 'batchDetectKeyPhrases_textList' - A list containing the text of the input documents. The list can contain
+-- a maximum of 25 documents. Each document must contain fewer that 5,000
+-- bytes of UTF-8 encoded characters.
+--
+-- 'languageCode', 'batchDetectKeyPhrases_languageCode' - The language of the input documents. You can specify any of the primary
+-- languages supported by Amazon Comprehend. All documents must be in the
+-- same language.
+newBatchDetectKeyPhrases ::
+  -- | 'languageCode'
+  LanguageCode ->
+  BatchDetectKeyPhrases
+newBatchDetectKeyPhrases pLanguageCode_ =
   BatchDetectKeyPhrases'
-    {_bdkpTextList = mempty, _bdkpLanguageCode = pLanguageCode_}
-
-
--- | A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.
-bdkpTextList :: Lens' BatchDetectKeyPhrases [Text]
-bdkpTextList = lens _bdkpTextList (\ s a -> s{_bdkpTextList = a}) . _Coerce
-
--- | The language of the input documents. All documents must be in the same language.
-bdkpLanguageCode :: Lens' BatchDetectKeyPhrases Text
-bdkpLanguageCode = lens _bdkpLanguageCode (\ s a -> s{_bdkpLanguageCode = a})
-
-instance AWSRequest BatchDetectKeyPhrases where
-        type Rs BatchDetectKeyPhrases =
-             BatchDetectKeyPhrasesResponse
-        request = postJSON comprehend
-        response
-          = receiveJSON
-              (\ s h x ->
-                 BatchDetectKeyPhrasesResponse' <$>
-                   (pure (fromEnum s)) <*>
-                     (x .?> "ResultList" .!@ mempty)
-                     <*> (x .?> "ErrorList" .!@ mempty))
-
-instance Hashable BatchDetectKeyPhrases where
-
-instance NFData BatchDetectKeyPhrases where
-
-instance ToHeaders BatchDetectKeyPhrases where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Comprehend_20171127.BatchDetectKeyPhrases" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON BatchDetectKeyPhrases where
-        toJSON BatchDetectKeyPhrases'{..}
-          = object
-              (catMaybes
-                 [Just ("TextList" .= _bdkpTextList),
-                  Just ("LanguageCode" .= _bdkpLanguageCode)])
-
-instance ToPath BatchDetectKeyPhrases where
-        toPath = const "/"
-
-instance ToQuery BatchDetectKeyPhrases where
-        toQuery = const mempty
-
--- | /See:/ 'batchDetectKeyPhrasesResponse' smart constructor.
-data BatchDetectKeyPhrasesResponse = BatchDetectKeyPhrasesResponse'
-  { _bdkprsResponseStatus :: !Int
-  , _bdkprsResultList     :: ![BatchDetectKeyPhrasesItemResult]
-  , _bdkprsErrorList      :: ![BatchItemError]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'BatchDetectKeyPhrasesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bdkprsResponseStatus' - -- | The response status code.
---
--- * 'bdkprsResultList' - A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
---
--- * 'bdkprsErrorList' - A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
-batchDetectKeyPhrasesResponse
-    :: Int -- ^ 'bdkprsResponseStatus'
-    -> BatchDetectKeyPhrasesResponse
-batchDetectKeyPhrasesResponse pResponseStatus_ =
-  BatchDetectKeyPhrasesResponse'
-    { _bdkprsResponseStatus = pResponseStatus_
-    , _bdkprsResultList = mempty
-    , _bdkprsErrorList = mempty
+    { textList = Prelude.mempty,
+      languageCode = pLanguageCode_
     }
 
+-- | A list containing the text of the input documents. The list can contain
+-- a maximum of 25 documents. Each document must contain fewer that 5,000
+-- bytes of UTF-8 encoded characters.
+batchDetectKeyPhrases_textList :: Lens.Lens' BatchDetectKeyPhrases [Prelude.Text]
+batchDetectKeyPhrases_textList = Lens.lens (\BatchDetectKeyPhrases' {textList} -> textList) (\s@BatchDetectKeyPhrases' {} a -> s {textList = a} :: BatchDetectKeyPhrases) Prelude.. Prelude._Sensitive Prelude.. Prelude._Coerce
 
--- | -- | The response status code.
-bdkprsResponseStatus :: Lens' BatchDetectKeyPhrasesResponse Int
-bdkprsResponseStatus = lens _bdkprsResponseStatus (\ s a -> s{_bdkprsResponseStatus = a})
+-- | The language of the input documents. You can specify any of the primary
+-- languages supported by Amazon Comprehend. All documents must be in the
+-- same language.
+batchDetectKeyPhrases_languageCode :: Lens.Lens' BatchDetectKeyPhrases LanguageCode
+batchDetectKeyPhrases_languageCode = Lens.lens (\BatchDetectKeyPhrases' {languageCode} -> languageCode) (\s@BatchDetectKeyPhrases' {} a -> s {languageCode = a} :: BatchDetectKeyPhrases)
 
--- | A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
-bdkprsResultList :: Lens' BatchDetectKeyPhrasesResponse [BatchDetectKeyPhrasesItemResult]
-bdkprsResultList = lens _bdkprsResultList (\ s a -> s{_bdkprsResultList = a}) . _Coerce
+instance Prelude.AWSRequest BatchDetectKeyPhrases where
+  type
+    Rs BatchDetectKeyPhrases =
+      BatchDetectKeyPhrasesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          BatchDetectKeyPhrasesResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Prelude..?> "ResultList"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Prelude..?> "ErrorList"
+                            Prelude..!@ Prelude.mempty
+                        )
+      )
 
--- | A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
-bdkprsErrorList :: Lens' BatchDetectKeyPhrasesResponse [BatchItemError]
-bdkprsErrorList = lens _bdkprsErrorList (\ s a -> s{_bdkprsErrorList = a}) . _Coerce
+instance Prelude.Hashable BatchDetectKeyPhrases
 
-instance NFData BatchDetectKeyPhrasesResponse where
+instance Prelude.NFData BatchDetectKeyPhrases
+
+instance Prelude.ToHeaders BatchDetectKeyPhrases where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "Comprehend_20171127.BatchDetectKeyPhrases" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON BatchDetectKeyPhrases where
+  toJSON BatchDetectKeyPhrases' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("TextList" Prelude..= textList),
+            Prelude.Just
+              ("LanguageCode" Prelude..= languageCode)
+          ]
+      )
+
+instance Prelude.ToPath BatchDetectKeyPhrases where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery BatchDetectKeyPhrases where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newBatchDetectKeyPhrasesResponse' smart constructor.
+data BatchDetectKeyPhrasesResponse = BatchDetectKeyPhrasesResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A list of objects containing the results of the operation. The results
+    -- are sorted in ascending order by the @Index@ field and match the order
+    -- of the documents in the input list. If all of the documents contain an
+    -- error, the @ResultList@ is empty.
+    resultList :: [BatchDetectKeyPhrasesItemResult],
+    -- | A list containing one object for each document that contained an error.
+    -- The results are sorted in ascending order by the @Index@ field and match
+    -- the order of the documents in the input list. If there are no errors in
+    -- the batch, the @ErrorList@ is empty.
+    errorList :: [BatchItemError]
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'BatchDetectKeyPhrasesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'batchDetectKeyPhrasesResponse_httpStatus' - The response's http status code.
+--
+-- 'resultList', 'batchDetectKeyPhrasesResponse_resultList' - A list of objects containing the results of the operation. The results
+-- are sorted in ascending order by the @Index@ field and match the order
+-- of the documents in the input list. If all of the documents contain an
+-- error, the @ResultList@ is empty.
+--
+-- 'errorList', 'batchDetectKeyPhrasesResponse_errorList' - A list containing one object for each document that contained an error.
+-- The results are sorted in ascending order by the @Index@ field and match
+-- the order of the documents in the input list. If there are no errors in
+-- the batch, the @ErrorList@ is empty.
+newBatchDetectKeyPhrasesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  BatchDetectKeyPhrasesResponse
+newBatchDetectKeyPhrasesResponse pHttpStatus_ =
+  BatchDetectKeyPhrasesResponse'
+    { httpStatus =
+        pHttpStatus_,
+      resultList = Prelude.mempty,
+      errorList = Prelude.mempty
+    }
+
+-- | The response's http status code.
+batchDetectKeyPhrasesResponse_httpStatus :: Lens.Lens' BatchDetectKeyPhrasesResponse Prelude.Int
+batchDetectKeyPhrasesResponse_httpStatus = Lens.lens (\BatchDetectKeyPhrasesResponse' {httpStatus} -> httpStatus) (\s@BatchDetectKeyPhrasesResponse' {} a -> s {httpStatus = a} :: BatchDetectKeyPhrasesResponse)
+
+-- | A list of objects containing the results of the operation. The results
+-- are sorted in ascending order by the @Index@ field and match the order
+-- of the documents in the input list. If all of the documents contain an
+-- error, the @ResultList@ is empty.
+batchDetectKeyPhrasesResponse_resultList :: Lens.Lens' BatchDetectKeyPhrasesResponse [BatchDetectKeyPhrasesItemResult]
+batchDetectKeyPhrasesResponse_resultList = Lens.lens (\BatchDetectKeyPhrasesResponse' {resultList} -> resultList) (\s@BatchDetectKeyPhrasesResponse' {} a -> s {resultList = a} :: BatchDetectKeyPhrasesResponse) Prelude.. Prelude._Coerce
+
+-- | A list containing one object for each document that contained an error.
+-- The results are sorted in ascending order by the @Index@ field and match
+-- the order of the documents in the input list. If there are no errors in
+-- the batch, the @ErrorList@ is empty.
+batchDetectKeyPhrasesResponse_errorList :: Lens.Lens' BatchDetectKeyPhrasesResponse [BatchItemError]
+batchDetectKeyPhrasesResponse_errorList = Lens.lens (\BatchDetectKeyPhrasesResponse' {errorList} -> errorList) (\s@BatchDetectKeyPhrasesResponse' {} a -> s {errorList = a} :: BatchDetectKeyPhrasesResponse) Prelude.. Prelude._Coerce
+
+instance Prelude.NFData BatchDetectKeyPhrasesResponse

@@ -1,115 +1,128 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.AddTags
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags. See <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging Tagging Amazon Elasticsearch Service Domains for more information.>
---
---
+-- Attaches tags to an existing Elasticsearch domain. Tags are a set of
+-- case-sensitive key value pairs. An Elasticsearch domain may have up to
+-- 10 tags. See
+-- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging Tagging Amazon Elasticsearch Service Domains for more information.>
 module Network.AWS.ElasticSearch.AddTags
-    (
-    -- * Creating a Request
-      addTags
-    , AddTags
+  ( -- * Creating a Request
+    AddTags (..),
+    newAddTags,
+
     -- * Request Lenses
-    , atARN
-    , atTagList
+    addTags_arn,
+    addTags_tagList,
 
     -- * Destructuring the Response
-    , addTagsResponse
-    , AddTagsResponse
-    ) where
+    AddTagsResponse (..),
+    newAddTagsResponse,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.ElasticSearch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the @'AddTags' @ operation. Specify the tags that you want to attach to the Elasticsearch domain.
+-- | Container for the parameters to the @AddTags@ operation. Specify the
+-- tags that you want to attach to the Elasticsearch domain.
 --
---
---
--- /See:/ 'addTags' smart constructor.
+-- /See:/ 'newAddTags' smart constructor.
 data AddTags = AddTags'
-  { _atARN     :: !Text
-  , _atTagList :: ![Tag]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Specify the @ARN@ for which you want to add the tags.
+    arn :: Prelude.Text,
+    -- | List of @Tag@ that need to be added for the Elasticsearch domain.
+    tagList :: [Tag]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AddTags' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AddTags' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'atARN' - Specify the @ARN@ for which you want to add the tags.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'atTagList' - List of @Tag@ that need to be added for the Elasticsearch domain.
-addTags
-    :: Text -- ^ 'atARN'
-    -> AddTags
-addTags pARN_ = AddTags' {_atARN = pARN_, _atTagList = mempty}
-
+-- 'arn', 'addTags_arn' - Specify the @ARN@ for which you want to add the tags.
+--
+-- 'tagList', 'addTags_tagList' - List of @Tag@ that need to be added for the Elasticsearch domain.
+newAddTags ::
+  -- | 'arn'
+  Prelude.Text ->
+  AddTags
+newAddTags pARN_ =
+  AddTags' {arn = pARN_, tagList = Prelude.mempty}
 
 -- | Specify the @ARN@ for which you want to add the tags.
-atARN :: Lens' AddTags Text
-atARN = lens _atARN (\ s a -> s{_atARN = a})
+addTags_arn :: Lens.Lens' AddTags Prelude.Text
+addTags_arn = Lens.lens (\AddTags' {arn} -> arn) (\s@AddTags' {} a -> s {arn = a} :: AddTags)
 
 -- | List of @Tag@ that need to be added for the Elasticsearch domain.
-atTagList :: Lens' AddTags [Tag]
-atTagList = lens _atTagList (\ s a -> s{_atTagList = a}) . _Coerce
+addTags_tagList :: Lens.Lens' AddTags [Tag]
+addTags_tagList = Lens.lens (\AddTags' {tagList} -> tagList) (\s@AddTags' {} a -> s {tagList = a} :: AddTags) Prelude.. Prelude._Coerce
 
-instance AWSRequest AddTags where
-        type Rs AddTags = AddTagsResponse
-        request = postJSON elasticSearch
-        response = receiveNull AddTagsResponse'
+instance Prelude.AWSRequest AddTags where
+  type Rs AddTags = AddTagsResponse
+  request = Request.postJSON defaultService
+  response = Response.receiveNull AddTagsResponse'
 
-instance Hashable AddTags where
+instance Prelude.Hashable AddTags
 
-instance NFData AddTags where
+instance Prelude.NFData AddTags
 
-instance ToHeaders AddTags where
-        toHeaders = const mempty
+instance Prelude.ToHeaders AddTags where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON AddTags where
-        toJSON AddTags'{..}
-          = object
-              (catMaybes
-                 [Just ("ARN" .= _atARN),
-                  Just ("TagList" .= _atTagList)])
+instance Prelude.ToJSON AddTags where
+  toJSON AddTags' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ARN" Prelude..= arn),
+            Prelude.Just ("TagList" Prelude..= tagList)
+          ]
+      )
 
-instance ToPath AddTags where
-        toPath = const "/2015-01-01/tags"
+instance Prelude.ToPath AddTags where
+  toPath = Prelude.const "/2015-01-01/tags"
 
-instance ToQuery AddTags where
-        toQuery = const mempty
+instance Prelude.ToQuery AddTags where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'addTagsResponse' smart constructor.
-data AddTagsResponse =
-  AddTagsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newAddTagsResponse' smart constructor.
+data AddTagsResponse = AddTagsResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AddTagsResponse' with all optional fields omitted.
 --
-addTagsResponse
-    :: AddTagsResponse
-addTagsResponse = AddTagsResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newAddTagsResponse ::
+  AddTagsResponse
+newAddTagsResponse = AddTagsResponse'
 
-
-instance NFData AddTagsResponse where
+instance Prelude.NFData AddTagsResponse

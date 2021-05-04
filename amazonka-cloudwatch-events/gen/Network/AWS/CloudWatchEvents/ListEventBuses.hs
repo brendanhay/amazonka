@@ -1,164 +1,208 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.ListEventBuses
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all the event buses in your account, including the default event bus, custom event buses, and partner event buses.
---
---
+-- Lists all the event buses in your account, including the default event
+-- bus, custom event buses, and partner event buses.
 module Network.AWS.CloudWatchEvents.ListEventBuses
-    (
-    -- * Creating a Request
-      listEventBuses
-    , ListEventBuses
+  ( -- * Creating a Request
+    ListEventBuses (..),
+    newListEventBuses,
+
     -- * Request Lenses
-    , lebNextToken
-    , lebNamePrefix
-    , lebLimit
+    listEventBuses_nextToken,
+    listEventBuses_namePrefix,
+    listEventBuses_limit,
 
     -- * Destructuring the Response
-    , listEventBusesResponse
-    , ListEventBusesResponse
+    ListEventBusesResponse (..),
+    newListEventBusesResponse,
+
     -- * Response Lenses
-    , lebrsEventBuses
-    , lebrsNextToken
-    , lebrsResponseStatus
-    ) where
+    listEventBusesResponse_nextToken,
+    listEventBusesResponse_eventBuses,
+    listEventBusesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.CloudWatchEvents.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listEventBuses' smart constructor.
+-- | /See:/ 'newListEventBuses' smart constructor.
 data ListEventBuses = ListEventBuses'
-  { _lebNextToken  :: !(Maybe Text)
-  , _lebNamePrefix :: !(Maybe Text)
-  , _lebLimit      :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token returned by a previous call to retrieve the next set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Specifying this limits the results to only those event buses with names
+    -- that start with the specified prefix.
+    namePrefix :: Prelude.Maybe Prelude.Text,
+    -- | Specifying this limits the number of results returned by this operation.
+    -- The operation also returns a NextToken which you can use in a subsequent
+    -- operation to retrieve the next set of results.
+    limit :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListEventBuses' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListEventBuses' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lebNextToken' - The token returned by a previous call to retrieve the next set of results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lebNamePrefix' - Specifying this limits the results to only those event buses with names that start with the specified prefix.
+-- 'nextToken', 'listEventBuses_nextToken' - The token returned by a previous call to retrieve the next set of
+-- results.
 --
--- * 'lebLimit' - Specifying this limits the number of results returned by this operation. The operation also returns a @NextToken@ that you can use in a subsequent operation to retrieve the next set of results.
-listEventBuses
-    :: ListEventBuses
-listEventBuses =
+-- 'namePrefix', 'listEventBuses_namePrefix' - Specifying this limits the results to only those event buses with names
+-- that start with the specified prefix.
+--
+-- 'limit', 'listEventBuses_limit' - Specifying this limits the number of results returned by this operation.
+-- The operation also returns a NextToken which you can use in a subsequent
+-- operation to retrieve the next set of results.
+newListEventBuses ::
+  ListEventBuses
+newListEventBuses =
   ListEventBuses'
-    {_lebNextToken = Nothing, _lebNamePrefix = Nothing, _lebLimit = Nothing}
-
-
--- | The token returned by a previous call to retrieve the next set of results.
-lebNextToken :: Lens' ListEventBuses (Maybe Text)
-lebNextToken = lens _lebNextToken (\ s a -> s{_lebNextToken = a})
-
--- | Specifying this limits the results to only those event buses with names that start with the specified prefix.
-lebNamePrefix :: Lens' ListEventBuses (Maybe Text)
-lebNamePrefix = lens _lebNamePrefix (\ s a -> s{_lebNamePrefix = a})
-
--- | Specifying this limits the number of results returned by this operation. The operation also returns a @NextToken@ that you can use in a subsequent operation to retrieve the next set of results.
-lebLimit :: Lens' ListEventBuses (Maybe Natural)
-lebLimit = lens _lebLimit (\ s a -> s{_lebLimit = a}) . mapping _Nat
-
-instance AWSRequest ListEventBuses where
-        type Rs ListEventBuses = ListEventBusesResponse
-        request = postJSON cloudWatchEvents
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListEventBusesResponse' <$>
-                   (x .?> "EventBuses" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListEventBuses where
-
-instance NFData ListEventBuses where
-
-instance ToHeaders ListEventBuses where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSEvents.ListEventBuses" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListEventBuses where
-        toJSON ListEventBuses'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lebNextToken,
-                  ("NamePrefix" .=) <$> _lebNamePrefix,
-                  ("Limit" .=) <$> _lebLimit])
-
-instance ToPath ListEventBuses where
-        toPath = const "/"
-
-instance ToQuery ListEventBuses where
-        toQuery = const mempty
-
--- | /See:/ 'listEventBusesResponse' smart constructor.
-data ListEventBusesResponse = ListEventBusesResponse'
-  { _lebrsEventBuses     :: !(Maybe [EventBus])
-  , _lebrsNextToken      :: !(Maybe Text)
-  , _lebrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListEventBusesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lebrsEventBuses' - This list of event buses.
---
--- * 'lebrsNextToken' - A token you can use in a subsequent operation to retrieve the next set of results.
---
--- * 'lebrsResponseStatus' - -- | The response status code.
-listEventBusesResponse
-    :: Int -- ^ 'lebrsResponseStatus'
-    -> ListEventBusesResponse
-listEventBusesResponse pResponseStatus_ =
-  ListEventBusesResponse'
-    { _lebrsEventBuses = Nothing
-    , _lebrsNextToken = Nothing
-    , _lebrsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      namePrefix = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
+-- | The token returned by a previous call to retrieve the next set of
+-- results.
+listEventBuses_nextToken :: Lens.Lens' ListEventBuses (Prelude.Maybe Prelude.Text)
+listEventBuses_nextToken = Lens.lens (\ListEventBuses' {nextToken} -> nextToken) (\s@ListEventBuses' {} a -> s {nextToken = a} :: ListEventBuses)
+
+-- | Specifying this limits the results to only those event buses with names
+-- that start with the specified prefix.
+listEventBuses_namePrefix :: Lens.Lens' ListEventBuses (Prelude.Maybe Prelude.Text)
+listEventBuses_namePrefix = Lens.lens (\ListEventBuses' {namePrefix} -> namePrefix) (\s@ListEventBuses' {} a -> s {namePrefix = a} :: ListEventBuses)
+
+-- | Specifying this limits the number of results returned by this operation.
+-- The operation also returns a NextToken which you can use in a subsequent
+-- operation to retrieve the next set of results.
+listEventBuses_limit :: Lens.Lens' ListEventBuses (Prelude.Maybe Prelude.Natural)
+listEventBuses_limit = Lens.lens (\ListEventBuses' {limit} -> limit) (\s@ListEventBuses' {} a -> s {limit = a} :: ListEventBuses)
+
+instance Prelude.AWSRequest ListEventBuses where
+  type Rs ListEventBuses = ListEventBusesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListEventBusesResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> ( x Prelude..?> "EventBuses"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListEventBuses
+
+instance Prelude.NFData ListEventBuses
+
+instance Prelude.ToHeaders ListEventBuses where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("AWSEvents.ListEventBuses" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON ListEventBuses where
+  toJSON ListEventBuses' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("NamePrefix" Prelude..=) Prelude.<$> namePrefix,
+            ("Limit" Prelude..=) Prelude.<$> limit
+          ]
+      )
+
+instance Prelude.ToPath ListEventBuses where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery ListEventBuses where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListEventBusesResponse' smart constructor.
+data ListEventBusesResponse = ListEventBusesResponse'
+  { -- | A token you can use in a subsequent operation to retrieve the next set
+    -- of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | This list of event buses.
+    eventBuses :: Prelude.Maybe [EventBus],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListEventBusesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listEventBusesResponse_nextToken' - A token you can use in a subsequent operation to retrieve the next set
+-- of results.
+--
+-- 'eventBuses', 'listEventBusesResponse_eventBuses' - This list of event buses.
+--
+-- 'httpStatus', 'listEventBusesResponse_httpStatus' - The response's http status code.
+newListEventBusesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListEventBusesResponse
+newListEventBusesResponse pHttpStatus_ =
+  ListEventBusesResponse'
+    { nextToken =
+        Prelude.Nothing,
+      eventBuses = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | A token you can use in a subsequent operation to retrieve the next set
+-- of results.
+listEventBusesResponse_nextToken :: Lens.Lens' ListEventBusesResponse (Prelude.Maybe Prelude.Text)
+listEventBusesResponse_nextToken = Lens.lens (\ListEventBusesResponse' {nextToken} -> nextToken) (\s@ListEventBusesResponse' {} a -> s {nextToken = a} :: ListEventBusesResponse)
 
 -- | This list of event buses.
-lebrsEventBuses :: Lens' ListEventBusesResponse [EventBus]
-lebrsEventBuses = lens _lebrsEventBuses (\ s a -> s{_lebrsEventBuses = a}) . _Default . _Coerce
+listEventBusesResponse_eventBuses :: Lens.Lens' ListEventBusesResponse (Prelude.Maybe [EventBus])
+listEventBusesResponse_eventBuses = Lens.lens (\ListEventBusesResponse' {eventBuses} -> eventBuses) (\s@ListEventBusesResponse' {} a -> s {eventBuses = a} :: ListEventBusesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | A token you can use in a subsequent operation to retrieve the next set of results.
-lebrsNextToken :: Lens' ListEventBusesResponse (Maybe Text)
-lebrsNextToken = lens _lebrsNextToken (\ s a -> s{_lebrsNextToken = a})
+-- | The response's http status code.
+listEventBusesResponse_httpStatus :: Lens.Lens' ListEventBusesResponse Prelude.Int
+listEventBusesResponse_httpStatus = Lens.lens (\ListEventBusesResponse' {httpStatus} -> httpStatus) (\s@ListEventBusesResponse' {} a -> s {httpStatus = a} :: ListEventBusesResponse)
 
--- | -- | The response status code.
-lebrsResponseStatus :: Lens' ListEventBusesResponse Int
-lebrsResponseStatus = lens _lebrsResponseStatus (\ s a -> s{_lebrsResponseStatus = a})
-
-instance NFData ListEventBusesResponse where
+instance Prelude.NFData ListEventBusesResponse

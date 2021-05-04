@@ -1,116 +1,146 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.LexModels.DeleteSlotTypeVersion
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specific version of a slot type. To delete all versions of a slot type, use the 'DeleteSlotType' operation.
+-- Deletes a specific version of a slot type. To delete all versions of a
+-- slot type, use the DeleteSlotType operation.
 --
---
--- This operation requires permissions for the @lex:DeleteSlotTypeVersion@ action.
---
+-- This operation requires permissions for the @lex:DeleteSlotTypeVersion@
+-- action.
 module Network.AWS.LexModels.DeleteSlotTypeVersion
-    (
-    -- * Creating a Request
-      deleteSlotTypeVersion
-    , DeleteSlotTypeVersion
+  ( -- * Creating a Request
+    DeleteSlotTypeVersion (..),
+    newDeleteSlotTypeVersion,
+
     -- * Request Lenses
-    , dstvName
-    , dstvVersion
+    deleteSlotTypeVersion_name,
+    deleteSlotTypeVersion_version,
 
     -- * Destructuring the Response
-    , deleteSlotTypeVersionResponse
-    , DeleteSlotTypeVersionResponse
-    ) where
+    DeleteSlotTypeVersionResponse (..),
+    newDeleteSlotTypeVersionResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.LexModels.Types
-import Network.AWS.LexModels.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteSlotTypeVersion' smart constructor.
+-- | /See:/ 'newDeleteSlotTypeVersion' smart constructor.
 data DeleteSlotTypeVersion = DeleteSlotTypeVersion'
-  { _dstvName    :: !Text
-  , _dstvVersion :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the slot type.
+    name :: Prelude.Text,
+    -- | The version of the slot type to delete. You cannot delete the @$LATEST@
+    -- version of the slot type. To delete the @$LATEST@ version, use the
+    -- DeleteSlotType operation.
+    version :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteSlotTypeVersion' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteSlotTypeVersion' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dstvName' - The name of the slot type.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dstvVersion' - The version of the slot type to delete. You cannot delete the @> LATEST@ version of the slot type. To delete the @> LATEST@ version, use the 'DeleteSlotType' operation.
-deleteSlotTypeVersion
-    :: Text -- ^ 'dstvName'
-    -> Text -- ^ 'dstvVersion'
-    -> DeleteSlotTypeVersion
-deleteSlotTypeVersion pName_ pVersion_ =
-  DeleteSlotTypeVersion' {_dstvName = pName_, _dstvVersion = pVersion_}
-
+-- 'name', 'deleteSlotTypeVersion_name' - The name of the slot type.
+--
+-- 'version', 'deleteSlotTypeVersion_version' - The version of the slot type to delete. You cannot delete the @$LATEST@
+-- version of the slot type. To delete the @$LATEST@ version, use the
+-- DeleteSlotType operation.
+newDeleteSlotTypeVersion ::
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'version'
+  Prelude.Text ->
+  DeleteSlotTypeVersion
+newDeleteSlotTypeVersion pName_ pVersion_ =
+  DeleteSlotTypeVersion'
+    { name = pName_,
+      version = pVersion_
+    }
 
 -- | The name of the slot type.
-dstvName :: Lens' DeleteSlotTypeVersion Text
-dstvName = lens _dstvName (\ s a -> s{_dstvName = a})
+deleteSlotTypeVersion_name :: Lens.Lens' DeleteSlotTypeVersion Prelude.Text
+deleteSlotTypeVersion_name = Lens.lens (\DeleteSlotTypeVersion' {name} -> name) (\s@DeleteSlotTypeVersion' {} a -> s {name = a} :: DeleteSlotTypeVersion)
 
--- | The version of the slot type to delete. You cannot delete the @> LATEST@ version of the slot type. To delete the @> LATEST@ version, use the 'DeleteSlotType' operation.
-dstvVersion :: Lens' DeleteSlotTypeVersion Text
-dstvVersion = lens _dstvVersion (\ s a -> s{_dstvVersion = a})
+-- | The version of the slot type to delete. You cannot delete the @$LATEST@
+-- version of the slot type. To delete the @$LATEST@ version, use the
+-- DeleteSlotType operation.
+deleteSlotTypeVersion_version :: Lens.Lens' DeleteSlotTypeVersion Prelude.Text
+deleteSlotTypeVersion_version = Lens.lens (\DeleteSlotTypeVersion' {version} -> version) (\s@DeleteSlotTypeVersion' {} a -> s {version = a} :: DeleteSlotTypeVersion)
 
-instance AWSRequest DeleteSlotTypeVersion where
-        type Rs DeleteSlotTypeVersion =
-             DeleteSlotTypeVersionResponse
-        request = delete lexModels
-        response = receiveNull DeleteSlotTypeVersionResponse'
+instance Prelude.AWSRequest DeleteSlotTypeVersion where
+  type
+    Rs DeleteSlotTypeVersion =
+      DeleteSlotTypeVersionResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveNull DeleteSlotTypeVersionResponse'
 
-instance Hashable DeleteSlotTypeVersion where
+instance Prelude.Hashable DeleteSlotTypeVersion
 
-instance NFData DeleteSlotTypeVersion where
+instance Prelude.NFData DeleteSlotTypeVersion
 
-instance ToHeaders DeleteSlotTypeVersion where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DeleteSlotTypeVersion where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToPath DeleteSlotTypeVersion where
-        toPath DeleteSlotTypeVersion'{..}
-          = mconcat
-              ["/slottypes/", toBS _dstvName, "/version/",
-               toBS _dstvVersion]
+instance Prelude.ToPath DeleteSlotTypeVersion where
+  toPath DeleteSlotTypeVersion' {..} =
+    Prelude.mconcat
+      [ "/slottypes/",
+        Prelude.toBS name,
+        "/version/",
+        Prelude.toBS version
+      ]
 
-instance ToQuery DeleteSlotTypeVersion where
-        toQuery = const mempty
+instance Prelude.ToQuery DeleteSlotTypeVersion where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteSlotTypeVersionResponse' smart constructor.
-data DeleteSlotTypeVersionResponse =
-  DeleteSlotTypeVersionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteSlotTypeVersionResponse' smart constructor.
+data DeleteSlotTypeVersionResponse = DeleteSlotTypeVersionResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteSlotTypeVersionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteSlotTypeVersionResponse' with all optional fields omitted.
 --
-deleteSlotTypeVersionResponse
-    :: DeleteSlotTypeVersionResponse
-deleteSlotTypeVersionResponse = DeleteSlotTypeVersionResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteSlotTypeVersionResponse ::
+  DeleteSlotTypeVersionResponse
+newDeleteSlotTypeVersionResponse =
+  DeleteSlotTypeVersionResponse'
 
-
-instance NFData DeleteSlotTypeVersionResponse where
+instance Prelude.NFData DeleteSlotTypeVersionResponse

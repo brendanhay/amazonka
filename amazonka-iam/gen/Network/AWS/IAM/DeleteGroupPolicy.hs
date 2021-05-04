@@ -1,113 +1,168 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.DeleteGroupPolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified inline policy that is embedded in the specified IAM group.
+-- Deletes the specified inline policy that is embedded in the specified
+-- IAM group.
 --
---
--- A group can also have managed policies attached to it. To detach a managed policy from a group, use 'DetachGroupPolicy' . For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /IAM User Guide/ .
---
+-- A group can also have managed policies attached to it. To detach a
+-- managed policy from a group, use DetachGroupPolicy. For more information
+-- about policies, refer to
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed policies and inline policies>
+-- in the /IAM User Guide/.
 module Network.AWS.IAM.DeleteGroupPolicy
-    (
-    -- * Creating a Request
-      deleteGroupPolicy
-    , DeleteGroupPolicy
+  ( -- * Creating a Request
+    DeleteGroupPolicy (..),
+    newDeleteGroupPolicy,
+
     -- * Request Lenses
-    , dGroupName
-    , dPolicyName
+    deleteGroupPolicy_groupName,
+    deleteGroupPolicy_policyName,
 
     -- * Destructuring the Response
-    , deleteGroupPolicyResponse
-    , DeleteGroupPolicyResponse
-    ) where
+    DeleteGroupPolicyResponse (..),
+    newDeleteGroupPolicyResponse,
+  )
+where
 
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteGroupPolicy' smart constructor.
+-- | /See:/ 'newDeleteGroupPolicy' smart constructor.
 data DeleteGroupPolicy = DeleteGroupPolicy'
-  { _dGroupName  :: !Text
-  , _dPolicyName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name (friendly name, not ARN) identifying the group that the policy
+    -- is embedded in.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
+    groupName :: Prelude.Text,
+    -- | The name identifying the policy document to delete.
+    --
+    -- This parameter allows (through its
+    -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
+    policyName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteGroupPolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteGroupPolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dGroupName' - The name (friendly name, not ARN) identifying the group that the policy is embedded in. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dPolicyName' - The name identifying the policy document to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-deleteGroupPolicy
-    :: Text -- ^ 'dGroupName'
-    -> Text -- ^ 'dPolicyName'
-    -> DeleteGroupPolicy
-deleteGroupPolicy pGroupName_ pPolicyName_ =
-  DeleteGroupPolicy' {_dGroupName = pGroupName_, _dPolicyName = pPolicyName_}
+-- 'groupName', 'deleteGroupPolicy_groupName' - The name (friendly name, not ARN) identifying the group that the policy
+-- is embedded in.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+--
+-- 'policyName', 'deleteGroupPolicy_policyName' - The name identifying the policy document to delete.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+newDeleteGroupPolicy ::
+  -- | 'groupName'
+  Prelude.Text ->
+  -- | 'policyName'
+  Prelude.Text ->
+  DeleteGroupPolicy
+newDeleteGroupPolicy pGroupName_ pPolicyName_ =
+  DeleteGroupPolicy'
+    { groupName = pGroupName_,
+      policyName = pPolicyName_
+    }
 
+-- | The name (friendly name, not ARN) identifying the group that the policy
+-- is embedded in.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+deleteGroupPolicy_groupName :: Lens.Lens' DeleteGroupPolicy Prelude.Text
+deleteGroupPolicy_groupName = Lens.lens (\DeleteGroupPolicy' {groupName} -> groupName) (\s@DeleteGroupPolicy' {} a -> s {groupName = a} :: DeleteGroupPolicy)
 
--- | The name (friendly name, not ARN) identifying the group that the policy is embedded in. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-dGroupName :: Lens' DeleteGroupPolicy Text
-dGroupName = lens _dGroupName (\ s a -> s{_dGroupName = a})
+-- | The name identifying the policy document to delete.
+--
+-- This parameter allows (through its
+-- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
+deleteGroupPolicy_policyName :: Lens.Lens' DeleteGroupPolicy Prelude.Text
+deleteGroupPolicy_policyName = Lens.lens (\DeleteGroupPolicy' {policyName} -> policyName) (\s@DeleteGroupPolicy' {} a -> s {policyName = a} :: DeleteGroupPolicy)
 
--- | The name identifying the policy document to delete. This parameter allows (per its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-dPolicyName :: Lens' DeleteGroupPolicy Text
-dPolicyName = lens _dPolicyName (\ s a -> s{_dPolicyName = a})
+instance Prelude.AWSRequest DeleteGroupPolicy where
+  type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull DeleteGroupPolicyResponse'
 
-instance AWSRequest DeleteGroupPolicy where
-        type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse
-        request = postQuery iam
-        response = receiveNull DeleteGroupPolicyResponse'
+instance Prelude.Hashable DeleteGroupPolicy
 
-instance Hashable DeleteGroupPolicy where
+instance Prelude.NFData DeleteGroupPolicy
 
-instance NFData DeleteGroupPolicy where
+instance Prelude.ToHeaders DeleteGroupPolicy where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DeleteGroupPolicy where
-        toHeaders = const mempty
+instance Prelude.ToPath DeleteGroupPolicy where
+  toPath = Prelude.const "/"
 
-instance ToPath DeleteGroupPolicy where
-        toPath = const "/"
+instance Prelude.ToQuery DeleteGroupPolicy where
+  toQuery DeleteGroupPolicy' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DeleteGroupPolicy" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
+        "GroupName" Prelude.=: groupName,
+        "PolicyName" Prelude.=: policyName
+      ]
 
-instance ToQuery DeleteGroupPolicy where
-        toQuery DeleteGroupPolicy'{..}
-          = mconcat
-              ["Action" =: ("DeleteGroupPolicy" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "GroupName" =: _dGroupName,
-               "PolicyName" =: _dPolicyName]
+-- | /See:/ 'newDeleteGroupPolicyResponse' smart constructor.
+data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
--- | /See:/ 'deleteGroupPolicyResponse' smart constructor.
-data DeleteGroupPolicyResponse =
+-- |
+-- Create a value of 'DeleteGroupPolicyResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteGroupPolicyResponse ::
+  DeleteGroupPolicyResponse
+newDeleteGroupPolicyResponse =
   DeleteGroupPolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'DeleteGroupPolicyResponse' with the minimum fields required to make a request.
---
-deleteGroupPolicyResponse
-    :: DeleteGroupPolicyResponse
-deleteGroupPolicyResponse = DeleteGroupPolicyResponse'
-
-
-instance NFData DeleteGroupPolicyResponse where
+instance Prelude.NFData DeleteGroupPolicyResponse

@@ -1,181 +1,252 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkMail.ListResourceDelegates
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the delegates associated with a resource. Users and groups can be resource delegates and answer requests on behalf of the resource.
+-- Lists the delegates associated with a resource. Users and groups can be
+-- resource delegates and answer requests on behalf of the resource.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.WorkMail.ListResourceDelegates
-    (
-    -- * Creating a Request
-      listResourceDelegates
-    , ListResourceDelegates
+  ( -- * Creating a Request
+    ListResourceDelegates (..),
+    newListResourceDelegates,
+
     -- * Request Lenses
-    , lrdNextToken
-    , lrdMaxResults
-    , lrdOrganizationId
-    , lrdResourceId
+    listResourceDelegates_nextToken,
+    listResourceDelegates_maxResults,
+    listResourceDelegates_organizationId,
+    listResourceDelegates_resourceId,
 
     -- * Destructuring the Response
-    , listResourceDelegatesResponse
-    , ListResourceDelegatesResponse
+    ListResourceDelegatesResponse (..),
+    newListResourceDelegatesResponse,
+
     -- * Response Lenses
-    , lrdrsDelegates
-    , lrdrsNextToken
-    , lrdrsResponseStatus
-    ) where
+    listResourceDelegatesResponse_nextToken,
+    listResourceDelegatesResponse_delegates,
+    listResourceDelegatesResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
-import Network.AWS.WorkMail.Types.Product
 
--- | /See:/ 'listResourceDelegates' smart constructor.
+-- | /See:/ 'newListResourceDelegates' smart constructor.
 data ListResourceDelegates = ListResourceDelegates'
-  { _lrdNextToken      :: !(Maybe Text)
-  , _lrdMaxResults     :: !(Maybe Nat)
-  , _lrdOrganizationId :: !Text
-  , _lrdResourceId     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token used to paginate through the delegates associated with a
+    -- resource.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The number of maximum results in a page.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The identifier for the organization that contains the resource for which
+    -- delegates are listed.
+    organizationId :: Prelude.Text,
+    -- | The identifier for the resource whose delegates are listed.
+    resourceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListResourceDelegates' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listResourceDelegates_nextToken' - The token used to paginate through the delegates associated with a
+-- resource.
+--
+-- 'maxResults', 'listResourceDelegates_maxResults' - The number of maximum results in a page.
+--
+-- 'organizationId', 'listResourceDelegates_organizationId' - The identifier for the organization that contains the resource for which
+-- delegates are listed.
+--
+-- 'resourceId', 'listResourceDelegates_resourceId' - The identifier for the resource whose delegates are listed.
+newListResourceDelegates ::
+  -- | 'organizationId'
+  Prelude.Text ->
+  -- | 'resourceId'
+  Prelude.Text ->
+  ListResourceDelegates
+newListResourceDelegates
+  pOrganizationId_
+  pResourceId_ =
+    ListResourceDelegates'
+      { nextToken = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        organizationId = pOrganizationId_,
+        resourceId = pResourceId_
+      }
 
--- | Creates a value of 'ListResourceDelegates' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lrdNextToken' - The token used to paginate through the delegates associated with a resource.
---
--- * 'lrdMaxResults' - The number of maximum results in a page.
---
--- * 'lrdOrganizationId' - The identifier for the organization that contains the resource for which delegates are listed.
---
--- * 'lrdResourceId' - The identifier for the resource whose delegates are listed.
-listResourceDelegates
-    :: Text -- ^ 'lrdOrganizationId'
-    -> Text -- ^ 'lrdResourceId'
-    -> ListResourceDelegates
-listResourceDelegates pOrganizationId_ pResourceId_ =
-  ListResourceDelegates'
-    { _lrdNextToken = Nothing
-    , _lrdMaxResults = Nothing
-    , _lrdOrganizationId = pOrganizationId_
-    , _lrdResourceId = pResourceId_
-    }
-
-
--- | The token used to paginate through the delegates associated with a resource.
-lrdNextToken :: Lens' ListResourceDelegates (Maybe Text)
-lrdNextToken = lens _lrdNextToken (\ s a -> s{_lrdNextToken = a})
+-- | The token used to paginate through the delegates associated with a
+-- resource.
+listResourceDelegates_nextToken :: Lens.Lens' ListResourceDelegates (Prelude.Maybe Prelude.Text)
+listResourceDelegates_nextToken = Lens.lens (\ListResourceDelegates' {nextToken} -> nextToken) (\s@ListResourceDelegates' {} a -> s {nextToken = a} :: ListResourceDelegates)
 
 -- | The number of maximum results in a page.
-lrdMaxResults :: Lens' ListResourceDelegates (Maybe Natural)
-lrdMaxResults = lens _lrdMaxResults (\ s a -> s{_lrdMaxResults = a}) . mapping _Nat
+listResourceDelegates_maxResults :: Lens.Lens' ListResourceDelegates (Prelude.Maybe Prelude.Natural)
+listResourceDelegates_maxResults = Lens.lens (\ListResourceDelegates' {maxResults} -> maxResults) (\s@ListResourceDelegates' {} a -> s {maxResults = a} :: ListResourceDelegates)
 
--- | The identifier for the organization that contains the resource for which delegates are listed.
-lrdOrganizationId :: Lens' ListResourceDelegates Text
-lrdOrganizationId = lens _lrdOrganizationId (\ s a -> s{_lrdOrganizationId = a})
+-- | The identifier for the organization that contains the resource for which
+-- delegates are listed.
+listResourceDelegates_organizationId :: Lens.Lens' ListResourceDelegates Prelude.Text
+listResourceDelegates_organizationId = Lens.lens (\ListResourceDelegates' {organizationId} -> organizationId) (\s@ListResourceDelegates' {} a -> s {organizationId = a} :: ListResourceDelegates)
 
 -- | The identifier for the resource whose delegates are listed.
-lrdResourceId :: Lens' ListResourceDelegates Text
-lrdResourceId = lens _lrdResourceId (\ s a -> s{_lrdResourceId = a})
+listResourceDelegates_resourceId :: Lens.Lens' ListResourceDelegates Prelude.Text
+listResourceDelegates_resourceId = Lens.lens (\ListResourceDelegates' {resourceId} -> resourceId) (\s@ListResourceDelegates' {} a -> s {resourceId = a} :: ListResourceDelegates)
 
-instance AWSRequest ListResourceDelegates where
-        type Rs ListResourceDelegates =
-             ListResourceDelegatesResponse
-        request = postJSON workMail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListResourceDelegatesResponse' <$>
-                   (x .?> "Delegates" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Pager.AWSPager ListResourceDelegates where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listResourceDelegatesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listResourceDelegatesResponse_delegates
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listResourceDelegates_nextToken
+          Lens..~ rs
+          Lens.^? listResourceDelegatesResponse_nextToken
+            Prelude.. Lens._Just
 
-instance Hashable ListResourceDelegates where
+instance Prelude.AWSRequest ListResourceDelegates where
+  type
+    Rs ListResourceDelegates =
+      ListResourceDelegatesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListResourceDelegatesResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> ( x Prelude..?> "Delegates"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData ListResourceDelegates where
+instance Prelude.Hashable ListResourceDelegates
 
-instance ToHeaders ListResourceDelegates where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("WorkMailService.ListResourceDelegates" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData ListResourceDelegates
 
-instance ToJSON ListResourceDelegates where
-        toJSON ListResourceDelegates'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lrdNextToken,
-                  ("MaxResults" .=) <$> _lrdMaxResults,
-                  Just ("OrganizationId" .= _lrdOrganizationId),
-                  Just ("ResourceId" .= _lrdResourceId)])
+instance Prelude.ToHeaders ListResourceDelegates where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "WorkMailService.ListResourceDelegates" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToPath ListResourceDelegates where
-        toPath = const "/"
+instance Prelude.ToJSON ListResourceDelegates where
+  toJSON ListResourceDelegates' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
+            Prelude.Just
+              ("OrganizationId" Prelude..= organizationId),
+            Prelude.Just ("ResourceId" Prelude..= resourceId)
+          ]
+      )
 
-instance ToQuery ListResourceDelegates where
-        toQuery = const mempty
+instance Prelude.ToPath ListResourceDelegates where
+  toPath = Prelude.const "/"
 
--- | /See:/ 'listResourceDelegatesResponse' smart constructor.
+instance Prelude.ToQuery ListResourceDelegates where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListResourceDelegatesResponse' smart constructor.
 data ListResourceDelegatesResponse = ListResourceDelegatesResponse'
-  { _lrdrsDelegates      :: !(Maybe [Delegate])
-  , _lrdrsNextToken      :: !(Maybe Text)
-  , _lrdrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token used to paginate through the delegates associated with a
+    -- resource. While results are still available, it has an associated value.
+    -- When the last page is reached, the token is empty.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | One page of the resource\'s delegates.
+    delegates :: Prelude.Maybe [Delegate],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListResourceDelegatesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListResourceDelegatesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lrdrsDelegates' - One page of the resource's delegates.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lrdrsNextToken' - The token used to paginate through the delegates associated with a resource. While results are still available, it has an associated value. When the last page is reached, the token is empty.
+-- 'nextToken', 'listResourceDelegatesResponse_nextToken' - The token used to paginate through the delegates associated with a
+-- resource. While results are still available, it has an associated value.
+-- When the last page is reached, the token is empty.
 --
--- * 'lrdrsResponseStatus' - -- | The response status code.
-listResourceDelegatesResponse
-    :: Int -- ^ 'lrdrsResponseStatus'
-    -> ListResourceDelegatesResponse
-listResourceDelegatesResponse pResponseStatus_ =
+-- 'delegates', 'listResourceDelegatesResponse_delegates' - One page of the resource\'s delegates.
+--
+-- 'httpStatus', 'listResourceDelegatesResponse_httpStatus' - The response's http status code.
+newListResourceDelegatesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListResourceDelegatesResponse
+newListResourceDelegatesResponse pHttpStatus_ =
   ListResourceDelegatesResponse'
-    { _lrdrsDelegates = Nothing
-    , _lrdrsNextToken = Nothing
-    , _lrdrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      delegates = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The token used to paginate through the delegates associated with a
+-- resource. While results are still available, it has an associated value.
+-- When the last page is reached, the token is empty.
+listResourceDelegatesResponse_nextToken :: Lens.Lens' ListResourceDelegatesResponse (Prelude.Maybe Prelude.Text)
+listResourceDelegatesResponse_nextToken = Lens.lens (\ListResourceDelegatesResponse' {nextToken} -> nextToken) (\s@ListResourceDelegatesResponse' {} a -> s {nextToken = a} :: ListResourceDelegatesResponse)
 
--- | One page of the resource's delegates.
-lrdrsDelegates :: Lens' ListResourceDelegatesResponse [Delegate]
-lrdrsDelegates = lens _lrdrsDelegates (\ s a -> s{_lrdrsDelegates = a}) . _Default . _Coerce
+-- | One page of the resource\'s delegates.
+listResourceDelegatesResponse_delegates :: Lens.Lens' ListResourceDelegatesResponse (Prelude.Maybe [Delegate])
+listResourceDelegatesResponse_delegates = Lens.lens (\ListResourceDelegatesResponse' {delegates} -> delegates) (\s@ListResourceDelegatesResponse' {} a -> s {delegates = a} :: ListResourceDelegatesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The token used to paginate through the delegates associated with a resource. While results are still available, it has an associated value. When the last page is reached, the token is empty.
-lrdrsNextToken :: Lens' ListResourceDelegatesResponse (Maybe Text)
-lrdrsNextToken = lens _lrdrsNextToken (\ s a -> s{_lrdrsNextToken = a})
+-- | The response's http status code.
+listResourceDelegatesResponse_httpStatus :: Lens.Lens' ListResourceDelegatesResponse Prelude.Int
+listResourceDelegatesResponse_httpStatus = Lens.lens (\ListResourceDelegatesResponse' {httpStatus} -> httpStatus) (\s@ListResourceDelegatesResponse' {} a -> s {httpStatus = a} :: ListResourceDelegatesResponse)
 
--- | -- | The response status code.
-lrdrsResponseStatus :: Lens' ListResourceDelegatesResponse Int
-lrdrsResponseStatus = lens _lrdrsResponseStatus (\ s a -> s{_lrdrsResponseStatus = a})
-
-instance NFData ListResourceDelegatesResponse where
+instance Prelude.NFData ListResourceDelegatesResponse

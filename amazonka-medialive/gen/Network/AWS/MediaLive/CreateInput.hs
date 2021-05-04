@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaLive.CreateInput
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,165 +23,271 @@
 --
 -- Create an input
 module Network.AWS.MediaLive.CreateInput
-    (
-    -- * Creating a Request
-      createInput
-    , CreateInput
+  ( -- * Creating a Request
+    CreateInput' (..),
+    newCreateInput',
+
     -- * Request Lenses
-    , ciRequestId
-    , ciSources
-    , ciInputSecurityGroups
-    , ciDestinations
-    , ciName
-    , ciType
+    createInput'_inputSecurityGroups,
+    createInput'_roleArn,
+    createInput'_sources,
+    createInput'_mediaConnectFlows,
+    createInput'_destinations,
+    createInput'_name,
+    createInput'_requestId,
+    createInput'_tags,
+    createInput'_type,
+    createInput'_vpc,
+    createInput'_inputDevices,
 
     -- * Destructuring the Response
-    , createInputResponse
-    , CreateInputResponse
-    -- * Response Lenses
-    , cirsInput
-    , cirsResponseStatus
-    ) where
+    CreateInputResponse (..),
+    newCreateInputResponse,
 
-import Network.AWS.Lens
+    -- * Response Lenses
+    createInputResponse_input,
+    createInputResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.MediaLive.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The name of the input
 --
--- /See:/ 'createInput' smart constructor.
-data CreateInput = CreateInput'
-  { _ciRequestId           :: !(Maybe Text)
-  , _ciSources             :: !(Maybe [InputSourceRequest])
-  , _ciInputSecurityGroups :: !(Maybe [Text])
-  , _ciDestinations        :: !(Maybe [InputDestinationRequest])
-  , _ciName                :: !(Maybe Text)
-  , _ciType                :: !(Maybe InputType)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newCreateInput'' smart constructor.
+data CreateInput' = CreateInput''
+  { -- | A list of security groups referenced by IDs to attach to the input.
+    inputSecurityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Resource Name (ARN) of the role this input assumes during and
+    -- after creation.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The source URLs for a PULL-type input. Every PULL type input needs
+    -- exactly two source URLs for redundancy. Only specify sources for PULL
+    -- type Inputs. Leave Destinations empty.
+    sources :: Prelude.Maybe [InputSourceRequest],
+    -- | A list of the MediaConnect Flows that you want to use in this input. You
+    -- can specify as few as one Flow and presently, as many as two. The only
+    -- requirement is when you have more than one is that each Flow is in a
+    -- separate Availability Zone as this ensures your EML input is redundant
+    -- to AZ issues.
+    mediaConnectFlows :: Prelude.Maybe [MediaConnectFlowRequest],
+    -- | Destination settings for PUSH type inputs.
+    destinations :: Prelude.Maybe [InputDestinationRequest],
+    -- | Name of the input.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Unique identifier of the request to ensure the request is handled
+    -- exactly once in case of retries.
+    requestId :: Prelude.Maybe Prelude.Text,
+    -- | A collection of key-value pairs.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    type' :: Prelude.Maybe InputType,
+    vpc :: Prelude.Maybe InputVpcRequest,
+    -- | Settings for the devices.
+    inputDevices :: Prelude.Maybe [InputDeviceSettings]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateInput' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateInput'' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ciRequestId' - Unique identifier of the request to ensure the request is handled exactly once in case of retries.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ciSources' - The source URLs for a PULL-type input. Every PULL type input needs exactly two source URLs for redundancy. Only specify sources for PULL type Inputs. Leave Destinations empty.
+-- 'inputSecurityGroups', 'createInput'_inputSecurityGroups' - A list of security groups referenced by IDs to attach to the input.
 --
--- * 'ciInputSecurityGroups' - A list of security groups referenced by IDs to attach to the input.
+-- 'roleArn', 'createInput'_roleArn' - The Amazon Resource Name (ARN) of the role this input assumes during and
+-- after creation.
 --
--- * 'ciDestinations' - Destination settings for PUSH type inputs.
+-- 'sources', 'createInput'_sources' - The source URLs for a PULL-type input. Every PULL type input needs
+-- exactly two source URLs for redundancy. Only specify sources for PULL
+-- type Inputs. Leave Destinations empty.
 --
--- * 'ciName' - Name of the input.
+-- 'mediaConnectFlows', 'createInput'_mediaConnectFlows' - A list of the MediaConnect Flows that you want to use in this input. You
+-- can specify as few as one Flow and presently, as many as two. The only
+-- requirement is when you have more than one is that each Flow is in a
+-- separate Availability Zone as this ensures your EML input is redundant
+-- to AZ issues.
 --
--- * 'ciType' - Undocumented member.
-createInput
-    :: CreateInput
-createInput =
+-- 'destinations', 'createInput'_destinations' - Destination settings for PUSH type inputs.
+--
+-- 'name', 'createInput'_name' - Name of the input.
+--
+-- 'requestId', 'createInput'_requestId' - Unique identifier of the request to ensure the request is handled
+-- exactly once in case of retries.
+--
+-- 'tags', 'createInput'_tags' - A collection of key-value pairs.
+--
+-- 'type'', 'createInput'_type' - Undocumented member.
+--
+-- 'vpc', 'createInput'_vpc' - Undocumented member.
+--
+-- 'inputDevices', 'createInput'_inputDevices' - Settings for the devices.
+newCreateInput' ::
   CreateInput'
-    { _ciRequestId = Nothing
-    , _ciSources = Nothing
-    , _ciInputSecurityGroups = Nothing
-    , _ciDestinations = Nothing
-    , _ciName = Nothing
-    , _ciType = Nothing
+newCreateInput' =
+  CreateInput''
+    { inputSecurityGroups =
+        Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      sources = Prelude.Nothing,
+      mediaConnectFlows = Prelude.Nothing,
+      destinations = Prelude.Nothing,
+      name = Prelude.Nothing,
+      requestId = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      vpc = Prelude.Nothing,
+      inputDevices = Prelude.Nothing
     }
 
-
--- | Unique identifier of the request to ensure the request is handled exactly once in case of retries.
-ciRequestId :: Lens' CreateInput (Maybe Text)
-ciRequestId = lens _ciRequestId (\ s a -> s{_ciRequestId = a})
-
--- | The source URLs for a PULL-type input. Every PULL type input needs exactly two source URLs for redundancy. Only specify sources for PULL type Inputs. Leave Destinations empty.
-ciSources :: Lens' CreateInput [InputSourceRequest]
-ciSources = lens _ciSources (\ s a -> s{_ciSources = a}) . _Default . _Coerce
-
 -- | A list of security groups referenced by IDs to attach to the input.
-ciInputSecurityGroups :: Lens' CreateInput [Text]
-ciInputSecurityGroups = lens _ciInputSecurityGroups (\ s a -> s{_ciInputSecurityGroups = a}) . _Default . _Coerce
+createInput'_inputSecurityGroups :: Lens.Lens' CreateInput' (Prelude.Maybe [Prelude.Text])
+createInput'_inputSecurityGroups = Lens.lens (\CreateInput'' {inputSecurityGroups} -> inputSecurityGroups) (\s@CreateInput'' {} a -> s {inputSecurityGroups = a} :: CreateInput') Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The Amazon Resource Name (ARN) of the role this input assumes during and
+-- after creation.
+createInput'_roleArn :: Lens.Lens' CreateInput' (Prelude.Maybe Prelude.Text)
+createInput'_roleArn = Lens.lens (\CreateInput'' {roleArn} -> roleArn) (\s@CreateInput'' {} a -> s {roleArn = a} :: CreateInput')
+
+-- | The source URLs for a PULL-type input. Every PULL type input needs
+-- exactly two source URLs for redundancy. Only specify sources for PULL
+-- type Inputs. Leave Destinations empty.
+createInput'_sources :: Lens.Lens' CreateInput' (Prelude.Maybe [InputSourceRequest])
+createInput'_sources = Lens.lens (\CreateInput'' {sources} -> sources) (\s@CreateInput'' {} a -> s {sources = a} :: CreateInput') Prelude.. Lens.mapping Prelude._Coerce
+
+-- | A list of the MediaConnect Flows that you want to use in this input. You
+-- can specify as few as one Flow and presently, as many as two. The only
+-- requirement is when you have more than one is that each Flow is in a
+-- separate Availability Zone as this ensures your EML input is redundant
+-- to AZ issues.
+createInput'_mediaConnectFlows :: Lens.Lens' CreateInput' (Prelude.Maybe [MediaConnectFlowRequest])
+createInput'_mediaConnectFlows = Lens.lens (\CreateInput'' {mediaConnectFlows} -> mediaConnectFlows) (\s@CreateInput'' {} a -> s {mediaConnectFlows = a} :: CreateInput') Prelude.. Lens.mapping Prelude._Coerce
 
 -- | Destination settings for PUSH type inputs.
-ciDestinations :: Lens' CreateInput [InputDestinationRequest]
-ciDestinations = lens _ciDestinations (\ s a -> s{_ciDestinations = a}) . _Default . _Coerce
+createInput'_destinations :: Lens.Lens' CreateInput' (Prelude.Maybe [InputDestinationRequest])
+createInput'_destinations = Lens.lens (\CreateInput'' {destinations} -> destinations) (\s@CreateInput'' {} a -> s {destinations = a} :: CreateInput') Prelude.. Lens.mapping Prelude._Coerce
 
 -- | Name of the input.
-ciName :: Lens' CreateInput (Maybe Text)
-ciName = lens _ciName (\ s a -> s{_ciName = a})
+createInput'_name :: Lens.Lens' CreateInput' (Prelude.Maybe Prelude.Text)
+createInput'_name = Lens.lens (\CreateInput'' {name} -> name) (\s@CreateInput'' {} a -> s {name = a} :: CreateInput')
+
+-- | Unique identifier of the request to ensure the request is handled
+-- exactly once in case of retries.
+createInput'_requestId :: Lens.Lens' CreateInput' (Prelude.Maybe Prelude.Text)
+createInput'_requestId = Lens.lens (\CreateInput'' {requestId} -> requestId) (\s@CreateInput'' {} a -> s {requestId = a} :: CreateInput')
+
+-- | A collection of key-value pairs.
+createInput'_tags :: Lens.Lens' CreateInput' (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createInput'_tags = Lens.lens (\CreateInput'' {tags} -> tags) (\s@CreateInput'' {} a -> s {tags = a} :: CreateInput') Prelude.. Lens.mapping Prelude._Coerce
 
 -- | Undocumented member.
-ciType :: Lens' CreateInput (Maybe InputType)
-ciType = lens _ciType (\ s a -> s{_ciType = a})
+createInput'_type :: Lens.Lens' CreateInput' (Prelude.Maybe InputType)
+createInput'_type = Lens.lens (\CreateInput'' {type'} -> type') (\s@CreateInput'' {} a -> s {type' = a} :: CreateInput')
 
-instance AWSRequest CreateInput where
-        type Rs CreateInput = CreateInputResponse
-        request = postJSON mediaLive
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateInputResponse' <$>
-                   (x .?> "input") <*> (pure (fromEnum s)))
+-- | Undocumented member.
+createInput'_vpc :: Lens.Lens' CreateInput' (Prelude.Maybe InputVpcRequest)
+createInput'_vpc = Lens.lens (\CreateInput'' {vpc} -> vpc) (\s@CreateInput'' {} a -> s {vpc = a} :: CreateInput')
 
-instance Hashable CreateInput where
+-- | Settings for the devices.
+createInput'_inputDevices :: Lens.Lens' CreateInput' (Prelude.Maybe [InputDeviceSettings])
+createInput'_inputDevices = Lens.lens (\CreateInput'' {inputDevices} -> inputDevices) (\s@CreateInput'' {} a -> s {inputDevices = a} :: CreateInput') Prelude.. Lens.mapping Prelude._Coerce
 
-instance NFData CreateInput where
+instance Prelude.AWSRequest CreateInput' where
+  type Rs CreateInput' = CreateInputResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateInputResponse'
+            Prelude.<$> (x Prelude..?> "input")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToHeaders CreateInput where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.Hashable CreateInput'
 
-instance ToJSON CreateInput where
-        toJSON CreateInput'{..}
-          = object
-              (catMaybes
-                 [("requestId" .=) <$> _ciRequestId,
-                  ("sources" .=) <$> _ciSources,
-                  ("inputSecurityGroups" .=) <$>
-                    _ciInputSecurityGroups,
-                  ("destinations" .=) <$> _ciDestinations,
-                  ("name" .=) <$> _ciName, ("type" .=) <$> _ciType])
+instance Prelude.NFData CreateInput'
 
-instance ToPath CreateInput where
-        toPath = const "/prod/inputs"
+instance Prelude.ToHeaders CreateInput' where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToQuery CreateInput where
-        toQuery = const mempty
+instance Prelude.ToJSON CreateInput' where
+  toJSON CreateInput'' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("inputSecurityGroups" Prelude..=)
+              Prelude.<$> inputSecurityGroups,
+            ("roleArn" Prelude..=) Prelude.<$> roleArn,
+            ("sources" Prelude..=) Prelude.<$> sources,
+            ("mediaConnectFlows" Prelude..=)
+              Prelude.<$> mediaConnectFlows,
+            ("destinations" Prelude..=) Prelude.<$> destinations,
+            ("name" Prelude..=) Prelude.<$> name,
+            ("requestId" Prelude..=) Prelude.<$> requestId,
+            ("tags" Prelude..=) Prelude.<$> tags,
+            ("type" Prelude..=) Prelude.<$> type',
+            ("vpc" Prelude..=) Prelude.<$> vpc,
+            ("inputDevices" Prelude..=)
+              Prelude.<$> inputDevices
+          ]
+      )
+
+instance Prelude.ToPath CreateInput' where
+  toPath = Prelude.const "/prod/inputs"
+
+instance Prelude.ToQuery CreateInput' where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for CreateInputResponse
 --
--- /See:/ 'createInputResponse' smart constructor.
+-- /See:/ 'newCreateInputResponse' smart constructor.
 data CreateInputResponse = CreateInputResponse'
-  { _cirsInput          :: !(Maybe Input)
-  , _cirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { input :: Prelude.Maybe Input,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateInputResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateInputResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cirsInput' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cirsResponseStatus' - -- | The response status code.
-createInputResponse
-    :: Int -- ^ 'cirsResponseStatus'
-    -> CreateInputResponse
-createInputResponse pResponseStatus_ =
+-- 'input', 'createInputResponse_input' - Undocumented member.
+--
+-- 'httpStatus', 'createInputResponse_httpStatus' - The response's http status code.
+newCreateInputResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateInputResponse
+newCreateInputResponse pHttpStatus_ =
   CreateInputResponse'
-    {_cirsInput = Nothing, _cirsResponseStatus = pResponseStatus_}
-
+    { input = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-cirsInput :: Lens' CreateInputResponse (Maybe Input)
-cirsInput = lens _cirsInput (\ s a -> s{_cirsInput = a})
+createInputResponse_input :: Lens.Lens' CreateInputResponse (Prelude.Maybe Input)
+createInputResponse_input = Lens.lens (\CreateInputResponse' {input} -> input) (\s@CreateInputResponse' {} a -> s {input = a} :: CreateInputResponse)
 
--- | -- | The response status code.
-cirsResponseStatus :: Lens' CreateInputResponse Int
-cirsResponseStatus = lens _cirsResponseStatus (\ s a -> s{_cirsResponseStatus = a})
+-- | The response's http status code.
+createInputResponse_httpStatus :: Lens.Lens' CreateInputResponse Prelude.Int
+createInputResponse_httpStatus = Lens.lens (\CreateInputResponse' {httpStatus} -> httpStatus) (\s@CreateInputResponse' {} a -> s {httpStatus = a} :: CreateInputResponse)
 
-instance NFData CreateInputResponse where
+instance Prelude.NFData CreateInputResponse

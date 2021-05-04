@@ -1,122 +1,136 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53.GetHealthCheckCount
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the number of health checks that are associated with the current AWS account.
---
---
+-- Retrieves the number of health checks that are associated with the
+-- current AWS account.
 module Network.AWS.Route53.GetHealthCheckCount
-    (
-    -- * Creating a Request
-      getHealthCheckCount
-    , GetHealthCheckCount
+  ( -- * Creating a Request
+    GetHealthCheckCount (..),
+    newGetHealthCheckCount,
 
     -- * Destructuring the Response
-    , getHealthCheckCountResponse
-    , GetHealthCheckCountResponse
+    GetHealthCheckCountResponse (..),
+    newGetHealthCheckCountResponse,
+
     -- * Response Lenses
-    , ghccrsResponseStatus
-    , ghccrsHealthCheckCount
-    ) where
+    getHealthCheckCountResponse_httpStatus,
+    getHealthCheckCountResponse_healthCheckCount,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
-import Network.AWS.Route53.Types.Product
 
--- | A request for the number of health checks that are associated with the current AWS account.
+-- | A request for the number of health checks that are associated with the
+-- current AWS account.
 --
+-- /See:/ 'newGetHealthCheckCount' smart constructor.
+data GetHealthCheckCount = GetHealthCheckCount'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetHealthCheckCount' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newGetHealthCheckCount ::
+  GetHealthCheckCount
+newGetHealthCheckCount = GetHealthCheckCount'
+
+instance Prelude.AWSRequest GetHealthCheckCount where
+  type
+    Rs GetHealthCheckCount =
+      GetHealthCheckCountResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          GetHealthCheckCountResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..@ "HealthCheckCount")
+      )
+
+instance Prelude.Hashable GetHealthCheckCount
+
+instance Prelude.NFData GetHealthCheckCount
+
+instance Prelude.ToHeaders GetHealthCheckCount where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath GetHealthCheckCount where
+  toPath = Prelude.const "/2013-04-01/healthcheckcount"
+
+instance Prelude.ToQuery GetHealthCheckCount where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | A complex type that contains the response to a @GetHealthCheckCount@
+-- request.
 --
--- /See:/ 'getHealthCheckCount' smart constructor.
-data GetHealthCheckCount =
-  GetHealthCheckCount'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetHealthCheckCount' with the minimum fields required to make a request.
---
-getHealthCheckCount
-    :: GetHealthCheckCount
-getHealthCheckCount = GetHealthCheckCount'
-
-
-instance AWSRequest GetHealthCheckCount where
-        type Rs GetHealthCheckCount =
-             GetHealthCheckCountResponse
-        request = get route53
-        response
-          = receiveXML
-              (\ s h x ->
-                 GetHealthCheckCountResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "HealthCheckCount"))
-
-instance Hashable GetHealthCheckCount where
-
-instance NFData GetHealthCheckCount where
-
-instance ToHeaders GetHealthCheckCount where
-        toHeaders = const mempty
-
-instance ToPath GetHealthCheckCount where
-        toPath = const "/2013-04-01/healthcheckcount"
-
-instance ToQuery GetHealthCheckCount where
-        toQuery = const mempty
-
--- | A complex type that contains the response to a @GetHealthCheckCount@ request.
---
---
---
--- /See:/ 'getHealthCheckCountResponse' smart constructor.
+-- /See:/ 'newGetHealthCheckCountResponse' smart constructor.
 data GetHealthCheckCountResponse = GetHealthCheckCountResponse'
-  { _ghccrsResponseStatus   :: !Int
-  , _ghccrsHealthCheckCount :: !Integer
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The number of health checks associated with the current AWS account.
+    healthCheckCount :: Prelude.Integer
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetHealthCheckCountResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetHealthCheckCountResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ghccrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ghccrsHealthCheckCount' - The number of health checks associated with the current AWS account.
-getHealthCheckCountResponse
-    :: Int -- ^ 'ghccrsResponseStatus'
-    -> Integer -- ^ 'ghccrsHealthCheckCount'
-    -> GetHealthCheckCountResponse
-getHealthCheckCountResponse pResponseStatus_ pHealthCheckCount_ =
-  GetHealthCheckCountResponse'
-    { _ghccrsResponseStatus = pResponseStatus_
-    , _ghccrsHealthCheckCount = pHealthCheckCount_
-    }
+-- 'httpStatus', 'getHealthCheckCountResponse_httpStatus' - The response's http status code.
+--
+-- 'healthCheckCount', 'getHealthCheckCountResponse_healthCheckCount' - The number of health checks associated with the current AWS account.
+newGetHealthCheckCountResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'healthCheckCount'
+  Prelude.Integer ->
+  GetHealthCheckCountResponse
+newGetHealthCheckCountResponse
+  pHttpStatus_
+  pHealthCheckCount_ =
+    GetHealthCheckCountResponse'
+      { httpStatus =
+          pHttpStatus_,
+        healthCheckCount = pHealthCheckCount_
+      }
 
-
--- | -- | The response status code.
-ghccrsResponseStatus :: Lens' GetHealthCheckCountResponse Int
-ghccrsResponseStatus = lens _ghccrsResponseStatus (\ s a -> s{_ghccrsResponseStatus = a})
+-- | The response's http status code.
+getHealthCheckCountResponse_httpStatus :: Lens.Lens' GetHealthCheckCountResponse Prelude.Int
+getHealthCheckCountResponse_httpStatus = Lens.lens (\GetHealthCheckCountResponse' {httpStatus} -> httpStatus) (\s@GetHealthCheckCountResponse' {} a -> s {httpStatus = a} :: GetHealthCheckCountResponse)
 
 -- | The number of health checks associated with the current AWS account.
-ghccrsHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
-ghccrsHealthCheckCount = lens _ghccrsHealthCheckCount (\ s a -> s{_ghccrsHealthCheckCount = a})
+getHealthCheckCountResponse_healthCheckCount :: Lens.Lens' GetHealthCheckCountResponse Prelude.Integer
+getHealthCheckCountResponse_healthCheckCount = Lens.lens (\GetHealthCheckCountResponse' {healthCheckCount} -> healthCheckCount) (\s@GetHealthCheckCountResponse' {} a -> s {healthCheckCount = a} :: GetHealthCheckCountResponse)
 
-instance NFData GetHealthCheckCountResponse where
+instance Prelude.NFData GetHealthCheckCountResponse

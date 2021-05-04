@@ -1,166 +1,219 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.RDS.ModifyOptionGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies an existing option group.
---
---
 module Network.AWS.RDS.ModifyOptionGroup
-    (
-    -- * Creating a Request
-      modifyOptionGroup
-    , ModifyOptionGroup
+  ( -- * Creating a Request
+    ModifyOptionGroup (..),
+    newModifyOptionGroup,
+
     -- * Request Lenses
-    , mogOptionsToInclude
-    , mogOptionsToRemove
-    , mogApplyImmediately
-    , mogOptionGroupName
+    modifyOptionGroup_optionsToInclude,
+    modifyOptionGroup_optionsToRemove,
+    modifyOptionGroup_applyImmediately,
+    modifyOptionGroup_optionGroupName,
 
     -- * Destructuring the Response
-    , modifyOptionGroupResponse
-    , ModifyOptionGroupResponse
-    -- * Response Lenses
-    , mogrsOptionGroup
-    , mogrsResponseStatus
-    ) where
+    ModifyOptionGroupResponse (..),
+    newModifyOptionGroupResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    modifyOptionGroupResponse_optionGroup,
+    modifyOptionGroupResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.RDS.Types
-import Network.AWS.RDS.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'modifyOptionGroup' smart constructor.
+-- /See:/ 'newModifyOptionGroup' smart constructor.
 data ModifyOptionGroup = ModifyOptionGroup'
-  { _mogOptionsToInclude :: !(Maybe [OptionConfiguration])
-  , _mogOptionsToRemove  :: !(Maybe [Text])
-  , _mogApplyImmediately :: !(Maybe Bool)
-  , _mogOptionGroupName  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Options in this list are added to the option group or, if already
+    -- present, the specified configuration is used to update the existing
+    -- configuration.
+    optionsToInclude :: Prelude.Maybe [OptionConfiguration],
+    -- | Options in this list are removed from the option group.
+    optionsToRemove :: Prelude.Maybe [Prelude.Text],
+    -- | A value that indicates whether to apply the change immediately or during
+    -- the next maintenance window for each instance associated with the option
+    -- group.
+    applyImmediately :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the option group to be modified.
+    --
+    -- Permanent options, such as the TDE option for Oracle Advanced Security
+    -- TDE, can\'t be removed from an option group, and that option group
+    -- can\'t be removed from a DB instance once it is associated with a DB
+    -- instance
+    optionGroupName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyOptionGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyOptionGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mogOptionsToInclude' - Options in this list are added to the option group or, if already present, the specified configuration is used to update the existing configuration.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mogOptionsToRemove' - Options in this list are removed from the option group.
+-- 'optionsToInclude', 'modifyOptionGroup_optionsToInclude' - Options in this list are added to the option group or, if already
+-- present, the specified configuration is used to update the existing
+-- configuration.
 --
--- * 'mogApplyImmediately' - Indicates whether the changes should be applied immediately, or during the next maintenance window for each instance associated with the option group.
+-- 'optionsToRemove', 'modifyOptionGroup_optionsToRemove' - Options in this list are removed from the option group.
 --
--- * 'mogOptionGroupName' - The name of the option group to be modified. Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
-modifyOptionGroup
-    :: Text -- ^ 'mogOptionGroupName'
-    -> ModifyOptionGroup
-modifyOptionGroup pOptionGroupName_ =
+-- 'applyImmediately', 'modifyOptionGroup_applyImmediately' - A value that indicates whether to apply the change immediately or during
+-- the next maintenance window for each instance associated with the option
+-- group.
+--
+-- 'optionGroupName', 'modifyOptionGroup_optionGroupName' - The name of the option group to be modified.
+--
+-- Permanent options, such as the TDE option for Oracle Advanced Security
+-- TDE, can\'t be removed from an option group, and that option group
+-- can\'t be removed from a DB instance once it is associated with a DB
+-- instance
+newModifyOptionGroup ::
+  -- | 'optionGroupName'
+  Prelude.Text ->
+  ModifyOptionGroup
+newModifyOptionGroup pOptionGroupName_ =
   ModifyOptionGroup'
-    { _mogOptionsToInclude = Nothing
-    , _mogOptionsToRemove = Nothing
-    , _mogApplyImmediately = Nothing
-    , _mogOptionGroupName = pOptionGroupName_
+    { optionsToInclude =
+        Prelude.Nothing,
+      optionsToRemove = Prelude.Nothing,
+      applyImmediately = Prelude.Nothing,
+      optionGroupName = pOptionGroupName_
     }
 
-
--- | Options in this list are added to the option group or, if already present, the specified configuration is used to update the existing configuration.
-mogOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
-mogOptionsToInclude = lens _mogOptionsToInclude (\ s a -> s{_mogOptionsToInclude = a}) . _Default . _Coerce
+-- | Options in this list are added to the option group or, if already
+-- present, the specified configuration is used to update the existing
+-- configuration.
+modifyOptionGroup_optionsToInclude :: Lens.Lens' ModifyOptionGroup (Prelude.Maybe [OptionConfiguration])
+modifyOptionGroup_optionsToInclude = Lens.lens (\ModifyOptionGroup' {optionsToInclude} -> optionsToInclude) (\s@ModifyOptionGroup' {} a -> s {optionsToInclude = a} :: ModifyOptionGroup) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | Options in this list are removed from the option group.
-mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]
-mogOptionsToRemove = lens _mogOptionsToRemove (\ s a -> s{_mogOptionsToRemove = a}) . _Default . _Coerce
+modifyOptionGroup_optionsToRemove :: Lens.Lens' ModifyOptionGroup (Prelude.Maybe [Prelude.Text])
+modifyOptionGroup_optionsToRemove = Lens.lens (\ModifyOptionGroup' {optionsToRemove} -> optionsToRemove) (\s@ModifyOptionGroup' {} a -> s {optionsToRemove = a} :: ModifyOptionGroup) Prelude.. Lens.mapping Prelude._Coerce
 
--- | Indicates whether the changes should be applied immediately, or during the next maintenance window for each instance associated with the option group.
-mogApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
-mogApplyImmediately = lens _mogApplyImmediately (\ s a -> s{_mogApplyImmediately = a})
+-- | A value that indicates whether to apply the change immediately or during
+-- the next maintenance window for each instance associated with the option
+-- group.
+modifyOptionGroup_applyImmediately :: Lens.Lens' ModifyOptionGroup (Prelude.Maybe Prelude.Bool)
+modifyOptionGroup_applyImmediately = Lens.lens (\ModifyOptionGroup' {applyImmediately} -> applyImmediately) (\s@ModifyOptionGroup' {} a -> s {applyImmediately = a} :: ModifyOptionGroup)
 
--- | The name of the option group to be modified. Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance
-mogOptionGroupName :: Lens' ModifyOptionGroup Text
-mogOptionGroupName = lens _mogOptionGroupName (\ s a -> s{_mogOptionGroupName = a})
+-- | The name of the option group to be modified.
+--
+-- Permanent options, such as the TDE option for Oracle Advanced Security
+-- TDE, can\'t be removed from an option group, and that option group
+-- can\'t be removed from a DB instance once it is associated with a DB
+-- instance
+modifyOptionGroup_optionGroupName :: Lens.Lens' ModifyOptionGroup Prelude.Text
+modifyOptionGroup_optionGroupName = Lens.lens (\ModifyOptionGroup' {optionGroupName} -> optionGroupName) (\s@ModifyOptionGroup' {} a -> s {optionGroupName = a} :: ModifyOptionGroup)
 
-instance AWSRequest ModifyOptionGroup where
-        type Rs ModifyOptionGroup = ModifyOptionGroupResponse
-        request = postQuery rds
-        response
-          = receiveXMLWrapper "ModifyOptionGroupResult"
-              (\ s h x ->
-                 ModifyOptionGroupResponse' <$>
-                   (x .@? "OptionGroup") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest ModifyOptionGroup where
+  type Rs ModifyOptionGroup = ModifyOptionGroupResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ModifyOptionGroupResult"
+      ( \s h x ->
+          ModifyOptionGroupResponse'
+            Prelude.<$> (x Prelude..@? "OptionGroup")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ModifyOptionGroup where
+instance Prelude.Hashable ModifyOptionGroup
 
-instance NFData ModifyOptionGroup where
+instance Prelude.NFData ModifyOptionGroup
 
-instance ToHeaders ModifyOptionGroup where
-        toHeaders = const mempty
+instance Prelude.ToHeaders ModifyOptionGroup where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ModifyOptionGroup where
-        toPath = const "/"
+instance Prelude.ToPath ModifyOptionGroup where
+  toPath = Prelude.const "/"
 
-instance ToQuery ModifyOptionGroup where
-        toQuery ModifyOptionGroup'{..}
-          = mconcat
-              ["Action" =: ("ModifyOptionGroup" :: ByteString),
-               "Version" =: ("2014-10-31" :: ByteString),
-               "OptionsToInclude" =:
-                 toQuery
-                   (toQueryList "OptionConfiguration" <$>
-                      _mogOptionsToInclude),
-               "OptionsToRemove" =:
-                 toQuery
-                   (toQueryList "member" <$> _mogOptionsToRemove),
-               "ApplyImmediately" =: _mogApplyImmediately,
-               "OptionGroupName" =: _mogOptionGroupName]
+instance Prelude.ToQuery ModifyOptionGroup where
+  toQuery ModifyOptionGroup' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("ModifyOptionGroup" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2014-10-31" :: Prelude.ByteString),
+        "OptionsToInclude"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "OptionConfiguration"
+                Prelude.<$> optionsToInclude
+            ),
+        "OptionsToRemove"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "member"
+                Prelude.<$> optionsToRemove
+            ),
+        "ApplyImmediately" Prelude.=: applyImmediately,
+        "OptionGroupName" Prelude.=: optionGroupName
+      ]
 
--- | /See:/ 'modifyOptionGroupResponse' smart constructor.
+-- | /See:/ 'newModifyOptionGroupResponse' smart constructor.
 data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
-  { _mogrsOptionGroup    :: !(Maybe OptionGroup)
-  , _mogrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { optionGroup :: Prelude.Maybe OptionGroup,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ModifyOptionGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ModifyOptionGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mogrsOptionGroup' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mogrsResponseStatus' - -- | The response status code.
-modifyOptionGroupResponse
-    :: Int -- ^ 'mogrsResponseStatus'
-    -> ModifyOptionGroupResponse
-modifyOptionGroupResponse pResponseStatus_ =
+-- 'optionGroup', 'modifyOptionGroupResponse_optionGroup' - Undocumented member.
+--
+-- 'httpStatus', 'modifyOptionGroupResponse_httpStatus' - The response's http status code.
+newModifyOptionGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ModifyOptionGroupResponse
+newModifyOptionGroupResponse pHttpStatus_ =
   ModifyOptionGroupResponse'
-    {_mogrsOptionGroup = Nothing, _mogrsResponseStatus = pResponseStatus_}
-
+    { optionGroup =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-mogrsOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
-mogrsOptionGroup = lens _mogrsOptionGroup (\ s a -> s{_mogrsOptionGroup = a})
+modifyOptionGroupResponse_optionGroup :: Lens.Lens' ModifyOptionGroupResponse (Prelude.Maybe OptionGroup)
+modifyOptionGroupResponse_optionGroup = Lens.lens (\ModifyOptionGroupResponse' {optionGroup} -> optionGroup) (\s@ModifyOptionGroupResponse' {} a -> s {optionGroup = a} :: ModifyOptionGroupResponse)
 
--- | -- | The response status code.
-mogrsResponseStatus :: Lens' ModifyOptionGroupResponse Int
-mogrsResponseStatus = lens _mogrsResponseStatus (\ s a -> s{_mogrsResponseStatus = a})
+-- | The response's http status code.
+modifyOptionGroupResponse_httpStatus :: Lens.Lens' ModifyOptionGroupResponse Prelude.Int
+modifyOptionGroupResponse_httpStatus = Lens.lens (\ModifyOptionGroupResponse' {httpStatus} -> httpStatus) (\s@ModifyOptionGroupResponse' {} a -> s {httpStatus = a} :: ModifyOptionGroupResponse)
 
-instance NFData ModifyOptionGroupResponse where
+instance Prelude.NFData ModifyOptionGroupResponse

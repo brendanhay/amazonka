@@ -1,128 +1,163 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GuardDuty.DeleteThreatIntelSet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes ThreatIntelSet specified by the ThreatIntelSet ID.
+-- Deletes the ThreatIntelSet specified by the ThreatIntelSet ID.
 module Network.AWS.GuardDuty.DeleteThreatIntelSet
-    (
-    -- * Creating a Request
-      deleteThreatIntelSet
-    , DeleteThreatIntelSet
+  ( -- * Creating a Request
+    DeleteThreatIntelSet (..),
+    newDeleteThreatIntelSet,
+
     -- * Request Lenses
-    , dtisThreatIntelSetId
-    , dtisDetectorId
+    deleteThreatIntelSet_detectorId,
+    deleteThreatIntelSet_threatIntelSetId,
 
     -- * Destructuring the Response
-    , deleteThreatIntelSetResponse
-    , DeleteThreatIntelSetResponse
+    DeleteThreatIntelSetResponse (..),
+    newDeleteThreatIntelSetResponse,
+
     -- * Response Lenses
-    , dtisrsResponseStatus
-    ) where
+    deleteThreatIntelSetResponse_httpStatus,
+  )
+where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.GuardDuty.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteThreatIntelSet' smart constructor.
+-- | /See:/ 'newDeleteThreatIntelSet' smart constructor.
 data DeleteThreatIntelSet = DeleteThreatIntelSet'
-  { _dtisThreatIntelSetId :: !Text
-  , _dtisDetectorId       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique ID of the detector that the threatIntelSet is associated
+    -- with.
+    detectorId :: Prelude.Text,
+    -- | The unique ID of the threatIntelSet that you want to delete.
+    threatIntelSetId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteThreatIntelSet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteThreatIntelSet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtisThreatIntelSetId' - The unique ID that specifies the ThreatIntelSet that you want to delete.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtisDetectorId' - The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to delete.
-deleteThreatIntelSet
-    :: Text -- ^ 'dtisThreatIntelSetId'
-    -> Text -- ^ 'dtisDetectorId'
-    -> DeleteThreatIntelSet
-deleteThreatIntelSet pThreatIntelSetId_ pDetectorId_ =
-  DeleteThreatIntelSet'
-    {_dtisThreatIntelSetId = pThreatIntelSetId_, _dtisDetectorId = pDetectorId_}
-
-
--- | The unique ID that specifies the ThreatIntelSet that you want to delete.
-dtisThreatIntelSetId :: Lens' DeleteThreatIntelSet Text
-dtisThreatIntelSetId = lens _dtisThreatIntelSetId (\ s a -> s{_dtisThreatIntelSetId = a})
-
--- | The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to delete.
-dtisDetectorId :: Lens' DeleteThreatIntelSet Text
-dtisDetectorId = lens _dtisDetectorId (\ s a -> s{_dtisDetectorId = a})
-
-instance AWSRequest DeleteThreatIntelSet where
-        type Rs DeleteThreatIntelSet =
-             DeleteThreatIntelSetResponse
-        request = delete guardDuty
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteThreatIntelSetResponse' <$>
-                   (pure (fromEnum s)))
-
-instance Hashable DeleteThreatIntelSet where
-
-instance NFData DeleteThreatIntelSet where
-
-instance ToHeaders DeleteThreatIntelSet where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath DeleteThreatIntelSet where
-        toPath DeleteThreatIntelSet'{..}
-          = mconcat
-              ["/detector/", toBS _dtisDetectorId,
-               "/threatintelset/", toBS _dtisThreatIntelSetId]
-
-instance ToQuery DeleteThreatIntelSet where
-        toQuery = const mempty
-
--- | /See:/ 'deleteThreatIntelSetResponse' smart constructor.
-newtype DeleteThreatIntelSetResponse = DeleteThreatIntelSetResponse'
-  { _dtisrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteThreatIntelSetResponse' with the minimum fields required to make a request.
+-- 'detectorId', 'deleteThreatIntelSet_detectorId' - The unique ID of the detector that the threatIntelSet is associated
+-- with.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'threatIntelSetId', 'deleteThreatIntelSet_threatIntelSetId' - The unique ID of the threatIntelSet that you want to delete.
+newDeleteThreatIntelSet ::
+  -- | 'detectorId'
+  Prelude.Text ->
+  -- | 'threatIntelSetId'
+  Prelude.Text ->
+  DeleteThreatIntelSet
+newDeleteThreatIntelSet
+  pDetectorId_
+  pThreatIntelSetId_ =
+    DeleteThreatIntelSet'
+      { detectorId = pDetectorId_,
+        threatIntelSetId = pThreatIntelSetId_
+      }
+
+-- | The unique ID of the detector that the threatIntelSet is associated
+-- with.
+deleteThreatIntelSet_detectorId :: Lens.Lens' DeleteThreatIntelSet Prelude.Text
+deleteThreatIntelSet_detectorId = Lens.lens (\DeleteThreatIntelSet' {detectorId} -> detectorId) (\s@DeleteThreatIntelSet' {} a -> s {detectorId = a} :: DeleteThreatIntelSet)
+
+-- | The unique ID of the threatIntelSet that you want to delete.
+deleteThreatIntelSet_threatIntelSetId :: Lens.Lens' DeleteThreatIntelSet Prelude.Text
+deleteThreatIntelSet_threatIntelSetId = Lens.lens (\DeleteThreatIntelSet' {threatIntelSetId} -> threatIntelSetId) (\s@DeleteThreatIntelSet' {} a -> s {threatIntelSetId = a} :: DeleteThreatIntelSet)
+
+instance Prelude.AWSRequest DeleteThreatIntelSet where
+  type
+    Rs DeleteThreatIntelSet =
+      DeleteThreatIntelSetResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteThreatIntelSetResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DeleteThreatIntelSet
+
+instance Prelude.NFData DeleteThreatIntelSet
+
+instance Prelude.ToHeaders DeleteThreatIntelSet where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToPath DeleteThreatIntelSet where
+  toPath DeleteThreatIntelSet' {..} =
+    Prelude.mconcat
+      [ "/detector/",
+        Prelude.toBS detectorId,
+        "/threatintelset/",
+        Prelude.toBS threatIntelSetId
+      ]
+
+instance Prelude.ToQuery DeleteThreatIntelSet where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteThreatIntelSetResponse' smart constructor.
+data DeleteThreatIntelSetResponse = DeleteThreatIntelSetResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteThreatIntelSetResponse' with all optional fields omitted.
 --
--- * 'dtisrsResponseStatus' - -- | The response status code.
-deleteThreatIntelSetResponse
-    :: Int -- ^ 'dtisrsResponseStatus'
-    -> DeleteThreatIntelSetResponse
-deleteThreatIntelSetResponse pResponseStatus_ =
-  DeleteThreatIntelSetResponse' {_dtisrsResponseStatus = pResponseStatus_}
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteThreatIntelSetResponse_httpStatus' - The response's http status code.
+newDeleteThreatIntelSetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteThreatIntelSetResponse
+newDeleteThreatIntelSetResponse pHttpStatus_ =
+  DeleteThreatIntelSetResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+deleteThreatIntelSetResponse_httpStatus :: Lens.Lens' DeleteThreatIntelSetResponse Prelude.Int
+deleteThreatIntelSetResponse_httpStatus = Lens.lens (\DeleteThreatIntelSetResponse' {httpStatus} -> httpStatus) (\s@DeleteThreatIntelSetResponse' {} a -> s {httpStatus = a} :: DeleteThreatIntelSetResponse)
 
--- | -- | The response status code.
-dtisrsResponseStatus :: Lens' DeleteThreatIntelSetResponse Int
-dtisrsResponseStatus = lens _dtisrsResponseStatus (\ s a -> s{_dtisrsResponseStatus = a})
-
-instance NFData DeleteThreatIntelSetResponse where
+instance Prelude.NFData DeleteThreatIntelSetResponse

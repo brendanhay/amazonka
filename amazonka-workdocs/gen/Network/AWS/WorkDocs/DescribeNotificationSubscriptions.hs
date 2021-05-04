@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkDocs.DescribeNotificationSubscriptions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,149 +23,225 @@
 --
 -- Lists the specified notification subscriptions.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.WorkDocs.DescribeNotificationSubscriptions
-    (
-    -- * Creating a Request
-      describeNotificationSubscriptions
-    , DescribeNotificationSubscriptions
+  ( -- * Creating a Request
+    DescribeNotificationSubscriptions (..),
+    newDescribeNotificationSubscriptions,
+
     -- * Request Lenses
-    , dMarker
-    , dLimit
-    , dOrganizationId
+    describeNotificationSubscriptions_limit,
+    describeNotificationSubscriptions_marker,
+    describeNotificationSubscriptions_organizationId,
 
     -- * Destructuring the Response
-    , describeNotificationSubscriptionsResponse
-    , DescribeNotificationSubscriptionsResponse
+    DescribeNotificationSubscriptionsResponse (..),
+    newDescribeNotificationSubscriptionsResponse,
+
     -- * Response Lenses
-    , dnsrsMarker
-    , dnsrsSubscriptions
-    , dnsrsResponseStatus
-    ) where
+    describeNotificationSubscriptionsResponse_subscriptions,
+    describeNotificationSubscriptionsResponse_marker,
+    describeNotificationSubscriptionsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
-import Network.AWS.WorkDocs.Types.Product
 
--- | /See:/ 'describeNotificationSubscriptions' smart constructor.
+-- | /See:/ 'newDescribeNotificationSubscriptions' smart constructor.
 data DescribeNotificationSubscriptions = DescribeNotificationSubscriptions'
-  { _dMarker         :: !(Maybe Text)
-  , _dLimit          :: !(Maybe Nat)
-  , _dOrganizationId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The maximum number of items to return with this call.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The marker for the next set of results. (You received this marker from a
+    -- previous call.)
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the organization.
+    organizationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeNotificationSubscriptions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeNotificationSubscriptions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dMarker' - The marker for the next set of results. (You received this marker from a previous call.)
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dLimit' - The maximum number of items to return with this call.
+-- 'limit', 'describeNotificationSubscriptions_limit' - The maximum number of items to return with this call.
 --
--- * 'dOrganizationId' - The ID of the organization.
-describeNotificationSubscriptions
-    :: Text -- ^ 'dOrganizationId'
-    -> DescribeNotificationSubscriptions
-describeNotificationSubscriptions pOrganizationId_ =
+-- 'marker', 'describeNotificationSubscriptions_marker' - The marker for the next set of results. (You received this marker from a
+-- previous call.)
+--
+-- 'organizationId', 'describeNotificationSubscriptions_organizationId' - The ID of the organization.
+newDescribeNotificationSubscriptions ::
+  -- | 'organizationId'
+  Prelude.Text ->
+  DescribeNotificationSubscriptions
+newDescribeNotificationSubscriptions pOrganizationId_ =
   DescribeNotificationSubscriptions'
-    {_dMarker = Nothing, _dLimit = Nothing, _dOrganizationId = pOrganizationId_}
-
-
--- | The marker for the next set of results. (You received this marker from a previous call.)
-dMarker :: Lens' DescribeNotificationSubscriptions (Maybe Text)
-dMarker = lens _dMarker (\ s a -> s{_dMarker = a})
-
--- | The maximum number of items to return with this call.
-dLimit :: Lens' DescribeNotificationSubscriptions (Maybe Natural)
-dLimit = lens _dLimit (\ s a -> s{_dLimit = a}) . mapping _Nat
-
--- | The ID of the organization.
-dOrganizationId :: Lens' DescribeNotificationSubscriptions Text
-dOrganizationId = lens _dOrganizationId (\ s a -> s{_dOrganizationId = a})
-
-instance AWSRequest DescribeNotificationSubscriptions
-         where
-        type Rs DescribeNotificationSubscriptions =
-             DescribeNotificationSubscriptionsResponse
-        request = get workDocs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeNotificationSubscriptionsResponse' <$>
-                   (x .?> "Marker") <*>
-                     (x .?> "Subscriptions" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeNotificationSubscriptions
-         where
-
-instance NFData DescribeNotificationSubscriptions
-         where
-
-instance ToHeaders DescribeNotificationSubscriptions
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath DescribeNotificationSubscriptions
-         where
-        toPath DescribeNotificationSubscriptions'{..}
-          = mconcat
-              ["/api/v1/organizations/", toBS _dOrganizationId,
-               "/subscriptions"]
-
-instance ToQuery DescribeNotificationSubscriptions
-         where
-        toQuery DescribeNotificationSubscriptions'{..}
-          = mconcat ["marker" =: _dMarker, "limit" =: _dLimit]
-
--- | /See:/ 'describeNotificationSubscriptionsResponse' smart constructor.
-data DescribeNotificationSubscriptionsResponse = DescribeNotificationSubscriptionsResponse'
-  { _dnsrsMarker         :: !(Maybe Text)
-  , _dnsrsSubscriptions  :: !(Maybe [Subscription])
-  , _dnsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeNotificationSubscriptionsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dnsrsMarker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
---
--- * 'dnsrsSubscriptions' - The subscriptions.
---
--- * 'dnsrsResponseStatus' - -- | The response status code.
-describeNotificationSubscriptionsResponse
-    :: Int -- ^ 'dnsrsResponseStatus'
-    -> DescribeNotificationSubscriptionsResponse
-describeNotificationSubscriptionsResponse pResponseStatus_ =
-  DescribeNotificationSubscriptionsResponse'
-    { _dnsrsMarker = Nothing
-    , _dnsrsSubscriptions = Nothing
-    , _dnsrsResponseStatus = pResponseStatus_
+    { limit =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
+      organizationId = pOrganizationId_
     }
 
+-- | The maximum number of items to return with this call.
+describeNotificationSubscriptions_limit :: Lens.Lens' DescribeNotificationSubscriptions (Prelude.Maybe Prelude.Natural)
+describeNotificationSubscriptions_limit = Lens.lens (\DescribeNotificationSubscriptions' {limit} -> limit) (\s@DescribeNotificationSubscriptions' {} a -> s {limit = a} :: DescribeNotificationSubscriptions)
 
--- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
-dnsrsMarker :: Lens' DescribeNotificationSubscriptionsResponse (Maybe Text)
-dnsrsMarker = lens _dnsrsMarker (\ s a -> s{_dnsrsMarker = a})
+-- | The marker for the next set of results. (You received this marker from a
+-- previous call.)
+describeNotificationSubscriptions_marker :: Lens.Lens' DescribeNotificationSubscriptions (Prelude.Maybe Prelude.Text)
+describeNotificationSubscriptions_marker = Lens.lens (\DescribeNotificationSubscriptions' {marker} -> marker) (\s@DescribeNotificationSubscriptions' {} a -> s {marker = a} :: DescribeNotificationSubscriptions)
+
+-- | The ID of the organization.
+describeNotificationSubscriptions_organizationId :: Lens.Lens' DescribeNotificationSubscriptions Prelude.Text
+describeNotificationSubscriptions_organizationId = Lens.lens (\DescribeNotificationSubscriptions' {organizationId} -> organizationId) (\s@DescribeNotificationSubscriptions' {} a -> s {organizationId = a} :: DescribeNotificationSubscriptions)
+
+instance
+  Pager.AWSPager
+    DescribeNotificationSubscriptions
+  where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeNotificationSubscriptionsResponse_marker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeNotificationSubscriptionsResponse_subscriptions
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeNotificationSubscriptions_marker
+          Lens..~ rs
+          Lens.^? describeNotificationSubscriptionsResponse_marker
+            Prelude.. Lens._Just
+
+instance
+  Prelude.AWSRequest
+    DescribeNotificationSubscriptions
+  where
+  type
+    Rs DescribeNotificationSubscriptions =
+      DescribeNotificationSubscriptionsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeNotificationSubscriptionsResponse'
+            Prelude.<$> ( x Prelude..?> "Subscriptions"
+                            Prelude..!@ Prelude.mempty
+                        )
+              Prelude.<*> (x Prelude..?> "Marker")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance
+  Prelude.Hashable
+    DescribeNotificationSubscriptions
+
+instance
+  Prelude.NFData
+    DescribeNotificationSubscriptions
+
+instance
+  Prelude.ToHeaders
+    DescribeNotificationSubscriptions
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance
+  Prelude.ToPath
+    DescribeNotificationSubscriptions
+  where
+  toPath DescribeNotificationSubscriptions' {..} =
+    Prelude.mconcat
+      [ "/api/v1/organizations/",
+        Prelude.toBS organizationId,
+        "/subscriptions"
+      ]
+
+instance
+  Prelude.ToQuery
+    DescribeNotificationSubscriptions
+  where
+  toQuery DescribeNotificationSubscriptions' {..} =
+    Prelude.mconcat
+      [ "limit" Prelude.=: limit,
+        "marker" Prelude.=: marker
+      ]
+
+-- | /See:/ 'newDescribeNotificationSubscriptionsResponse' smart constructor.
+data DescribeNotificationSubscriptionsResponse = DescribeNotificationSubscriptionsResponse'
+  { -- | The subscriptions.
+    subscriptions :: Prelude.Maybe [Subscription],
+    -- | The marker to use when requesting the next set of results. If there are
+    -- no additional results, the string is empty.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeNotificationSubscriptionsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'subscriptions', 'describeNotificationSubscriptionsResponse_subscriptions' - The subscriptions.
+--
+-- 'marker', 'describeNotificationSubscriptionsResponse_marker' - The marker to use when requesting the next set of results. If there are
+-- no additional results, the string is empty.
+--
+-- 'httpStatus', 'describeNotificationSubscriptionsResponse_httpStatus' - The response's http status code.
+newDescribeNotificationSubscriptionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeNotificationSubscriptionsResponse
+newDescribeNotificationSubscriptionsResponse
+  pHttpStatus_ =
+    DescribeNotificationSubscriptionsResponse'
+      { subscriptions =
+          Prelude.Nothing,
+        marker = Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
 -- | The subscriptions.
-dnsrsSubscriptions :: Lens' DescribeNotificationSubscriptionsResponse [Subscription]
-dnsrsSubscriptions = lens _dnsrsSubscriptions (\ s a -> s{_dnsrsSubscriptions = a}) . _Default . _Coerce
+describeNotificationSubscriptionsResponse_subscriptions :: Lens.Lens' DescribeNotificationSubscriptionsResponse (Prelude.Maybe [Subscription])
+describeNotificationSubscriptionsResponse_subscriptions = Lens.lens (\DescribeNotificationSubscriptionsResponse' {subscriptions} -> subscriptions) (\s@DescribeNotificationSubscriptionsResponse' {} a -> s {subscriptions = a} :: DescribeNotificationSubscriptionsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-dnsrsResponseStatus :: Lens' DescribeNotificationSubscriptionsResponse Int
-dnsrsResponseStatus = lens _dnsrsResponseStatus (\ s a -> s{_dnsrsResponseStatus = a})
+-- | The marker to use when requesting the next set of results. If there are
+-- no additional results, the string is empty.
+describeNotificationSubscriptionsResponse_marker :: Lens.Lens' DescribeNotificationSubscriptionsResponse (Prelude.Maybe Prelude.Text)
+describeNotificationSubscriptionsResponse_marker = Lens.lens (\DescribeNotificationSubscriptionsResponse' {marker} -> marker) (\s@DescribeNotificationSubscriptionsResponse' {} a -> s {marker = a} :: DescribeNotificationSubscriptionsResponse)
 
-instance NFData
-           DescribeNotificationSubscriptionsResponse
-         where
+-- | The response's http status code.
+describeNotificationSubscriptionsResponse_httpStatus :: Lens.Lens' DescribeNotificationSubscriptionsResponse Prelude.Int
+describeNotificationSubscriptionsResponse_httpStatus = Lens.lens (\DescribeNotificationSubscriptionsResponse' {httpStatus} -> httpStatus) (\s@DescribeNotificationSubscriptionsResponse' {} a -> s {httpStatus = a} :: DescribeNotificationSubscriptionsResponse)
+
+instance
+  Prelude.NFData
+    DescribeNotificationSubscriptionsResponse

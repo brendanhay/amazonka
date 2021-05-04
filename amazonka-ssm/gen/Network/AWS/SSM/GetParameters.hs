@@ -1,155 +1,196 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.GetParameters
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get details of a parameter.
---
---
+-- Get details of a parameter. Don\'t confuse this API action with the
+-- GetParameter API action.
 module Network.AWS.SSM.GetParameters
-    (
-    -- * Creating a Request
-      getParameters
-    , GetParameters
+  ( -- * Creating a Request
+    GetParameters (..),
+    newGetParameters,
+
     -- * Request Lenses
-    , gpWithDecryption
-    , gpNames
+    getParameters_withDecryption,
+    getParameters_names,
 
     -- * Destructuring the Response
-    , getParametersResponse
-    , GetParametersResponse
+    GetParametersResponse (..),
+    newGetParametersResponse,
+
     -- * Response Lenses
-    , grsParameters
-    , grsInvalidParameters
-    , grsResponseStatus
-    ) where
+    getParametersResponse_invalidParameters,
+    getParametersResponse_parameters,
+    getParametersResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'getParameters' smart constructor.
+-- | /See:/ 'newGetParameters' smart constructor.
 data GetParameters = GetParameters'
-  { _gpWithDecryption :: !(Maybe Bool)
-  , _gpNames          :: !(List1 Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Return decrypted secure string value. Return decrypted values for secure
+    -- string parameters. This flag is ignored for String and StringList
+    -- parameter types.
+    withDecryption :: Prelude.Maybe Prelude.Bool,
+    -- | Names of the parameters for which you want to query information.
+    names :: Prelude.NonEmpty Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetParameters' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetParameters' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gpWithDecryption' - Return decrypted secure string value. Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gpNames' - Names of the parameters for which you want to query information.
-getParameters
-    :: NonEmpty Text -- ^ 'gpNames'
-    -> GetParameters
-getParameters pNames_ =
-  GetParameters' {_gpWithDecryption = Nothing, _gpNames = _List1 # pNames_}
-
-
--- | Return decrypted secure string value. Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
-gpWithDecryption :: Lens' GetParameters (Maybe Bool)
-gpWithDecryption = lens _gpWithDecryption (\ s a -> s{_gpWithDecryption = a})
-
--- | Names of the parameters for which you want to query information.
-gpNames :: Lens' GetParameters (NonEmpty Text)
-gpNames = lens _gpNames (\ s a -> s{_gpNames = a}) . _List1
-
-instance AWSRequest GetParameters where
-        type Rs GetParameters = GetParametersResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetParametersResponse' <$>
-                   (x .?> "Parameters" .!@ mempty) <*>
-                     (x .?> "InvalidParameters" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable GetParameters where
-
-instance NFData GetParameters where
-
-instance ToHeaders GetParameters where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.GetParameters" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON GetParameters where
-        toJSON GetParameters'{..}
-          = object
-              (catMaybes
-                 [("WithDecryption" .=) <$> _gpWithDecryption,
-                  Just ("Names" .= _gpNames)])
-
-instance ToPath GetParameters where
-        toPath = const "/"
-
-instance ToQuery GetParameters where
-        toQuery = const mempty
-
--- | /See:/ 'getParametersResponse' smart constructor.
-data GetParametersResponse = GetParametersResponse'
-  { _grsParameters        :: !(Maybe [Parameter])
-  , _grsInvalidParameters :: !(Maybe [Text])
-  , _grsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetParametersResponse' with the minimum fields required to make a request.
+-- 'withDecryption', 'getParameters_withDecryption' - Return decrypted secure string value. Return decrypted values for secure
+-- string parameters. This flag is ignored for String and StringList
+-- parameter types.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grsParameters' - A list of details for a parameter.
---
--- * 'grsInvalidParameters' - A list of parameters that are not formatted correctly or do not run when executed.
---
--- * 'grsResponseStatus' - -- | The response status code.
-getParametersResponse
-    :: Int -- ^ 'grsResponseStatus'
-    -> GetParametersResponse
-getParametersResponse pResponseStatus_ =
-  GetParametersResponse'
-    { _grsParameters = Nothing
-    , _grsInvalidParameters = Nothing
-    , _grsResponseStatus = pResponseStatus_
+-- 'names', 'getParameters_names' - Names of the parameters for which you want to query information.
+newGetParameters ::
+  -- | 'names'
+  Prelude.NonEmpty Prelude.Text ->
+  GetParameters
+newGetParameters pNames_ =
+  GetParameters'
+    { withDecryption = Prelude.Nothing,
+      names = Prelude._Coerce Lens.# pNames_
     }
 
+-- | Return decrypted secure string value. Return decrypted values for secure
+-- string parameters. This flag is ignored for String and StringList
+-- parameter types.
+getParameters_withDecryption :: Lens.Lens' GetParameters (Prelude.Maybe Prelude.Bool)
+getParameters_withDecryption = Lens.lens (\GetParameters' {withDecryption} -> withDecryption) (\s@GetParameters' {} a -> s {withDecryption = a} :: GetParameters)
+
+-- | Names of the parameters for which you want to query information.
+getParameters_names :: Lens.Lens' GetParameters (Prelude.NonEmpty Prelude.Text)
+getParameters_names = Lens.lens (\GetParameters' {names} -> names) (\s@GetParameters' {} a -> s {names = a} :: GetParameters) Prelude.. Prelude._Coerce
+
+instance Prelude.AWSRequest GetParameters where
+  type Rs GetParameters = GetParametersResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetParametersResponse'
+            Prelude.<$> ( x Prelude..?> "InvalidParameters"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Prelude..?> "Parameters"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetParameters
+
+instance Prelude.NFData GetParameters
+
+instance Prelude.ToHeaders GetParameters where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("AmazonSSM.GetParameters" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON GetParameters where
+  toJSON GetParameters' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("WithDecryption" Prelude..=)
+              Prelude.<$> withDecryption,
+            Prelude.Just ("Names" Prelude..= names)
+          ]
+      )
+
+instance Prelude.ToPath GetParameters where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery GetParameters where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetParametersResponse' smart constructor.
+data GetParametersResponse = GetParametersResponse'
+  { -- | A list of parameters that are not formatted correctly or do not run
+    -- during an execution.
+    invalidParameters :: Prelude.Maybe [Prelude.Text],
+    -- | A list of details for a parameter.
+    parameters :: Prelude.Maybe [Parameter],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetParametersResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'invalidParameters', 'getParametersResponse_invalidParameters' - A list of parameters that are not formatted correctly or do not run
+-- during an execution.
+--
+-- 'parameters', 'getParametersResponse_parameters' - A list of details for a parameter.
+--
+-- 'httpStatus', 'getParametersResponse_httpStatus' - The response's http status code.
+newGetParametersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetParametersResponse
+newGetParametersResponse pHttpStatus_ =
+  GetParametersResponse'
+    { invalidParameters =
+        Prelude.Nothing,
+      parameters = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | A list of parameters that are not formatted correctly or do not run
+-- during an execution.
+getParametersResponse_invalidParameters :: Lens.Lens' GetParametersResponse (Prelude.Maybe [Prelude.Text])
+getParametersResponse_invalidParameters = Lens.lens (\GetParametersResponse' {invalidParameters} -> invalidParameters) (\s@GetParametersResponse' {} a -> s {invalidParameters = a} :: GetParametersResponse) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | A list of details for a parameter.
-grsParameters :: Lens' GetParametersResponse [Parameter]
-grsParameters = lens _grsParameters (\ s a -> s{_grsParameters = a}) . _Default . _Coerce
+getParametersResponse_parameters :: Lens.Lens' GetParametersResponse (Prelude.Maybe [Parameter])
+getParametersResponse_parameters = Lens.lens (\GetParametersResponse' {parameters} -> parameters) (\s@GetParametersResponse' {} a -> s {parameters = a} :: GetParametersResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | A list of parameters that are not formatted correctly or do not run when executed.
-grsInvalidParameters :: Lens' GetParametersResponse [Text]
-grsInvalidParameters = lens _grsInvalidParameters (\ s a -> s{_grsInvalidParameters = a}) . _Default . _Coerce
+-- | The response's http status code.
+getParametersResponse_httpStatus :: Lens.Lens' GetParametersResponse Prelude.Int
+getParametersResponse_httpStatus = Lens.lens (\GetParametersResponse' {httpStatus} -> httpStatus) (\s@GetParametersResponse' {} a -> s {httpStatus = a} :: GetParametersResponse)
 
--- | -- | The response status code.
-grsResponseStatus :: Lens' GetParametersResponse Int
-grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a})
-
-instance NFData GetParametersResponse where
+instance Prelude.NFData GetParametersResponse

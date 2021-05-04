@@ -1,142 +1,164 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.GetSigningCertificate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- This method takes a user pool ID, and returns the signing certificate.
---
---
 module Network.AWS.CognitoIdentityProvider.GetSigningCertificate
-    (
-    -- * Creating a Request
-      getSigningCertificate
-    , GetSigningCertificate
+  ( -- * Creating a Request
+    GetSigningCertificate (..),
+    newGetSigningCertificate,
+
     -- * Request Lenses
-    , gscUserPoolId
+    getSigningCertificate_userPoolId,
 
     -- * Destructuring the Response
-    , getSigningCertificateResponse
-    , GetSigningCertificateResponse
+    GetSigningCertificateResponse (..),
+    newGetSigningCertificateResponse,
+
     -- * Response Lenses
-    , gscrsCertificate
-    , gscrsResponseStatus
-    ) where
+    getSigningCertificateResponse_certificate,
+    getSigningCertificateResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to get a signing certificate from Cognito.
 --
---
---
--- /See:/ 'getSigningCertificate' smart constructor.
-newtype GetSigningCertificate = GetSigningCertificate'
-  { _gscUserPoolId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newGetSigningCertificate' smart constructor.
+data GetSigningCertificate = GetSigningCertificate'
+  { -- | The user pool ID.
+    userPoolId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetSigningCertificate' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetSigningCertificate' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gscUserPoolId' - The user pool ID.
-getSigningCertificate
-    :: Text -- ^ 'gscUserPoolId'
-    -> GetSigningCertificate
-getSigningCertificate pUserPoolId_ =
-  GetSigningCertificate' {_gscUserPoolId = pUserPoolId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'userPoolId', 'getSigningCertificate_userPoolId' - The user pool ID.
+newGetSigningCertificate ::
+  -- | 'userPoolId'
+  Prelude.Text ->
+  GetSigningCertificate
+newGetSigningCertificate pUserPoolId_ =
+  GetSigningCertificate' {userPoolId = pUserPoolId_}
 
 -- | The user pool ID.
-gscUserPoolId :: Lens' GetSigningCertificate Text
-gscUserPoolId = lens _gscUserPoolId (\ s a -> s{_gscUserPoolId = a})
+getSigningCertificate_userPoolId :: Lens.Lens' GetSigningCertificate Prelude.Text
+getSigningCertificate_userPoolId = Lens.lens (\GetSigningCertificate' {userPoolId} -> userPoolId) (\s@GetSigningCertificate' {} a -> s {userPoolId = a} :: GetSigningCertificate)
 
-instance AWSRequest GetSigningCertificate where
-        type Rs GetSigningCertificate =
-             GetSigningCertificateResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetSigningCertificateResponse' <$>
-                   (x .?> "Certificate") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest GetSigningCertificate where
+  type
+    Rs GetSigningCertificate =
+      GetSigningCertificateResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetSigningCertificateResponse'
+            Prelude.<$> (x Prelude..?> "Certificate")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetSigningCertificate where
+instance Prelude.Hashable GetSigningCertificate
 
-instance NFData GetSigningCertificate where
+instance Prelude.NFData GetSigningCertificate
 
-instance ToHeaders GetSigningCertificate where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.GetSigningCertificate"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders GetSigningCertificate where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSCognitoIdentityProviderService.GetSigningCertificate" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON GetSigningCertificate where
-        toJSON GetSigningCertificate'{..}
-          = object
-              (catMaybes [Just ("UserPoolId" .= _gscUserPoolId)])
+instance Prelude.ToJSON GetSigningCertificate where
+  toJSON GetSigningCertificate' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("UserPoolId" Prelude..= userPoolId)]
+      )
 
-instance ToPath GetSigningCertificate where
-        toPath = const "/"
+instance Prelude.ToPath GetSigningCertificate where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetSigningCertificate where
-        toQuery = const mempty
+instance Prelude.ToQuery GetSigningCertificate where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Response from Cognito for a signing certificate request.
 --
---
---
--- /See:/ 'getSigningCertificateResponse' smart constructor.
+-- /See:/ 'newGetSigningCertificateResponse' smart constructor.
 data GetSigningCertificateResponse = GetSigningCertificateResponse'
-  { _gscrsCertificate    :: !(Maybe Text)
-  , _gscrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The signing certificate.
+    certificate :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetSigningCertificateResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetSigningCertificateResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gscrsCertificate' - The signing certificate.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gscrsResponseStatus' - -- | The response status code.
-getSigningCertificateResponse
-    :: Int -- ^ 'gscrsResponseStatus'
-    -> GetSigningCertificateResponse
-getSigningCertificateResponse pResponseStatus_ =
+-- 'certificate', 'getSigningCertificateResponse_certificate' - The signing certificate.
+--
+-- 'httpStatus', 'getSigningCertificateResponse_httpStatus' - The response's http status code.
+newGetSigningCertificateResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetSigningCertificateResponse
+newGetSigningCertificateResponse pHttpStatus_ =
   GetSigningCertificateResponse'
-    {_gscrsCertificate = Nothing, _gscrsResponseStatus = pResponseStatus_}
-
+    { certificate =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The signing certificate.
-gscrsCertificate :: Lens' GetSigningCertificateResponse (Maybe Text)
-gscrsCertificate = lens _gscrsCertificate (\ s a -> s{_gscrsCertificate = a})
+getSigningCertificateResponse_certificate :: Lens.Lens' GetSigningCertificateResponse (Prelude.Maybe Prelude.Text)
+getSigningCertificateResponse_certificate = Lens.lens (\GetSigningCertificateResponse' {certificate} -> certificate) (\s@GetSigningCertificateResponse' {} a -> s {certificate = a} :: GetSigningCertificateResponse)
 
--- | -- | The response status code.
-gscrsResponseStatus :: Lens' GetSigningCertificateResponse Int
-gscrsResponseStatus = lens _gscrsResponseStatus (\ s a -> s{_gscrsResponseStatus = a})
+-- | The response's http status code.
+getSigningCertificateResponse_httpStatus :: Lens.Lens' GetSigningCertificateResponse Prelude.Int
+getSigningCertificateResponse_httpStatus = Lens.lens (\GetSigningCertificateResponse' {httpStatus} -> httpStatus) (\s@GetSigningCertificateResponse' {} a -> s {httpStatus = a} :: GetSigningCertificateResponse)
 
-instance NFData GetSigningCertificateResponse where
+instance Prelude.NFData GetSigningCertificateResponse

@@ -1,134 +1,157 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudSearch.IndexDocuments
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Tells the search domain to start indexing its documents using the latest indexing options. This operation must be invoked to activate options whose 'OptionStatus' is @RequiresIndexDocuments@ .
---
---
+-- Tells the search domain to start indexing its documents using the latest
+-- indexing options. This operation must be invoked to activate options
+-- whose OptionStatus is @RequiresIndexDocuments@.
 module Network.AWS.CloudSearch.IndexDocuments
-    (
-    -- * Creating a Request
-      indexDocuments
-    , IndexDocuments
+  ( -- * Creating a Request
+    IndexDocuments (..),
+    newIndexDocuments,
+
     -- * Request Lenses
-    , idDomainName
+    indexDocuments_domainName,
 
     -- * Destructuring the Response
-    , indexDocumentsResponse
-    , IndexDocumentsResponse
+    IndexDocumentsResponse (..),
+    newIndexDocumentsResponse,
+
     -- * Response Lenses
-    , idrsFieldNames
-    , idrsResponseStatus
-    ) where
+    indexDocumentsResponse_fieldNames,
+    indexDocumentsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudSearch.Types
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the @'IndexDocuments' @ operation. Specifies the name of the domain you want to re-index.
+-- | Container for the parameters to the @IndexDocuments@ operation.
+-- Specifies the name of the domain you want to re-index.
 --
---
---
--- /See:/ 'indexDocuments' smart constructor.
-newtype IndexDocuments = IndexDocuments'
-  { _idDomainName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newIndexDocuments' smart constructor.
+data IndexDocuments = IndexDocuments'
+  { domainName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'IndexDocuments' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'IndexDocuments' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'idDomainName' - Undocumented member.
-indexDocuments
-    :: Text -- ^ 'idDomainName'
-    -> IndexDocuments
-indexDocuments pDomainName_ = IndexDocuments' {_idDomainName = pDomainName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'domainName', 'indexDocuments_domainName' - Undocumented member.
+newIndexDocuments ::
+  -- | 'domainName'
+  Prelude.Text ->
+  IndexDocuments
+newIndexDocuments pDomainName_ =
+  IndexDocuments' {domainName = pDomainName_}
 
 -- | Undocumented member.
-idDomainName :: Lens' IndexDocuments Text
-idDomainName = lens _idDomainName (\ s a -> s{_idDomainName = a})
+indexDocuments_domainName :: Lens.Lens' IndexDocuments Prelude.Text
+indexDocuments_domainName = Lens.lens (\IndexDocuments' {domainName} -> domainName) (\s@IndexDocuments' {} a -> s {domainName = a} :: IndexDocuments)
 
-instance AWSRequest IndexDocuments where
-        type Rs IndexDocuments = IndexDocumentsResponse
-        request = postQuery cloudSearch
-        response
-          = receiveXMLWrapper "IndexDocumentsResult"
-              (\ s h x ->
-                 IndexDocumentsResponse' <$>
-                   (x .@? "FieldNames" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest IndexDocuments where
+  type Rs IndexDocuments = IndexDocumentsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "IndexDocumentsResult"
+      ( \s h x ->
+          IndexDocumentsResponse'
+            Prelude.<$> ( x Prelude..@? "FieldNames"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable IndexDocuments where
+instance Prelude.Hashable IndexDocuments
 
-instance NFData IndexDocuments where
+instance Prelude.NFData IndexDocuments
 
-instance ToHeaders IndexDocuments where
-        toHeaders = const mempty
+instance Prelude.ToHeaders IndexDocuments where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath IndexDocuments where
-        toPath = const "/"
+instance Prelude.ToPath IndexDocuments where
+  toPath = Prelude.const "/"
 
-instance ToQuery IndexDocuments where
-        toQuery IndexDocuments'{..}
-          = mconcat
-              ["Action" =: ("IndexDocuments" :: ByteString),
-               "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _idDomainName]
+instance Prelude.ToQuery IndexDocuments where
+  toQuery IndexDocuments' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("IndexDocuments" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2013-01-01" :: Prelude.ByteString),
+        "DomainName" Prelude.=: domainName
+      ]
 
--- | The result of an @IndexDocuments@ request. Contains the status of the indexing operation, including the fields being indexed.
+-- | The result of an @IndexDocuments@ request. Contains the status of the
+-- indexing operation, including the fields being indexed.
 --
---
---
--- /See:/ 'indexDocumentsResponse' smart constructor.
+-- /See:/ 'newIndexDocumentsResponse' smart constructor.
 data IndexDocumentsResponse = IndexDocumentsResponse'
-  { _idrsFieldNames     :: !(Maybe [Text])
-  , _idrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The names of the fields that are currently being indexed.
+    fieldNames :: Prelude.Maybe [Prelude.Text],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'IndexDocumentsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'IndexDocumentsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'idrsFieldNames' - The names of the fields that are currently being indexed.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'idrsResponseStatus' - -- | The response status code.
-indexDocumentsResponse
-    :: Int -- ^ 'idrsResponseStatus'
-    -> IndexDocumentsResponse
-indexDocumentsResponse pResponseStatus_ =
+-- 'fieldNames', 'indexDocumentsResponse_fieldNames' - The names of the fields that are currently being indexed.
+--
+-- 'httpStatus', 'indexDocumentsResponse_httpStatus' - The response's http status code.
+newIndexDocumentsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  IndexDocumentsResponse
+newIndexDocumentsResponse pHttpStatus_ =
   IndexDocumentsResponse'
-    {_idrsFieldNames = Nothing, _idrsResponseStatus = pResponseStatus_}
-
+    { fieldNames =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The names of the fields that are currently being indexed.
-idrsFieldNames :: Lens' IndexDocumentsResponse [Text]
-idrsFieldNames = lens _idrsFieldNames (\ s a -> s{_idrsFieldNames = a}) . _Default . _Coerce
+indexDocumentsResponse_fieldNames :: Lens.Lens' IndexDocumentsResponse (Prelude.Maybe [Prelude.Text])
+indexDocumentsResponse_fieldNames = Lens.lens (\IndexDocumentsResponse' {fieldNames} -> fieldNames) (\s@IndexDocumentsResponse' {} a -> s {fieldNames = a} :: IndexDocumentsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-idrsResponseStatus :: Lens' IndexDocumentsResponse Int
-idrsResponseStatus = lens _idrsResponseStatus (\ s a -> s{_idrsResponseStatus = a})
+-- | The response's http status code.
+indexDocumentsResponse_httpStatus :: Lens.Lens' IndexDocumentsResponse Prelude.Int
+indexDocumentsResponse_httpStatus = Lens.lens (\IndexDocumentsResponse' {httpStatus} -> httpStatus) (\s@IndexDocumentsResponse' {} a -> s {httpStatus = a} :: IndexDocumentsResponse)
 
-instance NFData IndexDocumentsResponse where
+instance Prelude.NFData IndexDocumentsResponse

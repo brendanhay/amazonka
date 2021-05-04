@@ -1,104 +1,113 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.EnableTopicRule
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables the rule.
---
---
 module Network.AWS.IoT.EnableTopicRule
-    (
-    -- * Creating a Request
-      enableTopicRule
-    , EnableTopicRule
+  ( -- * Creating a Request
+    EnableTopicRule (..),
+    newEnableTopicRule,
+
     -- * Request Lenses
-    , etrRuleName
+    enableTopicRule_ruleName,
 
     -- * Destructuring the Response
-    , enableTopicRuleResponse
-    , EnableTopicRuleResponse
-    ) where
+    EnableTopicRuleResponse (..),
+    newEnableTopicRuleResponse,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the EnableTopicRuleRequest operation.
 --
---
---
--- /See:/ 'enableTopicRule' smart constructor.
-newtype EnableTopicRule = EnableTopicRule'
-  { _etrRuleName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newEnableTopicRule' smart constructor.
+data EnableTopicRule = EnableTopicRule'
+  { -- | The name of the topic rule to enable.
+    ruleName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'EnableTopicRule' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'EnableTopicRule' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'etrRuleName' - The name of the topic rule to enable.
-enableTopicRule
-    :: Text -- ^ 'etrRuleName'
-    -> EnableTopicRule
-enableTopicRule pRuleName_ = EnableTopicRule' {_etrRuleName = pRuleName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'ruleName', 'enableTopicRule_ruleName' - The name of the topic rule to enable.
+newEnableTopicRule ::
+  -- | 'ruleName'
+  Prelude.Text ->
+  EnableTopicRule
+newEnableTopicRule pRuleName_ =
+  EnableTopicRule' {ruleName = pRuleName_}
 
 -- | The name of the topic rule to enable.
-etrRuleName :: Lens' EnableTopicRule Text
-etrRuleName = lens _etrRuleName (\ s a -> s{_etrRuleName = a})
+enableTopicRule_ruleName :: Lens.Lens' EnableTopicRule Prelude.Text
+enableTopicRule_ruleName = Lens.lens (\EnableTopicRule' {ruleName} -> ruleName) (\s@EnableTopicRule' {} a -> s {ruleName = a} :: EnableTopicRule)
 
-instance AWSRequest EnableTopicRule where
-        type Rs EnableTopicRule = EnableTopicRuleResponse
-        request = postJSON ioT
-        response = receiveNull EnableTopicRuleResponse'
+instance Prelude.AWSRequest EnableTopicRule where
+  type Rs EnableTopicRule = EnableTopicRuleResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull EnableTopicRuleResponse'
 
-instance Hashable EnableTopicRule where
+instance Prelude.Hashable EnableTopicRule
 
-instance NFData EnableTopicRule where
+instance Prelude.NFData EnableTopicRule
 
-instance ToHeaders EnableTopicRule where
-        toHeaders = const mempty
+instance Prelude.ToHeaders EnableTopicRule where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON EnableTopicRule where
-        toJSON = const (Object mempty)
+instance Prelude.ToJSON EnableTopicRule where
+  toJSON =
+    Prelude.const (Prelude.Object Prelude.mempty)
 
-instance ToPath EnableTopicRule where
-        toPath EnableTopicRule'{..}
-          = mconcat ["/rules/", toBS _etrRuleName, "/enable"]
+instance Prelude.ToPath EnableTopicRule where
+  toPath EnableTopicRule' {..} =
+    Prelude.mconcat
+      ["/rules/", Prelude.toBS ruleName, "/enable"]
 
-instance ToQuery EnableTopicRule where
-        toQuery = const mempty
+instance Prelude.ToQuery EnableTopicRule where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'enableTopicRuleResponse' smart constructor.
-data EnableTopicRuleResponse =
-  EnableTopicRuleResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newEnableTopicRuleResponse' smart constructor.
+data EnableTopicRuleResponse = EnableTopicRuleResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'EnableTopicRuleResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'EnableTopicRuleResponse' with all optional fields omitted.
 --
-enableTopicRuleResponse
-    :: EnableTopicRuleResponse
-enableTopicRuleResponse = EnableTopicRuleResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newEnableTopicRuleResponse ::
+  EnableTopicRuleResponse
+newEnableTopicRuleResponse = EnableTopicRuleResponse'
 
-
-instance NFData EnableTopicRuleResponse where
+instance Prelude.NFData EnableTopicRuleResponse

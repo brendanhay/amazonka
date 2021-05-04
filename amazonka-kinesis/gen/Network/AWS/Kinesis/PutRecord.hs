@@ -1,226 +1,376 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Kinesis.PutRecord
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Writes a single data record into an Amazon Kinesis data stream. Call @PutRecord@ to send data into the stream for real-time ingestion and subsequent processing, one record at a time. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MB per second.
+-- Writes a single data record into an Amazon Kinesis data stream. Call
+-- @PutRecord@ to send data into the stream for real-time ingestion and
+-- subsequent processing, one record at a time. Each shard can support
+-- writes up to 1,000 records per second, up to a maximum data write total
+-- of 1 MiB per second.
 --
+-- You must specify the name of the stream that captures, stores, and
+-- transports the data; a partition key; and the data blob itself.
 --
--- You must specify the name of the stream that captures, stores, and transports the data; a partition key; and the data blob itself.
+-- The data blob can be any type of data; for example, a segment from a log
+-- file, geographic\/location data, website clickstream data, and so on.
 --
--- The data blob can be any type of data; for example, a segment from a log file, geographic/location data, website clickstream data, and so on.
+-- The partition key is used by Kinesis Data Streams to distribute data
+-- across shards. Kinesis Data Streams segregates the data records that
+-- belong to a stream into multiple shards, using the partition key
+-- associated with each data record to determine the shard to which a given
+-- data record belongs.
 --
--- The partition key is used by Kinesis Data Streams to distribute data across shards. Kinesis Data Streams segregates the data records that belong to a stream into multiple shards, using the partition key associated with each data record to determine the shard to which a given data record belongs.
+-- Partition keys are Unicode strings, with a maximum length limit of 256
+-- characters for each key. An MD5 hash function is used to map partition
+-- keys to 128-bit integer values and to map associated data records to
+-- shards using the hash key ranges of the shards. You can override hashing
+-- the partition key to determine the shard by explicitly specifying a hash
+-- value using the @ExplicitHashKey@ parameter. For more information, see
+-- <https://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream Adding Data to a Stream>
+-- in the /Amazon Kinesis Data Streams Developer Guide/.
 --
--- Partition keys are Unicode strings, with a maximum length limit of 256 characters for each key. An MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards using the hash key ranges of the shards. You can override hashing the partition key to determine the shard by explicitly specifying a hash value using the @ExplicitHashKey@ parameter. For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream Adding Data to a Stream> in the /Amazon Kinesis Data Streams Developer Guide/ .
+-- @PutRecord@ returns the shard ID of where the data record was placed and
+-- the sequence number that was assigned to the data record.
 --
--- @PutRecord@ returns the shard ID of where the data record was placed and the sequence number that was assigned to the data record.
+-- Sequence numbers increase over time and are specific to a shard within a
+-- stream, not across all shards within a stream. To guarantee strictly
+-- increasing ordering, write serially to a shard and use the
+-- @SequenceNumberForOrdering@ parameter. For more information, see
+-- <https://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream Adding Data to a Stream>
+-- in the /Amazon Kinesis Data Streams Developer Guide/.
 --
--- Sequence numbers increase over time and are specific to a shard within a stream, not across all shards within a stream. To guarantee strictly increasing ordering, write serially to a shard and use the @SequenceNumberForOrdering@ parameter. For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream Adding Data to a Stream> in the /Amazon Kinesis Data Streams Developer Guide/ .
+-- After you write a record to a stream, you cannot modify that record or
+-- its order within the stream.
 --
--- If a @PutRecord@ request cannot be processed because of insufficient provisioned throughput on the shard involved in the request, @PutRecord@ throws @ProvisionedThroughputExceededException@ .
+-- If a @PutRecord@ request cannot be processed because of insufficient
+-- provisioned throughput on the shard involved in the request, @PutRecord@
+-- throws @ProvisionedThroughputExceededException@.
 --
--- By default, data records are accessible for 24 hours from the time that they are added to a stream. You can use 'IncreaseStreamRetentionPeriod' or 'DecreaseStreamRetentionPeriod' to modify this retention period.
---
+-- By default, data records are accessible for 24 hours from the time that
+-- they are added to a stream. You can use IncreaseStreamRetentionPeriod or
+-- DecreaseStreamRetentionPeriod to modify this retention period.
 module Network.AWS.Kinesis.PutRecord
-    (
-    -- * Creating a Request
-      putRecord
-    , PutRecord
+  ( -- * Creating a Request
+    PutRecord (..),
+    newPutRecord,
+
     -- * Request Lenses
-    , prExplicitHashKey
-    , prSequenceNumberForOrdering
-    , prStreamName
-    , prData
-    , prPartitionKey
+    putRecord_sequenceNumberForOrdering,
+    putRecord_explicitHashKey,
+    putRecord_streamName,
+    putRecord_data,
+    putRecord_partitionKey,
 
     -- * Destructuring the Response
-    , putRecordResponse
-    , PutRecordResponse
+    PutRecordResponse (..),
+    newPutRecordResponse,
+
     -- * Response Lenses
-    , prrsEncryptionType
-    , prrsResponseStatus
-    , prrsShardId
-    , prrsSequenceNumber
-    ) where
+    putRecordResponse_encryptionType,
+    putRecordResponse_httpStatus,
+    putRecordResponse_shardId,
+    putRecordResponse_sequenceNumber,
+  )
+where
 
 import Network.AWS.Kinesis.Types
-import Network.AWS.Kinesis.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input for @PutRecord@ .
+-- | Represents the input for @PutRecord@.
 --
---
---
--- /See:/ 'putRecord' smart constructor.
+-- /See:/ 'newPutRecord' smart constructor.
 data PutRecord = PutRecord'
-  { _prExplicitHashKey           :: !(Maybe Text)
-  , _prSequenceNumberForOrdering :: !(Maybe Text)
-  , _prStreamName                :: !Text
-  , _prData                      :: !Base64
-  , _prPartitionKey              :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Guarantees strictly increasing sequence numbers, for puts from the same
+    -- client and to the same partition key. Usage: set the
+    -- @SequenceNumberForOrdering@ of record /n/ to the sequence number of
+    -- record /n-1/ (as returned in the result when putting record /n-1/). If
+    -- this parameter is not set, records are coarsely ordered based on arrival
+    -- time.
+    sequenceNumberForOrdering :: Prelude.Maybe Prelude.Text,
+    -- | The hash value used to explicitly determine the shard the data record is
+    -- assigned to by overriding the partition key hash.
+    explicitHashKey :: Prelude.Maybe Prelude.Text,
+    -- | The name of the stream to put the data record into.
+    streamName :: Prelude.Text,
+    -- | The data blob to put into the record, which is base64-encoded when the
+    -- blob is serialized. When the data blob (the payload before
+    -- base64-encoding) is added to the partition key size, the total size must
+    -- not exceed the maximum record size (1 MiB).
+    data' :: Prelude.Base64,
+    -- | Determines which shard in the stream the data record is assigned to.
+    -- Partition keys are Unicode strings with a maximum length limit of 256
+    -- characters for each key. Amazon Kinesis Data Streams uses the partition
+    -- key as input to a hash function that maps the partition key and
+    -- associated data to a specific shard. Specifically, an MD5 hash function
+    -- is used to map partition keys to 128-bit integer values and to map
+    -- associated data records to shards. As a result of this hashing
+    -- mechanism, all data records with the same partition key map to the same
+    -- shard within the stream.
+    partitionKey :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PutRecord' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutRecord' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'prExplicitHashKey' - The hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'prSequenceNumberForOrdering' - Guarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the @SequenceNumberForOrdering@ of record /n/ to the sequence number of record /n-1/ (as returned in the result when putting record /n-1/ ). If this parameter is not set, records are coarsely ordered based on arrival time.
+-- 'sequenceNumberForOrdering', 'putRecord_sequenceNumberForOrdering' - Guarantees strictly increasing sequence numbers, for puts from the same
+-- client and to the same partition key. Usage: set the
+-- @SequenceNumberForOrdering@ of record /n/ to the sequence number of
+-- record /n-1/ (as returned in the result when putting record /n-1/). If
+-- this parameter is not set, records are coarsely ordered based on arrival
+-- time.
 --
--- * 'prStreamName' - The name of the stream to put the data record into.
+-- 'explicitHashKey', 'putRecord_explicitHashKey' - The hash value used to explicitly determine the shard the data record is
+-- assigned to by overriding the partition key hash.
 --
--- * 'prData' - The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- 'streamName', 'putRecord_streamName' - The name of the stream to put the data record into.
 --
--- * 'prPartitionKey' - Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
-putRecord
-    :: Text -- ^ 'prStreamName'
-    -> ByteString -- ^ 'prData'
-    -> Text -- ^ 'prPartitionKey'
-    -> PutRecord
-putRecord pStreamName_ pData_ pPartitionKey_ =
+-- 'data'', 'putRecord_data' - The data blob to put into the record, which is base64-encoded when the
+-- blob is serialized. When the data blob (the payload before
+-- base64-encoding) is added to the partition key size, the total size must
+-- not exceed the maximum record size (1 MiB).--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 'partitionKey', 'putRecord_partitionKey' - Determines which shard in the stream the data record is assigned to.
+-- Partition keys are Unicode strings with a maximum length limit of 256
+-- characters for each key. Amazon Kinesis Data Streams uses the partition
+-- key as input to a hash function that maps the partition key and
+-- associated data to a specific shard. Specifically, an MD5 hash function
+-- is used to map partition keys to 128-bit integer values and to map
+-- associated data records to shards. As a result of this hashing
+-- mechanism, all data records with the same partition key map to the same
+-- shard within the stream.
+newPutRecord ::
+  -- | 'streamName'
+  Prelude.Text ->
+  -- | 'data''
+  Prelude.ByteString ->
+  -- | 'partitionKey'
+  Prelude.Text ->
+  PutRecord
+newPutRecord pStreamName_ pData_ pPartitionKey_ =
   PutRecord'
-    { _prExplicitHashKey = Nothing
-    , _prSequenceNumberForOrdering = Nothing
-    , _prStreamName = pStreamName_
-    , _prData = _Base64 # pData_
-    , _prPartitionKey = pPartitionKey_
+    { sequenceNumberForOrdering =
+        Prelude.Nothing,
+      explicitHashKey = Prelude.Nothing,
+      streamName = pStreamName_,
+      data' = Prelude._Base64 Lens.# pData_,
+      partitionKey = pPartitionKey_
     }
 
+-- | Guarantees strictly increasing sequence numbers, for puts from the same
+-- client and to the same partition key. Usage: set the
+-- @SequenceNumberForOrdering@ of record /n/ to the sequence number of
+-- record /n-1/ (as returned in the result when putting record /n-1/). If
+-- this parameter is not set, records are coarsely ordered based on arrival
+-- time.
+putRecord_sequenceNumberForOrdering :: Lens.Lens' PutRecord (Prelude.Maybe Prelude.Text)
+putRecord_sequenceNumberForOrdering = Lens.lens (\PutRecord' {sequenceNumberForOrdering} -> sequenceNumberForOrdering) (\s@PutRecord' {} a -> s {sequenceNumberForOrdering = a} :: PutRecord)
 
--- | The hash value used to explicitly determine the shard the data record is assigned to by overriding the partition key hash.
-prExplicitHashKey :: Lens' PutRecord (Maybe Text)
-prExplicitHashKey = lens _prExplicitHashKey (\ s a -> s{_prExplicitHashKey = a})
-
--- | Guarantees strictly increasing sequence numbers, for puts from the same client and to the same partition key. Usage: set the @SequenceNumberForOrdering@ of record /n/ to the sequence number of record /n-1/ (as returned in the result when putting record /n-1/ ). If this parameter is not set, records are coarsely ordered based on arrival time.
-prSequenceNumberForOrdering :: Lens' PutRecord (Maybe Text)
-prSequenceNumberForOrdering = lens _prSequenceNumberForOrdering (\ s a -> s{_prSequenceNumberForOrdering = a})
+-- | The hash value used to explicitly determine the shard the data record is
+-- assigned to by overriding the partition key hash.
+putRecord_explicitHashKey :: Lens.Lens' PutRecord (Prelude.Maybe Prelude.Text)
+putRecord_explicitHashKey = Lens.lens (\PutRecord' {explicitHashKey} -> explicitHashKey) (\s@PutRecord' {} a -> s {explicitHashKey = a} :: PutRecord)
 
 -- | The name of the stream to put the data record into.
-prStreamName :: Lens' PutRecord Text
-prStreamName = lens _prStreamName (\ s a -> s{_prStreamName = a})
+putRecord_streamName :: Lens.Lens' PutRecord Prelude.Text
+putRecord_streamName = Lens.lens (\PutRecord' {streamName} -> streamName) (\s@PutRecord' {} a -> s {streamName = a} :: PutRecord)
 
--- | The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-prData :: Lens' PutRecord ByteString
-prData = lens _prData (\ s a -> s{_prData = a}) . _Base64
+-- | The data blob to put into the record, which is base64-encoded when the
+-- blob is serialized. When the data blob (the payload before
+-- base64-encoding) is added to the partition key size, the total size must
+-- not exceed the maximum record size (1 MiB).--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+putRecord_data :: Lens.Lens' PutRecord Prelude.ByteString
+putRecord_data = Lens.lens (\PutRecord' {data'} -> data') (\s@PutRecord' {} a -> s {data' = a} :: PutRecord) Prelude.. Prelude._Base64
 
--- | Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
-prPartitionKey :: Lens' PutRecord Text
-prPartitionKey = lens _prPartitionKey (\ s a -> s{_prPartitionKey = a})
+-- | Determines which shard in the stream the data record is assigned to.
+-- Partition keys are Unicode strings with a maximum length limit of 256
+-- characters for each key. Amazon Kinesis Data Streams uses the partition
+-- key as input to a hash function that maps the partition key and
+-- associated data to a specific shard. Specifically, an MD5 hash function
+-- is used to map partition keys to 128-bit integer values and to map
+-- associated data records to shards. As a result of this hashing
+-- mechanism, all data records with the same partition key map to the same
+-- shard within the stream.
+putRecord_partitionKey :: Lens.Lens' PutRecord Prelude.Text
+putRecord_partitionKey = Lens.lens (\PutRecord' {partitionKey} -> partitionKey) (\s@PutRecord' {} a -> s {partitionKey = a} :: PutRecord)
 
-instance AWSRequest PutRecord where
-        type Rs PutRecord = PutRecordResponse
-        request = postJSON kinesis
-        response
-          = receiveJSON
-              (\ s h x ->
-                 PutRecordResponse' <$>
-                   (x .?> "EncryptionType") <*> (pure (fromEnum s)) <*>
-                     (x .:> "ShardId")
-                     <*> (x .:> "SequenceNumber"))
+instance Prelude.AWSRequest PutRecord where
+  type Rs PutRecord = PutRecordResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PutRecordResponse'
+            Prelude.<$> (x Prelude..?> "EncryptionType")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..:> "ShardId")
+            Prelude.<*> (x Prelude..:> "SequenceNumber")
+      )
 
-instance Hashable PutRecord where
+instance Prelude.Hashable PutRecord
 
-instance NFData PutRecord where
+instance Prelude.NFData PutRecord
 
-instance ToHeaders PutRecord where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Kinesis_20131202.PutRecord" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders PutRecord where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("Kinesis_20131202.PutRecord" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON PutRecord where
-        toJSON PutRecord'{..}
-          = object
-              (catMaybes
-                 [("ExplicitHashKey" .=) <$> _prExplicitHashKey,
-                  ("SequenceNumberForOrdering" .=) <$>
-                    _prSequenceNumberForOrdering,
-                  Just ("StreamName" .= _prStreamName),
-                  Just ("Data" .= _prData),
-                  Just ("PartitionKey" .= _prPartitionKey)])
+instance Prelude.ToJSON PutRecord where
+  toJSON PutRecord' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("SequenceNumberForOrdering" Prelude..=)
+              Prelude.<$> sequenceNumberForOrdering,
+            ("ExplicitHashKey" Prelude..=)
+              Prelude.<$> explicitHashKey,
+            Prelude.Just ("StreamName" Prelude..= streamName),
+            Prelude.Just ("Data" Prelude..= data'),
+            Prelude.Just
+              ("PartitionKey" Prelude..= partitionKey)
+          ]
+      )
 
-instance ToPath PutRecord where
-        toPath = const "/"
+instance Prelude.ToPath PutRecord where
+  toPath = Prelude.const "/"
 
-instance ToQuery PutRecord where
-        toQuery = const mempty
+instance Prelude.ToQuery PutRecord where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Represents the output for @PutRecord@ .
+-- | Represents the output for @PutRecord@.
 --
---
---
--- /See:/ 'putRecordResponse' smart constructor.
+-- /See:/ 'newPutRecordResponse' smart constructor.
 data PutRecordResponse = PutRecordResponse'
-  { _prrsEncryptionType :: !(Maybe EncryptionType)
-  , _prrsResponseStatus :: !Int
-  , _prrsShardId        :: !Text
-  , _prrsSequenceNumber :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The encryption type to use on the record. This parameter can be one of
+    -- the following values:
+    --
+    -- -   @NONE@: Do not encrypt the records in the stream.
+    --
+    -- -   @KMS@: Use server-side encryption on the records in the stream using
+    --     a customer-managed AWS KMS key.
+    encryptionType :: Prelude.Maybe EncryptionType,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The shard ID of the shard where the data record was placed.
+    shardId :: Prelude.Text,
+    -- | The sequence number identifier that was assigned to the put data record.
+    -- The sequence number for the record is unique across all records in the
+    -- stream. A sequence number is the identifier associated with every record
+    -- put into the stream.
+    sequenceNumber :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'PutRecordResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'encryptionType', 'putRecordResponse_encryptionType' - The encryption type to use on the record. This parameter can be one of
+-- the following values:
+--
+-- -   @NONE@: Do not encrypt the records in the stream.
+--
+-- -   @KMS@: Use server-side encryption on the records in the stream using
+--     a customer-managed AWS KMS key.
+--
+-- 'httpStatus', 'putRecordResponse_httpStatus' - The response's http status code.
+--
+-- 'shardId', 'putRecordResponse_shardId' - The shard ID of the shard where the data record was placed.
+--
+-- 'sequenceNumber', 'putRecordResponse_sequenceNumber' - The sequence number identifier that was assigned to the put data record.
+-- The sequence number for the record is unique across all records in the
+-- stream. A sequence number is the identifier associated with every record
+-- put into the stream.
+newPutRecordResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'shardId'
+  Prelude.Text ->
+  -- | 'sequenceNumber'
+  Prelude.Text ->
+  PutRecordResponse
+newPutRecordResponse
+  pHttpStatus_
+  pShardId_
+  pSequenceNumber_ =
+    PutRecordResponse'
+      { encryptionType =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_,
+        shardId = pShardId_,
+        sequenceNumber = pSequenceNumber_
+      }
 
--- | Creates a value of 'PutRecordResponse' with the minimum fields required to make a request.
+-- | The encryption type to use on the record. This parameter can be one of
+-- the following values:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- -   @NONE@: Do not encrypt the records in the stream.
 --
--- * 'prrsEncryptionType' - The encryption type to use on the record. This parameter can be one of the following values:     * @NONE@ : Do not encrypt the records in the stream.     * @KMS@ : Use server-side encryption on the records in the stream using a customer-managed AWS KMS key.
---
--- * 'prrsResponseStatus' - -- | The response status code.
---
--- * 'prrsShardId' - The shard ID of the shard where the data record was placed.
---
--- * 'prrsSequenceNumber' - The sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream.
-putRecordResponse
-    :: Int -- ^ 'prrsResponseStatus'
-    -> Text -- ^ 'prrsShardId'
-    -> Text -- ^ 'prrsSequenceNumber'
-    -> PutRecordResponse
-putRecordResponse pResponseStatus_ pShardId_ pSequenceNumber_ =
-  PutRecordResponse'
-    { _prrsEncryptionType = Nothing
-    , _prrsResponseStatus = pResponseStatus_
-    , _prrsShardId = pShardId_
-    , _prrsSequenceNumber = pSequenceNumber_
-    }
+-- -   @KMS@: Use server-side encryption on the records in the stream using
+--     a customer-managed AWS KMS key.
+putRecordResponse_encryptionType :: Lens.Lens' PutRecordResponse (Prelude.Maybe EncryptionType)
+putRecordResponse_encryptionType = Lens.lens (\PutRecordResponse' {encryptionType} -> encryptionType) (\s@PutRecordResponse' {} a -> s {encryptionType = a} :: PutRecordResponse)
 
-
--- | The encryption type to use on the record. This parameter can be one of the following values:     * @NONE@ : Do not encrypt the records in the stream.     * @KMS@ : Use server-side encryption on the records in the stream using a customer-managed AWS KMS key.
-prrsEncryptionType :: Lens' PutRecordResponse (Maybe EncryptionType)
-prrsEncryptionType = lens _prrsEncryptionType (\ s a -> s{_prrsEncryptionType = a})
-
--- | -- | The response status code.
-prrsResponseStatus :: Lens' PutRecordResponse Int
-prrsResponseStatus = lens _prrsResponseStatus (\ s a -> s{_prrsResponseStatus = a})
+-- | The response's http status code.
+putRecordResponse_httpStatus :: Lens.Lens' PutRecordResponse Prelude.Int
+putRecordResponse_httpStatus = Lens.lens (\PutRecordResponse' {httpStatus} -> httpStatus) (\s@PutRecordResponse' {} a -> s {httpStatus = a} :: PutRecordResponse)
 
 -- | The shard ID of the shard where the data record was placed.
-prrsShardId :: Lens' PutRecordResponse Text
-prrsShardId = lens _prrsShardId (\ s a -> s{_prrsShardId = a})
+putRecordResponse_shardId :: Lens.Lens' PutRecordResponse Prelude.Text
+putRecordResponse_shardId = Lens.lens (\PutRecordResponse' {shardId} -> shardId) (\s@PutRecordResponse' {} a -> s {shardId = a} :: PutRecordResponse)
 
--- | The sequence number identifier that was assigned to the put data record. The sequence number for the record is unique across all records in the stream. A sequence number is the identifier associated with every record put into the stream.
-prrsSequenceNumber :: Lens' PutRecordResponse Text
-prrsSequenceNumber = lens _prrsSequenceNumber (\ s a -> s{_prrsSequenceNumber = a})
+-- | The sequence number identifier that was assigned to the put data record.
+-- The sequence number for the record is unique across all records in the
+-- stream. A sequence number is the identifier associated with every record
+-- put into the stream.
+putRecordResponse_sequenceNumber :: Lens.Lens' PutRecordResponse Prelude.Text
+putRecordResponse_sequenceNumber = Lens.lens (\PutRecordResponse' {sequenceNumber} -> sequenceNumber) (\s@PutRecordResponse' {} a -> s {sequenceNumber = a} :: PutRecordResponse)
 
-instance NFData PutRecordResponse where
+instance Prelude.NFData PutRecordResponse

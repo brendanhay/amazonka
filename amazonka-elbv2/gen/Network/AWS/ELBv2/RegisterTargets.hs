@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELBv2.RegisterTargets
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,113 +23,139 @@
 --
 -- Registers the specified targets with the specified target group.
 --
+-- If the target is an EC2 instance, it must be in the @running@ state when
+-- you register it.
 --
--- You can register targets by instance ID or by IP address. If the target is an EC2 instance, it must be in the @running@ state when you register it.
+-- By default, the load balancer routes requests to registered targets
+-- using the protocol and port for the target group. Alternatively, you can
+-- override the port for a target when you register it. You can register
+-- each EC2 instance or IP address with the same target group multiple
+-- times using different ports.
 --
--- By default, the load balancer routes requests to registered targets using the protocol and port for the target group. Alternatively, you can override the port for a target when you register it. You can register each EC2 instance or IP address with the same target group multiple times using different ports.
---
--- With a Network Load Balancer, you cannot register instances by instance ID if they have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1. You can register instances of these types by IP address.
---
--- To remove a target from a target group, use 'DeregisterTargets' .
---
+-- With a Network Load Balancer, you cannot register instances by instance
+-- ID if they have the following instance types: C1, CC1, CC2, CG1, CG2,
+-- CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1. You can register
+-- instances of these types by IP address.
 module Network.AWS.ELBv2.RegisterTargets
-    (
-    -- * Creating a Request
-      registerTargets
-    , RegisterTargets
+  ( -- * Creating a Request
+    RegisterTargets (..),
+    newRegisterTargets,
+
     -- * Request Lenses
-    , rtTargetGroupARN
-    , rtTargets
+    registerTargets_targetGroupArn,
+    registerTargets_targets,
 
     -- * Destructuring the Response
-    , registerTargetsResponse
-    , RegisterTargetsResponse
+    RegisterTargetsResponse (..),
+    newRegisterTargetsResponse,
+
     -- * Response Lenses
-    , rrsResponseStatus
-    ) where
+    registerTargetsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.ELBv2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'registerTargets' smart constructor.
+-- | /See:/ 'newRegisterTargets' smart constructor.
 data RegisterTargets = RegisterTargets'
-  { _rtTargetGroupARN :: !Text
-  , _rtTargets        :: ![TargetDescription]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the target group.
+    targetGroupArn :: Prelude.Text,
+    -- | The targets.
+    targets :: [TargetDescription]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterTargets' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterTargets' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rtTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rtTargets' - The targets.
-registerTargets
-    :: Text -- ^ 'rtTargetGroupARN'
-    -> RegisterTargets
-registerTargets pTargetGroupARN_ =
-  RegisterTargets' {_rtTargetGroupARN = pTargetGroupARN_, _rtTargets = mempty}
-
+-- 'targetGroupArn', 'registerTargets_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.
+--
+-- 'targets', 'registerTargets_targets' - The targets.
+newRegisterTargets ::
+  -- | 'targetGroupArn'
+  Prelude.Text ->
+  RegisterTargets
+newRegisterTargets pTargetGroupArn_ =
+  RegisterTargets'
+    { targetGroupArn = pTargetGroupArn_,
+      targets = Prelude.mempty
+    }
 
 -- | The Amazon Resource Name (ARN) of the target group.
-rtTargetGroupARN :: Lens' RegisterTargets Text
-rtTargetGroupARN = lens _rtTargetGroupARN (\ s a -> s{_rtTargetGroupARN = a})
+registerTargets_targetGroupArn :: Lens.Lens' RegisterTargets Prelude.Text
+registerTargets_targetGroupArn = Lens.lens (\RegisterTargets' {targetGroupArn} -> targetGroupArn) (\s@RegisterTargets' {} a -> s {targetGroupArn = a} :: RegisterTargets)
 
 -- | The targets.
-rtTargets :: Lens' RegisterTargets [TargetDescription]
-rtTargets = lens _rtTargets (\ s a -> s{_rtTargets = a}) . _Coerce
+registerTargets_targets :: Lens.Lens' RegisterTargets [TargetDescription]
+registerTargets_targets = Lens.lens (\RegisterTargets' {targets} -> targets) (\s@RegisterTargets' {} a -> s {targets = a} :: RegisterTargets) Prelude.. Prelude._Coerce
 
-instance AWSRequest RegisterTargets where
-        type Rs RegisterTargets = RegisterTargetsResponse
-        request = postQuery eLBv2
-        response
-          = receiveXMLWrapper "RegisterTargetsResult"
-              (\ s h x ->
-                 RegisterTargetsResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest RegisterTargets where
+  type Rs RegisterTargets = RegisterTargetsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "RegisterTargetsResult"
+      ( \s h x ->
+          RegisterTargetsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable RegisterTargets where
+instance Prelude.Hashable RegisterTargets
 
-instance NFData RegisterTargets where
+instance Prelude.NFData RegisterTargets
 
-instance ToHeaders RegisterTargets where
-        toHeaders = const mempty
+instance Prelude.ToHeaders RegisterTargets where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath RegisterTargets where
-        toPath = const "/"
+instance Prelude.ToPath RegisterTargets where
+  toPath = Prelude.const "/"
 
-instance ToQuery RegisterTargets where
-        toQuery RegisterTargets'{..}
-          = mconcat
-              ["Action" =: ("RegisterTargets" :: ByteString),
-               "Version" =: ("2015-12-01" :: ByteString),
-               "TargetGroupArn" =: _rtTargetGroupARN,
-               "Targets" =: toQueryList "member" _rtTargets]
+instance Prelude.ToQuery RegisterTargets where
+  toQuery RegisterTargets' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("RegisterTargets" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
+        "TargetGroupArn" Prelude.=: targetGroupArn,
+        "Targets"
+          Prelude.=: Prelude.toQueryList "member" targets
+      ]
 
--- | /See:/ 'registerTargetsResponse' smart constructor.
-newtype RegisterTargetsResponse = RegisterTargetsResponse'
-  { _rrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newRegisterTargetsResponse' smart constructor.
+data RegisterTargetsResponse = RegisterTargetsResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RegisterTargetsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RegisterTargetsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rrsResponseStatus' - -- | The response status code.
-registerTargetsResponse
-    :: Int -- ^ 'rrsResponseStatus'
-    -> RegisterTargetsResponse
-registerTargetsResponse pResponseStatus_ =
-  RegisterTargetsResponse' {_rrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'registerTargetsResponse_httpStatus' - The response's http status code.
+newRegisterTargetsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RegisterTargetsResponse
+newRegisterTargetsResponse pHttpStatus_ =
+  RegisterTargetsResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+registerTargetsResponse_httpStatus :: Lens.Lens' RegisterTargetsResponse Prelude.Int
+registerTargetsResponse_httpStatus = Lens.lens (\RegisterTargetsResponse' {httpStatus} -> httpStatus) (\s@RegisterTargetsResponse' {} a -> s {httpStatus = a} :: RegisterTargetsResponse)
 
--- | -- | The response status code.
-rrsResponseStatus :: Lens' RegisterTargetsResponse Int
-rrsResponseStatus = lens _rrsResponseStatus (\ s a -> s{_rrsResponseStatus = a})
-
-instance NFData RegisterTargetsResponse where
+instance Prelude.NFData RegisterTargetsResponse

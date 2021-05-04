@@ -1,166 +1,229 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Rekognition.ListStreamProcessors
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of stream processors that you have created with .
---
---
+-- Gets a list of stream processors that you have created with
+-- CreateStreamProcessor.
 --
 -- This operation returns paginated results.
 module Network.AWS.Rekognition.ListStreamProcessors
-    (
-    -- * Creating a Request
-      listStreamProcessors
-    , ListStreamProcessors
+  ( -- * Creating a Request
+    ListStreamProcessors (..),
+    newListStreamProcessors,
+
     -- * Request Lenses
-    , lspNextToken
-    , lspMaxResults
+    listStreamProcessors_nextToken,
+    listStreamProcessors_maxResults,
 
     -- * Destructuring the Response
-    , listStreamProcessorsResponse
-    , ListStreamProcessorsResponse
+    ListStreamProcessorsResponse (..),
+    newListStreamProcessorsResponse,
+
     -- * Response Lenses
-    , lsprsStreamProcessors
-    , lsprsNextToken
-    , lsprsResponseStatus
-    ) where
+    listStreamProcessorsResponse_nextToken,
+    listStreamProcessorsResponse_streamProcessors,
+    listStreamProcessorsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Rekognition.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listStreamProcessors' smart constructor.
+-- | /See:/ 'newListStreamProcessors' smart constructor.
 data ListStreamProcessors = ListStreamProcessors'
-  { _lspNextToken  :: !(Maybe Text)
-  , _lspMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If the previous response was incomplete (because there are more stream
+    -- processors to retrieve), Amazon Rekognition Video returns a pagination
+    -- token in the response. You can use this pagination token to retrieve the
+    -- next set of stream processors.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Maximum number of stream processors you want Amazon Rekognition Video to
+    -- return in the response. The default is 1000.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListStreamProcessors' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListStreamProcessors' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lspNextToken' - If the previous response was incomplete (because there are more stream processors to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lspMaxResults' - Maximum number of stream processors you want Rekognition Video to return in the response. The default is 1000.
-listStreamProcessors
-    :: ListStreamProcessors
-listStreamProcessors =
-  ListStreamProcessors' {_lspNextToken = Nothing, _lspMaxResults = Nothing}
-
-
--- | If the previous response was incomplete (because there are more stream processors to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors.
-lspNextToken :: Lens' ListStreamProcessors (Maybe Text)
-lspNextToken = lens _lspNextToken (\ s a -> s{_lspNextToken = a})
-
--- | Maximum number of stream processors you want Rekognition Video to return in the response. The default is 1000.
-lspMaxResults :: Lens' ListStreamProcessors (Maybe Natural)
-lspMaxResults = lens _lspMaxResults (\ s a -> s{_lspMaxResults = a}) . mapping _Nat
-
-instance AWSPager ListStreamProcessors where
-        page rq rs
-          | stop (rs ^. lsprsNextToken) = Nothing
-          | stop (rs ^. lsprsStreamProcessors) = Nothing
-          | otherwise =
-            Just $ rq & lspNextToken .~ rs ^. lsprsNextToken
-
-instance AWSRequest ListStreamProcessors where
-        type Rs ListStreamProcessors =
-             ListStreamProcessorsResponse
-        request = postJSON rekognition
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListStreamProcessorsResponse' <$>
-                   (x .?> "StreamProcessors" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListStreamProcessors where
-
-instance NFData ListStreamProcessors where
-
-instance ToHeaders ListStreamProcessors where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("RekognitionService.ListStreamProcessors" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListStreamProcessors where
-        toJSON ListStreamProcessors'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lspNextToken,
-                  ("MaxResults" .=) <$> _lspMaxResults])
-
-instance ToPath ListStreamProcessors where
-        toPath = const "/"
-
-instance ToQuery ListStreamProcessors where
-        toQuery = const mempty
-
--- | /See:/ 'listStreamProcessorsResponse' smart constructor.
-data ListStreamProcessorsResponse = ListStreamProcessorsResponse'
-  { _lsprsStreamProcessors :: !(Maybe [StreamProcessor])
-  , _lsprsNextToken        :: !(Maybe Text)
-  , _lsprsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListStreamProcessorsResponse' with the minimum fields required to make a request.
+-- 'nextToken', 'listStreamProcessors_nextToken' - If the previous response was incomplete (because there are more stream
+-- processors to retrieve), Amazon Rekognition Video returns a pagination
+-- token in the response. You can use this pagination token to retrieve the
+-- next set of stream processors.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsprsStreamProcessors' - List of stream processors that you have created.
---
--- * 'lsprsNextToken' - If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors.
---
--- * 'lsprsResponseStatus' - -- | The response status code.
-listStreamProcessorsResponse
-    :: Int -- ^ 'lsprsResponseStatus'
-    -> ListStreamProcessorsResponse
-listStreamProcessorsResponse pResponseStatus_ =
-  ListStreamProcessorsResponse'
-    { _lsprsStreamProcessors = Nothing
-    , _lsprsNextToken = Nothing
-    , _lsprsResponseStatus = pResponseStatus_
+-- 'maxResults', 'listStreamProcessors_maxResults' - Maximum number of stream processors you want Amazon Rekognition Video to
+-- return in the response. The default is 1000.
+newListStreamProcessors ::
+  ListStreamProcessors
+newListStreamProcessors =
+  ListStreamProcessors'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
+-- | If the previous response was incomplete (because there are more stream
+-- processors to retrieve), Amazon Rekognition Video returns a pagination
+-- token in the response. You can use this pagination token to retrieve the
+-- next set of stream processors.
+listStreamProcessors_nextToken :: Lens.Lens' ListStreamProcessors (Prelude.Maybe Prelude.Text)
+listStreamProcessors_nextToken = Lens.lens (\ListStreamProcessors' {nextToken} -> nextToken) (\s@ListStreamProcessors' {} a -> s {nextToken = a} :: ListStreamProcessors)
+
+-- | Maximum number of stream processors you want Amazon Rekognition Video to
+-- return in the response. The default is 1000.
+listStreamProcessors_maxResults :: Lens.Lens' ListStreamProcessors (Prelude.Maybe Prelude.Natural)
+listStreamProcessors_maxResults = Lens.lens (\ListStreamProcessors' {maxResults} -> maxResults) (\s@ListStreamProcessors' {} a -> s {maxResults = a} :: ListStreamProcessors)
+
+instance Pager.AWSPager ListStreamProcessors where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listStreamProcessorsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listStreamProcessorsResponse_streamProcessors
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listStreamProcessors_nextToken
+          Lens..~ rs
+          Lens.^? listStreamProcessorsResponse_nextToken
+            Prelude.. Lens._Just
+
+instance Prelude.AWSRequest ListStreamProcessors where
+  type
+    Rs ListStreamProcessors =
+      ListStreamProcessorsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListStreamProcessorsResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> ( x Prelude..?> "StreamProcessors"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListStreamProcessors
+
+instance Prelude.NFData ListStreamProcessors
+
+instance Prelude.ToHeaders ListStreamProcessors where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "RekognitionService.ListStreamProcessors" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON ListStreamProcessors where
+  toJSON ListStreamProcessors' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+          ]
+      )
+
+instance Prelude.ToPath ListStreamProcessors where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery ListStreamProcessors where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListStreamProcessorsResponse' smart constructor.
+data ListStreamProcessorsResponse = ListStreamProcessorsResponse'
+  { -- | If the response is truncated, Amazon Rekognition Video returns this
+    -- token that you can use in the subsequent request to retrieve the next
+    -- set of stream processors.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | List of stream processors that you have created.
+    streamProcessors :: Prelude.Maybe [StreamProcessor],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListStreamProcessorsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listStreamProcessorsResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this
+-- token that you can use in the subsequent request to retrieve the next
+-- set of stream processors.
+--
+-- 'streamProcessors', 'listStreamProcessorsResponse_streamProcessors' - List of stream processors that you have created.
+--
+-- 'httpStatus', 'listStreamProcessorsResponse_httpStatus' - The response's http status code.
+newListStreamProcessorsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListStreamProcessorsResponse
+newListStreamProcessorsResponse pHttpStatus_ =
+  ListStreamProcessorsResponse'
+    { nextToken =
+        Prelude.Nothing,
+      streamProcessors = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If the response is truncated, Amazon Rekognition Video returns this
+-- token that you can use in the subsequent request to retrieve the next
+-- set of stream processors.
+listStreamProcessorsResponse_nextToken :: Lens.Lens' ListStreamProcessorsResponse (Prelude.Maybe Prelude.Text)
+listStreamProcessorsResponse_nextToken = Lens.lens (\ListStreamProcessorsResponse' {nextToken} -> nextToken) (\s@ListStreamProcessorsResponse' {} a -> s {nextToken = a} :: ListStreamProcessorsResponse)
 
 -- | List of stream processors that you have created.
-lsprsStreamProcessors :: Lens' ListStreamProcessorsResponse [StreamProcessor]
-lsprsStreamProcessors = lens _lsprsStreamProcessors (\ s a -> s{_lsprsStreamProcessors = a}) . _Default . _Coerce
+listStreamProcessorsResponse_streamProcessors :: Lens.Lens' ListStreamProcessorsResponse (Prelude.Maybe [StreamProcessor])
+listStreamProcessorsResponse_streamProcessors = Lens.lens (\ListStreamProcessorsResponse' {streamProcessors} -> streamProcessors) (\s@ListStreamProcessorsResponse' {} a -> s {streamProcessors = a} :: ListStreamProcessorsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors.
-lsprsNextToken :: Lens' ListStreamProcessorsResponse (Maybe Text)
-lsprsNextToken = lens _lsprsNextToken (\ s a -> s{_lsprsNextToken = a})
+-- | The response's http status code.
+listStreamProcessorsResponse_httpStatus :: Lens.Lens' ListStreamProcessorsResponse Prelude.Int
+listStreamProcessorsResponse_httpStatus = Lens.lens (\ListStreamProcessorsResponse' {httpStatus} -> httpStatus) (\s@ListStreamProcessorsResponse' {} a -> s {httpStatus = a} :: ListStreamProcessorsResponse)
 
--- | -- | The response status code.
-lsprsResponseStatus :: Lens' ListStreamProcessorsResponse Int
-lsprsResponseStatus = lens _lsprsResponseStatus (\ s a -> s{_lsprsResponseStatus = a})
-
-instance NFData ListStreamProcessorsResponse where
+instance Prelude.NFData ListStreamProcessorsResponse

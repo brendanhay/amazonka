@@ -1,158 +1,197 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.DeleteConfigurationSetEventDestination
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a configuration set event destination. Configuration set event destinations are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
---
+-- Deletes a configuration set event destination. Configuration set event
+-- destinations are associated with configuration sets, which enable you to
+-- publish email sending events. For information about using configuration
+-- sets, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide>.
 --
 -- You can execute this operation no more than once per second.
---
 module Network.AWS.SES.DeleteConfigurationSetEventDestination
-    (
-    -- * Creating a Request
-      deleteConfigurationSetEventDestination
-    , DeleteConfigurationSetEventDestination
+  ( -- * Creating a Request
+    DeleteConfigurationSetEventDestination (..),
+    newDeleteConfigurationSetEventDestination,
+
     -- * Request Lenses
-    , dcsedConfigurationSetName
-    , dcsedEventDestinationName
+    deleteConfigurationSetEventDestination_configurationSetName,
+    deleteConfigurationSetEventDestination_eventDestinationName,
 
     -- * Destructuring the Response
-    , deleteConfigurationSetEventDestinationResponse
-    , DeleteConfigurationSetEventDestinationResponse
+    DeleteConfigurationSetEventDestinationResponse (..),
+    newDeleteConfigurationSetEventDestinationResponse,
+
     -- * Response Lenses
-    , dcsedrsResponseStatus
-    ) where
+    deleteConfigurationSetEventDestinationResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request to delete a configuration set event destination. Configuration set event destinations are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
+-- | Represents a request to delete a configuration set event destination.
+-- Configuration set event destinations are associated with configuration
+-- sets, which enable you to publish email sending events. For information
+-- about using configuration sets, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide>.
 --
---
---
--- /See:/ 'deleteConfigurationSetEventDestination' smart constructor.
+-- /See:/ 'newDeleteConfigurationSetEventDestination' smart constructor.
 data DeleteConfigurationSetEventDestination = DeleteConfigurationSetEventDestination'
-  { _dcsedConfigurationSetName :: !Text
-  , _dcsedEventDestinationName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the configuration set from which to delete the event
+    -- destination.
+    configurationSetName :: Prelude.Text,
+    -- | The name of the event destination to delete.
+    eventDestinationName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteConfigurationSetEventDestination' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteConfigurationSetEventDestination' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcsedConfigurationSetName' - The name of the configuration set from which to delete the event destination.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dcsedEventDestinationName' - The name of the event destination to delete.
-deleteConfigurationSetEventDestination
-    :: Text -- ^ 'dcsedConfigurationSetName'
-    -> Text -- ^ 'dcsedEventDestinationName'
-    -> DeleteConfigurationSetEventDestination
-deleteConfigurationSetEventDestination pConfigurationSetName_ pEventDestinationName_ =
-  DeleteConfigurationSetEventDestination'
-    { _dcsedConfigurationSetName = pConfigurationSetName_
-    , _dcsedEventDestinationName = pEventDestinationName_
-    }
+-- 'configurationSetName', 'deleteConfigurationSetEventDestination_configurationSetName' - The name of the configuration set from which to delete the event
+-- destination.
+--
+-- 'eventDestinationName', 'deleteConfigurationSetEventDestination_eventDestinationName' - The name of the event destination to delete.
+newDeleteConfigurationSetEventDestination ::
+  -- | 'configurationSetName'
+  Prelude.Text ->
+  -- | 'eventDestinationName'
+  Prelude.Text ->
+  DeleteConfigurationSetEventDestination
+newDeleteConfigurationSetEventDestination
+  pConfigurationSetName_
+  pEventDestinationName_ =
+    DeleteConfigurationSetEventDestination'
+      { configurationSetName =
+          pConfigurationSetName_,
+        eventDestinationName =
+          pEventDestinationName_
+      }
 
-
--- | The name of the configuration set from which to delete the event destination.
-dcsedConfigurationSetName :: Lens' DeleteConfigurationSetEventDestination Text
-dcsedConfigurationSetName = lens _dcsedConfigurationSetName (\ s a -> s{_dcsedConfigurationSetName = a})
+-- | The name of the configuration set from which to delete the event
+-- destination.
+deleteConfigurationSetEventDestination_configurationSetName :: Lens.Lens' DeleteConfigurationSetEventDestination Prelude.Text
+deleteConfigurationSetEventDestination_configurationSetName = Lens.lens (\DeleteConfigurationSetEventDestination' {configurationSetName} -> configurationSetName) (\s@DeleteConfigurationSetEventDestination' {} a -> s {configurationSetName = a} :: DeleteConfigurationSetEventDestination)
 
 -- | The name of the event destination to delete.
-dcsedEventDestinationName :: Lens' DeleteConfigurationSetEventDestination Text
-dcsedEventDestinationName = lens _dcsedEventDestinationName (\ s a -> s{_dcsedEventDestinationName = a})
+deleteConfigurationSetEventDestination_eventDestinationName :: Lens.Lens' DeleteConfigurationSetEventDestination Prelude.Text
+deleteConfigurationSetEventDestination_eventDestinationName = Lens.lens (\DeleteConfigurationSetEventDestination' {eventDestinationName} -> eventDestinationName) (\s@DeleteConfigurationSetEventDestination' {} a -> s {eventDestinationName = a} :: DeleteConfigurationSetEventDestination)
 
-instance AWSRequest
-           DeleteConfigurationSetEventDestination
-         where
-        type Rs DeleteConfigurationSetEventDestination =
-             DeleteConfigurationSetEventDestinationResponse
-        request = postQuery ses
-        response
-          = receiveXMLWrapper
-              "DeleteConfigurationSetEventDestinationResult"
-              (\ s h x ->
-                 DeleteConfigurationSetEventDestinationResponse' <$>
-                   (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    DeleteConfigurationSetEventDestination
+  where
+  type
+    Rs DeleteConfigurationSetEventDestination =
+      DeleteConfigurationSetEventDestinationResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DeleteConfigurationSetEventDestinationResult"
+      ( \s h x ->
+          DeleteConfigurationSetEventDestinationResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable
-           DeleteConfigurationSetEventDestination
-         where
+instance
+  Prelude.Hashable
+    DeleteConfigurationSetEventDestination
 
-instance NFData
-           DeleteConfigurationSetEventDestination
-         where
+instance
+  Prelude.NFData
+    DeleteConfigurationSetEventDestination
 
-instance ToHeaders
-           DeleteConfigurationSetEventDestination
-         where
-        toHeaders = const mempty
+instance
+  Prelude.ToHeaders
+    DeleteConfigurationSetEventDestination
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath
-           DeleteConfigurationSetEventDestination
-         where
-        toPath = const "/"
+instance
+  Prelude.ToPath
+    DeleteConfigurationSetEventDestination
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery
-           DeleteConfigurationSetEventDestination
-         where
-        toQuery DeleteConfigurationSetEventDestination'{..}
-          = mconcat
-              ["Action" =:
-                 ("DeleteConfigurationSetEventDestination" ::
-                    ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "ConfigurationSetName" =: _dcsedConfigurationSetName,
-               "EventDestinationName" =: _dcsedEventDestinationName]
+instance
+  Prelude.ToQuery
+    DeleteConfigurationSetEventDestination
+  where
+  toQuery DeleteConfigurationSetEventDestination' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ( "DeleteConfigurationSetEventDestination" ::
+                         Prelude.ByteString
+                     ),
+        "Version"
+          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
+        "ConfigurationSetName"
+          Prelude.=: configurationSetName,
+        "EventDestinationName"
+          Prelude.=: eventDestinationName
+      ]
 
 -- | An empty element returned on a successful request.
 --
+-- /See:/ 'newDeleteConfigurationSetEventDestinationResponse' smart constructor.
+data DeleteConfigurationSetEventDestinationResponse = DeleteConfigurationSetEventDestinationResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteConfigurationSetEventDestinationResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'deleteConfigurationSetEventDestinationResponse' smart constructor.
-newtype DeleteConfigurationSetEventDestinationResponse = DeleteConfigurationSetEventDestinationResponse'
-  { _dcsedrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteConfigurationSetEventDestinationResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dcsedrsResponseStatus' - -- | The response status code.
-deleteConfigurationSetEventDestinationResponse
-    :: Int -- ^ 'dcsedrsResponseStatus'
-    -> DeleteConfigurationSetEventDestinationResponse
-deleteConfigurationSetEventDestinationResponse pResponseStatus_ =
-  DeleteConfigurationSetEventDestinationResponse'
-    {_dcsedrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'deleteConfigurationSetEventDestinationResponse_httpStatus' - The response's http status code.
+newDeleteConfigurationSetEventDestinationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteConfigurationSetEventDestinationResponse
+newDeleteConfigurationSetEventDestinationResponse
+  pHttpStatus_ =
+    DeleteConfigurationSetEventDestinationResponse'
+      { httpStatus =
+          pHttpStatus_
+      }
 
+-- | The response's http status code.
+deleteConfigurationSetEventDestinationResponse_httpStatus :: Lens.Lens' DeleteConfigurationSetEventDestinationResponse Prelude.Int
+deleteConfigurationSetEventDestinationResponse_httpStatus = Lens.lens (\DeleteConfigurationSetEventDestinationResponse' {httpStatus} -> httpStatus) (\s@DeleteConfigurationSetEventDestinationResponse' {} a -> s {httpStatus = a} :: DeleteConfigurationSetEventDestinationResponse)
 
--- | -- | The response status code.
-dcsedrsResponseStatus :: Lens' DeleteConfigurationSetEventDestinationResponse Int
-dcsedrsResponseStatus = lens _dcsedrsResponseStatus (\ s a -> s{_dcsedrsResponseStatus = a})
-
-instance NFData
-           DeleteConfigurationSetEventDestinationResponse
-         where
+instance
+  Prelude.NFData
+    DeleteConfigurationSetEventDestinationResponse

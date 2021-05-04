@@ -1,115 +1,145 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFormation.CancelUpdateStack
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels an update on the specified stack. If the call completes successfully, the stack rolls back the update and reverts to the previous stack configuration.
+-- Cancels an update on the specified stack. If the call completes
+-- successfully, the stack rolls back the update and reverts to the
+-- previous stack configuration.
 --
---
+-- You can cancel only stacks that are in the UPDATE_IN_PROGRESS state.
 module Network.AWS.CloudFormation.CancelUpdateStack
-    (
-    -- * Creating a Request
-      cancelUpdateStack
-    , CancelUpdateStack
+  ( -- * Creating a Request
+    CancelUpdateStack (..),
+    newCancelUpdateStack,
+
     -- * Request Lenses
-    , cusClientRequestToken
-    , cusStackName
+    cancelUpdateStack_clientRequestToken,
+    cancelUpdateStack_stackName,
 
     -- * Destructuring the Response
-    , cancelUpdateStackResponse
-    , CancelUpdateStackResponse
-    ) where
+    CancelUpdateStackResponse (..),
+    newCancelUpdateStackResponse,
+  )
+where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.CloudFormation.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | The input for the 'CancelUpdateStack' action.
+-- | The input for the CancelUpdateStack action.
 --
---
---
--- /See:/ 'cancelUpdateStack' smart constructor.
+-- /See:/ 'newCancelUpdateStack' smart constructor.
 data CancelUpdateStack = CancelUpdateStack'
-  { _cusClientRequestToken :: !(Maybe Text)
-  , _cusStackName          :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A unique identifier for this @CancelUpdateStack@ request. Specify this
+    -- token if you plan to retry requests so that AWS CloudFormation knows
+    -- that you\'re not attempting to cancel an update on a stack with the same
+    -- name. You might retry @CancelUpdateStack@ requests to ensure that AWS
+    -- CloudFormation successfully received them.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The name or the unique stack ID that is associated with the stack.
+    stackName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CancelUpdateStack' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CancelUpdateStack' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cusClientRequestToken' - A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cusStackName' - The name or the unique stack ID that is associated with the stack.
-cancelUpdateStack
-    :: Text -- ^ 'cusStackName'
-    -> CancelUpdateStack
-cancelUpdateStack pStackName_ =
+-- 'clientRequestToken', 'cancelUpdateStack_clientRequestToken' - A unique identifier for this @CancelUpdateStack@ request. Specify this
+-- token if you plan to retry requests so that AWS CloudFormation knows
+-- that you\'re not attempting to cancel an update on a stack with the same
+-- name. You might retry @CancelUpdateStack@ requests to ensure that AWS
+-- CloudFormation successfully received them.
+--
+-- 'stackName', 'cancelUpdateStack_stackName' - The name or the unique stack ID that is associated with the stack.
+newCancelUpdateStack ::
+  -- | 'stackName'
+  Prelude.Text ->
+  CancelUpdateStack
+newCancelUpdateStack pStackName_ =
   CancelUpdateStack'
-    {_cusClientRequestToken = Nothing, _cusStackName = pStackName_}
+    { clientRequestToken =
+        Prelude.Nothing,
+      stackName = pStackName_
+    }
 
-
--- | A unique identifier for this @CancelUpdateStack@ request. Specify this token if you plan to retry requests so that AWS CloudFormation knows that you're not attempting to cancel an update on a stack with the same name. You might retry @CancelUpdateStack@ requests to ensure that AWS CloudFormation successfully received them.
-cusClientRequestToken :: Lens' CancelUpdateStack (Maybe Text)
-cusClientRequestToken = lens _cusClientRequestToken (\ s a -> s{_cusClientRequestToken = a})
+-- | A unique identifier for this @CancelUpdateStack@ request. Specify this
+-- token if you plan to retry requests so that AWS CloudFormation knows
+-- that you\'re not attempting to cancel an update on a stack with the same
+-- name. You might retry @CancelUpdateStack@ requests to ensure that AWS
+-- CloudFormation successfully received them.
+cancelUpdateStack_clientRequestToken :: Lens.Lens' CancelUpdateStack (Prelude.Maybe Prelude.Text)
+cancelUpdateStack_clientRequestToken = Lens.lens (\CancelUpdateStack' {clientRequestToken} -> clientRequestToken) (\s@CancelUpdateStack' {} a -> s {clientRequestToken = a} :: CancelUpdateStack)
 
 -- | The name or the unique stack ID that is associated with the stack.
-cusStackName :: Lens' CancelUpdateStack Text
-cusStackName = lens _cusStackName (\ s a -> s{_cusStackName = a})
+cancelUpdateStack_stackName :: Lens.Lens' CancelUpdateStack Prelude.Text
+cancelUpdateStack_stackName = Lens.lens (\CancelUpdateStack' {stackName} -> stackName) (\s@CancelUpdateStack' {} a -> s {stackName = a} :: CancelUpdateStack)
 
-instance AWSRequest CancelUpdateStack where
-        type Rs CancelUpdateStack = CancelUpdateStackResponse
-        request = postQuery cloudFormation
-        response = receiveNull CancelUpdateStackResponse'
+instance Prelude.AWSRequest CancelUpdateStack where
+  type Rs CancelUpdateStack = CancelUpdateStackResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull CancelUpdateStackResponse'
 
-instance Hashable CancelUpdateStack where
+instance Prelude.Hashable CancelUpdateStack
 
-instance NFData CancelUpdateStack where
+instance Prelude.NFData CancelUpdateStack
 
-instance ToHeaders CancelUpdateStack where
-        toHeaders = const mempty
+instance Prelude.ToHeaders CancelUpdateStack where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath CancelUpdateStack where
-        toPath = const "/"
+instance Prelude.ToPath CancelUpdateStack where
+  toPath = Prelude.const "/"
 
-instance ToQuery CancelUpdateStack where
-        toQuery CancelUpdateStack'{..}
-          = mconcat
-              ["Action" =: ("CancelUpdateStack" :: ByteString),
-               "Version" =: ("2010-05-15" :: ByteString),
-               "ClientRequestToken" =: _cusClientRequestToken,
-               "StackName" =: _cusStackName]
+instance Prelude.ToQuery CancelUpdateStack where
+  toQuery CancelUpdateStack' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("CancelUpdateStack" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
+        "ClientRequestToken" Prelude.=: clientRequestToken,
+        "StackName" Prelude.=: stackName
+      ]
 
--- | /See:/ 'cancelUpdateStackResponse' smart constructor.
-data CancelUpdateStackResponse =
-  CancelUpdateStackResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCancelUpdateStackResponse' smart constructor.
+data CancelUpdateStackResponse = CancelUpdateStackResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CancelUpdateStackResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CancelUpdateStackResponse' with all optional fields omitted.
 --
-cancelUpdateStackResponse
-    :: CancelUpdateStackResponse
-cancelUpdateStackResponse = CancelUpdateStackResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newCancelUpdateStackResponse ::
+  CancelUpdateStackResponse
+newCancelUpdateStackResponse =
+  CancelUpdateStackResponse'
 
-
-instance NFData CancelUpdateStackResponse where
+instance Prelude.NFData CancelUpdateStackResponse

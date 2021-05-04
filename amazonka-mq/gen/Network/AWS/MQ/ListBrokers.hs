@@ -1,145 +1,205 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MQ.ListBrokers
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of all brokers.
+--
+-- This operation returns paginated results.
 module Network.AWS.MQ.ListBrokers
-    (
-    -- * Creating a Request
-      listBrokers
-    , ListBrokers
+  ( -- * Creating a Request
+    ListBrokers (..),
+    newListBrokers,
+
     -- * Request Lenses
-    , lbNextToken
-    , lbMaxResults
+    listBrokers_nextToken,
+    listBrokers_maxResults,
 
     -- * Destructuring the Response
-    , listBrokersResponse
-    , ListBrokersResponse
+    ListBrokersResponse (..),
+    newListBrokersResponse,
+
     -- * Response Lenses
-    , lbrsNextToken
-    , lbrsBrokerSummaries
-    , lbrsResponseStatus
-    ) where
+    listBrokersResponse_nextToken,
+    listBrokersResponse_brokerSummaries,
+    listBrokersResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types
-import Network.AWS.MQ.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listBrokers' smart constructor.
+-- | /See:/ 'newListBrokers' smart constructor.
 data ListBrokers = ListBrokers'
-  { _lbNextToken  :: !(Maybe Text)
-  , _lbMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token that specifies the next page of results Amazon MQ should
+    -- return. To request the first page, leave nextToken empty.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of brokers that Amazon MQ can return per page (20 by
+    -- default). This value must be an integer from 5 to 100.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListBrokers' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListBrokers' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lbNextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lbMaxResults' - The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
-listBrokers
-    :: ListBrokers
-listBrokers = ListBrokers' {_lbNextToken = Nothing, _lbMaxResults = Nothing}
-
-
--- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-lbNextToken :: Lens' ListBrokers (Maybe Text)
-lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a})
-
--- | The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
-lbMaxResults :: Lens' ListBrokers (Maybe Natural)
-lbMaxResults = lens _lbMaxResults (\ s a -> s{_lbMaxResults = a}) . mapping _Nat
-
-instance AWSRequest ListBrokers where
-        type Rs ListBrokers = ListBrokersResponse
-        request = get mq
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListBrokersResponse' <$>
-                   (x .?> "nextToken") <*>
-                     (x .?> "brokerSummaries" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListBrokers where
-
-instance NFData ListBrokers where
-
-instance ToHeaders ListBrokers where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath ListBrokers where
-        toPath = const "/v1/brokers"
-
-instance ToQuery ListBrokers where
-        toQuery ListBrokers'{..}
-          = mconcat
-              ["nextToken" =: _lbNextToken,
-               "maxResults" =: _lbMaxResults]
-
--- | /See:/ 'listBrokersResponse' smart constructor.
-data ListBrokersResponse = ListBrokersResponse'
-  { _lbrsNextToken       :: !(Maybe Text)
-  , _lbrsBrokerSummaries :: !(Maybe [BrokerSummary])
-  , _lbrsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListBrokersResponse' with the minimum fields required to make a request.
+-- 'nextToken', 'listBrokers_nextToken' - The token that specifies the next page of results Amazon MQ should
+-- return. To request the first page, leave nextToken empty.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lbrsNextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
---
--- * 'lbrsBrokerSummaries' - A list of information about all brokers.
---
--- * 'lbrsResponseStatus' - -- | The response status code.
-listBrokersResponse
-    :: Int -- ^ 'lbrsResponseStatus'
-    -> ListBrokersResponse
-listBrokersResponse pResponseStatus_ =
-  ListBrokersResponse'
-    { _lbrsNextToken = Nothing
-    , _lbrsBrokerSummaries = Nothing
-    , _lbrsResponseStatus = pResponseStatus_
+-- 'maxResults', 'listBrokers_maxResults' - The maximum number of brokers that Amazon MQ can return per page (20 by
+-- default). This value must be an integer from 5 to 100.
+newListBrokers ::
+  ListBrokers
+newListBrokers =
+  ListBrokers'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
+-- | The token that specifies the next page of results Amazon MQ should
+-- return. To request the first page, leave nextToken empty.
+listBrokers_nextToken :: Lens.Lens' ListBrokers (Prelude.Maybe Prelude.Text)
+listBrokers_nextToken = Lens.lens (\ListBrokers' {nextToken} -> nextToken) (\s@ListBrokers' {} a -> s {nextToken = a} :: ListBrokers)
 
--- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-lbrsNextToken :: Lens' ListBrokersResponse (Maybe Text)
-lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a})
+-- | The maximum number of brokers that Amazon MQ can return per page (20 by
+-- default). This value must be an integer from 5 to 100.
+listBrokers_maxResults :: Lens.Lens' ListBrokers (Prelude.Maybe Prelude.Natural)
+listBrokers_maxResults = Lens.lens (\ListBrokers' {maxResults} -> maxResults) (\s@ListBrokers' {} a -> s {maxResults = a} :: ListBrokers)
+
+instance Pager.AWSPager ListBrokers where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listBrokersResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listBrokersResponse_brokerSummaries
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listBrokers_nextToken
+          Lens..~ rs
+          Lens.^? listBrokersResponse_nextToken Prelude.. Lens._Just
+
+instance Prelude.AWSRequest ListBrokers where
+  type Rs ListBrokers = ListBrokersResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListBrokersResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> ( x Prelude..?> "brokerSummaries"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListBrokers
+
+instance Prelude.NFData ListBrokers
+
+instance Prelude.ToHeaders ListBrokers where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToPath ListBrokers where
+  toPath = Prelude.const "/v1/brokers"
+
+instance Prelude.ToQuery ListBrokers where
+  toQuery ListBrokers' {..} =
+    Prelude.mconcat
+      [ "nextToken" Prelude.=: nextToken,
+        "maxResults" Prelude.=: maxResults
+      ]
+
+-- | /See:/ 'newListBrokersResponse' smart constructor.
+data ListBrokersResponse = ListBrokersResponse'
+  { -- | The token that specifies the next page of results Amazon MQ should
+    -- return. To request the first page, leave nextToken empty.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of information about all brokers.
+    brokerSummaries :: Prelude.Maybe [BrokerSummary],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListBrokersResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listBrokersResponse_nextToken' - The token that specifies the next page of results Amazon MQ should
+-- return. To request the first page, leave nextToken empty.
+--
+-- 'brokerSummaries', 'listBrokersResponse_brokerSummaries' - A list of information about all brokers.
+--
+-- 'httpStatus', 'listBrokersResponse_httpStatus' - The response's http status code.
+newListBrokersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListBrokersResponse
+newListBrokersResponse pHttpStatus_ =
+  ListBrokersResponse'
+    { nextToken = Prelude.Nothing,
+      brokerSummaries = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The token that specifies the next page of results Amazon MQ should
+-- return. To request the first page, leave nextToken empty.
+listBrokersResponse_nextToken :: Lens.Lens' ListBrokersResponse (Prelude.Maybe Prelude.Text)
+listBrokersResponse_nextToken = Lens.lens (\ListBrokersResponse' {nextToken} -> nextToken) (\s@ListBrokersResponse' {} a -> s {nextToken = a} :: ListBrokersResponse)
 
 -- | A list of information about all brokers.
-lbrsBrokerSummaries :: Lens' ListBrokersResponse [BrokerSummary]
-lbrsBrokerSummaries = lens _lbrsBrokerSummaries (\ s a -> s{_lbrsBrokerSummaries = a}) . _Default . _Coerce
+listBrokersResponse_brokerSummaries :: Lens.Lens' ListBrokersResponse (Prelude.Maybe [BrokerSummary])
+listBrokersResponse_brokerSummaries = Lens.lens (\ListBrokersResponse' {brokerSummaries} -> brokerSummaries) (\s@ListBrokersResponse' {} a -> s {brokerSummaries = a} :: ListBrokersResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-lbrsResponseStatus :: Lens' ListBrokersResponse Int
-lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a})
+-- | The response's http status code.
+listBrokersResponse_httpStatus :: Lens.Lens' ListBrokersResponse Prelude.Int
+listBrokersResponse_httpStatus = Lens.lens (\ListBrokersResponse' {httpStatus} -> httpStatus) (\s@ListBrokersResponse' {} a -> s {httpStatus = a} :: ListBrokersResponse)
 
-instance NFData ListBrokersResponse where
+instance Prelude.NFData ListBrokersResponse

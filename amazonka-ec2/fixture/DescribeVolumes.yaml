@@ -1,10 +1,10 @@
 ---
 method: POST
 headers:
-  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/ec2/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=6ca922b3947bc1979267af0221937d7ec465c13b02115cf4b51b5ec6b81fdb0a
+  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/ec2/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=?
   Host:                  ec2.us-east-1.amazonaws.com
   Content-Type:          application/x-www-form-urlencoded; charset=utf-8
-  X-Amz-Content-SHA256:  47762738fe3ef466cf1abd914fd0cf227a43196dc664120d78e05099c19270af
+  X-Amz-Content-SHA256:  abcdef
   X-Amz-Date:            20091028T223200Z
 body:
-  Action=DescribeVolumes&Filter.1.Name=tag%3AName&Filter.1.Value.1=octopus&Filter.2.Name=tag%3ARole&Filter.2.Value.1=database&Filter.2.Value.2=server&Version=2016-11-15&VolumeId.1=foo&VolumeId.2=bar&VolumeId.3=baz
+  ''

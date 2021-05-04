@@ -1,155 +1,196 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SNS.ListSubscriptions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the requester's subscriptions. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a @NextToken@ is also returned. Use the @NextToken@ parameter in a new @ListSubscriptions@ call to get further results.
+-- Returns a list of the requester\'s subscriptions. Each call returns a
+-- limited list of subscriptions, up to 100. If there are more
+-- subscriptions, a @NextToken@ is also returned. Use the @NextToken@
+-- parameter in a new @ListSubscriptions@ call to get further results.
 --
---
+-- This action is throttled at 30 transactions per second (TPS).
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListSubscriptions
-    (
-    -- * Creating a Request
-      listSubscriptions
-    , ListSubscriptions
+  ( -- * Creating a Request
+    ListSubscriptions (..),
+    newListSubscriptions,
+
     -- * Request Lenses
-    , lsNextToken
+    listSubscriptions_nextToken,
 
     -- * Destructuring the Response
-    , listSubscriptionsResponse
-    , ListSubscriptionsResponse
-    -- * Response Lenses
-    , lsrsNextToken
-    , lsrsSubscriptions
-    , lsrsResponseStatus
-    ) where
+    ListSubscriptionsResponse (..),
+    newListSubscriptionsResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    listSubscriptionsResponse_nextToken,
+    listSubscriptionsResponse_subscriptions,
+    listSubscriptionsResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
-import Network.AWS.SNS.Types.Product
 
 -- | Input for ListSubscriptions action.
 --
---
---
--- /See:/ 'listSubscriptions' smart constructor.
-newtype ListSubscriptions = ListSubscriptions'
-  { _lsNextToken :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newListSubscriptions' smart constructor.
+data ListSubscriptions = ListSubscriptions'
+  { -- | Token returned by the previous @ListSubscriptions@ request.
+    nextToken :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListSubscriptions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListSubscriptions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lsNextToken' - Token returned by the previous @ListSubscriptions@ request.
-listSubscriptions
-    :: ListSubscriptions
-listSubscriptions = ListSubscriptions' {_lsNextToken = Nothing}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listSubscriptions_nextToken' - Token returned by the previous @ListSubscriptions@ request.
+newListSubscriptions ::
+  ListSubscriptions
+newListSubscriptions =
+  ListSubscriptions' {nextToken = Prelude.Nothing}
 
 -- | Token returned by the previous @ListSubscriptions@ request.
-lsNextToken :: Lens' ListSubscriptions (Maybe Text)
-lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a})
+listSubscriptions_nextToken :: Lens.Lens' ListSubscriptions (Prelude.Maybe Prelude.Text)
+listSubscriptions_nextToken = Lens.lens (\ListSubscriptions' {nextToken} -> nextToken) (\s@ListSubscriptions' {} a -> s {nextToken = a} :: ListSubscriptions)
 
-instance AWSPager ListSubscriptions where
-        page rq rs
-          | stop (rs ^. lsrsNextToken) = Nothing
-          | stop (rs ^. lsrsSubscriptions) = Nothing
-          | otherwise =
-            Just $ rq & lsNextToken .~ rs ^. lsrsNextToken
+instance Pager.AWSPager ListSubscriptions where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listSubscriptionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listSubscriptionsResponse_subscriptions
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listSubscriptions_nextToken
+          Lens..~ rs
+          Lens.^? listSubscriptionsResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest ListSubscriptions where
-        type Rs ListSubscriptions = ListSubscriptionsResponse
-        request = postQuery sns
-        response
-          = receiveXMLWrapper "ListSubscriptionsResult"
-              (\ s h x ->
-                 ListSubscriptionsResponse' <$>
-                   (x .@? "NextToken") <*>
-                     (x .@? "Subscriptions" .!@ mempty >>=
-                        may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest ListSubscriptions where
+  type Rs ListSubscriptions = ListSubscriptionsResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ListSubscriptionsResult"
+      ( \s h x ->
+          ListSubscriptionsResponse'
+            Prelude.<$> (x Prelude..@? "NextToken")
+            Prelude.<*> ( x Prelude..@? "Subscriptions"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListSubscriptions where
+instance Prelude.Hashable ListSubscriptions
 
-instance NFData ListSubscriptions where
+instance Prelude.NFData ListSubscriptions
 
-instance ToHeaders ListSubscriptions where
-        toHeaders = const mempty
+instance Prelude.ToHeaders ListSubscriptions where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ListSubscriptions where
-        toPath = const "/"
+instance Prelude.ToPath ListSubscriptions where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListSubscriptions where
-        toQuery ListSubscriptions'{..}
-          = mconcat
-              ["Action" =: ("ListSubscriptions" :: ByteString),
-               "Version" =: ("2010-03-31" :: ByteString),
-               "NextToken" =: _lsNextToken]
+instance Prelude.ToQuery ListSubscriptions where
+  toQuery ListSubscriptions' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("ListSubscriptions" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
+        "NextToken" Prelude.=: nextToken
+      ]
 
 -- | Response for ListSubscriptions action
 --
---
---
--- /See:/ 'listSubscriptionsResponse' smart constructor.
+-- /See:/ 'newListSubscriptionsResponse' smart constructor.
 data ListSubscriptionsResponse = ListSubscriptionsResponse'
-  { _lsrsNextToken      :: !(Maybe Text)
-  , _lsrsSubscriptions  :: !(Maybe [Subscription])
-  , _lsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Token to pass along to the next @ListSubscriptions@ request. This
+    -- element is returned if there are more subscriptions to retrieve.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of subscriptions.
+    subscriptions :: Prelude.Maybe [Subscription],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListSubscriptionsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListSubscriptionsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lsrsNextToken' - Token to pass along to the next @ListSubscriptions@ request. This element is returned if there are more subscriptions to retrieve.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lsrsSubscriptions' - A list of subscriptions.
+-- 'nextToken', 'listSubscriptionsResponse_nextToken' - Token to pass along to the next @ListSubscriptions@ request. This
+-- element is returned if there are more subscriptions to retrieve.
 --
--- * 'lsrsResponseStatus' - -- | The response status code.
-listSubscriptionsResponse
-    :: Int -- ^ 'lsrsResponseStatus'
-    -> ListSubscriptionsResponse
-listSubscriptionsResponse pResponseStatus_ =
+-- 'subscriptions', 'listSubscriptionsResponse_subscriptions' - A list of subscriptions.
+--
+-- 'httpStatus', 'listSubscriptionsResponse_httpStatus' - The response's http status code.
+newListSubscriptionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListSubscriptionsResponse
+newListSubscriptionsResponse pHttpStatus_ =
   ListSubscriptionsResponse'
-    { _lsrsNextToken = Nothing
-    , _lsrsSubscriptions = Nothing
-    , _lsrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      subscriptions = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | Token to pass along to the next @ListSubscriptions@ request. This element is returned if there are more subscriptions to retrieve.
-lsrsNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
-lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a})
+-- | Token to pass along to the next @ListSubscriptions@ request. This
+-- element is returned if there are more subscriptions to retrieve.
+listSubscriptionsResponse_nextToken :: Lens.Lens' ListSubscriptionsResponse (Prelude.Maybe Prelude.Text)
+listSubscriptionsResponse_nextToken = Lens.lens (\ListSubscriptionsResponse' {nextToken} -> nextToken) (\s@ListSubscriptionsResponse' {} a -> s {nextToken = a} :: ListSubscriptionsResponse)
 
 -- | A list of subscriptions.
-lsrsSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
-lsrsSubscriptions = lens _lsrsSubscriptions (\ s a -> s{_lsrsSubscriptions = a}) . _Default . _Coerce
+listSubscriptionsResponse_subscriptions :: Lens.Lens' ListSubscriptionsResponse (Prelude.Maybe [Subscription])
+listSubscriptionsResponse_subscriptions = Lens.lens (\ListSubscriptionsResponse' {subscriptions} -> subscriptions) (\s@ListSubscriptionsResponse' {} a -> s {subscriptions = a} :: ListSubscriptionsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-lsrsResponseStatus :: Lens' ListSubscriptionsResponse Int
-lsrsResponseStatus = lens _lsrsResponseStatus (\ s a -> s{_lsrsResponseStatus = a})
+-- | The response's http status code.
+listSubscriptionsResponse_httpStatus :: Lens.Lens' ListSubscriptionsResponse Prelude.Int
+listSubscriptionsResponse_httpStatus = Lens.lens (\ListSubscriptionsResponse' {httpStatus} -> httpStatus) (\s@ListSubscriptionsResponse' {} a -> s {httpStatus = a} :: ListSubscriptionsResponse)
 
-instance NFData ListSubscriptionsResponse where
+instance Prelude.NFData ListSubscriptionsResponse

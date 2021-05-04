@@ -1,108 +1,108 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
-
--- Derived from AWS service descriptions, licensed under Apache 2.0.
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- |
 -- Module      : Network.AWS.SQS
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Welcome to the /Amazon Simple Queue Service API Reference/ .
+-- Derived from API version @2012-11-05@ of the AWS service descriptions, licensed under Apache 2.0.
 --
+-- Welcome to the /Amazon Simple Queue Service API Reference/.
 --
--- Amazon Simple Queue Service (Amazon SQS) is a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. Amazon SQS moves data between distributed application components and helps you decouple these components.
+-- Amazon Simple Queue Service (Amazon SQS) is a reliable, highly-scalable
+-- hosted queue for storing messages as they travel between applications or
+-- microservices. Amazon SQS moves data between distributed application
+-- components and helps you decouple these components.
 --
--- You can use <http://aws.amazon.com/tools/#sdk AWS SDKs> to access Amazon SQS using your favorite programming language. The SDKs perform tasks such as the following automatically:
+-- For information on the permissions you need to use this API, see
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html Identity and access management>
+-- in the /Amazon Simple Queue Service Developer Guide./
 --
---     * Cryptographically sign your service requests
+-- You can use <http://aws.amazon.com/tools/#sdk AWS SDKs> to access Amazon
+-- SQS using your favorite programming language. The SDKs perform tasks
+-- such as the following automatically:
 --
---     * Retry requests
+-- -   Cryptographically sign your service requests
 --
---     * Handle error responses
+-- -   Retry requests
 --
---
+-- -   Handle error responses
 --
 -- __Additional Information__
 --
---     * <http://aws.amazon.com/sqs/ Amazon SQS Product Page>
+-- -   <http://aws.amazon.com/sqs/ Amazon SQS Product Page>
 --
---     * /Amazon Simple Queue Service Developer Guide/
+-- -   /Amazon Simple Queue Service Developer Guide/
 --
---     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/MakingRequestsArticle.html Making API Requests>
+--     -   <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html Making API Requests>
 --
---     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html Using Amazon SQS Message Attributes>
+--     -   <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS Message Attributes>
 --
---     * <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Using Amazon SQS Dead-Letter Queues>
+--     -   <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Amazon SQS Dead-Letter Queues>
 --
+-- -   <http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html Amazon SQS in the AWS CLI Command Reference>
 --
+-- -   /Amazon Web Services General Reference/
 --
---     * /Amazon Web Services General Reference/
---
---     * <http://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region Regions and Endpoints>
---
---
---
---
---
+--     -   <https://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region Regions and Endpoints>
 module Network.AWS.SQS
-    (
-    -- * Service Configuration
-      sqs
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** InvalidBatchEntryId
-    , _InvalidBatchEntryId
+    -- ** InvalidIdFormat
+    _InvalidIdFormat,
 
     -- ** TooManyEntriesInBatchRequest
-    , _TooManyEntriesInBatchRequest
-
-    -- ** QueueDeletedRecently
-    , _QueueDeletedRecently
-
-    -- ** QueueDoesNotExist
-    , _QueueDoesNotExist
-
-    -- ** InvalidAttributeName
-    , _InvalidAttributeName
-
-    -- ** UnsupportedOperation
-    , _UnsupportedOperation
-
-    -- ** InvalidMessageContents
-    , _InvalidMessageContents
-
-    -- ** BatchRequestTooLong
-    , _BatchRequestTooLong
-
-    -- ** OverLimit
-    , _OverLimit
+    _TooManyEntriesInBatchRequest,
 
     -- ** QueueNameExists
-    , _QueueNameExists
-
-    -- ** PurgeQueueInProgress
-    , _PurgeQueueInProgress
-
-    -- ** InvalidIdFormat
-    , _InvalidIdFormat
-
-    -- ** ReceiptHandleIsInvalid
-    , _ReceiptHandleIsInvalid
+    _QueueNameExists,
 
     -- ** EmptyBatchRequest
-    , _EmptyBatchRequest
+    _EmptyBatchRequest,
+
+    -- ** InvalidMessageContents
+    _InvalidMessageContents,
+
+    -- ** UnsupportedOperation
+    _UnsupportedOperation,
+
+    -- ** ReceiptHandleIsInvalid
+    _ReceiptHandleIsInvalid,
+
+    -- ** InvalidAttributeName
+    _InvalidAttributeName,
+
+    -- ** QueueDeletedRecently
+    _QueueDeletedRecently,
+
+    -- ** InvalidBatchEntryId
+    _InvalidBatchEntryId,
 
     -- ** BatchEntryIdsNotDistinct
-    , _BatchEntryIdsNotDistinct
+    _BatchEntryIdsNotDistinct,
 
     -- ** MessageNotInflight
-    , _MessageNotInflight
+    _MessageNotInflight,
+
+    -- ** PurgeQueueInProgress
+    _PurgeQueueInProgress,
+
+    -- ** BatchRequestTooLong
+    _BatchRequestTooLong,
+
+    -- ** OverLimit
+    _OverLimit,
+
+    -- ** QueueDoesNotExist
+    _QueueDoesNotExist,
 
     -- * Waiters
     -- $waiters
@@ -110,144 +110,178 @@ module Network.AWS.SQS
     -- * Operations
     -- $operations
 
-    -- ** GetQueueURL
-    , module Network.AWS.SQS.GetQueueURL
+    -- ** ChangeMessageVisibilityBatch
+    ChangeMessageVisibilityBatch (ChangeMessageVisibilityBatch'),
+    newChangeMessageVisibilityBatch,
+    ChangeMessageVisibilityBatchResponse (ChangeMessageVisibilityBatchResponse'),
+    newChangeMessageVisibilityBatchResponse,
 
     -- ** PurgeQueue
-    , module Network.AWS.SQS.PurgeQueue
-
-    -- ** ChangeMessageVisibilityBatch
-    , module Network.AWS.SQS.ChangeMessageVisibilityBatch
-
-    -- ** SendMessage
-    , module Network.AWS.SQS.SendMessage
-
-    -- ** RemovePermission
-    , module Network.AWS.SQS.RemovePermission
-
-    -- ** GetQueueAttributes
-    , module Network.AWS.SQS.GetQueueAttributes
-
-    -- ** ListQueues
-    , module Network.AWS.SQS.ListQueues
-
-    -- ** ReceiveMessage
-    , module Network.AWS.SQS.ReceiveMessage
-
-    -- ** DeleteQueue
-    , module Network.AWS.SQS.DeleteQueue
-
-    -- ** TagQueue
-    , module Network.AWS.SQS.TagQueue
-
-    -- ** DeleteMessageBatch
-    , module Network.AWS.SQS.DeleteMessageBatch
-
-    -- ** SetQueueAttributes
-    , module Network.AWS.SQS.SetQueueAttributes
-
-    -- ** ListDeadLetterSourceQueues
-    , module Network.AWS.SQS.ListDeadLetterSourceQueues
-
-    -- ** AddPermission
-    , module Network.AWS.SQS.AddPermission
-
-    -- ** DeleteMessage
-    , module Network.AWS.SQS.DeleteMessage
-
-    -- ** ListQueueTags
-    , module Network.AWS.SQS.ListQueueTags
-
-    -- ** CreateQueue
-    , module Network.AWS.SQS.CreateQueue
-
-    -- ** UntagQueue
-    , module Network.AWS.SQS.UntagQueue
-
-    -- ** SendMessageBatch
-    , module Network.AWS.SQS.SendMessageBatch
+    PurgeQueue (PurgeQueue'),
+    newPurgeQueue,
+    PurgeQueueResponse (PurgeQueueResponse'),
+    newPurgeQueueResponse,
 
     -- ** ChangeMessageVisibility
-    , module Network.AWS.SQS.ChangeMessageVisibility
+    ChangeMessageVisibility (ChangeMessageVisibility'),
+    newChangeMessageVisibility,
+    ChangeMessageVisibilityResponse (ChangeMessageVisibilityResponse'),
+    newChangeMessageVisibilityResponse,
+
+    -- ** TagQueue
+    TagQueue (TagQueue'),
+    newTagQueue,
+    TagQueueResponse (TagQueueResponse'),
+    newTagQueueResponse,
+
+    -- ** ListQueues (Paginated)
+    ListQueues (ListQueues'),
+    newListQueues,
+    ListQueuesResponse (ListQueuesResponse'),
+    newListQueuesResponse,
+
+    -- ** ReceiveMessage
+    ReceiveMessage (ReceiveMessage'),
+    newReceiveMessage,
+    ReceiveMessageResponse (ReceiveMessageResponse'),
+    newReceiveMessageResponse,
+
+    -- ** GetQueueAttributes
+    GetQueueAttributes (GetQueueAttributes'),
+    newGetQueueAttributes,
+    GetQueueAttributesResponse (GetQueueAttributesResponse'),
+    newGetQueueAttributesResponse,
+
+    -- ** DeleteMessage
+    DeleteMessage (DeleteMessage'),
+    newDeleteMessage,
+    DeleteMessageResponse (DeleteMessageResponse'),
+    newDeleteMessageResponse,
+
+    -- ** AddPermission
+    AddPermission (AddPermission'),
+    newAddPermission,
+    AddPermissionResponse (AddPermissionResponse'),
+    newAddPermissionResponse,
+
+    -- ** ListQueueTags
+    ListQueueTags (ListQueueTags'),
+    newListQueueTags,
+    ListQueueTagsResponse (ListQueueTagsResponse'),
+    newListQueueTagsResponse,
+
+    -- ** SendMessage
+    SendMessage (SendMessage'),
+    newSendMessage,
+    SendMessageResponse (SendMessageResponse'),
+    newSendMessageResponse,
+
+    -- ** ListDeadLetterSourceQueues (Paginated)
+    ListDeadLetterSourceQueues (ListDeadLetterSourceQueues'),
+    newListDeadLetterSourceQueues,
+    ListDeadLetterSourceQueuesResponse (ListDeadLetterSourceQueuesResponse'),
+    newListDeadLetterSourceQueuesResponse,
+
+    -- ** GetQueueUrl
+    GetQueueUrl (GetQueueUrl'),
+    newGetQueueUrl,
+    GetQueueUrlResponse (GetQueueUrlResponse'),
+    newGetQueueUrlResponse,
+
+    -- ** SetQueueAttributes
+    SetQueueAttributes (SetQueueAttributes'),
+    newSetQueueAttributes,
+    SetQueueAttributesResponse (SetQueueAttributesResponse'),
+    newSetQueueAttributesResponse,
+
+    -- ** DeleteMessageBatch
+    DeleteMessageBatch (DeleteMessageBatch'),
+    newDeleteMessageBatch,
+    DeleteMessageBatchResponse (DeleteMessageBatchResponse'),
+    newDeleteMessageBatchResponse,
+
+    -- ** SendMessageBatch
+    SendMessageBatch (SendMessageBatch'),
+    newSendMessageBatch,
+    SendMessageBatchResponse (SendMessageBatchResponse'),
+    newSendMessageBatchResponse,
+
+    -- ** UntagQueue
+    UntagQueue (UntagQueue'),
+    newUntagQueue,
+    UntagQueueResponse (UntagQueueResponse'),
+    newUntagQueueResponse,
+
+    -- ** DeleteQueue
+    DeleteQueue (DeleteQueue'),
+    newDeleteQueue,
+    DeleteQueueResponse (DeleteQueueResponse'),
+    newDeleteQueueResponse,
+
+    -- ** CreateQueue
+    CreateQueue (CreateQueue'),
+    newCreateQueue,
+    CreateQueueResponse (CreateQueueResponse'),
+    newCreateQueueResponse,
+
+    -- ** RemovePermission
+    RemovePermission (RemovePermission'),
+    newRemovePermission,
+    RemovePermissionResponse (RemovePermissionResponse'),
+    newRemovePermissionResponse,
 
     -- * Types
 
     -- ** MessageAttribute
-    , MessageAttribute (..)
+    MessageAttribute (..),
+
+    -- ** MessageSystemAttributeNameForSends
+    MessageSystemAttributeNameForSends (..),
 
     -- ** QueueAttributeName
-    , QueueAttributeName (..)
+    QueueAttributeName (..),
 
     -- ** BatchResultErrorEntry
-    , BatchResultErrorEntry
-    , batchResultErrorEntry
-    , breeMessage
-    , breeId
-    , breeSenderFault
-    , breeCode
+    BatchResultErrorEntry (BatchResultErrorEntry'),
+    newBatchResultErrorEntry,
 
     -- ** ChangeMessageVisibilityBatchRequestEntry
-    , ChangeMessageVisibilityBatchRequestEntry
-    , changeMessageVisibilityBatchRequestEntry
-    , cVisibilityTimeout
-    , cId
-    , cReceiptHandle
+    ChangeMessageVisibilityBatchRequestEntry (ChangeMessageVisibilityBatchRequestEntry'),
+    newChangeMessageVisibilityBatchRequestEntry,
 
     -- ** ChangeMessageVisibilityBatchResultEntry
-    , ChangeMessageVisibilityBatchResultEntry
-    , changeMessageVisibilityBatchResultEntry
-    , cmvbreId
+    ChangeMessageVisibilityBatchResultEntry (ChangeMessageVisibilityBatchResultEntry'),
+    newChangeMessageVisibilityBatchResultEntry,
 
     -- ** DeleteMessageBatchRequestEntry
-    , DeleteMessageBatchRequestEntry
-    , deleteMessageBatchRequestEntry
-    , dmbreId
-    , dmbreReceiptHandle
+    DeleteMessageBatchRequestEntry (DeleteMessageBatchRequestEntry'),
+    newDeleteMessageBatchRequestEntry,
 
     -- ** DeleteMessageBatchResultEntry
-    , DeleteMessageBatchResultEntry
-    , deleteMessageBatchResultEntry
-    , dId
+    DeleteMessageBatchResultEntry (DeleteMessageBatchResultEntry'),
+    newDeleteMessageBatchResultEntry,
 
     -- ** Message
-    , Message
-    , message
-    , mMessageAttributes
-    , mMD5OfBody
-    , mBody
-    , mAttributes
-    , mReceiptHandle
-    , mMessageId
-    , mMD5OfMessageAttributes
+    Message (Message'),
+    newMessage,
 
     -- ** MessageAttributeValue
-    , MessageAttributeValue
-    , messageAttributeValue
-    , mavBinaryValue
-    , mavStringListValues
-    , mavStringValue
-    , mavBinaryListValues
-    , mavDataType
+    MessageAttributeValue (MessageAttributeValue'),
+    newMessageAttributeValue,
+
+    -- ** MessageSystemAttributeValue
+    MessageSystemAttributeValue (MessageSystemAttributeValue'),
+    newMessageSystemAttributeValue,
 
     -- ** SendMessageBatchRequestEntry
-    , SendMessageBatchRequestEntry
-    , sendMessageBatchRequestEntry
-    , sMessageAttributes
-    , sDelaySeconds
-    , sMessageDeduplicationId
-    , sMessageGroupId
-    , sId
-    , sMessageBody
+    SendMessageBatchRequestEntry (SendMessageBatchRequestEntry'),
+    newSendMessageBatchRequestEntry,
 
     -- ** SendMessageBatchResultEntry
-    , SendMessageBatchResultEntry
-    , sendMessageBatchResultEntry
-    , smbreSequenceNumber
-    , smbreMD5OfMessageAttributes
-    , smbreId
-    , smbreMessageId
-    , smbreMD5OfMessageBody
-    ) where
+    SendMessageBatchResultEntry (SendMessageBatchResultEntry'),
+    newSendMessageBatchResultEntry,
+  )
+where
 
 import Network.AWS.SQS.AddPermission
 import Network.AWS.SQS.ChangeMessageVisibility
@@ -257,10 +291,11 @@ import Network.AWS.SQS.DeleteMessage
 import Network.AWS.SQS.DeleteMessageBatch
 import Network.AWS.SQS.DeleteQueue
 import Network.AWS.SQS.GetQueueAttributes
-import Network.AWS.SQS.GetQueueURL
+import Network.AWS.SQS.GetQueueUrl
+import Network.AWS.SQS.Lens
 import Network.AWS.SQS.ListDeadLetterSourceQueues
-import Network.AWS.SQS.ListQueues
 import Network.AWS.SQS.ListQueueTags
+import Network.AWS.SQS.ListQueues
 import Network.AWS.SQS.PurgeQueue
 import Network.AWS.SQS.ReceiveMessage
 import Network.AWS.SQS.RemovePermission
@@ -272,32 +307,29 @@ import Network.AWS.SQS.Types
 import Network.AWS.SQS.UntagQueue
 import Network.AWS.SQS.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'SQS'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'SQS'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

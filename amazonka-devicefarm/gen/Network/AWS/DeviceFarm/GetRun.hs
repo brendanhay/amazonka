@@ -1,137 +1,158 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.GetRun
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a run.
---
---
 module Network.AWS.DeviceFarm.GetRun
-    (
-    -- * Creating a Request
-      getRun
-    , GetRun
+  ( -- * Creating a Request
+    GetRun (..),
+    newGetRun,
+
     -- * Request Lenses
-    , grArn
+    getRun_arn,
 
     -- * Destructuring the Response
-    , getRunResponse
-    , GetRunResponse
+    GetRunResponse (..),
+    newGetRunResponse,
+
     -- * Response Lenses
-    , grrsRun
-    , grrsResponseStatus
-    ) where
+    getRunResponse_run,
+    getRunResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents a request to the get run operation.
 --
+-- /See:/ 'newGetRun' smart constructor.
+data GetRun = GetRun'
+  { -- | The run\'s ARN.
+    arn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetRun' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'getRun' smart constructor.
-newtype GetRun = GetRun'
-  { _grArn :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetRun' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grArn' - The run's ARN.
-getRun
-    :: Text -- ^ 'grArn'
-    -> GetRun
-getRun pArn_ = GetRun' {_grArn = pArn_}
+-- 'arn', 'getRun_arn' - The run\'s ARN.
+newGetRun ::
+  -- | 'arn'
+  Prelude.Text ->
+  GetRun
+newGetRun pArn_ = GetRun' {arn = pArn_}
 
+-- | The run\'s ARN.
+getRun_arn :: Lens.Lens' GetRun Prelude.Text
+getRun_arn = Lens.lens (\GetRun' {arn} -> arn) (\s@GetRun' {} a -> s {arn = a} :: GetRun)
 
--- | The run's ARN.
-grArn :: Lens' GetRun Text
-grArn = lens _grArn (\ s a -> s{_grArn = a})
+instance Prelude.AWSRequest GetRun where
+  type Rs GetRun = GetRunResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetRunResponse'
+            Prelude.<$> (x Prelude..?> "run")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetRun where
-        type Rs GetRun = GetRunResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetRunResponse' <$>
-                   (x .?> "run") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetRun
 
-instance Hashable GetRun where
+instance Prelude.NFData GetRun
 
-instance NFData GetRun where
+instance Prelude.ToHeaders GetRun where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("DeviceFarm_20150623.GetRun" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders GetRun where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.GetRun" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON GetRun where
+  toJSON GetRun' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Prelude..= arn)]
+      )
 
-instance ToJSON GetRun where
-        toJSON GetRun'{..}
-          = object (catMaybes [Just ("arn" .= _grArn)])
+instance Prelude.ToPath GetRun where
+  toPath = Prelude.const "/"
 
-instance ToPath GetRun where
-        toPath = const "/"
-
-instance ToQuery GetRun where
-        toQuery = const mempty
+instance Prelude.ToQuery GetRun where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the result of a get run request.
 --
---
---
--- /See:/ 'getRunResponse' smart constructor.
+-- /See:/ 'newGetRunResponse' smart constructor.
 data GetRunResponse = GetRunResponse'
-  { _grrsRun            :: !(Maybe Run)
-  , _grrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The run to get results from.
+    run :: Prelude.Maybe Run,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetRunResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetRunResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grrsRun' - The run you wish to get results from.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'grrsResponseStatus' - -- | The response status code.
-getRunResponse
-    :: Int -- ^ 'grrsResponseStatus'
-    -> GetRunResponse
-getRunResponse pResponseStatus_ =
-  GetRunResponse' {_grrsRun = Nothing, _grrsResponseStatus = pResponseStatus_}
+-- 'run', 'getRunResponse_run' - The run to get results from.
+--
+-- 'httpStatus', 'getRunResponse_httpStatus' - The response's http status code.
+newGetRunResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetRunResponse
+newGetRunResponse pHttpStatus_ =
+  GetRunResponse'
+    { run = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The run to get results from.
+getRunResponse_run :: Lens.Lens' GetRunResponse (Prelude.Maybe Run)
+getRunResponse_run = Lens.lens (\GetRunResponse' {run} -> run) (\s@GetRunResponse' {} a -> s {run = a} :: GetRunResponse)
 
--- | The run you wish to get results from.
-grrsRun :: Lens' GetRunResponse (Maybe Run)
-grrsRun = lens _grrsRun (\ s a -> s{_grrsRun = a})
+-- | The response's http status code.
+getRunResponse_httpStatus :: Lens.Lens' GetRunResponse Prelude.Int
+getRunResponse_httpStatus = Lens.lens (\GetRunResponse' {httpStatus} -> httpStatus) (\s@GetRunResponse' {} a -> s {httpStatus = a} :: GetRunResponse)
 
--- | -- | The response status code.
-grrsResponseStatus :: Lens' GetRunResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a})
-
-instance NFData GetRunResponse where
+instance Prelude.NFData GetRunResponse

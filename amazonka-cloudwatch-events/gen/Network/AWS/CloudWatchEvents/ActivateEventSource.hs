@@ -1,107 +1,129 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.ActivateEventSource
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Activates a partner event source that has been deactivated. Once activated, your matching event bus will start receiving events from the event source.
---
---
+-- Activates a partner event source that has been deactivated. Once
+-- activated, your matching event bus will start receiving events from the
+-- event source.
 module Network.AWS.CloudWatchEvents.ActivateEventSource
-    (
-    -- * Creating a Request
-      activateEventSource
-    , ActivateEventSource
+  ( -- * Creating a Request
+    ActivateEventSource (..),
+    newActivateEventSource,
+
     -- * Request Lenses
-    , aesName
+    activateEventSource_name,
 
     -- * Destructuring the Response
-    , activateEventSourceResponse
-    , ActivateEventSourceResponse
-    ) where
+    ActivateEventSourceResponse (..),
+    newActivateEventSourceResponse,
+  )
+where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.CloudWatchEvents.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'activateEventSource' smart constructor.
-newtype ActivateEventSource = ActivateEventSource'
-  { _aesName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newActivateEventSource' smart constructor.
+data ActivateEventSource = ActivateEventSource'
+  { -- | The name of the partner event source to activate.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ActivateEventSource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ActivateEventSource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'aesName' - The name of the partner event source to activate.
-activateEventSource
-    :: Text -- ^ 'aesName'
-    -> ActivateEventSource
-activateEventSource pName_ = ActivateEventSource' {_aesName = pName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'activateEventSource_name' - The name of the partner event source to activate.
+newActivateEventSource ::
+  -- | 'name'
+  Prelude.Text ->
+  ActivateEventSource
+newActivateEventSource pName_ =
+  ActivateEventSource' {name = pName_}
 
 -- | The name of the partner event source to activate.
-aesName :: Lens' ActivateEventSource Text
-aesName = lens _aesName (\ s a -> s{_aesName = a})
+activateEventSource_name :: Lens.Lens' ActivateEventSource Prelude.Text
+activateEventSource_name = Lens.lens (\ActivateEventSource' {name} -> name) (\s@ActivateEventSource' {} a -> s {name = a} :: ActivateEventSource)
 
-instance AWSRequest ActivateEventSource where
-        type Rs ActivateEventSource =
-             ActivateEventSourceResponse
-        request = postJSON cloudWatchEvents
-        response = receiveNull ActivateEventSourceResponse'
+instance Prelude.AWSRequest ActivateEventSource where
+  type
+    Rs ActivateEventSource =
+      ActivateEventSourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull ActivateEventSourceResponse'
 
-instance Hashable ActivateEventSource where
+instance Prelude.Hashable ActivateEventSource
 
-instance NFData ActivateEventSource where
+instance Prelude.NFData ActivateEventSource
 
-instance ToHeaders ActivateEventSource where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSEvents.ActivateEventSource" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders ActivateEventSource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSEvents.ActivateEventSource" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON ActivateEventSource where
-        toJSON ActivateEventSource'{..}
-          = object (catMaybes [Just ("Name" .= _aesName)])
+instance Prelude.ToJSON ActivateEventSource where
+  toJSON ActivateEventSource' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Prelude..= name)]
+      )
 
-instance ToPath ActivateEventSource where
-        toPath = const "/"
+instance Prelude.ToPath ActivateEventSource where
+  toPath = Prelude.const "/"
 
-instance ToQuery ActivateEventSource where
-        toQuery = const mempty
+instance Prelude.ToQuery ActivateEventSource where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'activateEventSourceResponse' smart constructor.
-data ActivateEventSourceResponse =
-  ActivateEventSourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newActivateEventSourceResponse' smart constructor.
+data ActivateEventSourceResponse = ActivateEventSourceResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ActivateEventSourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ActivateEventSourceResponse' with all optional fields omitted.
 --
-activateEventSourceResponse
-    :: ActivateEventSourceResponse
-activateEventSourceResponse = ActivateEventSourceResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newActivateEventSourceResponse ::
+  ActivateEventSourceResponse
+newActivateEventSourceResponse =
+  ActivateEventSourceResponse'
 
-
-instance NFData ActivateEventSourceResponse where
+instance Prelude.NFData ActivateEventSourceResponse

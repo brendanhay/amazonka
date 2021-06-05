@@ -1,6 +1,3 @@
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE RankNTypes #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
 -- |
@@ -155,7 +152,6 @@ import qualified Control.Monad.Trans.AWS as AWST
 import Control.Monad.Trans.Class (lift)
 import Control.Monad.Trans.Except (ExceptT)
 import Control.Monad.Trans.Identity (IdentityT)
-import Control.Monad.Trans.List (ListT)
 import Control.Monad.Trans.Maybe (MaybeT)
 import Control.Monad.Trans.Reader (ReaderT)
 import Control.Monad.Trans.Resource
@@ -183,21 +179,18 @@ class
     Applicative m,
     Monad m,
     MonadIO m,
-    MonadCatch m
   ) =>
   MonadAWS m
   where
   -- | Lift a computation to the 'AWS' monad.
   liftAWS :: AWS a -> m a
 
-instance (MonadResource m, MonadCatch m) => MonadAWS (AWST m) where
+instance MonadResource m => MonadAWS (AWST m) where
   liftAWS action = do
     env <- AWST.askEnv
     liftResourceT (AWST.runAWST env action)
 
 instance MonadAWS m => MonadAWS (IdentityT m) where liftAWS = lift . liftAWS
-
-instance MonadAWS m => MonadAWS (ListT m) where liftAWS = lift . liftAWS
 
 instance MonadAWS m => MonadAWS (MaybeT m) where liftAWS = lift . liftAWS
 

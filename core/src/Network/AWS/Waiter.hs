@@ -1,8 +1,3 @@
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RankNTypes #-}
-
 -- |
 -- Module      : Network.AWS.Waiter
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -31,7 +26,10 @@ module Network.AWS.Waiter
   )
 where
 
-import Control.Lens
+import qualified Data.Text as Text
+import Network.AWS.Data
+import Network.AWS.Error
+import Network.AWS.Lens
   ( Fold,
     allOf,
     anyOf,
@@ -39,12 +37,7 @@ import Control.Lens
     (^..),
     (^?),
   )
-import Data.Maybe
-import Data.Text (Text)
-import qualified Data.Text as Text
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Log
-import Network.AWS.Error
+import Network.AWS.Prelude
 import Network.AWS.Types
 
 type Acceptor a = Request a -> Either Error (Response a) -> Maybe Accept
@@ -53,7 +46,7 @@ data Accept
   = AcceptSuccess
   | AcceptFailure
   | AcceptRetry
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance ToLog Accept where
   build = \case
@@ -64,8 +57,8 @@ instance ToLog Accept where
 -- | Timing and acceptance criteria to check fulfillment of a remote operation.
 data Wait a = Wait
   { _waitName :: ByteString,
-    _waitAttempts :: !Int,
-    _waitDelay :: !Seconds,
+    _waitAttempts :: Int,
+    _waitDelay :: Seconds,
     _waitAcceptors :: [Acceptor a]
   }
 

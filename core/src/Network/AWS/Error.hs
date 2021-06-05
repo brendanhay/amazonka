@@ -1,7 +1,3 @@
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE ViewPatterns #-}
-
 -- |
 -- Module      : Network.AWS.Error
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -11,20 +7,15 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Error where
 
-import Control.Applicative
-import Control.Monad
-import Data.Aeson
-import Data.Aeson.Types (parseEither)
+import qualified Data.Aeson as Aeson
+import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.ByteString.Lazy as LBS
-import Data.Maybe
 import Data.Monoid (First)
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Headers
-import Network.AWS.Data.Text
-import Network.AWS.Data.XML
+import Network.AWS.Data
 import Network.AWS.Lens (Choice, Getting, Optic', filtered)
+import Network.AWS.Prelude
 import Network.AWS.Types
-import Network.HTTP.Conduit
+import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Status (Status (..))
 
 -- | Provides a generalised prism for catching a specific service error
@@ -60,13 +51,16 @@ _HttpStatus :: AsError a => Getting (First Status) a Status
 _HttpStatus = _Error . f
   where
     f g = \case
-      TransportError (HttpExceptionRequest rq (StatusCodeException rs b)) ->
-        (\x -> TransportError (HttpExceptionRequest rq (StatusCodeException (rs {responseStatus = x}) b)))
-          <$> g (responseStatus rs)
+      TransportError (Client.HttpExceptionRequest rq (Client.StatusCodeException rs b)) ->
+        (\x -> TransportError (Client.HttpExceptionRequest rq (Client.StatusCodeException (rs {Client.responseStatus = x}) b)))
+          <$> g (Client.responseStatus rs)
+      --
       TransportError e ->
         pure (TransportError e)
+      --
       SerializeError (SerializeError' a s b e) ->
         (\x -> SerializeError (SerializeError' a x b e)) <$> g s
+      --
       ServiceError e ->
         (\x -> ServiceError (e {_serviceStatus = x}))
           <$> g (_serviceStatus e)
@@ -114,16 +108,20 @@ parseJSONError ::
   Abbrev ->
   Status ->
   [Header] ->
-  LazyByteString ->
+  ByteStringLazy ->
   Error
-parseJSONError a s h bs = decodeError a s h bs (parse bs)
+parseJSONError a s h bs =
+  decodeError a s h bs (parse bs)
   where
-    parse = eitherDecode' >=> parseEither (withObject "JSONError" go)
+    parse =
+      eitherDecode'
+        >=> Aeson.Types.parseEither (Aeson.withObject "JSONError" go)
 
     go o = do
       e <- (Just <$> o .: "__type") <|> o .:? "code"
       m <- msg e o
-      return $! serviceError a s h e m Nothing
+
+      pure (serviceError a s h e m Nothing)
 
     msg c o =
       if c == Just "RequestEntityTooLarge"
@@ -136,7 +134,7 @@ parseXMLError ::
   Abbrev ->
   Status ->
   [Header] ->
-  LazyByteString ->
+  ByteStringLazy ->
   Error
 parseXMLError a s h bs = decodeError a s h bs (decodeXML bs >>= go)
   where
@@ -168,7 +166,7 @@ decodeError ::
   Abbrev ->
   Status ->
   [Header] ->
-  LazyByteString ->
+  ByteStringLazy ->
   Either String ServiceError ->
   Error
 decodeError a s h bs e

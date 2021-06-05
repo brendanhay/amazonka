@@ -1,9 +1,3 @@
-{-# LANGUAGE DefaultSignatures #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TupleSections #-}
-
 -- |
 -- Module      : Network.AWS.Data.Headers
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -15,20 +9,20 @@ module Network.AWS.Data.Headers
   ( module Network.AWS.Data.Headers,
     HeaderName,
     Header,
-    hContentType,
+    HTTP.hContentType,
   )
 where
 
-import qualified Data.Bifunctor as Bifunctor
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.CaseInsensitive as CI
-import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Text.Encoding as Text
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Text
-import Network.HTTP.Types
+import Network.AWS.Prelude
+import Network.HTTP.Types (Header, HeaderName, ResponseHeaders)
+import qualified Network.HTTP.Types as HTTP
 
 infixl 7 .#, .#?
 
@@ -58,7 +52,7 @@ class ToHeaders a where
   toHeaders :: a -> [Header]
 
 instance (ToByteString k, ToByteString v) => ToHeaders (HashMap k v) where
-  toHeaders = map (Bifunctor.bimap (CI.mk . toBS) toBS) . HashMap.toList
+  toHeaders = map (bimap (CI.mk . toBS) toBS) . HashMap.toList
 
 class ToHeader a where
   toHeader :: HeaderName -> a -> [Header]
@@ -75,7 +69,7 @@ instance ToText a => ToHeader (Maybe a) where
   toHeader k = maybe [] (toHeader k . toText)
 
 instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
-  toHeader p = map (Bifunctor.bimap k v) . HashMap.toList
+  toHeader p = map (bimap k v) . HashMap.toList
     where
       k = mappend p . CI.mk . toBS
       v = toBS

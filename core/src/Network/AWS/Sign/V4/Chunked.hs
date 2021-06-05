@@ -1,16 +1,3 @@
-{-# LANGUAGE DataKinds #-}
-{-# LANGUAGE ExtendedDefaultRules #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PackageImports #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TupleSections #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE ViewPatterns #-}
-{-# OPTIONS_GHC -fno-warn-type-defaults #-}
-
 -- |
 -- Module      : Network.AWS.Sign.V4.Chunked
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -24,23 +11,19 @@ module Network.AWS.Sign.V4.Chunked
 where
 
 import qualified Data.ByteString as BS
-import Data.ByteString.Builder
+import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
-import Data.Conduit
-import Data.Maybe
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Crypto
-import Network.AWS.Data.Headers
-import Network.AWS.Data.Sensitive (_Sensitive)
-import Network.AWS.Data.Time
+import Data.Conduit (ConduitM)
+import qualified Data.Conduit as Conduit
+import qualified Network.AWS.Bytes as Bytes
+import qualified Network.AWS.Crypto as Crypto
+import Network.AWS.Data
 import Network.AWS.Lens ((<>~), (^.))
+import Network.AWS.Prelude
 import Network.AWS.Sign.V4.Base hiding (algorithm)
 import Network.AWS.Types
-import Network.HTTP.Types.Header
-import Numeric (showHex)
-
-default (Builder, Integer)
+import qualified Network.HTTP.Types as HTTP
+import qualified Numeric
 
 chunked :: ChunkedBody -> Algorithm a
 chunked c rq a r ts = signRequest meta (toRequestBody body) auth
@@ -49,29 +32,31 @@ chunked c rq a r ts = signRequest meta (toRequestBody body) auth
 
     prepare =
       rqHeaders
-        <>~ [ (hContentEncoding, "aws-chunked"),
+        <>~ [ (HTTP.hContentEncoding, "aws-chunked"),
               (hAMZDecodedContentLength, toBS (_chunkedLength c)),
-              (hContentLength, toBS (metadataLength c))
+              (HTTP.hContentLength, toBS (metadataLength c))
             ]
 
     body = Chunked (c `fuseChunks` sign (metaSignature meta))
 
     sign :: Monad m => Signature -> ConduitM ByteString ByteString m ()
     sign prev = do
-      mx <- await
+      mx <- Conduit.await
+
       let next = chunkSignature prev (fromMaybe mempty mx)
+
       case mx of
-        Nothing -> yield (chunkData next mempty)
-        Just x -> yield (chunkData next x) >> sign next
+        Nothing -> Conduit.yield (chunkData next mempty)
+        Just x -> Conduit.yield (chunkData next x) >> sign next
 
     chunkData next x =
       toBS $
-        word64Hex (fromIntegral (BS.length x))
-          <> byteString chunkSignatureHeader
-          <> byteString (toBS next)
-          <> byteString crlf
-          <> byteString x
-          <> byteString crlf
+        Build.word64Hex (fromIntegral (BS.length x))
+          <> Build.byteString chunkSignatureHeader
+          <> Build.byteString (toBS next)
+          <> Build.byteString crlf
+          <> Build.byteString x
+          <> Build.byteString crlf
 
     chunkSignature prev x =
       signature (_authSecretAccessKey a ^. _Sensitive) scope (chunkStringToSign prev x)
@@ -104,11 +89,11 @@ metadataLength c =
     -- Non-full chunk preceeding the final chunk.
     + maybe 0 chunkLength (remainderBytes c)
     -- The final empty chunk.
-    + chunkLength 0
+    + chunkLength (0 :: Integer)
   where
     chunkLength :: Integral a => a -> Integer
     chunkLength (toInteger -> n) =
-      fromIntegral (length (showHex n ""))
+      fromIntegral (length (Numeric.showHex n ""))
         + headerLength
         + signatureLength
         + crlfLength
@@ -120,7 +105,7 @@ metadataLength c =
     signatureLength = 64
 
 sha256 :: ByteString -> ByteString
-sha256 = digestToBase Base16 . hashSHA256
+sha256 = Bytes.encodeBase16 . Crypto.hashSHA256
 
 sha256Empty :: ByteString
 sha256Empty = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"

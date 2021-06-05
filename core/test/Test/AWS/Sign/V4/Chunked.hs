@@ -1,13 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
-
 -- |
 -- Module      : Test.AWS.Sign.V$
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
--- Stability   : experimental
+-- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Sign.V4.Chunked (tests) where
 

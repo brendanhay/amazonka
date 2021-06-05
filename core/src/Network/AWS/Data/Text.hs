@@ -1,9 +1,3 @@
-{-# LANGUAGE DefaultSignatures #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PackageImports #-}
-
 -- |
 -- Module      : Network.AWS.Data.Text
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -25,37 +19,19 @@ module Network.AWS.Data.Text
 where
 
 import qualified Data.Attoparsec.Text as A
-import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS8
-import Data.CaseInsensitive (CI)
 import qualified Data.CaseInsensitive as CI
-import Data.Int
-import Data.Scientific
-import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Lazy as LText
-import Data.Text.Lazy.Builder (Builder)
 import qualified Data.Text.Lazy.Builder as Build
 import qualified Data.Text.Lazy.Builder.Int as Build
 import qualified Data.Text.Lazy.Builder.Scientific as Build
-import Network.AWS.Data.Crypto
-import Network.HTTP.Types
-import Numeric
-import Numeric.Natural
-
--- -- | Fail parsing with a 'Text' error.
--- --
--- -- Constrained to the actual attoparsec monad to avoid
--- -- exposing 'fail' usage directly.
--- fromTextError :: Text -> Parser a
--- fromTextError = fail . Text.unpack
-
--- takeLowerText :: Parser Text
--- takeLowerText = Text.toLower <$> A.takeText
-
--- takeText :: Parser Text
--- takeText = A.takeText
+import qualified Network.AWS.Bytes as Bytes
+import qualified Network.AWS.Crypto as Crypto
+import Network.AWS.Prelude
+import qualified Network.HTTP.Types as HTTP
+import qualified Numeric
 
 class FromText a where
   fromText :: Text -> Either String a
@@ -100,9 +76,9 @@ instance FromText Bool where
       "false" -> pure False
       other -> Left ("Failure parsing Bool from " ++ show other ++ ".")
 
-instance FromText StdMethod where
+instance FromText HTTP.StdMethod where
   fromText text =
-    case parseMethod (Text.encodeUtf8 text) of
+    case HTTP.parseMethod (Text.encodeUtf8 text) of
       Left err -> Left (BS8.unpack err)
       Right ok -> pure ok
 
@@ -115,35 +91,47 @@ class ToText a where
 instance ToText a => ToText (CI a) where
   toText = toText . CI.original
 
-instance ToText Text where toText = id
+instance ToText Text where
+  toText = id
 
-instance ToText ByteString where toText = Text.decodeUtf8
+instance ToText ByteString where
+  toText = Text.decodeUtf8
 
-instance ToText Char where toText = Text.singleton
+instance ToText Char where
+  toText = Text.singleton
 
-instance ToText String where toText = Text.pack
+instance ToText String where
+  toText = Text.pack
 
-instance ToText Int where toText = shortText . Build.decimal
+instance ToText Int where
+  toText = shortText . Build.decimal
 
-instance ToText Int64 where toText = shortText . Build.decimal
+instance ToText Int64 where
+  toText = shortText . Build.decimal
 
-instance ToText Integer where toText = shortText . Build.decimal
+instance ToText Integer where
+  toText = shortText . Build.decimal
 
-instance ToText Natural where toText = shortText . Build.decimal
+instance ToText Natural where
+  toText = shortText . Build.decimal
 
-instance ToText Scientific where toText = shortText . Build.scientificBuilder
+instance ToText Scientific where
+  toText = shortText . Build.scientificBuilder
 
-instance ToText Double where toText = toText . ($ "") . showFFloat Nothing
+instance ToText Double where
+  toText = toText . ($ "") . Numeric.showFFloat Nothing
 
-instance ToText StdMethod where toText = toText . renderStdMethod
+instance ToText HTTP.StdMethod where
+  toText = toText . HTTP.renderStdMethod
 
-instance ToText (Digest a) where toText = toText . digestToBase Base16
+instance ToText (Crypto.Digest a) where
+  toText = toText . Bytes.encodeBase16
 
 instance ToText Bool where
   toText True = "true"
   toText False = "false"
 
-shortText :: Builder -> Text
+shortText :: TextBuilder -> Text
 shortText = LText.toStrict . Build.toLazyTextWith 32
 
 toTextCI :: ToText a => a -> CI Text

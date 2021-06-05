@@ -1,16 +1,3 @@
-{-# LANGUAGE DataKinds #-}
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE KindSignatures #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE StandaloneDeriving #-}
-{-# LANGUAGE ViewPatterns #-}
-
 -- |
 -- Module      : Network.AWS.Data.Time
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -34,30 +21,25 @@ module Network.AWS.Data.Time
   )
 where
 
-import Control.Applicative
-import Control.DeepSeq
-import Data.Aeson
+import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Types as Aeson
-import Data.Attoparsec.Text (Parser)
 import qualified Data.Attoparsec.Text as A
 import qualified Data.Attoparsec.Text as AText
 import qualified Data.ByteString.Char8 as BS
-import Data.Data (Data, Typeable)
-import Data.Hashable
-import Data.Scientific
-import Data.Tagged
+import Data.Hashable (hashWithSalt)
+import qualified Data.Scientific as Scientific
+import Data.Tagged (Tagged (..), untag)
 import qualified Data.Text as Text
-import Data.Time (Day (..), UTCTime (..))
 import qualified Data.Time as Time
 import Data.Time.Clock.POSIX
 import Data.Time.Format (defaultTimeLocale, formatTime, iso8601DateFormat)
-import GHC.Generics (Generic)
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.JSON
 import Network.AWS.Data.Query
 import Network.AWS.Data.Text
 import Network.AWS.Data.XML
-import Network.AWS.Lens (Iso', iso)
+import Network.AWS.Lens (iso)
+import Network.AWS.Prelude
 
 data Format
   = RFC822Format
@@ -65,23 +47,14 @@ data Format
   | BasicFormat
   | AWSFormat
   | POSIXFormat
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-deriving instance Typeable 'RFC822Format
-
-deriving instance Typeable 'ISO8601Format
-
-deriving instance Typeable 'BasicFormat
-
-deriving instance Typeable 'AWSFormat
-
-deriving instance Typeable 'POSIXFormat
+  deriving stock (Eq, Read, Show, Generic)
 
 newtype Time (a :: Format) = Time {fromTime :: UTCTime}
-  deriving (Show, Read, Eq, Ord, Data, Typeable, Generic, NFData)
+  deriving stock (Show, Read, Eq, Ord, Generic)
+  deriving newtype (NFData)
 
 instance Hashable (Time a) where
-  hashWithSalt salt (Time (UTCTime (ModifiedJulianDay d) t)) =
+  hashWithSalt salt (Time (Time.UTCTime (Time.ModifiedJulianDay d) t)) =
     salt `hashWithSalt` d
       `hashWithSalt` toRational t
 
@@ -131,11 +104,11 @@ instance FromText ISO8601 where
 instance FromText POSIX where
   fromText = A.parseOnly ((parseUnixTimestamp <|> parseFormattedTime) <* A.endOfInput)
 
-parseFormattedTime :: Parser (Time a)
+parseFormattedTime :: A.Parser (Time a)
 parseFormattedTime = do
   s <- Text.unpack <$> AText.takeText
 
-  let parse :: Tagged b String -> Parser (Time a)
+  let parse :: Tagged b String -> A.Parser (Time a)
       parse (untag -> fmt) =
         case Time.parseTimeM True defaultTimeLocale fmt s of
           Just x -> pure (Time x)
@@ -156,7 +129,7 @@ parseFormattedTime = do
     -- Exhaustive Failure
     <|> fail ("Failure parsing Time from value: " ++ show s)
 
-parseUnixTimestamp :: Parser (Time a)
+parseUnixTimestamp :: A.Parser (Time a)
 parseUnixTimestamp =
   Time . posixSecondsToUTCTime . realToFrac
     <$> AText.double <* AText.endOfInput
@@ -178,7 +151,8 @@ instance ToText POSIX where
   toText (Time t) = toText (truncate (utcTimeToPOSIXSeconds t) :: Integer)
 
 renderFormattedTime :: forall a. TimeFormat (Time a) => Time a -> String
-renderFormattedTime (Time t) = formatTime defaultTimeLocale (untag f) t
+renderFormattedTime (Time t) =
+  formatTime defaultTimeLocale (untag f) t
   where
     f :: Tagged (Time a) String
     f = format
@@ -219,7 +193,7 @@ instance FromJSON POSIX where
 
       num :: Value -> Aeson.Parser POSIX
       num =
-        withScientific
+        Aeson.withScientific
           "POSIX"
           ( pure
               . Time
@@ -280,4 +254,5 @@ instance ToJSON BasicTime where
 
 instance ToJSON POSIX where
   toJSON (Time t) =
-    Number $ scientific (truncate (utcTimeToPOSIXSeconds t) :: Integer) 0
+    Aeson.Number $
+      Scientific.scientific (truncate (utcTimeToPOSIXSeconds t) :: Integer) 0

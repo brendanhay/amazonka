@@ -1,14 +1,3 @@
-{-# LANGUAGE DataKinds #-}
-{-# LANGUAGE ExtendedDefaultRules #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PackageImports #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TupleSections #-}
-{-# LANGUAGE TypeFamilies #-}
-
 -- |
 -- Module      : Network.AWS.Sign.V4
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -29,12 +18,11 @@ import Network.AWS.Data.Headers
 import Network.AWS.Data.Query
 import Network.AWS.Data.Time
 import Network.AWS.Lens ((%~), (<>~))
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Sign.V4.Base
 import Network.AWS.Sign.V4.Chunked
 import Network.AWS.Types
-
-default (ByteString)
 
 v4 :: Signer
 v4 = Signer sign presign

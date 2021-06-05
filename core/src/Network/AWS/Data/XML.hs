@@ -1,11 +1,3 @@
-{-# LANGUAGE DefaultSignatures #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE ViewPatterns #-}
-
 -- |
 -- Module      : Network.AWS.Data.XML
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -15,27 +7,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.XML where
 
-import Control.Monad
-import Data.Bifunctor
 import qualified Data.ByteString.Lazy as LBS
-import Data.Conduit
-import Data.Conduit.Lazy (lazyConsume)
-import qualified Data.Conduit.List as Conduit
-import Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as Map
-import Data.Hashable (Hashable)
-import Data.List.NonEmpty (NonEmpty (..))
+import qualified Data.Conduit as Conduit
+import qualified Data.Conduit.Lazy as Conduit.Lazy
+import qualified Data.Conduit.List as Conduit.List
+import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List.NonEmpty as NonEmpty
-import Data.Maybe
 import Data.XML.Types (Event (..))
-import GHC.Exts
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Text
-import Numeric.Natural
+import Network.AWS.Prelude
 import System.IO.Unsafe (unsafePerformIO)
 import Text.XML
-import qualified Text.XML.Stream.Render as Stream
-import Text.XML.Unresolved (toEvents)
+import qualified Text.XML.Stream.Render as XML.Stream
+import qualified Text.XML.Unresolved as XML.Unresolved
 
 infixl 7 .@, .@?
 
@@ -59,7 +44,7 @@ n @= x =
 (@@=) :: ToText a => Name -> a -> XML
 n @@= x = XAttr n (toText x)
 
-decodeXML :: FromXML a => LazyByteString -> Either String a
+decodeXML :: FromXML a => ByteStringLazy -> Either String a
 decodeXML lbs =
   bimap show documentRoot (parseLBS def lbs)
     >>= parseXML . childrenOf
@@ -69,12 +54,12 @@ decodeXML lbs =
 --   'not generally safe, but we know that runResourceT
 --    will not deallocate any of the resources being used
 --    by the process.'
-encodeXML :: ToElement a => a -> LazyByteString
+encodeXML :: ToElement a => a -> ByteStringLazy
 encodeXML x =
-  LBS.fromChunks . unsafePerformIO . lazyConsume $
-    Conduit.sourceList (toEvents doc)
-      .| Conduit.map rename
-      .| Stream.renderBytes def
+  LBS.fromChunks . unsafePerformIO . Conduit.Lazy.lazyConsume $
+    Conduit.List.sourceList (XML.Unresolved.toEvents doc)
+      Conduit..| Conduit.List.map rename
+      Conduit..| XML.Stream.renderBytes def
   where
     doc =
       toXMLDocument $
@@ -149,7 +134,7 @@ data XML
   | XAttr Name Text
   | XOne Node
   | XMany [(Name, Text)] [Node]
-  deriving (Show)
+  deriving stock (Show)
 
 instance Semigroup XML where
   XNull <> XNull = XNull
@@ -209,7 +194,8 @@ parseXMLMap ::
   Text ->
   [Node] ->
   Either String (HashMap k v)
-parseXMLMap e k v = fmap Map.fromList . traverse f . mapMaybe (childNodesOf e)
+parseXMLMap e k v =
+  fmap HashMap.fromList . traverse f . mapMaybe (childNodesOf e)
   where
     f ns =
       (,)
@@ -309,7 +295,7 @@ localName = \case
 
 -- | An inefficient mechanism for retreiving the root
 -- element name of an XML document.
-rootElementName :: LazyByteString -> Maybe Text
+rootElementName :: ByteStringLazy -> Maybe Text
 rootElementName bs =
   either
     (const Nothing)

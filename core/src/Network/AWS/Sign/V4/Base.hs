@@ -1,14 +1,3 @@
-{-# LANGUAGE DataKinds #-}
-{-# LANGUAGE ExtendedDefaultRules #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PackageImports #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TupleSections #-}
-{-# LANGUAGE TypeFamilies #-}
-
 -- |
 -- Module      : Network.AWS.Sign.V4.Base
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -18,44 +7,36 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Sign.V4.Base where
 
-import Data.Bifunctor
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.CaseInsensitive as CI
-import qualified Data.Foldable as Fold
-import Data.Function (on)
-import Data.List (nubBy, sortBy)
-import GHC.TypeLits
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Crypto
-import Network.AWS.Data.Headers
-import Network.AWS.Data.Log
-import Network.AWS.Data.Path
-import Network.AWS.Data.Query
-import Network.AWS.Data.Sensitive (_Sensitive)
-import Network.AWS.Data.Time
+import qualified Data.Foldable as Foldable
+import qualified Data.Function as Function
+import qualified Data.List as List
+import qualified Network.AWS.Bytes as Bytes
+import qualified Network.AWS.Crypto as Crypto
+import Network.AWS.Data
 import Network.AWS.Lens ((%~), (<>~), (^.))
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Types
-import qualified Network.HTTP.Conduit as Client
-import qualified Network.HTTP.Types.Header as H
-
-default (ByteString)
+import qualified Network.HTTP.Client as Client
+import qualified Network.HTTP.Types as HTTP
 
 data V4 = V4
-  { metaTime :: !UTCTime,
-    metaMethod :: !Method,
-    metaPath :: !Path,
-    metaEndpoint :: !Endpoint,
-    metaCredential :: !Credential,
-    metaCanonicalQuery :: !CanonicalQuery,
-    metaCanonicalRequest :: !CanonicalRequest,
-    metaCanonicalHeaders :: !CanonicalHeaders,
-    metaSignedHeaders :: !SignedHeaders,
-    metaStringToSign :: !StringToSign,
-    metaSignature :: !Signature,
-    metaHeaders :: ![Header],
-    metaTimeout :: !(Maybe Seconds)
+  { metaTime :: UTCTime,
+    metaMethod :: Method,
+    metaPath :: Path,
+    metaEndpoint :: Endpoint,
+    metaCredential :: Credential,
+    metaCanonicalQuery :: CanonicalQuery,
+    metaCanonicalRequest :: CanonicalRequest,
+    metaCanonicalHeaders :: CanonicalHeaders,
+    metaSignedHeaders :: SignedHeaders,
+    metaStringToSign :: StringToSign,
+    metaSignature :: Signature,
+    metaHeaders :: [Header],
+    metaTimeout :: (Maybe Seconds)
   }
 
 instance ToLog V4 where
@@ -85,7 +66,7 @@ base ::
   (V4, ClientRequest -> ClientRequest)
 base h rq a r ts = (meta, auth)
   where
-    auth = requestHeaders <>~ [(H.hAuthorization, authorisation meta)]
+    auth = requestHeaders <>~ [(HTTP.hAuthorization, authorisation meta)]
 
     meta = signMetadata a r ts presigner h (prepare rq)
 
@@ -113,14 +94,15 @@ base h rq a r ts = (meta, auth)
 --
 -- Data.Tagged is not used for no reason other than syntactic length and
 -- the ToByteString instance.
-newtype Tag (s :: Symbol) a = Tag {unTag :: a} deriving (Show)
+newtype Tag (s :: Symbol) a = Tag {untag :: a}
+  deriving stock (Show)
 
-instance ToByteString (Tag s ByteString) where toBS = unTag
+instance ToByteString (Tag s ByteString) where toBS = untag
 
-instance ToLog (Tag s ByteString) where build = build . unTag
+instance ToLog (Tag s ByteString) where build = build . untag
 
 instance ToByteString CredentialScope where
-  toBS = BS8.intercalate "/" . unTag
+  toBS = BS8.intercalate "/" . untag
 
 type Hash = Tag "body-digest" ByteString
 
@@ -227,11 +209,11 @@ algorithm :: ByteString
 algorithm = "AWS4-HMAC-SHA256"
 
 signature :: SecretKey -> CredentialScope -> StringToSign -> Signature
-signature k c = Tag . digestToBase Base16 . hmacSHA256 signingKey . unTag
+signature k c = Tag . Bytes.encodeBase16 . Crypto.hmacSHA256 signingKey . untag
   where
-    signingKey = Fold.foldl' hmac ("AWS4" <> toBS k) (unTag c)
+    signingKey = Foldable.foldl' hmac ("AWS4" <> toBS k) (untag c)
 
-    hmac x y = digestToBS (hmacSHA256 x y)
+    hmac x y = Bytes.convert (Crypto.hmacSHA256 x y)
 
 stringToSign :: UTCTime -> CredentialScope -> CanonicalRequest -> StringToSign
 stringToSign t c r =
@@ -241,7 +223,7 @@ stringToSign t c r =
       [ algorithm,
         toBS (Time t :: AWSTime),
         toBS c,
-        digestToBase Base16 . hashSHA256 $ toBS r
+        Bytes.encodeBase16 . Crypto.hashSHA256 $ toBS r
       ]
 
 credential :: AccessKey -> CredentialScope -> Credential
@@ -289,18 +271,19 @@ canonicalQuery = Tag . toBS
 -- all internal whitespace, replacing with a single space char,
 -- unless quoted with \"...\"
 canonicalHeaders :: NormalisedHeaders -> CanonicalHeaders
-canonicalHeaders = Tag . Fold.foldMap (uncurry f) . unTag
+canonicalHeaders = Tag . Foldable.foldMap (uncurry f) . untag
   where
     f k v = k <> ":" <> stripBS v <> "\n"
 
 signedHeaders :: NormalisedHeaders -> SignedHeaders
-signedHeaders = Tag . BS8.intercalate ";" . map fst . unTag
+signedHeaders = Tag . BS8.intercalate ";" . map fst . untag
 
 normaliseHeaders :: [Header] -> NormalisedHeaders
 normaliseHeaders =
+  -- FIXME: convert this to an ordered map.
   Tag
     . map (first CI.foldedCase)
-    . nubBy ((==) `on` fst)
-    . sortBy (compare `on` fst)
+    . List.nubBy ((==) `Function.on` fst)
+    . List.sortBy (compare `Function.on` fst)
     . filter ((/= "authorization") . fst)
     . filter ((/= "content-length") . fst)

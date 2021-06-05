@@ -1,10 +1,9 @@
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE ViewPatterns #-}
-
 -- |
 -- Module      : Network.AWS.Sign.V2Header.Base
--- Stability   : experimental
+-- Copyright   : (c) 2013-2021 Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
 -- This module provides auxiliary functions necessary for the AWS compliant V2
@@ -22,17 +21,16 @@ module Network.AWS.Sign.V2Header.Base
   )
 where
 
-import Data.ByteString (ByteString)
-import Data.ByteString.Builder (Builder)
 import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.CaseInsensitive as CI
-import Data.Function (on)
+import qualified Data.Function as Function
 import qualified Data.List as List
 import qualified Network.AWS.Data.Query as Query
+import Network.AWS.Prelude
 import qualified Network.HTTP.Types as HTTP
-import Network.HTTP.Types.URI (urlEncode)
+import qualified Network.HTTP.Types.URI as URI
 
 -- | Construct a full header signer following the V2 Header scheme
 newSigner ::
@@ -65,17 +63,17 @@ toSignerQueryBS =
     enc :: Maybe ByteString -> Query.QueryString -> [ByteString]
     enc p = \case
       Query.QList xs -> concatMap (enc p) xs
-      Query.QPair (urlEncode True -> k) x
+      Query.QPair (URI.urlEncode True -> k) x
         | Just n <- p -> enc (Just (n <> kdelim <> k)) x -- <prev>.key <recur>
         | otherwise -> enc (Just k) x -- key <recur>
-      Query.QValue (Just (urlEncode True -> v))
+      Query.QValue (Just (URI.urlEncode True -> v))
         | Just n <- p -> [n <> vsep <> v] -- key=value
         | otherwise -> [v]
       _
         | Just n <- p -> [n]
         | otherwise -> []
 
-    cat :: [ByteString] -> Builder
+    cat :: [ByteString] -> ByteStringBuilder
     cat [] = mempty
     cat [x] = Build.byteString x
     cat (x : xs) = Build.byteString x <> ksep <> cat xs
@@ -152,7 +150,7 @@ constructFullPath path q
 unionNecessaryHeaders :: [HTTP.Header] -> [HTTP.Header]
 unionNecessaryHeaders =
   flip
-    (List.unionBy (on (==) fst))
+    (List.unionBy (Function.on (==) fst))
     [ (HTTP.hContentMD5, ""),
       (HTTP.hContentType, "")
     ]

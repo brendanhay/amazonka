@@ -1,14 +1,3 @@
-{-# LANGUAGE DefaultSignatures #-}
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE ExtendedDefaultRules #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PackageImports #-}
-{-# OPTIONS_GHC -fno-warn-type-defaults #-}
-
 -- |
 -- Module      : Network.AWS.Data.Body
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -18,30 +7,26 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Body where
 
-import Control.Monad.Trans.Resource
-import Data.Aeson
+import Control.Monad.Trans.Resource (ResourceT)
+import qualified Data.Aeson as Aeson
 import qualified Data.ByteString as BS
-import Data.ByteString.Builder (Builder)
 import qualified Data.ByteString.Char8 as BS8
-import qualified Data.ByteString.Lazy as LBS
 import qualified Data.ByteString.Lazy.Char8 as LBS8
-import Data.Conduit
-import Data.HashMap.Strict (HashMap)
-import Data.String
-import Data.Text (Text)
+import Data.Conduit (ConduitM, (.|))
 import qualified Data.Text.Encoding as Text
-import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.Encoding as LText
+import qualified Network.AWS.Bytes as Bytes
+import Network.AWS.Crypto (Digest, SHA256)
+import qualified Network.AWS.Crypto as Crypto
 import Network.AWS.Data.ByteString
-import Network.AWS.Data.Crypto
 import Network.AWS.Data.Log
 import Network.AWS.Data.Query (QueryString)
 import Network.AWS.Data.XML (encodeXML)
-import Network.AWS.Lens (AReview, Lens', lens, to, un)
-import Network.HTTP.Conduit
-import Text.XML (Element)
-
-default (Builder)
+import Network.AWS.Lens (AReview, lens, to, un)
+import Network.AWS.Prelude
+import qualified Network.HTTP.Client as Client
+import qualified Network.HTTP.Conduit as Client.Conduit
+import qualified Text.XML as XML
 
 -- | A streaming, exception safe response body.
 newtype RsBody = RsBody
@@ -61,7 +46,8 @@ fuseStream b f = b {_streamBody = _streamBody b .| f}
 --
 -- /See:/ 'defaultChunk'.
 newtype ChunkSize = ChunkSize Int
-  deriving (Eq, Ord, Show, Enum, Num, Real, Integral)
+  deriving stock (Eq, Ord, Show)
+  deriving newtype (Enum, Num, Real, Integral)
 
 instance ToLog ChunkSize where
   build = build . show
@@ -80,8 +66,8 @@ defaultChunkSize = 128 * 1024
 -- accept a 'ChunkedBody'. (Currently S3.) This is enforced by the type
 -- signatures emitted by the generator.
 data ChunkedBody = ChunkedBody
-  { _chunkedSize :: !ChunkSize,
-    _chunkedLength :: !Integer,
+  { _chunkedSize :: ChunkSize,
+    _chunkedLength :: Integer,
     _chunkedBody :: ConduitM () ByteString (ResourceT IO) ()
   }
 
@@ -94,8 +80,7 @@ chunkedLength = lens _chunkedLength (\s a -> s {_chunkedLength = a})
 instance Show ChunkedBody where
   show c =
     BS8.unpack . toBS $
-      build
-        "ChunkedBody { chunkSize = "
+      "ChunkedBody { chunkSize = "
         <> build (_chunkedSize c)
         <> "<> originalLength = "
         <> build (_chunkedLength c)
@@ -133,7 +118,7 @@ instance Show HashedBody where
       str c h n =
         BS8.unpack . toBS $
           c <> " { sha256 = "
-            <> build (digestToBase Base16 h)
+            <> build (Bytes.encodeBase16 h)
             <> ", length = "
             <> build n
 
@@ -142,7 +127,7 @@ instance IsString HashedBody where
 
 sha256Base16 :: HashedBody -> ByteString
 sha256Base16 =
-  digestToBase Base16 . \case
+  Bytes.encodeBase16 . \case
     HashedStream h _ _ -> h
     HashedBytes h _ -> h
 
@@ -151,14 +136,14 @@ sha256Base16 =
 data RqBody
   = Chunked ChunkedBody
   | Hashed HashedBody
-  deriving (Show)
+  deriving stock (Show)
 
 instance IsString RqBody where
   fromString = Hashed . fromString
 
 md5Base64 :: RqBody -> Maybe ByteString
 md5Base64 = \case
-  Hashed (HashedBytes _ x) -> Just . digestToBase Base64 $ hashMD5 x
+  Hashed (HashedBytes _ x) -> Just (Bytes.encodeBase64 (Crypto.hashMD5 x))
   _ -> Nothing
 
 isStreaming :: RqBody -> Bool
@@ -166,12 +151,12 @@ isStreaming = \case
   Hashed (HashedStream {}) -> True
   _ -> False
 
-toRequestBody :: RqBody -> RequestBody
+toRequestBody :: RqBody -> Client.RequestBody
 toRequestBody = \case
-  Chunked x -> requestBodySourceChunked (_chunkedBody x)
+  Chunked x -> Client.Conduit.requestBodySourceChunked (_chunkedBody x)
   Hashed x -> case x of
-    HashedStream _ n f -> requestBodySource (fromIntegral n) f
-    HashedBytes _ b -> RequestBodyBS b
+    HashedStream _ n f -> Client.Conduit.requestBodySource (fromIntegral n) f
+    HashedBytes _ b -> Client.RequestBodyBS b
 
 contentLength :: RqBody -> Integer
 contentLength = \case
@@ -186,26 +171,34 @@ class ToHashedBody a where
   toHashed :: a -> HashedBody
 
 instance ToHashedBody ByteString where
-  toHashed x = HashedBytes (hash x) x
+  toHashed x = HashedBytes (Crypto.hash x) x
 
-instance ToHashedBody HashedBody where toHashed = id
+instance ToHashedBody HashedBody where
+  toHashed = id
 
-instance ToHashedBody String where toHashed = toHashed . LBS8.pack
+instance ToHashedBody String where
+  toHashed = toHashed . LBS8.pack
 
-instance ToHashedBody LBS.ByteString where toHashed = toHashed . toBS
+instance ToHashedBody ByteStringLazy where
+  toHashed = toHashed . toBS
 
-instance ToHashedBody Text where toHashed = toHashed . Text.encodeUtf8
+instance ToHashedBody Text where
+  toHashed = toHashed . Text.encodeUtf8
 
-instance ToHashedBody LText.Text where toHashed = toHashed . LText.encodeUtf8
+instance ToHashedBody TextLazy where
+  toHashed = toHashed . LText.encodeUtf8
 
-instance ToHashedBody Value where toHashed = toHashed . encode
+instance ToHashedBody Aeson.Value where
+  toHashed = toHashed . Aeson.encode
 
-instance ToHashedBody Element where toHashed = toHashed . encodeXML
+instance ToHashedBody XML.Element where
+  toHashed = toHashed . encodeXML
 
-instance ToHashedBody QueryString where toHashed = toHashed . toBS
+instance ToHashedBody QueryString where
+  toHashed = toHashed . toBS
 
-instance ToHashedBody (HashMap Text Value) where
-  toHashed = toHashed . Object
+instance ToHashedBody (HashMap Text Aeson.Value) where
+  toHashed = toHashed . Aeson.Object
 
 -- | Anything that can be converted to a streaming request 'Body'.
 class ToBody a where
@@ -214,30 +207,33 @@ class ToBody a where
   default toBody :: ToHashedBody a => a -> RqBody
   toBody = Hashed . toHashed
 
-instance ToBody RqBody where toBody = id
+instance ToBody RqBody where
+  toBody = id
 
-instance ToBody HashedBody where toBody = Hashed
+instance ToBody HashedBody where
+  toBody = Hashed
 
-instance ToBody ChunkedBody where toBody = Chunked
+instance ToBody ChunkedBody where
+  toBody = Chunked
 
 instance ToHashedBody a => ToBody (Maybe a) where
   toBody = Hashed . maybe (toHashed BS.empty) toHashed
 
 instance ToBody String
 
-instance ToBody LBS.ByteString
+instance ToBody ByteStringLazy
 
 instance ToBody ByteString
 
 instance ToBody Text
 
-instance ToBody LText.Text
+instance ToBody TextLazy
 
-instance ToBody (HashMap Text Value)
+instance ToBody (HashMap Text Aeson.Value)
 
-instance ToBody Value
+instance ToBody Aeson.Value
 
-instance ToBody Element
+instance ToBody XML.Element
 
 instance ToBody QueryString
 

@@ -1,13 +1,9 @@
-{-# LANGUAGE DataKinds #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-
 -- |
 -- Module      : Test.AWS.Data.Time
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
--- Stability   : experimental
+-- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Data.Time (tests) where
 
@@ -59,7 +55,7 @@ tests =
             "serialise"
             [ testToQuery
                 "rfc822"
-                "x=Fri%2C%2007%20Nov%202014%2004%3A42%3A13%20GMT"
+                "x=Fri%2C%2007%20Nov%202114%2004%3A42%3A13%20GMT"
                 (time :: RFC822),
               testToQuery
                 "iso8601"

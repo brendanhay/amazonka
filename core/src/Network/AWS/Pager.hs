@@ -1,6 +1,3 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE RankNTypes #-}
-
 -- |
 -- Module      : Network.AWS.Pager
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -16,13 +13,10 @@ module Network.AWS.Pager
   )
 where
 
-import Control.Applicative
-import Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as Map
-import Data.Maybe (fromMaybe, isJust)
-import Data.Text (Text)
-import Network.AWS.Data.Text (ToText (..))
+import qualified Data.HashMap.Strict as HashMap
+import Network.AWS.Data (ToText (..))
 import Network.AWS.Lens (Getter, to)
+import Network.AWS.Prelude
 import Network.AWS.Types
 
 -- | Specify how an 'AWSRequest' and it's associated 'Rs' response can
@@ -42,7 +36,7 @@ instance AWSTruncated [a] where
   truncated = not . null
 
 instance AWSTruncated (HashMap k v) where
-  truncated = not . Map.null
+  truncated = not . HashMap.null
 
 instance {-# OVERLAPPABLE #-} AWSTruncated (Maybe a) where
   truncated = isJust

@@ -1,9 +1,3 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TupleSections #-}
-{-# LANGUAGE TypeFamilies #-}
-
 -- |
 -- Module      : Network.AWS.Sign.V2
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -17,23 +11,19 @@ module Network.AWS.Sign.V2
 where
 
 import qualified Data.ByteString.Char8 as BS8
-import Data.Time
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Crypto
-import Network.AWS.Data.Headers
-import Network.AWS.Data.Log
-import Network.AWS.Data.Path
-import Network.AWS.Data.Query
-import Network.AWS.Data.Time
+import qualified Network.AWS.Bytes as Bytes
+import qualified Network.AWS.Crypto as Crypto
+import Network.AWS.Data
+import Network.AWS.Prelude
 import Network.AWS.Types
-import qualified Network.HTTP.Conduit as Client
-import Network.HTTP.Types hiding (toQuery)
+import qualified Network.HTTP.Client as Client
+import qualified Network.HTTP.Types as HTTP
+import qualified Network.HTTP.Types.URI as URI
 
 data V2 = V2
-  { metaTime :: !UTCTime,
-    metaEndpoint :: !Endpoint,
-    metaSignature :: !ByteString
+  { metaTime :: UTCTime,
+    metaEndpoint :: Endpoint,
+    metaSignature :: ByteString
   }
 
 instance ToLog V2 where
@@ -70,11 +60,11 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
 
     Service {..} = _rqService
 
-    authorised = pair "Signature" (urlEncode True signature) query
+    authorised = pair "Signature" (URI.urlEncode True signature) query
 
     signature =
-      digestToBase Base64
-        . hmacSHA256 (toBS _authSecretAccessKey)
+      Bytes.encodeBase64
+        . Crypto.hmacSHA256 (toBS _authSecretAccessKey)
         $ BS8.intercalate
           "\n"
           [ meth,
@@ -93,6 +83,6 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
 
     token = ("SecurityToken" :: ByteString,) . toBS <$> _authSessionToken
 
-    headers = hdr hDate time _rqHeaders
+    headers = hdr HTTP.hDate time _rqHeaders
 
     time = toBS (Time t :: ISO8601)

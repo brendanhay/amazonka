@@ -1,10 +1,6 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-
 -- |
 -- Module      : Network.AWS.Sign.V2Header
--- Stability   : experimental
+-- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
 -- This module provides an AWS compliant V2 Header request signer. It is based
@@ -19,25 +15,21 @@ module Network.AWS.Sign.V2Header
   )
 where
 
-import Data.Time
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Crypto
-import Network.AWS.Data.Headers
-import Network.AWS.Data.Log
-import Network.AWS.Data.Path
-import Network.AWS.Data.Time
+import qualified Network.AWS.Bytes as Bytes
+import qualified Network.AWS.Crypto as Crypto
+import Network.AWS.Data
+import Network.AWS.Prelude
 import qualified Network.AWS.Sign.V2Header.Base as V2
 import Network.AWS.Types
-import qualified Network.HTTP.Conduit as Client
-import Network.HTTP.Types
+import qualified Network.HTTP.Client as Client
+import qualified Network.HTTP.Types as HTTP
 
 data V2Header = V2Header
-  { metaTime :: !UTCTime,
-    metaEndpoint :: !Endpoint,
-    metaSignature :: !ByteString,
-    headers :: !Network.HTTP.Types.RequestHeaders,
-    signer :: !ByteString
+  { metaTime :: UTCTime,
+    metaEndpoint :: Endpoint,
+    metaSignature :: ByteString,
+    headers :: HTTP.RequestHeaders,
+    signer :: ByteString
   }
 
 instance ToLog V2Header where
@@ -79,13 +71,13 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
     Service {..} = _rqService
 
     signature =
-      digestToBase Base64
-        . hmacSHA1 (toBS _authSecretAccessKey)
+      Bytes.encodeBase64
+        . Crypto.hmacSHA1 (toBS _authSecretAccessKey)
         $ signer
 
     headers =
-      hdr hDate time
-        . hdr hAuthorization ("AWS " <> toBS _authAccessKeyId <> ":" <> signature)
+      hdr HTTP.hDate time
+        . hdr HTTP.hAuthorization ("AWS " <> toBS _authAccessKeyId <> ":" <> signature)
         $ _rqHeaders
 
     time = toBS (Time t :: RFC822)

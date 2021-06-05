@@ -51,6 +51,7 @@ import Control.Lens as Op
     (<>~),
     (?~),
     (^.),
+    (^..),
     (^?),
   )
 import Control.Lens as Ty

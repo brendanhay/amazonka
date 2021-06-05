@@ -1,15 +1,3 @@
-{-# LANGUAGE CPP #-}
-{-# LANGUAGE DefaultSignatures #-}
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE TypeOperators #-}
-{-# LANGUAGE ViewPatterns #-}
-
 -- |
 -- Module      : Network.AWS.Data.Query
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -19,28 +7,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Query where
 
-import Data.ByteString.Builder (Builder)
+import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
-import qualified Data.ByteString.Lazy.Builder as Build
-import Data.Data
-import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as HashMap
-import Data.List (sort)
-import Data.Maybe (fromMaybe)
-import Data.String
+import qualified Data.List as List
 import qualified Data.Text.Encoding as Text
-import GHC.Exts
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Text
-import Network.HTTP.Types.URI (urlEncode)
-import Numeric.Natural
+import Network.AWS.Prelude
+import qualified Network.HTTP.Types.URI as URI
 
 data QueryString
   = QList [QueryString]
   | QPair ByteString QueryString
   | QValue (Maybe ByteString)
-  deriving (Eq, Show, Data, Typeable)
+  deriving stock (Eq, Show)
 
 instance Semigroup QueryString where
   a <> b = case (a, b) of
@@ -73,29 +55,19 @@ parseQueryString bs
       case x of
         "" -> QValue Nothing
         "=" -> QValue Nothing
-        _ -> QValue (Just (fromMaybe x (stripPrefix "=" x)))
-
-stripPrefix :: ByteString -> ByteString -> Maybe ByteString
-
-#if MIN_VERSION_bytestring(0,10,8)
-stripPrefix = BS8.stripPrefix
-#else
-stripPrefix bs1 bs2
-   | bs1 `BS8.isPrefixOf` bs2 = Just (BS8.drop (BS8.length bs1) bs2)
-   | otherwise = Nothing
-#endif
+        _ -> QValue (Just (fromMaybe x (BS8.stripPrefix "=" x)))
 
 -- FIXME: use Builder
 instance ToByteString QueryString where
-  toBS = LBS.toStrict . Build.toLazyByteString . cat . sort . enc Nothing
+  toBS = LBS.toStrict . Build.toLazyByteString . cat . List.sort . enc Nothing
     where
       enc :: Maybe ByteString -> QueryString -> [ByteString]
       enc p = \case
         QList xs -> concatMap (enc p) xs
-        QPair (urlEncode True -> k) x
+        QPair (URI.urlEncode True -> k) x
           | Just n <- p -> enc (Just (n <> kdelim <> k)) x -- <prev>.key <recur>
           | otherwise -> enc (Just k) x -- key <recur>
-        QValue (Just (urlEncode True -> v))
+        QValue (Just (URI.urlEncode True -> v))
           | Just n <- p -> [n <> vsep <> v] -- key=value
           | otherwise -> [v <> vsep] -- value= -- note: required for signing.
         _
@@ -103,7 +75,7 @@ instance ToByteString QueryString where
           -- note: this case required for request signing
           | otherwise -> []
 
-      cat :: [ByteString] -> Builder
+      cat :: [ByteString] -> ByteStringBuilder
       cat [] = mempty
       cat [x] = Build.byteString x
       cat (x : xs) = Build.byteString x <> ksep <> cat xs

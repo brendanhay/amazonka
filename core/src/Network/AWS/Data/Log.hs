@@ -1,8 +1,3 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-
 -- |
 -- Module      : Network.AWS.Data.Log
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -13,36 +8,32 @@
 module Network.AWS.Data.Log where
 
 import qualified Data.ByteString as BS
-import Data.ByteString.Builder (Builder)
+import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Lazy as LBS
-import qualified Data.ByteString.Lazy.Builder as Build
-import Data.CaseInsensitive (CI)
 import qualified Data.CaseInsensitive as CI
-import Data.Int
-import Data.List (intersperse)
+import qualified Data.List as List
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.Encoding as LText
-import Data.Time (UTCTime)
-import Data.Word
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Headers
 import Network.AWS.Data.Path
 import Network.AWS.Data.Query
 import Network.AWS.Data.Text
-import Network.HTTP.Conduit
-import Network.HTTP.Types
-import Numeric
+import Network.AWS.Prelude
+import qualified Network.HTTP.Client as Client
+import qualified Network.HTTP.Types as HTTP
+import qualified Numeric as Numeric
 
 class ToLog a where
   -- | Convert a value to a loggable builder.
-  build :: a -> Builder
+  build :: a -> ByteStringBuilder
 
-instance ToLog Builder where
+instance ToLog ByteStringBuilder where
   build = id
 
-instance ToLog LBS.ByteString where
+instance ToLog ByteStringLazy where
   build = Build.lazyByteString
 
 instance ToLog ByteString where
@@ -85,15 +76,15 @@ instance ToLog UTCTime where
   build = Build.stringUtf8 . show
 
 instance ToLog Float where
-  build = build . ($ "") . showFFloat Nothing
+  build = build . ($ "") . Numeric.showFFloat Nothing
 
 instance ToLog Double where
-  build = build . ($ "") . showFFloat Nothing
+  build = build . ($ "") . Numeric.showFFloat Nothing
 
 instance ToLog Text where
   build = build . Text.encodeUtf8
 
-instance ToLog LText.Text where
+instance ToLog TextLazy where
   build = build . LText.encodeUtf8
 
 instance ToLog Char where
@@ -102,8 +93,8 @@ instance ToLog Char where
 instance ToLog [Char] where
   build = build . LText.pack
 
-instance ToLog StdMethod where
-  build = build . renderStdMethod
+instance ToLog HTTP.StdMethod where
+  build = build . HTTP.renderStdMethod
 
 instance ToLog QueryString where
   build = build . toBS
@@ -111,9 +102,9 @@ instance ToLog QueryString where
 instance ToLog EscapedPath where
   build = build . toBS
 
--- | Intercalate a list of 'Builder's with newlines.
-buildLines :: [Builder] -> Builder
-buildLines = mconcat . intersperse "\n"
+-- | Intercalate a list of 'ByteStringBuilder's with newlines.
+buildLines :: [ByteStringBuilder] -> ByteStringBuilder
+buildLines = mconcat . List.intersperse "\n"
 
 instance ToLog a => ToLog (CI a) where
   build = build . CI.foldedCase
@@ -126,68 +117,68 @@ instance ToLog Bool where
   build True = "True"
   build False = "False"
 
-instance ToLog Status where
-  build x = build (statusCode x) <> " " <> build (statusMessage x)
+instance ToLog HTTP.Status where
+  build x = build (HTTP.statusCode x) <> " " <> build (HTTP.statusMessage x)
 
-instance ToLog [Header] where
+instance ToLog [HTTP.Header] where
   build =
     mconcat
-      . intersperse "; "
+      . List.intersperse "; "
       . map (\(k, v) -> build k <> ": " <> build v)
 
-instance ToLog HttpVersion where
-  build HttpVersion {..} =
+instance ToLog HTTP.HttpVersion where
+  build HTTP.HttpVersion {httpMajor, httpMinor} =
     "HTTP/"
       <> build httpMajor
       <> build '.'
       <> build httpMinor
 
-instance ToLog RequestBody where
+instance ToLog Client.RequestBody where
   build = \case
-    RequestBodyBuilder n _ -> " <builder:" <> build n <> ">"
-    RequestBodyStream n _ -> " <stream:" <> build n <> ">"
-    RequestBodyLBS lbs
+    Client.RequestBodyBuilder n _ -> " <builder:" <> build n <> ">"
+    Client.RequestBodyStream n _ -> " <stream:" <> build n <> ">"
+    Client.RequestBodyLBS lbs
       | n <= 4096 -> build lbs
       | otherwise -> " <lazy:" <> build n <> ">"
       where
         n = LBS.length lbs
-    RequestBodyBS bs
+    Client.RequestBodyBS bs
       | n <= 4096 -> build bs
       | otherwise -> " <strict:" <> build n <> ">"
       where
         n = BS.length bs
     _ -> " <chunked>"
 
-instance ToLog HttpException where
+instance ToLog Client.HttpException where
   build x = "[HttpException] {\n" <> build (show x) <> "\n}"
 
-instance ToLog HttpExceptionContent where
+instance ToLog Client.HttpExceptionContent where
   build x = "[HttpExceptionContent] {\n" <> build (show x) <> "\n}"
 
-instance ToLog Request where
+instance ToLog Client.Request where
   build x =
     buildLines
       [ "[Client Request] {",
-        "  host      = " <> build (host x) <> ":" <> build (port x),
-        "  secure    = " <> build (secure x),
-        "  method    = " <> build (method x),
+        "  host      = " <> build (Client.host x) <> ":" <> build (Client.port x),
+        "  secure    = " <> build (Client.secure x),
+        "  method    = " <> build (Client.method x),
         "  target    = " <> build target,
-        "  timeout   = " <> build (show (responseTimeout x)),
-        "  redirects = " <> build (redirectCount x),
-        "  path      = " <> build (path x),
-        "  query     = " <> build (queryString x),
-        "  headers   = " <> build (requestHeaders x),
-        "  body      = " <> build (requestBody x),
+        "  timeout   = " <> build (show (Client.responseTimeout x)),
+        "  redirects = " <> build (Client.redirectCount x),
+        "  path      = " <> build (Client.path x),
+        "  query     = " <> build (Client.queryString x),
+        "  headers   = " <> build (Client.requestHeaders x),
+        "  body      = " <> build (Client.requestBody x),
         "}"
       ]
     where
-      target = hAMZTarget `lookup` requestHeaders x
+      target = hAMZTarget `lookup` Client.requestHeaders x
 
-instance ToLog (Response a) where
+instance ToLog (Client.Response a) where
   build x =
     buildLines
       [ "[Client Response] {",
-        "  status  = " <> build (responseStatus x),
-        "  headers = " <> build (responseHeaders x),
+        "  status  = " <> build (Client.responseStatus x),
+        "  headers = " <> build (Client.responseHeaders x),
         "}"
       ]

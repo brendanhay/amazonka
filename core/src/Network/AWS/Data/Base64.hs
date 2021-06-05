@@ -1,7 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-
 -- |
 -- Module      : Network.AWS.Data.Base64
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -15,27 +11,23 @@ module Network.AWS.Data.Base64
   )
 where
 
-import Control.DeepSeq
-import Data.Aeson.Types
-import qualified Data.ByteArray.Encoding as BA
-import Data.Data (Data, Typeable)
-import Data.Hashable
 import qualified Data.Text.Encoding as Text
-import GHC.Generics (Generic)
+import qualified Network.AWS.Bytes as Bytes
 import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.JSON
 import Network.AWS.Data.Query
 import Network.AWS.Data.Text
 import Network.AWS.Data.XML
-import Network.AWS.Lens (Iso', iso)
+import Network.AWS.Lens (iso)
+import Network.AWS.Prelude
 
 -- | Base64 encoded binary data.
 --
 -- Encoding\/decoding is automatically deferred to serialisation and deserialisation
 -- respectively.
 newtype Base64 = Base64 {unBase64 :: ByteString}
-  deriving (Eq, Read, Ord, Data, Typeable, Generic)
+  deriving stock (Eq, Read, Ord, Generic)
 
 instance Hashable Base64
 
@@ -47,25 +39,33 @@ _Base64 = iso unBase64 Base64
 -- FIXME: a mistake to wrap a ByteString since the underlying serialisers
 -- (JSON, XML) use Text internally.
 instance FromText Base64 where
-  fromText = fmap Base64 . BA.convertFromBase BA.Base64 . Text.encodeUtf8
+  fromText = fmap Base64 . Bytes.decodeBase64 . Text.encodeUtf8
 
 instance ToByteString Base64 where
-  toBS = BA.convertToBase BA.Base64 . unBase64
+  toBS = Bytes.encodeBase64 . unBase64
 
-instance Show Base64 where show = show . toBS
+instance Show Base64 where
+  show = show . toBS
 
-instance ToText Base64 where toText = Text.decodeUtf8 . toBS
+instance ToText Base64 where
+  toText = Text.decodeUtf8 . toBS
 
-instance ToQuery Base64 where toQuery = toQuery . toBS
+instance ToQuery Base64 where
+  toQuery = toQuery . toBS
 
-instance FromXML Base64 where parseXML = parseXMLText "Base64"
+instance FromXML Base64 where
+  parseXML = parseXMLText "Base64"
 
-instance ToXML Base64 where toXML = toXMLText
+instance ToXML Base64 where
+  toXML = toXMLText
 
-instance FromJSON Base64 where parseJSON = parseJSONText "Base64"
+instance FromJSON Base64 where
+  parseJSON = parseJSONText "Base64"
 
-instance ToJSON Base64 where toJSON = toJSONText
+instance ToJSON Base64 where
+  toJSON = toJSONText
 
-instance ToHashedBody Base64 where toHashed = toHashed . toBS
+instance ToHashedBody Base64 where
+  toHashed = toHashed . toBS
 
 instance ToBody Base64

@@ -1,15 +1,13 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- |
 -- Module      : Test.AWS.Util
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
--- Stability   : experimental
+-- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Util where
 
-import Data.Aeson
+import qualified Data.Aeson as Aeson
 import qualified Data.ByteString.Lazy as LBS
 import Language.Haskell.TH
 import Language.Haskell.TH.Quote

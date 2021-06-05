@@ -1,7 +1,3 @@
-{-# LANGUAGE ConstraintKinds #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 -- |
 -- Module      : Network.AWS.Request
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -44,7 +40,6 @@ module Network.AWS.Request
   )
 where
 
-import Data.Maybe
 import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Headers
@@ -52,9 +47,10 @@ import Network.AWS.Data.JSON
 import Network.AWS.Data.Path
 import Network.AWS.Data.Query
 import Network.AWS.Data.XML
-import Network.AWS.Lens (Lens', (%~), (&), (.~), (<&>))
+import Network.AWS.Lens ((.~))
+import Network.AWS.Prelude
 import Network.AWS.Types
-import qualified Network.HTTP.Conduit as Client
+import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types (StdMethod (..))
 import qualified Network.HTTP.Types as HTTP
 

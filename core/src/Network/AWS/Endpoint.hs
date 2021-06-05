@@ -1,10 +1,5 @@
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE ViewPatterns #-}
-
 -- |
--- Module      : Network.AWS.Types
+-- Module      : Network.AWS.Endpoint
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -13,9 +8,10 @@
 module Network.AWS.Endpoint where
 
 import qualified Data.CaseInsensitive as CI
-import qualified Data.HashSet as Set
+import qualified Data.HashSet as HashSet
 import Network.AWS.Data.ByteString
 import Network.AWS.Lens ((%~), (.~))
+import Network.AWS.Prelude
 import Network.AWS.Types
 
 -- | A convenience function for overriding the 'Service' 'Endpoint'.
@@ -85,7 +81,7 @@ defaultEndpoint (_svcEndpointPrefix -> p) r = go (CI.mk p)
     china = r == Beijing
     govcloud = r == GovCloudEast || r == GovCloudWest
 
-    s3 = r `Set.member` except
+    s3 = r `HashSet.member` except
 
     region h =
       Endpoint
@@ -106,7 +102,7 @@ defaultEndpoint (_svcEndpointPrefix -> p) r = go (CI.mk p)
     reg = toBS r
 
     except =
-      Set.fromList
+      HashSet.fromList
         [ GovCloudEast,
           GovCloudWest,
           Ireland,

@@ -1,11 +1,3 @@
-{-# LANGUAGE DataKinds #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE GADTs #-}
-{-# LANGUAGE KindSignatures #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE StandaloneDeriving #-}
-
 -- |
 -- Module      : Network.AWS.Data.Path
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -32,7 +24,8 @@ import qualified Data.ByteString as BS
 import qualified Data.ByteString.Char8 as BS8
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Text
-import Network.HTTP.Types.URI
+import Network.AWS.Prelude
+import qualified Network.HTTP.Types.URI as URI
 
 class ToPath a where
   toPath :: a -> ByteString
@@ -51,15 +44,15 @@ rawPath = Raw . strip . BS8.split sep . toPath
     strip xs = xs
 
 data Encoding = NoEncoding | Percent
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 data Path :: Encoding -> * where
   Raw :: [ByteString] -> Path 'NoEncoding
   Encoded :: [ByteString] -> Path 'Percent
 
-deriving instance Show (Path a)
+deriving stock instance Show (Path a)
 
-deriving instance Eq (Path a)
+deriving stock instance Eq (Path a)
 
 type RawPath = Path 'NoEncoding
 
@@ -77,7 +70,7 @@ instance ToByteString EscapedPath where
   toBS (Encoded xs) = slash <> BS8.intercalate slash xs
 
 escapePath :: Path a -> EscapedPath
-escapePath (Raw xs) = Encoded (map (urlEncode True) xs)
+escapePath (Raw xs) = Encoded (map (URI.urlEncode True) xs)
 escapePath (Encoded xs) = Encoded xs
 
 collapsePath :: Path a -> Path a

@@ -1,9 +1,6 @@
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 -- |
 -- Module      : Test.AWS.Sign.V2Header.BaseSpec
--- Stability   : experimental
+-- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Sign.V2Header.BaseSpec (tests) where
 

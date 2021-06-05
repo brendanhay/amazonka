@@ -1,8 +1,3 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 -- |
 -- Module      : Network.AWS.Data.Sensitive
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -12,31 +7,23 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Sensitive where
 
-import Control.DeepSeq
-import Data.Data (Data, Typeable)
-import Data.Hashable
-import Data.String
-import GHC.Generics (Generic)
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Headers
 import Network.AWS.Data.JSON
-import Network.AWS.Data.Log (ToLog (..))
+import Network.AWS.Data.Log
 import Network.AWS.Data.Query
 import Network.AWS.Data.Text
 import Network.AWS.Data.XML
-import Network.AWS.Lens (Iso', iso)
+import Network.AWS.Lens (iso)
+import Network.AWS.Prelude
 
 -- | /Note/: read . show /= isomorphic
 newtype Sensitive a = Sensitive {fromSensitive :: a}
-  deriving
-    ( Eq,
-      Ord,
-      IsString,
+  deriving stock (Eq, Ord, Generic)
+  deriving newtype
+    ( IsString,
       Semigroup,
       Monoid,
-      Data,
-      Typeable,
-      Generic,
       ToByteString,
       FromText,
       ToText,

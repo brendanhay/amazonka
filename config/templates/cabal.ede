@@ -54,7 +54,7 @@ library
       {% endfor %}
 
     reexported-modules:
-      Network.AWS.Prelude, Network.AWS.Data
+      Network.AWS
 
     build-depends:
           amazonka == {{ clientVersion }}.*

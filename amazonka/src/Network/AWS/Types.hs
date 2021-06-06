@@ -511,7 +511,7 @@ class AWSRequest a where
 
   request :: a -> Request a
   response ::
-    Monad m =>
+    MonadResource m =>
     Logger ->
     Service ->
     Proxy a ->

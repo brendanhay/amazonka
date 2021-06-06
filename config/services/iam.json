@@ -6,7 +6,7 @@
         },
         "accessKeyIdType": {
             "replacedBy": {
-                "name": "Prelude.AccessKey",
+                "name": "Core.AccessKey",
                 "underive": []
             }
         }

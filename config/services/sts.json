@@ -3,25 +3,25 @@
     "typeOverrides": {
         "accessKeyIdType": {
             "replacedBy": {
-                "name": "Prelude.AccessKey",
+                "name": "Core.AccessKey",
                 "underive": []
             }
         },
         "accessKeySecretType": {
             "replacedBy": {
-                "name": "Prelude.SecretKey",
+                "name": "Core.SecretKey",
                 "underive": ["read", "show"]
             }
         },
         "tokenType": {
             "replacedBy": {
-                "name": "Prelude.SessionToken",
+                "name": "Core.SessionToken",
                 "underive": ["read", "show"]
             }
         },
         "Credentials": {
             "replacedBy": {
-                "name": "Prelude.AuthEnv",
+                "name": "Core.AuthEnv",
                 "underive": ["read"]
             }
         }

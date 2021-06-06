@@ -14,7 +14,7 @@
         },
         "ResourceRecordSetRegion": {
             "replacedBy": {
-                "name": "Prelude.Region",
+                "name": "Core.Region",
                 "underive": []
             }
         },

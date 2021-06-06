@@ -3,7 +3,7 @@
     "typeOverrides": {
         "SubscribeToShardEventStream": {
             "replacedBy": {
-                "name": "Prelude.Value",
+                "name": "Core.Value",
                 "underive": ["show", "read", "eq", "ord"]
             }
         }

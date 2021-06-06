@@ -386,7 +386,7 @@ requestD c m h (a, as) (b, bs) =
   instD
     "Core.AWSRequest"
     (identifier a)
-    [ assocD (identifier a) "Rs" (typeId (identifier b)),
+    [ assocD (identifier a) "AWSResponse" (typeId (identifier b)),
       funD "request" (requestF c m h a as),
       funD "response" (responseE (m ^. protocol) b bs)
     ]

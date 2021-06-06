@@ -6,7 +6,7 @@
         },
         "OptionalValue": {
             "replacedBy": {
-                "name": "Prelude.Maybe Prelude.Text",
+                "name": "Core.Maybe Core.Text",
                 "underive": []
             }
         },

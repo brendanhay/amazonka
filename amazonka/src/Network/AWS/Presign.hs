@@ -1,5 +1,3 @@
-{-# LANGUAGE FlexibleContexts #-}
-
 -- |
 -- Module      : Network.AWS.Presign
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -15,13 +13,12 @@
 -- and no other AWS actions are required.
 module Network.AWS.Presign where
 
-import Control.Monad
-import Control.Monad.IO.Class
-import Network.AWS.Data.Time
-import Network.AWS.Lens ((%~), (&))
+import Network.AWS.Data
+import Network.AWS.Lens ((%~))
 import Network.AWS.Prelude
-import Network.AWS.Request (requestURL)
+import Network.AWS.Request (clientRequestURL)
 import Network.AWS.Types
+import qualified Network.HTTP.Types as HTTP
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
@@ -38,7 +35,9 @@ presignURL ::
   -- | Request to presign.
   a ->
   m ByteString
-presignURL a r e ts = liftM requestURL . presign a r e ts
+presignURL a r e ts =
+  fmap clientRequestURL
+    . presign a r e ts
 
 -- | Presign an HTTP request that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
@@ -55,7 +54,8 @@ presign ::
   -- | Request to presign.
   a ->
   m ClientRequest
-presign = presignWith id
+presign =
+  presignWith id
 
 -- | A variant of 'presign' that allows modifying the default 'Service'
 -- definition used to configure the request.
@@ -78,7 +78,7 @@ presignWith = presignWithHeaders defaultHeaders
 
 -- | Modification to the headers that is applied by default (in 'presignWith');
 -- removes the "Expect" header which is added to every 'PutObject'.
-defaultHeaders :: [Header] -> [Header]
+defaultHeaders :: [HTTP.Header] -> [HTTP.Header]
 defaultHeaders = filter ((/= hExpect) . fst)
 
 -- | A variant of 'presign' that allows modifying the default 'Headers'
@@ -100,5 +100,5 @@ presignWithHeaders ::
   m ClientRequest
 presignWithHeaders f g a r ts ex x =
   withAuth a $ \ae ->
-    return $! sgRequest $
-      rqPresign ex (request x & rqHeaders %~ f & rqService %~ g) ae r ts
+    pure $! signedRequest $
+      requestPresign ex (request x & requestHeaders %~ f & requestService %~ g) ae r ts

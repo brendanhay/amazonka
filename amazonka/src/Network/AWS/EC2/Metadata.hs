@@ -1,9 +1,4 @@
 {-# LANGUAGE BangPatterns #-}
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
 
 -- |
 -- Module      : Network.AWS.EC2.Metadata
@@ -57,17 +52,15 @@ module Network.AWS.EC2.Metadata
   )
 where
 
-import Control.Monad
-import Control.Monad.Catch
-import Control.Monad.IO.Class
+import qualified Control.Exception as Exception
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.Text as Text
-import Network.AWS.Data.JSON
-import Network.AWS.Data.Time
-import Network.AWS.Lens (Lens', lens, mapping)
-import Network.AWS.Prelude hiding (request)
-import Network.HTTP.Conduit
+import Network.AWS.Data
+import Network.AWS.Lens (lens, mapping)
+import Network.AWS.Prelude
+import Network.AWS.Types (Region)
+import qualified Network.HTTP.Client as Client
 
 data Dynamic
   = -- | Value showing whether the customer has enabled detailed one-minute
@@ -83,7 +76,7 @@ data Dynamic
     -- signature.
     PKCS7
   | Signature
-  deriving (Eq, Ord, Show, Typeable)
+  deriving stock (Eq, Ord, Show, Generic)
 
 instance ToText Dynamic where
   toText = \case
@@ -159,7 +152,7 @@ data Metadata
     ReservationId
   | -- | The names of the security groups applied to the instance.
     SecurityGroups
-  deriving (Eq, Ord, Show, Typeable)
+  deriving stock (Eq, Ord, Show, Generic)
 
 instance ToText Metadata where
   toText = \case
@@ -203,7 +196,7 @@ data Mapping
     Root
   | -- | The virtual devices associated with swap. Not always present.
     Swap
-  deriving (Eq, Ord, Show, Typeable)
+  deriving stock (Eq, Ord, Show, Generic)
 
 instance ToText Mapping where
   toText = \case
@@ -258,7 +251,7 @@ data Interface
   | -- | The CIDR block of the VPC in which the interface resides. Returned only
     -- for instances launched into a VPC.
     IVPCIPV4_CIDRBlock
-  deriving (Eq, Ord, Show, Typeable)
+  deriving stock (Eq, Ord, Show, Generic)
 
 instance ToText Interface where
   toText = \case
@@ -287,7 +280,7 @@ data Info
     --
     -- See: 'Auth' for JSON deserialisation.
     SecurityCredentials (Maybe Text)
-  deriving (Eq, Ord, Show, Typeable)
+  deriving stock (Eq, Ord, Show, Generic)
 
 instance ToText Info where
   toText = \case
@@ -299,41 +292,44 @@ latest = "http://169.254.169.254/latest/"
 
 -- | Test whether the underlying host is running on EC2 by
 -- making an HTTP request to @http://instance-data/latest@.
-isEC2 :: MonadIO m => Manager -> m Bool
-isEC2 m = liftIO (req `catch` err)
+isEC2 :: MonadIO m => Client.Manager -> m Bool
+isEC2 m = liftIO (Exception.catch req err)
   where
     req = do
       !_ <- request m "http://instance-data/latest"
+
       return True
 
-    err :: HttpException -> IO Bool
+    err :: Client.HttpException -> IO Bool
     err = const (return False)
 
 -- | Retrieve the specified 'Dynamic' data.
 --
 -- Throws 'HttpException' if HTTP communication fails.
-dynamic :: (MonadIO m, MonadThrow m) => Manager -> Dynamic -> m ByteString
+dynamic :: MonadIO m => Client.Manager -> Dynamic -> m ByteString
 dynamic m = get m . mappend latest . toText
 
 -- | Retrieve the specified 'Metadata'.
 --
 -- Throws 'HttpException' if HTTP communication fails.
-metadata :: (MonadIO m, MonadThrow m) => Manager -> Metadata -> m ByteString
+metadata :: MonadIO m => Client.Manager -> Metadata -> m ByteString
 metadata m = get m . mappend latest . toText
 
 -- | Retrieve the user data. Returns 'Nothing' if no user data is assigned
 -- to the instance.
 --
 -- Throws 'HttpException' if HTTP communication fails.
-userdata :: (MonadIO m, MonadCatch m) => Manager -> m (Maybe ByteString)
-userdata m = do
-  x <- try $ get m (latest <> "user-data")
-  case x of
-    Left (HttpExceptionRequest _ (StatusCodeException rs _))
-      | fromEnum (responseStatus rs) == 404 ->
-        return Nothing
-    Left e -> throwM e
-    Right b -> return (Just b)
+userdata :: MonadIO m => Client.Manager -> m (Maybe ByteString)
+userdata m =
+  liftIO $
+    Exception.try (get m (latest <> "user-data")) >>= \case
+      Left (Client.HttpExceptionRequest _ (Client.StatusCodeException rs _))
+        | fromEnum (Client.responseStatus rs) == 404 ->
+          return Nothing
+      --
+      Left e -> Exception.throwIO e
+      --
+      Right b -> pure (Just b)
 
 -- | Represents an instance's identity document.
 --
@@ -346,7 +342,7 @@ data IdentityDocument = IdentityDocument
     _version :: Maybe Text,
     _privateIp :: Maybe Text,
     _availabilityZone :: Text,
-    _region :: !Region,
+    _region :: Region,
     _instanceId :: Text,
     _instanceType :: Text,
     _accountId :: Text,
@@ -356,7 +352,7 @@ data IdentityDocument = IdentityDocument
     _architecture :: Maybe Text,
     _pendingTime :: Maybe ISO8601
   }
-  deriving (Eq, Show)
+  deriving stock (Eq, Show, Generic)
 
 devpayProductCodes :: Lens' IdentityDocument (Maybe [Text])
 devpayProductCodes = lens _devpayProductCodes (\s a -> s {_devpayProductCodes = a})
@@ -443,20 +439,21 @@ instance ToJSON IdentityDocument where
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-identity-documents.html AWS Instance Identity Documents>.
 identity ::
-  (MonadIO m, MonadThrow m) =>
-  Manager ->
+  MonadIO m =>
+  Client.Manager ->
   m (Either String IdentityDocument)
-identity m = (eitherDecode . LBS.fromStrict) `liftM` dynamic m Document
+identity m = eitherDecode . LBS.fromStrict <$> dynamic m Document
 
-get :: (MonadIO m, MonadThrow m) => Manager -> Text -> m ByteString
-get m url = liftIO (strip `liftM` request m url)
+get :: MonadIO m => Client.Manager -> Text -> m ByteString
+get m url = liftIO (strip <$> request m url)
   where
     strip bs
       | BS8.isSuffixOf "\n" bs = BS8.init bs
       | otherwise = bs
 
-request :: Manager -> Text -> IO ByteString
+request :: Client.Manager -> Text -> IO ByteString
 request m url = do
-  rq <- parseUrlThrow (Text.unpack url)
-  rs <- httpLbs rq m
-  return . LBS.toStrict $ responseBody rs
+  rq <- Client.parseUrlThrow (Text.unpack url)
+  rs <- Client.httpLbs rq m
+
+  return . LBS.toStrict $ Client.responseBody rs

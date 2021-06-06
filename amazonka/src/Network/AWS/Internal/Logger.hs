@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- |
 -- Module      : Network.AWS.Internal.Logger
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -28,9 +26,9 @@ module Network.AWS.Internal.Logger
 where
 
 import qualified Control.Monad as Monad
-import Control.Monad.IO.Class (MonadIO (liftIO))
-import qualified Data.ByteString.Lazy.Builder as Build
-import Network.AWS.Data.Log
+import qualified Data.ByteString.Builder as Build
+import Network.AWS.Data
+import Network.AWS.Prelude
 import Network.AWS.Types
 import qualified System.IO as IO
 

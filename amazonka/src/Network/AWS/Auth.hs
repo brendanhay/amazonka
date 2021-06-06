@@ -1,9 +1,4 @@
 {-# LANGUAGE BangPatterns #-}
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TupleSections #-}
 
 -- |
 -- Module      : Network.AWS.Auth
@@ -64,29 +59,29 @@ module Network.AWS.Auth
   )
 where
 
-import Control.Concurrent
-import Control.Monad
-import Control.Monad.Catch
-import Control.Monad.IO.Class
+import Control.Concurrent (ThreadId)
+import qualified Control.Concurrent as Concurrent
+import qualified Control.Exception as Exception
 import Control.Monad.Trans.Maybe (MaybeT (..))
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy.Char8 as LBS8
-import Data.Char (isSpace)
-import Data.IORef
+import qualified Data.Char as Char
+import Data.IORef (IORef)
+import qualified Data.IORef as IORef
 import qualified Data.Ini as INI
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
-import Data.Time (diffUTCTime, getCurrentTime)
-import Network.AWS.Data.JSON
-import Network.AWS.Data.Log
+import qualified Data.Time as Time
+import Network.AWS.Data
 import Network.AWS.EC2.Metadata
-import Network.AWS.Lens (Prism', catching, catching_, exception, prism, throwingM, (<&>), _IOException)
+import Network.AWS.Lens (catching, catching_, exception, prism, throwingM, _IOException)
 import Network.AWS.Prelude
-import Network.HTTP.Conduit
-import qualified Network.HTTP.Conduit as HTTP
-import System.Directory (doesFileExist, getHomeDirectory)
-import System.Environment
-import System.Mem.Weak
+import Network.AWS.Types
+import qualified Network.HTTP.Client as Client
+import qualified System.Directory as Directory
+import qualified System.Environment as Environment
+import System.Mem.Weak (Weak)
+import qualified System.Mem.Weak as Weak
 
 -- | Default access key environment variable.
 envAccessKey ::
@@ -159,11 +154,11 @@ credProfile = "default"
 --
 -- /Note:/ This does not match the default AWS SDK location of
 -- @%USERPROFILE%\.aws\credentials@ on Windows. (Sorry.)
-credFile :: (MonadCatch m, MonadIO m) => m FilePath
-credFile = catching_ _IOException dir err
+credFile :: MonadIO m => m FilePath
+credFile = liftIO (catching_ _IOException dir err)
   where
-    dir = (++ p) `liftM` liftIO getHomeDirectory
-    err = throwM $ MissingFileError ("$HOME" ++ p)
+    dir = (++ p) <$> Directory.getHomeDirectory
+    err = Exception.throwIO $ MissingFileError ("$HOME" ++ p)
 
     -- TODO: probably should be using System.FilePath above.
     p = "/.aws/credentials"
@@ -236,7 +231,7 @@ data Credentials
     -- This assists in ensuring the DNS lookup terminates promptly if not
     -- running on EC2.
     Discover
-  deriving (Eq)
+  deriving stock (Eq, Generic)
 
 instance ToLog Credentials where
   build = \case
@@ -269,7 +264,7 @@ data AuthError
   | MissingFileError FilePath
   | InvalidFileError Text
   | InvalidIAMError Text
-  deriving (Show, Typeable)
+  deriving stock (Show, Generic)
 
 instance Exception AuthError
 
@@ -349,32 +344,35 @@ instance AsAuthError AuthError where
 -- Throws 'AuthError' when environment variables or IAM profiles cannot be read,
 -- and credentials files are invalid or cannot be found.
 getAuth ::
-  (Applicative m, MonadIO m, MonadCatch m) =>
-  Manager ->
+  MonadIO m =>
+  Client.Manager ->
   Credentials ->
   m (Auth, Maybe Region)
-getAuth m = \case
-  FromKeys a s -> return (fromKeys a s, Nothing)
-  FromSession a s t -> return (fromSession a s t, Nothing)
-  FromEnv a s t r -> fromEnvKeys a s t r
-  FromProfile n -> fromProfileName m n
-  FromFile n f -> fromFilePath n f
-  FromContainer -> fromContainer m
-  Discover ->
-    -- Don't try and catch InvalidFileError, or InvalidIAMProfile,
-    -- let both errors propagate.
-    catching_ _MissingEnvError fromEnv $
-      -- proceed, missing env keys
-      catching _MissingFileError fromFile $ \f ->
-        -- proceed, missing credentials file
-        catching_ _MissingEnvError (fromContainer m) $ do
-          -- proceed, missing env key
-          p <- isEC2 m
-          unless p $
-            -- not an EC2 instance, rethrow the previous error.
-            throwingM _MissingFileError f
-          -- proceed, check EC2 metadata for IAM information.
-          fromProfile m
+getAuth m =
+  liftIO . \case
+    FromKeys a s -> return (fromKeys a s, Nothing)
+    FromSession a s t -> return (fromSession a s t, Nothing)
+    FromEnv a s t r -> fromEnvKeys a s t r
+    FromProfile n -> fromProfileName m n
+    FromFile n f -> fromFilePath n f
+    FromContainer -> fromContainer m
+    Discover ->
+      -- Don't try and catch InvalidFileError, or InvalidIAMProfile,
+      -- let both errors propagate.
+      catching_ _MissingEnvError fromEnv $
+        -- proceed, missing env keys
+        catching _MissingFileError fromFile $ \f ->
+          -- proceed, missing credentials file
+          catching_ _MissingEnvError (fromContainer m) $ do
+            -- proceed, missing env key
+            p <- isEC2 m
+
+            unless p $
+              -- not an EC2 instance, rethrow the previous error.
+              throwingM _MissingFileError f
+            -- proceed, check EC2 metadata for IAM information.
+
+            fromProfile m
 
 -- | Retrieve access key, secret key, and a session token from the default
 -- environment variables.
@@ -383,7 +381,7 @@ getAuth m = \case
 -- cannot be read, but not if the session token is absent.
 --
 -- /See:/ 'envAccessKey', 'envSecretKey', 'envSessionToken'
-fromEnv :: (Applicative m, MonadIO m, MonadThrow m) => m (Auth, Maybe Region)
+fromEnv :: (Applicative m, MonadIO m) => m (Auth, Maybe Region)
 fromEnv =
   fromEnvKeys
     envAccessKey
@@ -397,7 +395,7 @@ fromEnv =
 -- Throws 'MissingEnvError' if either of the specified key environment variables
 -- cannot be read, but not if the session token is absent.
 fromEnvKeys ::
-  (Applicative m, MonadIO m, MonadThrow m) =>
+  (Applicative m, MonadIO m) =>
   -- | Access key environment variable.
   Text ->
   -- | Secret key environment variable.
@@ -408,7 +406,7 @@ fromEnvKeys ::
   Maybe Text ->
   m (Auth, Maybe Region)
 fromEnvKeys access secret session region' =
-  (,) <$> fmap Auth lookupKeys <*> lookupRegion
+  liftIO $ (,) <$> fmap Auth lookupKeys <*> lookupRegion
   where
     lookupKeys =
       AuthEnv
@@ -417,25 +415,27 @@ fromEnvKeys access secret session region' =
         <*> (opt session <&> fmap (Sensitive . SessionToken . BS8.pack))
         <*> return Nothing
 
-    lookupRegion :: (MonadIO m, MonadThrow m) => m (Maybe Region)
-    lookupRegion = runMaybeT $ do
-      k <- MaybeT (return region')
-      r <- MaybeT (opt region')
-      case fromText (Text.pack r) of
-        Right x -> return x
-        Left e ->
-          throwM . InvalidEnvError $
-            "Unable to parse ENV variable: " <> k <> ", " <> Text.pack e
+    lookupRegion =
+      runMaybeT $ do
+        k <- MaybeT (return region')
+        r <- MaybeT (opt region')
+
+        case fromText (Text.pack r) of
+          Right x -> return x
+          Left e ->
+            lift . Exception.throwIO . InvalidEnvError $
+              "Unable to parse ENV variable: " <> k <> ", " <> Text.pack e
 
     req k = do
       m <- opt (Just k)
       maybe
-        (throwM . MissingEnvError $ "Unable to read ENV variable: " <> k)
+        (Exception.throwIO . MissingEnvError $ "Unable to read ENV variable: " <> k)
         return
         m
 
-    opt Nothing = return Nothing
-    opt (Just k) = liftIO (lookupEnv (Text.unpack k))
+    opt = \case
+      Nothing -> return Nothing
+      Just k -> Environment.lookupEnv (Text.unpack k)
 
 -- | Loads the default @credentials@ INI file using the default profile name.
 --
@@ -443,10 +443,11 @@ fromEnvKeys access secret session region' =
 -- if an error occurs during parsing.
 --
 -- /See:/ 'credProfile', 'credFile', and 'envProfile'
-fromFile :: (Applicative m, MonadIO m, MonadCatch m) => m (Auth, Maybe Region)
+fromFile :: (Applicative m, MonadIO m) => m (Auth, Maybe Region)
 fromFile = do
-  p <- liftIO (lookupEnv (Text.unpack envProfile))
-  fromFilePath (maybe credProfile Text.pack p)
+  exists <- liftIO (Environment.lookupEnv (Text.unpack envProfile))
+
+  fromFilePath (maybe credProfile Text.pack exists)
     =<< credFile
 
 -- | Retrieve the access, secret and session token from the specified section
@@ -455,42 +456,52 @@ fromFile = do
 -- Throws 'MissingFileError' if the specified file is missing, or 'InvalidFileError'
 -- if an error occurs during parsing.
 fromFilePath ::
-  (Applicative m, MonadIO m, MonadCatch m) =>
+  (Applicative m, MonadIO m) =>
   Text ->
   FilePath ->
   m (Auth, Maybe Region)
-fromFilePath n f = do
-  p <- liftIO (doesFileExist f)
-  unless p $
-    throwM (MissingFileError f)
-  ini <- either (invalidErr Nothing) return =<< liftIO (INI.readIniFile f)
-  env <-
-    AuthEnv
-      <$> (req credAccessKey ini <&> AccessKey)
-      <*> (req credSecretKey ini <&> Sensitive . SecretKey)
-      <*> (opt credSessionToken ini <&> fmap (Sensitive . SessionToken))
-      <*> return Nothing
-  return (Auth env, Nothing)
+fromFilePath n f =
+  liftIO $ do
+    exists <- Directory.doesFileExist f
+
+    unless exists $
+      Exception.throwIO (MissingFileError f)
+
+    ini <-
+      INI.readIniFile f
+        >>= either (throwInvalid Nothing) pure
+
+    env <-
+      AuthEnv
+        <$> (req credAccessKey ini <&> AccessKey)
+        <*> (req credSecretKey ini <&> Sensitive . SecretKey)
+        <*> (opt credSessionToken ini <&> fmap (Sensitive . SessionToken))
+        <*> return Nothing
+
+    return (Auth env, Nothing)
   where
-    req k i =
-      case INI.lookupValue n k i of
-        Left e -> invalidErr (Just k) e
+    req key ini =
+      case INI.lookupValue n key ini of
+        Left e -> throwInvalid (Just key) e
         Right x
-          | blank x -> invalidErr (Just k) "cannot be a blank string."
+          | blank x -> throwInvalid (Just key) "cannot be a blank string."
           | otherwise -> return (Text.encodeUtf8 x)
 
-    opt k i = return $
-      case INI.lookupValue n k i of
-        Left _ -> Nothing
-        Right x -> Just (Text.encodeUtf8 x)
+    opt key ini =
+      return $
+        case INI.lookupValue n key ini of
+          Left _ -> Nothing
+          Right x -> Just (Text.encodeUtf8 x)
 
-    invalidErr Nothing e = throwM $ InvalidFileError (Text.pack e)
-    invalidErr (Just k) e =
-      throwM $
+    throwInvalid :: Maybe Text -> String -> IO a
+    throwInvalid Nothing e =
+      Exception.throwIO $ InvalidFileError (Text.pack e)
+    throwInvalid (Just key) e =
+      Exception.throwIO $
         InvalidFileError
-          (Text.pack f <> ", key " <> k <> " " <> Text.pack e)
+          (Text.pack f <> ", key " <> key <> " " <> Text.pack e)
 
-    blank x = Text.null x || Text.all isSpace x
+    blank x = Text.null x || Text.all Char.isSpace x
 
 -- | Retrieve the default IAM Profile from the local EC2 instance-data.
 --
@@ -500,15 +511,20 @@ fromFilePath n f = do
 --
 -- Throws 'RetrievalError' if the HTTP call fails, or 'InvalidIAMError' if
 -- the default IAM profile cannot be read.
-fromProfile :: (MonadIO m, MonadCatch m) => Manager -> m (Auth, Maybe Region)
-fromProfile m = do
-  ls <- try $ metadata m (IAM (SecurityCredentials Nothing))
-  case BS8.lines `liftM` ls of
-    Right (x : _) -> fromProfileName m (Text.decodeUtf8 x)
-    Left e -> throwM (RetrievalError e)
-    _ ->
-      throwM $
-        InvalidIAMError "Unable to get default IAM Profile from EC2 metadata"
+fromProfile ::
+  MonadIO m =>
+  Client.Manager ->
+  m (Auth, Maybe Region)
+fromProfile m =
+  liftIO $ do
+    ls <- Exception.try $ metadata m (IAM (SecurityCredentials Nothing))
+
+    case BS8.lines <$> ls of
+      Right (x : _) -> fromProfileName m (Text.decodeUtf8 x)
+      Left e -> Exception.throwIO (RetrievalError e)
+      _ ->
+        Exception.throwIO $
+          InvalidIAMError "Unable to get default IAM Profile from EC2 metadata"
 
 -- | Lookup a specific IAM Profile by name from the local EC2 instance-data.
 --
@@ -527,27 +543,28 @@ fromProfile m = do
 -- If no session token or expiration time is present the credentials will
 -- be returned verbatim.
 fromProfileName ::
-  (MonadIO m, MonadCatch m) =>
-  Manager ->
+  MonadIO m =>
+  Client.Manager ->
   Text ->
   m (Auth, Maybe Region)
-fromProfileName m name = do
-  auth <- liftIO $ fetchAuthInBackground getCredentials
-  reg <- getRegion
-  return (auth, Just reg)
+fromProfileName m name =
+  liftIO $ do
+    auth <- fetchAuthInBackground getCredentials
+    reg <- getRegion
+
+    return (auth, Just reg)
   where
-    getCredentials :: IO AuthEnv
     getCredentials =
-      try (metadata m (IAM . SecurityCredentials $ Just name))
+      Exception.try (metadata m (IAM . SecurityCredentials $ Just name))
         >>= handleErr (eitherDecode' . LBS8.fromStrict) invalidIAMErr
 
-    getRegion :: (MonadIO m, MonadCatch m) => m Region
     getRegion =
-      try (identity m)
+      Exception.try (identity m)
         >>= handleErr (fmap _region) invalidIdentityErr
 
-    handleErr _ _ (Left e) = throwM (RetrievalError e)
-    handleErr f g (Right x) = either (throwM . g) return (f x)
+    handleErr f g = \case
+      Left e -> Exception.throwIO (RetrievalError e)
+      Right x -> either (Exception.throwIO . g) return (f x)
 
     invalidIAMErr =
       InvalidIAMError
@@ -577,30 +594,36 @@ fromProfileName m name = do
 -- variable is not set or 'InvalidIAMError' if the payload returned by the ECS
 -- container agent is not of the expected format.
 fromContainer ::
-  (MonadIO m, MonadThrow m) =>
-  Manager ->
+  MonadIO m =>
+  Client.Manager ->
   m (Auth, Maybe Region)
-fromContainer m = do
-  req <- getCredentialsURI
-  auth <- liftIO $ fetchAuthInBackground (renew req)
-  reg <- getRegion
-  return (auth, reg)
+fromContainer m =
+  liftIO $ do
+    req <- getCredentialsURI
+    auth <- fetchAuthInBackground (renew req)
+    reg <- getRegion
+
+    return (auth, reg)
   where
-    getCredentialsURI :: (MonadIO m, MonadThrow m) => m HTTP.Request
+    getCredentialsURI :: IO ClientRequest
     getCredentialsURI = do
-      mp <- liftIO (lookupEnv (Text.unpack envContainerCredentialsURI))
+      mp <- Environment.lookupEnv (Text.unpack envContainerCredentialsURI)
       p <-
         maybe
-          (throwM . MissingEnvError $ "Unable to read ENV variable: " <> envContainerCredentialsURI)
+          (Exception.throwIO . MissingEnvError $ "Unable to read ENV variable: " <> envContainerCredentialsURI)
           return
           mp
 
-      parseUrlThrow ("http://169.254.170.2" <> p)
+      Client.parseUrlThrow ("http://169.254.170.2" <> p)
 
-    renew :: HTTP.Request -> IO AuthEnv
+    renew :: ClientRequest -> IO AuthEnv
     renew req = do
-      rs <- httpLbs req m
-      either (throwM . invalidIdentityErr) return (eitherDecode (responseBody rs))
+      rs <- Client.httpLbs req m
+
+      either
+        (Exception.throwIO . invalidIdentityErr)
+        return
+        (eitherDecode (Client.responseBody rs))
 
     invalidIdentityErr =
       InvalidIAMError
@@ -609,7 +632,8 @@ fromContainer m = do
 
     getRegion :: MonadIO m => m (Maybe Region)
     getRegion = runMaybeT $ do
-      mr <- MaybeT . liftIO $ lookupEnv (Text.unpack envRegion)
+      mr <- MaybeT . liftIO $ Environment.lookupEnv (Text.unpack envRegion)
+
       either
         (const . MaybeT $ return Nothing)
         return
@@ -625,31 +649,34 @@ fetchAuthInBackground menv =
     case _authExpiration env of
       Nothing -> return (Auth env)
       Just x -> do
-        r <- newIORef env
-        p <- myThreadId
+        r <- IORef.newIORef env
+        p <- Concurrent.myThreadId
         s <- timer menv r p x
+
         return (Ref s r)
   where
     timer :: IO AuthEnv -> IORef AuthEnv -> ThreadId -> ISO8601 -> IO ThreadId
-    timer ma !r !p !x = forkIO $ do
-      s <- myThreadId
-      w <- mkWeakIORef r (killThread s)
-      loop ma w p x
+    timer ma !r !p !x =
+      Concurrent.forkIO $ do
+        s <- Concurrent.myThreadId
+        w <- IORef.mkWeakIORef r (Concurrent.killThread s)
+
+        loop ma w p x
 
     loop :: IO AuthEnv -> Weak (IORef AuthEnv) -> ThreadId -> ISO8601 -> IO ()
     loop ma w !p !x = do
-      diff x <$> getCurrentTime >>= threadDelay
-      env <- try ma
+      diff x <$> Time.getCurrentTime >>= Concurrent.threadDelay
+      env <- Exception.try ma
       case env of
-        Left e -> throwTo p (RetrievalError e)
+        Left e -> Exception.throwTo p (RetrievalError e)
         Right !a -> do
-          mr <- deRefWeak w
+          mr <- Weak.deRefWeak w
           case mr of
             Nothing -> return ()
             Just r -> do
-              atomicWriteIORef r a
+              IORef.atomicWriteIORef r a
               maybe (return ()) (loop ma w p) (_authExpiration a)
 
     diff (Time !x) !y = (* 1000000) $ if n > 0 then n else 1
       where
-        !n = truncate (diffUTCTime x y) - 60
+        !n = truncate (Time.diffUTCTime x y) - 60

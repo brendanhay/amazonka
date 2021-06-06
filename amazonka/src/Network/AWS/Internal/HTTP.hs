@@ -1,11 +1,4 @@
 {-# LANGUAGE BangPatterns #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TypeFamilies #-}
-{-# LANGUAGE ViewPatterns #-}
 
 -- |
 -- Module      : Network.AWS.Internal.HTTP
@@ -15,165 +8,166 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Internal.HTTP
-  ( retrier,
-    waiter,
+  ( retryRequest,
+    awaitRequest,
+    httpRequest,
+    configureRequest,
+    retryService,
+    retryStream,
   )
 where
 
-import Control.Arrow (first)
-import Control.Monad
-import Control.Monad.Catch (Handler (Handler), MonadCatch, catches)
-import Control.Monad.IO.Class
-import Control.Monad.Reader
-import Control.Monad.Trans.Resource
-import Control.Retry
-import Data.List (intersperse)
+import Control.Exception as Exception
+import Control.Monad.Trans.Resource (liftResourceT, transResourceT)
+import qualified Control.Retry as Retry
+import qualified Data.List as List
 import Data.Monoid (Dual (..), Endo (..))
-import Data.Proxy (Proxy (Proxy))
-import Data.Time
-import Network.AWS.Env
+import qualified Data.Time as Time
+import Network.AWS.Data.Body (isStreaming)
+import Network.AWS.Internal.Env
 import Network.AWS.Internal.Logger
-import Network.AWS.Lens (to, view, (%~), (&), (^.), (^?), _Just)
+import Network.AWS.Lens (to, (%~), (^.), (^?), _Just)
 import Network.AWS.Prelude
+import Network.AWS.Types
 import Network.AWS.Waiter
-import Network.HTTP.Conduit hiding (Proxy, Request, Response)
+import qualified Network.HTTP.Conduit as Client.Conduit
 
-retrier ::
-  ( MonadThrow m,
-    MonadCatch m,
-    MonadResource m,
-    MonadReader r m,
-    HasEnv r,
+retryRequest ::
+  ( MonadResource m,
     AWSRequest a
   ) =>
+  Env ->
   a ->
-  m (Either Error (Response a))
-retrier x = do
-  e <- view environment
-  rq <- configured x
-  retrying (policy rq) (check e rq) (\_ -> perform e rq)
+  m (Either Error (ClientResponse (AWSResponse a)))
+retryRequest env x = do
+  let rq = configureRequest env x
+      attempt _ = httpRequest env rq
+
+  Retry.retrying (policy rq) (check rq) attempt
   where
-    policy rq = retryStream rq <> retryService (_rqService rq)
+    policy rq =
+      retryStream rq <> retryService (_requestService rq)
 
-    check e rq s (Left r)
-      | Just p <- r ^? transportErr, p = msg e "http_error" s >> return True
-      | Just m <- r ^? serviceErr = msg e m s >> return True
+    check rq s = \case
+      Left r
+        | Just True <- r ^? transportErr -> logger "http_error" s >> return True
+        | Just m <- r ^? serviceErr -> logger m s >> return True
+      _other -> return False
       where
-        transportErr = _TransportError . to (_envRetryCheck e (rsIterNumber s))
-        serviceErr = _ServiceError . to rc . _Just
+        transportErr =
+          _TransportError . to (envRetryCheck env (Retry.rsIterNumber s))
 
-        rc = rq ^. rqService . serviceRetry . retryCheck
-    check _ _ _ _ = return False
+        serviceErr =
+          _ServiceError . to rc . _Just
 
-    msg :: MonadIO m => Env -> Text -> RetryStatus -> m ()
-    msg e m s =
-      logDebug (_envLogger e)
+        rc = rq ^. requestService . serviceRetry . retryCheck
+
+    logger m s =
+      logDebug (envLogger env)
         . mconcat
-        . intersperse " "
+        . List.intersperse " "
         $ [ "[Retry " <> build m <> "]",
             "after",
-            build (rsIterNumber s + 1),
+            build (Retry.rsIterNumber s + 1),
             "attempts."
           ]
 
-waiter ::
-  ( MonadThrow m,
-    MonadCatch m,
-    MonadResource m,
-    MonadReader r m,
-    HasEnv r,
+awaitRequest ::
+  ( MonadResource m,
     AWSRequest a
   ) =>
+  Env ->
   Wait a ->
   a ->
   m (Either Error Accept)
-waiter w@Wait {..} x = do
-  e@Env {..} <- view environment
-  rq <- configured x
-  retrying policy (check _envLogger) (\_ -> result rq <$> perform e rq) >>= exit
+awaitRequest env@Env {..} w@Wait {..} x = do
+  let rq = configureRequest env x
+      attempt _ = handleResult rq <$> httpRequest env rq
+
+  Retry.retrying policy (check envLogger) attempt <&> \case
+    (AcceptSuccess, _) -> Right AcceptSuccess
+    (_, Left e) -> Left e
+    (a, _) -> Right a
   where
     policy =
-      limitRetries _waitAttempts
-        <> constantDelay (toMicroseconds _waitDelay)
+      Retry.limitRetries _waitAttempts
+        <> Retry.constantDelay (toMicroseconds _waitDelay)
 
-    check e n (a, _) = msg e n a >> return (retry a)
+    check e n (a, _) = logger e n a >> return (retry a)
       where
         retry AcceptSuccess = False
         retry AcceptFailure = False
         retry AcceptRetry = True
 
-    result rq = first (fromMaybe AcceptRetry . accept w rq) . join (,)
+    handleResult rq =
+      first (fromMaybe AcceptRetry . accept w rq)
+        . join (,)
 
-    exit (AcceptSuccess, _) = return (Right AcceptSuccess)
-    exit (_, Left e) = return (Left e)
-    exit (a, _) = return (Right a)
-
-    msg l s a =
+    logger l s a =
       logDebug l
         . mconcat
-        . intersperse " "
+        . List.intersperse " "
         $ [ "[Await " <> build _waitName <> "]",
             build a,
             "after",
-            build (rsIterNumber s + 1),
+            build (Retry.rsIterNumber s + 1),
             "attempts."
           ]
 
 -- | The 'Service' is configured + unwrapped at this point.
-perform ::
-  ( MonadThrow m,
-    MonadCatch m,
-    MonadResource m,
+httpRequest ::
+  ( MonadResource m,
     AWSRequest a
   ) =>
   Env ->
   Request a ->
-  m (Either Error (Response a))
-perform Env {..} x = catches go handlers
+  m (Either Error (ClientResponse (AWSResponse a)))
+httpRequest Env {..} x =
+  liftResourceT (transResourceT (`Exception.catches` handlers) go)
   where
     go = do
-      t <- liftIO getCurrentTime
-      Signed m rq <-
-        withAuth _envAuth $ \a ->
-          return $! rqSign x a _envRegion t
+      time <- liftIO Time.getCurrentTime
 
-      logTrace _envLogger m -- trace:Signing:Meta
-      logDebug _envLogger rq -- debug:ClientRequest
-      rs <- liftResourceT (http rq _envManager)
+      Signed meta rq <-
+        withAuth envAuth $ \a ->
+          return $! requestSign x a envRegion time
 
-      logDebug _envLogger rs -- debug:ClientResponse
-      Right <$> response _envLogger (_rqService x) (p x) rs
+      logTrace envLogger meta -- trace:Signing:Meta
+      logDebug envLogger rq -- debug:ClientRequest
+      rs <- Client.Conduit.http rq envManager
+
+      logDebug envLogger rs -- debug:ClientResponse
+      response envLogger (_requestService x) (proxy x) rs
 
     handlers =
       [ Handler $ err,
         Handler $ err . TransportError
       ]
       where
-        err e = logError _envLogger e >> return (Left e)
+        err e = logError envLogger e >> return (Left e)
 
-    p :: Request a -> Proxy a
-    p = const Proxy
+    proxy :: Request a -> Proxy a
+    proxy _ = Proxy
 
-configured ::
-  (MonadReader r m, HasEnv r, AWSRequest a) =>
-  a ->
-  m (Request a)
-configured (request -> x) = do
-  o <- view envOverride
-  return $! x & rqService %~ appEndo (getDual o)
+configureRequest :: AWSRequest a => Env -> a -> Request a
+configureRequest env x =
+  let overrides = envOverride env
+   in request x & requestService %~ appEndo (getDual overrides)
 
-retryStream :: Request a -> RetryPolicy
-retryStream x = RetryPolicyM (\_ -> return (listToMaybe [0 | not p]))
+retryStream :: Request a -> Retry.RetryPolicy
+retryStream x =
+  Retry.RetryPolicyM (\_ -> return (listToMaybe [0 | not streaming]))
   where
-    !p = isStreaming (_rqBody x)
+    streaming = isStreaming (_requestBody x)
 
-retryService :: Service -> RetryPolicy
-retryService s = limitRetries _retryAttempts <> RetryPolicyM (return . delay)
+retryService :: Service -> Retry.RetryPolicy
+retryService s =
+  Retry.limitRetries _retryAttempts <> Retry.RetryPolicyM (return . delay)
   where
-    delay (rsIterNumber -> n)
+    delay (Retry.rsIterNumber -> n)
       | n >= 0 = Just $ truncate (grow * 1000000)
       | otherwise = Nothing
       where
         grow = _retryBase * (fromIntegral _retryGrowth ^^ (n - 1))
 
-    Exponential {..} = _svcRetry s
+    Exponential {..} = _serviceRetry s

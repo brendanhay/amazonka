@@ -13,7 +13,7 @@
 module Test.AWS.Orphans where
 
 import Data.Aeson
-import Network.AWS.Prelude
+import Network.AWS.Core
 
 instance FromJSON ByteString where
   parseJSON = withText "bytestring" (either fail pure . fromText)

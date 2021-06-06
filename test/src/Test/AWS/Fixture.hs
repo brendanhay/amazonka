@@ -19,23 +19,18 @@
 module Test.AWS.Fixture where
 
 import Control.Monad.Trans.Resource
-import Data.Aeson
-import Data.Bifunctor
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Conduit.Binary as Conduit
-import Data.List (sortBy)
-import Data.Ord
-import Data.Proxy
+import qualified Data.List as List
+import qualified Data.Ord as Ord
 import qualified Data.Text.Encoding as Text
-import Data.Time
+import Data.Time (UTCTime (..))
 import qualified Data.Yaml as YAML
-import Network.AWS.Data.ByteString
-import Network.AWS.Lens (trying)
-import Network.AWS.Prelude
-import Network.HTTP.Client.Internal hiding (Proxy, Request, Response)
+import Network.AWS.Core
 import qualified Network.HTTP.Client.Internal as Client
-import Network.HTTP.Types
+import Network.HTTP.Types (Method)
+import qualified Network.HTTP.Types as HTTP
 import Test.AWS.Assert
 import Test.AWS.Orphans ()
 import Test.AWS.TH
@@ -43,12 +38,12 @@ import Test.Tasty
 import Test.Tasty.HUnit
 
 res ::
-  (AWSRequest a, Eq (Rs a), Show (Rs a)) =>
+  (AWSRequest a, Eq (AWSResponse a), Show (AWSResponse a)) =>
   TestName ->
   FilePath ->
   Service ->
   Proxy a ->
-  Rs a ->
+  AWSResponse a ->
   TestTree
 res n f s p e =
   testCase n $
@@ -68,20 +63,20 @@ req n f e = testCase n $ do
   assertDiff f e' (first show a)
   where
     expected = do
-      let x = sgRequest (rqSign (request e) auth NorthVirginia time)
-      b <- sink (requestBody x)
+      let x = signedRequest (requestSign (request e) auth NorthVirginia time)
+      b <- sink (Client.requestBody x)
       return
         $! mkReq
-          (method x)
-          (path x)
-          (queryString x)
-          (requestHeaders x)
+          (Client.method x)
+          (Client.path x)
+          (Client.queryString x)
+          (Client.requestHeaders x)
           b
 
     sink = \case
-      RequestBodyLBS lbs -> pure (toBS lbs)
-      RequestBodyBS bs -> pure bs
-      RequestBodyBuilder _ b -> pure (toBS b)
+      Client.RequestBodyLBS lbs -> pure (toBS lbs)
+      Client.RequestBodyBS bs -> pure bs
+      Client.RequestBodyBuilder _ b -> pure (toBS b)
       _ -> fail "Streaming body not supported."
 
 testResponse ::
@@ -89,22 +84,23 @@ testResponse ::
   AWSRequest a =>
   Service ->
   Proxy a ->
-  LazyByteString ->
-  IO (Either String (Rs a))
+  ByteStringLazy ->
+  IO (Either String (AWSResponse a))
 testResponse s p lbs = do
-  y <- trying _Error $ runResourceT (response l s p rs)
-  return $! first show (snd <$> y)
+  y <- runResourceT (response l s p rs)
+
+  return $! first show (Client.responseBody <$> y)
   where
     l _ _ = return ()
 
     rs =
       Client.Response
-        { responseStatus = status200,
-          responseVersion = http11,
+        { responseStatus = HTTP.status200,
+          responseVersion = HTTP.http11,
           responseHeaders = mempty,
           responseBody = Conduit.sourceLbs lbs,
           responseCookieJar = mempty,
-          responseClose' = ResponseClose (pure ())
+          responseClose' = Client.ResponseClose (pure ())
         }
 
 auth :: AuthEnv
@@ -137,4 +133,4 @@ instance FromJSON Req where
       <*> (o .:? "body" .!= mempty)
 
 sortKeys :: Ord a => [(a, b)] -> [(a, b)]
-sortKeys = sortBy (comparing fst)
+sortKeys = List.sortBy (Ord.comparing fst)

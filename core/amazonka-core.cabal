@@ -24,7 +24,6 @@ library
   default-language:   Haskell2010
   build-depends:      amazonka
   reexported-modules:
-    Network.AWS.Data,
     Network.AWS.Data.Base64,
     Network.AWS.Data.Body,
     Network.AWS.Data.ByteString,

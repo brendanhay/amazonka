@@ -30,7 +30,7 @@ v4 = Signer sign presign
 presign :: Seconds -> Algorithm a
 presign ex rq a r ts = signRequest meta mempty auth
   where
-    auth = requestQuery <>~ ("&X-Amz-Signature=" <> toBS (metaSignature meta))
+    auth = clientRequestQuery <>~ ("&X-Amz-Signature=" <> toBS (metaSignature meta))
 
     meta = signMetadata a r ts presigner digest (prepare rq)
 
@@ -44,7 +44,7 @@ presign ex rq a r ts = signRequest meta mempty auth
 
     digest = Tag "UNSIGNED-PAYLOAD"
 
-    prepare = rqHeaders %~ (hdr hHost host)
+    prepare = requestHeaders %~ (hdr hHost host)
 
     host =
       case (_endpointSecure end, _endpointPort end) of
@@ -52,11 +52,11 @@ presign ex rq a r ts = signRequest meta mempty auth
         (True, 443) -> _endpointHost end
         (_, port) -> _endpointHost end <> ":" <> toBS port
 
-    end = _svcEndpoint (_rqService rq) r
+    end = _serviceEndpoint (_requestService rq) r
 
 sign :: Algorithm a
 sign rq a r ts =
-  case _rqBody rq of
+  case _requestBody rq of
     Chunked x -> chunked x rq a r ts
     Hashed x -> hashed x rq a r ts
 

@@ -66,14 +66,14 @@ base ::
   (V4, ClientRequest -> ClientRequest)
 base h rq a r ts = (meta, auth)
   where
-    auth = requestHeaders <>~ [(HTTP.hAuthorization, authorisation meta)]
+    auth = clientRequestHeaders <>~ [(HTTP.hAuthorization, authorisation meta)]
 
     meta = signMetadata a r ts presigner h (prepare rq)
 
     presigner _ _ = id
 
     prepare =
-      rqHeaders
+      requestHeaders
         %~ ( hdr hHost host
                . hdr hAMZDate (toBS (Time ts :: AWSTime))
                . hdr hAMZContentSHA256 (toBS h)
@@ -86,7 +86,7 @@ base h rq a r ts = (meta, auth)
         (True, 443) -> _endpointHost end
         (_, port) -> _endpointHost end <> ":" <> toBS port
 
-    end = _svcEndpoint (_rqService rq) r
+    end = _serviceEndpoint (_requestService rq) r
 
 -- | Used to tag provenance. This allows keeping the same layout as
 -- the signing documentation, passing 'ByteString's everywhere, with
@@ -149,7 +149,7 @@ signRequest ::
 signRequest m@V4 {..} b auth = Signed (Meta m) (auth rq)
   where
     rq =
-      (clientRequest metaEndpoint metaTimeout)
+      (newClientRequest metaEndpoint metaTimeout)
         { Client.method = toBS metaMethod,
           Client.path = toBS metaPath,
           Client.queryString = qry,
@@ -184,11 +184,11 @@ signMetadata a r ts presign digest rq =
       metaSignedHeaders = shs,
       metaStringToSign = sts,
       metaSignature = signature (_authSecretAccessKey a ^. _Sensitive) scope sts,
-      metaHeaders = _rqHeaders rq,
-      metaTimeout = _svcTimeout svc
+      metaHeaders = _requestHeaders rq,
+      metaTimeout = _serviceTimeout svc
     }
   where
-    query = canonicalQuery . presign cred shs $ _rqQuery rq
+    query = canonicalQuery . presign cred shs $ _requestQuery rq
 
     sts = stringToSign ts scope crq
     cred = credential (_authAccessKeyId a) scope
@@ -197,13 +197,13 @@ signMetadata a r ts presign digest rq =
 
     chs = canonicalHeaders headers
     shs = signedHeaders headers
-    headers = normaliseHeaders (_rqHeaders rq)
+    headers = normaliseHeaders (_requestHeaders rq)
 
-    end = _svcEndpoint svc r
-    method = Tag . toBS $ _rqMethod rq
+    end = _serviceEndpoint svc r
+    method = Tag . toBS $ _requestMethod rq
     path = escapedPath rq
 
-    svc = _rqService rq
+    svc = _requestService rq
 
 algorithm :: ByteString
 algorithm = "AWS4-HMAC-SHA256"
@@ -234,7 +234,7 @@ credentialScope s e t =
   Tag
     [ toBS (Time t :: BasicTime),
       toBS (_endpointScope e),
-      toBS (_svcSigningName s),
+      toBS (_serviceSigningName s),
       "aws4_request"
     ]
 
@@ -260,9 +260,9 @@ canonicalRequest meth path digest query chs shs =
 
 escapedPath :: Request a -> Path
 escapedPath r = Tag . toBS . escapePath $
-  case _svcAbbrev (_rqService r) of
-    "S3" -> _rqPath r
-    _ -> collapsePath (_rqPath r)
+  case _serviceAbbrev (_requestService r) of
+    "S3" -> _requestPath r
+    _ -> collapsePath (_requestPath r)
 
 canonicalQuery :: QueryString -> CanonicalQuery
 canonicalQuery = Tag . toBS

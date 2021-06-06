@@ -62,26 +62,26 @@ _HttpStatus = _Error . f
         (\x -> SerializeError (SerializeError' a x b e)) <$> g s
       --
       ServiceError e ->
-        (\x -> ServiceError (e {_serviceStatus = x}))
-          <$> g (_serviceStatus e)
+        (\x -> ServiceError (e {_serviceErrorStatus = x}))
+          <$> g (_serviceErrorStatus e)
 
 hasService ::
   (Applicative f, Choice p) =>
   Service ->
   Optic' p f ServiceError ServiceError
-hasService s = filtered ((_svcAbbrev s ==) . _serviceAbbrev)
+hasService s = filtered ((_serviceAbbrev s ==) . _serviceErrorAbbrev)
 
 hasStatus ::
   (Applicative f, Choice p) =>
   Int ->
   Optic' p f ServiceError ServiceError
-hasStatus n = filtered ((n ==) . fromEnum . _serviceStatus)
+hasStatus n = filtered ((n ==) . fromEnum . _serviceErrorStatus)
 
 hasCode ::
   (Applicative f, Choice p) =>
   ErrorCode ->
   Optic' p f ServiceError ServiceError
-hasCode c = filtered ((c ==) . _serviceCode)
+hasCode c = filtered ((c ==) . _serviceErrorCode)
 
 serviceError ::
   Abbrev ->

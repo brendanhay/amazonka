@@ -45,20 +45,20 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
     meta = Meta (V2 t end signature)
 
     rq =
-      (clientRequest end _svcTimeout)
+      (newClientRequest end _serviceTimeout)
         { Client.method = meth,
           Client.path = path',
           Client.queryString = toBS authorised,
           Client.requestHeaders = headers,
-          Client.requestBody = toRequestBody _rqBody
+          Client.requestBody = toRequestBody _requestBody
         }
 
-    meth = toBS _rqMethod
-    path' = toBS (escapePath _rqPath)
+    meth = toBS _requestMethod
+    path' = toBS (escapePath _requestPath)
 
-    end@Endpoint {..} = _svcEndpoint r
+    end@Endpoint {..} = _serviceEndpoint r
 
-    Service {..} = _rqService
+    Service {..} = _requestService
 
     authorised = pair "Signature" (URI.urlEncode True signature) query
 
@@ -74,15 +74,15 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
           ]
 
     query =
-      pair "Version" _svcVersion
+      pair "Version" _serviceVersion
         . pair "SignatureVersion" ("2" :: ByteString)
         . pair "SignatureMethod" ("HmacSHA256" :: ByteString)
         . pair "Timestamp" time
         . pair "AWSAccessKeyId" (toBS _authAccessKeyId)
-        $ _rqQuery <> maybe mempty toQuery token
+        $ _requestQuery <> maybe mempty toQuery token
 
     token = ("SecurityToken" :: ByteString,) . toBS <$> _authSessionToken
 
-    headers = hdr HTTP.hDate time _rqHeaders
+    headers = hdr HTTP.hDate time _requestHeaders
 
     time = toBS (Time t :: ISO8601)

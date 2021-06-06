@@ -52,23 +52,23 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
   where
     meta = Meta (V2Header t end signature headers signer)
 
-    signer = V2.newSigner headers meth path' _rqQuery
+    signer = V2.newSigner headers meth path' _requestQuery
 
     rq =
-      (clientRequest end _svcTimeout)
+      (newClientRequest end _serviceTimeout)
         { Client.method = meth,
           Client.path = path',
-          Client.queryString = toBS _rqQuery,
+          Client.queryString = toBS _requestQuery,
           Client.requestHeaders = headers,
-          Client.requestBody = toRequestBody _rqBody
+          Client.requestBody = toRequestBody _requestBody
         }
 
-    meth = toBS _rqMethod
-    path' = toBS (escapePath _rqPath)
+    meth = toBS _requestMethod
+    path' = toBS (escapePath _requestPath)
 
-    end@Endpoint {} = _svcEndpoint r
+    end@Endpoint {} = _serviceEndpoint r
 
-    Service {..} = _rqService
+    Service {..} = _requestService
 
     signature =
       Bytes.encodeBase64
@@ -78,6 +78,6 @@ sign Request {..} AuthEnv {..} r t = Signed meta rq
     headers =
       hdr HTTP.hDate time
         . hdr HTTP.hAuthorization ("AWS " <> toBS _authAccessKeyId <> ":" <> signature)
-        $ _rqHeaders
+        $ _requestHeaders
 
     time = toBS (Time t :: RFC822)

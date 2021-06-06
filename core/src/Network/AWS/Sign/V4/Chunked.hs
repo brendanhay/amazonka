@@ -31,7 +31,7 @@ chunked c rq a r ts = signRequest meta (toRequestBody body) auth
     (meta, auth) = base (Tag digest) (prepare rq) a r ts
 
     prepare =
-      rqHeaders
+      requestHeaders
         <>~ [ (HTTP.hContentEncoding, "aws-chunked"),
               (hAMZDecodedContentLength, toBS (_chunkedLength c)),
               (HTTP.hContentLength, toBS (metadataLength c))
@@ -77,10 +77,10 @@ chunked c rq a r ts = signRequest meta (toRequestBody body) auth
     time = toBS (Time ts :: AWSTime)
 
     scope :: CredentialScope
-    scope = credentialScope (_rqService rq) end ts
+    scope = credentialScope (_requestService rq) end ts
 
     end :: Endpoint
-    end = _svcEndpoint (_rqService rq) r
+    end = _serviceEndpoint (_requestService rq) r
 
 metadataLength :: ChunkedBody -> Integer
 metadataLength c =

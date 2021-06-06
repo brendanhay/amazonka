@@ -29,17 +29,17 @@ import qualified Network.HTTP.Conduit as Client.Conduit
 import qualified Text.XML as XML
 
 -- | A streaming, exception safe response body.
-newtype RsBody = RsBody
+newtype ResponseBody = ResponseBody
   { _streamBody :: ConduitM () ByteString (ResourceT IO) ()
   } -- newtype for show/orhpan instance purposes.
 
-instance Show RsBody where
-  show = const "RsBody { ConduitM () ByteString (ResourceT IO) () }"
+instance Show ResponseBody where
+  show = const "ResponseBody { ConduitM () ByteString (ResourceT IO) () }"
 
 fuseStream ::
-  RsBody ->
+  ResponseBody ->
   ConduitM ByteString ByteString (ResourceT IO) () ->
-  RsBody
+  ResponseBody
 fuseStream b f = b {_streamBody = _streamBody b .| f}
 
 -- | Specifies the transmitted size of the 'Transfer-Encoding' chunks.
@@ -132,33 +132,33 @@ sha256Base16 =
     HashedBytes h _ -> h
 
 -- | Invariant: only services that support _both_ standard and
--- chunked signing expose 'RqBody' as a parameter.
-data RqBody
+-- chunked signing expose 'RequestBody' as a parameter.
+data RequestBody
   = Chunked ChunkedBody
   | Hashed HashedBody
   deriving stock (Show)
 
-instance IsString RqBody where
+instance IsString RequestBody where
   fromString = Hashed . fromString
 
-md5Base64 :: RqBody -> Maybe ByteString
+md5Base64 :: RequestBody -> Maybe ByteString
 md5Base64 = \case
   Hashed (HashedBytes _ x) -> Just (Bytes.encodeBase64 (Crypto.hashMD5 x))
   _ -> Nothing
 
-isStreaming :: RqBody -> Bool
+isStreaming :: RequestBody -> Bool
 isStreaming = \case
   Hashed (HashedStream {}) -> True
   _ -> False
 
-toRequestBody :: RqBody -> Client.RequestBody
+toRequestBody :: RequestBody -> Client.RequestBody
 toRequestBody = \case
   Chunked x -> Client.Conduit.requestBodySourceChunked (_chunkedBody x)
   Hashed x -> case x of
     HashedStream _ n f -> Client.Conduit.requestBodySource (fromIntegral n) f
     HashedBytes _ b -> Client.RequestBodyBS b
 
-contentLength :: RqBody -> Integer
+contentLength :: RequestBody -> Integer
 contentLength = \case
   Chunked x -> _chunkedLength x
   Hashed x -> case x of
@@ -203,11 +203,11 @@ instance ToHashedBody (HashMap Text Aeson.Value) where
 -- | Anything that can be converted to a streaming request 'Body'.
 class ToBody a where
   -- | Convert a value to a request body.
-  toBody :: a -> RqBody
-  default toBody :: ToHashedBody a => a -> RqBody
+  toBody :: a -> RequestBody
+  default toBody :: ToHashedBody a => a -> RequestBody
   toBody = Hashed . toHashed
 
-instance ToBody RqBody where
+instance ToBody RequestBody where
   toBody = id
 
 instance ToBody HashedBody where
@@ -237,5 +237,5 @@ instance ToBody XML.Element
 
 instance ToBody QueryString
 
-_Body :: ToBody a => AReview RqBody a
+_Body :: ToBody a => AReview RequestBody a
 _Body = un (to toBody)

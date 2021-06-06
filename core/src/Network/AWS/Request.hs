@@ -34,9 +34,9 @@ module Network.AWS.Request
     glacierVersionHeader,
 
     -- ** Lenses
-    requestHeaders,
-    requestQuery,
-    requestURL,
+    clientRequestHeaders,
+    clientRequestQuery,
+    clientRequestURL,
   )
 where
 
@@ -57,85 +57,85 @@ import qualified Network.HTTP.Types as HTTP
 type ToRequest a = (ToPath a, ToQuery a, ToHeaders a)
 
 head' :: ToRequest a => Service -> a -> Request a
-head' s x = get s x & rqMethod .~ HEAD
+head' s x = get s x & requestMethod .~ HEAD
 
 delete :: ToRequest a => Service -> a -> Request a
-delete s x = get s x & rqMethod .~ DELETE
+delete s x = get s x & requestMethod .~ DELETE
 
 get :: ToRequest a => Service -> a -> Request a
 get s = defaultRequest s
 
 post :: ToRequest a => Service -> a -> Request a
-post s x = get s x & rqMethod .~ POST
+post s x = get s x & requestMethod .~ POST
 
 put :: ToRequest a => Service -> a -> Request a
-put s x = get s x & rqMethod .~ PUT
+put s x = get s x & requestMethod .~ PUT
 
 patchJSON :: (ToRequest a, ToJSON a) => Service -> a -> Request a
-patchJSON s x = putJSON s x & rqMethod .~ PATCH
+patchJSON s x = putJSON s x & requestMethod .~ PATCH
 
 postXML :: (ToRequest a, ToElement a) => Service -> a -> Request a
-postXML s x = putXML s x & rqMethod .~ POST
+postXML s x = putXML s x & requestMethod .~ POST
 
 postJSON :: (ToRequest a, ToJSON a) => Service -> a -> Request a
-postJSON s x = putJSON s x & rqMethod .~ POST
+postJSON s x = putJSON s x & requestMethod .~ POST
 
 postQuery :: ToRequest a => Service -> a -> Request a
 postQuery s x =
   Request
-    { _rqService = s,
-      _rqMethod = POST,
-      _rqPath = rawPath x,
-      _rqQuery = mempty,
-      _rqBody = toBody (toQuery x),
-      _rqHeaders = hdr hContentType hFormEncoded (toHeaders x)
+    { _requestService = s,
+      _requestMethod = POST,
+      _requestPath = rawPath x,
+      _requestQuery = mempty,
+      _requestBody = toBody (toQuery x),
+      _requestHeaders = hdr hContentType hFormEncoded (toHeaders x)
     }
 
 postBody :: (ToRequest a, ToBody a) => Service -> a -> Request a
 postBody s x =
   defaultRequest s x
-    & rqMethod .~ POST
-    & rqBody .~ toBody x
+    & requestMethod .~ POST
+    & requestBody .~ toBody x
 
 putXML :: (ToRequest a, ToElement a) => Service -> a -> Request a
 putXML s x =
   defaultRequest s x
-    & rqMethod .~ PUT
-    & rqBody .~ maybe "" toBody (maybeElement x)
+    & requestMethod .~ PUT
+    & requestBody .~ maybe "" toBody (maybeElement x)
 
 putJSON :: (ToRequest a, ToJSON a) => Service -> a -> Request a
 putJSON s x =
   defaultRequest s x
-    & rqMethod .~ PUT
-    & rqBody .~ toBody (toJSON x)
+    & requestMethod .~ PUT
+    & requestBody .~ toBody (toJSON x)
 
 putBody :: (ToRequest a, ToBody a) => Service -> a -> Request a
 putBody s x =
   defaultRequest s x
-    & rqMethod .~ PUT
-    & rqBody .~ toBody x
+    & requestMethod .~ PUT
+    & requestBody .~ toBody x
 
 defaultRequest :: ToRequest a => Service -> a -> Request a
 defaultRequest s x =
   Request
-    { _rqService = s,
-      _rqMethod = GET,
-      _rqPath = rawPath x,
-      _rqQuery = toQuery x,
-      _rqHeaders = toHeaders x,
-      _rqBody = ""
+    { _requestService = s,
+      _requestMethod = GET,
+      _requestPath = rawPath x,
+      _requestQuery = toQuery x,
+      _requestHeaders = toHeaders x,
+      _requestBody = ""
     }
 
-requestQuery :: Lens' Client.Request ByteString
-requestQuery f x =
+clientRequestQuery :: Lens' ClientRequest ByteString
+clientRequestQuery f x =
   f (Client.queryString x) <&> \y -> x {Client.queryString = y}
 
-requestHeaders :: Lens' Client.Request HTTP.RequestHeaders
-requestHeaders f x =
+clientRequestHeaders :: Lens' ClientRequest HTTP.RequestHeaders
+clientRequestHeaders f x =
   f (Client.requestHeaders x) <&> \y -> x {Client.requestHeaders = y}
 
-requestURL :: ClientRequest -> ByteString
-requestURL x =
+clientRequestURL :: ClientRequest -> ByteString
+clientRequestURL x =
   scheme
     <> toBS (Client.host x)
     <> port (Client.port x)
@@ -155,17 +155,17 @@ requestURL x =
 
 contentMD5Header :: Request a -> Request a
 contentMD5Header rq
-  | isMissing, Just x <- maybeMD5 = rq {_rqHeaders = hdr HTTP.hContentMD5 x headers}
+  | isMissing, Just x <- maybeMD5 = rq {_requestHeaders = hdr HTTP.hContentMD5 x headers}
   | otherwise = rq
   where
-    maybeMD5 = md5Base64 (_rqBody rq)
+    maybeMD5 = md5Base64 (_requestBody rq)
     isMissing = isNothing (lookup HTTP.hContentMD5 headers)
-    headers = _rqHeaders rq
+    headers = _requestHeaders rq
 
 expectHeader :: Request a -> Request a
 expectHeader rq =
-  rq {_rqHeaders = hdr hExpect "100-continue" (_rqHeaders rq)}
+  rq {_requestHeaders = hdr hExpect "100-continue" (_requestHeaders rq)}
 
 glacierVersionHeader :: ByteString -> Request a -> Request a
 glacierVersionHeader version rq =
-  rq {_rqHeaders = hdr "x-amz-glacier-version" version (_rqHeaders rq)}
+  rq {_requestHeaders = hdr "x-amz-glacier-version" version (_requestHeaders rq)}

@@ -19,10 +19,10 @@ import Gen.Types
 operationImports :: Library -> Operation Identity SData a -> [NS]
 operationImports l o =
   Set.toList . Set.fromList $
-    "qualified Network.AWS.Request as Request" :
-    "qualified Network.AWS.Response as Response" :
-    "qualified Network.AWS.Lens as Lens" :
-    "qualified Network.AWS.Prelude as Prelude" :
+    "qualified Network.AWS.Internal.Request as Request" :
+    "qualified Network.AWS.Internal.Response as Response" :
+    "qualified Network.AWS.Internal.Lens as Lens" :
+    "qualified Network.AWS.Internal.Prelude as Prelude" :
     l ^. typesNS :
     l ^. operationModules
       ++ maybeToList (const "qualified Network.AWS.Pager as Pager" <$> o ^. opPager)
@@ -30,8 +30,8 @@ operationImports l o =
 typeImports :: Library -> [NS]
 typeImports l =
   sort $
-    "qualified Network.AWS.Lens as Lens" :
-    "qualified Network.AWS.Prelude as Prelude" :
+    "qualified Network.AWS.Internal.Lens as Lens" :
+    "qualified Network.AWS.Internal.Prelude as Prelude" :
     signatureImport (l ^. signatureVersion) :
     l ^. typeModules
 
@@ -42,14 +42,14 @@ lensImports l =
 sumImports :: Library -> [NS]
 sumImports l =
   sort $
-    "qualified Network.AWS.Prelude as Prelude" :
+    "qualified Network.AWS.Internal.Prelude as Prelude" :
     l ^. typeModules
 
 productImports :: Library -> Prod -> [NS]
 productImports l p =
   sort $
-    "qualified Network.AWS.Lens as Lens" :
-    "qualified Network.AWS.Prelude as Prelude" :
+    "qualified Network.AWS.Internal.Lens as Lens" :
+    "qualified Network.AWS.Internal.Prelude as Prelude" :
     l ^. typeModules
       ++ productDependencies l p
 
@@ -68,8 +68,8 @@ moduleShapes l =
 waiterImports :: Library -> [NS]
 waiterImports l =
   sort $
-    "qualified Network.AWS.Lens as Lens" :
-    "qualified Network.AWS.Prelude as Prelude" :
+    "qualified Network.AWS.Internal.Lens as Lens" :
+    "qualified Network.AWS.Internal.Prelude as Prelude" :
     "qualified Network.AWS.Waiter as Waiter" :
     l ^. typesNS :
     l ^. lensNS :
@@ -79,8 +79,8 @@ waiterImports l =
 
 signatureImport :: Signature -> NS
 signatureImport = \case
-  V2 -> "qualified Network.AWS.Sign.V2 as Sign"
-  _ -> "qualified Network.AWS.Sign.V4 as Sign"
+  V2 -> "qualified Network.AWS.Internal.Sign.V2 as Sign"
+  _ -> "qualified Network.AWS.Internal.Sign.V4 as Sign"
 
 testImports :: Library -> [NS]
 testImports l =

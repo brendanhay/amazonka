@@ -1,19 +1,16 @@
 -- |
--- Module      : Network.AWS.Lens
+-- Module      : Network.AWS.Internal.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Lens
-  ( module Ex,
-    module Ty,
-    module Fn,
-    module Op,
+module Network.AWS.Internal.Lens
+  ( module Export,
   )
 where
 
-import Control.Exception.Lens as Ex
+import Control.Exception.Lens as Export
   ( catching,
     catching_,
     exception,
@@ -21,40 +18,7 @@ import Control.Exception.Lens as Ex
     trying,
     _IOException,
   )
-import Control.Lens as Fn
-  ( allOf,
-    anyOf,
-    concatOf,
-    filtered,
-    folding,
-    has,
-    iso,
-    lens,
-    mapping,
-    prism,
-    sets,
-    to,
-    traversed,
-    un,
-    view,
-    _1,
-    _2,
-    _Just,
-    _last,
-  )
-import Control.Lens as Op
-  ( (#),
-    (%~),
-    (&),
-    (.~),
-    (<&>),
-    (<>~),
-    (?~),
-    (^.),
-    (^..),
-    (^?),
-  )
-import Control.Lens as Ty
+import Control.Lens as Export
   ( AReview,
     Choice,
     Fold,
@@ -67,4 +31,33 @@ import Control.Lens as Ty
     Prism',
     Setter',
     Traversal',
+    allOf,
+    anyOf,
+    concatOf,
+    filtered,
+    folding,
+    has,
+    iso,
+    lens,
+    mapping,
+    non,
+    prism,
+    sets,
+    to,
+    traversed,
+    un,
+    view,
+    (%~),
+    (&),
+    (.~),
+    (<&>),
+    (<>~),
+    (?~),
+    (^.),
+    (^?),
+    (^..),
+    _1,
+    _2,
+    _Just,
+    _last,
   )

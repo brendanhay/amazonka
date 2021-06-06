@@ -148,8 +148,8 @@ import Data.Conduit (ConduitM)
 import Data.IORef (IORef, readIORef)
 import qualified Data.Text as Text
 import Network.AWS.Data
-import qualified Network.AWS.Lens as Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Internal.Lens as Lens
+import Network.AWS.Internal.Prelude
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Method (StdMethod)
 import Network.HTTP.Types.Status (Status)
@@ -447,9 +447,9 @@ data Signer = Signer
 data Service = Service
   { _serviceAbbrev :: Abbrev,
     _serviceSigner :: Signer,
-    _serviceEndpointPrefix :: ByteString,
     _serviceSigningName :: ByteString,
     _serviceVersion :: ByteString,
+    _serviceEndpointPrefix :: ByteString,
     _serviceEndpoint :: (Region -> Endpoint),
     _serviceTimeout :: (Maybe Seconds),
     _serviceCheck :: (Status -> Bool),

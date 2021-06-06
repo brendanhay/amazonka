@@ -14,7 +14,9 @@ import Data.String
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import Network.AWS.Error
-import Network.AWS.Prelude
+import Network.AWS.Data
+import Network.AWS.Types
+import Network.AWS.Internal.Prelude
 import Test.AWS.Arbitrary ()
 import Test.QuickCheck.Property ()
 import Test.Tasty
@@ -48,7 +50,7 @@ tests =
     ]
 
 xmlError ::
-  LazyByteString ->
+  ByteStringLazy ->
   ErrorCode ->
   ErrorMessage ->
   RequestId ->
@@ -67,11 +69,11 @@ xmlError bs c m r = actual @?= Right expect
 
 -- Samples representative of differing xml errors.
 
-ec2 :: LazyByteString
+ec2 :: ByteStringLazy
 ec2 = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Errors><Error><Code>VolumeInUse</Code><Message>vol-8c8cea98 is already attached to an instance</Message></Error></Errors><RequestID>c0ca7700-c515-4653-87e3-f1a9ce6416e8</RequestID></Response>"
 
-route53 :: LazyByteString
+route53 :: ByteStringLazy
 route53 = "<InvalidChangeBatch xmlns=\"https://route53.amazonaws.com/doc/2013-04-01/\"><Messages><Message>Tried to delete resource record set noexist.example.com. type A,but it was not found</Message></Messages></InvalidChangeBatch>"
 
-sqs :: LazyByteString
+sqs :: ByteStringLazy
 sqs = "<ErrorResponse><Error><Type>Sender</Type><Code>InvalidParameterValue</Code><Message>Value (quename_nonalpha) for parameter QueueName is invalid. Must be an alphanumeric String of 1 to 80 in length</Message></Error><RequestId>42d59b56-7407-4c4a-be0f-4c88daeea257</RequestId></ErrorResponse>"

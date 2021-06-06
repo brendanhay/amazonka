@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Sign.V4.Base
+-- Module      : Network.AWS.Internal.Sign.V4.Base
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Sign.V4.Base where
+module Network.AWS.Internal.Sign.V4.Base where
 
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Char8 as BS8
@@ -13,12 +13,12 @@ import qualified Data.CaseInsensitive as CI
 import qualified Data.Foldable as Foldable
 import qualified Data.Function as Function
 import qualified Data.List as List
-import qualified Network.AWS.Bytes as Bytes
-import qualified Network.AWS.Crypto as Crypto
+import qualified Network.AWS.Internal.Bytes as Bytes
+import qualified Network.AWS.Internal.Crypto as Crypto
 import Network.AWS.Data
-import Network.AWS.Lens ((%~), (<>~), (^.))
-import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Internal.Lens ((%~), (<>~), (^.))
+import Network.AWS.Internal.Prelude
+import Network.AWS.Internal.Request
 import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as HTTP

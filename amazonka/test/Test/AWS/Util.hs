@@ -11,7 +11,8 @@ import qualified Data.Aeson as Aeson
 import qualified Data.ByteString.Lazy as LBS
 import Language.Haskell.TH
 import Language.Haskell.TH.Quote
-import Network.AWS.Prelude
+import Network.AWS.Internal.Prelude
+import Network.AWS.Data
 import Test.Tasty
 import Test.Tasty.HUnit
 
@@ -26,7 +27,7 @@ doc =
 
 -- | Dummy root element for testing nested structures.
 newtype X a = X a
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance ToQuery a => ToQuery (X a) where
   toQuery (X x) = "x" =: x
@@ -70,7 +71,7 @@ testToQuery n bs x = testCase n (bs @=? toBS (toQuery (X x)))
 testFromXML ::
   (FromXML a, Show a, Eq a) =>
   TestName ->
-  LazyByteString ->
+  ByteStringLazy ->
   a ->
   TestTree
 testFromXML n bs x =
@@ -80,7 +81,7 @@ testFromXML n bs x =
 testToXML ::
   (ToXML a, Show a, Eq a) =>
   TestName ->
-  LazyByteString ->
+  ByteStringLazy ->
   a ->
   TestTree
 testToXML n bs x = testCase n $ wrapXML bs @?= encodeXML (X x)
@@ -88,7 +89,7 @@ testToXML n bs x = testCase n $ wrapXML bs @?= encodeXML (X x)
 testFromJSON ::
   (FromJSON a, Show a, Eq a) =>
   TestName ->
-  LazyByteString ->
+  ByteStringLazy ->
   a ->
   TestTree
 testFromJSON n bs x =
@@ -98,15 +99,15 @@ testFromJSON n bs x =
 testToJSON ::
   (ToJSON a, Show a, Eq a) =>
   TestName ->
-  LazyByteString ->
+  ByteStringLazy ->
   a ->
   TestTree
-testToJSON n bs x = testCase n (bs @?= encode x)
+testToJSON n bs x = testCase n (bs @?= Aeson.encode x)
 
-str :: LazyByteString -> LazyByteString
+str :: ByteStringLazy -> ByteStringLazy
 str bs = "\"" <> bs <> "\""
 
-wrapXML :: LazyByteString -> LazyByteString
+wrapXML :: ByteStringLazy -> ByteStringLazy
 wrapXML bs =
   "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" <> "<x>" <> bs <> "</x>"
 
@@ -116,5 +117,5 @@ maxInt = maxBound
 minInt :: Int
 minInt = minBound
 
-toLazyBS :: ToByteString a => a -> LazyByteString
+toLazyBS :: ToByteString a => a -> ByteStringLazy
 toLazyBS = LBS.fromStrict . toBS

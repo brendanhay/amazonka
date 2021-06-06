@@ -1,5 +1,5 @@
 -- |
--- Module      : Network.AWS.Prelude
+-- Module      : Network.AWS.Internal.Prelude
 -- Copyright   : (c) 2013-2021 Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,12 +16,14 @@
 --
 -- Try and avoid any value, operator, or symbol exports, if possible. Most of
 -- the ones here exist to ease legacy code-migration.
-module Network.AWS.Prelude
+module Network.AWS.Internal.Prelude
   ( module Export,
     TextLazy,
     TextBuilder,
     ByteStringLazy,
     ByteStringBuilder,
+    (.!@),
+    may,
   )
 where
 
@@ -81,3 +83,14 @@ type TextBuilder = Text.Lazy.Builder.Builder
 type ByteStringLazy = ByteString.Lazy.ByteString
 
 type ByteStringBuilder = ByteString.Builder.Builder
+
+-- Legacy code generation operators
+
+infixl 7 .!@
+
+(.!@) :: Functor f => f (Maybe a) -> a -> f a
+f .!@ x = fromMaybe x <$> f
+
+may :: Applicative f => ([a] -> f b) -> [a] -> f (Maybe b)
+may _ [] = pure Nothing
+may f xs = Just <$> f xs

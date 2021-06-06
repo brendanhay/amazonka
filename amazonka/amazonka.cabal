@@ -83,8 +83,8 @@ library
   exposed-modules:
     Network.AWS
     Network.AWS.Auth
-    Network.AWS.Bytes
-    Network.AWS.Crypto
+    Network.AWS.Internal.Bytes
+    Network.AWS.Internal.Crypto
     Network.AWS.Data
     Network.AWS.Data.Base64
     Network.AWS.Data.Body
@@ -105,18 +105,18 @@ library
     Network.AWS.Internal.Env
     Network.AWS.Internal.HTTP
     Network.AWS.Internal.Logger
-    Network.AWS.Lens
+    Network.AWS.Internal.Lens
     Network.AWS.Pager
-    Network.AWS.Prelude
+    Network.AWS.Internal.Prelude
     Network.AWS.Presign
-    Network.AWS.Request
-    Network.AWS.Response
-    Network.AWS.Sign.V2
-    Network.AWS.Sign.V2Header
-    Network.AWS.Sign.V2Header.Base
-    Network.AWS.Sign.V4
-    Network.AWS.Sign.V4.Base
-    Network.AWS.Sign.V4.Chunked
+    Network.AWS.Internal.Request
+    Network.AWS.Internal.Response
+    Network.AWS.Internal.Sign.V2
+    Network.AWS.Internal.Sign.V2Header
+    Network.AWS.Internal.Sign.V2Header.Base
+    Network.AWS.Internal.Sign.V4
+    Network.AWS.Internal.Sign.V4.Base
+    Network.AWS.Internal.Sign.V4.Chunked
     Network.AWS.Types
     Network.AWS.Waiter
 

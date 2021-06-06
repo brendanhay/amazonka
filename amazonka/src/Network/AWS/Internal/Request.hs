@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Request
+-- Module      : Network.AWS.Internal.Request
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Request
+module Network.AWS.Internal.Request
   ( -- * Requests
     head',
     delete,
@@ -40,15 +40,9 @@ module Network.AWS.Request
   )
 where
 
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Headers
-import Network.AWS.Data.JSON
-import Network.AWS.Data.Path
-import Network.AWS.Data.Query
-import Network.AWS.Data.XML
-import Network.AWS.Lens ((.~))
-import Network.AWS.Prelude
+import Network.AWS.Data
+import Network.AWS.Internal.Lens ((.~))
+import Network.AWS.Internal.Prelude
 import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types (StdMethod (..))

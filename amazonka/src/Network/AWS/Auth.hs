@@ -74,8 +74,8 @@ import qualified Data.Text.Encoding as Text
 import qualified Data.Time as Time
 import Network.AWS.Data
 import Network.AWS.EC2.Metadata
-import Network.AWS.Lens (catching, catching_, exception, prism, throwingM, _IOException)
-import Network.AWS.Prelude
+import Network.AWS.Internal.Lens (catching, catching_, exception, prism, throwingM, _IOException)
+import Network.AWS.Internal.Prelude
 import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
 import qualified System.Directory as Directory

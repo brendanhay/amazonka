@@ -12,9 +12,9 @@ import qualified Data.ByteString as BS
 import Data.Conduit (ConduitM)
 import qualified Data.Conduit as Conduit
 import qualified Data.Conduit.Binary as Conduit.Binary
-import qualified Network.AWS.Crypto as Crypto
+import qualified Network.AWS.Internal.Crypto as Crypto
 import Network.AWS.Data
-import Network.AWS.Prelude
+import Network.AWS.Internal.Prelude
 import qualified System.IO as IO
 
 -- | Convenience function for obtaining the size of a file.

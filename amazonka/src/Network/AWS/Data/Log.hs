@@ -21,7 +21,7 @@ import Network.AWS.Data.Headers
 import Network.AWS.Data.Path
 import Network.AWS.Data.Query
 import Network.AWS.Data.Text
-import Network.AWS.Prelude
+import Network.AWS.Internal.Prelude
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as HTTP
 import qualified Numeric as Numeric

@@ -7,7 +7,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Data.Path (tests) where
 
-import Network.AWS.Prelude
+import Network.AWS.Internal.Prelude
+import Network.AWS.Data
 import Test.Tasty
 import Test.Tasty.HUnit
 

@@ -14,9 +14,9 @@
 module Network.AWS.Presign where
 
 import Network.AWS.Data
-import Network.AWS.Lens ((%~))
-import Network.AWS.Prelude
-import Network.AWS.Request (clientRequestURL)
+import Network.AWS.Internal.Lens ((%~))
+import Network.AWS.Internal.Prelude
+import Network.AWS.Internal.Request (clientRequestURL)
 import Network.AWS.Types
 import qualified Network.HTTP.Types as HTTP
 

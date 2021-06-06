@@ -27,9 +27,9 @@ import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.Builder as Build
 import qualified Data.Text.Lazy.Builder.Int as Build
 import qualified Data.Text.Lazy.Builder.Scientific as Build
-import qualified Network.AWS.Bytes as Bytes
-import qualified Network.AWS.Crypto as Crypto
-import Network.AWS.Prelude
+import qualified Network.AWS.Internal.Bytes as Bytes
+import qualified Network.AWS.Internal.Crypto as Crypto
+import Network.AWS.Internal.Prelude
 import qualified Network.HTTP.Types as HTTP
 import qualified Numeric
 

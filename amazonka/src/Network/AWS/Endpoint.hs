@@ -5,13 +5,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Endpoint where
+module Network.AWS.Endpoint
+  ( setEndpoint,
+    defaultEndpoint,
+                            )where
 
 import qualified Data.CaseInsensitive as CI
 import qualified Data.HashSet as HashSet
 import Network.AWS.Data.ByteString
-import Network.AWS.Lens ((%~), (.~))
-import Network.AWS.Prelude
+import Network.AWS.Internal.Lens ((%~), (.~))
+import Network.AWS.Internal.Prelude
 import Network.AWS.Types
 
 -- | A convenience function for overriding the 'Service' 'Endpoint'.

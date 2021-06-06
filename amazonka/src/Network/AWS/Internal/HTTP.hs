@@ -26,8 +26,8 @@ import qualified Data.Time as Time
 import Network.AWS.Data.Body (isStreaming)
 import Network.AWS.Internal.Env
 import Network.AWS.Internal.Logger
-import Network.AWS.Lens (to, (%~), (^.), (^?), _Just)
-import Network.AWS.Prelude
+import Network.AWS.Internal.Lens (to, (%~), (^.), (^?), _Just)
+import Network.AWS.Internal.Prelude
 import Network.AWS.Types
 import Network.AWS.Waiter
 import qualified Network.HTTP.Conduit as Client.Conduit

@@ -28,7 +28,7 @@ where
 import qualified Control.Monad as Monad
 import qualified Data.ByteString.Builder as Build
 import Network.AWS.Data
-import Network.AWS.Prelude
+import Network.AWS.Internal.Prelude
 import Network.AWS.Types
 import qualified System.IO as IO
 

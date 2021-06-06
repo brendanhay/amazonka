@@ -20,7 +20,7 @@ import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Text.Encoding as Text
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Text
-import Network.AWS.Prelude
+import Network.AWS.Internal.Prelude
 import Network.HTTP.Types (Header, HeaderName, ResponseHeaders)
 import qualified Network.HTTP.Types as HTTP
 

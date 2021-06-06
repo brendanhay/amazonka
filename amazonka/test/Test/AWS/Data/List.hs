@@ -7,7 +7,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Data.List (tests) where
 
-import Network.AWS.Prelude
+import Network.AWS.Internal.Prelude hiding (Item)
+import Network.AWS.Data
 import Test.AWS.Util
 import Test.Tasty
 
@@ -133,7 +134,7 @@ absent :: Maybe [Int]
 absent = Nothing
 
 data NonFlat a = NonFlat Text (Maybe [a])
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance ToQuery a => ToQuery (NonFlat a) where
   toQuery (NonFlat n x) =
@@ -159,7 +160,7 @@ instance ToXML a => ToXML (NonFlat a) where
       ]
 
 data Flat a = Flat Text (Maybe [a])
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance ToQuery a => ToQuery (Flat a) where
   toQuery (Flat n x) =
@@ -182,7 +183,7 @@ instance ToXML a => ToXML (Flat a) where
       ]
 
 newtype Item = Item Int
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance ToQuery Item where
   toQuery (Item n) = "value" =: n

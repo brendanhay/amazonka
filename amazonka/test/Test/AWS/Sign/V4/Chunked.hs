@@ -10,13 +10,10 @@ module Test.AWS.Sign.V4.Chunked (tests) where
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.Conduit.List as Conduit
 import qualified Data.Foldable as Fold
-import Data.List (sort)
-import Data.String
-import qualified Data.Text as Text
-import qualified Data.Text.Encoding as Text
-import Network.AWS.Lens ((%~), (&), (.~))
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import Network.AWS.Internal.Lens ((.~))
+import Network.AWS.Internal.Prelude hiding (elem)
+import Network.AWS.Internal.Sign.V4
+import Network.AWS.Data
 import qualified Network.HTTP.Conduit as Client
 import Numeric (showHex)
 import Test.AWS.Arbitrary ()
@@ -24,7 +21,7 @@ import qualified Test.QuickCheck as QC
 import Test.QuickCheck.Property ()
 import Test.Tasty
 import Test.Tasty.QuickCheck
-import Prelude hiding (elem)
+import Network.AWS.Types
 
 tests :: TestTree
 tests =
@@ -38,7 +35,7 @@ tests =
 testEmptyBody :: Property
 testEmptyBody =
   QC.forAll (mkSigned []) $ \Signed {..} ->
-    let elem = (`Fold.elem` Client.requestHeaders sgRequest)
+    let elem = (`Fold.elem` Client.requestHeaders signedRequest)
      in elem ("Content-Encoding", "aws-chunked")
           && elem ("X-Amz-Decoded-Content-Length", "0")
           && elem ("Content-Length", "86")
@@ -49,7 +46,7 @@ testOneChunkBody =
       str = BS8.pack . show
       inp = BS8.replicate n 'a'
    in QC.forAll (mkSigned [inp]) $ \Signed {..} ->
-        let elem = (`Fold.elem` Client.requestHeaders sgRequest)
+        let elem = (`Fold.elem` Client.requestHeaders signedRequest)
          in elem ("Content-Encoding", "aws-chunked")
               && elem ("X-Amz-Decoded-Content-Length", str n)
               && elem ("Content-Length", str (87 + n + 86))
@@ -63,7 +60,7 @@ testTwoChunksBody =
       full = BS8.replicate size 'a' -- full-sized chunk
       final = BS8.replicate n 'b' -- final non-empty chunk
    in QC.forAll (mkSigned [full, final]) $ \Signed {..} ->
-        let elem = (`Fold.elem` Client.requestHeaders sgRequest)
+        let elem = (`Fold.elem` Client.requestHeaders signedRequest)
          in elem ("Content-Encoding", "aws-chunked")
               && elem ("X-Amz-Decoded-Content-Length", str (size + n))
               && elem ("Content-Length", str (sizeLen + 85 + size + 87 + n + 86))
@@ -79,10 +76,10 @@ mkSigned bs = do
 
       req =
         aReq
-          & rqBody .~ Chunked (mkBody bs)
-          & rqService .~ svc
+          & requestBody .~ Chunked (mkBody bs)
+          & requestService .~ svc
 
-  rqSign req <$> arbitrary <*> arbitrary <*> arbitrary
+  requestSign req <$> arbitrary <*> arbitrary <*> arbitrary
 
 mkBody :: [BS8.ByteString] -> ChunkedBody
 mkBody bs =

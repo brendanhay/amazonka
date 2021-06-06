@@ -7,7 +7,8 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Data.Maybe (tests) where
 
-import Network.AWS.Prelude
+import Network.AWS.Internal.Prelude hiding (Item)
+import Network.AWS.Data 
 import Test.AWS.Util
 import Test.Tasty
 import Test.Tasty.HUnit
@@ -31,7 +32,7 @@ tests =
     ]
 
 data Item = Item Text (Maybe Int)
-  deriving (Eq, Show)
+  deriving stock (Eq, Show)
 
 instance ToXML Item where
   toXML (Item x y) =

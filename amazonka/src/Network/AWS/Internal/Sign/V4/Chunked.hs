@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Sign.V4.Chunked
+-- Module      : Network.AWS.Internal.Sign.V4.Chunked
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Sign.V4.Chunked
+module Network.AWS.Internal.Sign.V4.Chunked
   ( chunked,
   )
 where
@@ -15,12 +15,12 @@ import qualified Data.ByteString.Builder as Build
 import qualified Data.ByteString.Char8 as BS8
 import Data.Conduit (ConduitM)
 import qualified Data.Conduit as Conduit
-import qualified Network.AWS.Bytes as Bytes
-import qualified Network.AWS.Crypto as Crypto
+import qualified Network.AWS.Internal.Bytes as Bytes
+import qualified Network.AWS.Internal.Crypto as Crypto
 import Network.AWS.Data
-import Network.AWS.Lens ((<>~), (^.))
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4.Base hiding (algorithm)
+import Network.AWS.Internal.Lens ((<>~), (^.))
+import Network.AWS.Internal.Prelude
+import Network.AWS.Internal.Sign.V4.Base hiding (algorithm)
 import Network.AWS.Types
 import qualified Network.HTTP.Types as HTTP
 import qualified Numeric

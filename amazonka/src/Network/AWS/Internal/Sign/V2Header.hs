@@ -1,25 +1,25 @@
 -- |
--- Module      : Network.AWS.Sign.V2Header
+-- Module      : Network.AWS.Internal.Sign.V2Header
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
 -- This module provides an AWS compliant V2 Header request signer. It is based
--- heavily on boto (https://github.com/boto/boto), specifically boto's
+-- heavily on <https://github.com/boto/boto boto>, specifically boto's
 -- @HmacAuthV1Handler@ AWS capable signer. AWS documentation is available
 -- <http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html here>.
 --
--- /Notice/: Limitations include an inability to sign with a security token and
+-- Notice: Limitations include an inability to sign with a security token and
 -- inability to overwrite the @Date@ header with an expiry.
-module Network.AWS.Sign.V2Header
+module Network.AWS.Internal.Sign.V2Header
   ( v2Header,
   )
 where
 
-import qualified Network.AWS.Bytes as Bytes
-import qualified Network.AWS.Crypto as Crypto
+import qualified Network.AWS.Internal.Bytes as Bytes
+import qualified Network.AWS.Internal.Crypto as Crypto
 import Network.AWS.Data
-import Network.AWS.Prelude
-import qualified Network.AWS.Sign.V2Header.Base as V2
+import Network.AWS.Internal.Prelude
+import qualified Network.AWS.Internal.Sign.V2Header.Base as V2
 import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as HTTP

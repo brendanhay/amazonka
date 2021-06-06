@@ -7,6 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
+import Prelude
 import qualified Test.AWS.Data.Base64 as Base64
 import qualified Test.AWS.Data.List as List
 import qualified Test.AWS.Data.Maybe as Maybe

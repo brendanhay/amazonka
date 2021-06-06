@@ -16,7 +16,7 @@ import qualified Data.List.NonEmpty as NonEmpty
 import Data.XML.Types (Event (..))
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Text
-import Network.AWS.Prelude
+import Network.AWS.Internal.Prelude
 import System.IO.Unsafe (unsafePerformIO)
 import Text.XML
 import qualified Text.XML.Stream.Render as XML.Stream

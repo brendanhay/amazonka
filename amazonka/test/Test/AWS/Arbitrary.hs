@@ -10,15 +10,17 @@
 module Test.AWS.Arbitrary where
 
 import qualified Data.ByteString.Char8 as BS8
-import Data.CaseInsensitive (CI, FoldCase)
+import Data.CaseInsensitive (FoldCase)
 import qualified Data.CaseInsensitive as CI
 import Data.String
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import Data.Time
-import Network.AWS.Data.Query
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import Network.AWS.Data
+import Network.AWS.Types
+import Network.AWS.Internal.Prelude
+import Network.AWS.Internal.Sign.V4
+import Network.AWS.Endpoint
 import Network.HTTP.Types
 import Test.QuickCheck.Gen as QC
 import qualified Test.QuickCheck.Unicode as Unicode
@@ -32,23 +34,24 @@ instance Arbitrary Service where
     where
       svc abbrev =
         Service
-          { _svcAbbrev = abbrev,
-            _svcSigner = v4,
-            _svcPrefix = Text.encodeUtf8 . Text.toLower $ toText abbrev,
-            _svcVersion = "2012-01-01",
-            _svcEndpoint = defaultEndpoint (svc abbrev),
-            _svcTimeout = Nothing,
-            _svcCheck = const False,
-            _svcRetry = Exponential 1 2 3 (Just . Text.pack . show),
-            _svcError = \status hdrs _ ->
+          { _serviceAbbrev = abbrev,
+            _serviceSigner = v4,
+            _serviceSigningName = Text.encodeUtf8 . Text.toLower $ toText abbrev,
+            _serviceVersion = "2012-01-01",
+            _serviceEndpointPrefix = Text.encodeUtf8 . Text.toLower $ toText abbrev,
+            _serviceEndpoint = defaultEndpoint (svc abbrev),
+            _serviceTimeout = Nothing,
+            _serviceCheck = const False,
+            _serviceRetry = Exponential 1 2 3 (Just . Text.pack . show),
+            _serviceError = \status hdrs _ ->
               ServiceError $
                 ServiceError'
-                  { _serviceAbbrev = abbrev,
-                    _serviceStatus = status,
-                    _serviceHeaders = hdrs,
-                    _serviceCode = ErrorCode "Arbitrary.Service",
-                    _serviceMessage = Nothing,
-                    _serviceRequestId = Nothing
+                  { _serviceErrorAbbrev = abbrev,
+                    _serviceErrorStatus = status,
+                    _serviceErrorHeaders = hdrs,
+                    _serviceErrorCode = ErrorCode "Arbitrary.Service",
+                    _serviceErrorMessage = Nothing,
+                    _serviceErrorRequestId = Nothing
                   }
           }
 
@@ -112,7 +115,7 @@ instance Arbitrary Region where
         SaoPaulo
       ]
 
-instance Arbitrary RqBody where
+instance Arbitrary RequestBody where
   arbitrary = toBody <$> (arbitrary :: Gen ByteString)
 
 instance Arbitrary RawPath where

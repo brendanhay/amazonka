@@ -125,6 +125,10 @@ module Network.AWS
 
     -- ** Constructing a Logger
     newLogger,
+
+    -- * Re-exported Types
+    module Network.AWS.Types,
+    module Network.AWS.Data,
   )
 where
 
@@ -134,7 +138,7 @@ import Data.Conduit (ConduitM)
 import qualified Data.Conduit as Conduit
 import Data.Monoid (Dual (..), Endo (..))
 import Network.AWS.Auth
-import qualified Network.AWS.Crypto as Crypto
+import qualified Network.AWS.Internal.Crypto as Crypto
 import Network.AWS.Data
 import qualified Network.AWS.EC2.Metadata as EC2
 import qualified Network.AWS.Endpoint as Endpoint
@@ -144,12 +148,12 @@ import Network.AWS.Internal.Env (Env)
 import qualified Network.AWS.Internal.Env as Env
 import qualified Network.AWS.Internal.HTTP as HTTP
 import Network.AWS.Internal.Logger
-import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Internal.Lens as Lens
 import Network.AWS.Pager (AWSPager)
 import qualified Network.AWS.Pager as Pager
-import Network.AWS.Prelude
+import Network.AWS.Internal.Prelude
 import qualified Network.AWS.Presign as Presign
-import Network.AWS.Request (clientRequestURL)
+import Network.AWS.Internal.Request (clientRequestURL)
 import Network.AWS.Types
 import qualified Network.AWS.Waiter as Waiter
 import qualified Network.HTTP.Client as Client

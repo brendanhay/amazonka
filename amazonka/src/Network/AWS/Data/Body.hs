@@ -15,15 +15,15 @@ import qualified Data.ByteString.Lazy.Char8 as LBS8
 import Data.Conduit (ConduitM, (.|))
 import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Lazy.Encoding as LText
-import qualified Network.AWS.Bytes as Bytes
-import Network.AWS.Crypto (Digest, SHA256)
-import qualified Network.AWS.Crypto as Crypto
+import qualified Network.AWS.Internal.Bytes as Bytes
+import Network.AWS.Internal.Crypto (Digest, SHA256)
+import qualified Network.AWS.Internal.Crypto as Crypto
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Log
 import Network.AWS.Data.Query (QueryString)
 import Network.AWS.Data.XML (encodeXML)
-import Network.AWS.Lens (AReview, lens, to, un)
-import Network.AWS.Prelude
+import Network.AWS.Internal.Lens (AReview, lens, to, un)
+import Network.AWS.Internal.Prelude
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit
 import qualified Text.XML as XML

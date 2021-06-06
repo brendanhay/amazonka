@@ -32,8 +32,8 @@ import qualified Data.Function as Function
 import Data.Monoid (Dual (..), Endo (..))
 import Network.AWS.Auth
 import Network.AWS.Internal.Logger
-import Network.AWS.Lens ((.~), (?~))
-import Network.AWS.Prelude
+import Network.AWS.Internal.Lens ((.~), (?~))
+import Network.AWS.Internal.Prelude
 import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit

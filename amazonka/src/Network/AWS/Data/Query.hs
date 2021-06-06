@@ -15,7 +15,7 @@ import qualified Data.List as List
 import qualified Data.Text.Encoding as Text
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Text
-import Network.AWS.Prelude
+import Network.AWS.Internal.Prelude
 import qualified Network.HTTP.Types.URI as URI
 
 data QueryString

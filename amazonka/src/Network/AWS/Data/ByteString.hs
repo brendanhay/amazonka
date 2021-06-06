@@ -24,7 +24,7 @@ import qualified Data.CaseInsensitive as CI
 import qualified Data.Char as Char
 import qualified Data.Text.Encoding as Text
 import Network.AWS.Data.Text
-import Network.AWS.Prelude
+import Network.AWS.Internal.Prelude
 import qualified Network.HTTP.Types as HTTP
 import qualified Numeric
 

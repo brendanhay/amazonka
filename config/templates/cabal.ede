@@ -54,11 +54,11 @@ library
       {% endfor %}
 
     reexported-modules:
-      Network.AWS.Prelude
+      Network.AWS.Prelude, Network.AWS.Data
 
     build-depends:
-          amazonka-core == {{ coreVersion }}.*
-        , base          >= 4.13 && < 5
+          amazonka == {{ clientVersion }}.*
+        , base     >= 4.13 && < 5
       {% for dep in extraDependencies %}
         , {{ dep.value }}
       {% endfor %}
@@ -80,8 +80,8 @@ test-suite {{ libraryName }}-test
         , Test.AWS.{{ serviceAbbrev }}.Internal
 
     build-depends:
-          amazonka-core == {{ coreVersion }}.*
-        , amazonka-test == {{ coreVersion }}.*
+          amazonka      == {{ clientVersion }}.*
+        , amazonka-test == {{ clientVersion }}.*
         , {{ libraryName }}
         , base
         , bytestring

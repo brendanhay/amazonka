@@ -101,12 +101,6 @@ parser =
                   <> metavar "VER"
                   <> help "Client library version dependecy for examples."
               )
-            <*> option
-              version
-              ( long "core-version"
-                  <> metavar "VER"
-                  <> help "Core library version dependency."
-              )
         )
     <*> some
       ( argument

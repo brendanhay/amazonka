@@ -106,12 +106,9 @@ type LibraryVer = Version "library"
 
 type ClientVer = Version "client"
 
-type CoreVer = Version "core"
-
 data Versions = Versions
   { _libraryVersion :: LibraryVer,
-    _clientVersion :: ClientVer,
-    _coreVersion :: CoreVer
+    _clientVersion :: ClientVer
   }
   deriving (Show)
 
@@ -183,7 +180,6 @@ instance ToJSON Library where
             "libraryHyphenated" .= nsHyphenate (l ^. libraryNS),
             "libraryVersion" .= (l ^. libraryVersion),
             "clientVersion" .= (l ^. clientVersion),
-            "coreVersion" .= (l ^. coreVersion),
             "serviceInstance" .= (l ^. instance'),
             "typeModules" .= sort (l ^. typeModules),
             "operationModules" .= sort (l ^. operationModules),

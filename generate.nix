@@ -34,7 +34,6 @@ let
   assetsDir = ./config/assets;
 
   clientVersion = cabalProject.amazonka.identifier.version;
-  coreVersion = cabalProject.amazonka-core.identifier.version;
   libraryVersion = cabalProject.amazonka-gen.identifier.version;
 
   configNames = dir:
@@ -86,7 +85,6 @@ in pkgs.stdenvNoCC.mkDerivation {
       --out=$out \
       --library-version=${libraryVersion} \
       --client-version=${clientVersion} \
-      --core-version=${coreVersion} \
       --annexes="${annexesDir}" \
       --services="${servicesDir}" \
       --templates="${templatesDir}" \

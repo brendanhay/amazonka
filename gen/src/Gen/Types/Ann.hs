@@ -95,8 +95,6 @@ data Derive
   | DMonoid
   | DSemigroup
   | DIsString
-  | DData
-  | DTypeable
   | DGeneric
   | DHashable
   | DNFData

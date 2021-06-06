@@ -28,8 +28,8 @@ where
 
 import qualified Data.Text as Text
 import Network.AWS.Data
-import Network.AWS.Error
-import Network.AWS.Internal.Lens
+import Network.AWS.Error (_HttpStatus)
+import Network.AWS.Lens
   ( Fold,
     allOf,
     anyOf,
@@ -37,7 +37,7 @@ import Network.AWS.Internal.Lens
     (^..),
     (^?),
   )
-import Network.AWS.Internal.Prelude
+import Network.AWS.Prelude
 import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
 

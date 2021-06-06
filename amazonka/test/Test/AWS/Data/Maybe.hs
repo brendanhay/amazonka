@@ -7,8 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Data.Maybe (tests) where
 
-import Network.AWS.Internal.Prelude hiding (Item)
-import Network.AWS.Data 
+import Network.AWS.Core hiding (Item)
 import Test.AWS.Util
 import Test.Tasty
 import Test.Tasty.HUnit

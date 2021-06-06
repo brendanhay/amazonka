@@ -164,7 +164,7 @@ sumData p s i vs = Sum s <$> mk <*> fmap Map.keys insts
       Exts.RecDecl
         ()
         (ident ctor)
-        [ Exts.FieldDecl () [ident ("from" <> typeId n)] (tycon "Prelude.Text")
+        [ Exts.FieldDecl () [ident ("from" <> typeId n)] (tycon "Core.Text")
         ]
 
     -- Sometimes the values share a name with a type, so we prime the
@@ -236,7 +236,7 @@ prodData m s st = (,fields) <$> mk
             Exts.IRule () Nothing Nothing
               . Exts.IHCon ()
               . unqual
-              . mappend "Prelude."
+              . mappend "Core."
               . Text.pack
 
     fields :: [Field]

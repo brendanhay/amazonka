@@ -1,13 +1,13 @@
 {-# LANGUAGE BangPatterns #-}
 
 -- |
--- Module      : Network.AWS.Internal.HTTP
+-- Module      : Network.AWS.HTTP
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Internal.HTTP
+module Network.AWS.HTTP
   ( retryRequest,
     awaitRequest,
     httpRequest,
@@ -24,10 +24,10 @@ import qualified Data.List as List
 import Data.Monoid (Dual (..), Endo (..))
 import qualified Data.Time as Time
 import Network.AWS.Data.Body (isStreaming)
-import Network.AWS.Internal.Env
-import Network.AWS.Internal.Logger
-import Network.AWS.Internal.Lens (to, (%~), (^.), (^?), _Just)
-import Network.AWS.Internal.Prelude
+import Network.AWS.Env
+import Network.AWS.Lens (to, (%~), (^.), (^?), _Just)
+import Network.AWS.Logger
+import Network.AWS.Prelude
 import Network.AWS.Types
 import Network.AWS.Waiter
 import qualified Network.HTTP.Conduit as Client.Conduit

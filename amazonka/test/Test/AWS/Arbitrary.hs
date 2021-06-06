@@ -12,16 +12,13 @@ module Test.AWS.Arbitrary where
 import qualified Data.ByteString.Char8 as BS8
 import Data.CaseInsensitive (FoldCase)
 import qualified Data.CaseInsensitive as CI
-import Data.String
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
-import Data.Time
-import Network.AWS.Data
-import Network.AWS.Types
-import Network.AWS.Internal.Prelude
-import Network.AWS.Internal.Sign.V4
+import Data.Time (UTCTime (..), Day (..))
+import Network.AWS.Core
 import Network.AWS.Endpoint
-import Network.HTTP.Types
+import Network.AWS.Sign.V4
+import Network.HTTP.Types (StdMethod (..))
 import Test.QuickCheck.Gen as QC
 import qualified Test.QuickCheck.Unicode as Unicode
 import Test.Tasty.QuickCheck

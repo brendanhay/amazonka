@@ -11,8 +11,7 @@ import qualified Data.Aeson as Aeson
 import qualified Data.ByteString.Lazy as LBS
 import Language.Haskell.TH
 import Language.Haskell.TH.Quote
-import Network.AWS.Internal.Prelude
-import Network.AWS.Data
+import Network.AWS.Core
 import Test.Tasty
 import Test.Tasty.HUnit
 

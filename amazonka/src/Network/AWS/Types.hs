@@ -135,21 +135,17 @@ module Network.AWS.Types
     Seconds (..),
     toSeconds,
     toMicroseconds,
-
-    -- * Isomorphisms
-    _Coerce,
   )
 where
 
 import Control.Concurrent (ThreadId)
 import Control.Monad.Trans.Resource (ResourceT)
-import Data.Coerce (coerce)
 import Data.Conduit (ConduitM)
 import Data.IORef (IORef, readIORef)
 import qualified Data.Text as Text
 import Network.AWS.Data
-import qualified Network.AWS.Internal.Lens as Lens
-import Network.AWS.Internal.Prelude
+import qualified Network.AWS.Lens as Lens
+import Network.AWS.Prelude
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Method (StdMethod)
 import Network.HTTP.Types.Status (Status)
@@ -830,6 +826,3 @@ toSeconds (Seconds n)
 
 toMicroseconds :: Seconds -> Int
 toMicroseconds = (1000000 *) . toSeconds
-
-_Coerce :: (Coercible a b, Coercible b a) => Iso' a b
-_Coerce = Lens.iso coerce coerce

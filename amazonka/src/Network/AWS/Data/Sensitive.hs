@@ -14,8 +14,8 @@ import Network.AWS.Data.Log
 import Network.AWS.Data.Query
 import Network.AWS.Data.Text
 import Network.AWS.Data.XML
-import Network.AWS.Internal.Lens (iso)
-import Network.AWS.Internal.Prelude
+import Network.AWS.Lens (iso)
+import Network.AWS.Prelude
 
 -- | /Note/: read . show /= isomorphic
 newtype Sensitive a = Sensitive {fromSensitive :: a}

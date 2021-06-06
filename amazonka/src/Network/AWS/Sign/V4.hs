@@ -1,11 +1,11 @@
 -- |
--- Module      : Network.AWS.Internal.Sign.V4
+-- Module      : Network.AWS.Sign.V4
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Internal.Sign.V4
+module Network.AWS.Sign.V4
   ( V4 (..),
     v4,
   )
@@ -17,11 +17,11 @@ import Network.AWS.Data.ByteString
 import Network.AWS.Data.Headers
 import Network.AWS.Data.Query
 import Network.AWS.Data.Time
-import Network.AWS.Internal.Lens ((%~), (<>~))
-import Network.AWS.Internal.Prelude
-import Network.AWS.Internal.Request
-import Network.AWS.Internal.Sign.V4.Base
-import Network.AWS.Internal.Sign.V4.Chunked
+import Network.AWS.Lens ((%~), (<>~))
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Sign.V4.Base
+import Network.AWS.Sign.V4.Chunked
 import Network.AWS.Types
 
 v4 :: Signer

@@ -1,12 +1,13 @@
 -- |
--- Module      : Network.AWS.Internal.Lens
+-- Module      : Network.AWS.Lens
 -- Copyright   : (c) 2013-2021 Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Internal.Lens
+module Network.AWS.Lens
   ( module Export,
+    _Coerce,
   )
 where
 
@@ -47,6 +48,7 @@ import Control.Lens as Export
     traversed,
     un,
     view,
+    (#),
     (%~),
     (&),
     (.~),
@@ -54,10 +56,14 @@ import Control.Lens as Export
     (<>~),
     (?~),
     (^.),
-    (^?),
     (^..),
+    (^?),
     _1,
     _2,
     _Just,
     _last,
   )
+import Data.Coerce (Coercible, coerce)
+
+_Coerce :: (Coercible a b, Coercible b a) => Iso' a b
+_Coerce = iso coerce coerce

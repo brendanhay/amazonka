@@ -4,14 +4,13 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Sign.V2Header.BaseSpec (tests) where
 
-import Network.AWS.Internal.Prelude
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.CaseInsensitive as CI
 import qualified Data.List as List
 import Data.List.Ordered (subset)
 import qualified Data.Text as Text
-import qualified Network.AWS.Data.Query as Query
-import Network.AWS.Internal.Sign.V2Header.Base
+import Network.AWS.Core
+import Network.AWS.Sign.V2Header.Base
 import qualified Network.HTTP.Types as HTTP
 import qualified Test.QuickCheck as QC
 import Test.Tasty (TestTree, testGroup)
@@ -28,7 +27,7 @@ tests =
             "should always convert set QValues to Nothing"
             prop_QValueEmpty,
           testCase "should keep an unset QValue" $
-            constructSigningQuery (Query.QValue (Nothing :: Maybe ByteString)) @?= (Query.QValue (Nothing :: Maybe ByteString)),
+            constructSigningQuery (QValue (Nothing :: Maybe ByteString)) @?= (QValue (Nothing :: Maybe ByteString)),
           testProperty
             "should discard QPairs that are not interesting to AWS"
             prop_UninterestingQPairs,
@@ -36,9 +35,9 @@ tests =
             "should keep all QPairs that are interesting to AWS"
             prop_InterestingQPairs,
           testCase "should keep an empty QList" $
-            constructSigningQuery (Query.QList []) @?= Query.QList [],
+            constructSigningQuery (QList []) @?= QList [],
           testCase "should keep a list of Nothing QValues" $
-            constructSigningQuery (Query.QList [(Query.QValue Nothing)]) @?= (Query.QList [(Query.QValue Nothing)]),
+            constructSigningQuery (QList [(QValue Nothing)]) @?= (QList [(QValue Nothing)]),
           testProperty
             "should discard the contents of an unintersting QList"
             prop_UninterestingQLists,
@@ -75,14 +74,14 @@ tests =
       testGroup
         "toSingerQBS"
         [ testCase "should convert an empty query string" $
-            toSignerQueryBS (Query.QValue Nothing) @?= "",
+            toSignerQueryBS (QValue Nothing) @?= "",
           testCase "should convert an empty value of QPair to just the key" $
-            toSignerQueryBS (Query.QPair "key" (Query.QValue Nothing)) @?= "key",
+            toSignerQueryBS (QPair "key" (QValue Nothing)) @?= "key",
           testCase "should convert an empty value of QPair followed by QValue to just the key and just the value" $
             toSignerQueryBS
-              ( Query.QList
-                  [ (Query.QPair "key" (Query.QValue Nothing)),
-                    ( Query.QValue $
+              ( QList
+                  [ (QPair "key" (QValue Nothing)),
+                    ( QValue $
                         Just "key2"
                     )
                   ]
@@ -94,7 +93,7 @@ tests =
         [ testCase "should convert an empty queryString to just the path" $
             constructFullPath "path" "" @?= "path",
           testCase "should convert an empty value of QPair and a path to just the path and the key" $
-            constructFullPath "path" (toSignerQueryBS (Query.QPair "key" (Query.QValue Nothing))) @?= "path?key"
+            constructFullPath "path" (toSignerQueryBS (QPair "key" (QValue Nothing))) @?= "path?key"
         ],
       testGroup
         "should construct canonical headers"
@@ -109,25 +108,25 @@ prop_QValueEmpty :: Property
 prop_QValueEmpty =
   QC.forAll uninterestingQValues $ \qv ->
     constructSigningQuery qv
-      == Query.QValue (Nothing :: Maybe ByteString)
+      == QValue (Nothing :: Maybe ByteString)
 
 -- Generators / properties for uninteresting query pairs
 
 prop_UninterestingQPairs :: Property
 prop_UninterestingQPairs =
   QC.forAll uninterestingQPairs $ \qpair ->
-    constructSigningQuery qpair == Query.QValue Nothing
+    constructSigningQuery qpair == QValue Nothing
 
-uninterestingQPairs :: Gen Query.QueryString
+uninterestingQPairs :: Gen QueryString
 uninterestingQPairs =
-  Query.toQuery <$> ((,) <$> nonEmptyText <*> uninterestingQValues)
+  toQuery <$> ((,) <$> nonEmptyText <*> uninterestingQValues)
 
 -- Generators / properties for interesting query pairs
 
 prop_InterestingQPairs :: Property
 prop_InterestingQPairs =
   QC.forAll interestingQPairs $ \qpair ->
-    constructSigningQuery qpair /= Query.QValue Nothing
+    constructSigningQuery qpair /= QValue Nothing
 
 interestingQueryKey :: Gen ByteString
 interestingQueryKey =
@@ -162,9 +161,9 @@ interestingQueryKey =
       "compose"
     ]
 
-interestingQPairs :: Gen Query.QueryString
+interestingQPairs :: Gen QueryString
 interestingQPairs =
-  Query.toQuery <$> ((,) <$> interestingQueryKey <*> uninterestingQValues)
+  toQuery <$> ((,) <$> interestingQueryKey <*> uninterestingQValues)
 
 -- Generators / properties for query lists
 
@@ -173,9 +172,9 @@ prop_UninterestingQLists =
   QC.forAll uninterestingQLists $
     not . containsAnything . constructSigningQuery
 
-uninterestingQLists :: Gen Query.QueryString
+uninterestingQLists :: Gen QueryString
 uninterestingQLists =
-  Query.toQueryList
+  toQueryList
     <$> nonEmptyByteString
     <*> QC.listOf
       ( QC.frequency
@@ -185,15 +184,15 @@ uninterestingQLists =
           ]
       )
 
-containsAnything :: Query.QueryString -> Bool
+containsAnything :: QueryString -> Bool
 containsAnything = \case
-  Query.QValue v -> isJust v
-  Query.QPair {} -> True
-  Query.QList qs -> any containsAnything qs
+  QValue v -> isJust v
+  QPair {} -> True
+  QList qs -> any containsAnything qs
 
-interestingQLists :: Gen Query.QueryString
+interestingQLists :: Gen QueryString
 interestingQLists =
-  Query.toQueryList
+  toQueryList
     <$> interestingQueryKey
     <*> QC.listOf
       ( QC.frequency
@@ -213,19 +212,19 @@ prop_InterestingQLists =
 
 prop_RandomHeaders :: Property
 prop_RandomHeaders =
-  QC.forAll randomHeaderGenerator $ \hdr ->
-    constructSigningHeader hdr == snd hdr
+  QC.forAll randomHeaderGenerator $ \hs ->
+    constructSigningHeader hs == snd hs
 
 prop_InterestingHeaders :: Property
 prop_InterestingHeaders =
-  QC.forAll interestingHeaderGenerator $ \hdr ->
-    constructSigningHeader hdr == snd hdr
+  QC.forAll interestingHeaderGenerator $ \hs ->
+    constructSigningHeader hs == snd hs
 
 prop_InterestingAwsHeaders :: Property
 prop_InterestingAwsHeaders =
-  QC.forAll interestingAwsHeaderGenerator $ \hdr ->
-    constructSigningHeader hdr
-      == (CI.foldedCase (fst hdr) <> ":" <> snd hdr)
+  QC.forAll interestingAwsHeaderGenerator $ \hs ->
+    constructSigningHeader hs
+      == (CI.foldedCase (fst hs) <> ":" <> snd hs)
 
 -- Generator / Property for headers
 randomHeaderGenerator :: Gen HTTP.Header
@@ -279,8 +278,8 @@ testHeaders headers =
 nonEmptyByteString :: Gen ByteString
 nonEmptyByteString = BS8.pack <$> nonEmptyString
 
-uninterestingQValues :: Gen Query.QueryString
-uninterestingQValues = Query.toQuery <$> nonEmptyText
+uninterestingQValues :: Gen QueryString
+uninterestingQValues = toQuery <$> nonEmptyText
 
 nonEmptyText :: Gen Text.Text
 nonEmptyText = Text.pack <$> nonEmptyString

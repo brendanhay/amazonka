@@ -1,5 +1,5 @@
 -- |
--- Module      : Network.AWS.Internal.Prelude
+-- Module      : Network.AWS.Prelude
 -- Copyright   : (c) 2013-2021 Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -16,7 +16,7 @@
 --
 -- Try and avoid any value, operator, or symbol exports, if possible. Most of
 -- the ones here exist to ease legacy code-migration.
-module Network.AWS.Internal.Prelude
+module Network.AWS.Prelude
   ( module Export,
     TextLazy,
     TextBuilder,
@@ -39,6 +39,7 @@ import Control.Lens as Export
   )
 import Control.Monad as Export
 import Control.Monad.IO.Class as Export (MonadIO (liftIO))
+import Data.Monoid as Export (First)
 import Control.Monad.Trans as Export (MonadTrans (lift))
 import Control.Monad.Trans.Resource as Export (MonadResource)
 import Data.Aeson as Export (FromJSON (..), FromJSONKey (..), ToJSON (..), ToJSONKey (..))

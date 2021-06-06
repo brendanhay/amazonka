@@ -24,7 +24,7 @@ import qualified Data.ByteString as BS
 import qualified Data.ByteString.Char8 as BS8
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Text
-import Network.AWS.Internal.Prelude
+import Network.AWS.Prelude
 import qualified Network.HTTP.Types.URI as URI
 
 class ToPath a where

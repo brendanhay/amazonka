@@ -57,8 +57,8 @@ import qualified Data.ByteString.Char8 as BS8
 import qualified Data.ByteString.Lazy as LBS
 import qualified Data.Text as Text
 import Network.AWS.Data
-import Network.AWS.Internal.Lens (lens, mapping)
-import Network.AWS.Internal.Prelude
+import Network.AWS.Lens (lens, mapping)
+import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 import qualified Network.HTTP.Client as Client
 

@@ -10,10 +10,9 @@ module Test.AWS.Sign.V4.Chunked (tests) where
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.Conduit.List as Conduit
 import qualified Data.Foldable as Fold
-import Network.AWS.Internal.Lens ((.~))
-import Network.AWS.Internal.Prelude hiding (elem)
-import Network.AWS.Internal.Sign.V4
-import Network.AWS.Data
+import Network.AWS.Core hiding (elem)
+import Network.AWS.Lens ((.~))
+import Network.AWS.Sign.V4
 import qualified Network.HTTP.Conduit as Client
 import Numeric (showHex)
 import Test.AWS.Arbitrary ()
@@ -21,7 +20,6 @@ import qualified Test.QuickCheck as QC
 import Test.QuickCheck.Property ()
 import Test.Tasty
 import Test.Tasty.QuickCheck
-import Network.AWS.Types
 
 tests :: TestTree
 tests =

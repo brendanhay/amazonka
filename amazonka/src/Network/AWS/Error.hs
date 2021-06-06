@@ -12,8 +12,8 @@ import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.ByteString.Lazy as LBS
 import Data.Monoid (First)
 import Network.AWS.Data
-import Network.AWS.Internal.Lens (Choice, Getting, Optic', filtered)
-import Network.AWS.Internal.Prelude
+import Network.AWS.Lens (Choice, Getting, Optic', filtered)
+import Network.AWS.Prelude
 import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types.Status (Status (..))
@@ -141,8 +141,8 @@ parseXMLError a s h bs = decodeError a s h bs (decodeXML bs >>= go)
     go x =
       serviceError a s h
         <$> code x
-        <*> may (firstElement "Message" x)
-        <*> may (firstElement "RequestId" x <|> firstElement "RequestID" x)
+        <*> may' (firstElement "Message" x)
+        <*> may' (firstElement "RequestId" x <|> firstElement "RequestID" x)
 
     code x =
       Just <$> (firstElement "Code" x >>= parseXML)
@@ -150,8 +150,8 @@ parseXMLError a s h bs = decodeError a s h bs (decodeXML bs >>= go)
 
     root = newErrorCode <$> rootElementName bs
 
-    may (Left _) = pure Nothing
-    may (Right x) = Just <$> parseXML x
+    may' (Left _) = pure Nothing
+    may' (Right x) = Just <$> parseXML x
 
 parseRESTError ::
   Abbrev ->

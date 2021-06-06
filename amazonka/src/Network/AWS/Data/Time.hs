@@ -38,8 +38,8 @@ import Network.AWS.Data.JSON
 import Network.AWS.Data.Query
 import Network.AWS.Data.Text
 import Network.AWS.Data.XML
-import Network.AWS.Internal.Lens (iso)
-import Network.AWS.Internal.Prelude
+import Network.AWS.Lens (iso)
+import Network.AWS.Prelude
 
 data Format
   = RFC822Format

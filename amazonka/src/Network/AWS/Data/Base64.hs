@@ -12,15 +12,15 @@ module Network.AWS.Data.Base64
 where
 
 import qualified Data.Text.Encoding as Text
-import qualified Network.AWS.Internal.Bytes as Bytes
+import qualified Network.AWS.Bytes as Bytes
 import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.JSON
 import Network.AWS.Data.Query
 import Network.AWS.Data.Text
 import Network.AWS.Data.XML
-import Network.AWS.Internal.Lens (iso)
-import Network.AWS.Internal.Prelude
+import Network.AWS.Lens (iso)
+import Network.AWS.Prelude
 
 -- | Base64 encoded binary data.
 --

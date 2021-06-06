@@ -111,7 +111,7 @@ derivingOf = uniq . typ . typeOf
       Bytes -> derivingBase
       Time -> DOrd : derivingBase
       Bool -> derivingBase <> enum
-      Json -> [DEq, DShow, DData, DTypeable, DGeneric, DHashable, DNFData]
+      Json -> [DEq, DShow, DGeneric, DHashable, DNFData]
 
 stream, string, num, frac, monoid, enum, ord :: [Derive]
 stream = [DShow, DGeneric]
@@ -123,7 +123,7 @@ enum = [DOrd, DEnum, DBounded]
 ord = [DOrd]
 
 derivingBase :: [Derive]
-derivingBase = [DEq, DRead, DShow, DData, DTypeable, DGeneric, DHashable, DNFData]
+derivingBase = [DEq, DRead, DShow, DGeneric, DHashable, DNFData]
 
 typeDefault :: TType -> Bool
 typeDefault = \case

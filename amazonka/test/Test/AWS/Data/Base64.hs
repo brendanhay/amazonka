@@ -7,9 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Data.Base64 (tests) where
 
-import Data.String
-import Network.AWS.Internal.Prelude
-import Network.AWS.Data
+import Network.AWS.Core
 import Network.HTTP.Types.URI (urlEncode)
 import Test.AWS.Util
 import Test.Tasty

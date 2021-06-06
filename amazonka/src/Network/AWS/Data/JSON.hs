@@ -38,7 +38,7 @@ import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.HashMap.Strict as HashMap
 import Network.AWS.Data.Text
-import Network.AWS.Internal.Prelude
+import Network.AWS.Prelude
 
 parseJSONText :: FromText a => String -> Aeson.Value -> Aeson.Types.Parser a
 parseJSONText n = Aeson.withText n (either fail pure . fromText)

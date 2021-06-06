@@ -1,5 +1,5 @@
 -- |
--- Module      : Network.AWS.Internal.Env
+-- Module      : Network.AWS.Env
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -8,7 +8,7 @@
 --
 -- Environment and AWS specific configuration for the
 -- 'Network.AWS.AWS' and 'Control.Monad.Trans.AWS.AWST' monads.
-module Network.AWS.Internal.Env
+module Network.AWS.Env
   ( -- * Creating the Environment
     newEnv,
     newEnvWith,
@@ -31,9 +31,9 @@ where
 import qualified Data.Function as Function
 import Data.Monoid (Dual (..), Endo (..))
 import Network.AWS.Auth
-import Network.AWS.Internal.Logger
-import Network.AWS.Internal.Lens ((.~), (?~))
-import Network.AWS.Internal.Prelude
+import Network.AWS.Lens ((.~), (?~))
+import Network.AWS.Logger
+import Network.AWS.Prelude
 import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as Client.Conduit

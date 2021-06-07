@@ -10,7 +10,6 @@ module Network.AWS.Error where
 import qualified Data.Aeson as Aeson
 import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.ByteString.Lazy as LBS
-import Data.Monoid (First)
 import Network.AWS.Data
 import Network.AWS.Lens (Choice, Getting, Optic', filtered)
 import Network.AWS.Prelude

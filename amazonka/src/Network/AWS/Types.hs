@@ -531,6 +531,7 @@ newtype AccessKey = AccessKey ByteString
       FromText,
       ToLog,
       ToByteString,
+      ToQuery,
       FromXML,
       ToXML,
       Hashable,

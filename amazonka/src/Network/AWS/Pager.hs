@@ -14,7 +14,7 @@ module Network.AWS.Pager
 where
 
 import qualified Data.HashMap.Strict as HashMap
-import Network.AWS.Core (ToText (..))
+import Network.AWS.Data (ToText (..))
 import Network.AWS.Lens (Getter, to)
 import Network.AWS.Prelude
 import Network.AWS.Types

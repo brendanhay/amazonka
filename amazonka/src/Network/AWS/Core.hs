@@ -9,11 +9,19 @@
 -- Types and values referenced by generated code.
 module Network.AWS.Core
   ( module Network.AWS.Types,
-    module Network.AWS.Prelude,
+    module Network.AWS.Endpoint,
     module Network.AWS.Data,
+    module Network.AWS.Prelude,
+    module Network.AWS.Pager,
+    module Network.AWS.Waiter,
+    module Network.AWS.Error
   )
 where
 
-import Network.AWS.Data
-import Network.AWS.Prelude
 import Network.AWS.Types
+import Network.AWS.Prelude
+import Network.AWS.Endpoint
+import Network.AWS.Data
+import Network.AWS.Pager
+import Network.AWS.Waiter
+import Network.AWS.Error

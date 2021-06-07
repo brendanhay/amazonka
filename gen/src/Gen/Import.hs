@@ -12,12 +12,11 @@ module Gen.Import where
 
 import Control.Lens
 import Data.List (sort)
-import Data.Maybe
 import qualified Data.Set as Set
 import Gen.Types
 
 operationImports :: Library -> Operation Identity SData a -> [NS]
-operationImports l o =
+operationImports l _o =
   Set.toList . Set.fromList $
     "qualified Network.AWS.Request as Request" :
     "qualified Network.AWS.Response as Response" :
@@ -25,15 +24,12 @@ operationImports l o =
     "qualified Network.AWS.Core as Core" :
     l ^. typesNS :
     l ^. operationModules
-      ++ maybeToList (const "qualified Network.AWS.Pager as Pager" <$> o ^. opPager)
 
 typeImports :: Library -> [NS]
 typeImports l =
   sort $
     "qualified Network.AWS.Lens as Lens" :
     "qualified Network.AWS.Core as Core" :
-    "qualified Network.AWS.Endpoint as Endpoint" :
-    "qualified Network.AWS.Error as Error" :
     signatureImport (l ^. signatureVersion) :
     l ^. typeModules
 
@@ -72,7 +68,6 @@ waiterImports l =
   sort $
     "qualified Network.AWS.Lens as Lens" :
     "qualified Network.AWS.Core as Core" :
-    "qualified Network.AWS.Waiter as Waiter" :
     l ^. typesNS :
     l ^. lensNS :
     map (operationNS ns . _waitOpName) (l ^.. waiters . each)

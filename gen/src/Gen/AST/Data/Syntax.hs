@@ -175,10 +175,10 @@ errorD m n s c =
   where
     status i =
       Exts.infixApp rhs "Core.." $
-        var "Error.hasStatus"
+        var "Core.hasStatus"
           `Exts.app` Exts.intE (fromIntegral i)
 
-    rhs = Exts.appFun (var "Error._MatchServiceError") [var (m ^. serviceConfig), str c]
+    rhs = Exts.appFun (var "Core._MatchServiceError") [var (m ^. serviceConfig), str c]
 
 dataD :: Id -> [QualConDecl] -> [Derive] -> Decl
 dataD n fs cs = Exts.DataDecl () arity Nothing head' fs [derives]
@@ -229,10 +229,10 @@ serviceD m r = Exts.patBindWhere (pvar n) rhs bs
           field (unqual "Core._serviceEndpointPrefix") (m ^. endpointPrefix . to str),
           field (unqual "Core._serviceSigningName") (m ^. signingName . to str),
           field (unqual "Core._serviceVersion") (m ^. apiVersion . to str),
-          field (unqual "Core._serviceEndpoint") (Exts.app (var "Endpoint.defaultEndpoint") (var n)),
+          field (unqual "Core._serviceEndpoint") (Exts.app (var "Core.defaultEndpoint") (var n)),
           field (unqual "Core._serviceTimeout") (Exts.app justE (Exts.intE 70)),
-          field (unqual "Core._serviceCheck") (var "Error.statusSuccess"),
-          field (unqual "Core._serviceError") (var ("Error." <> serviceError m) `Exts.app` str abbrev),
+          field (unqual "Core._serviceCheck") (var "Core.statusSuccess"),
+          field (unqual "Core._serviceError") (var ("Core." <> serviceError m) `Exts.app` str abbrev),
           field (unqual "Core._serviceRetry") (var "retry")
         ]
 
@@ -264,16 +264,16 @@ policyE = \case
         (var "Lens.has")
         [ Exts.paren $
             Exts.infixApp
-              (Exts.app (var "Error.hasCode") (str c))
+              (Exts.app (var "Core.hasCode") (str c))
               "Core.."
-              (Exts.app (var "Error.hasStatus") (Exts.intE s)),
+              (Exts.app (var "Core.hasStatus") (Exts.intE s)),
           var "e"
         ]
   When (WhenStatus Nothing s) ->
     Just $
       Exts.appFun
         (var "Lens.has")
-        [ Exts.paren $ Exts.app (var "Error.hasStatus") (Exts.intE s),
+        [ Exts.paren $ Exts.app (var "Core.hasStatus") (Exts.intE s),
           var "e"
         ]
   _ -> Nothing
@@ -281,7 +281,7 @@ policyE = \case
 pagerD :: Id -> Pager Field -> Decl
 pagerD n p =
   instD
-    "Pager.AWSPager"
+    "Core.AWSPager"
     n
     [ Exts.InsDecl () $
         Exts.sfun (ident "page") [ident "rq", ident "rs"] (rhs p) Exts.noBinds
@@ -309,7 +309,7 @@ pagerD n p =
             other (t : ts)
           ]
 
-    stop x = guardE (Exts.app (var "Pager.stop") (rs x)) nothingE
+    stop x = guardE (Exts.app (var "Core.stop") (rs x)) nothingE
 
     other = otherE . foldl' f rq
       where
@@ -343,11 +343,11 @@ notationE = notationE' True
 -- FIXME: doesn't support Maybe fields properly.
 notationE' :: Bool -> Notation Field -> Exp
 notationE' withLensIso = \case
-  NonEmptyText k -> Exts.app (var "Waiter.nonEmptyText") (label k)
+  NonEmptyText k -> Exts.app (var "Core.nonEmptyText") (label k)
   IsEmptyList (k :| ks) -> Exts.app (var "Core.isEmptyList") (labels k ks)
   NonEmptyList (k :| ks) -> labels k ks
   Access (k :| ks) -> labels k ks
-  Choice x y -> Exts.appFun (var "Pager.choice") [branch x, branch y]
+  Choice x y -> Exts.appFun (var "Core.choice") [branch x, branch y]
   where
     branch x =
       let e = notationE' withLensIso x
@@ -815,7 +815,7 @@ responseF p r fs
     suf = "Response.receive" <> Proto.suffix p
 
 waiterS :: Id -> Waiter a -> Decl
-waiterS n w = Exts.TypeSig () [ident c] $ tyapp (tycon "Waiter.Wait") (tycon k)
+waiterS n w = Exts.TypeSig () [ident c] $ tyapp (tycon "Core.Wait") (tycon k)
   where
     k = w ^. waitOperation . to typeId
     c = smartCtorId n
@@ -827,11 +827,11 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
 
     rhs =
       recconstr
-        (unqual "Waiter.Wait")
-        [ field (unqual "Waiter._waitName") (str (memberId n)),
-          field (unqual "Waiter._waitAttempts") (w ^. waitAttempts . to Exts.intE),
-          field (unqual "Waiter._waitDelay") (w ^. waitDelay . to Exts.intE),
-          field (unqual "Waiter._waitAcceptors")
+        (unqual "Core.Wait")
+        [ field (unqual "Core._waitName") (str (memberId n)),
+          field (unqual "Core._waitAttempts") (w ^. waitAttempts . to Exts.intE),
+          field (unqual "Core._waitDelay") (w ^. waitDelay . to Exts.intE),
+          field (unqual "Core._waitAcceptors")
             . Exts.listE
             $ map match (w ^. waitAcceptors)
         ]
@@ -839,17 +839,17 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
     match x =
       case (_acceptMatch x, _acceptArgument x) of
         (_, Just (NonEmptyList _)) ->
-          Exts.appFun (var "Waiter.matchNonEmpty") (expect x : criteria x : argument' x)
+          Exts.appFun (var "Core.matchNonEmpty") (expect x : criteria x : argument' x)
         (Path, _) ->
-          Exts.appFun (var "Waiter.matchAll") (expect x : criteria x : argument' x)
+          Exts.appFun (var "Core.matchAll") (expect x : criteria x : argument' x)
         (PathAll, _) ->
-          Exts.appFun (var "Waiter.matchAll") (expect x : criteria x : argument' x)
+          Exts.appFun (var "Core.matchAll") (expect x : criteria x : argument' x)
         (PathAny, _) ->
-          Exts.appFun (var "Waiter.matchAny") (expect x : criteria x : argument' x)
+          Exts.appFun (var "Core.matchAny") (expect x : criteria x : argument' x)
         (Status, _) ->
-          Exts.appFun (var "Waiter.matchStatus") (expect x : criteria x : argument' x)
+          Exts.appFun (var "Core.matchStatus") (expect x : criteria x : argument' x)
         (Error, _) ->
-          Exts.appFun (var "Waiter.matchError") (expect x : criteria x : argument' x)
+          Exts.appFun (var "Core.matchError") (expect x : criteria x : argument' x)
 
     expect x =
       case _acceptExpect x of
@@ -859,9 +859,9 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
 
     criteria x =
       case _acceptCriteria x of
-        Retry -> var "Waiter.AcceptRetry"
-        Success -> var "Waiter.AcceptSuccess"
-        Failure -> var "Waiter.AcceptFailure"
+        Retry -> var "Core.AcceptRetry"
+        Success -> var "Core.AcceptSuccess"
+        Failure -> var "Core.AcceptFailure"
 
     argument' x = go <$> maybeToList (notationE <$> _acceptArgument x)
       where

@@ -148,7 +148,6 @@ import qualified Network.AWS.Error as Error
 import qualified Network.AWS.HTTP as HTTP
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Logger
-import Network.AWS.Pager (AWSPager)
 import qualified Network.AWS.Pager as Pager
 import qualified Network.AWS.Presign as Presign
 import Network.AWS.Request (clientRequestURL)

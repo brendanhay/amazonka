@@ -22,22 +22,4 @@ source-repository head
 
 library
   default-language:   Haskell2010
-  build-depends:      amazonka
-  reexported-modules:
-    Network.AWS.Data.Base64,
-    Network.AWS.Data.Body,
-    Network.AWS.Data.ByteString,
-    Network.AWS.Data.Headers,
-    Network.AWS.Data.JSON,
-    Network.AWS.Data.Log,
-    Network.AWS.Data.Path,
-    Network.AWS.Data.Query,
-    Network.AWS.Data.Sensitive,
-    Network.AWS.Data.Text,
-    Network.AWS.Data.Time,
-    Network.AWS.Data.XML,
-    Network.AWS.Endpoint,
-    Network.AWS.Error,
-    Network.AWS.Pager,
-    Network.AWS.Types,
-    Network.AWS.Waiter
+  build-depends:      base

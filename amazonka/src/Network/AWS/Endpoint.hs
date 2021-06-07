@@ -6,7 +6,8 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Endpoint
-  ( setEndpoint,
+  ( -- * Endpoint
+    setEndpoint,
     defaultEndpoint,
   )
 where

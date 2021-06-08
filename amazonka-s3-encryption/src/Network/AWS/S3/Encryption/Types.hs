@@ -13,22 +13,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Encryption.Types where
 
-import Control.Exception (Exception, SomeException)
 import qualified Control.Exception.Lens as Exception.Lens
-import Control.Lens (Lens')
 import qualified Control.Lens as Lens
 import qualified Crypto.Cipher.AES as AES
 import qualified Crypto.Error
 import qualified Crypto.PubKey.RSA.Types as RSA
 import qualified Data.Aeson as Aeson
-import Data.CaseInsensitive (CI)
-import Data.String (IsString)
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import qualified Network.AWS as AWS
-import Network.AWS.Prelude
+import Network.AWS.Core
 import qualified Network.AWS.S3 as S3
-import Prelude
 
 -- | An error thrown when performing encryption or decryption.
 data EncryptionError
@@ -44,7 +39,7 @@ data EncryptionError
     EnvelopeInvalid (CI Text) String
   | -- | KMS error when retrieving decrypted plaintext.
     PlaintextUnavailable
-  deriving (Eq, Show, Typeable)
+  deriving (Eq, Show)
 
 instance Exception EncryptionError
 
@@ -127,26 +122,3 @@ description = Lens.lens f (flip g)
       Symmetric c _ -> Symmetric c a
       Asymmetric k _ -> Asymmetric k a
       KMS k _ -> KMS k a
-
--- | An 'AWS' environment composed with the master key used to encrypt/decrypt
--- requests. This environment is used in place of 'AWST.Env' when
--- running AWS actions.
-data KeyEnv = KeyEnv
-  { -- | The underlying 'AWS' environment.
-    _envExtended :: !AWS.Env,
-    -- | The master 'Key' used for encryption.
-    _envKey :: !Key
-  }
-
-instance AWS.HasEnv KeyEnv where
-  environment = Lens.lens _envExtended (\s a -> s {_envExtended = a})
-
-class HasKeyEnv a where
-  keyed :: Lens' a KeyEnv
-
-  -- | Key material used to encrypt/decrypt request envelopes.
-  envKey :: Lens' a Key
-  envKey = keyed . Lens.lens _envKey (\s a -> s {_envKey = a})
-
-instance HasKeyEnv KeyEnv where
-  keyed = id

@@ -86,7 +86,6 @@ library
     Network.AWS.Core
     Network.AWS.EC2.Metadata
     Network.AWS.Env
-    Network.AWS.HTTP
     Network.AWS.Lens
     Network.AWS.Logger
     Network.AWS.Presign
@@ -98,16 +97,17 @@ library
     Network.AWS.Sign.V4
     Network.AWS.Sign.V4.Base
     Network.AWS.Sign.V4.Chunked
-    Network.AWS.Bytes
-    Network.AWS.Crypto
     Network.AWS.Error
     Network.AWS.Waiter
     Network.AWS.Pager
+    Network.AWS.HTTP
 
   other-modules:
-    Network.AWS.Types
     Network.AWS.Endpoint
     Network.AWS.Prelude
+    Network.AWS.Bytes
+    Network.AWS.Crypto
+    Network.AWS.Types
     Network.AWS.Data
     Network.AWS.Data.Base64
     Network.AWS.Data.Body

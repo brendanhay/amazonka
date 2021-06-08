@@ -15,13 +15,12 @@
 module Network.AWS.S3.Encryption.Instructions where
 
 import Control.Arrow ((&&&))
-import Control.Lens (Lens', (%~), (&))
+import Control.Lens ((%~))
 import qualified Control.Lens as Lens
-import Control.Monad.Trans.AWS
+import qualified Network.AWS as AWS
 import qualified Data.Aeson.Types as Aeson
 import Data.Coerce (coerce)
-import Data.Proxy (Proxy (Proxy))
-import Network.AWS.Prelude
+import Network.AWS.Core
 import qualified Network.AWS.Response as Response
 import qualified Network.AWS.S3 as S3
 import Network.AWS.S3.Encryption.Envelope
@@ -29,7 +28,7 @@ import Network.AWS.S3.Encryption.Types
 import qualified Network.AWS.S3.Lens as S3
 
 newtype Instructions = Instructions
-  { runInstructions :: forall m r. (AWSConstraint r m, HasKeyEnv r) => m Envelope
+  { runInstructions :: forall m. MonadResource m => Key -> AWS.Env -> m Envelope
   }
 
 class AWSRequest a => AddInstructions a where
@@ -70,7 +69,7 @@ piExtension :: Lens' PutInstructions Ext
 piExtension = Lens.lens _piExt (\s a -> s {_piExt = a})
 
 instance AWSRequest PutInstructions where
-  type Rs PutInstructions = S3.PutObjectResponse
+  type AWSResponse PutInstructions = S3.PutObjectResponse
 
   request x =
     coerce . request $
@@ -94,23 +93,16 @@ giExtension :: Lens' GetInstructions Ext
 giExtension = Lens.lens _giExt (\s a -> s {_giExt = a})
 
 instance AWSRequest GetInstructions where
-  type Rs GetInstructions = Instructions
+  type AWSResponse GetInstructions = Instructions
 
   request x =
     coerce . request $
       _giGet x & S3.getObject_key %~ appendExtension (_giExt x)
 
   response =
-    Response.receiveJSON $ \_ _ o ->
-      pure $
-        Instructions $ do
-          k <- Lens.view envKey
-          e <- Lens.view environment
-
-          hoistError
-            (EnvelopeInvalid "Instructions")
-            (Aeson.parseEither Aeson.parseJSON (Aeson.Object o))
-            >>= fromMetadata k e
+    Response.receiveJSON $ \_ _ o -> do
+      e <- Aeson.parseEither Aeson.parseJSON (Aeson.Object o)
+      pure $ Instructions $ \key env -> fromMetadata key env e
 
 class AWSRequest a => RemoveInstructions a where
   -- | Determine the bucket and key an instructions file is adjacent to.
@@ -142,7 +134,7 @@ diExtension :: Lens' DeleteInstructions Ext
 diExtension = Lens.lens _diExt (\s a -> s {_diExt = a})
 
 instance AWSRequest DeleteInstructions where
-  type Rs DeleteInstructions = S3.DeleteObjectResponse
+  type AWSResponse DeleteInstructions = S3.DeleteObjectResponse
 
   request x =
     coerce . request $

@@ -13,9 +13,7 @@ module Network.AWS.S3.Encryption.Body where
 import qualified Conduit
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Lazy as LBS
-import Network.AWS.Data.Body
-import Network.AWS.Prelude
-import Prelude
+import Network.AWS.Core
 
 -- Resides here since it's unsafe without the use of enforceChunks,
 -- which incurs extra dependencies not desired in core.
@@ -30,7 +28,7 @@ instance ToChunkedBody HashedBody where
     HashedStream _ n s -> enforceChunks n s
     HashedBytes _ b -> enforceChunks (BS.length b) (mapM_ Conduit.yield [b])
 
-instance ToChunkedBody RqBody where
+instance ToChunkedBody RequestBody where
   toChunked = \case
     Chunked c -> c
     Hashed h -> toChunked h

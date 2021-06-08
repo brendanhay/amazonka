@@ -91,9 +91,8 @@ module Network.AWS.S3.Encryption
 where
 
 import Control.Lens
-import Control.Monad.Catch
 import Control.Monad.Reader
-import Control.Monad.Trans.AWS as AWST
+import Network.AWS as AWS
 import Crypto.PubKey.RSA.Types as RSA
 import Crypto.Random
 import Data.ByteString (ByteString)
@@ -104,21 +103,6 @@ import Network.AWS.S3.Encryption.Encrypt
 import Network.AWS.S3.Encryption.Envelope
 import Network.AWS.S3.Encryption.Instructions
 import Network.AWS.S3.Encryption.Types
-
--- | Set (using 'local') the client-side master key used to encrypt/decrypt
--- a block of actions.
-master :: (MonadReader r m, HasKeyEnv r) => Key -> m a -> m a
-master k = local (envKey .~ k)
-
--- | Set (using 'local') any additional material description to be used.
---
--- For encryption, this provides audit and logging information and is logged
--- by CloudTrail, if enabled.
---
--- For decryption when using KMS, this is merged with whatever material description
--- is stored on the envelope and supplied to KMS as a decryption context.
-material :: (MonadReader r m, HasKeyEnv r) => Description -> m a -> m a
-material d = local (envKey . description .~ d)
 
 -- | Specify a KMS master key to use, with an initially empty material description.
 --
@@ -138,24 +122,25 @@ asymmetricKey k = Asymmetric (KeyPair k) mempty
 -- Throws 'EncryptionError', specifically 'CipherFailure'.
 --
 -- /See:/ 'newSecret', 'description', 'material'.
-symmetricKey :: MonadThrow m => ByteString -> m Key
+symmetricKey :: MonadIO m => ByteString -> m Key
 symmetricKey = fmap (`Symmetric` mempty) . createCipher
 
 -- | Generate a random shared secret that is of the correct length to use with
 -- 'symmetricKey'. This will need to be stored securely to enable decryption
 -- of any requests that are encrypted using this secret.
-newSecret :: (MonadThrow m, MonadRandom m) => m ByteString
-newSecret = getRandomBytes aesKeySize
+newSecret :: MonadIO m => m ByteString
+newSecret = liftIO (getRandomBytes aesKeySize)
 
 -- | Encrypt an object, storing the encryption envelope in @x-amz-meta-*@
 -- headers.
 --
--- Throws 'EncryptionError', 'AWST.Error'.
+-- Throws 'EncryptionError', 'AWS.Error'.
 encrypt ::
-  (AWSConstraint r m, HasKeyEnv r) =>
+  Key ->
+  Env ->
   PutObject ->
   m PutObjectResponse
-encrypt x = do
+encrypt key env x = do
   (a, _) <- encrypted x
   send (set location Metadata a)
 
@@ -164,12 +149,13 @@ encrypt x = do
 -- This makes two HTTP requests, storing the instruction file first and upon success,
 -- storing the actual object.
 --
--- Throws 'EncryptionError', 'AWST.Error'.
+-- Throws 'EncryptionError', 'AWS.Error'.
 encryptInstructions ::
-  (AWSConstraint r m, HasKeyEnv r) =>
+  Key ->
+  Env ->
   PutObject ->
   m PutObjectResponse
-encryptInstructions x = do
+encryptInstructions key env x = do
   (a, b) <- encrypted x
   _ <- send b
   send a
@@ -189,15 +175,16 @@ encryptInstructions x = do
 -- b'      <- send (f b :: Encrypted UploadPart)
 -- @
 --
--- Throws 'EncryptionError', 'AWST.Error'.
+-- Throws 'EncryptionError', 'AWS.Error'.
 initiate ::
-  (AWSConstraint r m, HasKeyEnv r) =>
+  Key ->
+  Env ->
   CreateMultipartUpload ->
   m
     ( CreateMultipartUploadResponse,
       UploadPart -> Encrypted UploadPart
     )
-initiate x = do
+initiate key env x = do
   (a, _) <- encrypted x
   rs <- send (set location Metadata a)
   return (rs, encryptPart a)
@@ -210,15 +197,16 @@ initiate x = do
 -- assumed that each part is uploaded in order and each part needs to be
 -- individually encrypted.
 --
--- Throws 'EncryptionError', 'AWST.Error'.
+-- Throws 'EncryptionError', 'AWS.Error'.
 initiateInstructions ::
-  (AWSConstraint r m, HasKeyEnv r) =>
+  Key ->
+  Env ->
   CreateMultipartUpload ->
   m
     ( CreateMultipartUploadResponse,
       UploadPart -> Encrypted UploadPart
     )
-initiateInstructions x = do
+initiateInstructions key env x = do
   (a, b) <- encrypted x
   rs <- send a
   _ <- send b
@@ -227,12 +215,13 @@ initiateInstructions x = do
 -- | Retrieve an object, parsing the envelope from any @x-amz-meta-*@ headers
 -- and decrypting the response body.
 --
--- Throws 'EncryptionError', 'AWST.Error'.
+-- Throws 'EncryptionError', 'AWS.Error'.
 decrypt ::
-  (AWSConstraint r m, HasKeyEnv r) =>
+  Key ->
+  Env ->
   GetObject ->
   m GetObjectResponse
-decrypt x = do
+decrypt key env x = do
   let (a, _) = decrypted x
   Decrypted f <- send a
   f Nothing
@@ -241,12 +230,13 @@ decrypt x = do
 -- are retrieved and parsed first.
 -- Performs two HTTP requests.
 --
--- Throws 'EncryptionError', 'AWST.Error'.
+-- Throws 'EncryptionError', 'AWS.Error'.
 decryptInstructions ::
-  (AWSConstraint r m, HasKeyEnv r) =>
+  Key ->
+  Env ->
   GetObject ->
   m GetObjectResponse
-decryptInstructions x = do
+decryptInstructions key env x = do
   let (a, b) = decrypted x
   Instructions g <- send b
   Decrypted f <- send a
@@ -256,12 +246,14 @@ decryptInstructions x = do
 -- remove the adjacent instruction file, if it exists with the 'defaultExtension'.
 -- Performs two HTTP requests.
 --
--- Throws 'EncryptionError', 'AWST.Error'.
+-- Throws 'EncryptionError', 'AWS.Error'.
 cleanupInstructions ::
-  (AWSConstraint r m, RemoveInstructions a) =>
+  RemoveInstructions a =>
+  Key ->
+  Env ->
   a ->
-  m (Rs a)
-cleanupInstructions x = do
+  m (AWSResponse a)
+cleanupInstructions key env x = do
   rs <- send x
   _ <- send (deleteInstructions x)
   return rs
@@ -284,11 +276,11 @@ cleanupInstructions x = do
 --     -- The environment needed for encryption is then extended using a 'Key':
 --     runAWS (KeyEnv e (kmsKey "alias/master-key")) $ do
 --         -- To store an encrypted object, 'encrypt' is used inplace of where you would
---         -- typically use 'AWST.send':
+--         -- typically use 'AWS.send':
 --         _  <- encrypt (putObject "bucket-name" "object-key" body)
 --
 --         -- To retrieve a previously encrypted object, 'decrypt' is used, again similarly to
---         -- how you'd use 'AWST.send':
+--         -- how you'd use 'AWS.send':
 --         rs <- decrypt (getObject "bucket-name" "object-key")
 --
 --         -- The 'GetObjectResponse' here contains a 'gorsBody' that is decrypted during read:
@@ -303,7 +295,7 @@ cleanupInstructions x = do
 -- $errors
 -- Errors are thrown by the library using 'MonadThrow' and will consist of one of
 -- the branches from 'EncryptionError' for anything crypto related, or a disparate
--- 'AWST.Error' anything related to the underlying 'AWS' service calls.
+-- 'AWS.Error' anything related to the underlying 'AWS' service calls.
 --
 -- You can catch errors and sub-errors via 'trying' etc. from "Control.Exception.Lens",
 -- and the appropriate 'AsEncryptionError' 'Prism':
@@ -332,6 +324,6 @@ cleanupInstructions x = do
 --
 -- @
 -- (a, b) <- 'encrypted' (x :: 'PutObject')
--- _      <- 'AWST.send' (b & 'piExtension' .~ ".envelope") -- Store the custom instruction file.
--- 'AWST.send' a -- Store the actual encrypted object.
+-- _      <- 'AWS.send' (b & 'piExtension' .~ ".envelope") -- Store the custom instruction file.
+-- 'AWS.send' a -- Store the actual encrypted object.
 -- @

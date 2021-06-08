@@ -13,17 +13,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Encryption.Decrypt where
 
-import Control.Lens ((%~), (&), (^.))
-import qualified Control.Lens as Lens
-import Control.Monad.Trans.AWS
+import qualified Control.Monad.Except as Except
+import Control.Lens ((%~), (^.))
+import qualified Network.AWS as AWS
 import Data.Coerce (coerce)
-import Data.Proxy (Proxy (Proxy))
-import Network.AWS.Prelude
+import Network.AWS.Core
 import qualified Network.AWS.S3 as S3
 import Network.AWS.S3.Encryption.Envelope
 import Network.AWS.S3.Encryption.Instructions
 import Network.AWS.S3.Encryption.Types
 import qualified Network.AWS.S3.Lens as S3
+import qualified Network.HTTP.Client as Client
 
 decrypted :: S3.GetObject -> (Decrypt S3.GetObject, GetInstructions)
 decrypted x = (Decrypt x, getInstructions x)
@@ -31,30 +31,29 @@ decrypted x = (Decrypt x, getInstructions x)
 newtype Decrypt a = Decrypt a
 
 newtype Decrypted a = Decrypted
-  { runDecrypted :: forall m r. (AWSConstraint r m, HasKeyEnv r) => Maybe Envelope -> m a
+  { runDecrypted :: forall m. MonadResource m => Key -> AWS.Env -> Maybe Envelope -> m a
   }
 
 instance AWSRequest (Decrypt S3.GetObject) where
-  type Rs (Decrypt S3.GetObject) = Decrypted S3.GetObjectResponse
+  type AWSResponse (Decrypt S3.GetObject) = Decrypted S3.GetObjectResponse
 
   request (Decrypt x) = coerce (request x)
 
-  response l s p r = do
-    (n, rs) <- response l s (proxy p) r
+  response l s p r =
+   Except.runExceptT $ do
+    rs <- Except.ExceptT (response l s (proxy p) r)
 
-    pure
-      ( n,
-        Decrypted $ \m -> do
-          key <- Lens.view envKey
-          env <- Lens.view environment
+    let body = Client.responseBody rs
+        decrypt =
+            Decrypted $ \key env m -> do
+                encrypted <-
+                  case m of
+                    Nothing -> fromMetadata key env (body ^. S3.getObjectResponse_metadata)
+                    Just e -> pure e
 
-          enc <-
-            case m of
-              Nothing -> fromMetadata key env (rs ^. S3.getObjectResponse_metadata)
-              Just e' -> pure e'
-
-          pure (rs & S3.getObjectResponse_body %~ bodyDecrypt enc)
-      )
-
+                pure (body & S3.getObjectResponse_body %~ bodyDecrypt encrypted) 
+      
+    pure (decrypt <$ rs) 
+      
 proxy :: forall a. Proxy (Decrypt a) -> Proxy a
 proxy = const Proxy

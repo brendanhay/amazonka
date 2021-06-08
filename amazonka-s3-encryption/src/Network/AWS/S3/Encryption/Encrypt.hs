@@ -14,13 +14,11 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Encryption.Encrypt where
 
-import Control.Lens (Setter', (%~), (&), (<>~), (^.))
+import Control.Lens ((%~), (<>~), (^.))
 import qualified Control.Lens as Lens
-import qualified Control.Monad as Monad
-import Control.Monad.Trans.AWS
+import qualified Network.AWS as AWS
 import Data.Coerce (coerce)
-import Data.Proxy (Proxy (Proxy))
-import Network.AWS.Prelude
+import Network.AWS.Core
 import qualified Network.AWS.S3 as S3
 import Network.AWS.S3.Encryption.Envelope
 import Network.AWS.S3.Encryption.Instructions
@@ -32,13 +30,15 @@ import qualified Network.AWS.S3.Lens as S3
 -- | Note about how it doesn't attach metadata by default.
 -- You can re-set the location and then discard the PutInstructions request.
 encrypted ::
-  (AWSConstraint r m, HasKeyEnv r, ToEncrypted a) =>
+  ( MonadResource m, ToEncrypted a) =>
+  Key ->
+  AWS.Env ->
   a ->
   m (Encrypted a, PutInstructions)
-encrypted x = do
-  e <- Monad.join (newEnvelope <$> Lens.view envKey <*> Lens.view environment)
+encrypted key env x = do
+  e <- newEnvelope key env
 
-  return
+  pure
     ( encryptWith x Discard e,
       putInstructions x e
     )
@@ -63,12 +63,12 @@ envelope :: Encrypted a -> Envelope
 envelope = _encEnvelope
 
 instance AWSRequest a => AWSRequest (Encrypted a) where
-  type Rs (Encrypted a) = Rs a
+  type AWSResponse (Encrypted a) = AWSResponse a
 
   request (Encrypted x xs l e) =
     coerce (request x)
-      & rqBody %~ f
-      & rqHeaders <>~ hs
+      & requestBody %~ f
+      & requestHeaders <>~ hs
     where
       f b
         | contentLength b > 0 = bodyEncrypt e b

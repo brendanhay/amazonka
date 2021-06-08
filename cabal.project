@@ -14,7 +14,6 @@ allow-newer:
 
 -- Local packages - without amazonka-examples.
 packages:
-   core/
    gen/
    test/
    amazonka/

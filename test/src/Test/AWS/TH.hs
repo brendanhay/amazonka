@@ -13,7 +13,7 @@ module Test.AWS.TH where
 import Data.Time
 import Language.Haskell.TH
 import Language.Haskell.TH.Syntax
-import Network.AWS.Core
+import Network.AWS.Core  hiding (lift)
 import Network.AWS.Lens (view)
 
 mkTime :: Text -> Q Exp
